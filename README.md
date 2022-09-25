@@ -1,2 +1,3 @@
 # gom-software-python-api
-Documentation and examples for the GOM software python API
+
+The repository contains documentation about and examples for the GOM software python API.
