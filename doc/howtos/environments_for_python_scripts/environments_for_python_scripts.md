@@ -1,8 +1,12 @@
 # Environments for python scripts
 
-> Script environments is available since software version 2022, revision 147326.
+:::{note}
+Script environments is available since software version 2022, revision 147326.
+:::
 
-> New package with only scripts, which are not in environment, can not be created any more. Previous packages without environment can still be installed and executed, but can not be edited. If you want to export only scripts, please use "Export Script" (RMB on the script to export) or create a script environment and add the script in it.
+:::{important}
+New package with only scripts, which are not in environment, can not be created any more. Previous packages without environment can still be installed and executed, but can not be edited. If you want to export only scripts, please use "Export Script" (RMB on the script to export) or create a script environment and add the script in it.
+:::
 
 ## Creating an environment in the script editor
 
