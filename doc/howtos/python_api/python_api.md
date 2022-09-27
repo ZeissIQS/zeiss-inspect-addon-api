@@ -3,6 +3,10 @@
 ## Basics
 
 :::{note}
+This document describes the emerging GOM Python API.
+:::
+
+:::{important}
 This document describes the emerging GOM Python API. The now preliminary API is currently under heavy development and will change massively in the near future.
 :::
 
