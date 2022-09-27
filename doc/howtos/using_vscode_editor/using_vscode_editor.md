@@ -111,7 +111,11 @@
 
 ## User defined script dialogs
 
-### Create new script dialog
+:::{note}
+User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, a application based script dialog can be opened. A connection to a running application must be presetn for that purpose.
+:::
+
+### Create new user defined script dialog
 
 1. Select "GOM Scripting: Insert new user defined script dialog" from the command selector or from the right mouse menu while editing the script the dialog should be inserted into.
 
@@ -125,17 +129,29 @@
 
    ![](assets/userdialog3.png)
 
-4. Select the dialog definition file to open the build-in dialog editor. Edit dialog via drag/drop and configuration operations like in the applications script editor.
+4. Select the dialog definition file to open the 
 
    ![](assets/userdialog4.png)
 
 5. When the script is executed, the user defined script dialog is displayed.
 
    ![](assets/userdialog5.png)
+   
+### Edit user defined script dialog
 
-6. In addition, dialog definition files (*.gdlg) can be viewed edit edited in the embedded script editor, too:
+1. Edit script dialog file (*.gdlg) can be edited either in JSON format directly (possible, but not recommended) or by opening the script dialog editor in the connected application:
 
    ![](assets/userdialog6.png)
+   
+2. The application will then open the script dialog editor. After closing it again, the edited *.gdlg file will be adapted accordingly.
+
+   ![](assets/userdialog7.png)
+
+:::{note}
+Due to an unsolved bug, the script editor window might open below the VSCode window or on another display in some multi display settings. There is a hint box as indicator that the script editor windows has been opened at all.
+
+![](assets/userdialog8.png)
+:::
 
 ## FAQ
 
