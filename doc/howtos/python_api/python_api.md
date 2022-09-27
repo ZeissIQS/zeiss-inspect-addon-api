@@ -28,7 +28,10 @@ Generate a list of image acquisition objects which can be used as input for imag
 :API version: 1
 :param measurement: Measurement the image is to be queried from
 :type  measurement: Reference
-:param camera: The priority of the message, can be a number 1-5
+:param camera: Identifier for the camera which contributed to the measurement. Valid values are:
+               * 'left camera': Left camera in a two camera system or the only existing camera in a single camera system
+               * 'right camera': Right camera in a two camera system
+               * 'photogrammetry': Photogrammery (TRITOP) camera
 :type  camera: str
 :param stages: (*Optional*) Indices of the stages for which an image acquisition object is to be generated.
 :type  stages: list [int]
