@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Python API documentation'
+project = 'Add-On Documentation'
 copyright = '2022, Carl Zeiss GOM Metrology GmbH'
 author = 'Carl Zeiss GOM Metrology GmbH'
 
@@ -24,6 +24,8 @@ myst_enable_extensions = [
   'fieldlist',
   'replacements' 
 ]
+
+myst_heading_anchors = 4
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
