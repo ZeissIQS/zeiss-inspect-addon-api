@@ -111,9 +111,9 @@
 
 ## User defined script dialogs
 
-:::{note}
+```{note}
 User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, a application based script dialog can be opened. A connection to a running application must be presetn for that purpose.
-:::
+```
 
 ### Create new user defined script dialog
 
@@ -147,11 +147,11 @@ User defined script dialogs cannot be edited graphically in VSCode at the moment
 
    ![](assets/userdialog7.png)
 
-:::{note}
+```{note}
 Due to an unsolved bug, the script editor window might open below the VSCode window or on another display in some multi display settings. There is a hint box as indicator that the script editor windows has been opened at all.
 
 ![](assets/userdialog8.png)
-:::
+```
 
 ## FAQ
 

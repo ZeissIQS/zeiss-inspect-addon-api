@@ -2,13 +2,13 @@
 
 ## Basics
 
-:::{note}
+```{note}
 This document describes the emerging GOM Python API.
-:::
+```
 
-:::{important}
+```{important}
 The now preliminary API is currently under heavy development and will change massively in the near future.
-:::
+```
 
 ## Image processing
 
