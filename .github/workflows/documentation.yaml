@@ -11,8 +11,7 @@ jobs:
           pip install sphinx==5.1.1 sphinx_rtd_theme sphinx-favicon myst_parser
       - name: Sphinx build
         run: |
-          mkdir _build
-          sphinx-build doc _build/${{ env.GITHUB_REF_NAME }}
+          sphinx-build doc _build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -21,4 +20,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _build/
           force_orphan: true
-          keepFiles: true
+          destination_dir: ${{ env.GITHUB_REF_NAME }}
