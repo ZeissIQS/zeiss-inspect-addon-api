@@ -12,11 +12,14 @@ jobs:
       - name: Sphinx build
         run: |
           sphinx-build doc _build
+      - name: Set branch name
+        id: branch
+        run: echo "::set-output name=BRANCH_NAME::${GITHUB_REF##*/}"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.0-8
         with:
-          publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _build/
+          destination_dir: ${( steps.branch.outputs.BRANCH_NAME }}
           force_orphan: true
-          destination_dir: ${{ env.GITHUB_REF_NAME }}
+          full_commit_message: Deploy documentation of branch ${( steps.branch.outputs.BRANCH_NAME }} to GitHub Pages
