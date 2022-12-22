@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python API introduction &mdash; Add-On Documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using script dialogs" href="script_dialogs_introduction.html" />
+    <link rel="prev" title="Environments for python scripts" href="../environments_for_python_scripts/environments_for_python_scripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../environments_for_python_scripts/environments_for_python_scripts.html">Environments for python scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#access-element-properties">Access element properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#explore-available-properties">Explore available properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#element-properties-in-vscode">Element properties in VSCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties-of-different-stages">Properties of different stages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#element-data-interfaces">Element data interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="script_dialogs_introduction.html">Using script dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Python API introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/howtos/python_api_introduction/python_api_introduction.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-api-introduction">
+<h1>Python API introduction<a class="headerlink" href="#python-api-introduction" title="Permalink to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The basic introduction for the Python API used to be part of the GOM FAQ:</p>
+<p><a class="reference external" href="https://connect.gom.com/display/GKB/Expert+Knowledge+-+Scripting+in+GOM+Software">Python API introduction - GOM FAQ</a></p>
+<p>Content will be migrated to here shortly.</p>
+</div>
+<section id="access-element-properties">
+<h2>Access element properties<a class="headerlink" href="#access-element-properties" title="Permalink to this heading"></a></h2>
+<p>The “elements” of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.</p>
+<p>First of all, you need a reference to an element, which you can get either by <a class="reference external" href="https://connect.gom.com/display/GKB/Scripting+-+User-Defined+Dialogs">using a script dialog</a> or simply by referencing it by name.</p>
+<p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on from the store and loaded the <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="doc std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
+</pre></div>
+</div>
+<section id="explore-available-properties">
+<h3>Explore available properties<a class="headerlink" href="#explore-available-properties" title="Permalink to this heading"></a></h3>
+<p>Once you have a reference to the element, you can access its properties using several keywords in the form <code class="docutils literal notranslate"><span class="pre">element.&lt;keyword&gt;</span></code>.</p>
+<p>One way to inspect the available keys is by using the ‘Script Object’ explorer, which is available from the context menu <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">Insert</span> <span class="pre">-&gt;</span> <span class="pre">Element</span> <span class="pre">Value</span></code> or by shortcut <code class="docutils literal notranslate"><span class="pre">F2</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/script_object_explorer.jpg"><img alt="Script Object Explorer" src="../../_images/script_object_explorer.jpg" style="width: 350px;" /></a>
+<p>You will find several keywords there, with a preview of the current value.
+If you click <code class="docutils literal notranslate"><span class="pre">OK</span></code>, the complete call, including element reference by name, will be copied to your current script. If you already have a name reference, you can of course use this reference.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">mesh_element</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">207422.1875</span>
+</pre></div>
+</div>
+</section>
+<section id="element-properties-in-vscode">
+<h3>Element properties in VSCode<a class="headerlink" href="#element-properties-in-vscode" title="Permalink to this heading"></a></h3>
+<p>Using Visual Studio Code, you can get auto-completion for the usable keywords directly in a pop-up.</p>
+<p><img alt="Keywords in VSCode" src="../../_images/inserting_keywords.png" /></p>
+<p>See <a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html"><span class="doc std std-doc">Using VSCode Editor</span></a> for details.</p>
+</section>
+<section id="properties-of-different-stages">
+<h3>Properties of different stages<a class="headerlink" href="#properties-of-different-stages" title="Permalink to this heading"></a></h3>
+<p>If you are using a multi-stage project, the approach as described above will always give you the element properties in the current stage. If you need access to properties in a different stage, you can use the <code class="docutils literal notranslate"><span class="pre">in_stage[s]</span></code> modifier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">mesh_element</span><span class="o">.</span><span class="n">in_stage</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">207422.1875</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Stage indices start with index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+<p>In this way, you can get simple properties of a different stage. If you need access to data of all stages at once, especially for larger data (like arrays of vertices), use “Data interfaces” as described below.</p>
+</section>
+</section>
+<section id="element-data-interfaces">
+<h2>Element data interfaces<a class="headerlink" href="#element-data-interfaces" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation used to be part of the GOM FAQ:</p>
+<p><a class="reference external" href="https://connect.gom.com/display/GPF/Mesh+data+of+elements">GOM Connect - Data Interface</a></p>
+<p>Content will be migrated to here shortly.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../environments_for_python_scripts/environments_for_python_scripts.html" class="btn btn-neutral float-left" title="Environments for python scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="script_dialogs_introduction.html" class="btn btn-neutral float-right" title="Using script dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
