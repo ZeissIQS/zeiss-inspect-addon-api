@@ -7,6 +7,15 @@ You can include several template configurations from the software, as well as co
 This documentation is still under development. Expect bookmarks to sub-sites to change.
 ```
 
+```{important}
+Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of the GOM Software beforehand. New to GOM Inspect? This free course teaches you the basics:
+
+[(eLearning) 780 Starter Training GOM Inspect](https://training.gom.com/home/LearningPath/7265)
+
+Or, depending on your application, you might be interested in the specific starter trainings for [GOM Volume Inspect](https://training.gom.com/home/LearningPath/7280), [GOM Correlate](https://training.gom.com/home/LearningPath/7282), or [GOM Blade Inspect](https://training.gom.com/home/LearningPath/7281).
+
+```
+
 If you are new to add-ons, we recommend following our how-to guides to get you started.
 
 ```{eval-rst}
@@ -17,6 +26,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
    howtos/environments_for_python_scripts/environments_for_python_scripts
    howtos/python_api_introduction/python_api_introduction
    howtos/python_api_introduction/script_dialogs_introduction
+   howtos/python_api_introduction/using_script_resources
    howtos/scripted_elements/scripted_elements_toc
    howtos/adding_workspaces_to_packages/adding_workspaces_to_packages
    howtos/using_vscode_editor/using_vscode_editor
@@ -51,4 +61,5 @@ Available API functions are documented in the Specification.
 
    python_api/python_api
    python_api/scripted_elements_api
+   python_api/resource_api
 ```

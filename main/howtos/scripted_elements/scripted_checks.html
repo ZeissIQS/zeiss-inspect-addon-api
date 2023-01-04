@@ -44,10 +44,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../environments_for_python_scripts/environments_for_python_scripts.html">Environments for python scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/script_dialogs_introduction.html">Using script dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="scripted_elements_toc.html">Scripted elements</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="scripted_elements_introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripted_actuals.html">Scripted actuals</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripted checks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripted checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-a-scripted-check">Writing a scripted check</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#useful-dialog-widgets">Useful dialog widgets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-parameters">“Special” parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-scripted-checks">Types of scripted checks</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
@@ -69,6 +79,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
 
         </div>
@@ -102,10 +113,42 @@
 <p class="admonition-title">Note</p>
 <p>This section assumes that you are familiar with the basic concept of Scripted elements. If not, take a look at the <a class="reference internal" href="scripted_elements_introduction.html"><span class="doc std std-doc">Introduction</span></a> and <a class="reference internal" href="scripted_actuals.html"><span class="doc std std-doc">Scripted actuals</span></a> sections.</p>
 </div>
-<div class="admonition-hold-the-line admonition">
-<p class="admonition-title">Hold the line…</p>
-<p>Love isn’t always on time! This part of the documentation is still in the making. We appreciate your patience.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>Scripted checks are a specialization of scripted elements to realize customized inspections in the GOM Software. Use checks if you want to display the deviation of certain properties of <em>existing</em> elements.</p>
+</section>
+<section id="writing-a-scripted-check">
+<h2>Writing a scripted check<a class="headerlink" href="#writing-a-scripted-check" title="Permalink to this heading"></a></h2>
+<p>The script structure to create a scripted check is the same as for <a class="reference internal" href="scripted_actuals.html"><span class="doc std std-doc">Scripted actuals</span></a>. However, there are some specialities:</p>
+<section id="useful-dialog-widgets">
+<h3>Useful dialog widgets<a class="headerlink" href="#useful-dialog-widgets" title="Permalink to this heading"></a></h3>
+<p>In most cases, you need to ask the user for the element to check, check naming or tolerance inputs. To this end, you can use the <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">element</span></code>, <code class="docutils literal notranslate"><span class="pre">Element</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">Unit</span></code> and <code class="docutils literal notranslate"><span class="pre">Tolerances</span></code> widgets:</p>
+<p><img alt="" src="../../_images/scripted_check_widgets.jpg" /></p>
+</section>
+<section id="special-parameters">
+<h3>“Special” parameters<a class="headerlink" href="#special-parameters" title="Permalink to this heading"></a></h3>
+<p>For a successful integration with the native checks, unit and tolerance need to be set to the returned <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;tolerance&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">tolerances</span><span class="o">.</span><span class="n">value</span>
+  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">value</span>
+  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ScrSca&#39;</span>
+</pre></div>
 </div>
+<p>Furthermore, checks shall be assigned an <code class="docutils literal notranslate"><span class="pre">abbreviation</span></code>. This is the short form you’ll see in the 3D view labels of the check, or in the result table.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Detailed description of the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="doc std std-doc">Scripted element API</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="types-of-scripted-checks">
+<h2>Types of scripted checks<a class="headerlink" href="#types-of-scripted-checks" title="Permalink to this heading"></a></h2>
+<p>Currently, three types of scripted checks are supported. The <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on provides examples for all three. Click on the respective links to get to the example documentation.</p>
+<ul class="simple">
+<li><p>Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_scalar_check.html"><span class="doc std std-doc">Example: scripted_scalar_check</span></a>.</p></li>
+<li><p>Scripted curve check: Check an existing <em>curve</em> element and assign actual/nominal values for each point of the curve. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_curve_check.html"><span class="doc std std-doc">Example: scripted_curve_check</span></a>.</p></li>
+<li><p>Scripted surface check: Check an existing <em>mesh</em> element and assign deviation values for each point in the mesh. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_surface_check.html"><span class="doc std std-doc">Example: scripted_surface_check</span></a>.</p></li>
+</ul>
+</section>
 </section>
 
 
