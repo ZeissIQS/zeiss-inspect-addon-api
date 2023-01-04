@@ -44,6 +44,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/environments_for_python_scripts/environments_for_python_scripts.html">Environments for python scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/script_dialogs_introduction.html">Using script dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
@@ -67,6 +68,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
 
         </div>
@@ -96,10 +98,40 @@
              
   <section id="resource-api-example">
 <h1>resource_api_example<a class="headerlink" href="#resource-api-example" title="Permalink to this heading"></a></h1>
-<div class="admonition-hold-the-line admonition">
-<p class="admonition-title">Hold the line…</p>
-<p>Love isn’t always on time! This part of the documentation is still in the making. We appreciate your patience.</p>
+<p><img alt="" src="../../_images/script_resources.jpg" /></p>
+<section id="short-description">
+<h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
+<p>A simple example showing the usage of script resources.</p>
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
+<p>The example shows how to list available resources:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
 </div>
+<p>Then, depending on whether a resource is found (by name), this resource is read or created with the content <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="s2">&quot;test_resource.txt&quot;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">exists</span> <span class="p">()):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Resource found with content: &quot;</span><span class="p">,</span> <span class="n">get_resource_content</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">string_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello World&quot;</span>
+    <span class="n">create_resource_with_content</span> <span class="p">(</span><span class="s2">&quot;test_resource.txt&quot;</span><span class="p">,</span> <span class="n">string_bytes</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Resource created with content:&quot;</span><span class="p">,</span> <span class="n">string_bytes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">Resource</span> <span class="n">found</span> <span class="k">with</span> <span class="n">content</span><span class="p">:</span>  <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span>
+</pre></div>
+</div>
+<p>For details on how to read and write resource data, see the related documentation below.</p>
+</section>
+<section id="related">
+<h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../howtos/python_api_introduction/using_script_resources.html"><span class="doc std std-doc">How to: Using script resources</span></a></p></li>
+<li><p><a class="reference internal" href="../../python_api/resource_api.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">gom.Resource</span></code> API Definition</span></a></p></li>
+</ul>
+</section>
 </section>
 
 
