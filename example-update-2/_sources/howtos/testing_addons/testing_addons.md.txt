@@ -1,7 +1,5 @@
 # Testing add-ons
 
-% TODO: mjauer: write :)
-
 ```{note}
 You can use the `Python API Examples` add-on, which you can find in the store, as an example how to include tests in your add-on.
 ```

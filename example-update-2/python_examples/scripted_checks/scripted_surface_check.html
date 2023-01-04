@@ -100,10 +100,33 @@
              
   <section id="scripted-surface-check">
 <h1>scripted_surface_check<a class="headerlink" href="#scripted-surface-check" title="Permalink to this heading"></a></h1>
-<div class="admonition-hold-the-line admonition">
-<p class="admonition-title">Hold the line…</p>
-<p>Love isn’t always on time! This part of the documentation is still in the making. We appreciate your patience.</p>
+<p><img alt="" src="../../_images/scripted_surface_check.jpg" /></p>
+<section id="short-description">
+<h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
+<p>This example demonstrates how to create a scalar surface check by a script. Also, the usage of custom coordinate systems and element preview in scripted checks is shown.</p>
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
+<p>First of all, we need to check if the element selected by the user by the <code class="docutils literal notranslate"><span class="pre">DIALOG.slct_element</span></code> widget is suitable for being checked with a surface check. You can implement your own filter for that, but you can also use the API convenience function for that purpose, which only allow “mesh-like” elements:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">.</span><span class="n">slct_element</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_surface_checkable</span>
+</pre></div>
 </div>
+<p>The usage of custom coordinate systems is the same as described in the <a class="reference internal" href="scripted_curve_check.html"><span class="doc std std-doc">scripted_curve_check</span></a> example.</p>
+<p>Finally, the result is to be set. For each point of the referenced mesh, a deviation value is needed. Therefore, the result takes the following form, where <code class="docutils literal notranslate"><span class="pre">deviation_result</span></code> is a vector with length equal to number of mesh points.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;deviation_values&quot;</span> <span class="p">:</span> <span class="n">deviation_result</span> <span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">element</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>As in the <a class="reference internal" href="scripted_curve_check.html"><span class="doc std std-doc">scripted_curve_check</span></a> example, the result for each point is just the respective <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate to easily see the correctness of the results including a given transformation.</p>
+<p>Using the example project <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system <code class="docutils literal notranslate"><span class="pre">Cylinder</span> <span class="pre">1|Plane</span> <span class="pre">1|Origin</span></code>, you can see the transformation in effect:</p>
+<p><img alt="" src="../../_images/scripted_surface_check_cs.jpg" /></p>
+</section>
+<section id="related">
+<h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../howtos/scripted_elements/scripted_checks.html"><span class="doc std std-doc">How-to: Scripted checks</span></a></p></li>
+<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="doc std std-doc">Scripted Element API</span></a></p></li>
+</ul>
+</section>
 </section>
 
 
