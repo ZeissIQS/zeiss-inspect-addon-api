@@ -10,7 +10,7 @@ If you don't know about the concept yet, take a look at the [Scripted elements i
 
 ```{note}
 This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference).
-
+% TODO: 
 Content will be migrated shortly.
 ```
 
@@ -27,7 +27,7 @@ Notes:
 
 ```{note}
 This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference).
-
+% TODO: 
 Content will be migrated shortly.
 ```
 
@@ -42,7 +42,7 @@ Notes:
 
 ```{note}
 This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Actual+Elements).
-
+% TODO: 
 Content will be migrated shortly.
 ```
 
@@ -64,7 +64,7 @@ Content will be migrated shortly.
 
 ```{note}
 This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Checks).
-
+% TODO: 
 Content will be migrated shortly.
 ```
 

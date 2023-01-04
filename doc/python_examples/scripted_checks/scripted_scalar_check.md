@@ -11,7 +11,27 @@ A scripted check has a lot in common with the scripted actual elements. Therefor
 ```
 
 ## Highlights
- 
+
+First of all, we need to check if the element selected by the user by the `DIALOG.slct_element` widget is suitable for being checked with a scalar check. You can implement your own filter for that, but you can also use the API convenience function for that purpose:
+
+```python
+DIALOG.slct_element.filter = gom.api.scripted_checks_util.is_scalar_checkable
+```
+
+As you can assign a scalar value to all common element types, this filter allows all element types available in the *element explorer*.
+
+Furthermore, as described in the [How-to: Scripted checks](../../howtos/scripted_elements/scripted_checks.md), the special parameters for scripted checks are also assigned in the `dialog` function. For ease of use, the respective dialog widgets are used, so we only need to assign the widgets' values to the parameters array.
+
+```python 
+def dialog (context, params):
+  # [...]
+  params['tolerance']     = DIALOG.tolerances.value
+  params['unit']          = DIALOG.unit.value
+  params['abbreviation']  = 'ScrSca'
+```
+
+In the calculation function, there is not much calculation but just an exemplary assignment of scalar values to the result. For the scripted `Scalar check`, the result dictionary needs to contain `"nominal"` and `"actual"` members, as well as a reference to the element which is checked.
+
 
 ```python
 def calculation (context, params):
@@ -27,3 +47,6 @@ def calculation (context, params):
 ```
 
 ## Related
+
+* [How-to: Scripted checks](../../howtos/scripted_elements/scripted_checks.md)
+* [Scripted Element API](../../python_api/scripted_elements_api.md)
