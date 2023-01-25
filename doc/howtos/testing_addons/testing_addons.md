@@ -18,7 +18,7 @@ The following structure is currently **recommended** and should serve you as a b
 The file and folder structure of add-on tests is similar to the *pyTest*s [Conventions for Python test discovery](https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery). We recommend:
 
 * put all python test scripts in a **separate `tests` directory** of your add-ons top-level directory.
-* name test scripts **starting with `test_`** and contain **functions with the prexix `test_`**. 
+* name test scripts **starting with `test_`** and contain **functions with the prefix `test_`**. 
 
    ![](file_structure.jpg)
 
