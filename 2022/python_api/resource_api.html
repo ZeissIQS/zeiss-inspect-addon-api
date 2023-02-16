@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
     <link rel="icon" href="../_static/favicon.png" sizes="16x16" type="image/png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,7 +88,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">gom.Resource API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python_api/resource_api.md.txt" rel="nofollow"> View page source</a>
@@ -117,7 +121,7 @@
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Resource.</span></span><span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.Resource.list" title="Permalink to this definition"></a></dt>
 <dd><p>Lists all resources</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of resources</p>
 </dd>
 </dl>
@@ -134,7 +138,7 @@
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Constructor</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> – Qualified name of the resource</p>
 </dd>
 </dl>
@@ -145,7 +149,7 @@
 <span class="sig-name descname"><span class="pre">isLoaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.isLoaded" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the resource is loaded</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if the resource is loaded, False otherwise</p>
 </dd>
 </dl>
@@ -168,7 +172,7 @@
 <span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.exists" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the resource exists</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if the resource exists, False otherwise</p>
 </dd>
 </dl>
@@ -179,7 +183,7 @@
 <span class="sig-name descname"><span class="pre">byteSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.byteSize" title="Permalink to this definition"></a></dt>
 <dd><p>Get the size of the resource in bytes</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The size of the resource in bytes</p>
 </dd>
 </dl>
@@ -196,10 +200,10 @@
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.save" title="Permalink to this definition"></a></dt>
 <dd><p>Save the resource</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>size</strong> – Size of the resource</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the save was successful, False otherwise</p>
 </dd>
 </dl>
@@ -210,7 +214,7 @@
 <span class="sig-name descname"><span class="pre">saveAsUserResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.Resource.saveAsUserResource" title="Permalink to this definition"></a></dt>
 <dd><p>Save the resource to a new path</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>new_path</strong> – New path to save the resource</p></li>
 <li><p><strong>overwrite</strong> – True to overwrite existing files, False to not overwrite</p></li>
