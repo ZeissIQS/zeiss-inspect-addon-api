@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
     <link rel="icon" href="../_static/favicon.png" sizes="16x16" type="image/png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -91,7 +95,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Python API functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python_api/python_api.md.txt" rel="nofollow"> View page source</a>
@@ -130,10 +134,10 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.project.</span></span><span class="sig-name descname"><span class="pre">get_image_aquisition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stages</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.project.get_image_aquisition" title="Permalink to this definition"></a></dt>
 <dd><p>Generate a list of image acquisition objects which can be used as input for image processing functions.</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>measurement</strong> (<em>Reference</em>) – Measurement the image is to be queried from</p></li>
 <li><p><strong>camera</strong> (<em>str</em>) – <p>Identifier for the camera which contributed to the measurement. Valid values are:</p>
@@ -146,10 +150,10 @@
 <li><p><strong>stages</strong> (<em>list</em><em> [</em><em>int</em><em>]</em>) – (<em>Optional</em>) Indices of the stages for which an image acquisition object is to be generated.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of image acquisition objects which can be used by image processing functions. The number of objects matches the number of stage indices in the stages parameter of the function call.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>List [Reference]</p>
 </dd>
 </dl>
@@ -172,16 +176,16 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_pixels_from_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_and_image_acquisition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_pixels_from_point" title="Permalink to this definition"></a></dt>
 <dd><p>Compute pixel coordinates from point coordinates</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>point_and_image_acquisition</strong> (<em>List</em>) – List of pairs where each entry describes a point coordinate plus the image acquisition object which should be used to compute the matching image pixel.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of image pixels where each entry is the result of projecting the point via the associated image acquisition structure into the image. The pixel coordinate system center is located in the upper left corner.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>List</p>
 </dd>
 </dl>
@@ -208,19 +212,19 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_point_from_pixels</span></span><span class="sig-paren">(</span><span class="optional">[</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">pixel_and_image</span> <span class="pre">acquisition</span></span></em>, <span class="optional">]</span><span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">use_calibration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_point_from_pixels" title="Permalink to this definition"></a></dt>
 <dd><p>Compute point coordinate from pixel coordinates</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>pixel_and_image_acquisition</strong> (<em>List</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point.</p></li>
 <li><p><strong>use_calibration</strong> (<em>bool</em>) – If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of lists of (pixel, residuum) where each entry is the result of projecting the point via the associated image acquisition structure into the image. The pixel coordinate system center is located in the upper left corner.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>List</p>
 </dd>
 </dl>
@@ -245,20 +249,20 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_epipolar_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">image_acquisition_1,</span> <span class="pre">[pixel_and_image_acquisition]_2,</span> <span class="pre">max_distance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_epipolar_line" title="Permalink to this definition"></a></dt>
 <dd><p>Compute epipolar line coordinates</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>image_aquisition_1</strong> (<em>List</em>) – Handle of the image acquisition the epipolar line should be found in.</p></li>
 <li><p><strong>pixel_and_image_aquisition_2</strong> (<em>List</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here. is the “other” acquisition providing the pixels used to find the matching epipolar lines in the image_acquisition_1 object.</p></li>
 <li><p><strong>max_distance</strong> (<em>double</em>) – Maximum search distance in mm.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of epipolar line coordinates, each one consisting of a list of image pixels.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>List</p>
 </dd>
 </dl>
@@ -290,16 +294,16 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_scalar_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_scalar_checkable" title="Permalink to this definition"></a></dt>
 <dd><p>Test if the referenced element is suitable for inspection with a scalar check.</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True’ if the given element s suitable for inspection with a scalar check.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -318,16 +322,16 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_surface_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_surface_checkable" title="Permalink to this definition"></a></dt>
 <dd><p>Test if the referenced element is suitable for inspection with a surface check.</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True’ if the given element s suitable for inspection with a surface check.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -346,16 +350,16 @@
 <span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_curve_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_curve_checkable" title="Permalink to this definition"></a></dt>
 <dd><p>Test if the referenced element is suitable for inspection with a curve check.</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version</dt>
+<dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True’ if the given element s suitable for inspection with a curve check.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
