@@ -1,3 +1,3 @@
-# gom-software-python-api
+# Zeiss Inspect Add-on API
 
-The repository contains documentation about and examples for the GOM software python API.
+The repository contains documentation about and examples for the add-on development of Zeiss Inspect.
