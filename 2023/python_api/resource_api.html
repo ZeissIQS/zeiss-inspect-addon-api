@@ -11,11 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,7 +69,23 @@
 <li class="toctree-l1"><a class="reference internal" href="scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">gom.Resource API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#summmary">Summmary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#class-definition">Class definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-definition">Class definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom.Resource"><code class="docutils literal notranslate"><span class="pre">gom.Resource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.__init__"><code class="docutils literal notranslate"><span class="pre">gom.Resource.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.isLoaded"><code class="docutils literal notranslate"><span class="pre">gom.Resource.isLoaded()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.close"><code class="docutils literal notranslate"><span class="pre">gom.Resource.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.open"><code class="docutils literal notranslate"><span class="pre">gom.Resource.open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.exists"><code class="docutils literal notranslate"><span class="pre">gom.Resource.exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.byteSize"><code class="docutils literal notranslate"><span class="pre">gom.Resource.byteSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.keepInMemory"><code class="docutils literal notranslate"><span class="pre">gom.Resource.keepInMemory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.save"><code class="docutils literal notranslate"><span class="pre">gom.Resource.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom.Resource.saveAsUserResource"><code class="docutils literal notranslate"><span class="pre">gom.Resource.saveAsUserResource()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom.Resource.Resource.list"><code class="docutils literal notranslate"><span class="pre">gom.Resource.Resource.list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom.Resource.Resource.cleanup"><code class="docutils literal notranslate"><span class="pre">gom.Resource.Resource.cleanup()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -237,7 +253,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
