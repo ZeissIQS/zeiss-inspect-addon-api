@@ -56,12 +56,12 @@ The following project files are included:
 
 | Folder                                   | Description                                                  |
 | ---------------------------------------- | ------------------------------------------------------------ |
-| [data_interfaces](data_interfaces.rst)   | Access to data of GOM "elements"                             |
-| [dialog_widgets](dialog_widgets.rst)     | Examples how use custom dialogs and handle user input events |
-| [misc](misc.rst)                         | Miscellaneous examples                                       |
-| [script_icons](script_icons.rst)         | Set icons for scripts or buttons                             |
-| [script_resources](script_resources.rst) | How to access binary data of your add-on (resources)         |
-| [scripted_actuals](scripted_actuals.rst) | Building actual elements with custom python code             |
-| [scripted_checks](scripted_checks.rst)   | Building custom checks with python code                      |
+| [data_interfaces](data_interfaces.md)    | Access to data of GOM "elements"                             |
+| [dialog_widgets](dialog_widgets.md)      | Examples how use custom dialogs and handle user input events |
+| [misc](misc.md)                          | Miscellaneous examples                                       |
+| [script_icons](script_icons.md)          | Set icons for scripts or buttons                             |
+| [script_resources](script_resources.md)  | How to access binary data of your add-on (resources)         |
+| [scripted_actuals](scripted_actuals.md)  | Building actual elements with custom python code             |
+| [scripted_checks](scripted_checks.md)    | Building custom checks with python code                      |
 
  
