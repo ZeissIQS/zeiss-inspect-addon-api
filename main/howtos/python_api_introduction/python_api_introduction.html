@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
-
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python API introduction &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,11 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Python API introduction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/howtos/python_api_introduction/python_api_introduction.md.txt" rel="nofollow"> View page source</a>
@@ -113,7 +116,7 @@
 <h2>Access element properties<a class="headerlink" href="#access-element-properties" title="Permalink to this heading"></a></h2>
 <p>The “elements” of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.</p>
 <p>First of all, you need a reference to an element, which you can get either by <a class="reference external" href="https://connect.gom.com/display/GKB/Scripting+-+User-Defined+Dialogs">using a script dialog</a> or simply by referencing it by name.</p>
-<p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on from the store and loaded the <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="doc std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
+<p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on from the store and loaded the <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
 </pre></div>
 </div>
@@ -137,7 +140,7 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
 <h3>Element properties in VSCode<a class="headerlink" href="#element-properties-in-vscode" title="Permalink to this heading"></a></h3>
 <p>Using Visual Studio Code, you can get auto-completion for the usable keywords directly in a pop-up.</p>
 <p><img alt="Keywords in VSCode" src="../../_images/inserting_keywords.png" /></p>
-<p>See <a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html"><span class="doc std std-doc">Using VSCode Editor</span></a> for details.</p>
+<p>See <a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html"><span class="std std-doc">Using VSCode Editor</span></a> for details.</p>
 </section>
 <section id="properties-of-different-stages">
 <h3>Properties of different stages<a class="headerlink" href="#properties-of-different-stages" title="Permalink to this heading"></a></h3>
@@ -179,7 +182,7 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

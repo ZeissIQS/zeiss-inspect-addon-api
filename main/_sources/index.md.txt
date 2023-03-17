@@ -1,4 +1,4 @@
-# Add-On Documentation
+# Add-On Documentation 2023
 
 Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your GOM Inspect software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in python.

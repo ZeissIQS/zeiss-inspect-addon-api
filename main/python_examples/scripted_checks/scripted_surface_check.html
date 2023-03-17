@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
-
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>scripted_surface_check &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,11 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,7 +89,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../scripted_checks.html">scripted_checks</a></li>
       <li class="breadcrumb-item active">scripted_surface_check</li>
       <li class="wy-breadcrumbs-aside">
@@ -111,20 +114,20 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">.</span><span class="n">slct_element</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_surface_checkable</span>
 </pre></div>
 </div>
-<p>The usage of custom coordinate systems is the same as described in the <a class="reference internal" href="scripted_curve_check.html"><span class="doc std std-doc">scripted_curve_check</span></a> example.</p>
+<p>The usage of custom coordinate systems is the same as described in the <a class="reference internal" href="scripted_curve_check.html"><span class="std std-doc">scripted_curve_check</span></a> example.</p>
 <p>Finally, the result is to be set. For each point of the referenced mesh, a deviation value is needed. Therefore, the result takes the following form, where <code class="docutils literal notranslate"><span class="pre">deviation_result</span></code> is a vector with length equal to number of mesh points.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;deviation_values&quot;</span> <span class="p">:</span> <span class="n">deviation_result</span> <span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">element</span> <span class="p">}</span>
 </pre></div>
 </div>
-<p>As in the <a class="reference internal" href="scripted_curve_check.html"><span class="doc std std-doc">scripted_curve_check</span></a> example, the result for each point is just the respective <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate to easily see the correctness of the results including a given transformation.</p>
+<p>As in the <a class="reference internal" href="scripted_curve_check.html"><span class="std std-doc">scripted_curve_check</span></a> example, the result for each point is just the respective <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate to easily see the correctness of the results including a given transformation.</p>
 <p>Using the example project <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system <code class="docutils literal notranslate"><span class="pre">Cylinder</span> <span class="pre">1|Plane</span> <span class="pre">1|Origin</span></code>, you can see the transformation in effect:</p>
 <p><img alt="" src="../../_images/scripted_surface_check_cs.jpg" /></p>
 </section>
 <section id="related">
 <h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../howtos/scripted_elements/scripted_checks.html"><span class="doc std std-doc">How-to: Scripted checks</span></a></p></li>
-<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="doc std std-doc">Scripted Element API</span></a></p></li>
+<li><p><a class="reference internal" href="../../howtos/scripted_elements/scripted_checks.html"><span class="std std-doc">How-to: Scripted checks</span></a></p></li>
+<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted Element API</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -140,7 +143,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

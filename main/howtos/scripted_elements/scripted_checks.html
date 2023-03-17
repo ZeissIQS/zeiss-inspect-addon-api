@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
-
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scripted checks &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,11 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -95,7 +98,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="scripted_elements_toc.html">Scripted elements</a></li>
       <li class="breadcrumb-item active">Scripted checks</li>
       <li class="wy-breadcrumbs-aside">
@@ -111,7 +114,7 @@
 <h1>Scripted checks<a class="headerlink" href="#scripted-checks" title="Permalink to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This section assumes that you are familiar with the basic concept of Scripted elements. If not, take a look at the <a class="reference internal" href="scripted_elements_introduction.html"><span class="doc std std-doc">Introduction</span></a> and <a class="reference internal" href="scripted_actuals.html"><span class="doc std std-doc">Scripted actuals</span></a> sections.</p>
+<p>This section assumes that you are familiar with the basic concept of Scripted elements. If not, take a look at the <a class="reference internal" href="scripted_elements_introduction.html"><span class="std std-doc">Introduction</span></a> and <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a> sections.</p>
 </div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
@@ -119,7 +122,7 @@
 </section>
 <section id="writing-a-scripted-check">
 <h2>Writing a scripted check<a class="headerlink" href="#writing-a-scripted-check" title="Permalink to this heading"></a></h2>
-<p>The script structure to create a scripted check is the same as for <a class="reference internal" href="scripted_actuals.html"><span class="doc std std-doc">Scripted actuals</span></a>. However, there are some specialities:</p>
+<p>The script structure to create a scripted check is the same as for <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a>. However, there are some specialities:</p>
 <section id="useful-dialog-widgets">
 <h3>Useful dialog widgets<a class="headerlink" href="#useful-dialog-widgets" title="Permalink to this heading"></a></h3>
 <p>In most cases, you need to ask the user for the element to check, check naming or tolerance inputs. To this end, you can use the <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">element</span></code>, <code class="docutils literal notranslate"><span class="pre">Element</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">Unit</span></code> and <code class="docutils literal notranslate"><span class="pre">Tolerances</span></code> widgets:</p>
@@ -136,7 +139,7 @@
 <p>Furthermore, checks shall be assigned an <code class="docutils literal notranslate"><span class="pre">abbreviation</span></code>. This is the short form you’ll see in the 3D view labels of the check, or in the result table.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>Detailed description of the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="doc std std-doc">Scripted element API</span></a>.</p>
+<p>Detailed description of the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted element API</span></a>.</p>
 </div>
 </section>
 </section>
@@ -144,9 +147,9 @@
 <h2>Types of scripted checks<a class="headerlink" href="#types-of-scripted-checks" title="Permalink to this heading"></a></h2>
 <p>Currently, three types of scripted checks are supported. The <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on provides examples for all three. Click on the respective links to get to the example documentation.</p>
 <ul class="simple">
-<li><p>Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_scalar_check.html"><span class="doc std std-doc">Example: scripted_scalar_check</span></a>.</p></li>
-<li><p>Scripted curve check: Check an existing <em>curve</em> element and assign actual/nominal values for each point of the curve. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_curve_check.html"><span class="doc std std-doc">Example: scripted_curve_check</span></a>.</p></li>
-<li><p>Scripted surface check: Check an existing <em>mesh</em> element and assign deviation values for each point in the mesh. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_surface_check.html"><span class="doc std std-doc">Example: scripted_surface_check</span></a>.</p></li>
+<li><p>Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_scalar_check.html"><span class="std std-doc">Example: scripted_scalar_check</span></a>.</p></li>
+<li><p>Scripted curve check: Check an existing <em>curve</em> element and assign actual/nominal values for each point of the curve. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_curve_check.html"><span class="std std-doc">Example: scripted_curve_check</span></a>.</p></li>
+<li><p>Scripted surface check: Check an existing <em>mesh</em> element and assign deviation values for each point in the mesh. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_surface_check.html"><span class="std std-doc">Example: scripted_surface_check</span></a>.</p></li>
 </ul>
 </section>
 </section>
@@ -162,7 +165,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

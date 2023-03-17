@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
-
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scripted actuals &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,11 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -95,7 +98,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="scripted_elements_toc.html">Scripted elements</a></li>
       <li class="breadcrumb-item active">Scripted actuals</li>
       <li class="wy-breadcrumbs-aside">
@@ -139,7 +142,7 @@
 </pre></div>
 </div>
 <p>As you can see, the function takes the parameters <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>. Although the <code class="docutils literal notranslate"><span class="pre">context</span></code> object has several members, for now we will only use it to set a name for our scripted element (line 15). The main objective of our dialog function is to fill the second parameter, the <code class="docutils literal notranslate"><span class="pre">params</span></code> map (python type: dictionary).</p>
-<p>In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We <a class="reference internal" href="../python_api_introduction/script_dialogs_introduction.html"><span class="doc std std-doc">create a user dialog</span></a> and in the dialog editor, we add two input widgets:</p>
+<p>In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We <a class="reference internal" href="../python_api_introduction/script_dialogs_introduction.html"><span class="std std-doc">create a user dialog</span></a> and in the dialog editor, we add two input widgets:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Decimal</span></code>: a decimal widget for the offset input</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">-&gt;</span> <span class="pre">Selection</span> <span class="pre">element</span></code>: an element widget to select a point-like element</p></li>
@@ -163,9 +166,9 @@ However, in this example, things are easy.</p>
 </pre></div>
 </div>
 <p>The parameters of the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function are again <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>. From the <code class="docutils literal notranslate"><span class="pre">params</span></code>, we can access the selected point element using <code class="docutils literal notranslate"><span class="pre">params['base']</span></code>.
-What we get is a <code class="docutils literal notranslate"><span class="pre">gom.Reference</span></code> to the element the user selected. We can now <a class="reference internal" href="../python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-doc">access the element’s properties</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">center_coordinate</span></code>.</p>
+What we get is a <code class="docutils literal notranslate"><span class="pre">gom.Reference</span></code> to the element the user selected. We can now <a class="reference internal" href="../python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-ref">access the element’s properties</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">center_coordinate</span></code>.</p>
 <p>Finally, we have to fill the <code class="docutils literal notranslate"><span class="pre">context.result</span></code> member. Depending on the scripted element type we want to create, it takes different formats.
-As described in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="doc std std-doc">Scripted elements API reference</span></a>, a point element takes a coorinate tuple <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>.
+As described in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API reference</span></a>, a point element takes a coorinate tuple <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>.
 The result for stage <code class="docutils literal notranslate"><span class="pre">0</span></code> (we ignore other stages for this example) is set in line 4. We return <code class="docutils literal notranslate"><span class="pre">True</span></code> to indicate the computation went fine.</p>
 </section>
 <section id="running-the-example">
@@ -176,7 +179,7 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
 <p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>The code of the example can also be found in the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, which contains many more examples, along with <a class="reference internal" href="../../python_examples/index.html"><span class="doc std std-doc">Example documentation</span></a>.</p>
+<p>The code of the example can also be found in the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, which contains many more examples, along with <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">Example documentation</span></a>.</p>
 </div>
 </section>
 </section>
@@ -189,7 +192,7 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
 <li><p>Handling multiple stages</p></li>
 <li><p>…</p></li>
 </ul>
-<p>To learn about these mechanisms, you should take a look at the more sophisticated examples of our <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, <a class="reference internal" href="../../python_examples/index.html"><span class="doc std std-doc">documented here</span></a>.</p>
+<p>To learn about these mechanisms, you should take a look at the more sophisticated examples of our <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">documented here</span></a>.</p>
 </section>
 </section>
 
@@ -204,7 +207,7 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

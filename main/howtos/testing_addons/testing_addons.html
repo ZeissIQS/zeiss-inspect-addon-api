@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-    <link rel="icon" href="../../_static/favicon.png" sizes="16x16" type="image/png">
-
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing add-ons &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,11 +11,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Add-On Documentation
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,7 +90,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Testing add-ons</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/howtos/testing_addons/testing_addons.md.txt" rel="nofollow"> View page source</a>
@@ -100,6 +103,10 @@
              
   <section id="testing-add-ons">
 <h1>Testing add-ons<a class="headerlink" href="#testing-add-ons" title="Permalink to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This page is development</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, which you can find in the store, as an example how to include tests in your add-on.</p>
@@ -136,7 +143,7 @@
 </pre></div>
 </div>
 <p>For this to work properly, the code that you want to test needs to be structured in functions as well. In this case, there are several functions in the <code class="docutils literal notranslate"><span class="pre">check_results_data_arrray</span></code> script, like <code class="docutils literal notranslate"><span class="pre">get_single_result_value()</span></code>, which will be called later (see step 3).
-For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-doc">How the examples are structured</span></a>.</p>
+For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-ref">How the examples are structured</span></a>.</p>
 </li>
 <li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
@@ -192,7 +199,7 @@ For more details, see also: <a class="reference internal" href="../../python_exa
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
