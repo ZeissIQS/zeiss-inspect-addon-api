@@ -1,5 +1,5 @@
 # Using Add-on Manager
-Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write python scripts, add/remove contents, create/edit and publish Add-ons.
+Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write Python scripts, add/remove contents, create/edit and publish Add-ons.
 
 - [Add-on Manager Formation](#add-on-manager-formation)
 - [Creating a new Add-on](#creating-a-new-add-on)
@@ -14,11 +14,11 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
   * [Open- and deleting External Folder](#open--and-deleting-external-folder)
   * [Add-ons in External Folder](#add-ons-in-external-folder)
 
-## Add-on Manager Formation
-![Add-on Manager formation](assets/formation.png)
+## Add-on Manager Layout
+![Add-on Manager Layout](assets/formation.png)
 1. Add-on Explorer
 
-    Installed Add-ons and being edited add-ons are displayed in the explorer.
+    Installed Add-ons and being edited Add-ons are displayed in the Explorer.
     
     * Installed
       <br/>: All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select "edit", "uninstall", or "publish" the Add-on.
@@ -26,7 +26,7 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
       ![](assets/installed.png)
       
     * Being Edited
-      <br/>: Being edited Add-ons are in this category listed and you can add or remove contents to them. If you click RMB on a being edited Add-ons, you can select "complete the edit" or "delete".
+      <br/>: Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select "complete the edit" or "delete".
       
       ![](assets/edited2.png)
     
@@ -36,31 +36,29 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
     
 3. Top of Display
 
-    The name of selected object in Add-on explorer is displayed.
+    The name of the selected object in the Add-on explorer is displayed.
     
 4. Tool Bar
 
-    If selected object is a
+    Depending on the type of the selected object, the following buttons are shown:
     
-    * Script object, Save | Record Run Stop | Expand/Collapse
+    * Script object - Save | Record Run Stop | Expand/Collapse
     
-    * Editable object, Save
+    * Editable object - Save
     
-    * Others, No
-        
-    Buttons are shown.
+    * Others - None
     
 5. Editor
     
-    Content of the selected object are displayed and if it is editable object, you can edit in the editor.
+    The content of the selected object is displayed and if it is an editable object, you can edit it.
     
-6. Output Controller
+6. Output Window
 
-    The output of the executed script is displayed.
+    The output of the executed script is displayed here.
 
 ## Creating a new Add-on
 
-Click RMB on the header of being edited category or in an area of the Add-on explorer where no object are selected > New Add-on
+Click RMB on the header of Being Edited category or in an area of the Add-on explorer where no object is selected > New Add-on
 
 An Add-on being edited will be created, including default folders and files.
 
@@ -68,18 +66,18 @@ An Add-on being edited will be created, including default folders and files.
 
 ![](assets/new_addon.png)
 
-## Writing python scripts
+## Writing Python scripts
 ### New folder or script
 
 Click RMB on the 'scripts' folder of an Add-on being edited > New Folder/Script
 
-### Install python packages
+### Install Python packages
 
 Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select 'Install Python Packages...', the dialog for the installation will be popped up.
 
 * from Network
     - The package list from network must be separated with a comma.
-    - To install the packages of the specific version, write the version after “==”. ex) numpy==1.22.0
+    - To install the packages of a specific version, write the version after “==”. ex) numpy==1.22.0
 
     ![](assets/install_network.png)
 
@@ -88,7 +86,7 @@ Python packages can be installed to the Add-on and the installed python packages
 
     ![](assets/install_local.png)
 
-## Add- and removing contents
+## Adding and removing contents
 
 * Contents can be added and removed between Contents Provider and an Add-on being edited by dragging and dropping.
 
@@ -102,18 +100,18 @@ Python packages can be installed to the Add-on and the installed python packages
 Click RMB on the Add-on being edited > completing the edit
 
 * If the Add-on has not yet been installed and
-    - you are using public folder, the dialog for selecting a location to install the Add-on will be popped up.
-    - you are not using public folder, the Add-on will be installed in user folder automatically.
+    - you are using the public folder, the dialog for selecting a location to install the Add-on will be popped up.
+    - you are not using the public folder, the Add-on will be installed in the user folder automatically.
     
-* If the Add-on has already been installed, the Add-on will be overwritten in its original location.
+* If the Add-on has already been installed, the Add-on will be overwritten at its original location.
 
-The Add-on being edited will be removed after completing and the completed Add-on will be updated in the installed category. Add-ons being edited from the external folder are not supported for completing the edit. More information about external folders can be found [here](#add-ons-from-external-folder).
+The Add-on being edited will be removed after completion and the completed Add-on will be updated in the Installed category. Completing the edit is not available for external folders. More information about external folders can be found [here](#add-ons-from-external-folder).
 
 ## Editing an installed Add-on
 
 Click RMB on the installed Add-on > Edit
 
-System Add-ons are not editable and protected Add-ons can be edited if the given password is correct. If the installed Add-on is being edited, all contents is grayed out and cannot be selected.
+System Add-ons are not editable and protected Add-ons can be edited only if the given password is correct. If the installed Add-on is being edited, all contents are grayed out and cannot be selected.
 
 ## Publishing an Add-on
 
@@ -121,32 +119,32 @@ Click RMB on the installed Add-on > Publish
 
 * Export
 
-    Save the selected Add-on as.
+    Save the selected Add-on as a .package file.
 
 * Upload
 
     Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approved.
 
 ## Add-ons from External Folder
-### Open- and deleting External Folder
+### Opening and deleting External Folder
 
-External Folder enables the user running scripts from a path of his/her own choice. More than one External Folders can be added.
+External Folder enables the user to run scripts from a path of his/her own choice. More than one external folders can be added.
 
 * Opening
 
-    Click RMB in an area of the Add-on explorer where no object are selected > Open External Folder...
+    Click RMB in an area of the Add-on Explorer where no object is selected > Open External Folder...
     
 * Deleting
 
     Click RMB on the external folder you want to delete > Delete...
     
-    External folder is deleted from the Add-on Explorer but the contents remain in file system.
+    External folder is deleted from the Add-on Explorer but the contents remain in the file system.
 
 
-### Add-ons in External Folder
+### Creating Add-ons in External Folder
 
 * Creating a new Add-on in the external folder
     
-    Click RMB on the external folder > New Add-on
+    Click RMB on the External Folder > New Add-on
 
-"Completing the edit" is not supported for the Add-ons from external folder, however they can be published, although they are still in the process.
+"Completing the edit" is not supported for Add-ons from external folders, however they can be published, although they are considered still to be still work in progress.
