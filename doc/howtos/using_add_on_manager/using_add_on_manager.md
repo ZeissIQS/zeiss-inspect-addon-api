@@ -32,7 +32,7 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
     
 2. Contents Provider
 
-    Here are contents from the current project which are able to be added to an Add-on. Contents can be moved by dragging and dropping between contents provider and a being edited Add-on. For more information about contents providers, please see the Add-on Format documentation.
+    Here are contents from the current project which can be included in an Add-on. Contents can be moved by dragging and dropping between contents provider and a being edited Add-on. For more information about contents providers, please see the Add-on Format documentation.
     
 3. Top of Display
 
@@ -123,7 +123,7 @@ Click RMB on the installed Add-on > Publish
 
 * Upload
 
-    Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approved.
+    Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approval.
 
 ## Add-ons from External Folder
 ### Opening and deleting External Folder
@@ -147,4 +147,4 @@ External Folder enables the user to run scripts from a path of his/her own choic
     
     Click RMB on the External Folder > New Add-on
 
-"Completing the edit" is not supported for Add-ons from external folders, however they can be published, although they are considered still to be still work in progress.
+"Completing the edit" is not supported for Add-ons from external folders, however they can be published, although they are considered still to be work in progress.
