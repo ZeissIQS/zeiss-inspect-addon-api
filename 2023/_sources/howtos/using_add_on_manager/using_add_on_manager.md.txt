@@ -42,14 +42,11 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
 
     If selected object is a
     
-    * Script object
-    <br/>Save | Record Run Stop | Expand/Collapse
+    * Script object, Save | Record Run Stop | Expand/Collapse
     
-    * Editable object
-    <br/>Save
+    * Editable object, Save
     
-    * Others
-    <br/>No
+    * Others, No
         
     Buttons are shown.
     
