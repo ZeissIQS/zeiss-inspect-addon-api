@@ -4,7 +4,7 @@
 
 💡 An Add-on file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
 
-An Add-on file can be unzipped/edited/zipped manually if necessary.
+While an Add-on file will be created and modified with the Add-on Manager in most cases, it can also be unzipped/edited/zipped manually if necessary.
 
 ## Structure
 
