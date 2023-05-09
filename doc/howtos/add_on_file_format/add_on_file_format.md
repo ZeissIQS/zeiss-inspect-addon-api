@@ -1,10 +1,13 @@
 # Add-on file format
 
 ## Introduction
+
 An Add-on file file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. An Add-on file can be unzipped/edited/zipped manually if necessary.
 
 ## Structure
+
 ### Folder structure
+
 | File              | Description                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------|
 | `<other folder>/` | All other folders are containing add-on content. The format of this content is discussed below.             |
@@ -15,6 +18,7 @@ An Add-on file file (extension: *.addon) is a ZIP archive with pre-defined folde
 | `metainfo.json`   | Add-on metainfo data (title, description, version, ...)                                                     |
 
 ### Content types
+
 Top level folders determine the content type. For every content entry, a sub folder must be present in that top level folder.
 
 | Folder / Provider name    | Content type                                    | Notes        |
@@ -51,3 +55,66 @@ Top level folders determine the content type. For every content entry, a sub fol
 | workspaces                | Workspace definitions                           |              |
 
 ### Content data
+
+:note: Each content object consists of a folder in one of the content type folders.
+
+* A "content object" is a single template/script/element/... distributed via an add-on.
+* Each content object is represented by the content of a folder in the content type folder matching the content type.
+* The exact format of the content representation depends on the content type.
+* The name of the content object is the name of that folder.
+* For template-like objects, there is always a JSON file with administrative data present. Other types may vary.
+
+#### Example: Labels
+
+**Folder layout 'labels'**
+
+```
+metainfo.json
+labels
+|-- Name
+|   |--Name.json
+|-- Results
+|   |-- Results.json
+...
+```
+* The folder names 'Name' and 'Results' are the templates' names
+* The JSON file in each folder contains both administrative data and content information
+
+**Name.json**
+
+```json
+{
+    "content": {
+        "!all:" {
+            "label_background": "gom.Color (0, 0, 0, 0)",
+            "label_border_mode": "'none'",
+            ...
+            "label_text": "..."
+        },
+        ...
+    },
+    "sort_index": 1,
+    "uuid": "4a6ef87a-5214-4089-bdc3-5a96cf8b5108"
+}
+```
+
+#### Example: Scripts
+
+**Folder layout 'scripts'**
+```
+scripts/
+|-- Tools/
+|   |-- Workspaces
+|       |-- create_workspace.py
+|       |-- create_workspace.metainfo
+|-- ...
+...
+```
+
+## FAQ
+
+### Structure
+
+#### Why is there a folder for every single element?
+* The Add-on Manager can handle the elements transparently in this way. Just the folder is dragged & dropped, visible etc.m, while the content is abstracted and can edited (e.g. in a graphical editor)
+* The content format specification of an element can easier be changed over time
