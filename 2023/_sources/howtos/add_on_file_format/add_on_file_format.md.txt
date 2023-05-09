@@ -50,7 +50,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 | scripted_elements	        | Scripted elements	                              |              |
 | surface_classifications	| Surface defect classifications	              |              |
 | tables	                | Table templates (3D view)	                      |              |
-| terms_of_use	            | Collection of terms-of-use for add-on creation  |              |
+| terms_of_use	            | Collection of terms-of-use for Add-on creation  |              |
 | tolerance_legends	        | Tolerance legends (3D)	                      |              |
 | user_defined_checks	    | User defined checks	                          |              |
 | user_defined_inspection_principles | User defined inspection principles     |              |
@@ -60,7 +60,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 
 💡 Each "content object" consists of a folder in one of the "content type" (top level) folders.
 
-* A "content object" is a single template/script/element/... distributed via an add-on.
+* A "content object" is a single template/script/element/... distributed via an Add-on.
 * Each "content object" is represented by the content of a folder in the "content type" folder matching the content type.
 * The exact format of the content representation depends on the "content type".
 * The name of the "content object" is the same as its folder's name.
