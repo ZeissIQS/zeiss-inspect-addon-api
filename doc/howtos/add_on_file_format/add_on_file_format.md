@@ -60,7 +60,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 
 💡 Each "content object" consists of a folder in one of the "content type" (top level) folders.
 
-* A "content object" is a single template/script/element/... distributed via an add-on.
+* A "content object" is a single template/script/element/... distributed via an Add-on.
 * Each "content object" is represented by the content of a folder in the "content type" folder matching the content type.
 * The exact format of the content representation depends on the "content type".
 * The name of the "content object" is the same as its folder's name.
