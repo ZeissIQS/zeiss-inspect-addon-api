@@ -1,7 +1,7 @@
 # Using Add-on Manager
 Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write Python scripts, add/remove contents, create/edit and publish Add-ons.
 
-- [Add-on Manager Formation](#add-on-manager-formation)
+- [Add-on Manager Layout](#add-on-manager-layout)
 - [Creating a new Add-on](#creating-a-new-add-on)
 - [Writing python scripts](#writing-python-scripts)
   * [New folder or script](#new-folder-or-script)
