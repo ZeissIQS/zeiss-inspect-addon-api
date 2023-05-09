@@ -16,7 +16,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 | `doc/`            | Add-on documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format. |
 | `icon.png`        | Add-on icon as displayed in the Add-on Manager and the Software Store                                        |
 | `key.enc`         | Add-on protection and licensing information in case the Add-on is protected                                  |
-| `license/`        | Terms-of-use related to this Add-on. Can contain a set of text files like license.txt , license_numpy.txt , ... which will be displayed and must be acknowledged upon Add-on installation                                               |
+| `license/`        | Terms-of-use related to this Add-on. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon Add-on installation                                               |
 | `metainfo.json`   | Add-on metainfo data (title, description, version, ...)                                                     |
 
 ### Content types
