@@ -2,24 +2,26 @@
 
 ## Introduction
 
-An Add-on file file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. An Add-on file can be unzipped/edited/zipped manually if necessary.
+💡 An Add-on file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
+
+An Add-on file can be unzipped/edited/zipped manually if necessary.
 
 ## Structure
 
 ### Folder structure
 
-| File              | Description                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------|
-| `<other folder>/` | All other folders are containing add-on content. The format of this content is discussed below.             |
-| `doc/`            | Add-on documentation as displayed in the software store. Must contain a README.md  file in markdown format. |
-| `icon.png`        | Add-on icon as displayed in the add-on manager and the software store                                       |
-| `key.enc`         | Add-on protection and licensing information in case the add-on is protected                                 |
-| `license/`        | Terms-of-use related to this add-on. Can contain a set of text files like license.txt , license_numpy.txt , ... which will be displayed and must be acknowledged upon add-on installation                                               |
+| File              | Description                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| `<other folder>/` | All other folders are containing Add-on content. The format of this content is discussed below.              |
+| `doc/`            | Add-on documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format. |
+| `icon.png`        | Add-on icon as displayed in the Add-on Manager and the Software Store                                        |
+| `key.enc`         | Add-on protection and licensing information in case the Add-on is protected                                  |
+| `license/`        | Terms-of-use related to this Add-on. Can contain a set of text files like license.txt , license_numpy.txt , ... which will be displayed and must be acknowledged upon Add-on installation                                               |
 | `metainfo.json`   | Add-on metainfo data (title, description, version, ...)                                                     |
 
 ### Content types
 
-Top level folders determine the content type. For every content entry, a sub folder must be present in that top level folder.
+💡 The top level folders determine the "content type". Inside these top level folders, a separate sub folder must be provided for each item.
 
 | Folder / Provider name    | Content type                                    | Notes        |
 | ------------------------- | ----------------------------------------------- | ------------ |
@@ -56,12 +58,12 @@ Top level folders determine the content type. For every content entry, a sub fol
 
 ### Content data
 
-:note: Each content object consists of a folder in one of the content type folders.
+💡 Each "content object" consists of a folder in one of the "content type" (top level) folders.
 
 * A "content object" is a single template/script/element/... distributed via an add-on.
-* Each content object is represented by the content of a folder in the content type folder matching the content type.
-* The exact format of the content representation depends on the content type.
-* The name of the content object is the name of that folder.
+* Each "content object" is represented by the content of a folder in the "content type" folder matching the content type.
+* The exact format of the content representation depends on the "content type".
+* The name of the "content object" is the same as its folder's name.
 * For template-like objects, there is always a JSON file with administrative data present. Other types may vary.
 
 #### Example: Labels
@@ -77,6 +79,7 @@ labels
 |   |-- Results.json
 ...
 ```
+
 * The folder names 'Name' and 'Results' are the templates' names
 * The JSON file in each folder contains both administrative data and content information
 
@@ -116,5 +119,5 @@ scripts/
 ### Structure
 
 #### Why is there a folder for every single element?
-* The Add-on Manager can handle the elements transparently in this way. Just the folder is dragged & dropped, visible etc.m, while the content is abstracted and can edited (e.g. in a graphical editor)
+* The Add-on Manager can handle the elements transparently in this way. Just the folder is dragged & dropped, visible etc., while the content is abstracted and can edited (e.g. in a graphical editor)
 * The content format specification of an element can easier be changed over time
