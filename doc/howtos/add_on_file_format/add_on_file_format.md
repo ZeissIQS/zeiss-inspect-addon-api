@@ -50,7 +50,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 | scripted_elements	        | Scripted elements	                              |              |
 | surface_classifications	| Surface defect classifications	              |              |
 | tables	                | Table templates (3D view)	                      |              |
-| terms_of_use	            | Collection of terms-of-use for add-on creation  |              |
+| terms_of_use	            | Collection of terms-of-use for Add-on creation  |              |
 | tolerance_legends	        | Tolerance legends (3D)	                      |              |
 | user_defined_checks	    | User defined checks	                          |              |
 | user_defined_inspection_principles | User defined inspection principles     |              |
