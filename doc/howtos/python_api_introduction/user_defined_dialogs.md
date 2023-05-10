@@ -398,7 +398,7 @@ print( gomColor ) # output: gom.Color (#ffffffff)</pre> ??? |
 | (figure)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>selectedELement = DIALOG.elementSelectionWidget<br>print( selectedELement ) # output: gom.app.project.<br>inspection['Equidistant Surface Points 1']</pre> |
 
 | Property | Type      | Example                                                                                              |
-| ---------| --------- | ---------------------------------------------------------------------------------------------------- |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------- |
 | tooltip  | str       | <pre>DIALOG.selectElement.tooltip = 'Select a line for rotation'</pre>                               |
 | enabled  | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                      |
 | value    |(special)  | <pre>if DIALOG.selectElement.value != None:</pre>                                                    |
@@ -437,13 +437,59 @@ The complete code of the example is attached to this document. FIXME
 
 ### Selection list widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | This widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
 
+| Property | Type        | Example                                                                                              |
+| -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| tooltip  | str         | <pre>DIALOG.selectEntry.tooltip = 'Select one of the operating modes'</pre>                          |
+| enabled  | bool        | <pre>DIALOG.selectEntry.enabled = False</pre>                                                        |
+| value    | str         | <pre>DIALOG.selectEntry.value = 'Debug'</pre>                                                        |
+| focus    | bool        | <pre>DIALOG.selectEntry.focus = True</pre>⚠️ Only works if dialog is open                           |
+| items    | list of str | <pre>DIALOG.selectEntry.items = ['Debug', 'Info', 'Warn', 'Error', 'Fatal']</pre>                    |
+| visible  | bool        | <pre>DIALOG.select_mode.visible = False</pre>                                                        |
 
 ### Button widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two - states active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
+
+| Property         | Type | Example                                                                                                               |
+| ---------------- | ---- | --------------------------------------------------------------------------------------------------------------------- |
+| tooltip          | str  | <pre>DIALOG.button.tooltip = 'Click to start evaluation'</pre>                                                        |
+| enabled          | bool | <pre>DIALOG.button.enabled = False                                                                                    |
+| value            | bool | <pre>if DIALOG.button.value:</pre>💡 Only for toggle button!                                                          |
+| text             | str  | <pre>DIALOG.button.text = 'Click here!'                                                                               |
+| type             | str  | <pre># Possible values: 'push', 'toggle'<br>DIALOG.button.type = 'toggle'<br>DIALOG.button.value = True</pre>         |
+| icon_type        | str  | <pre># Possible values: 'none', 'file', 'system'<br># but see remark below!<br>DIALOG.button.icon_type = 'none'</pre> |
+| icon_system_type | str  | <pre># Possible values: 'ok', 'cancel',<br># 'arrow_left', 'arrow_right', 'arrow_up', 'arrow_down'<br>DIALOG.button.icon_system_type = 'ok'</pre> |
+| icon_system_size | str  | <pre># Possible values: 'default', 'large', 'extra_large'<br>DIALOG.button.icon_system_size = 'extra_large'</pre>     |
+| visible          | bool | <pre>DIALOG.button.visible = False
+
+💡 There are also values for file icons. These only work straightforward using the dialog designer but not from script. You can only change between no icon and system icons in a straightforward way.
+
 ### Radio button widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The radio button widget enables the user to choose an option from a predefined set. Each option has a unique ID, which can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' or 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
+
+| Property | Type           | Example                                                                                                               |
+| -------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| tooltip  | str            | <pre>DIALOG.radiobuttons.tooltip = 'Choose one alternative!'</pre>                                                    |
+| enabled  | bool           | <pre>DIALOG.radiobuttons.enabled = False</pre>                                                                        |
+| value    | str            | <pre>DIALOG.radiobuttons.value = 'Value3'</pre>                                                                       |
+| items    | (special list) | <pre># Possible values is a list of lists of two strings.<br># Each first string is the returned value<br># Each second string is the entries' title<br>DIALOG.radiobuttons.items = [['Value1', 'Title1'], ['Value2', 'Title2'], ['Value3', 'Title3']]<br>DIALOG.radiobuttons.default = 'Value2'</pre> |
+| default  | str            | <pre>DIALOG.radiobuttons.default = 'Value1'</pre>                                                                     |
+| visible  | bool           | <pre>DIALOG.select_model.visible = False</pre>                                                                        |
+
 ### Abort button widget
+
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The abort button aborts the current action. It behaves in the same manner as the abort button in the lower right corner of Atos **???** software. It is disabled if no action is currently executed. |
 
 # Executing dialogs
 
