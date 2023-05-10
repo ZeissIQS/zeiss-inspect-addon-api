@@ -254,7 +254,7 @@ actually displayed dialog.
 
 | Dialog    | Description |
 | --------- | ----------- |
-|           | The log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
+| (figure)  | The log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
 
 | Property             | Type      | Example                                              |
 | -------------------- | --------- | ---------------------------------------------------- |
@@ -268,17 +268,75 @@ actually displayed dialog.
 
 ### Progress-bar widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The progress bar widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog defintion')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.atos.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from with the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controlles just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br>import gom<br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br>gom.script.atos.switch_to_report_mode ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br>gom.script.atos.switch_to_inspection_mode ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
 
 
 ### Integer widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The integer widget is used to require integers from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
+
+| Property | Type  | Example                                                                |
+| -------- | ----- | ---------------------------------------------------------------------- |
+| tooltip  | str   | <pre>DIALOG.inputInt.tooltip = 'Enter the number of points!'</pre>     |
+| enabled  | bool  | <pre>DIALOG.inputInt.enabled = False</pre>                             |
+| value    | int   | <pre>if DIALOG.inputInt.value < 15:</pre>                              |
+| focus    | bool  | <pre>DIALOG.inputInt.focus = True</pre>⚠️ Only works if dialog is open |
+| minimum  | float | <pre>DIALOG.inputInt.minimum = 20</pre>                                |
+| maximum  | float | <pre>DIALOG.inputInt.maximum = 50</pre>                                |
+| visible  | bool  | <pre>DIALOG.inputInt.visible = False</pre>                             |
+
 ### Decimal widget
+
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The decimal widget is used to get a floating point input from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
+
+| Property | Type  | Example                                                                  |
+| -------- | ----- | ------------------------------------------------------------------------ |
+| tooltip  | str   | <pre>DIALOG.floatInput.tooltip = 'Enter the number of points!'</pre>     |
+| enabled  | bool  | <pre>DIALOG.floatInput.enabled = False</pre>                             |
+| value    | int   | <pre>if DIALOG.floatInput.value < 15:</pre>                              |
+| focus    | bool  | <pre>DIALOG.floatInput.focus = True</pre>⚠️ Only works if dialog is open |
+| minimum  | float | <pre>DIALOG.floatInput.minimum = 20</pre>                                |
+| maximum  | float | <pre>DIALOG.floatInput.maximum = 50</pre>                                |
+| visible  | bool  | <pre>DIALOG.floatInput.visible = False</pre>                             |
 
 ### Text entry field
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The text entry field can be used to get string input from the user. A simple use case is given by the next code block. _textEntryWidget_ is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.textEntryWidget = "some default text"<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre> |
+
+| Property  | Type  | Example                                                                    |
+| --------- | ----- | -------------------------------------------------------------------------- |
+| tooltip   | str   | <pre>DIALOG.inputString.tooltip = 'Enter object description'</pre>         |
+| enabled   | bool  | <pre>DIALOG.inputString.enabled = True</pre>                               |
+| value     | str   | <pre>DIALOG.inputString.value = "Warsaw"</pre>                             |
+| focus     | bool  | <pre>DIALOG.inputString.focus = True</pre> ⚠️ Only works if dialog is open |
+| read_only | bool  | <pre>if DIALOG.inputString.read_only:</pre>                                |
+| visible   | bool  | <pre>DIALOG.input_name.visible = False</pre> ???                           |
+
 ### Slider widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The slider widget can be used to get a float value from a certain interval from the user. _sliderWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre> |
+
 ### Checkbox widget
+
+The check box widget can be used to get boolean input from the user.
+
+| Property  | Type  | Example                                                                                              |
+| --------- | ----- | ---------------------------------------------------------------------------------------------------- |
+| tooltip   | str   | <pre>DIALOG.inputCheckbox.tooltip = 'Check this option to clear the results after evaluation.'</pre> |
+| enabled   | bool  | <pre>DIALOG.inputCheckbox.enabled = True</pre>                                                       |
+| value     | bool  | <pre>print('Evaluation enabled:', str(DIALOG.inputCheckbox.value))</pre>                             |
+| title     | str   | <pre>DIALOG.inputCheckbox.title = 'Mirror option'</pre>                                              |
+| visible   | bool  | <pre>DIALOG.input_transparency.visible = False</pre> ???                                             |
 
 ### File widget
 
