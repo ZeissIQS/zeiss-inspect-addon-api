@@ -510,13 +510,81 @@ The complete code of the example is attached to this document. FIXME
 
 ### Blocking fixed dialogs (`execute`)
 
+* Standard case of a dialog.
+* The dialog is created and executed with a single command.
+* The command blocks the script until the dialog is closed again.
+* The dialog result is returned.
+
+| Dialog    | Command     |
+| --------- | ----------- |
+| (figure)  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='\<dialog\>' \\<br>' \<title\>Distance\</title\>' \\<br>' \<control id="OkCancel" /\>' \\<br>' \<sizemode\>automatic\</sizemode\>' \\<br>' \<size width="196" height="110" /\>' \\<br>' \<content rows="1" columns="2" \>' \\<br>' \<widget rowspan="1" row="0" column="0" columnspan="1" type="label" \>' \\<br>' \<name\>label\</name\>' \\<br>' \<text\>Distance\</text\>' \\<br>' \</widget\>' \\<br>' \<widget rowspan="1" row="0" column="1" columnspan="1" type="input::number" \>' \\<br>' \<name\>distance\</name\>' \\<br>' \<value\>0\</value\>' \\<br>' \<minimum\>0\</minimum\>' \\<br>' \<maximum\>1000\</maximum\>' \\<br>' \<precision\>2\</precision\>' \\<br>' \</widget\>' \\<br>' \</content\>' \\<br>'\</dialog\>')</pre> |
+
 ### Blocking configurable dialogs (`create` and `show`)
+
+* A dialog can be created and executed by two different commands in a row.
+* This way, the created dialog can be modified by the script right before executing.
+
+| Creating and executing a dialog with two separate commands |
+| ---------------------------------------------------------- |
+| <pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre> |
 
 ### Non-blocking configurable dialogs (`create`, `open` and `close`)
 
+* In this mode, the script execution continues after the dialog has been opened.
+* The sequence of commands is as follows:
+    * the `create` command creates a dialog. The dialog can be configured now. Afterwards
+    * the `open` command is issued to display the dialog. The script executing continues. At last
+    * the `close` command closes the dialog again, if no closed manually by the user yet.
+
+💡 At script termination all open dialogs are closed automatically.
+
+| Non blocking configurable dialogs |
+| --------------------------------- |
+| <pre># Create dialog but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Show dialog. The script execution continues.<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br>#<br># The dialog content can be modified here, the dialog is still open<br>#<br>DIALOG.title = 'Stufe 2'<br><br># Close dialog again<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre> |
+
 ## Dialog results
 
+💡 The return value is an object with one property per interactive dialog widget containing its current value.
+
+* The return value is an object containing all current values.
+* Each dialog widget which can be changed by the script user writes its resulting value into this result object.
+* The key for each widget is its object name, which is unique.
+
+| Dialog    | Result      |
+| --------- | ----------- |
+| (figure)  | <pre>#<br># Print whole dialog result. This is a result map with just one entry 'distance', named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult ('distance': 2.00000000e+00, 'label': None)<br><br>#<br># Print result for the element named 'distance'. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre> |
+| (figure)  | <pre># Print content of the 'name' widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named 'point1'. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.app.project.actual_elements['Point 5']<br><br># Print content of the widget named 'point2'.<br>print( RESULT.point2 )<br># output: gom.app.project.actual_elements['Point 6']<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre> |
+
+💡 The type of the result depends on the specific widget.
+
 ### Custom results
+
+You can return custom results from dialogs using an optional parameter to the `close_user_defined_dialog`-function. The following example produces 'Yes' 
+and 'No' results for the different buttons and 'Cheater' when the user uses the close button of the dialog.
+
+```
+DIALOG = gom.script.sys.create_user_defined_dialog (content='...')
+
+#
+# Event handler function called if anything happens inside of the dialog
+#
+def dialog_event_handler (widget):
+    if widget == DIALOG.button_yes:
+        gom.script.sys.close_user_defined_dialog( dialog = DIALOG, result = 'Yes' )
+    if widget == DIALOG.button_no:
+        gom.script.sys.close_user_defined_dialog( dialog = DIALOG, result = 'No' )
+
+DIALOG.handler = dialog_event_handler
+
+try:
+    RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+except gom.BreakError as e:
+    RESULT = 'Cheater'
+
+print('RESULT', RESULT)
+```
+
+The complete code of the example is attached to this document. **FIXME**
 
 ## Configuring dialog widgets
 
