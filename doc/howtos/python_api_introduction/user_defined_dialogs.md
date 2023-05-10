@@ -316,7 +316,7 @@ actually displayed dialog.
 | tooltip   | str   | <pre>DIALOG.inputString.tooltip = 'Enter object description'</pre>         |
 | enabled   | bool  | <pre>DIALOG.inputString.enabled = True</pre>                               |
 | value     | str   | <pre>DIALOG.inputString.value = "Warsaw"</pre>                             |
-| focus     | bool  | <pre>DIALOG.inputString.focus = True</pre> ⚠️ Only works if dialog is open |
+| focus     | bool  | <pre>DIALOG.inputString.focus = True</pre>⚠️ Only works if dialog is open |
 | read_only | bool  | <pre>if DIALOG.inputString.read_only:</pre>                                |
 | visible   | bool  | <pre>DIALOG.input_name.visible = False</pre> ???                           |
 
@@ -340,13 +340,104 @@ The check box widget can be used to get boolean input from the user.
 
 ### File widget
 
+| Dialog    | Description                                                                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------ |
+| (figure)  | By clicking the file widget, a file selection dialog is opened. This allows to select a file from the file system. |
+
+| Property  | Type  | Example                                                                                              |
+| --------- | ----- | ---------------------------------------------------------------------------------------------------- |
+| tooltip   | str   | <pre>DIALOG.inputFile.tooltip = 'Select a file for the protocol'</pre>                               |
+| enabled   | bool  | <pre>DIALOG.inputFile.enabled = False</pre>                                                          |
+| value     | str   | <pre>if DIALOG.inputFile.value != '':</pre>                                                          |
+| focus     | bool  | <pre>DIALOG.inputFile.focus = True</pre>⚠️ Only works if dialog is open                             |
+| type      | str   | <pre># Possible values: 'any' (any file), 'new' (not an existing file),<br># 'file' (an existing file), 'multi_file' (multiple existing files),<br># 'directory' (an existing folder)<br>DIALOG.inputFile.type = 'any'</pre> |
+| title     | str   | <pre>DIALOG.inputFile.title = 'Select the location for the protocol files'</pre>                     |
+| default   | str   | <pre>DIALOG.inputFile.default = 'D:/data/default.txt'</pre>                                          |
+| visible   | bool  | <pre>DIALOG.input_exportfile.visible = False</pre>                                                   |
+
 ### Date widget
+
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The date widget requests a date from the user.  _dateWidget_ is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre> |
+
+| Property          | Type      | Example                                                                                              |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| tooltip           | str       | <pre>DIALOG.inputDate.tooltip = 'Enter fabrication date'</pre>                                       |
+| enabled           | bool      | <pre>DIALOG.inputDate.enabled = False</pre>                                                          |
+| value             | (special) | <pre>print('Selected date:', str(DIALOG.inputDate.value))</pre>                                      |
+| focus             | bool      | <pre>DIALOG.inputDate.focus = True</pre>⚠️ Only works if dialog is open                              |
+| use_current_date  | bool      | <pre>DIALOG.inputDate.use_current_date = True</pre>💡 if set, use current date to initialize widget. |
+| year              | int       | <pre>DIALOG.inputDate.year = 2014</pre>                                                              |
+| month             | int       | <pre>DIALOG.inputDate.month = 12</pre>                                                               |
+| day               | int       | <pre>DIALOG.inputDate.day = 24</pre>                                                                 |
+| show_today_button | bool      | <pre>DIALOG.inputDate.show_today_button = True</pre>                                                 |
+| visible           | bool      | <pre>DIALOG.input_date.visible = False</pre>                                                         |
 
 ### Color widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The color widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.<pre>gomColor = DIALOG.colorWidget.color<br>
+print( gomColor ) # output: gom.Color (#ffffffff)</pre> ??? |
+
+| Property             | Type      | Example                                                                                              |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| tooltip              | str       | <pre>DIALOG.inputColor.tooltip = 'Select a color for the marks.'</pre>                               |
+| enabled              | bool      | <pre>DIALOG.inputColor.enabled = True</pre>                                                          |
+| value                | (special) | <pre>print('Mark color:', str(DIALOG.inputColor.value))</pre>                                        |
+| focus                | bool      | <pre>DIALOG.inputColor.focus = True</pre>⚠️ Only works if dialog is open                            |
+| transparency_allowed | bool      | <pre>DIALOG.inputColor.transparency_allowed = True</pre>                                             |
+| visible              | bool      | <pre>DIALOG.input_colour.visible = False</pre>                                                       |
+
+
 ### Selection element widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+| (figure)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>selectedELement = DIALOG.elementSelectionWidget<br>print( selectedELement ) # output: gom.app.project.<br>inspection['Equidistant Surface Points 1']</pre> |
+
+| Property | Type      | Example                                                                                              |
+| ---------| --------- | ---------------------------------------------------------------------------------------------------- |
+| tooltip  | str       | <pre>DIALOG.selectElement.tooltip = 'Select a line for rotation'</pre>                               |
+| enabled  | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                      |
+| value    |(special)  | <pre>if DIALOG.selectElement.value != None:</pre>                                                    |
+| focus    | bool      | <pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open                          |
+| supplier | str       | <pre># Read-only property<br># Possible values: 'any', 'points', 'lines', 'planes', 'directions', 'custom'<br>print(DIALOG.selectElement.supplier)</pre> |
+| filter   | function  | Element filter function for the 'custom' supplier. See example below.                                |
+| visible  | bool      | <pre>DIALOG.select_plane.visible = False</pre>                                                       |
+
+The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:
+
+```
+DIALOG4=gom.script.sys.create_user_defined_dialog (content='...')
+
+
+def dialog_event_handler (widget):
+    pass
+
+# filter system planes
+def element_filter( element ):
+    try:
+        if element.type == 'plane':
+            return True
+     except Exception as e:
+         pass
+     return False
+
+DIALOG4.handler = dialog_event_handler
+DIALOG4.input_new.filter = element_filter
+
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG4)
+
+print("Chosen system plane:", RESULT.input_new.name)
+```
+
+The complete code of the example is attached to this document. FIXME
+
 ### Selection list widget
+
+
 
 ### Button widget
 
