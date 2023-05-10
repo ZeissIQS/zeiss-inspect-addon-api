@@ -223,9 +223,52 @@ execution, so an invalid value (???) will most certainly be displayed instead.
 
 ### Images
 
+* Widgets of type image are able to display arbitrary images.
+* The image data is stored together with the dialog data in the generated XML code. The \<data\>\</data\> section contains the string representing the image.
+
+| Dialog    | Code |
+| --------- | ---- |
+| (figure)  | <pre># The 'data' attribute contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog <br>(content='\<dialog\>' \\<br>' \<title\>About\</title\>' \\<br>' \<control id="Close" /\>' \\<br>' \<content rows="1" columns="1" \>' \\<br>' \<widget rowspan="1" row="0" column="0" columnspan="1" type="image" \>' \\<br>' \<name\>image\</name\>' \\<br>' \<data\>\<!\[CDATA\[eAEdWgVUFd0WHkK4IEiHSHengdKIooCA...\</data\>' \\<br>' \<file_name\>/home/develop/fcieslok/gom.jpg\</file_name\>' \\<br>' \</widget\>' \\<br>' \</content\>' \\<br>'\</dialog\>')</pre> |
+
+| Property           | Type      | Example                                              |
+| ------------------ | --------- | ---------------------------------------------------- |
+| enabled            | bool      | `DIALOG.image.enabled = False`                       |
+| text               | str       | `DIALOG.control.prev.text = 'Previous'` ???          |
+| use_system_image   | bool      | `DIALOG.image.use_system_image = True`               |
+| system_image       | str       | <pre># Possible values: 'system_message_information', 'system_message_warning',<br> 'system_message_critical', 'system_message_question'<br>DIALOG.image.system_image = 'system_message_question'</pre> |
+| file_name          | str       | read-only!                                           |
+| keep_original_size | bool      | read-only!                                           |
+| keep_aspect        | bool      | read-only!                                           |
+| data               | (special) | <pre># This is the actual image data<br># Copy image from one dialog to another:<br>my_dialog.my_image.data = image_container_dialog.image_1.data</pre> |
+| width              | int       | `print('image width ' + str(DIALOG.image.width))`    |
+| height             | int       | `print('image height ' + str(DIALOG.image.height)) ` |
+| visible            | bool      | `DIALOG.image_fixture.visible = False`               |
+
+Note that you can switch from a system image to a user image using the property `use_system_image`. But this user image must have been selected 
+beforehand in the designer. You cannot read a new image file by setting the `filename` property. Also, all of the image formatting properties (`keep_original_size`, `keep_aspect`, `width`, `height`) only work in the designer. From the script you can only read these values.
+Although you cannot read images using the `filename` property you can copy images from one dialog to another using the `data` property. So you are able 
+to prepare (create) a dialog as an image container holding several images. You can then use this image container dialog to copy the image you need to an 
+actually displayed dialog.
+
 ### Log widget
 
+| Dialog    | Description |
+| --------- | ----------- |
+|           | The log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
+
+| Property             | Type      | Example                                              |
+| -------------------- | --------- | ---------------------------------------------------- |
+| enabled              | bool      | `DIALOG.log.enabled = True`                          |
+| text                 | str       | `DIALOG.log.text += 'Yet another log message.\n`     |
+| word_wrap            | bool      | `DIALOG.log.word_wrap = True`                        |
+| show_save            | bool      | `DIALOG.log.show_save = False`                       |
+| save_dialog_title    | str       | `DIALOG.log.save_dialog_title = 'Save operator log'` |
+| scroll_automatically | bool      | `DIALOG.log.scroll_automatically = True`             |
+| visible              | bool      | `DIALOG.log.visible = False`                         |
+
 ### Progress-bar widget
+
+
 
 ### Integer widget
 
