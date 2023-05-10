@@ -588,9 +588,57 @@ The complete code of the example is attached to this document. **FIXME**
 
 ## Configuring dialog widgets
 
+* Dialogs created with the `create` and `open` commands can be modified before executed.
+* Each widget in the dialog can be accessed via the dialog handle.
+* The widget is identified by its unique name.
+
+| Configuring dialog widgets |
+| -------------------------- |
+| <pre># Create dialog and receive dialog handle<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br># The handle for a widget inside of the dialog is addressed by its unique name<br>WIDGET = DIALOG.distance<br><br># The widget parameter can be set via widget attributes. 'Value', for instance, relates to the current widget value.<br>WIDGET.value = 3.0</pre> |
+
+* All widgets share some common standard attributes:
+
+| Attribute | Type                | Property                                  |
+| --------- | ------------------- | ----------------------------------------- |
+| name      | str                 | Unique name of the widget - do not write! |
+| enabled   | bool                | Widget is currently active / inactive     |
+| value     | (depends on widget) | Current value                             |
+
+For the type of the value property for a specific widget, see section [Specific widgets](#specific-widgets) above. For widgets which are not used to enter some value, `value` is `None` and read-only. In addition, widgets have further attributes depending on their type (see section [Specific widgets](#specific-widgets) above for details).
+
+| Accessing widget attributes |
+| --------------------------- |
+| <pre># Create dialog but do not execute it yet<br>DIALOG=gom.script.sys.create_dialog (content='...')<br><br># Set name to 'default name' and disable 'ok' button<br>DIALOG.name.value = "default name"<br>DIALOG.control.ok.enabled = False<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+
 ## Event handler functions
 
 ### Registering event handlers
+
+* A function can be registered to the dialog called on value changed.
+* Every time the user modified a dialog value, the handler function is called.
+* The handler function is also called on application global signals, e.g., when application data has been changed. In these cases is the string _system_ passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.
+* The handler function can access dialog widget properties.
+* The handler function is registered using the special attribute `handler`.
+* The _prev_ and _next_ button of a wizard dialog are the only control widgets, which trigger the event handler.
+
+| Dialog handler functions |
+| ------------------------ |
+| <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print ("Modified:", str (widget))<br>    # If the 'name' widget is empty, the 'ok' button is disabled.<br>    if DIALOG.name.value == "":<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == 'system':<br>        print("It is a global event.")<br>    elif str(widget) == 'initialize':<br>        print("Dialog is displayed for the first time.")<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+
+A complete example with a handler function can be found in the file scriptingEditorExampleDialog.py **FIXME** The argument passed to the event handler is either the dialog widget (e.g. a button), which triggered the eventhandler or a string. The following table lists all possible strings:
+
+| Value        | Description                                                                  |
+| ------------ | ---------------------------------------------------------------------------- |
+| 'system'     | Passed to the event handler in the case of a global event.                   |
+| 'timer'      | Passed to the event handler in the case of a global event.                   |
+| 'initialize' | Passed to the event handler when the dialog is displayed for the first time. |
+
+If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the `is` operator on these objects. Always use `==` and similar 
+operators to compare the widget parameter:
+
+| Compare widget parameter |
+| ------------------------ |
+| <pre>def handler_function (widget):<br>    ...<br>    # compare widget using "==", using "is" will not work!<br>    if widget == DIALOG.textInput:<br>        if DIALOG.textInput.value == "":<br>            DIALOG.control.ok.enabled = False<br>        else:<br>           DIALOG.control.ok.enabled = True</pre> |
 
 ### Closing dialogs from within the event handler
 
