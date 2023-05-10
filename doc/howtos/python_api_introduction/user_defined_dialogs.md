@@ -642,17 +642,73 @@ operators to compare the widget parameter:
 
 ### Closing dialogs from within the event handler
 
+💡 Dialogs can be closed from within event handlers.
+
+| Dialog   | Event handler |
+| -------- | ------------- |
+| (figure) | <pre>def func (widget):<br>    if widget == DIALOG.button1:<br>        execute_func_1 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button2:<br>        execute_func_2 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button3:<br>        execute_func_3 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre>|
+
+⚠️ Right after the dialog has been closed its handle becomes invalid.
+
+This implies, that the event handler function must be written in a way that no dialog dependent code is executed after the dialog has been closed.
+
 ### Using a timer to activate the event handler
 
+Each `DIALOG` has a special property named `DIALOG.timer`. This timer property can be used to trigger the event handler registered to `DIALOG` in 
+certain time intervals. When the event handler is triggered by the timer, the string `timer` is passed to it. The \_\_doc\_\_-string of the timer gives information 
+about its attributes:
+
+```
+print(DIALOG.timer.__doc__)
+# output:
+# Timer
+#
+# Attributes:
+# enabled (boolean) - timer enabled
+# interval (integer) - timer interval [ms]
+```
+
+💡 Please note that the timer is disabled by default.
+
+Example:
+
+| Dialog   | Event handler |
+| -------- | ------------- |
+| (figure) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == 'system':<br>        print("Its a system event.")<br>    elif str(widget) == 'timer':<br>        print("Its a timer event. Let´s swap the image.")<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = 'system_message_warning'<br>        else:<br>            DIALOG.image.system_image = 'system_message_question'<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br> |
+
+The complete code of the example is attached to this document. **FIXME**
+
 ## Determining the existing widget attributes
+
+* Because Python is a very dynamic language, the type of a variable or attribute can not be determined statically.
+* Instead, it is possible to query the variable dynamically during runtime.
+* The more commonly used widget attributes are documented in the section [Specific widgets](#specific-widgets) above.
+
+💡 Most objects support the attribute \_\_doc\_\_ which prints the available object documentation to the console.
+
+| Print object documentation |
+| -------------------------- |
+| <pre>#<br># Query __doc__ attribute of a button widget<br>#<br>print (DIALOG.my_button.__doc__)<br># output:<br># Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type ('push', 'toggle')<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre> |
+
 
 # Wizards
 
 - [Control widgets](#control-widgets)
 
+* Wizards are dialogs with _back_ and _next_ buttons at the lower dialog edge.
+* The script programmer is responsible to add functionality to this layout.
+* Wizards are not very versatile, but modifying the displayed texts and images is easily possible.
+
+⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created !
+
+Therefore Wizards only have simple options like exchange of images and texts in those containing elements.
+
 ## Control widgets
 
+The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:
 
+| Wizard   | Code |
+| -------- | ---- |
+| (figure) | <pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the 'prev' button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard 'page'<br>        <br>        #<br>        # Handle clicks onto the 'next' button<br>        #<br>        print("Prev button was clicked.")<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard 'page'<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print("Next button was clicked.")<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
-
-
+There is also a knowledge base entry, which shows some ways to manage wizard dialogs in greater detail. **FIXME**
