@@ -20,19 +20,43 @@
 
 * User defined dialogs can be inserted into the script using "Insert / Dialog..." from the right mouse menu.
 
-![](assets/insert_dialog.png)
+    ![](assets/insert_dialog.png)
 
-* When a new dialog is inserted, a dialog template and type can be selected.
+* When a new dialog is inserted, a dialog template, the target location of the dialog and the dialog type can be selected.
 
-![](assets/dialog_template.png)
+    ![](assets/dialog_template.png)
 
-* Dialogs are designed using a GUI based dialog editor.
+* Some dialog templates are provided by the system. Additional templates can be created by the user.
 
-![](assets/dialog_editor.png)
+* The options for locating a dialog are
+    * "Separate dialog file" - default
+    * "Embedded into script"
+
+    The base filename of a dialog file is `dialog.gdlg`, it can be renamed later. A dialog is stored as a JSON document internally.
+
+    | Example: Script with separate dialog file |
+    | ----------------------------------------- |
+    | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
+    
+    | Example: Script with embedded dialog |
+    | ------------------------------------ |
+    | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
+
+* The options for the dialog type are
+    * Break dialog (script is blocked) - default
+    * Extendable break dialog (script is blocked)
+    * Info dialog (script continues) 
+    
+    The dialog type is explained in section [Executing dialogs](#executing-dialogs)
+
+
+* Dialogs are designed using a GUI based Dialog Editor.
+
+    ![](assets/dialog_editor.png)
 
 ## Dialog layout
 
-* The dialog designer is using a grid based layout.
+* The Dialog Editor is using a grid based layout.
 * Elements can be inserted into the grid via drag and drop.
 
 ### Editing the grid
@@ -42,16 +66,17 @@
 * Because the underlying layout is a grid, the following actions are possible:
     * Adding and removing rows and columns.
     * Merging and splitting rows and columns.
+<br><br>
 
-| Tool button                              | Function                          |
-| ---------------------------------------- | --------------------------------- |
-| ![](assets/split_cells_vertically.png)   | Split selected cells vertically   |
-| ![](assets/split_cells_horizontally.png) | Split selected cells horizontally |
-| ![](assets/merge_cells.png)              | Merge selected cells              |
+    | Tool button                              | Function                          |
+    | ---------------------------------------- | --------------------------------- |
+    | ![](assets/split_cells_vertically.png)   | Split selected cells vertically   |
+    | ![](assets/split_cells_horizontally.png) | Split selected cells horizontally |
+    | ![](assets/merge_cells.png)              | Merge selected cells              |
 
 * Selected cells are marked with a red overlay.
 
-![](assets/selected_cell.png)
+    ![](assets/selected_cell.png)
 
 ### Spacers
 
@@ -66,33 +91,32 @@
 
 ### Inserting and removing widgets
 
-* The list of available widgets resides at the left of the dialog designer.
+* The list of available widgets resides at the left of the Dialog Editor in the section Dialog Elements.
 * Widgets are inserted via drag and drop.
-* Newly dropped widgets overwrite widgets at the drop target cells.
+* Newly dropped widgets overwrite existing widgets at the drop target cells.
 * A unique name object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.
-
-💡 Removing widgets from the grid is not possible. Instead, they can be overwritten by other widgets.
-
 * Because each cell has to be filled with a widget, widgets can not be removed from the grid. To get rid of a widget
     * Another widget can be dragged and dropped onto the existing widget or
     * The widget cell can be merged with another cell.
+
+💡 Removing widgets from the grid is not possible. Instead, they can be overwritten by other widgets.
 
 ![](assets/separator_line.png)
 
 ### Configuring widgets
 
 * The properties of selected widgets can be edited in the property editor at the right side of the designer dialog.
-* Every widget has at least a unique name.
+* Every widget has at least a unique "Object name".
 * Additionally, various parameters depending on the widget type can be edited.
 
 ![](assets/configuring_widgets.png)
 
-The definition of the dialog can be found in `scriptingEditorExampleDialog.py`
+The definition of the dialog can be found in `scriptingEditorExampleDialog.py` **TODO**
 
 ## Editing already created dialogs
 
-* Creating a dialogs leads to a script command with embedded dialog representation as XML code.
-* Double clicking onto this command opens the dialog editor again
+* Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file.
+* Double clicking onto the embedded dialog or the dialog file opens the Dialog Editor again.
 
 # Dialog widgets
 
@@ -125,8 +149,8 @@ into [Executing dialogs](#executing-dialogs).
 
 ## Use of the \_\_doc\_\_ string
 
-Information about the widgets can be obtained by accessing their doc string. Let objName be the object name of a widget and DIALOG the dialog handle 
-(see [Executing dialogs](#executing-dialogs) if this is unclear to you), the doc string can be obtained as follows:
+Information about the widgets can be obtained by accessing their doc string. Let _objName_ be the object name of a widget and _DIALOG_ the dialog handle 
+(see [Executing dialogs](#executing-dialogs) if this is unclear to you), the \_\_doc\_\_ string can be obtained as follows:
 
 ```
 print( DIALOG.objName.__doc__ )
@@ -134,46 +158,38 @@ print( DIALOG.objName.__doc__ )
 
 ## Control widget
 
-💡 The control widget contains the ok/cancel or similar buttons of the dialog.
+💡 The control widget contains the _ok_/_cancel_ or similar buttons of the dialog.
 
 * The control element of a dialog cannot be configured like other dialog widgets.
-* Therefore, their name is fixed and they are grouped together inside of the control widget named 'control'.
+* Therefore, their name is fixed and they are grouped together inside of the control widget named "control".
 * The control elements consist of the dialogs lower buttons plus a configurable dialog status label.
 
-| Handle                    | Property                                  | Example                                     |
-| ------------------------- | ----------------------------------------- | ------------------------------------------- |
-| DIALOG.control            | Control widget                            | -                                           |
-| DIALOG.control.status     | Status icon of the control widget         | `DIALOG.control.status = 'Point 1 missing'` |
-| DIALOG.control.\<button\> | Handle for a button of the control widget | `DIALOG.control.ok.enabled = False`         |
+| Handle                    | Property                                  | Example                                             |
+| ------------------------- | ----------------------------------------- | --------------------------------------------------- |
+| DIALOG.control            | Control widget                            | -                                                   |
+| DIALOG.control.status     | Status icon of the control widget         | <pre>DIALOG.control.status = 'Point 1 missing'<pre> |
+| DIALOG.control.\<button\> | Handle for a button of the control widget | <pre>DIALOG.control.ok.enabled = False</pre>        |
 
 ### Control widget elements
 
 💡 The names of the control widget elements are fixed
 
-* Usually, the names are corresponding with the elements' semantics. For example, the name of the 'ok' button is 'ok'. The names can also be 
+* Usually, the names are corresponding with the elements' semantics. For example, the name of the _ok_ button is 'ok'. The names can also be 
 obtained from the \_\_doc\_\_ string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
 
-> Accessing the control widget
-
-```
-# Print control widget properties
-> print (DIALOG.control.__doc__)
-ControlGroup
-Attributes:
-status (string) - Status tool tip icon
-ok (unspecified/various) - Control widget
-cancel (unspecified/various) - Control widge
-```
+| Accessing the control widget |
+| ---------------------------- |
+| <pre># Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)<br>ControlGroup<br><br>Attributes:<br><br>status (string)              - Status tool tip icon<br>ok     (unspecified/various) - Control widget<br>cancel (unspecified/various) - Control widget</pre> |
 
 ### Control button properties
 
 Control buttons only have the following two properties which can be set programmatically:
 
-| Property | Type | Example                                 |
-| -------- | ---- | --------------------------------------- |
-| text     | str  | `DIALOG.control.prev.text = 'Previous'` |
-| enabled  | bool | `DIALOG.control.ok.enabled = False`     |
+| Property | Type | Example                                          |
+| -------- | ---- | ------------------------------------------------ |
+| text     | str  | <pre>DIALOG.control.prev.text = 'Previous'</pre> |
+| enabled  | bool | <pre>DIALOG.control.ok.enabled = False</pre>     |
 
 ### The status label
 
@@ -182,9 +198,9 @@ Control buttons only have the following two properties which can be set programm
 * If a status text is set, a small warning icon appears, like in regular applications' dialogs.
 * The status label can be configured using its properties like all other widgets.
 
-| Dialog | Code |
-| ------ | ---- |
-| (figure)       | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br># Set 'ok' button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
+| Dialog                                      | Code |
+| ------------------------------------------- | ---- |
+| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br># Set 'ok' button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
 
@@ -198,7 +214,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 | Dialog    | Code |
 | --------- | ---- |
-| (figure)  | <pre># The 'data' attribute contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog<br>(content='\<dialog\>' \\<br>' \<title\>About\</title\>' \\<br>' \<control id="Close" /\>' \\<br>' \<content rows="1" columns="1" \>' \\<br>' \<widget rowspan="1" row="0" column="0" columnspan="1" type="image" \>' \\<br>' \<name\>image\</name\>' \\<br>' \<data\>\<!\[CDATA\[eAEdWgVUFd0WHkK4IEiHSHengdKIooCA...\</data\>' \\<br>' \<file_name\>/home/develop/fcieslok/gom.jpg\</file_name\>' \\<br>' \</widget\>' \\<br>' \</content\>' \\<br>'\</dialog\>')</pre> |
+| ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
 
 | Editor    | Dialog   |
 | --------- | -------- |
