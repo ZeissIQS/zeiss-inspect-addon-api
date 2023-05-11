@@ -457,9 +457,9 @@ The complete code of the example is attached to this document. FIXME
 
 ### Selection list widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| (figure)  | This widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
+| Dialog                                 | Description |
+| -------------------------------------- | ----------- |
+| ![](assets/widget_list_selection.png)  | This widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
 
 | Property | Type        | Example                                                                                              |
 | -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
@@ -474,7 +474,7 @@ The complete code of the example is attached to this document. FIXME
 
 | Dialog    | Description |
 | --------- | ----------- |
-| (figure)  | There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two - states active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
+| ![](assets/widget_button_off.png)<br>![](assets/widget_button_on.png)  | There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two - states active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
 
 | Property         | Type | Example                                                                                                               |
 | ---------------- | ---- | --------------------------------------------------------------------------------------------------------------------- |
@@ -494,7 +494,7 @@ The complete code of the example is attached to this document. FIXME
 
 | Dialog    | Description |
 | --------- | ----------- |
-| (figure)  | The radio button widget enables the user to choose an option from a predefined set. Each option has a unique ID, which can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' or 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
+| ![](assets/widget_radiobutton.png)  | The radio button widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' and 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
 
 | Property | Type           | Example                                                                                                               |
 | -------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -503,7 +503,7 @@ The complete code of the example is attached to this document. FIXME
 | value    | str            | <pre>DIALOG.radiobuttons.value = 'Value3'</pre>                                                                       |
 | items    | (special list) | <pre># Possible values is a list of lists of two strings.<br># Each first string is the returned value<br># Each second string is the entries' title<br>DIALOG.radiobuttons.items = [['Value1', 'Title1'], ['Value2', 'Title2'], ['Value3', 'Title3']]<br>DIALOG.radiobuttons.default = 'Value2'</pre> |
 | default  | str            | <pre>DIALOG.radiobuttons.default = 'Value1'</pre>                                                                     |
-| visible  | bool           | <pre>DIALOG.select_model.visible = False</pre>                                                                        |
+| visible  | bool           | <pre>DIALOG.radiobuttons.visible = False</pre>                                                                        |
 
 ### Abort button widget
 
