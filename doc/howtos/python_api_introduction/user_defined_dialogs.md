@@ -111,7 +111,9 @@
 
 ![](assets/configuring_widgets.png)
 
-The definition of the dialog can be found in `scriptingEditorExampleDialog.py` **TODO**
+The definition of the dialog can be found in `scriptingEditorExampleDialog.py` 
+
+[//]: # (To Do: add example)
 
 ## Editing already created dialogs
 
@@ -138,6 +140,7 @@ The definition of the dialog can be found in `scriptingEditorExampleDialog.py` *
     - [File widget](#file-widget)
     - [Date widget](#date-widget)
     - [Color widget](#color-widget)
+    - [Unit widget](#unit-widget)
     - [Selection element widget](#selection-element-widget)
     - [Selection list widget](#selection-list-widget)
     - [Button widget](#button-widget)
@@ -230,6 +233,8 @@ You can reset the status icon and clear the error message by assigning an empty 
 * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text field editor prior to script 
 execution, so an invalid value (???) will most certainly be displayed instead.
 
+[//]: # (To Do: Check how to insert local variables)
+
 | Property | Type | Example                                      |
 | -------- | ---- | -------------------------------------------- |
 | enabled  | bool | <pre>DIALOG.textWidget.enabled = False</pre> |
@@ -288,6 +293,7 @@ actually displayed dialog.
 | ----------------------------------- | ----------- |
 | ![](assets/widget_progressbar.png)  | The progress bar widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog defintion')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.atos.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from with the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controlles just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br>import gom<br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br>gom.script.atos.switch_to_report_mode ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br>gom.script.atos.switch_to_inspection_mode ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
 
+[//]: # (To Do: Fix reference to "atos" in the example above)
 
 ### Integer widget
 
@@ -408,14 +414,27 @@ The check box widget can be used to get boolean input from the user.
 | value                | (special) | <pre>print('Mark color:', str(DIALOG.inputColor.value))</pre>                                        |
 | focus                | bool      | <pre>DIALOG.inputColor.focus = True</pre>⚠️ Only works if dialog is open                            |
 | transparency_allowed | bool      | <pre>DIALOG.inputColor.transparency_allowed = True</pre>                                             |
-| visible              | bool      | <pre>DIALOG.inputColor.visible = False</pre>                                                       |
+| visible              | bool      | <pre>DIALOG.inputColor.visible = False</pre>                                                         |
 
+### Unit widget
+
+| Dialog                        | Description |
+| ----------------------------- | ----------- |
+| ![](assets/widget_unit.png)  | The unit widget allows to select a unit. _unitWidget_ is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+
+| Property             | Type      | Example                                                                                              |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| tooltip              | str       | <pre>DIALOG.inputUnit.tooltip = 'Select a color for the marks.'</pre>                                |
+| enabled              | bool      | <pre>DIALOG.inputUnit.enabled = True</pre>                                                           |
+| value                | (special) | <pre>print('Mark color:', str(DIALOG.inputUnit.value))</pre>                                         |
+| focus                | bool      | <pre>DIALOG.inputUnit.focus = True</pre>⚠️ Only works if dialog is open                             |
+| visible              | bool      | <pre>DIALOG.inputUnit.visible = False</pre>                                                          |
 
 ### Selection element widget
 
 | Dialog    | Description |
 | --------- | ----------- |
-| (figure)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>selectedElement = DIALOG.elementSelectionWidget<br>print( selectedElement ) # output: gom.app.project.<br>inspection['Equidistant Surface Points 1']</pre> |
+| (figure)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print( selectedElement ) # output: gom.app.project.<br>inspection['Equidistant Surface Points 1']</pre> |
 
 | Property | Type      | Example                                                                                              |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -509,7 +528,10 @@ The complete code of the example is attached to this document. FIXME
 
 | Dialog    | Description |
 | --------- | ----------- |
-| (figure)  | The abort button aborts the current action. It behaves in the same manner as the abort button in the lower right corner of Atos **???** software. It is disabled if no action is currently executed. |
+| ![](assets/widget_abort_disabled.png)  | The abort button aborts the current action. It is disabled if no action is currently executed. |
+
+[//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
+[//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
 # Executing dialogs
 
@@ -729,6 +751,8 @@ The operational elements in a control widget from a wizard do act like those in 
 
 | Wizard   | Code |
 | -------- | ---- |
-| (figure) | <pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the 'prev' button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard 'page'<br>        <br>        #<br>        # Handle clicks onto the 'next' button<br>        #<br>        print("Prev button was clicked.")<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard 'page'<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print("Next button was clicked.")<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+| ![](assets/wizard.png) | <pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the 'prev' button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard 'page'<br>        <br>        #<br>        # Handle clicks onto the 'next' button<br>        #<br>        print("Prev button was clicked.")<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard 'page'<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print("Next button was clicked.")<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
-There is also a knowledge base entry, which shows some ways to manage wizard dialogs in greater detail. **FIXME**
+The Knowledge Base entry [Creating wizard dialogs](https://support.gom.com/display/KNOWLEDGE/Creating+wizard+dialogs) shows some ways to manage wizard dialogs in greater detail. 
+
+[//]: # (To Do: Port to Github page)
