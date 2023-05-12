@@ -132,6 +132,7 @@ The definition of the dialog can be found in `scriptingEditorExampleDialog.py`
     - [Images](#images)
     - [Log widget](#log-widget)
     - [Progress-bar widget](#progress-bar-widget)
+    - [Element name widget](#element-name-widget)
     - [Integer widget](#integer-widget)
     - [Decimal widget](#decimal-widget)
     - [Text entry field](#text-entry-field)
@@ -295,11 +296,28 @@ actually displayed dialog.
 
 [//]: # (To Do: Fix reference to "atos" in the example above)
 
+### Element name widget
+
+| Dialog                               | Description |
+| ------------------------------------ | ----------- |
+| ![](assets/widget_element_name.png)  | The element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1 already exists), or to enter an arbitrary name. 'elementnameWidget is the object nbame of the element name widget win the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog='dialog definition')<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={'point': gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre> |
+
+| Property | Type  | Example                                                                               |
+| -------- | ----- | ------------------------------------------------------------------------------------- |
+| tooltip  | str   | <pre>DIALOG.inputEleName.tooltip = 'Enter the number of points!'</pre>                |
+| enabled  | bool  | <pre>DIALOG.inputEleName.enabled = False</pre>                                        |
+| value    | int   | <pre>DIALOG.inputEleName.value = 'Blob'</pre>                                         |
+| focus    | bool  | <pre>DIALOG.inputEleName.focus = True</pre>⚠️ Only works if dialog is open           |
+| visible  | bool  | <pre>DIALOG.inputEleName.visible = False</pre>                                        |
+| basename | str   | <pre>DIALOG.inputEleName.basename = 'Point'</pre>                                     |
+| mode     | str   | <pre># Mode to get the name suggestion from.<br># Valid options: 'manually', 'from_element_type', 'check_like'<br>DIALOG.inputEleName.mode = 'from_element_type'</pre> |
+| read_only | bool | <pre>DIALOG.inputEleName.read_only = true # keep user from changing the default</pre> |
+
 ### Integer widget
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
-| ![](assets/widget_integer.png)  | The integer widget is used to require integers from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
+| ![](assets/widget_integer.png)  | The integer widget is used to request an integer value from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
 
 | Property | Type  | Example                                                                |
 | -------- | ----- | ---------------------------------------------------------------------- |
@@ -315,7 +333,7 @@ actually displayed dialog.
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
-| ![](assets/widget_decimal.png)  | The decimal widget is used to get a floating point input from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
+| ![](assets/widget_decimal.png)  | The decimal widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
 
 | Property | Type  | Example                                                                  |
 | -------- | ----- | ------------------------------------------------------------------------ |
@@ -432,9 +450,9 @@ The check box widget can be used to get boolean input from the user.
 
 ### Selection element widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| (figure)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print( selectedElement ) # output: gom.app.project.<br>inspection['Equidistant Surface Points 1']</pre> |
+| Dialog                                    | Description |
+| ----------------------------------------- | ----------- |
+| ![](assets/widget_selection_element.png)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']</pre> |
 
 | Property | Type      | Example                                                                                              |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -536,9 +554,9 @@ The complete code of the example is attached to this document. FIXME
 # Executing dialogs
 
 - [Dialog commands](#dialog-commands)
-    - [Blocking fixed dialogs (`execute`)](#blocking-fixed-dialogs-execute)
-    - [Blocking configurable dialogs (`create` and `show`)](#blocking-configurable-dialogs-create-and-show)
-    - [Non-blocking configurable dialogs (`create`, `open` and `close`)](#non-blocking-configurable-dialogs-create-open-and-close)
+    - [Break dialog (`execute`)](#break-dialog-execute)
+    - [Extendable break dialog (`create` and `show`)](#extendable-break-dialog-create-and-show)
+    - [Info dialog (`create`, `open` and `close`)](#info-dialog-create-open-and-close)
 - [Dialog results](#dialog-results)
     - [Custom results](#custom-results)
 - [Configuring dialog widgets](#configuring-dialog-widgets)
@@ -550,27 +568,33 @@ The complete code of the example is attached to this document. FIXME
 
 ## Dialog commands
 
-### Blocking fixed dialogs (`execute`)
+### Break dialog (`execute`)
+
+![](assets/dialog1_break.png)
 
 * Standard case of a dialog.
 * The dialog is created and executed with a single command.
 * The command blocks the script until the dialog is closed again.
 * The dialog result is returned.
 
-| Dialog    | Command     |
-| --------- | ----------- |
-| (figure)  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='\<dialog\>' \\<br>' \<title\>Distance\</title\>' \\<br>' \<control id="OkCancel" /\>' \\<br>' \<sizemode\>automatic\</sizemode\>' \\<br>' \<size width="196" height="110" /\>' \\<br>' \<content rows="1" columns="2" \>' \\<br>' \<widget rowspan="1" row="0" column="0" columnspan="1" type="label" \>' \\<br>' \<name\>label\</name\>' \\<br>' \<text\>Distance\</text\>' \\<br>' \</widget\>' \\<br>' \<widget rowspan="1" row="0" column="1" columnspan="1" type="input::number" \>' \\<br>' \<name\>distance\</name\>' \\<br>' \<value\>0\</value\>' \\<br>' \<minimum\>0\</minimum\>' \\<br>' \<maximum\>1000\</maximum\>' \\<br>' \<precision\>2\</precision\>' \\<br>' \</widget\>' \\<br>' \</content\>' \\<br>'\</dialog\>')</pre> |
+| Dialog                   | Command     |
+| ------------------------ | ----------- |
+| ![](assets/dialog1.png)  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": \[<br>        \[<br>            {<br>                "columns": 1,<br>                "name": "label",<br>                "rows": 1,<br>                "text": {<br>                    "id": "",<br>                    "text": "Distance",<br>                    "translatable": True<br>                },<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "label",<br>                "word_wrap": False<br>            },<br>            {<br>                "background_style": "",<br>                "columns": 1,<br>                "maximum": 1000,<br>                "minimum": 0,<br>                "name": "inputDistance",<br>                "precision": 2,<br>                "rows": 1,<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "input::number",<br>                "unit": "",<br>                "value": 0<br>            }<br>        \]<br>    \],<br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 112,<br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Distance",<br>        "translatable": True<br>    }<br>})<br></pre> |
 
-### Blocking configurable dialogs (`create` and `show`)
+### Extendable break dialog (`create` and `show`)
 
-* A dialog can be created and executed by two different commands in a row.
+![](assets/dialog2_extendable_break.png)
+
+* A dialog is created and executed by subsequent commands.
 * This way, the created dialog can be modified by the script right before executing.
 
 | Creating and executing a dialog with two separate commands |
 | ---------------------------------------------------------- |
-| <pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre> |
+| <pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre> |
 
-### Non-blocking configurable dialogs (`create`, `open` and `close`)
+### Info dialog (`create`, `open` and `close`)
+
+![](assets/dialog3_info.png)
 
 * In this mode, the script execution continues after the dialog has been opened.
 * The sequence of commands is as follows:
@@ -594,7 +618,7 @@ The complete code of the example is attached to this document. FIXME
 
 | Dialog    | Result      |
 | --------- | ----------- |
-| (figure)  | <pre>#<br># Print whole dialog result. This is a result map with just one entry 'distance', named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult ('distance': 2.00000000e+00, 'label': None)<br><br>#<br># Print result for the element named 'distance'. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre> |
+| ![](assets/result1.png)  | <pre>#<br># Print whole dialog result. This is a result map with just one entry 'distance', named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)<br><br>#<br># Print result for the element named 'distance'. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre> |
 | (figure)  | <pre># Print content of the 'name' widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named 'point1'. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.app.project.actual_elements['Point 5']<br><br># Print content of the widget named 'point2'.<br>print( RESULT.point2 )<br># output: gom.app.project.actual_elements['Point 6']<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre> |
 
 💡 The type of the result depends on the specific widget.
@@ -686,9 +710,9 @@ operators to compare the widget parameter:
 
 💡 Dialogs can be closed from within event handlers.
 
-| Dialog   | Event handler |
-| -------- | ------------- |
-| (figure) | <pre>def func (widget):<br>    if widget == DIALOG.button1:<br>        execute_func_1 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button2:<br>        execute_func_2 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button3:<br>        execute_func_3 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre>|
+| Dialog                                        | Event handler |
+| --------------------------------------------- | ------------- |
+| ![](assets/event_handler_script_launcher.png) | <pre>def dialog_event_handler (widget):<br>    if widget == DIALOG.button1:<br>        execute_func_1 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button2:<br>        execute_func_2 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button3:<br>        execute_func_3 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre>|
 
 ⚠️ Right after the dialog has been closed its handle becomes invalid.
 
@@ -716,9 +740,11 @@ Example:
 
 | Dialog   | Event handler |
 | -------- | ------------- |
-| (figure) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == 'system':<br>        print("Its a system event.")<br>    elif str(widget) == 'timer':<br>        print("Its a timer event. Let´s swap the image.")<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = 'system_message_warning'<br>        else:<br>            DIALOG.image.system_image = 'system_message_question'<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br> |
+| ![](assets/event_handler_timer_edit.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == 'system':<br>        print("Its a system event.")<br>    elif str(widget) == 'timer':<br>        print("Its a timer event. Let´s swap the image.")<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = 'system_message_warning'<br>        else:<br>            DIALOG.image.system_image = 'system_message_question'<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br> |
 
-The complete code of the example is attached to this document. **FIXME**
+The complete code of the example is attached to this document. 
+
+[//]: # (To Do: Add code)
 
 ## Determining the existing widget attributes
 
