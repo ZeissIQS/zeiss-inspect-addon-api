@@ -210,47 +210,98 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 ## Specific widgets
 
-### Text fields
+### Description field (label) widget
 
-* Text field widgets are able to display multi lines text.
-* In these texts keywords can also be displayed.
-* A double click onto a text field widget opens a content editor.
+| Dialog                        | Description |
+| ----------------------------- | ----------- |
+| ![](assets/widget_label.png)  | The description field (label) widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
+
+| Property  | Type  | Example                                                                               |
+| --------- | ----- | ------------------------------------------------------------------------------------- |
+| tooltip   | str   | <pre>DIALOG.label.tooltip = 'This is just a label!'</pre>                             |
+| enabled   | bool  | <pre>DIALOG.label.enabled = False</pre>                                               |
+| focus     | bool  | <pre>DIALOG.label.focus = True</pre>⚠️ Only works if dialog is open                   |
+| visible   | bool  | <pre>DIALOG.label.visible = False</pre>                                               |
+| text      | str   | <pre>DIALOG.label.text = 'New label:'</pre>                                           |
+| word_wrap | bool  | <pre>DIALOG.label.word_wrap = True</pre>                                              |
+
+ 
+### Continuous text widget
+
+| Dialog                      | Description |
+| --------------------------- | ---- |
+| ![](assets/text_field.png)  | The text field widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
+
+| Editor                     | Dialog                      |
+| -------------------------- | --------------------------- |
+| ![](assets/edit_text.png)  | ![](assets/widget_text.png) |
+
+
+[//]: # (* The keywords displayed in text field widgets can originate from different source:)
+
+[//]: # (    * Global application keywords)
+
+[//]: # (    * project related keywords)
+ 
+[//]: # (    * local script variables.)
+
+[//]: # (⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.)
+
+[//]: # ( * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text)
+
+[//]: # (field editor prior to script execution, so an invalid value will most certainly be displayed instead.)
+
+[//]: # (To Do: Check how to insert local variables)
+
+| Property            | Type | Example                                                    |
+| ------------------- | ---- | ---------------------------------------------------------- |
+| enabled             | bool | <pre>DIALOG.textWidget.enabled = False</pre>               |
+| text                | str  | <pre>print(DIALOG.textWidget.text)</pre>                   |
+| wordwrap            | bool | <pre>DIALOG.textWidget.wordwrap = True</pre>               |
+| visible             | bool | <pre>DIALOG.textWidget.visible = False</pre>               |                              
+| default_font_family | str  | <pre>DIALOG.text.default_font_family = 'Arial Black'</pre> |                      
+| default_font_size   | int  | <pre>DIALOG.textWidget.default_font_size = 12</pre>        |
+
+#### Displaying keywords in a continuous text widget
+
+A keyword can be inserted into the text with the following procedure:
+
+1. RMB -> 'Insert Expression...'
+
+    ![](assets/widget_text_insert_expression1.png)
+
+2. Select 'Insert Keyword' button
+
+    ![](assets/widget_text_insert_expression2.png)
+
+3. Select the desired keyword from the tree
+
+    ![](assets/widget_text_insert_expression3.png)
+
+4. The keyword and its actual value are shown
+
+    ![](assets/widget_text_insert_expression4.png)
+
+5. The final rendering of the text widget
+
+    ![](assets/widget_text_insert_expression6.png)
+
+#### Internal representation of a dialog with text widget
+
+The dialog is stored as a JSON document internally.
 
 | Dialog                      | Code |
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
-
-| Editor    | Dialog   |
-| --------- | -------- |
-| (figure)  | (figure) |
-
-* The keywords displayed in text field widgets can originate from different source:
-    * Global application keywords,
-    * project related keywords and
-    * local script variables.
-
-⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.
-
-* Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text field editor prior to script 
-execution, so an invalid value (???) will most certainly be displayed instead.
-
-[//]: # (To Do: Check how to insert local variables)
-
-| Property | Type | Example                                      |
-| -------- | ---- | -------------------------------------------- |
-| enabled  | bool | <pre>DIALOG.textWidget.enabled = False</pre> |
-| text     | str  | <pre>print(DIALOG.textWidget.text)</pre>     |
-| wordwrap | bool | <pre>DIALOG.textWidget.wordwrap = True</pre> |
-| visible  | bool | <pre>DIALOG.textWidget.visible = False</pre> |
 
 ### Images
 
 * Widgets of type image are able to display arbitrary images.
 * The image data is stored together with the dialog data in the generated XML code. The \<data\>\</data\> section contains the string representing the image.
 
-| Dialog                        | Code |
-| ----------------------------- | ---- |
-| ![](assets/widget_image.png)  | <pre># The 'data' attribute contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
+| Dialog                        | Description                                          |
+| ----------------------------- | ---------------------------------------------------- |
+| ![](assets/widget_image.png)  | The image widget allows to display arbitrary images. |
 
 | Property           | Type      | Example                                                      |
 | ------------------ | --------- | ------------------------------------------------------------ |
@@ -266,11 +317,15 @@ execution, so an invalid value (???) will most certainly be displayed instead.
 | height             | int       | <pre>print('image height ' + str(DIALOG.image.height))</pre> |
 | visible            | bool      | <pre>DIALOG.image.visible = False</pre>              |
 
-Note that you can switch from a system image to a user image using the property `use_system_image`. But this user image must have been selected 
-beforehand in the designer. You cannot read a new image file by setting the `filename` property. Also, all of the image formatting properties (`keep_original_size`, `keep_aspect`, `width`, `height`) only work in the designer. From the script you can only read these values.
-Although you cannot read images using the `filename` property you can copy images from one dialog to another using the `data` property. So you are able 
-to prepare (create) a dialog as an image container holding several images. You can then use this image container dialog to copy the image you need to an 
-actually displayed dialog.
+Note that you can switch from a system image to a user image using the property `use_system_image`. But this user image must have been selected beforehand in the designer. You cannot read a new image file by setting the `filename` property. Also, all of the image formatting properties (`keep_original_size`, `keep_aspect`, `width`, `height`) only work in the designer. From the script you can only read these values. Although you cannot read images using the `filename` property you can copy images from one dialog to another using the `data` property. So you are able to prepare (create) a dialog as an image container holding several images. You can then use this image container dialog to copy the image you need to an actually displayed dialog.
+
+#### Internal representation of a dialog with image widget
+
+The dialog is stored as a JSON document internally. The 'data' element contains the image data.
+
+| Dialog                        | Code |
+| ----------------------------- | ---- |
+| ![](assets/widget_image.png)  | <pre># The 'data' element contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
 
 ### Log widget
 
@@ -574,6 +629,26 @@ The complete code of the example is attached to this document. FIXME
 | link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
 | unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
 
+# File system browser widget
+
+| Dialog                         | Description |
+| ------------------------------ | ----------- |
+| ![](assets/widget_fsbrowser.png) | The file system browser widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions. |
+
+| Property           | Type                  | Example                                                                                |
+| ------------------ | --------------------- | -------------------------------------------------------------------------------------- |
+| tooltip            | str                   | <pre>DIALOG.filesystemWidget.tooltip = 'Select CAD file'</pre>                         |
+| enabled            | bool                  | <pre>DIALOG.filesystemWidget.enabled = False</pre>                                     |
+| value              | (unspecified/various) |  The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets. |
+| focus              | bool                  | <pre>DIALOG.filesystemWidget.focus = True</pre>⚠️ Only works if dialog is open         |
+| visible            | bool                  | <pre>DIALOG.filesystemWidget.visible = False</pre>                                     |
+| root               | str                   | <pre>DIALOG.filesystemWidget.root = 'C:/Users'</pre>                                   |
+| show_date          | bool                  | <pre>DIALOG.filesystemWidget.show_date = True</pre>                                    |
+| show_size          | bool                  | <pre>DIALOG.filesystemWidget.show_size = True</pre>                                    |
+| show_type          | bool                  | <pre>DIALOG.filesystemWidget.show_type = True</pre>                                    |
+| use_multiselection | bool                  | <pre># Enable selection of multiple files<br>DIALOG.filesystemWidget.use_multiselection = True</pre> |                                                               
+| selected           | list                  | <pre>print(DIALOG.filesystemWidget.selected)<br># example output: \['C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 1.g3d', 'C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 2.g3d'\]</pre> |
+| filter             | list                  | <pre># Apply a filter of filename extensions<br>DIALOG.filesystemWidget.filter = \[ '\*.g3d', '\*.stp' \]</pre> |
 
 # Executing dialogs
 
