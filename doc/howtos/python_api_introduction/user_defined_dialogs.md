@@ -551,6 +551,30 @@ The complete code of the example is attached to this document. FIXME
 [//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
+# Tolerances widget
+
+| Dialog    | Description |
+| --------- | ----------- |
+| ![](assets/widget_tolerances.png)  | The tolerances widget is a group of input widgets which allows to configure all parameters related to tolerances. |
+
+| Property         | Type                  | Example                                                                                  |
+| ---------------- | --------------------- | ---------------------------------------------------------------------------------------- |
+| tooltip          | str                   | <pre>DIALOG.tolerancesWidget.tooltip = 'Configure tolerances'</pre>                      |
+| enabled          | bool                  | <pre>DIALOG.tolerancesWidget.enabled = False</pre>                                       |
+| value            | (unspecified/various) |  The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets. |
+| focus            | bool                  | <pre>DIALOG.tolerancesWidget.focus = True</pre>⚠️ Only works if dialog is open           |
+| visible          | bool                  | <pre>DIALOG.tolerancesWidget.visible = False</pre>                                       |
+| expanded         | bool                  | <pre># Check if widged is expanded<br>if DIALOG.tolerancesWidget.expanded == True:</pre> |
+| mode             | str                   | <pre># Tolerance mode ('no_tolerance', 'via_tolerance_table', 'from_cad', 'manual', 'from_element')<br> print( DIALOG.tolerancesWidget.mode )</pre> |
+| upper            | double                | <pre>DIALOG.tolerancesWidget.upper = 0.3</pre>                                           |
+| lower            | double                | <pre>DIALOG.tolerancesWidget.lower = 0.2</pre>
+| use_warn_limit   | bool                  | <pre># Use warning levels<br>DIALOG.tolerancesWidget = True</pre>                        | 
+| upper_warn       | bool                  | <pre>DIALOG.tolerancesWidget.upper_warn = 0.5</pre>                                      |
+| lower_warn       | bool                  | <pre>DIALOG.tolerancesWidget.lower_warn = 0.4</pre>
+| link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
+| unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
+
+
 # Executing dialogs
 
 - [Dialog commands](#dialog-commands)
@@ -619,7 +643,7 @@ The complete code of the example is attached to this document. FIXME
 | Dialog    | Result      |
 | --------- | ----------- |
 | ![](assets/result1.png)  | <pre>#<br># Print whole dialog result. This is a result map with just one entry 'distance', named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)<br><br>#<br># Print result for the element named 'distance'. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre> |
-| (figure)  | <pre># Print content of the 'name' widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named 'point1'. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.app.project.actual_elements['Point 5']<br><br># Print content of the widget named 'point2'.<br>print( RESULT.point2 )<br># output: gom.app.project.actual_elements['Point 6']<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre> |
+| ![](assets/result2.png)  | <pre># Print content of the 'name' widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named 'point1'. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.ActualReference (gom.app.project.inspection['Point 5'])<br><br># Print content of the widget named 'point2'.<br>print( RESULT.point2 )<br># output: gom.ActualReference (gom.app.project.inspection['Point 6'])<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre> |
 
 💡 The type of the result depends on the specific widget.
 
@@ -756,7 +780,7 @@ The complete code of the example is attached to this document.
 
 | Print object documentation |
 | -------------------------- |
-| <pre>#<br># Query __doc__ attribute of a button widget<br>#<br>print (DIALOG.my_button.__doc__)<br># output:<br># Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type ('push', 'toggle')<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre> |
+| <pre>#<br># Query \_\_doc\_\_ attribute of a button widget<br>#<br>print (DIALOG.my_button.\_\_doc\_\_)<br># output:<br># Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type ('push', 'toggle')<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre> |
 
 
 # Wizards
