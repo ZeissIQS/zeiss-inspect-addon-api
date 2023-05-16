@@ -83,7 +83,7 @@
 💡 **Spacers** are empty spaces extending in either horizontal or vertical direction.
 
 * If a spacer is inserted into a cell, the cell claims the maximum available space in spacer direction.
-* All remaining cells share the remaining space.
+* All other cells share the remaining space.
 
 ![](assets/spacer.png)
 
@@ -94,7 +94,7 @@
 * The list of available widgets resides at the left of the Dialog Editor in the section Dialog Elements.
 * Widgets are inserted via drag and drop.
 * Newly dropped widgets overwrite existing widgets at the drop target cells.
-* A unique name object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.
+* A unique object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.
 * Because each cell has to be filled with a widget, widgets can not be removed from the grid. To get rid of a widget
     * Another widget can be dragged and dropped onto the existing widget or
     * The widget cell can be merged with another cell.
@@ -105,7 +105,7 @@
 
 ### Configuring widgets
 
-* The properties of selected widgets can be edited in the property editor at the right side of the designer dialog.
+* The properties of selected widgets can be edited in the property editor at the right side of the Dialog Editor.
 * Every widget has at least a unique "Object name".
 * Additionally, various parameters depending on the widget type can be edited.
 
@@ -130,7 +130,7 @@ The definition of the dialog can be found in `scriptingEditorExampleDialog.py`
 - [Specific widgets](#specific-widgets)
     - [Description field (label) widget](#description-field-label-widget)
     - [Continuous text widget](#continuous-text-widget)
-    - [Images](#images)
+    - [Image widget](#image-widget)
     - [Log widget](#log-widget)
     - [Progress-bar widget](#progress-bar-widget)
     - [Element name widget](#element-name-widget)
@@ -163,24 +163,23 @@ print( DIALOG.objName.__doc__ )
 
 ## Control widget
 
-💡 The control widget contains the _ok_/_cancel_ or similar buttons of the dialog.
+💡 The **control** widget contains the _ok_/_cancel_ or similar buttons of the dialog.
 
-* The control element of a dialog cannot be configured like other dialog widgets.
+* The control elements of a dialog cannot be configured like other dialog widgets.
 * Therefore, their name is fixed and they are grouped together inside of the control widget named "control".
 * The control elements consist of the dialogs lower buttons plus a configurable dialog status label.
 
 | Handle                    | Property                                  | Example                                             |
 | ------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | DIALOG.control            | Control widget                            | -                                                   |
-| DIALOG.control.status     | Status icon of the control widget         | <pre>DIALOG.control.status = 'Point 1 missing'<pre> |
+| DIALOG.control.status     | Status icon of the control widget         | <pre>DIALOG.control.status = 'Point 1 missing'</pre> |
 | DIALOG.control.\<button\> | Handle for a button of the control widget | <pre>DIALOG.control.ok.enabled = False</pre>        |
 
 ### Control widget elements
 
-💡 The names of the control widget elements are fixed
+💡 The names of the **Control** widget elements are fixed
 
-* Usually, the names are corresponding with the elements' semantics. For example, the name of the _ok_ button is 'ok'. The names can also be 
-obtained from the \_\_doc\_\_ string as shown in the code example below.
+* Usually, the names are corresponding with the elements' semantics. For example, the name of the _ok_ button is 'ok'. The names can also be obtained from the \_\_doc\_\_ string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
 
 | Accessing the control widget |
@@ -205,7 +204,7 @@ Control buttons only have the following two properties which can be set programm
 
 | Dialog                                      | Code |
 | ------------------------------------------- | ---- |
-| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br># Set 'ok' button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
+| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
 
@@ -215,7 +214,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
-| ![](assets/widget_label.png)  | The description field (label) widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
+| ![](assets/widget_label.png)  | The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
 
 | Property  | Type  | Example                                                                               |
 | --------- | ----- | ------------------------------------------------------------------------------------- |
@@ -231,7 +230,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 | Dialog                      | Description |
 | --------------------------- | ---- |
-| ![](assets/text_field.png)  | The text field widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
+| ![](assets/text_field.png)  | The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
 
 | Editor                     | Dialog                      |
 | -------------------------- | --------------------------- |
@@ -295,14 +294,11 @@ The dialog is stored as a JSON document internally.
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
 
-### Images
-
-* Widgets of type image are able to display arbitrary images.
-* The image data is stored together with the dialog data in the generated XML code. The \<data\>\</data\> section contains the string representing the image.
+### Image widget
 
 | Dialog                        | Description                                          |
 | ----------------------------- | ---------------------------------------------------- |
-| ![](assets/widget_image.png)  | The image widget allows to display arbitrary images. |
+| ![](assets/widget_image.png)  | The **Image** widget allows to display arbitrary images. |
 
 | Property           | Type      | Example                                                      |
 | ------------------ | --------- | ------------------------------------------------------------ |
@@ -332,31 +328,44 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 
 | Dialog                      | Description |
 | --------------------------- | ----------- |
-| ![](assets/widget_log.png)  | The log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
+| ![](assets/widget_log.png)  | The **Log** widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
 
-| Property             | Type      | Example                                                       |
-| -------------------- | --------- | ------------------------------------------------------------- |
-| enabled              | bool      | <pre>DIALOG.log.enabled = True</pre>                          |
-| text                 | str       | <pre>DIALOG.log.text += 'Yet another log message.\n</pre>     |
-| word_wrap            | bool      | <pre>DIALOG.log.word_wrap = True</pre>                        |
-| show_save            | bool      | <pre>DIALOG.log.show_save = False</pre>                       |
-| save_dialog_title    | str       | <pre>DIALOG.log.save_dialog_title = 'Save operator log'</pre> |
-| scroll_automatically | bool      | <pre>DIALOG.log.scroll_automatically = True</pre>             |
-| visible              | bool      | <pre>DIALOG.log.visible = False</pre>                         |
+| Property             | Type      | Example                                                        |
+| -------------------- | --------- | -------------------------------------------------------------- |
+| enabled              | bool      | <pre>DIALOG.log.enabled = True</pre>                           |
+| text                 | str       | <pre>DIALOG.log.text += 'Yet another log message.\n</pre>      |
+| word_wrap            | bool      | <pre>DIALOG.log.word_wrap = True</pre>                         |
+| show_save            | bool      | <pre>DIALOG.log.show_save = False</pre>                        |
+| save_dialog_title    | str       | <pre>DIALOG.log.save_dialog_title = 'Save operator log'</pre>  |
+| scroll_automatically | bool      | <pre>DIALOG.log.scroll_automatically = True</pre>              |
+| visible              | bool      | <pre>DIALOG.log.visible = False</pre>                          |
+| monospace            | bool      | <pre># Use monospace font<br>DIALOG.log.monospace = True</pre> |
 
-### Progress-bar widget
+### Progress bar widget
 
 | Dialog                              | Description |
 | ----------------------------------- | ----------- |
-| ![](assets/widget_progressbar.png)  | The progress bar widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog defintion')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from with the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controlles just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
+| ![](assets/widget_progressbar.png)  | The **Progress bar** widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
 
-[//]: # (To Do: Fix reference to "atos" in the example above)
+| Property | Type  | Example                                                                                 |
+| -------- | ----- | --------------------------------------------------------------------------------------- |
+| tooltip  | str   | <pre>DIALOG.progressbar.tooltip = 'Work in progress!'</pre>                             |
+| enabled  | bool  | <pre>DIALOG.progressbar.enabled = False</pre>                                           |
+| value    | int   | <pre>if DIALOG.progressbar.value < 50:</pre>                                            |
+| focus    | bool  | <pre>DIALOG.progressbar.focus = True</pre>⚠️ Only works if dialog is open              |
+| minimum  | int   | <pre>DIALOG.progressbar.minimum = 20</pre>                                              |
+| maximum  | int   | <pre>DIALOG.progressbar.maximum = 50</pre>                                              |
+| visible  | bool  | <pre>DIALOG.progressbar.visible = False</pre>                                           |
+| parts    | int   | <pre># Set number of progress bar parts<br>DIALOG.progressbar.parts = 3</pre>           |
+| step     | int   | <pre># Set current step<br>DIALOG.progressbar.step = 0</pre>                            |
+| text     | str   | <pre># Set text mode (none, percentage, step)<br>DIALOG.progressbar.text = 'step'</pre> |
+| mode     | str   | <pre># Set mode (system, manual)<br>DIALOG.progressbar.mode = 'manual'</pre>            |
 
 ### Element name widget
 
 | Dialog                               | Description |
 | ------------------------------------ | ----------- |
-| ![](assets/widget_element_name.png)  | The element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1 already exists), or to enter an arbitrary name. 'elementnameWidget is the object nbame of the element name widget win the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog='dialog definition')<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={'point': gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre> |
+| ![](assets/widget_element_name.png)  | The **Element name** widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1' already exists), or to enter an arbitrary name. 'elementnameWidget is the object name of the element name widget in the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog='dialog definition')<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={'point': gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre> |
 
 | Property | Type  | Example                                                                               |
 | -------- | ----- | ------------------------------------------------------------------------------------- |
@@ -366,46 +375,52 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | focus    | bool  | <pre>DIALOG.inputEleName.focus = True</pre>⚠️ Only works if dialog is open           |
 | visible  | bool  | <pre>DIALOG.inputEleName.visible = False</pre>                                        |
 | basename | str   | <pre>DIALOG.inputEleName.basename = 'Point'</pre>                                     |
-| mode     | str   | <pre># Mode to get the name suggestion from.<br># Valid options: 'manually', 'from_element_type', 'check_like'<br>DIALOG.inputEleName.mode = 'from_element_type'</pre> |
-| read_only | bool | <pre>DIALOG.inputEleName.read_only = true # keep user from changing the default</pre> |
+| mode     | str   | <pre># Mode to get the name suggestion from. ('manually', 'from_element_type', 'check_like')<br>DIALOG.inputEleName.mode = 'from_element_type'</pre> |
+| read_only | bool | <pre># Keep user from changing the default<br>DIALOG.inputEleName.read_only = true</pre> |
 
 ### Integer widget
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
-| ![](assets/widget_integer.png)  | The integer widget is used to request an integer value from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
+| ![](assets/widget_integer.png)  | The **Integer** widget is used to request an integer value from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
 
-| Property | Type  | Example                                                                |
-| -------- | ----- | ---------------------------------------------------------------------- |
-| tooltip  | str   | <pre>DIALOG.inputInt.tooltip = 'Enter the number of points!'</pre>     |
-| enabled  | bool  | <pre>DIALOG.inputInt.enabled = False</pre>                             |
-| value    | int   | <pre>if DIALOG.inputInt.value < 15:</pre>                              |
-| focus    | bool  | <pre>DIALOG.inputInt.focus = True</pre>⚠️ Only works if dialog is open |
-| minimum  | float | <pre>DIALOG.inputInt.minimum = 20</pre>                                |
-| maximum  | float | <pre>DIALOG.inputInt.maximum = 50</pre>                                |
-| visible  | bool  | <pre>DIALOG.inputInt.visible = False</pre>                             |
+| Property | Type   | Example                                                                |
+| -------- | ------ | ---------------------------------------------------------------------- |
+| tooltip  | str    | <pre>DIALOG.inputInt.tooltip = 'Enter the number of points!'</pre>     |
+| enabled  | bool   | <pre>DIALOG.inputInt.enabled = False</pre>                             |
+| value    | int    | <pre>if DIALOG.inputInt.value < 15:</pre>                              |
+| focus    | bool   | <pre>DIALOG.inputInt.focus = True</pre>⚠️ Only works if dialog is open |
+| visible  | bool   | <pre>DIALOG.inputInt.visible = False</pre>                             |
+| minimum  | double | <pre>DIALOG.inputInt.minimum = 20</pre>                                |
+| maximum  | double | <pre>DIALOG.inputInt.maximum = 50</pre>                                |
 
 ### Decimal widget
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
-| ![](assets/widget_decimal.png)  | The decimal widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
+| ![](assets/widget_decimal.png)  | The **Decimal** widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
 
-| Property | Type  | Example                                                                  |
-| -------- | ----- | ------------------------------------------------------------------------ |
-| tooltip  | str   | <pre>DIALOG.floatInput.tooltip = 'Enter the number of points!'</pre>     |
-| enabled  | bool  | <pre>DIALOG.floatInput.enabled = False</pre>                             |
-| value    | int   | <pre>if DIALOG.floatInput.value < 15:</pre>                              |
-| focus    | bool  | <pre>DIALOG.floatInput.focus = True</pre>⚠️ Only works if dialog is open |
-| minimum  | float | <pre>DIALOG.floatInput.minimum = 20</pre>                                |
-| maximum  | float | <pre>DIALOG.floatInput.maximum = 50</pre>                                |
-| visible  | bool  | <pre>DIALOG.floatInput.visible = False</pre>                             |
+| Property  | Type   | Example                                                                  |
+| --------- | ------ | ------------------------------------------------------------------------ |
+| tooltip   | str    | <pre>DIALOG.input.tooltip = 'Enter distance between points!'</pre>       |
+| enabled   | bool   | <pre>DIALOG.input.enabled = False</pre>                                  |
+| value     | int    | <pre>if DIALOG.input.value < 15:</pre>                                   |
+| focus     | bool   | <pre>DIALOG.input.focus = True</pre>⚠️ Only works if dialog is open     |
+| visible   | bool   | <pre>DIALOG.input.visible = False</pre>                                  |
+| minimum   | double | <pre>DIALOG.input.minimum = 20</pre>                                     |
+| maximum   | double | <pre>DIALOG.input.maximum = 50</pre>                                     |
+| precision | double | <pre># Set precision to 2 decimals<br>DIALOG.input.precision = 2</pre>   |
+| unit      | str    | <pre># Set unit ID<br>DIALOG.input.unit = 'LENGTH'</pre>                 |
+
+[//]: # ( No visible effect )
+
+[//]: # ( background_style - str - Set style sheet based background color  - red, green, blue )
 
 ### Text entry field
 
 | Dialog                             | Description |
 | ---------------------------------- | ----------- |
-| ![](assets/widget_text_entry.png)  | The text entry field can be used to get string input from the user. A simple use case is given by the next code block. _textEntryWidget_ is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.textEntryWidget = "some default text"<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre> |
+| ![](assets/widget_text_entry.png)  | The **Text entry field** widget can be used to get string input from the user. A simple use case is given by the next code block. _textEntryWidget_ is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.textEntryWidget = "some default text"<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre> |
 
 | Property  | Type  | Example                                                                    |
 | --------- | ----- | -------------------------------------------------------------------------- |
@@ -413,22 +428,39 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | enabled   | bool  | <pre>DIALOG.inputString.enabled = True</pre>                               |
 | value     | str   | <pre>DIALOG.inputString.value = "Warsaw"</pre>                             |
 | focus     | bool  | <pre>DIALOG.inputString.focus = True</pre>⚠️ Only works if dialog is open |
-| read_only | bool  | <pre>if DIALOG.inputString.read_only:</pre>                                |
 | visible   | bool  | <pre>DIALOG.inputString.visible = False</pre>                              |
+| read_only | bool  | <pre>if DIALOG.inputString.read_only:</pre>                                |
+| password  | bool  | <pre># Hide user input by replacing each character by a dot<br>DIALOG.inputString.password = True</pre> |
 
 ### Slider widget
 
 | Dialog                         | Description |
 | ------------------------------ | ----------- |
-| ![](assets/widget_slider.png)  | The slider widget can be used to get a float value from a certain interval from the user. _sliderWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre> |
+| ![](assets/widget_slider.png)  | The **Slider** widget can be used to get a float value from a certain interval from the user. _sliderWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre> |
+
+| Property      | Type   | Example                                                                    |
+| ------------- | ------ | -------------------------------------------------------------------------- |
+| tooltip       | str    | <pre>DIALOG.input.tooltip = 'Drag slider to change rotation'</pre>         |
+| enabled       | bool   | <pre>DIALOG.input.enabled = True</pre>                                     |
+| value         | str    | <pre>print('Angle:', str(DIALOG.input.value))</pre>                        |
+| focus         | bool   | <pre>DIALOG.input.focus = True</pre>⚠️ Only works if dialog is open        |
+| visible       | bool   | <pre>DIALOG.input.visible = False</pre>                                    |
+| minimum       | double | <pre>DIALOG.input.minimum = -90</pre>                                      |
+| maximum       | double | <pre>DIALOG.input.maximum = 90</pre>                                       |
+| precision     | double | <pre># Set precision to 1 decimal<br>DIALOG.input.precision = 1</pre>      |
+| step          | double | <pre># Set step size to 15<br>DIALOG.input.step = 15</pre>                 |
+| orientation   | str    | <pre>print(DIALOG.input.orientation)</pre>⚠️ read-only                     |
+
+[//]: # ( ticks are not drawn )
+
+[//]: # ( tick_interval - double - Interval of ticks drawn )
+
 
 ### Checkbox widget
 
-The check box widget can be used to get boolean input from the user.
-
 | Dialog                           | Description |
 | -------------------------------- | ----------- |
-| ![](assets/widget_checkbox.png)  | The check box widget can be used to get boolean input from the user. _checkboxWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print (RESULT.checkboxWidget)</pre> |
+| ![](assets/widget_checkbox.png)  | The **Checkbox** widget can be used to get boolean input from the user. _checkboxWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print (RESULT.checkboxWidget)</pre> |
 
 | Property  | Type  | Example                                                                                              |
 | --------- | ----- | ---------------------------------------------------------------------------------------------------- |
@@ -440,9 +472,9 @@ The check box widget can be used to get boolean input from the user.
 
 ### File widget
 
-| Dialog                      | Description                                                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ![](assets/widget_file.png) | By clicking the file widget, a file selection dialog is opened. This allows to select a file from the file system. |
+| Dialog                      | Description                                                                                |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| ![](assets/widget_file.png) | By clicking the **File** widget, a file selection dialog is opened. This allows to select a file from the file system. |
 
 | Property  | Type  | Example                                                                                              |
 | --------- | ----- | ---------------------------------------------------------------------------------------------------- |
@@ -450,16 +482,23 @@ The check box widget can be used to get boolean input from the user.
 | enabled   | bool  | <pre>DIALOG.inputFile.enabled = False</pre>                                                          |
 | value     | str   | <pre>if DIALOG.inputFile.value != '':</pre>                                                          |
 | focus     | bool  | <pre>DIALOG.inputFile.focus = True</pre>⚠️ Only works if dialog is open                             |
+| visible   | bool  | <pre>DIALOG.inputFile.visible = False</pre>                                                          |
 | type      | str   | <pre># Possible values: 'any' (any file), 'new' (not an existing file),<br># 'file' (an existing file), 'multi_file' (multiple existing files),<br># 'directory' (an existing folder)<br>DIALOG.inputFile.type = 'any'</pre> |
 | title     | str   | <pre>DIALOG.inputFile.title = 'Select the location for the protocol files'</pre>                     |
 | default   | str   | <pre>DIALOG.inputFile.default = 'D:/data/default.txt'</pre>                                          |
-| visible   | bool  | <pre>DIALOG.inputFile.visible = False</pre>                                                          |
+| file      | str   | <pre>print(DIALOG.inputFile.file)</pre>                                                              |
+| file_types | list | <pre># Show only specified file types; each list item must consist of \[\<filename_extension\>, \<description\>\]<br>DIALOG.inputFile.file_types = \[\['*.g3d', 'Mesh data'\], \['*.stp', 'CAD data'\]\]</pre> ⚠️ ``limited`` must be set to ``True`` in order to apply the filter! |
+| limited    | bool | <pre># Limit file selection to 'file_types'<br>DIALOG.inputFile.limited = True</pre>                 |
+
+[//]: # (Clarify this)
+
+[//]: # (selection_type - str - File selector type; any, directory, executable, file, multi_file )
 
 ### Date widget
 
 | Dialog                       | Description |
 | ---------------------------- | ----------- |
-| ![](assets/widget_date.png)  | The date widget requests a date from the user.  _dateWidget_ is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre> |
+| ![](assets/widget_date.png)  | The **Date** widget requests a date from the user.  _dateWidget_ is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre> |
 
 | Property          | Type      | Example                                                                                              |
 | ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -467,19 +506,19 @@ The check box widget can be used to get boolean input from the user.
 | enabled           | bool      | <pre>DIALOG.inputDate.enabled = False</pre>                                                          |
 | value             | (special) | <pre>print('Selected date:', str(DIALOG.inputDate.value))</pre>                                      |
 | focus             | bool      | <pre>DIALOG.inputDate.focus = True</pre>⚠️ Only works if dialog is open                              |
+| visible           | bool      | <pre>DIALOG.inputDate.visible = False</pre>                                                         |
 | use_current_date  | bool      | <pre>DIALOG.inputDate.use_current_date = True</pre>💡 if set, use current date to initialize widget. |
 | year              | int       | <pre>DIALOG.inputDate.year = 2014</pre>                                                              |
 | month             | int       | <pre>DIALOG.inputDate.month = 12</pre>                                                               |
 | day               | int       | <pre>DIALOG.inputDate.day = 24</pre>                                                                 |
 | show_today_button | bool      | <pre>DIALOG.inputDate.show_today_button = True</pre>                                                 |
-| visible           | bool      | <pre>DIALOG.inputDate.visible = False</pre>                                                         |
+
 
 ### Color widget
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
-| ![](assets/widget_color.png)  | The color widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.colorWidget:<br>        gomColor = DIALOG.colorWidget.color<br>        print( gomColor) # output: gom.Color (#ffffffff)
-<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+| ![](assets/widget_color.png)  | The **Color** widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.colorWidget:<br>        gomColor = DIALOG.colorWidget.color<br>        print( gomColor) # output: gom.Color (#ffffffff)<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print('Selection:', RESULT.colorWidget) # example output (white): 0xffffffff</pre> |
 
 | Property             | Type      | Example                                                                                              |
 | -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -487,20 +526,20 @@ The check box widget can be used to get boolean input from the user.
 | enabled              | bool      | <pre>DIALOG.inputColor.enabled = True</pre>                                                          |
 | value                | (special) | <pre>print('Mark color:', str(DIALOG.inputColor.value))</pre>                                        |
 | focus                | bool      | <pre>DIALOG.inputColor.focus = True</pre>⚠️ Only works if dialog is open                            |
-| transparency_allowed | bool      | <pre>DIALOG.inputColor.transparency_allowed = True</pre>                                             |
 | visible              | bool      | <pre>DIALOG.inputColor.visible = False</pre>                                                         |
+| transparency_allowed | bool      | <pre>DIALOG.inputColor.transparency_allowed = True</pre>                                             |
 
 ### Unit widget
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
-| ![](assets/widget_unit.png)  | The unit widget allows to select a unit. _unitWidget_ is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+| ![](assets/widget_unit.png)  | The **Unit** widget allows to select a unit. _unitWidget_ is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
 | Property             | Type      | Example                                                                                              |
 | -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| tooltip              | str       | <pre>DIALOG.inputUnit.tooltip = 'Select a color for the marks.'</pre>                                |
+| tooltip              | str       | <pre>DIALOG.inputUnit.tooltip = 'Select a unit.'</pre>          |
 | enabled              | bool      | <pre>DIALOG.inputUnit.enabled = True</pre>                                                           |
-| value                | (special) | <pre>print('Mark color:', str(DIALOG.inputUnit.value))</pre>                                         |
+| value                | (special) | <pre>print('Unit ID:', DIALOG.inputUnit.value)</pre>                                         |
 | focus                | bool      | <pre>DIALOG.inputUnit.focus = True</pre>⚠️ Only works if dialog is open                             |
 | visible              | bool      | <pre>DIALOG.inputUnit.visible = False</pre>                                                          |
 
@@ -508,7 +547,7 @@ The check box widget can be used to get boolean input from the user.
 
 | Dialog                                    | Description |
 | ----------------------------------------- | ----------- |
-| ![](assets/widget_selection_element.png)  | The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']</pre> |
+| ![](assets/widget_selection_element.png)  | The **Selection element** widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']</pre> |
 
 | Property | Type      | Example                                                                                              |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -516,9 +555,9 @@ The check box widget can be used to get boolean input from the user.
 | enabled  | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                      |
 | value    |(special)  | <pre>if DIALOG.selectElement.value != None:</pre>                                                    |
 | focus    | bool      | <pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open                          |
+| visible  | bool      | <pre>DIALOG.selectElement.visible = False</pre>                                                      |
 | supplier | str       | <pre># Read-only property<br># Possible values: 'any', 'points', 'lines', 'planes', 'directions', 'custom'<br>print(DIALOG.selectElement.supplier)</pre> |
 | filter   | function  | Element filter function for the 'custom' supplier. See example below.                                |
-| visible  | bool      | <pre>DIALOG.select_plane.visible = False</pre>                                                       |
 
 The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:
 
@@ -534,9 +573,9 @@ def element_filter( element ):
     try:
         if element.type == 'plane':
             return True
-     except Exception as e:
-         pass
-     return False
+    except Exception as e:
+        pass
+    return False
 
 DIALOG4.handler = dialog_event_handler
 DIALOG4.input_new.filter = element_filter
@@ -546,13 +585,15 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG4)
 print("Chosen system plane:", RESULT.input_new.name)
 ```
 
-The complete code of the example is attached to this document. FIXME
+The complete code of the example is attached to this document. 
+
+[//]: # (To Do: attach example)
 
 ### Selection list widget
 
 | Dialog                                 | Description |
 | -------------------------------------- | ----------- |
-| ![](assets/widget_list_selection.png)  | This widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
+| ![](assets/widget_list_selection.png)  | The **Selection list** widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
 
 | Property | Type        | Example                                                                                              |
 | -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
@@ -560,14 +601,15 @@ The complete code of the example is attached to this document. FIXME
 | enabled  | bool        | <pre>DIALOG.selectEntry.enabled = False</pre>                                                        |
 | value    | str         | <pre>DIALOG.selectEntry.value = 'Debug'</pre>                                                        |
 | focus    | bool        | <pre>DIALOG.selectEntry.focus = True</pre>⚠️ Only works if dialog is open                           |
-| items    | list of str | <pre>DIALOG.selectEntry.items = ['Debug', 'Info', 'Warn', 'Error', 'Fatal']</pre>                    |
 | visible  | bool        | <pre>DIALOG.select_mode.visible = False</pre>                                                        |
+| items    | list of str | <pre>DIALOG.selectEntry.items = ['Debug', 'Info', 'Warn', 'Error', 'Fatal']</pre>                    |
+
 
 ### Button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
-| ![](assets/widget_button_off.png)<br>![](assets/widget_button_on.png)  | There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two - states active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
+| ![](assets/widget_button_off.png)<br>![](assets/widget_button_on.png)  | The **Button** widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
 
 | Property         | Type | Example                                                                                                               |
 | ---------------- | ---- | --------------------------------------------------------------------------------------------------------------------- |
@@ -581,37 +623,39 @@ The complete code of the example is attached to this document. FIXME
 | icon_system_size | str  | <pre># Possible values: 'default', 'large', 'extra_large'<br>DIALOG.button.icon_system_size = 'extra_large'</pre>     |
 | visible          | bool | <pre>DIALOG.button.visible = False
 
-💡 There are also values for file icons. These only work straightforward using the dialog designer but not from script. You can only change between no icon and system icons in a straightforward way.
+💡 There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.
 
 ### Radio button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
-| ![](assets/widget_radiobutton.png)  | The radio button widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' and 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
+| ![](assets/widget_radiobutton.png)  | The **Radio button** widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' and 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
 
 | Property | Type           | Example                                                                                                               |
 | -------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
 | tooltip  | str            | <pre>DIALOG.radiobuttons.tooltip = 'Choose one alternative!'</pre>                                                    |
 | enabled  | bool           | <pre>DIALOG.radiobuttons.enabled = False</pre>                                                                        |
 | value    | str            | <pre>DIALOG.radiobuttons.value = 'Value3'</pre>                                                                       |
+| visible  | bool           | <pre>DIALOG.radiobuttons.visible = False</pre>                                                                        |
 | items    | (special list) | <pre># Possible values is a list of lists of two strings.<br># Each first string is the returned value<br># Each second string is the entries' title<br>DIALOG.radiobuttons.items = [['Value1', 'Title1'], ['Value2', 'Title2'], ['Value3', 'Title3']]<br>DIALOG.radiobuttons.default = 'Value2'</pre> |
 | default  | str            | <pre>DIALOG.radiobuttons.default = 'Value1'</pre>                                                                     |
-| visible  | bool           | <pre>DIALOG.radiobuttons.visible = False</pre>                                                                        |
+
 
 ### Abort button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
-| ![](assets/widget_abort_disabled.png)  | The abort button aborts the current action. It is disabled if no action is currently executed. |
+| ![](assets/widget_abort_disabled.png)  | The **Abort button** widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software. |
 
 [//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
+
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
 # Tolerances widget
 
 | Dialog    | Description |
 | --------- | ----------- |
-| ![](assets/widget_tolerances.png)  | The tolerances widget is a group of input widgets which allows to configure all parameters related to tolerances. |
+| ![](assets/widget_tolerances.png)  | The **Tolerances** widget is a group of input widgets which allows to configure all parameters related to tolerances. |
 
 | Property         | Type                  | Example                                                                                  |
 | ---------------- | --------------------- | ---------------------------------------------------------------------------------------- |
@@ -634,7 +678,7 @@ The complete code of the example is attached to this document. FIXME
 
 | Dialog                         | Description |
 | ------------------------------ | ----------- |
-| ![](assets/widget_fsbrowser.png) | The file system browser widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions. |
+| ![](assets/widget_fsbrowser.png) | The **File system browser** widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions. |
 
 | Property           | Type                  | Example                                                                                |
 | ------------------ | --------------------- | -------------------------------------------------------------------------------------- |

@@ -214,7 +214,7 @@
 <p>💡 <strong>Spacers</strong> are empty spaces extending in either horizontal or vertical direction.</p>
 <ul class="simple">
 <li><p>If a spacer is inserted into a cell, the cell claims the maximum available space in spacer direction.</p></li>
-<li><p>All remaining cells share the remaining space.</p></li>
+<li><p>All other cells share the remaining space.</p></li>
 </ul>
 <p><img alt="" src="../../_images/spacer.png" /></p>
 </section>
@@ -227,7 +227,7 @@
 <li><p>The list of available widgets resides at the left of the Dialog Editor in the section Dialog Elements.</p></li>
 <li><p>Widgets are inserted via drag and drop.</p></li>
 <li><p>Newly dropped widgets overwrite existing widgets at the drop target cells.</p></li>
-<li><p>A unique name object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.</p></li>
+<li><p>A unique object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.</p></li>
 <li><p>Because each cell has to be filled with a widget, widgets can not be removed from the grid. To get rid of a widget</p>
 <ul>
 <li><p>Another widget can be dragged and dropped onto the existing widget or</p></li>
@@ -241,7 +241,7 @@
 <section id="configuring-widgets">
 <h3>Configuring widgets<a class="headerlink" href="#configuring-widgets" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>The properties of selected widgets can be edited in the property editor at the right side of the designer dialog.</p></li>
+<li><p>The properties of selected widgets can be edited in the property editor at the right side of the Dialog Editor.</p></li>
 <li><p>Every widget has at least a unique “Object name”.</p></li>
 <li><p>Additionally, various parameters depending on the widget type can be edited.</p></li>
 </ul>
@@ -272,7 +272,7 @@
 <ul>
 <li><p><a class="reference internal" href="#description-field-label-widget">Description field (label) widget</a></p></li>
 <li><p><a class="reference internal" href="#continuous-text-widget">Continuous text widget</a></p></li>
-<li><p><a class="reference internal" href="#images">Images</a></p></li>
+<li><p><a class="reference internal" href="#image-widget">Image widget</a></p></li>
 <li><p><a class="reference internal" href="#log-widget">Log widget</a></p></li>
 <li><p><a class="reference internal" href="#progress-bar-widget">Progress-bar widget</a></p></li>
 <li><p><a class="reference internal" href="#element-name-widget">Element name widget</a></p></li>
@@ -305,9 +305,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 <section id="control-widget">
 <h2>Control widget<a class="headerlink" href="#control-widget" title="Permalink to this heading"></a></h2>
-<p>💡 The control widget contains the <em>ok</em>/<em>cancel</em> or similar buttons of the dialog.</p>
+<p>💡 The <strong>control</strong> widget contains the <em>ok</em>/<em>cancel</em> or similar buttons of the dialog.</p>
 <ul class="simple">
-<li><p>The control element of a dialog cannot be configured like other dialog widgets.</p></li>
+<li><p>The control elements of a dialog cannot be configured like other dialog widgets.</p></li>
 <li><p>Therefore, their name is fixed and they are grouped together inside of the control widget named “control”.</p></li>
 <li><p>The control elements consist of the dialogs lower buttons plus a configurable dialog status label.</p></li>
 </ul>
@@ -325,7 +325,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 <tr class="row-odd"><td><p>DIALOG.control.status</p></td>
 <td><p>Status icon of the control widget</p></td>
-<td><p><pre>DIALOG.control.status = ‘Point 1 missing’<pre></p></td>
+<td><p><pre>DIALOG.control.status = ‘Point 1 missing’</pre></p></td>
 </tr>
 <tr class="row-even"><td><p>DIALOG.control.&lt;button&gt;</p></td>
 <td><p>Handle for a button of the control widget</p></td>
@@ -335,10 +335,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 <section id="control-widget-elements">
 <h3>Control widget elements<a class="headerlink" href="#control-widget-elements" title="Permalink to this heading"></a></h3>
-<p>💡 The names of the control widget elements are fixed</p>
+<p>💡 The names of the <strong>Control</strong> widget elements are fixed</p>
 <ul class="simple">
-<li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <em>ok</em> button is ‘ok’. The names can also be
-obtained from the __doc__ string as shown in the code example below.</p></li>
+<li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <em>ok</em> button is ‘ok’. The names can also be obtained from the __doc__ string as shown in the code example below.</p></li>
 <li><p>The control elements are accessed like all other widget attributes.</p></li>
 </ul>
 <table class="docutils align-default">
@@ -389,7 +388,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/control_widget_status_label.png" /></p></td>
-<td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br># Set status label text<br>DIALOG.control.status = ‘No point selected.’<br># Set ‘ok’ button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre></p></td>
+<td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Set status label text<br>DIALOG.control.status = ‘No point selected.’<br><br># Set ‘ok’ button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -408,7 +407,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_label.png" /></p></td>
-<td><p>The description field (label) widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p></td>
+<td><p>The <strong>Description field (label)</strong> widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p></td>
 </tr>
 </tbody>
 </table>
@@ -457,7 +456,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/text_field.png" /></p></td>
-<td><p>The text field widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p></td>
+<td><p>The <strong>Continuous text</strong> widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p></td>
 </tr>
 </tbody>
 </table>
@@ -545,12 +544,8 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </table>
 </section>
 </section>
-<section id="images">
-<h3>Images<a class="headerlink" href="#images" title="Permalink to this heading"></a></h3>
-<ul class="simple">
-<li><p>Widgets of type image are able to display arbitrary images.</p></li>
-<li><p>The image data is stored together with the dialog data in the generated XML code. The &lt;data&gt;&lt;/data&gt; section contains the string representing the image.</p></li>
-</ul>
+<section id="image-widget">
+<h3>Image widget<a class="headerlink" href="#image-widget" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Dialog</p></th>
@@ -559,7 +554,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_image.png" /></p></td>
-<td><p>The image widget allows to display arbitrary images.</p></td>
+<td><p>The <strong>Image</strong> widget allows to display arbitrary images.</p></td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +640,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_log.png" /></p></td>
-<td><p>The log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.</p></td>
+<td><p>The <strong>Log</strong> widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.</p></td>
 </tr>
 </tbody>
 </table>
@@ -685,11 +680,15 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.log.visible = False</pre></p></td>
 </tr>
+<tr class="row-odd"><td><p>monospace</p></td>
+<td><p>bool</p></td>
+<td><p><pre># Use monospace font<br>DIALOG.log.monospace = True</pre></p></td>
+</tr>
 </tbody>
 </table>
 </section>
 <section id="progress-bar-widget">
-<h3>Progress-bar widget<a class="headerlink" href="#progress-bar-widget" title="Permalink to this heading"></a></h3>
+<h3>Progress bar widget<a class="headerlink" href="#progress-bar-widget" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Dialog</p></th>
@@ -698,7 +697,61 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_progressbar.png" /></p></td>
-<td><p>The progress bar widget can be used in the two modes <em>system</em> and <em>manual</em>.<br><br><strong>Manual mode:</strong><br>In this mode, the user may set the progress bar through its <code class="docutils literal notranslate"><span class="pre">value</span></code> variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog defintion’)<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br><strong>Automatic mode:</strong><br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file=’some project’)<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from with the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = “manual”<br># automatic mode:<br>DIALOG.progress.mode = “system”</pre><br><br><strong>Partially controlled system progress bar:</strong><br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controlles just the one active part of the progress bar widget.</ul><br><strong>Example:</strong><pre># -<em>- coding: utf-8 -</em>-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode ‘system’<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part ‘0’, because we are counting from ‘0’)<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display ‘33%’.<br>gom.script.sys.load_project (file=’some project’)<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part.</p></td>
+<td><p>The <strong>Progress bar</strong> widget can be used in the two modes <em>system</em> and <em>manual</em>.<br><br><strong>Manual mode:</strong><br>In this mode, the user may set the progress bar through its <code class="docutils literal notranslate"><span class="pre">value</span></code> variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br><strong>Automatic mode:</strong><br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file=’some project’)<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = “manual”<br># automatic mode:<br>DIALOG.progress.mode = “system”</pre><br><br><strong>Partially controlled system progress bar:</strong><br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br><strong>Example:</strong><pre># -<em>- coding: utf-8 -</em>-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode ‘system’<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part ‘0’, because we are counting from ‘0’)<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display ‘33%’.<br>gom.script.sys.load_project (file=’some project’)<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tooltip</p></td>
+<td><p>str</p></td>
+<td><p><pre>DIALOG.progressbar.tooltip = ‘Work in progress!’</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>enabled</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.progressbar.enabled = False</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>int</p></td>
+<td><p><pre>if DIALOG.progressbar.value &lt; 50:</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>focus</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.progressbar.focus = True</pre>⚠️ Only works if dialog is open</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum</p></td>
+<td><p>int</p></td>
+<td><p><pre>DIALOG.progressbar.minimum = 20</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td><p>int</p></td>
+<td><p><pre>DIALOG.progressbar.maximum = 50</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.progressbar.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>parts</p></td>
+<td><p>int</p></td>
+<td><p><pre># Set number of progress bar parts<br>DIALOG.progressbar.parts = 3</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>int</p></td>
+<td><p><pre># Set current step<br>DIALOG.progressbar.step = 0</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>str</p></td>
+<td><p><pre># Set text mode (none, percentage, step)<br>DIALOG.progressbar.text = ‘step’</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>mode</p></td>
+<td><p>str</p></td>
+<td><p><pre># Set mode (system, manual)<br>DIALOG.progressbar.mode = ‘manual’</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -713,7 +766,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_element_name.png" /></p></td>
-<td><p>The element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. ‘Point 2’ if ‘Point 1 already exists), or to enter an arbitrary name. ‘elementnameWidget is the object nbame of the element name widget win the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog=’dialog definition’)<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={‘point’: gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre></p></td>
+<td><p>The <strong>Element name</strong> widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. ‘Point 2’ if ‘Point 1’ already exists), or to enter an arbitrary name. ‘elementnameWidget is the object name of the element name widget in the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog=’dialog definition’)<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={‘point’: gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -751,11 +804,11 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </tr>
 <tr class="row-even"><td><p>mode</p></td>
 <td><p>str</p></td>
-<td><p><pre># Mode to get the name suggestion from.<br># Valid options: ‘manually’, ‘from_element_type’, ‘check_like’<br>DIALOG.inputEleName.mode = ‘from_element_type’</pre></p></td>
+<td><p><pre># Mode to get the name suggestion from. (‘manually’, ‘from_element_type’, ‘check_like’)<br>DIALOG.inputEleName.mode = ‘from_element_type’</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>read_only</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.inputEleName.read_only = true # keep user from changing the default</pre></p></td>
+<td><p><pre># Keep user from changing the default<br>DIALOG.inputEleName.read_only = true</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -770,7 +823,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_integer.png" /></p></td>
-<td><p>The integer widget is used to request an integer value from the user. <code class="docutils literal notranslate"><span class="pre">integerWidget</span></code> is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br>userInput = RESULT.integerWidget</pre></p></td>
+<td><p>The <strong>Integer</strong> widget is used to request an integer value from the user. <code class="docutils literal notranslate"><span class="pre">integerWidget</span></code> is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br>userInput = RESULT.integerWidget</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -798,17 +851,17 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputInt.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>minimum</p></td>
-<td><p>float</p></td>
-<td><p><pre>DIALOG.inputInt.minimum = 20</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p>maximum</p></td>
-<td><p>float</p></td>
-<td><p><pre>DIALOG.inputInt.maximum = 50</pre></p></td>
-</tr>
 <tr class="row-even"><td><p>visible</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputInt.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>minimum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.inputInt.minimum = 20</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>maximum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.inputInt.maximum = 50</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -823,7 +876,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_decimal.png" /></p></td>
-<td><p>The decimal widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit &gt; Application &gt; Settings &gt; Preferences) in the <em>Default units</em> tab. <code class="docutils literal notranslate"><span class="pre">decimalWidget</span></code> is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br>userInput = RESULT.decimalWidget</pre></p></td>
+<td><p>The <strong>Decimal</strong> widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit &gt; Application &gt; Settings &gt; Preferences) in the <em>Default units</em> tab. <code class="docutils literal notranslate"><span class="pre">decimalWidget</span></code> is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br>userInput = RESULT.decimalWidget</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -837,31 +890,39 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <tbody>
 <tr class="row-even"><td><p>tooltip</p></td>
 <td><p>str</p></td>
-<td><p><pre>DIALOG.floatInput.tooltip = ‘Enter the number of points!’</pre></p></td>
+<td><p><pre>DIALOG.input.tooltip = ‘Enter distance between points!’</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>enabled</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.floatInput.enabled = False</pre></p></td>
+<td><p><pre>DIALOG.input.enabled = False</pre></p></td>
 </tr>
 <tr class="row-even"><td><p>value</p></td>
 <td><p>int</p></td>
-<td><p><pre>if DIALOG.floatInput.value &lt; 15:</pre></p></td>
+<td><p><pre>if DIALOG.input.value &lt; 15:</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>focus</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.floatInput.focus = True</pre>⚠️ Only works if dialog is open</p></td>
-</tr>
-<tr class="row-even"><td><p>minimum</p></td>
-<td><p>float</p></td>
-<td><p><pre>DIALOG.floatInput.minimum = 20</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p>maximum</p></td>
-<td><p>float</p></td>
-<td><p><pre>DIALOG.floatInput.maximum = 50</pre></p></td>
+<td><p><pre>DIALOG.input.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
 <tr class="row-even"><td><p>visible</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.floatInput.visible = False</pre></p></td>
+<td><p><pre>DIALOG.input.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>minimum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.input.minimum = 20</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>maximum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.input.maximum = 50</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>precision</p></td>
+<td><p>double</p></td>
+<td><p><pre># Set precision to 2 decimals<br>DIALOG.input.precision = 2</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>unit</p></td>
+<td><p>str</p></td>
+<td><p><pre># Set unit ID<br>DIALOG.input.unit = ‘LENGTH’</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -876,7 +937,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_text_entry.png" /></p></td>
-<td><p>The text entry field can be used to get string input from the user. A simple use case is given by the next code block. <em>textEntryWidget</em> is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>DIALOG.textEntryWidget = “some default text”<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre></p></td>
+<td><p>The <strong>Text entry field</strong> widget can be used to get string input from the user. A simple use case is given by the next code block. <em>textEntryWidget</em> is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>DIALOG.textEntryWidget = “some default text”<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -904,13 +965,17 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputString.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>read_only</p></td>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.inputString.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>read_only</p></td>
 <td><p>bool</p></td>
 <td><p><pre>if DIALOG.inputString.read_only:</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>visible</p></td>
+<tr class="row-even"><td><p>password</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.inputString.visible = False</pre></p></td>
+<td><p><pre># Hide user input by replacing each character by a dot<br>DIALOG.inputString.password = True</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -925,14 +990,63 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_slider.png" /></p></td>
-<td><p>The slider widget can be used to get a float value from a certain interval from the user. <em>sliderWidget</em> is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre></p></td>
+<td><p>The <strong>Slider</strong> widget can be used to get a float value from a certain interval from the user. <em>sliderWidget</em> is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tooltip</p></td>
+<td><p>str</p></td>
+<td><p><pre>DIALOG.input.tooltip = ‘Drag slider to change rotation’</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>enabled</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.input.enabled = True</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>str</p></td>
+<td><p><pre>print(‘Angle:’, str(DIALOG.input.value))</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>focus</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.input.focus = True</pre>⚠️ Only works if dialog is open</p></td>
+</tr>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.input.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>minimum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.input.minimum = -90</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>maximum</p></td>
+<td><p>double</p></td>
+<td><p><pre>DIALOG.input.maximum = 90</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>precision</p></td>
+<td><p>double</p></td>
+<td><p><pre># Set precision to 1 decimal<br>DIALOG.input.precision = 1</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>double</p></td>
+<td><p><pre># Set step size to 15<br>DIALOG.input.step = 15</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>orientation</p></td>
+<td><p>str</p></td>
+<td><p><pre>print(DIALOG.input.orientation)</pre>⚠️ read-only</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="checkbox-widget">
 <h3>Checkbox widget<a class="headerlink" href="#checkbox-widget" title="Permalink to this heading"></a></h3>
-<p>The check box widget can be used to get boolean input from the user.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Dialog</p></th>
@@ -941,7 +1055,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_checkbox.png" /></p></td>
-<td><p>The check box widget can be used to get boolean input from the user. <em>checkboxWidget</em> is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print (RESULT.checkboxWidget)</pre></p></td>
+<td><p>The <strong>Checkbox</strong> widget can be used to get boolean input from the user. <em>checkboxWidget</em> is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print (RESULT.checkboxWidget)</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -986,7 +1100,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_file.png" /></p></td>
-<td><p>By clicking the file widget, a file selection dialog is opened. This allows to select a file from the file system.</p></td>
+<td><p>By clicking the <strong>File</strong> widget, a file selection dialog is opened. This allows to select a file from the file system.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1014,21 +1128,33 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputFile.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>type</p></td>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.inputFile.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p>str</p></td>
 <td><p><pre># Possible values: ‘any’ (any file), ‘new’ (not an existing file),<br># ‘file’ (an existing file), ‘multi_file’ (multiple existing files),<br># ‘directory’ (an existing folder)<br>DIALOG.inputFile.type = ‘any’</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>title</p></td>
+<tr class="row-even"><td><p>title</p></td>
 <td><p>str</p></td>
 <td><p><pre>DIALOG.inputFile.title = ‘Select the location for the protocol files’</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>default</p></td>
+<tr class="row-odd"><td><p>default</p></td>
 <td><p>str</p></td>
 <td><p><pre>DIALOG.inputFile.default = ‘D:/data/default.txt’</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>visible</p></td>
+<tr class="row-even"><td><p>file</p></td>
+<td><p>str</p></td>
+<td><p><pre>print(DIALOG.inputFile.file)</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>file_types</p></td>
+<td><p>list</p></td>
+<td><p><pre># Show only specified file types; each list item must consist of [&lt;filename_extension&gt;, &lt;description&gt;]<br>DIALOG.inputFile.file_types = [[’<em>.g3d’, ‘Mesh data’], [’</em>.stp’, ‘CAD data’]]</pre> ⚠️ <code class="docutils literal notranslate"><span class="pre">limited</span></code> must be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in order to apply the filter!</p></td>
+</tr>
+<tr class="row-even"><td><p>limited</p></td>
 <td><p>bool</p></td>
-<td><p><pre>DIALOG.inputFile.visible = False</pre></p></td>
+<td><p><pre># Limit file selection to ‘file_types’<br>DIALOG.inputFile.limited = True</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1043,7 +1169,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_date.png" /></p></td>
-<td><p>The date widget requests a date from the user.  <em>dateWidget</em> is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre></p></td>
+<td><p>The <strong>Date</strong> widget requests a date from the user.  <em>dateWidget</em> is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1071,29 +1197,29 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputDate.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>use_current_date</p></td>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.inputDate.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>use_current_date</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputDate.use_current_date = True</pre>💡 if set, use current date to initialize widget.</p></td>
 </tr>
-<tr class="row-odd"><td><p>year</p></td>
+<tr class="row-even"><td><p>year</p></td>
 <td><p>int</p></td>
 <td><p><pre>DIALOG.inputDate.year = 2014</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>month</p></td>
+<tr class="row-odd"><td><p>month</p></td>
 <td><p>int</p></td>
 <td><p><pre>DIALOG.inputDate.month = 12</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>day</p></td>
+<tr class="row-even"><td><p>day</p></td>
 <td><p>int</p></td>
 <td><p><pre>DIALOG.inputDate.day = 24</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>show_today_button</p></td>
+<tr class="row-odd"><td><p>show_today_button</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputDate.show_today_button = True</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p>visible</p></td>
-<td><p>bool</p></td>
-<td><p><pre>DIALOG.inputDate.visible = False</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1108,10 +1234,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_color.png" /></p></td>
-<td><p>The color widget allows to select a color. <em>colorWidget</em> is the object name of the color widget in the example below. <code class="docutils literal notranslate"><span class="pre">gomColor</span></code> behaves in the same way as <code class="docutils literal notranslate"><span class="pre">gom.Color(</span> <span class="pre">...</span> <span class="pre">)</span></code>.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.colorWidget:<br>        gomColor = DIALOG.colorWidget.color<br>        print( gomColor) # output: gom.Color (#ffffffff)</p></td>
-</tr>
-<tr class="row-odd"><td><p><br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-<td><p></p></td>
+<td><p>The <strong>Color</strong> widget allows to select a color. <em>colorWidget</em> is the object name of the color widget in the example below. <code class="docutils literal notranslate"><span class="pre">gomColor</span></code> behaves in the same way as <code class="docutils literal notranslate"><span class="pre">gom.Color(</span> <span class="pre">...</span> <span class="pre">)</span></code>.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.colorWidget:<br>        gomColor = DIALOG.colorWidget.color<br>        print( gomColor) # output: gom.Color (#ffffffff)<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print(‘Selection:’, RESULT.colorWidget) # example output (white): 0xffffffff</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1139,13 +1262,13 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputColor.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>transparency_allowed</p></td>
-<td><p>bool</p></td>
-<td><p><pre>DIALOG.inputColor.transparency_allowed = True</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p>visible</p></td>
+<tr class="row-even"><td><p>visible</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.inputColor.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>transparency_allowed</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.inputColor.transparency_allowed = True</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1160,7 +1283,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_unit.png" /></p></td>
-<td><p>The unit widget allows to select a unit. <em>unitWidget</em> is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
+<td><p>The <strong>Unit</strong> widget allows to select a unit. <em>unitWidget</em> is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1174,7 +1297,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <tbody>
 <tr class="row-even"><td><p>tooltip</p></td>
 <td><p>str</p></td>
-<td><p><pre>DIALOG.inputUnit.tooltip = ‘Select a color for the marks.’</pre></p></td>
+<td><p><pre>DIALOG.inputUnit.tooltip = ‘Select a unit.’</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>enabled</p></td>
 <td><p>bool</p></td>
@@ -1182,7 +1305,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </tr>
 <tr class="row-even"><td><p>value</p></td>
 <td><p>(special)</p></td>
-<td><p><pre>print(‘Mark color:’, str(DIALOG.inputUnit.value))</pre></p></td>
+<td><p><pre>print(‘Unit ID:’, DIALOG.inputUnit.value)</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>focus</p></td>
 <td><p>bool</p></td>
@@ -1205,7 +1328,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_selection_element.png" /></p></td>
-<td><p>The selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul><em>elementSelectionWidget</em> is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection[‘Equidistant Surface Points 1’]</pre></p></td>
+<td><p>The <strong>Selection element</strong> widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul><em>elementSelectionWidget</em> is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content=’dialog definition’)<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection[‘Equidistant Surface Points 1’]</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1233,17 +1356,17 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>supplier</p></td>
+<tr class="row-even"><td><p>visible</p></td>
+<td><p>bool</p></td>
+<td><p><pre>DIALOG.selectElement.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>supplier</p></td>
 <td><p>str</p></td>
 <td><p><pre># Read-only property<br># Possible values: ‘any’, ‘points’, ‘lines’, ‘planes’, ‘directions’, ‘custom’<br>print(DIALOG.selectElement.supplier)</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>filter</p></td>
+<tr class="row-even"><td><p>filter</p></td>
 <td><p>function</p></td>
 <td><p>Element filter function for the ‘custom’ supplier. See example below.</p></td>
-</tr>
-<tr class="row-even"><td><p>visible</p></td>
-<td><p>bool</p></td>
-<td><p><pre>DIALOG.select_plane.visible = False</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1259,9 +1382,9 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;plane&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
-     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-         <span class="k">pass</span>
-     <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="kc">False</span>
 
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">element_filter</span>
@@ -1271,7 +1394,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chosen system plane:&quot;</span><span class="p">,</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The complete code of the example is attached to this document. FIXME</p>
+<p>The complete code of the example is attached to this document.</p>
 </section>
 <section id="selection-list-widget">
 <h3>Selection list widget<a class="headerlink" href="#selection-list-widget" title="Permalink to this heading"></a></h3>
@@ -1283,7 +1406,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_list_selection.png" /></p></td>
-<td><p>This widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. <em>selectionListWidget</em>) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre></p></td>
+<td><p>The <strong>Selection list</strong> widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. <em>selectionListWidget</em>) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1311,13 +1434,13 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.selectEntry.focus = True</pre>⚠️ Only works if dialog is open</p></td>
 </tr>
-<tr class="row-even"><td><p>items</p></td>
-<td><p>list of str</p></td>
-<td><p><pre>DIALOG.selectEntry.items = [‘Debug’, ‘Info’, ‘Warn’, ‘Error’, ‘Fatal’]</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p>visible</p></td>
+<tr class="row-even"><td><p>visible</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.select_mode.visible = False</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p>list of str</p></td>
+<td><p><pre>DIALOG.selectEntry.items = [‘Debug’, ‘Info’, ‘Warn’, ‘Error’, ‘Fatal’]</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1332,7 +1455,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_button_off.png" /><br><img alt="" src="../../_images/widget_button_on.png" /></p></td>
-<td><p>There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two - states active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.</p></td>
+<td><p>The <strong>Button</strong> widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1382,7 +1505,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </tr>
 </tbody>
 </table>
-<p>💡 There are also values for file icons. These only work straightforward using the dialog designer but not from script. You can only change between no icon and system icons in a straightforward way.</p>
+<p>💡 There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.</p>
 </section>
 <section id="radio-button-widget">
 <h3>Radio button widget<a class="headerlink" href="#radio-button-widget" title="Permalink to this heading"></a></h3>
@@ -1394,7 +1517,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_radiobutton.png" /></p></td>
-<td><p>The radio button widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are ‘ONE’, ‘TWO’ and ‘THREE’ in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == ‘ONE’:<br>    print(“IDs are strings.”) # output: IDs are strings.</pre></p></td>
+<td><p>The <strong>Radio button</strong> widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are ‘ONE’, ‘TWO’ and ‘THREE’ in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == ‘ONE’:<br>    print(“IDs are strings.”) # output: IDs are strings.</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1418,17 +1541,17 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 <td><p>str</p></td>
 <td><p><pre>DIALOG.radiobuttons.value = ‘Value3’</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>items</p></td>
-<td><p>(special list)</p></td>
-<td><p><pre># Possible values is a list of lists of two strings.<br># Each first string is the returned value<br># Each second string is the entries’ title<br>DIALOG.radiobuttons.items = [[‘Value1’, ‘Title1’], [‘Value2’, ‘Title2’], [‘Value3’, ‘Title3’]]<br>DIALOG.radiobuttons.default = ‘Value2’</pre></p></td>
-</tr>
-<tr class="row-even"><td><p>default</p></td>
-<td><p>str</p></td>
-<td><p><pre>DIALOG.radiobuttons.default = ‘Value1’</pre></p></td>
-</tr>
 <tr class="row-odd"><td><p>visible</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.radiobuttons.visible = False</pre></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p>(special list)</p></td>
+<td><p><pre># Possible values is a list of lists of two strings.<br># Each first string is the returned value<br># Each second string is the entries’ title<br>DIALOG.radiobuttons.items = [[‘Value1’, ‘Title1’], [‘Value2’, ‘Title2’], [‘Value3’, ‘Title3’]]<br>DIALOG.radiobuttons.default = ‘Value2’</pre></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>str</p></td>
+<td><p><pre>DIALOG.radiobuttons.default = ‘Value1’</pre></p></td>
 </tr>
 </tbody>
 </table>
@@ -1443,7 +1566,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_abort_disabled.png" /></p></td>
-<td><p>The abort button aborts the current action. It is disabled if no action is currently executed.</p></td>
+<td><p>The <strong>Abort button</strong> widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1460,7 +1583,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_tolerances.png" /></p></td>
-<td><p>The tolerances widget is a group of input widgets which allows to configure all parameters related to tolerances.</p></td>
+<td><p>The <strong>Tolerances</strong> widget is a group of input widgets which allows to configure all parameters related to tolerances.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1541,7 +1664,7 @@ obtained from the __doc__ string as shown in the code example below.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_fsbrowser.png" /></p></td>
-<td><p>The file system browser widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions.</p></td>
+<td><p>The <strong>File system browser</strong> widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions.</p></td>
 </tr>
 </tbody>
 </table>
