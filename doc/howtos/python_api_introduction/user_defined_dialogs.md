@@ -18,19 +18,19 @@
 
 ## Dialog designer
 
-* User defined dialogs can be inserted into the script using "Insert / Dialog..." from the right mouse menu.
+* User defined **Dialogs** can be inserted into the script using _right mouse button_->"Insert / Dialog...".
 
     ![](assets/insert_dialog.png)
 
-* When a new dialog is inserted, a dialog template, the target location of the dialog and the dialog type can be selected.
+* When a new dialog is inserted, a dialog **Template**, the **target location** of the dialog configuration and the dialog **Type** can be selected.
 
     ![](assets/dialog_template.png)
 
-* Some dialog templates are provided by the system. Additional templates can be created by the user.
+* Some dialog **Templates** are provided by the system. Additional templates can be created by the user.
 
-* The options for locating a dialog are
-    * "Separate dialog file" - default
-    * "Embedded into script"
+* The options for placing a dialog configuration (see section **Create as** in the window above) are
+    * **Separate dialog file** - default
+    * **Embedded into script**
 
     The base filename of a dialog file is `dialog.gdlg`, it can be renamed later. A dialog is stored as a JSON document internally.
 
@@ -42,21 +42,21 @@
     | ------------------------------------ |
     | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
 
-* The options for the dialog type are
-    * Break dialog (script is blocked) - default
-    * Extendable break dialog (script is blocked)
-    * Info dialog (script continues) 
+* The options for the dialog **Type** are
+    * **Break dialog (script is blocked)** - default
+    * **Extendable break dialog (script is blocked)**
+    * **Info dialog (script continues)** 
     
     The dialog type is explained in section [Executing dialogs](#executing-dialogs)
 
 
-* Dialogs are designed using a GUI based Dialog Editor.
+* Dialogs are designed using a GUI based **Dialog Editor**.
 
     ![](assets/dialog_editor.png)
 
 ## Dialog layout
 
-* The Dialog Editor is using a grid based layout.
+* The **Dialog Editor** is using a grid based layout.
 * Elements can be inserted into the grid via drag and drop.
 
 ### Editing the grid
@@ -91,10 +91,10 @@
 
 ### Inserting and removing widgets
 
-* The list of available widgets resides at the left of the Dialog Editor in the section Dialog Elements.
-* Widgets are inserted via drag and drop.
+* The list of available widgets resides at the left of the Dialog Editor in the section **Dialog Elements**.
+* **Widgets** are inserted via drag and drop.
 * Newly dropped widgets overwrite existing widgets at the drop target cells.
-* A unique object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.
+* A unique **object name** is assigned during insertion of a widget. This name is used to access the widget in the Python script.
 * Because each cell has to be filled with a widget, widgets can not be removed from the grid. To get rid of a widget
     * Another widget can be dragged and dropped onto the existing widget or
     * The widget cell can be merged with another cell.
@@ -105,19 +105,17 @@
 
 ### Configuring widgets
 
-* The properties of selected widgets can be edited in the property editor at the right side of the Dialog Editor.
-* Every widget has at least a unique "Object name".
+* The properties of selected widgets can be edited in the **Property Editor** at the right side of the Dialog Editor.
+* Every widget has at least a unique **Object name**.
 * Additionally, various parameters depending on the widget type can be edited.
 
 ![](assets/configuring_widgets.png)
 
-The definition of the dialog can be found in `scriptingEditorExampleDialog.py` 
-
-[//]: # (To Do: add example)
+The definition of the dialog can be found in [scriptingEditorExampleDialog.py](assets/scriptingEditorExampleDialog.py)
 
 ## Editing already created dialogs
 
-* Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file.
+* Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file (`*.gdlg`).
 * Double clicking onto the embedded dialog or the dialog file opens the Dialog Editor again.
 
 # Dialog widgets
@@ -154,8 +152,8 @@ into [Executing dialogs](#executing-dialogs).
 
 ## Use of the \_\_doc\_\_ string
 
-Information about the widgets can be obtained by accessing their doc string. Let _objName_ be the object name of a widget and _DIALOG_ the dialog handle 
-(see [Executing dialogs](#executing-dialogs) if this is unclear to you), the \_\_doc\_\_ string can be obtained as follows:
+Information about the widgets can be obtained by accessing their doc string. Let `objName` be the object name of a widget and `DIALOG` the dialog handle 
+(see [Executing dialogs](#executing-dialogs) if this is unclear to you), the `__doc__` string can be obtained as follows:
 
 ```
 print( DIALOG.objName.__doc__ )
@@ -163,10 +161,10 @@ print( DIALOG.objName.__doc__ )
 
 ## Control widget
 
-💡 The **control** widget contains the _ok_/_cancel_ or similar buttons of the dialog.
+💡 The **Control** widget contains the **ok** / **cancel** or similar buttons of the dialog.
 
 * The control elements of a dialog cannot be configured like other dialog widgets.
-* Therefore, their name is fixed and they are grouped together inside of the control widget named "control".
+* Therefore, their name is fixed and they are grouped together inside of the control widget named **control**.
 * The control elements consist of the dialogs lower buttons plus a configurable dialog status label.
 
 | Handle                    | Property                                  | Example                                             |
@@ -179,7 +177,7 @@ print( DIALOG.objName.__doc__ )
 
 💡 The names of the **Control** widget elements are fixed
 
-* Usually, the names are corresponding with the elements' semantics. For example, the name of the _ok_ button is 'ok'. The names can also be obtained from the \_\_doc\_\_ string as shown in the code example below.
+* Usually, the names are corresponding with the elements' semantics. For example, the name of the **ok** button is 'ok'. The names can also be obtained from the `__doc__` string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
 
 | Accessing the control widget |
@@ -195,16 +193,16 @@ Control buttons only have the following two properties which can be set programm
 | text     | str  | <pre>DIALOG.control.prev.text = 'Previous'</pre> |
 | enabled  | bool | <pre>DIALOG.control.ok.enabled = False</pre>     |
 
-### The status label
+### Status label
 
-⚠️ The status label of the control widget is invisible until a status text is set.
+⚠️ The **Status label** of the control widget is invisible until a status text is set.
 
 * If a status text is set, a small warning icon appears, like in regular applications' dialogs.
 * The status label can be configured using its properties like all other widgets.
 
 | Dialog                                      | Code |
 | ------------------------------------------- | ---- |
-| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
+| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
 
