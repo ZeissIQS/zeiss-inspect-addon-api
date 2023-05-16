@@ -122,17 +122,17 @@
 <section id="dialog-designer">
 <h2>Dialog designer<a class="headerlink" href="#dialog-designer" title="Permalink to this heading"></a></h2>
 <ul>
-<li><p>User defined dialogs can be inserted into the script using “Insert / Dialog…” from the right mouse menu.</p>
+<li><p>User defined <strong>Dialogs</strong> can be inserted into the script using <em>right mouse button</em>-&gt;”Insert / Dialog…”.</p>
 <p><img alt="" src="../../_images/insert_dialog.png" /></p>
 </li>
-<li><p>When a new dialog is inserted, a dialog template, the target location of the dialog and the dialog type can be selected.</p>
+<li><p>When a new dialog is inserted, a dialog <strong>Template</strong>, the <strong>target location</strong> of the dialog configuration and the dialog <strong>Type</strong> can be selected.</p>
 <p><img alt="" src="../../_images/dialog_template.png" /></p>
 </li>
-<li><p>Some dialog templates are provided by the system. Additional templates can be created by the user.</p></li>
-<li><p>The options for locating a dialog are</p>
+<li><p>Some dialog <strong>Templates</strong> are provided by the system. Additional templates can be created by the user.</p></li>
+<li><p>The options for placing a dialog configuration (see section <strong>Create as</strong> in the window above) are</p>
 <ul class="simple">
-<li><p>“Separate dialog file” - default</p></li>
-<li><p>“Embedded into script”</p></li>
+<li><p><strong>Separate dialog file</strong> - default</p></li>
+<li><p><strong>Embedded into script</strong></p></li>
 </ul>
 <p>The base filename of a dialog file is <code class="docutils literal notranslate"><span class="pre">dialog.gdlg</span></code>, it can be renamed later. A dialog is stored as a JSON document internally.</p>
 <table class="docutils align-default">
@@ -156,15 +156,15 @@
 </tbody>
 </table>
 </li>
-<li><p>The options for the dialog type are</p>
+<li><p>The options for the dialog <strong>Type</strong> are</p>
 <ul class="simple">
-<li><p>Break dialog (script is blocked) - default</p></li>
-<li><p>Extendable break dialog (script is blocked)</p></li>
-<li><p>Info dialog (script continues)</p></li>
+<li><p><strong>Break dialog (script is blocked)</strong> - default</p></li>
+<li><p><strong>Extendable break dialog (script is blocked)</strong></p></li>
+<li><p><strong>Info dialog (script continues)</strong></p></li>
 </ul>
 <p>The dialog type is explained in section <a class="reference internal" href="#executing-dialogs">Executing dialogs</a></p>
 </li>
-<li><p>Dialogs are designed using a GUI based Dialog Editor.</p>
+<li><p>Dialogs are designed using a GUI based <strong>Dialog Editor</strong>.</p>
 <p><img alt="" src="../../_images/dialog_editor.png" /></p>
 </li>
 </ul>
@@ -172,7 +172,7 @@
 <section id="dialog-layout">
 <h2>Dialog layout<a class="headerlink" href="#dialog-layout" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>The Dialog Editor is using a grid based layout.</p></li>
+<li><p>The <strong>Dialog Editor</strong> is using a grid based layout.</p></li>
 <li><p>Elements can be inserted into the grid via drag and drop.</p></li>
 </ul>
 <section id="editing-the-grid">
@@ -224,10 +224,10 @@
 <section id="inserting-and-removing-widgets">
 <h3>Inserting and removing widgets<a class="headerlink" href="#inserting-and-removing-widgets" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>The list of available widgets resides at the left of the Dialog Editor in the section Dialog Elements.</p></li>
-<li><p>Widgets are inserted via drag and drop.</p></li>
+<li><p>The list of available widgets resides at the left of the Dialog Editor in the section <strong>Dialog Elements</strong>.</p></li>
+<li><p><strong>Widgets</strong> are inserted via drag and drop.</p></li>
 <li><p>Newly dropped widgets overwrite existing widgets at the drop target cells.</p></li>
-<li><p>A unique object name is assigned during insertion of a widget. This name is used to access the widget in the Python script.</p></li>
+<li><p>A unique <strong>object name</strong> is assigned during insertion of a widget. This name is used to access the widget in the Python script.</p></li>
 <li><p>Because each cell has to be filled with a widget, widgets can not be removed from the grid. To get rid of a widget</p>
 <ul>
 <li><p>Another widget can be dragged and dropped onto the existing widget or</p></li>
@@ -241,18 +241,18 @@
 <section id="configuring-widgets">
 <h3>Configuring widgets<a class="headerlink" href="#configuring-widgets" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>The properties of selected widgets can be edited in the property editor at the right side of the Dialog Editor.</p></li>
-<li><p>Every widget has at least a unique “Object name”.</p></li>
+<li><p>The properties of selected widgets can be edited in the <strong>Property Editor</strong> at the right side of the Dialog Editor.</p></li>
+<li><p>Every widget has at least a unique <strong>Object name</strong>.</p></li>
 <li><p>Additionally, various parameters depending on the widget type can be edited.</p></li>
 </ul>
 <p><img alt="" src="../../_images/configuring_widgets.png" /></p>
-<p>The definition of the dialog can be found in <code class="docutils literal notranslate"><span class="pre">scriptingEditorExampleDialog.py</span></code></p>
+<p>The definition of the dialog can be found in <a class="reference download internal" download="" href="../../_downloads/df5001d15c7f4e6de709b26bc23e46df/scriptingEditorExampleDialog.py"><span class="xref download myst">scriptingEditorExampleDialog.py</span></a></p>
 </section>
 </section>
 <section id="editing-already-created-dialogs">
 <h2>Editing already created dialogs<a class="headerlink" href="#editing-already-created-dialogs" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file.</p></li>
+<li><p>Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file (<code class="docutils literal notranslate"><span class="pre">*.gdlg</span></code>).</p></li>
 <li><p>Double clicking onto the embedded dialog or the dialog file opens the Dialog Editor again.</p></li>
 </ul>
 </section>
@@ -265,7 +265,7 @@
 <ul>
 <li><p><a class="reference internal" href="#control-widget-elements">Control widget elements</a></p></li>
 <li><p><a class="reference internal" href="#control-button-properties">Control button properties</a></p></li>
-<li><p><a class="reference internal" href="#the-status-label">The status label</a></p></li>
+<li><p><a class="reference internal" href="#the-status-label"><span class="xref myst">The status label</span></a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#specific-widgets">Specific widgets</a></p>
@@ -297,18 +297,18 @@
 into <a class="reference internal" href="#executing-dialogs">Executing dialogs</a>.</p>
 <section id="use-of-the-doc-string">
 <h2>Use of the __doc__ string<a class="headerlink" href="#use-of-the-doc-string" title="Permalink to this heading"></a></h2>
-<p>Information about the widgets can be obtained by accessing their doc string. Let <em>objName</em> be the object name of a widget and <em>DIALOG</em> the dialog handle
-(see <a class="reference internal" href="#executing-dialogs">Executing dialogs</a> if this is unclear to you), the __doc__ string can be obtained as follows:</p>
+<p>Information about the widgets can be obtained by accessing their doc string. Let <code class="docutils literal notranslate"><span class="pre">objName</span></code> be the object name of a widget and <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> the dialog handle
+(see <a class="reference internal" href="#executing-dialogs">Executing dialogs</a> if this is unclear to you), the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> string can be obtained as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">objName</span><span class="o">.</span><span class="vm">__doc__</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="control-widget">
 <h2>Control widget<a class="headerlink" href="#control-widget" title="Permalink to this heading"></a></h2>
-<p>💡 The <strong>control</strong> widget contains the <em>ok</em>/<em>cancel</em> or similar buttons of the dialog.</p>
+<p>💡 The <strong>Control</strong> widget contains the <strong>ok</strong> / <strong>cancel</strong> or similar buttons of the dialog.</p>
 <ul class="simple">
 <li><p>The control elements of a dialog cannot be configured like other dialog widgets.</p></li>
-<li><p>Therefore, their name is fixed and they are grouped together inside of the control widget named “control”.</p></li>
+<li><p>Therefore, their name is fixed and they are grouped together inside of the control widget named <strong>control</strong>.</p></li>
 <li><p>The control elements consist of the dialogs lower buttons plus a configurable dialog status label.</p></li>
 </ul>
 <table class="docutils align-default">
@@ -337,7 +337,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h3>Control widget elements<a class="headerlink" href="#control-widget-elements" title="Permalink to this heading"></a></h3>
 <p>💡 The names of the <strong>Control</strong> widget elements are fixed</p>
 <ul class="simple">
-<li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <em>ok</em> button is ‘ok’. The names can also be obtained from the __doc__ string as shown in the code example below.</p></li>
+<li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <strong>ok</strong> button is ‘ok’. The names can also be obtained from the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> string as shown in the code example below.</p></li>
 <li><p>The control elements are accessed like all other widget attributes.</p></li>
 </ul>
 <table class="docutils align-default">
@@ -373,9 +373,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tbody>
 </table>
 </section>
-<section id="the-status-label">
-<h3>The status label<a class="headerlink" href="#the-status-label" title="Permalink to this heading"></a></h3>
-<p>⚠️ The status label of the control widget is invisible until a status text is set.</p>
+<section id="status-label">
+<h3>Status label<a class="headerlink" href="#status-label" title="Permalink to this heading"></a></h3>
+<p>⚠️ The <strong>Status label</strong> of the control widget is invisible until a status text is set.</p>
 <ul class="simple">
 <li><p>If a status text is set, a small warning icon appears, like in regular applications’ dialogs.</p></li>
 <li><p>The status label can be configured using its properties like all other widgets.</p></li>
@@ -388,7 +388,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </thead>
 <tbody>
 <tr class="row-even"><td><p><img alt="" src="../../_images/control_widget_status_label.png" /></p></td>
-<td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Set status label text<br>DIALOG.control.status = ‘No point selected.’<br><br># Set ‘ok’ button to insensitive<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre></p></td>
+<td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Set status label text<br>DIALOG.control.status = ‘No point selected.’<br><br># Set ‘ok’ button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre></p></td>
 </tr>
 </tbody>
 </table>
