@@ -792,7 +792,7 @@ except gom.BreakError as e:
 print('RESULT', RESULT)
 ```
 
-The complete code of the example is attached to this document. **FIXME**
+Please find the complete example here: [dialog_yes_no.py](assets/dialog_yes_no.py)
 
 ## Configuring dialog widgets
 
@@ -823,17 +823,17 @@ For the type of the value property for a specific widget, see section [Specific 
 ### Registering event handlers
 
 * A function can be registered to the dialog called on value changed.
-* Every time the user modified a dialog value, the handler function is called.
-* The handler function is also called on application global signals, e.g., when application data has been changed. In these cases is the string _system_ passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.
+* Every time the user modified a dialog value, the **handler** function is called.
+* The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string `'system'` passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.
 * The handler function can access dialog widget properties.
 * The handler function is registered using the special attribute `handler`.
-* The _prev_ and _next_ button of a wizard dialog are the only control widgets, which trigger the event handler.
+* The **prev** and **next** buttons of a wizard dialog are the only control widgets, which trigger the event handler.
 
 | Dialog handler functions |
 | ------------------------ |
-| <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print ("Modified:", str (widget))<br>    # If the 'name' widget is empty, the 'ok' button is disabled.<br>    if DIALOG.name.value == "":<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == 'system':<br>        print("It is a global event.")<br>    elif str(widget) == 'initialize':<br>        print("Dialog is displayed for the first time.")<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+| <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print ("Modified:", str (widget))<br>    # If the 'name' widget is empty, the 'ok' button is disabled.<br>    if DIALOG.name.value == "":<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == 'system':<br>        print("It is a global event.")<br>    elif str(widget) == 'initialize':<br>        print("Dialog is displayed for the first time.")<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
-A complete example with a handler function can be found in the file scriptingEditorExampleDialog.py **FIXME** The argument passed to the event handler is either the dialog widget (e.g. a button), which triggered the eventhandler or a string. The following table lists all possible strings:
+A complete example with a handler function can be found in the file [scriptingEditorExampleDialog.py](assets/scriptingEditorExampleDialog.py). The argument passed to the event handler is either the dialog widget (e.g. a button) which triggered the event handler or a string. The following table lists all possible strings:
 
 | Value        | Description                                                                  |
 | ------------ | ---------------------------------------------------------------------------- |
@@ -863,7 +863,7 @@ This implies, that the event handler function must be written in a way that no d
 ### Using a timer to activate the event handler
 
 Each `DIALOG` has a special property named `DIALOG.timer`. This timer property can be used to trigger the event handler registered to `DIALOG` in 
-certain time intervals. When the event handler is triggered by the timer, the string `timer` is passed to it. The \_\_doc\_\_-string of the timer gives information 
+certain time intervals. When the event handler is triggered by the timer, the string `timer` is passed to it. The `__doc__`-string of the timer gives information 
 about its attributes:
 
 ```
@@ -884,9 +884,7 @@ Example:
 | -------- | ------------- |
 | ![](assets/event_handler_timer_edit.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == 'system':<br>        print("Its a system event.")<br>    elif str(widget) == 'timer':<br>        print("Its a timer event. Let´s swap the image.")<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = 'system_message_warning'<br>        else:<br>            DIALOG.image.system_image = 'system_message_question'<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br> |
 
-The complete code of the example is attached to this document. 
-
-[//]: # (To Do: Add code)
+The complete code of the example can be found here: [timer.py](assets/timer.py). 
 
 ## Determining the existing widget attributes
 
@@ -894,7 +892,7 @@ The complete code of the example is attached to this document.
 * Instead, it is possible to query the variable dynamically during runtime.
 * The more commonly used widget attributes are documented in the section [Specific widgets](#specific-widgets) above.
 
-💡 Most objects support the attribute \_\_doc\_\_ which prints the available object documentation to the console.
+💡 Most objects support the attribute `__doc__` which prints the available object documentation to the console.
 
 | Print object documentation |
 | -------------------------- |
@@ -905,11 +903,11 @@ The complete code of the example is attached to this document.
 
 - [Control widgets](#control-widgets)
 
-* Wizards are dialogs with _back_ and _next_ buttons at the lower dialog edge.
-* The script programmer is responsible to add functionality to this layout.
+* **Wizards** are dialogs with **\< Back** and **Next \>** buttons at the lower dialog edge.
+* The script programmer is responsible for adding functionality to this layout.
 * Wizards are not very versatile, but modifying the displayed texts and images is easily possible.
 
-⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created !
+⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created!
 
 Therefore Wizards only have simple options like exchange of images and texts in those containing elements.
 

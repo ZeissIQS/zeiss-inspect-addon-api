@@ -1869,7 +1869,7 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RESULT&#39;</span><span class="p">,</span> <span class="n">RESULT</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The complete code of the example is attached to this document. <strong>FIXME</strong></p>
+<p>Please find the complete example here: <a class="reference download internal" download="" href="../../_downloads/548b76d0a411422a7f2f34c1ce30ecab/dialog_yes_no.py"><span class="xref download myst">dialog_yes_no.py</span></a></p>
 </section>
 </section>
 <section id="configuring-dialog-widgets">
@@ -1932,11 +1932,11 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <h3>Registering event handlers<a class="headerlink" href="#registering-event-handlers" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>A function can be registered to the dialog called on value changed.</p></li>
-<li><p>Every time the user modified a dialog value, the handler function is called.</p></li>
-<li><p>The handler function is also called on application global signals, e.g., when application data has been changed. In these cases is the string <em>system</em> passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.</p></li>
+<li><p>Every time the user modified a dialog value, the <strong>handler</strong> function is called.</p></li>
+<li><p>The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string <code class="docutils literal notranslate"><span class="pre">'system'</span></code> passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.</p></li>
 <li><p>The handler function can access dialog widget properties.</p></li>
 <li><p>The handler function is registered using the special attribute <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-<li><p>The <em>prev</em> and <em>next</em> button of a wizard dialog are the only control widgets, which trigger the event handler.</p></li>
+<li><p>The <strong>prev</strong> and <strong>next</strong> buttons of a wizard dialog are the only control widgets, which trigger the event handler.</p></li>
 </ul>
 <table class="docutils align-default">
 <thead>
@@ -1944,11 +1944,11 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print (“Modified:”, str (widget))<br>    # If the ‘name’ widget is empty, the ‘ok’ button is disabled.<br>    if DIALOG.name.value == “”:<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == ‘system’:<br>        print(“It is a global event.”)<br>    elif str(widget) == ‘initialize’:<br>        print(“Dialog is displayed for the first time.”)<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
+<tr class="row-even"><td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print (“Modified:”, str (widget))<br>    # If the ‘name’ widget is empty, the ‘ok’ button is disabled.<br>    if DIALOG.name.value == “”:<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == ‘system’:<br>        print(“It is a global event.”)<br>    elif str(widget) == ‘initialize’:<br>        print(“Dialog is displayed for the first time.”)<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
 </tr>
 </tbody>
 </table>
-<p>A complete example with a handler function can be found in the file scriptingEditorExampleDialog.py <strong>FIXME</strong> The argument passed to the event handler is either the dialog widget (e.g. a button), which triggered the eventhandler or a string. The following table lists all possible strings:</p>
+<p>A complete example with a handler function can be found in the file <a class="reference download internal" download="" href="../../_downloads/df5001d15c7f4e6de709b26bc23e46df/scriptingEditorExampleDialog.py"><span class="xref download myst">scriptingEditorExampleDialog.py</span></a>. The argument passed to the event handler is either the dialog widget (e.g. a button) which triggered the event handler or a string. The following table lists all possible strings:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Value</p></th>
@@ -2001,7 +2001,7 @@ operators to compare the widget parameter:</p>
 <section id="using-a-timer-to-activate-the-event-handler">
 <h3>Using a timer to activate the event handler<a class="headerlink" href="#using-a-timer-to-activate-the-event-handler" title="Permalink to this heading"></a></h3>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> has a special property named <code class="docutils literal notranslate"><span class="pre">DIALOG.timer</span></code>. This timer property can be used to trigger the event handler registered to <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> in
-certain time intervals. When the event handler is triggered by the timer, the string <code class="docutils literal notranslate"><span class="pre">timer</span></code> is passed to it. The __doc__-string of the timer gives information
+certain time intervals. When the event handler is triggered by the timer, the string <code class="docutils literal notranslate"><span class="pre">timer</span></code> is passed to it. The <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-string of the timer gives information
 about its attributes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 <span class="c1"># output:</span>
@@ -2026,7 +2026,7 @@ about its attributes:</p>
 </tr>
 </tbody>
 </table>
-<p>The complete code of the example is attached to this document.</p>
+<p>The complete code of the example can be found here: <a class="reference download internal" download="" href="../../_downloads/cbebcc2e1c7dcf042fbff10ce916f294/timer.py"><span class="xref download myst">timer.py</span></a>.</p>
 </section>
 </section>
 <section id="determining-the-existing-widget-attributes">
@@ -2036,7 +2036,7 @@ about its attributes:</p>
 <li><p>Instead, it is possible to query the variable dynamically during runtime.</p></li>
 <li><p>The more commonly used widget attributes are documented in the section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above.</p></li>
 </ul>
-<p>💡 Most objects support the attribute __doc__ which prints the available object documentation to the console.</p>
+<p>💡 Most objects support the attribute <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> which prints the available object documentation to the console.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Print object documentation</p></th>
@@ -2055,11 +2055,11 @@ about its attributes:</p>
 <li><p><a class="reference internal" href="#control-widgets">Control widgets</a></p></li>
 </ul>
 <ul class="simple">
-<li><p>Wizards are dialogs with <em>back</em> and <em>next</em> buttons at the lower dialog edge.</p></li>
-<li><p>The script programmer is responsible to add functionality to this layout.</p></li>
+<li><p><strong>Wizards</strong> are dialogs with <strong>&lt; Back</strong> and <strong>Next &gt;</strong> buttons at the lower dialog edge.</p></li>
+<li><p>The script programmer is responsible for adding functionality to this layout.</p></li>
 <li><p>Wizards are not very versatile, but modifying the displayed texts and images is easily possible.</p></li>
 </ul>
-<p>⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created !</p>
+<p>⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created!</p>
 <p>Therefore Wizards only have simple options like exchange of images and texts in those containing elements.</p>
 <section id="control-widgets">
 <h2>Control widgets<a class="headerlink" href="#control-widgets" title="Permalink to this heading"></a></h2>
