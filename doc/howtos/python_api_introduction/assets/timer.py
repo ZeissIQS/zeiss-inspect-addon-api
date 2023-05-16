@@ -263,6 +263,7 @@ DIALOG=gom.script.sys.create_user_defined_dialog (dialog={
 								"translatable": True
 				}
 })
+
 #
 # Event handler function called if anything happens inside of the dialog
 #
