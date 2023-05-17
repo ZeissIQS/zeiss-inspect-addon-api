@@ -654,7 +654,7 @@ The complete code of the example is attached to this document.
 
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
-# Tolerances widget
+### Tolerances widget
 
 | Dialog    | Description |
 | --------- | ----------- |
@@ -677,7 +677,7 @@ The complete code of the example is attached to this document.
 | link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
 | unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
 
-# File system browser widget
+### File system browser widget
 
 | Dialog                         | Description |
 | ------------------------------ | ----------- |
