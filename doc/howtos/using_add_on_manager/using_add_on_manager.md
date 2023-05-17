@@ -130,13 +130,13 @@ Click RMB on the installed Add-on > Publish
 
 External Folder enables the user to run scripts from a path of his/her own choice. More than one external folders can be added.
 
-* Opening
+* Connecting
 
-    Click RMB in an area of the Add-on Explorer where no object is selected > Open External Folder...
+    Click RMB in an area of the Add-on Explorer where no object is selected > Connect External Folder...
     
-* Deleting
+* Disconnecting
 
-    Click RMB on the external folder you want to delete > Delete...
+    Click RMB on the external folder you want to delete > Disconnect...
     
     External folder is deleted from the Add-on Explorer but the contents remain in the file system.
 
