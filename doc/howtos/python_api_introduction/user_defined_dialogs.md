@@ -199,12 +199,14 @@ Control buttons only have the following two properties which can be set programm
 
 * If a status text is set, a small warning icon appears, like in regular applications' dialogs.
 * The status label can be configured using its properties like all other widgets.
+
 :::{table}
 :widths: 30 30
 
 | Dialog                                      | Code |
 | ------------------------------------------- | ---- |
 | ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
+
 :::
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
