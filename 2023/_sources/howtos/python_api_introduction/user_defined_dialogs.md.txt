@@ -202,7 +202,7 @@ Control buttons only have the following two properties which can be set programm
 
 | Dialog                                      | Code |
 | ------------------------------------------- | ---- |
-| <img src="assets/control_widget_status_label.png" width="300"> | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
+| ![](assets/control_widget_status_label.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
 
