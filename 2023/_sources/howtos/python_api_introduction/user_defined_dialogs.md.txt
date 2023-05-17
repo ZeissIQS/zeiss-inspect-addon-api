@@ -5,7 +5,7 @@
 - [Executing dialogs](#executing-dialogs)
 - [Wizards](#wizards)
 
-# Creating dialogs
+## Creating dialogs
 
 - [Dialog designer](#dialog-designer)
 - [Dialog layout](#dialog-layout)
@@ -16,7 +16,7 @@
     - [Configuring widgets](#configuring-widgets)
 - [Editing already created dialogs](#editing-already-created-dialogs)
 
-## Dialog designer
+### Dialog designer
 
 * User defined **Dialogs** can be inserted into the script using _right mouse button_->"Insert / Dialog...".
 
@@ -54,12 +54,12 @@
 
     ![](assets/dialog_editor.png)
 
-## Dialog layout
+### Dialog layout
 
 * The **Dialog Editor** is using a grid based layout.
 * Elements can be inserted into the grid via drag and drop.
 
-### Editing the grid
+#### Editing the grid
 
 💡 Editing the layout means changing the underlying grid.
 
@@ -78,7 +78,7 @@
 
     ![](assets/selected_cell.png)
 
-### Spacers
+#### Spacers
 
 💡 **Spacers** are empty spaces extending in either horizontal or vertical direction.
 
@@ -87,9 +87,9 @@
 
 ![](assets/spacer.png)
 
-## Widgets
+### Widgets
 
-### Inserting and removing widgets
+#### Inserting and removing widgets
 
 * The list of available widgets resides at the left of the Dialog Editor in the section **Dialog Elements**.
 * **Widgets** are inserted via drag and drop.
@@ -103,7 +103,7 @@
 
 ![](assets/separator_line.png)
 
-### Configuring widgets
+#### Configuring widgets
 
 * The properties of selected widgets can be edited in the **Property Editor** at the right side of the Dialog Editor.
 * Every widget has at least a unique **Object name**.
@@ -113,12 +113,12 @@
 
 The definition of the dialog can be found in [scriptingEditorExampleDialog.py](assets/scriptingEditorExampleDialog.py)
 
-## Editing already created dialogs
+### Editing already created dialogs
 
 * Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file (`*.gdlg`).
 * Double clicking onto the embedded dialog or the dialog file opens the Dialog Editor again.
 
-# Dialog widgets
+## Dialog widgets
 
 - [Use of the \_\_doc\_\_ string](#use-of-the-__doc__-string)
 - [Control widget](#control-widget)
@@ -150,7 +150,7 @@ The definition of the dialog can be found in [scriptingEditorExampleDialog.py](a
 This section gives an overview of the available widgets. If the code examples given in this section are not intuitive to you, you might want to take a look 
 into [Executing dialogs](#executing-dialogs).
 
-## Use of the \_\_doc\_\_ string
+### Use of the \_\_doc\_\_ string
 
 Information about the widgets can be obtained by accessing their doc string. Let `objName` be the object name of a widget and `DIALOG` the dialog handle 
 (see [Executing dialogs](#executing-dialogs) if this is unclear to you), the `__doc__` string can be obtained as follows:
@@ -159,7 +159,7 @@ Information about the widgets can be obtained by accessing their doc string. Let
 print( DIALOG.objName.__doc__ )
 ```
 
-## Control widget
+### Control widget
 
 💡 The **Control** widget contains the **ok** / **cancel** or similar buttons of the dialog.
 
@@ -173,7 +173,7 @@ print( DIALOG.objName.__doc__ )
 | DIALOG.control.status     | Status icon of the control widget         | <pre>DIALOG.control.status = 'Point 1 missing'</pre> |
 | DIALOG.control.\<button\> | Handle for a button of the control widget | <pre>DIALOG.control.ok.enabled = False</pre>        |
 
-### Control widget elements
+#### Control widget elements
 
 💡 The names of the **Control** widget elements are fixed
 
@@ -184,7 +184,7 @@ print( DIALOG.objName.__doc__ )
 | ---------------------------- |
 | <pre># Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)<br>ControlGroup<br><br>Attributes:<br><br>status (string)              - Status tool tip icon<br>ok     (unspecified/various) - Control widget<br>cancel (unspecified/various) - Control widget</pre> |
 
-### Control button properties
+#### Control button properties
 
 Control buttons only have the following two properties which can be set programmatically:
 
@@ -193,7 +193,7 @@ Control buttons only have the following two properties which can be set programm
 | text     | str  | <pre>DIALOG.control.prev.text = 'Previous'</pre> |
 | enabled  | bool | <pre>DIALOG.control.ok.enabled = False</pre>     |
 
-### Status label
+#### Status label
 
 ⚠️ The **Status label** of the control widget is invisible until a status text is set.
 
@@ -211,9 +211,9 @@ Control buttons only have the following two properties which can be set programm
 
 You can reset the status icon and clear the error message by assigning an empty string (`DIALOG.control.status = ''`).
 
-## Specific widgets
+### Specific widgets
 
-### Description field (label) widget
+#### Description field (label) widget
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
@@ -229,7 +229,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 | word_wrap | bool  | <pre>DIALOG.label.word_wrap = True</pre>                                              |
 
  
-### Continuous text widget
+#### Continuous text widget
 
 | Dialog                      | Description |
 | --------------------------- | ---- |
@@ -265,7 +265,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 | default_font_family | str  | <pre>DIALOG.text.default_font_family = 'Arial Black'</pre> |                      
 | default_font_size   | int  | <pre>DIALOG.textWidget.default_font_size = 12</pre>        |
 
-#### Displaying keywords in a continuous text widget
+##### Displaying keywords in a continuous text widget
 
 A keyword can be inserted into the text with the following procedure:
 
@@ -289,7 +289,7 @@ A keyword can be inserted into the text with the following procedure:
 
     ![](assets/widget_text_insert_expression6.png)
 
-#### Internal representation of a dialog with text widget
+##### Internal representation of a dialog with text widget
 
 The dialog is stored as a JSON document internally.
 
@@ -297,7 +297,7 @@ The dialog is stored as a JSON document internally.
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
 
-### Image widget
+#### Image widget
 
 | Dialog                        | Description                                          |
 | ----------------------------- | ---------------------------------------------------- |
@@ -319,7 +319,7 @@ The dialog is stored as a JSON document internally.
 
 Note that you can switch from a system image to a user image using the property `use_system_image`. But this user image must have been selected beforehand in the designer. You cannot read a new image file by setting the `filename` property. Also, all of the image formatting properties (`keep_original_size`, `keep_aspect`, `width`, `height`) only work in the designer. From the script you can only read these values. Although you cannot read images using the `filename` property you can copy images from one dialog to another using the `data` property. So you are able to prepare (create) a dialog as an image container holding several images. You can then use this image container dialog to copy the image you need to an actually displayed dialog.
 
-#### Internal representation of a dialog with image widget
+##### Internal representation of a dialog with image widget
 
 The dialog is stored as a JSON document internally. The 'data' element contains the image data.
 
@@ -327,7 +327,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | ----------------------------- | ---- |
 | ![](assets/widget_image.png)  | <pre># The 'data' element contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
 
-### Log widget
+#### Log widget
 
 | Dialog                      | Description |
 | --------------------------- | ----------- |
@@ -344,7 +344,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | visible              | bool      | <pre>DIALOG.log.visible = False</pre>                          |
 | monospace            | bool      | <pre># Use monospace font<br>DIALOG.log.monospace = True</pre> |
 
-### Progress bar widget
+#### Progress bar widget
 
 | Dialog                              | Description |
 | ----------------------------------- | ----------- |
@@ -364,7 +364,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | text     | str   | <pre># Set text mode (none, percentage, step)<br>DIALOG.progressbar.text = 'step'</pre> |
 | mode     | str   | <pre># Set mode (system, manual)<br>DIALOG.progressbar.mode = 'manual'</pre>            |
 
-### Element name widget
+#### Element name widget
 
 | Dialog                               | Description |
 | ------------------------------------ | ----------- |
@@ -381,7 +381,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | mode     | str   | <pre># Mode to get the name suggestion from. ('manually', 'from_element_type', 'check_like')<br>DIALOG.inputEleName.mode = 'from_element_type'</pre> |
 | read_only | bool | <pre># Keep user from changing the default<br>DIALOG.inputEleName.read_only = true</pre> |
 
-### Integer widget
+#### Integer widget
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
@@ -397,7 +397,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | minimum  | double | <pre>DIALOG.inputInt.minimum = 20</pre>                                |
 | maximum  | double | <pre>DIALOG.inputInt.maximum = 50</pre>                                |
 
-### Decimal widget
+#### Decimal widget
 
 | Dialog                          | Description |
 | ------------------------------- | ----------- |
@@ -419,7 +419,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 
 [//]: # ( background_style - str - Set style sheet based background color  - red, green, blue )
 
-### Text entry field
+#### Text entry field
 
 | Dialog                             | Description |
 | ---------------------------------- | ----------- |
@@ -435,7 +435,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | read_only | bool  | <pre>if DIALOG.inputString.read_only:</pre>                                |
 | password  | bool  | <pre># Hide user input by replacing each character by a dot<br>DIALOG.inputString.password = True</pre> |
 
-### Slider widget
+#### Slider widget
 
 | Dialog                         | Description |
 | ------------------------------ | ----------- |
@@ -459,7 +459,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 [//]: # ( tick_interval - double - Interval of ticks drawn )
 
 
-### Checkbox widget
+#### Checkbox widget
 
 | Dialog                           | Description |
 | -------------------------------- | ----------- |
@@ -473,7 +473,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | title     | str   | <pre>DIALOG.inputCheckbox.title = 'Mirror option'</pre>                                              |
 | visible   | bool  | <pre>DIALOG.inputCheckbox.visible = False</pre>                                                      |
 
-### File widget
+#### File widget
 
 | Dialog                      | Description                                                                                |
 | --------------------------- | ------------------------------------------------------------------------------------------ |
@@ -497,7 +497,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 
 [//]: # (selection_type - str - File selector type; any, directory, executable, file, multi_file )
 
-### Date widget
+#### Date widget
 
 | Dialog                       | Description |
 | ---------------------------- | ----------- |
@@ -517,7 +517,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | show_today_button | bool      | <pre>DIALOG.inputDate.show_today_button = True</pre>                                                 |
 
 
-### Color widget
+#### Color widget
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
@@ -532,7 +532,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | visible              | bool      | <pre>DIALOG.inputColor.visible = False</pre>                                                         |
 | transparency_allowed | bool      | <pre>DIALOG.inputColor.transparency_allowed = True</pre>                                             |
 
-### Unit widget
+#### Unit widget
 
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
@@ -546,7 +546,7 @@ The dialog is stored as a JSON document internally. The 'data' element contains 
 | focus                | bool      | <pre>DIALOG.inputUnit.focus = True</pre>⚠️ Only works if dialog is open                             |
 | visible              | bool      | <pre>DIALOG.inputUnit.visible = False</pre>                                                          |
 
-### Selection element widget
+#### Selection element widget
 
 | Dialog                                    | Description |
 | ----------------------------------------- | ----------- |
@@ -592,7 +592,7 @@ The complete code of the example is attached to this document.
 
 [//]: # (To Do: attach example)
 
-### Selection list widget
+#### Selection list widget
 
 | Dialog                                 | Description |
 | -------------------------------------- | ----------- |
@@ -608,7 +608,7 @@ The complete code of the example is attached to this document.
 | items    | list of str | <pre>DIALOG.selectEntry.items = ['Debug', 'Info', 'Warn', 'Error', 'Fatal']</pre>                    |
 
 
-### Button widget
+#### Button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
@@ -628,7 +628,7 @@ The complete code of the example is attached to this document.
 
 💡 There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.
 
-### Radio button widget
+#### Radio button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
@@ -644,7 +644,7 @@ The complete code of the example is attached to this document.
 | default  | str            | <pre>DIALOG.radiobuttons.default = 'Value1'</pre>                                                                     |
 
 
-### Abort button widget
+#### Abort button widget
 
 | Dialog    | Description |
 | --------- | ----------- |
@@ -654,7 +654,7 @@ The complete code of the example is attached to this document.
 
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
-### Tolerances widget
+#### Tolerances widget
 
 | Dialog    | Description |
 | --------- | ----------- |
@@ -677,7 +677,7 @@ The complete code of the example is attached to this document.
 | link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
 | unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
 
-### File system browser widget
+#### File system browser widget
 
 | Dialog                         | Description |
 | ------------------------------ | ----------- |
@@ -698,7 +698,7 @@ The complete code of the example is attached to this document.
 | selected           | list                  | <pre>print(DIALOG.filesystemWidget.selected)<br># example output: \['C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 1.g3d', 'C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 2.g3d'\]</pre> |
 | filter             | list                  | <pre># Apply a filter of filename extensions<br>DIALOG.filesystemWidget.filter = \[ '\*.g3d', '\*.stp' \]</pre> |
 
-# Executing dialogs
+## Executing dialogs
 
 - [Dialog commands](#dialog-commands)
     - [Break dialog (`execute`)](#break-dialog-execute)
@@ -713,9 +713,9 @@ The complete code of the example is attached to this document.
     - [Using a timer to activate the event handler](#using-a-timer-to-activate-the-event-handler)
 - [Determining the existing widget attributes](#determining-the-existing-widget-attributes)
 
-## Dialog commands
+### Dialog commands
 
-### Break dialog (`execute`)
+#### Break dialog (`execute`)
 
 ![](assets/dialog1_break.png)
 
@@ -728,7 +728,7 @@ The complete code of the example is attached to this document.
 | ------------------------ | ----------- |
 | ![](assets/dialog1.png)  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": \[<br>        \[<br>            {<br>                "columns": 1,<br>                "name": "label",<br>                "rows": 1,<br>                "text": {<br>                    "id": "",<br>                    "text": "Distance",<br>                    "translatable": True<br>                },<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "label",<br>                "word_wrap": False<br>            },<br>            {<br>                "background_style": "",<br>                "columns": 1,<br>                "maximum": 1000,<br>                "minimum": 0,<br>                "name": "inputDistance",<br>                "precision": 2,<br>                "rows": 1,<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "input::number",<br>                "unit": "",<br>                "value": 0<br>            }<br>        \]<br>    \],<br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 112,<br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Distance",<br>        "translatable": True<br>    }<br>})<br></pre> |
 
-### Extendable break dialog (`create` and `show`)
+#### Extendable break dialog (`create` and `show`)
 
 ![](assets/dialog2_extendable_break.png)
 
@@ -739,7 +739,7 @@ The complete code of the example is attached to this document.
 | ---------------------------------------------------------- |
 | <pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre> |
 
-### Info dialog (`create`, `open` and `close`)
+#### Info dialog (`create`, `open` and `close`)
 
 ![](assets/dialog3_info.png)
 
@@ -755,7 +755,7 @@ The complete code of the example is attached to this document.
 | --------------------------------- |
 | <pre># Create dialog but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Show dialog. The script execution continues.<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br>#<br># The dialog content can be modified here, the dialog is still open<br>#<br>DIALOG.title = 'Stufe 2'<br><br># Close dialog again<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre> |
 
-## Dialog results
+### Dialog results
 
 💡 The return value is an object with one property per interactive dialog widget containing its current value.
 
@@ -770,7 +770,7 @@ The complete code of the example is attached to this document.
 
 💡 The type of the result depends on the specific widget.
 
-### Custom results
+#### Custom results
 
 You can return custom results from dialogs using an optional parameter to the `close_user_defined_dialog`-function. The following example produces 'Yes' 
 and 'No' results for the different buttons and 'Cheater' when the user uses the close button of the dialog.
@@ -799,7 +799,7 @@ print('RESULT', RESULT)
 
 Please find the complete example here: [dialog_yes_no.py](assets/dialog_yes_no.py)
 
-## Configuring dialog widgets
+### Configuring dialog widgets
 
 * Dialogs created with the `create` and `open` commands can be modified before executed.
 * Each widget in the dialog can be accessed via the dialog handle.
@@ -823,9 +823,9 @@ For the type of the value property for a specific widget, see section [Specific 
 | --------------------------- |
 | <pre># Create dialog but do not execute it yet<br>DIALOG=gom.script.sys.create_dialog (content='...')<br><br># Set name to 'default name' and disable 'ok' button<br>DIALOG.name.value = "default name"<br>DIALOG.control.ok.enabled = False<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
-## Event handler functions
+### Event handler functions
 
-### Registering event handlers
+#### Registering event handlers
 
 * A function can be registered to the dialog called on value changed.
 * Every time the user modified a dialog value, the **handler** function is called.
@@ -853,7 +853,7 @@ operators to compare the widget parameter:
 | ------------------------ |
 | <pre>def handler_function (widget):<br>    ...<br>    # compare widget using "==", using "is" will not work!<br>    if widget == DIALOG.textInput:<br>        if DIALOG.textInput.value == "":<br>            DIALOG.control.ok.enabled = False<br>        else:<br>           DIALOG.control.ok.enabled = True</pre> |
 
-### Closing dialogs from within the event handler
+#### Closing dialogs from within the event handler
 
 💡 Dialogs can be closed from within event handlers.
 
@@ -865,7 +865,7 @@ operators to compare the widget parameter:
 
 This implies, that the event handler function must be written in a way that no dialog dependent code is executed after the dialog has been closed.
 
-### Using a timer to activate the event handler
+#### Using a timer to activate the event handler
 
 Each `DIALOG` has a special property named `DIALOG.timer`. This timer property can be used to trigger the event handler registered to `DIALOG` in 
 certain time intervals. When the event handler is triggered by the timer, the string `timer` is passed to it. The `__doc__`-string of the timer gives information 
@@ -891,7 +891,7 @@ Example:
 
 The complete code of the example can be found here: [timer.py](assets/timer.py). 
 
-## Determining the existing widget attributes
+### Determining the existing widget attributes
 
 * Because Python is a very dynamic language, the type of a variable or attribute can not be determined statically.
 * Instead, it is possible to query the variable dynamically during runtime.
@@ -904,7 +904,7 @@ The complete code of the example can be found here: [timer.py](assets/timer.py).
 | <pre>#<br># Query \_\_doc\_\_ attribute of a button widget<br>#<br>print (DIALOG.my_button.\_\_doc\_\_)<br># output:<br># Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type ('push', 'toggle')<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre> |
 
 
-# Wizards
+## Wizards
 
 - [Control widgets](#control-widgets)
 
@@ -916,7 +916,7 @@ The complete code of the example can be found here: [timer.py](assets/timer.py).
 
 Therefore Wizards only have simple options like exchange of images and texts in those containing elements.
 
-## Control widgets
+### Control widgets
 
 The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:
 
@@ -925,4 +925,3 @@ The operational elements in a control widget from a wizard do act like those in 
 | ![](assets/wizard.png) | <pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the 'prev' button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard 'page'<br>        <br>        #<br>        # Handle clicks onto the 'next' button<br>        #<br>        print("Prev button was clicked.")<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard 'page'<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print("Next button was clicked.")<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
 
 [Creating wizard dialogs](creating_wizard_dialogs.md) shows some ways to manage wizard dialogs in greater detail. 
-
