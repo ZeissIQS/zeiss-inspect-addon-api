@@ -18,7 +18,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using script resources" href="using_script_resources.html" />
+    <link rel="prev" title="Python API introduction" href="python_api_introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,9 +43,91 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="python_api_introduction.html">Python API introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_dialogs_introduction.html">Using script dialogs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#creating-dialogs">Creating dialogs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-designer">Dialog designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-layout">Dialog layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editing-the-grid">Editing the grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spacers">Spacers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#widgets">Widgets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-and-removing-widgets">Inserting and removing widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-widgets">Configuring widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-already-created-dialogs">Editing already created dialogs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#dialog-widgets">Dialog widgets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-of-the-doc-string">Use of the __doc__ string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-widget">Control widget</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#control-widget-elements">Control widget elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-button-properties">Control button properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-label">Status label</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#specific-widgets">Specific widgets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description-field-label-widget">Description field (label) widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-text-widget">Continuous text widget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#displaying-keywords-in-a-continuous-text-widget">Displaying keywords in a continuous text widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-representation-of-a-dialog-with-text-widget">Internal representation of a dialog with text widget</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#image-widget">Image widget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#internal-representation-of-a-dialog-with-image-widget">Internal representation of a dialog with image widget</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#log-widget">Log widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#progress-bar-widget">Progress bar widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#element-name-widget">Element name widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integer-widget">Integer widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decimal-widget">Decimal widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-entry-field">Text entry field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slider-widget">Slider widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkbox-widget">Checkbox widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-widget">File widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date-widget">Date widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-widget">Color widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unit-widget">Unit widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-element-widget">Selection element widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-list-widget">Selection list widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#button-widget">Button widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radio-button-widget">Radio button widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abort-button-widget">Abort button widget</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tolerances-widget">Tolerances widget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#file-system-browser-widget">File system browser widget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#executing-dialogs">Executing dialogs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-commands">Dialog commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#break-dialog-execute">Break dialog (<code class="docutils literal notranslate"><span class="pre">execute</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extendable-break-dialog-create-and-show">Extendable break dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">show</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#info-dialog-create-open-and-close">Info dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">open</span></code> and <code class="docutils literal notranslate"><span class="pre">close</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-results">Dialog results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#custom-results">Custom results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-handler-functions">Event handler functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#registering-event-handlers">Registering event handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closing-dialogs-from-within-the-event-handler">Closing dialogs from within the event handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-timer-to-activate-the-event-handler">Using a timer to activate the event handler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#determining-the-existing-widget-attributes">Determining the existing widget attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#wizards">Wizards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#control-widgets">Control widgets</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
@@ -2083,7 +2167,10 @@ about its attributes:</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_api_introduction.html" class="btn btn-neutral float-left" title="Python API introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="using_script_resources.html" class="btn btn-neutral float-right" title="Using script resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
