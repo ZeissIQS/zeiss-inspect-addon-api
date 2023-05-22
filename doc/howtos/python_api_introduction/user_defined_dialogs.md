@@ -34,13 +34,51 @@
 
     The base filename of a dialog file is `dialog.gdlg`, it can be renamed later. A dialog is stored as a JSON document internally.
 
+    <!--
     | Example: Script with separate dialog file |
     | ----------------------------------------- |
     | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
-    
+    -->
+
+    ```{code-block} python
+    :caption: Example: Script with separate dialog file
+    RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')
+    ```
+
+    <!--
     | Example: Script with embedded dialog |
     | ------------------------------------ |
     | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
+    -->
+    
+    ```{code-block} python
+    :caption: Example: Script with embedded dialog
+    RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
+        "content": [
+            [
+                {
+                    ...
+                }
+            ]
+        ],    
+        "control": {
+            "id": "OkCancel"
+        },
+        "embedding": "always_toplevel",
+        "position": "automatic",
+        "size": {
+            "height": 155,    
+            "width": 198
+        },
+        "sizemode": "automatic",
+        "style": "",
+        "title": {
+            "id": "",
+            "text": "Message",
+            "translatable":     True
+        }
+    })
+    ```
 
 * The options for the dialog **Type** are
     * **Break dialog (script is blocked)** - default
