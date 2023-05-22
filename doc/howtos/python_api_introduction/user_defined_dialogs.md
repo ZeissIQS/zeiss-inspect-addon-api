@@ -346,7 +346,7 @@ The dialog is stored as a JSON document internally.
 ![](assets/text_field.png)
 
 ```{code-block} python
-:caption: Example: Internal representation of a dialog
+:caption: Internal representation of a dialog
 
 gom.script.sys.execute_user_defined_dialog (dialog={
 	"content": \[
@@ -407,7 +407,7 @@ Note that you can switch from a system image to a user image using the property 
 The dialog is stored as a JSON document internally. The 'data' element contains the image data.
 
 ```{code-block} python
-:caption: Example: Internal representation of an image
+:caption: Internal representation of an image
 
 # The 'data' element contains the image data (shortened version here)
 RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
@@ -474,9 +474,102 @@ Log widget
 
 #### Progress bar widget
 
+![](assets/widget_progressbar.png)
+
+Progress bar widget
+:The Progress bar widget can be used in the two modes _system_ and _manual_.
+
+Manual mode
+: In this mode, the user may set the progress bar through its `value` variable.
+
+    ```{code-block} python
+    import gom, time
+    DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+    DIALOG.progress.minimum = 0
+    DIALOG.progress.maximum = 100
+    gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
+    DIALOG.progress.value = 0
+    time.sleep(1)
+    DIALOG.progress.value = 33
+    time.sleep(1)
+    DIALOG.progress.value = 66
+    time.sleep(1)
+    DIALOG.progress.value = 100
+    gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+    ```
+
+Automatic mode
+: In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.
+
+    ```{code-block} python
+    import gom
+    DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+    gom.script.sys.open_user_defined_dialog (dialog=DIALOG)
+    gom.script.sys.create_project ()
+    gom.script.sys.import_project (file='some project')
+    gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+    ```
+
+You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:
+
+```python
+# manual mode:
+DIALOG.progress.mode = "manual"
+
+# automatic mode:
+DIALOG.progress.mode = "system"
+```
+
+Partially controlled system progress bar
+: The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.
+  * The progress bar range can be split into multiple parts.
+  * Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.
+  * When a command is executed, the command controls just the one active part of the progress bar widget.
+
+  
+
+    ``` python
+    # -*- coding: utf-8 -*-
+
+    import gom
+
+    # Create a user defined dialog with a progress bar, mode 'system'
+    DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+    gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
+
+    # Split progress bar into 3 parts
+    DIALOG.progress.parts = 3
+
+    # Current part is the first interval (part '0', because we are counting from '0')
+    DIALOG.progress.step = 0
+
+    # Execute load command. The command will control the first progress bar range from 0% to 33%.
+    # That means when the command has been finished, the progress bar will display '33%'.
+    gom.script.sys.load_project (file='some project')
+
+    # Current part is the second interval. The progress bar runs from 33% to 66%
+    DIALOG.progress.step = 1
+
+    gom.script.sys.switch_to_report_workspace ()
+    gom.script.report.update_report_page (
+    pages=gom.app.project.reports,
+    switch_alignment=True,
+    switch_stage=False)
+
+    # Current part is the third interval. The progress bar runs from 66% to 100%
+    DIALOG.progress.step = 2
+
+    gom.script.sys.switch_to_inspection_workspace ()
+    gom.script.sys.recalculate_all_elements ()
+    ```
+
+💡 It is possible to switch  between automatic and manual mode for each part.
+
+<!--
 | Dialog                              | Description |
 | ----------------------------------- | ----------- |
 | ![](assets/widget_progressbar.png)  | The **Progress bar** widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
+-->
 
 | Property | Type  | Example                                                                                 |
 | -------- | ----- | --------------------------------------------------------------------------------------- |
