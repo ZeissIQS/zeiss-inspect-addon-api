@@ -46,12 +46,6 @@
     RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')
     ```
 
-    <!--
-    | Example: Script with embedded dialog |
-    | ------------------------------------ |
-    | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
-    -->
-
     ```{code-block} python
     :caption: Example: Script with embedded dialog
 
@@ -194,7 +188,7 @@ into [Executing dialogs](#executing-dialogs).
 Information about the widgets can be obtained by accessing their doc string. Let `objName` be the object name of a widget and `DIALOG` the dialog handle 
 (see [Executing dialogs](#executing-dialogs) if this is unclear to you), the `__doc__` string can be obtained as follows:
 
-```
+```python
 print( DIALOG.objName.__doc__ )
 ```
 
@@ -218,12 +212,6 @@ print( DIALOG.objName.__doc__ )
 
 * Usually, the names are corresponding with the elements' semantics. For example, the name of the **ok** button is 'ok'. The names can also be obtained from the `__doc__` string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
-
-<!-->
-| Accessing the control widget |
-| ---------------------------- |
-| <pre># Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)<br>ControlGroup<br><br>Attributes:<br><br>status (string)              - Status tool tip icon<br>ok     (unspecified/various) - Control widget<br>cancel (unspecified/various) - Control widget</pre> |
--->
 
 ```{code-block} python
 :caption: Accessing the control widget
@@ -275,14 +263,10 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 #### Description field (label) widget
 
-<!--
-| Dialog                        | Description |
-| ----------------------------- | ----------- |
-| ![](assets/widget_label.png)  | The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
--->
+![](assets/widget_label.png)
 
 Description field (label) widget
-: The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.
+: The Description field (label) widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.
 
 | Property  | Type  | Example                                                                               |
 | --------- | ----- | ------------------------------------------------------------------------------------- |
@@ -298,14 +282,8 @@ Description field (label) widget
 
 ![](assets/text_field.png)
 
-<!--
-| Dialog                      | Description |
-| --------------------------- | ---- |
-| ![](assets/text_field.png)  | The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
--->
-
 Continuous text widget
-: The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.
+: The Continuous text widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.
 
 | Editor                     | Dialog                      |
 | -------------------------- | --------------------------- |
@@ -365,10 +343,6 @@ A keyword can be inserted into the text with the following procedure:
 
 The dialog is stored as a JSON document internally.
 
-| Dialog                      | Code |
-| --------------------------- | ---- |
-| ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
-
 ![](assets/text_field.png)
 
 ```{code-block} python
@@ -409,7 +383,7 @@ gom.script.sys.execute_user_defined_dialog (dialog={
 ![](assets/widget_image.png)
 
 Image widget
-: The **Image** widget allows to display arbitrary images.
+: The Image widget allows to display arbitrary images.
 
 
 | Property           | Type      | Example                                                      |
@@ -432,11 +406,65 @@ Note that you can switch from a system image to a user image using the property 
 
 The dialog is stored as a JSON document internally. The 'data' element contains the image data.
 
+<!--
 | Dialog                        | Code |
 | ----------------------------- | ---- |
 | ![](assets/widget_image.png)  | <pre># The 'data' element contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
+-->
+
+![](assets/widget_image.png)
+
+```{code-block} python
+:caption: Example: Internal representation of an image
+
+# The 'data' element contains the image data (shortened version here)
+RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
+    "content": [
+        [
+            {
+                "columns": 1,
+                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",
+                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",
+                "height": 144,
+                "keep_aspect": True,
+                "keep_original_size": False,
+                "name": "image",
+                "rows": 1,
+                "system_image": "system_message_information",
+                "tooltip": {
+                    "id": "",
+                    "text": "",
+                    "translatable": True
+                },
+                "type": "image",
+                "use_system_image": False,
+                "width": 256
+            }
+        ]
+    ],
+    "control": {
+        "id": "Close"
+    },
+    "embedding": "always_toplevel",
+    "position": "automatic",
+    "size": {
+        "height": 233,
+        "width": 292
+    },
+    "sizemode": "automatic",
+    "style": "",
+    "title": {
+        "id": "",
+        "text": "Dialog with image",
+        "translatable": True
+    }
+})
+```
+
 
 #### Log widget
+
+
 
 | Dialog                      | Description |
 | --------------------------- | ----------- |
