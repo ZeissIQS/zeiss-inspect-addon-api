@@ -437,6 +437,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <strong>ok</strong> button is ‘ok’. The names can also be obtained from the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> string as shown in the code example below.</p></li>
 <li><p>The control elements are accessed like all other widget attributes.</p></li>
 </ul>
+<!-->
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Accessing the control widget</p></th>
@@ -445,8 +446,23 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <tbody>
 <tr class="row-even"><td><p><pre># Print control widget properties<br>print (DIALOG.control.__doc__)<br>ControlGroup<br><br>Attributes:<br><br>status (string)              - Status tool tip icon<br>ok     (unspecified/various) - Control widget<br>cancel (unspecified/various) - Control widget</pre></p></td>
 </tr>
+<tr class="row-odd"><td><p>–&gt;</p></td>
+</tr>
 </tbody>
 </table>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Accessing the control widget</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print control widget properties&lt;br&gt;print (DIALOG.control.\_\_doc\_\_)</span>
+<span class="n">ControlGroup</span>
+
+<span class="n">Attributes</span><span class="p">:</span>
+
+<span class="n">status</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>              <span class="o">-</span> <span class="n">Status</span> <span class="n">tool</span> <span class="n">tip</span> <span class="n">icon</span>
+<span class="n">ok</span>     <span class="p">(</span><span class="n">unspecified</span><span class="o">/</span><span class="n">various</span><span class="p">)</span> <span class="o">-</span> <span class="n">Control</span> <span class="n">widget</span>
+<span class="n">cancel</span> <span class="p">(</span><span class="n">unspecified</span><span class="o">/</span><span class="n">various</span><span class="p">)</span> <span class="o">-</span> <span class="n">Control</span> <span class="n">widget</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="control-button-properties">
 <h4>Control button properties<a class="headerlink" href="#control-button-properties" title="Permalink to this heading"></a></h4>
@@ -478,13 +494,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>The status label can be configured using its properties like all other widgets.</p></li>
 </ul>
 <p><img alt="" src="../../_images/control_widget_status_label.png" /></p>
-<!---
-| Dialog                                      | Code |
-| ------------------------------------------- | ---- |
-| ![](assets/control_widget_status_label.png) <img src="assets/control_widget_status_label.png" width="300px"> | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
--->
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Status label</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Using the Status label</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
 
 <span class="c1"># Set status label text</span>
@@ -502,6 +513,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h3>Specific widgets<a class="headerlink" href="#specific-widgets" title="Permalink to this heading"></a></h3>
 <section id="description-field-label-widget">
 <h4>Description field (label) widget<a class="headerlink" href="#description-field-label-widget" title="Permalink to this heading"></a></h4>
+<!-->
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Dialog</p></th>
@@ -512,8 +524,13 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <tr class="row-even"><td><p><img alt="" src="../../_images/widget_label.png" /></p></td>
 <td><p>The <strong>Description field (label)</strong> widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p></td>
 </tr>
+<tr class="row-odd"><td><p>–&gt;</p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
+<p>Description field (label) widget
+: The <strong>Description field (label)</strong> widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
@@ -551,6 +568,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 <section id="continuous-text-widget">
 <h4>Continuous text widget<a class="headerlink" href="#continuous-text-widget" title="Permalink to this heading"></a></h4>
+<p><img alt="" src="../../_images/text_field.png" /></p>
+<!-->
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Dialog</p></th>
@@ -561,8 +580,13 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <tr class="row-even"><td><p><img alt="" src="../../_images/text_field.png" /></p></td>
 <td><p>The <strong>Continuous text</strong> widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p></td>
 </tr>
+<tr class="row-odd"><td><p>–&gt;</p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
+<p>Continuous text widget
+: The <strong>Continuous text</strong> widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Editor</p></th>
