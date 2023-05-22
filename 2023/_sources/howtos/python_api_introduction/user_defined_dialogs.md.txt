@@ -1316,6 +1316,7 @@ For the type of the value property for a specific widget, see section [Specific 
 
 ```{code-block} python
 :caption: Accessing widget attributes
+
 # Create dialog but do not execute it yet
 DIALOG=gom.script.sys.create_dialog (content='...')
 
@@ -1325,6 +1326,7 @@ DIALOG.control.ok.enabled = False
 
 # Execute dialog
 RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+```
 
 ### Event handler functions
 

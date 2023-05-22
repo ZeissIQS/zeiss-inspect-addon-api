@@ -107,7 +107,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#custom-results">Custom results</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-handler-functions">Event handler functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#registering-event-handlers">Registering event handlers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#closing-dialogs-from-within-the-event-handler">Closing dialogs from within the event handler</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-timer-to-activate-the-event-handler">Using a timer to activate the event handler</a></li>
 </ul>
@@ -1937,9 +1939,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 </li>
 <li><p><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a></p></li>
-<li><p><a class="reference internal" href="#event-handler-functions"><span class="xref myst">Event handler functions</span></a></p>
+<li><p><a class="reference internal" href="#event-handler-functions">Event handler functions</a></p>
 <ul>
-<li><p><a class="reference internal" href="#registering-event-handlers"><span class="xref myst">Registering event handlers</span></a></p></li>
+<li><p><a class="reference internal" href="#registering-event-handlers">Registering event handlers</a></p></li>
 <li><p><a class="reference internal" href="#closing-dialogs-from-within-the-event-handler">Closing dialogs from within the event handler</a></p></li>
 <li><p><a class="reference internal" href="#using-a-timer-to-activate-the-event-handler">Using a timer to activate the event handler</a></p></li>
 </ul>
@@ -2199,52 +2201,55 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <p>For the type of the value property for a specific widget, see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above. For widgets which are not used to enter some value, <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and read-only. In addition, widgets have further attributes depending on their type (see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above for details).</p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Accessing widget attributes</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Create dialog but do not execute it yet
-DIALOG=gom.script.sys.create_dialog (content=&#39;...&#39;)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog but do not execute it yet</span>
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
-# Set name to &#39;default name&#39; and disable &#39;ok&#39; button
-DIALOG.name.value = &quot;default name&quot;
-DIALOG.control.ok.enabled = False
+<span class="c1"># Set name to &#39;default name&#39; and disable &#39;ok&#39; button</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
 
-# Execute dialog
-RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+<span class="c1"># Execute dialog</span>
+<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="event-handler-functions">
+<h3>Event handler functions<a class="headerlink" href="#event-handler-functions" title="Permalink to this heading"></a></h3>
+<section id="registering-event-handlers">
+<h4>Registering event handlers<a class="headerlink" href="#registering-event-handlers" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>A function can be registered to the dialog called on value changed.</p></li>
+<li><p>Every time the user modified a dialog value, the <strong>handler</strong> function is called.</p></li>
+<li><p>The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string <code class="docutils literal notranslate"><span class="pre">'system'</span></code> passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.</p></li>
+<li><p>The handler function can access dialog widget properties.</p></li>
+<li><p>The handler function is registered using the special attribute <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
+<li><p>The <strong>prev</strong> and <strong>next</strong> buttons of a wizard dialog are the only control widgets, which trigger the event handler.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Dialog handler functions</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
 
-### Event handler functions
+<span class="c1"># Handler function registered to the dialog</span>
+<span class="k">def</span> <span class="nf">handler_function</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="c1"># Print information about the modified widget</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Modified:&quot;</span><span class="p">,</span> <span class="nb">str</span> <span class="p">(</span><span class="n">widget</span><span class="p">))</span>
+    <span class="c1"># If the &#39;name&#39; widget is empty, the &#39;ok&#39; button is disabled.</span>
+    <span class="k">if</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
 
-#### Registering event handlers
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It is a global event.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;initialize&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dialog is displayed for the first time.&quot;</span><span class="p">)</span>
 
-* A function can be registered to the dialog called on value changed.
-* Every time the user modified a dialog value, the **handler** function is called.
-* The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string `&#39;system&#39;` passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.
-* The handler function can access dialog widget properties.
-* The handler function is registered using the special attribute `handler`.
-* The **prev** and **next** buttons of a wizard dialog are the only control widgets, which trigger the event handler.
+<span class="c1"># Register dialog handler</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler_function</span>
 
-```{code-block} python
-:caption: Dialog handler functions
-
-DIALOG=gom.script.sys.create_user_defined_dialog (content=&#39;dialog definition&#39;)
-
-# Handler function registered to the dialog
-def handler_function (widget):
-    # Print information about the modified widget
-    print (&quot;Modified:&quot;, str (widget))
-    # If the &#39;name&#39; widget is empty, the &#39;ok&#39; button is disabled.
-    if DIALOG.name.value == &quot;&quot;:
-        DIALOG.control.ok.enabled = False
-    else:
-        DIALOG.control.ok.enabled = True
-
-    if str(widget) == &#39;system&#39;:
-        print(&quot;It is a global event.&quot;)
-    elif str(widget) == &#39;initialize&#39;:
-        print(&quot;Dialog is displayed for the first time.&quot;)
-
-# Register dialog handler
-DIALOG.handler = handler_function
-
-# Execute dialog
-RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+<span class="c1"># Execute dialog</span>
+<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2269,8 +2274,8 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 </table>
 <p>If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator on these objects. Always use <code class="docutils literal notranslate"><span class="pre">==</span></code> and similar
 operators to compare the widget parameter:</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Compare widget parameter</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Compare widget parameter</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handler_function</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="c1"># compare widget using &quot;==&quot;, using &quot;is&quot; will not work!</span>
@@ -2282,12 +2287,13 @@ operators to compare the widget parameter:</p>
 </pre></div>
 </div>
 </div>
+</section>
 <section id="closing-dialogs-from-within-the-event-handler">
 <h4>Closing dialogs from within the event handler<a class="headerlink" href="#closing-dialogs-from-within-the-event-handler" title="Permalink to this heading"></a></h4>
 <p>💡 Dialogs can be closed from within event handlers.</p>
 <p><img alt="" src="../../_images/event_handler_script_launcher.png" /></p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Button event handler</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Button event handler</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">button1</span><span class="p">:</span>
         <span class="n">execute_func_1</span> <span class="p">()</span>
@@ -2321,8 +2327,8 @@ about its attributes:</p>
 <p>💡 Please note that the timer is disabled by default.</p>
 <p>Example:</p>
 <p><img alt="" src="../../_images/event_handler_timer_edit.png" /></p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Button/Timer event handler</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Button/Timer event handler</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;boring dialog definition&#39;</span><span class="p">)</span>
 
 <span class="c1">#</span>
@@ -2372,8 +2378,8 @@ about its attributes:</p>
 <li><p>The more commonly used widget attributes are documented in the section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above.</p></li>
 </ul>
 <p>💡 Most objects support the attribute <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> which prints the available object documentation to the console.</p>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Print object documentation</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Print object documentation</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># Query \_\_doc\_\_ attribute of a button widget</span>
 <span class="c1">#</span>
@@ -2417,8 +2423,8 @@ about its attributes:</p>
 <h3>Control widgets<a class="headerlink" href="#control-widgets" title="Permalink to this heading"></a></h3>
 <p>The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:</p>
 <p><img alt="" src="../../_images/wizard.png" /></p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Wizard example</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Wizard example</span><a class="headerlink" href="#id12" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># Create dialog with wizard control panel</span>
 <span class="c1">#</span>
