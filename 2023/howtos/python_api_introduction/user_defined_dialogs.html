@@ -616,8 +616,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Internal representation of a dialog</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
-	<span class="s2">&quot;content&quot;</span><span class="p">:</span> \<span class="p">[</span>
-		\<span class="p">[</span>
+	<span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">[</span>
 			<span class="p">{</span>
                 <span class="o">...</span>
 			<span class="p">},</span>
@@ -636,8 +636,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 				<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;display::text&quot;</span><span class="p">,</span>
 				<span class="s2">&quot;wordwrap&quot;</span><span class="p">:</span> <span class="kc">False</span>
 			<span class="p">}</span>
-		\<span class="p">]</span>
-	\<span class="p">],</span>
+		<span class="p">]</span>
+	<span class="p">],</span>
 	<span class="s2">&quot;control&quot;</span><span class="p">:</span> <span class="p">{</span>
 		<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Close&quot;</span>
 	<span class="p">},</span>
@@ -1961,8 +1961,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <p><img alt="" src="../../_images/dialog1.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
-    <span class="s2">&quot;content&quot;</span><span class="p">:</span> \<span class="p">[</span>
-        \<span class="p">[</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
             <span class="p">{</span>
                 <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span>
@@ -1997,8 +1997,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
                 <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span>
             <span class="p">}</span>
-        \<span class="p">]</span>
-    \<span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">],</span>
     <span class="s2">&quot;control&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;OkCancel&quot;</span>
     <span class="p">},</span>
@@ -2025,7 +2025,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <p><img alt="" src="../../_images/dialog2_extendable_break.png" /></p>
 <ul class="simple">
 <li><p>A dialog is created and executed by subsequent commands.</p></li>
-<li><p>This way, the created dialog can be modified by the script right before executing.</p></li>
+<li><p>This way, the created dialog can be modified by the script right before execution.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Creating and executing a dialog with two separate commands</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
@@ -2277,7 +2277,7 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <p>If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator on these objects. Always use <code class="docutils literal notranslate"><span class="pre">==</span></code> and similar
 operators to compare the widget parameter:</p>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Compare widget parameter</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Comparing widget parameters</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handler_function</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="c1"># compare widget using &quot;==&quot;, using &quot;is&quot; will not work!</span>

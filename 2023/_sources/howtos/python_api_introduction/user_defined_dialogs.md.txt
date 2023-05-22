@@ -349,8 +349,8 @@ The dialog is stored as a JSON document internally.
 :caption: Internal representation of a dialog
 
 gom.script.sys.execute_user_defined_dialog (dialog={
-	"content": \[
-		\[
+	"content": [
+		[
 			{
                 ...
 			},
@@ -369,8 +369,8 @@ gom.script.sys.execute_user_defined_dialog (dialog={
 				"type": "display::text",
 				"wordwrap": False
 			}
-		\]
-	\],
+		]
+	],
 	"control": {
 		"id": "Close"
 	},
@@ -1091,8 +1091,8 @@ File system browser widget
 
 ``` python
 RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
-    "content": \[
-        \[
+    "content": [
+        [
             {
                 "columns": 1,
                 "name": "label",
@@ -1127,8 +1127,8 @@ RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
                 "unit": "",
                 "value": 0
             }
-        \]
-    \],
+        ]
+    ],
     "control": {
         "id": "OkCancel"
     },
@@ -1154,7 +1154,7 @@ RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
 ![](assets/dialog2_extendable_break.png)
 
 * A dialog is created and executed by subsequent commands.
-* This way, the created dialog can be modified by the script right before executing.
+* This way, the created dialog can be modified by the script right before execution.
 
 ```{code-block} python
 :caption: Creating and executing a dialog with two separate commands
@@ -1378,7 +1378,7 @@ If the widget parameter is not a string, it represents a widget object. Note, th
 operators to compare the widget parameter:
 
 ```{code-block} python
-:caption: Compare widget parameter
+:caption: Comparing widget parameters
 
 def handler_function (widget):
     ...
