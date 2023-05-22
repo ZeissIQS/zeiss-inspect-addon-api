@@ -216,7 +216,7 @@ print( DIALOG.objName.__doc__ )
 ```{code-block} python
 :caption: Accessing the control widget
 
-# Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)
+# Print control widget properties<br>print (DIALOG.control.__doc__)
 ControlGroup
 
 Attributes:
@@ -406,14 +406,6 @@ Note that you can switch from a system image to a user image using the property 
 
 The dialog is stored as a JSON document internally. The 'data' element contains the image data.
 
-<!--
-| Dialog                        | Code |
-| ----------------------------- | ---- |
-| ![](assets/widget_image.png)  | <pre># The 'data' element contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
--->
-
-![](assets/widget_image.png)
-
 ```{code-block} python
 :caption: Example: Internal representation of an image
 
@@ -461,14 +453,13 @@ RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
 })
 ```
 
-
 #### Log widget
 
+![](assets/widget_log.png)
 
+Log widget
+: The Log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.
 
-| Dialog                      | Description |
-| --------------------------- | ----------- |
-| ![](assets/widget_log.png)  | The **Log** widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button. |
 
 | Property             | Type      | Example                                                        |
 | -------------------- | --------- | -------------------------------------------------------------- |
