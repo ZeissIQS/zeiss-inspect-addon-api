@@ -528,48 +528,42 @@ Partially controlled system progress bar
 
   
 
-    ``` python
-    # -*- coding: utf-8 -*-
+  ``` python
+  # -*- coding: utf-8 -*-
 
-    import gom
+  import gom
 
-    # Create a user defined dialog with a progress bar, mode 'system'
-    DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
-    gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
+  # Create a user defined dialog with a progress bar, mode 'system'
+  DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+  gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
 
-    # Split progress bar into 3 parts
-    DIALOG.progress.parts = 3
+  # Split progress bar into 3 parts
+  DIALOG.progress.parts = 3
 
-    # Current part is the first interval (part '0', because we are counting from '0')
-    DIALOG.progress.step = 0
+  # Current part is the first interval (part '0', because we are counting from '0')
+  DIALOG.progress.step = 0
 
-    # Execute load command. The command will control the first progress bar range from 0% to 33%.
-    # That means when the command has been finished, the progress bar will display '33%'.
-    gom.script.sys.load_project (file='some project')
+  # Execute load command. The command will control the first progress bar range from 0% to 33%.
+  # That means when the command has been finished, the progress bar will display '33%'.
+  gom.script.sys.load_project (file='some project')
 
-    # Current part is the second interval. The progress bar runs from 33% to 66%
-    DIALOG.progress.step = 1
+  # Current part is the second interval. The progress bar runs from 33% to 66%
+  DIALOG.progress.step = 1
 
-    gom.script.sys.switch_to_report_workspace ()
-    gom.script.report.update_report_page (
-    pages=gom.app.project.reports,
-    switch_alignment=True,
-    switch_stage=False)
+  gom.script.sys.switch_to_report_workspace ()
+  gom.script.report.update_report_page (
+  pages=gom.app.project.reports,
+  switch_alignment=True,
+  switch_stage=False)
 
-    # Current part is the third interval. The progress bar runs from 66% to 100%
-    DIALOG.progress.step = 2
+  # Current part is the third interval. The progress bar runs from 66% to 100%
+  DIALOG.progress.step = 2
 
-    gom.script.sys.switch_to_inspection_workspace ()
-    gom.script.sys.recalculate_all_elements ()
-    ```
+  gom.script.sys.switch_to_inspection_workspace ()
+  gom.script.sys.recalculate_all_elements ()
+  ```
 
 💡 It is possible to switch  between automatic and manual mode for each part.
-
-<!--
-| Dialog                              | Description |
-| ----------------------------------- | ----------- |
-| ![](assets/widget_progressbar.png)  | The **Progress bar** widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
--->
 
 | Property | Type  | Example                                                                                 |
 | -------- | ----- | --------------------------------------------------------------------------------------- |
@@ -587,9 +581,33 @@ Partially controlled system progress bar
 
 #### Element name widget
 
-| Dialog                               | Description |
-| ------------------------------------ | ----------- |
-| ![](assets/widget_element_name.png)  | The **Element name** widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1' already exists), or to enter an arbitrary name. 'elementnameWidget is the object name of the element name widget in the example below.<pre># Let the user define 3 new points (the coordinates are created automatically in this example)<br>for i in range(3):<br>    DIALOG=gom.script.sys.create_user_defined_dialog (dialog='dialog definition')<br>    <br>    #<br>    # Event handler function called if anything happens inside of the dialog<br>    #<br>    def dialog_event_handler (widget):<br>        pass<br>    <br>    DIALOG.handler = dialog_event_handler<br>    <br>    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>    <br>    print (RESULT.elementnameWidget)<br>    <br>    MCAD_ELEMENT=gom.script.primitive.create_point (<br>        name=RESULT.elementnameWidget,<br>        point={'point': gom.Vec3d (i+10.0, 0.0, 0.0)}<br>    )</pre> |
+![](assets/widget_element_name.png)
+
+Element name widget
+: The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1' already exists), or to enter an arbitrary name. 'elementnameWidget is the object name of the element name widget in the example below.
+
+```python
+# Let the user define 3 new points (the coordinates are created automatically in this example)
+for i in range(3):
+    DIALOG=gom.script.sys.create_user_defined_dialog (dialog='dialog definition')
+    
+    #
+    # Event handler function called if anything happens inside of the dialog
+    #
+    def dialog_event_handler (widget):
+        pass
+    
+    DIALOG.handler = dialog_event_handler
+    
+    RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+    
+    print (RESULT.elementnameWidget)
+    
+    MCAD_ELEMENT=gom.script.primitive.create_point (
+        name=RESULT.elementnameWidget,
+        point={'point': gom.Vec3d (i+10.0, 0.0, 0.0)}
+    )
+```
 
 | Property | Type  | Example                                                                               |
 | -------- | ----- | ------------------------------------------------------------------------------------- |
@@ -604,9 +622,15 @@ Partially controlled system progress bar
 
 #### Integer widget
 
-| Dialog                          | Description |
-| ------------------------------- | ----------- |
-| ![](assets/widget_integer.png)  | The **Integer** widget is used to request an integer value from the user. `integerWidget` is the object name of the integer widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.integerWidget</pre> |
+![](assets/widget_integer.png)
+
+Integer widget
+: The Integer widget is used to request an integer value from the user. `integerWidget` is the object name of the integer widget in the example below.
+
+``` python
+RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')
+userInput = RESULT.integerWidget
+```
 
 | Property | Type   | Example                                                                |
 | -------- | ------ | ---------------------------------------------------------------------- |
@@ -620,9 +644,15 @@ Partially controlled system progress bar
 
 #### Decimal widget
 
-| Dialog                          | Description |
-| ------------------------------- | ----------- |
-| ![](assets/widget_decimal.png)  | The **Decimal** widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.<pre>RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br>userInput = RESULT.decimalWidget</pre> |
+![](assets/widget_decimal.png)
+
+Decimal widget
+: The Decimal widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit \> Application \> Settings \> Preferences) in the _Default units_ tab. `decimalWidget` is the object name of the decimal widget in the example below.
+
+``` python
+RESULT=gom.script.sys.execute_user_defined_dialog (content='dialog definition')
+userInput = RESULT.decimalWidget
+```
 
 | Property  | Type   | Example                                                                  |
 | --------- | ------ | ------------------------------------------------------------------------ |
@@ -641,10 +671,17 @@ Partially controlled system progress bar
 [//]: # ( background_style - str - Set style sheet based background color  - red, green, blue )
 
 #### Text entry field
+![](assets/widget_text_entry.png)
 
-| Dialog                             | Description |
-| ---------------------------------- | ----------- |
-| ![](assets/widget_text_entry.png)  | The **Text entry field** widget can be used to get string input from the user. A simple use case is given by the next code block. _textEntryWidget_ is the object name of the widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.textEntryWidget = "some default text"<br>RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)<br>print( RESULT.textEntryWidget ) # the user input string</pre> |
+Text entry field
+: The Text entry field widget can be used to get string input from the user. A simple use case is given by the next code block. `textEntryWidget` is the object name of the widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+DIALOG.textEntryWidget = "some default text"
+RESULT = gom.script.sys.show_user_defined_dialog(dialog = DIALOG)
+print( RESULT.textEntryWidget ) # the user input string
+```
 
 | Property  | Type  | Example                                                                    |
 | --------- | ----- | -------------------------------------------------------------------------- |
@@ -658,9 +695,17 @@ Partially controlled system progress bar
 
 #### Slider widget
 
-| Dialog                         | Description |
-| ------------------------------ | ----------- |
-| ![](assets/widget_slider.png)  | The **Slider** widget can be used to get a float value from a certain interval from the user. _sliderWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print( RESULT.sliderWidget ) # some float</pre> |
+![](assets/widget_slider.png)
+
+Slider widget
+: The Slider widget can be used to get a float value from a certain interval from the user. `sliderWidget` is the object name of the slider widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+
+RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+print( RESULT.sliderWidget ) # some text
+```
 
 | Property      | Type   | Example                                                                    |
 | ------------- | ------ | -------------------------------------------------------------------------- |
@@ -682,9 +727,17 @@ Partially controlled system progress bar
 
 #### Checkbox widget
 
-| Dialog                           | Description |
-| -------------------------------- | ----------- |
-| ![](assets/widget_checkbox.png)  | The **Checkbox** widget can be used to get boolean input from the user. _checkboxWidget_ is the object name of the slider widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print (RESULT.checkboxWidget)</pre> |
+![](assets/widget_checkbox.png)
+
+Checkbox widget
+: The **Checkbox** widget can be used to get boolean input from the user. `checkboxWidget` is the object name of the checkbox widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+print (RESULT.checkboxWidget)
+```
 
 | Property  | Type  | Example                                                                                              |
 | --------- | ----- | ---------------------------------------------------------------------------------------------------- |
@@ -696,9 +749,11 @@ Partially controlled system progress bar
 
 #### File widget
 
-| Dialog                      | Description                                                                                |
-| --------------------------- | ------------------------------------------------------------------------------------------ |
-| ![](assets/widget_file.png) | By clicking the **File** widget, a file selection dialog is opened. This allows to select a file from the file system. |
+![](assets/widget_file.png)
+
+File widget
+: By clicking the File widget, a file selection dialog is opened. This allows to select a file from the file system.
+
 
 | Property  | Type  | Example                                                                                              |
 | --------- | ----- | ---------------------------------------------------------------------------------------------------- |
@@ -720,9 +775,18 @@ Partially controlled system progress bar
 
 #### Date widget
 
-| Dialog                       | Description |
-| ---------------------------- | ----------- |
-| ![](assets/widget_date.png)  | The **Date** widget requests a date from the user.  _dateWidget_ is the object name of the date widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>dateObject = DIALOG.dateWidget.value # date object<br>print( DIALOG.dateWidget.year )  # integer<br>print( DIALOG.dateWidget.month ) # integer<br>print( DIALOG.dateWidget.day )   # integer</pre> |
+![](assets/widget_date.png)
+
+Date widget
+: The Date widget requests a date from the user. `dateWidget` is the object name of the date widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+dateObject = DIALOG.dateWidget.value # date object
+print( DIALOG.dateWidget.year )  # integer
+print( DIALOG.dateWidget.month ) # integer
+print( DIALOG.dateWidget.day )   # integer
+```
 
 | Property          | Type      | Example                                                                                              |
 | ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -740,9 +804,27 @@ Partially controlled system progress bar
 
 #### Color widget
 
-| Dialog                        | Description |
-| ----------------------------- | ----------- |
-| ![](assets/widget_color.png)  | The **Color** widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.colorWidget:<br>        gomColor = DIALOG.colorWidget.color<br>        print( gomColor) # output: gom.Color (#ffffffff)<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)<br>print('Selection:', RESULT.colorWidget) # example output (white): 0xffffffff</pre> |
+![](assets/widget_color.png)
+
+Color widget
+: The Color widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+
+#
+# Event handler function called if anything happens inside of the dialog
+#
+def dialog_event_handler (widget):
+    if widget == DIALOG.colorWidget:
+        gomColor = DIALOG.colorWidget.color
+        print( gomColor) # output: gom.Color (#ffffffff)
+
+DIALOG.handler = dialog_event_handler
+
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+print('Selection:', RESULT.colorWidget) # example output (white): 0xffffffff
+```
 
 | Property             | Type      | Example                                                                                              |
 | -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -755,9 +837,26 @@ Partially controlled system progress bar
 
 #### Unit widget
 
-| Dialog                        | Description |
-| ----------------------------- | ----------- |
-| ![](assets/widget_unit.png)  | The **Unit** widget allows to select a unit. _unitWidget_ is the object name of the color widget in the example below.<pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>def dialog_event_handler (widget):<br>    if widget == DIALOG.unitWidget:<br>        unit = DIALOG.unitWidget.value<br>        print( unit) # ANGLE<br><br>DIALOG.handler = dialog_event_handler<br><br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+![](assets/widget_unit.png)
+
+Unit widget
+: The Unit widget allows to select a unit. `unitWidget` is the object name of the color widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+
+#
+# Event handler function called if anything happens inside of the dialog
+#
+def dialog_event_handler (widget):
+    if widget == DIALOG.unitWidget:
+        unit = DIALOG.unitWidget.value
+        print( unit) # ANGLE
+
+DIALOG.handler = dialog_event_handler
+
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+```
 
 | Property             | Type      | Example                                                                                              |
 | -------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -769,9 +868,24 @@ Partially controlled system progress bar
 
 #### Selection element widget
 
-| Dialog                                    | Description |
-| ----------------------------------------- | ----------- |
-| ![](assets/widget_selection_element.png)  | The **Selection element** widget can be used to select the elements from the element explorer. The following element types can be chosen:<ul><li>Any Point<li>Point element<li>Line element<li>Plane element<li>Direction<li>User-defined</ul>_elementSelectionWidget_ is the object name of the element selection widget in the example below.<pre>DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')<br><br>selectedElement = DIALOG.elementSelectionWidget<br>print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']</pre> |
+![](assets/widget_selection_element.png)
+
+Selection element widget
+: The Selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:
+  * Any Point
+  * Point element
+  * Line element
+  * Plane element
+  * Direction
+  * User-defined
+  `elementSelectionWidget` is the object name of the element selection widget in the example below.
+
+``` python
+DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')
+
+selectedElement = DIALOG.elementSelectionWidget
+print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']
+```
 
 | Property | Type      | Example                                                                                              |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
@@ -785,7 +899,7 @@ Partially controlled system progress bar
 
 The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:
 
-```
+``` python
 DIALOG4=gom.script.sys.create_user_defined_dialog (content='...')
 
 
@@ -815,9 +929,15 @@ The complete code of the example is attached to this document.
 
 #### Selection list widget
 
-| Dialog                                 | Description |
-| -------------------------------------- | ----------- |
-| ![](assets/widget_list_selection.png)  | The **Selection list** widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. _selectionListWidget_) as follows:<pre>selectedValue = DIALOG.selectionListWidget.value<br>print( selectedValue ) # output: entry2</pre> |
+![](assets/widget_list_selection.png)
+
+Selection list widget
+: The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. `_selectionListWidget`) as follows.
+
+``` python
+selectedValue = DIALOG.selectionListWidget.value
+print( selectedValue ) # output: entry2
+```
 
 | Property | Type        | Example                                                                                              |
 | -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
@@ -831,9 +951,19 @@ The complete code of the example is attached to this document.
 
 #### Button widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| ![](assets/widget_button_off.png)<br>![](assets/widget_button_on.png)  | The **Button** widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows:<pre>toggleButtonState = DIALOG.toggleButtonWidget.value<br>print(toggleButtonState) # output: True</pre>The buttons size and icon can be changed in the Dialog Editor.
+![](assets/widget_button_off.png)
+
+![](assets/widget_button_on.png)
+
+Button widget
+: The **Button** widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows.
+
+``` python
+toggleButtonState = DIALOG.toggleButtonWidget.value
+print(toggleButtonState) # output: True
+```
+
+The buttons size and icon can be changed in the Dialog Editor.
 
 | Property         | Type | Example                                                                                                               |
 | ---------------- | ---- | --------------------------------------------------------------------------------------------------------------------- |
@@ -851,9 +981,18 @@ The complete code of the example is attached to this document.
 
 #### Radio button widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| ![](assets/widget_radiobutton.png)  | The **Radio button** widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' and 'THREE' in the example below.<pre>selectedChoice = DIALOG.radiobuttonsWidget.value<br>print( selectedChoice ) # output: ONE<br>if selectedChoice == 'ONE':<br>    print("IDs are strings.") # output: IDs are strings.</pre> |
+![](assets/widget_radiobutton.png)
+
+Radio button widget
+:  The Radio button widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are 'ONE', 'TWO' and 'THREE' in the example below.
+
+``` python
+selectedChoice = DIALOG.radiobuttonsWidget.value
+print( selectedChoice ) # output: ONE
+
+if selectedChoice == 'ONE':
+    print("IDs are strings.") # output: IDs are strings.
+```
 
 | Property | Type           | Example                                                                                                               |
 | -------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -867,9 +1006,10 @@ The complete code of the example is attached to this document.
 
 #### Abort button widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| ![](assets/widget_abort_disabled.png)  | The **Abort button** widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software. |
+![](assets/widget_abort_disabled.png)
+
+Abort button widget
+: The **Abort button** widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.
 
 [//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
 
@@ -877,9 +1017,10 @@ The complete code of the example is attached to this document.
 
 #### Tolerances widget
 
-| Dialog    | Description |
-| --------- | ----------- |
-| ![](assets/widget_tolerances.png)  | The **Tolerances** widget is a group of input widgets which allows to configure all parameters related to tolerances. |
+![](assets/widget_tolerances.png)
+
+Tolerances widget
+: The Tolerances widget is a group of input widgets which allows to configure all parameters related to tolerances.
 
 | Property         | Type                  | Example                                                                                  |
 | ---------------- | --------------------- | ---------------------------------------------------------------------------------------- |
@@ -900,9 +1041,10 @@ The complete code of the example is attached to this document.
 
 #### File system browser widget
 
-| Dialog                         | Description |
-| ------------------------------ | ----------- |
-| ![](assets/widget_fsbrowser.png) | The **File system browser** widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions. |
+![](assets/widget_fsbrowser.png)
+
+File system browser widget
+: The File system browser widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions.
 
 | Property           | Type                  | Example                                                                                |
 | ------------------ | --------------------- | -------------------------------------------------------------------------------------- |
