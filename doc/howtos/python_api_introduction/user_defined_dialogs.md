@@ -275,7 +275,7 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 #### Description field (label) widget
 
-<!-->
+<!--
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
 | ![](assets/widget_label.png)  | The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
@@ -298,7 +298,7 @@ Description field (label) widget
 
 ![](assets/text_field.png)
 
-<!-->
+<!--
 | Dialog                      | Description |
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
@@ -368,6 +368,39 @@ The dialog is stored as a JSON document internally.
 | Dialog                      | Code |
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
+
+```{code-block} python
+:caption: Example: Internal representation of a dialog
+
+gom.script.sys.execute_user_defined_dialog (dialog={
+	"content": \[
+		\[
+			{
+                ...
+			},
+			{
+				"columns": 1,
+				"default_font_family": "",
+				"default_font_size": 0,
+				"name": "text",
+				"rows": 1,
+				"text": {
+					"id": "",
+					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",
+					"translatable": True
+				},
+                                ...
+				"type": "display::text",
+				"wordwrap": False
+			}
+		\]
+	\],
+	"control": {
+		"id": "Close"
+	},
+        ...
+})
+```
 
 #### Image widget
 
