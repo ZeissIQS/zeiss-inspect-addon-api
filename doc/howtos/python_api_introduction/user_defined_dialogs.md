@@ -1156,7 +1156,7 @@ RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
 * A dialog is created and executed by subsequent commands.
 * This way, the created dialog can be modified by the script right before executing.
 
-```{code block} python
+```{code-block} python
 :caption: Creating and executing a dialog with two separate commands
 
 # Create dialog, but do not execute it yet
@@ -1183,7 +1183,7 @@ RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )
 
 💡 At script termination all open dialogs are closed automatically.
 
-```{code block} python
+```{code-block} python
 :caption: Non blocking configurable dialogs
 
 # Create dialog but do not execute it yet
@@ -1491,7 +1491,7 @@ The complete code of the example can be found here: [timer.py](assets/timer.py).
 :caption: Print object documentation
 
 #
-# Query \_\_doc\_\_ attribute of a button widget
+# Query __doc__ attribute of a button widget
 #
 print (DIALOG.my_button.__doc__)
 # output:
