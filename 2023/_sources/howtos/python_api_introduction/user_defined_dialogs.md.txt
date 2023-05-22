@@ -477,7 +477,7 @@ Log widget
 ![](assets/widget_progressbar.png)
 
 Progress bar widget
-:The Progress bar widget can be used in the two modes _system_ and _manual_.
+: The Progress bar widget can be used in the two modes _system_ and _manual_.
 
 Manual mode
 : In this mode, the user may set the progress bar through its `value` variable.
@@ -584,7 +584,7 @@ Partially controlled system progress bar
 ![](assets/widget_element_name.png)
 
 Element name widget
-: The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1' already exists), or to enter an arbitrary name. 'elementnameWidget is the object name of the element name widget in the example below.
+: The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. 'Point 2' if 'Point 1' already exists), or to enter an arbitrary name. `elementnameWidget` is the object name of the element name widget in the example below.
 
 ```python
 # Let the user define 3 new points (the coordinates are created automatically in this example)
@@ -730,7 +730,7 @@ print( RESULT.sliderWidget ) # some text
 ![](assets/widget_checkbox.png)
 
 Checkbox widget
-: The **Checkbox** widget can be used to get boolean input from the user. `checkboxWidget` is the object name of the checkbox widget in the example below.
+: The Checkbox widget can be used to get boolean input from the user. `checkboxWidget` is the object name of the checkbox widget in the example below.
 
 ``` python
 DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
@@ -807,7 +807,7 @@ print( DIALOG.dateWidget.day )   # integer
 ![](assets/widget_color.png)
 
 Color widget
-: The Color widget allows to select a color. _colorWidget_ is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.
+: The Color widget allows to select a color. `colorWidget` is the object name of the color widget in the example below. `gomColor` behaves in the same way as `gom.Color( ... )`.
 
 ``` python
 DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
@@ -932,7 +932,7 @@ The complete code of the example is attached to this document.
 ![](assets/widget_list_selection.png)
 
 Selection list widget
-: The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. `_selectionListWidget`) as follows.
+: The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. `selectionListWidget`) as follows.
 
 ``` python
 selectedValue = DIALOG.selectionListWidget.value
@@ -956,7 +956,7 @@ print( selectedValue ) # output: entry2
 ![](assets/widget_button_on.png)
 
 Button widget
-: The **Button** widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows.
+: The Button widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows.
 
 ``` python
 toggleButtonState = DIALOG.toggleButtonWidget.value
@@ -1009,7 +1009,7 @@ if selectedChoice == 'ONE':
 ![](assets/widget_abort_disabled.png)
 
 Abort button widget
-: The **Abort button** widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.
+: The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.
 
 [//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
 
@@ -1087,9 +1087,67 @@ File system browser widget
 * The command blocks the script until the dialog is closed again.
 * The dialog result is returned.
 
-| Dialog                   | Command     |
-| ------------------------ | ----------- |
-| ![](assets/dialog1.png)  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": \[<br>        \[<br>            {<br>                "columns": 1,<br>                "name": "label",<br>                "rows": 1,<br>                "text": {<br>                    "id": "",<br>                    "text": "Distance",<br>                    "translatable": True<br>                },<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "label",<br>                "word_wrap": False<br>            },<br>            {<br>                "background_style": "",<br>                "columns": 1,<br>                "maximum": 1000,<br>                "minimum": 0,<br>                "name": "inputDistance",<br>                "precision": 2,<br>                "rows": 1,<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "input::number",<br>                "unit": "",<br>                "value": 0<br>            }<br>        \]<br>    \],<br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 112,<br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Distance",<br>        "translatable": True<br>    }<br>})<br></pre> |
+![](assets/dialog1.png)
+
+``` python
+RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
+    "content": \[
+        \[
+            {
+                "columns": 1,
+                "name": "label",
+                "rows": 1,
+                "text": {
+                    "id": "",
+                    "text": "Distance",
+                    "translatable": True
+                },
+                "tooltip": {
+                    "id": "",
+                    "text": "",
+                    "translatable": True
+                },
+                "type": "label",
+                "word_wrap": False
+            },
+            {
+                "background_style": "",
+                "columns": 1,
+                "maximum": 1000,
+                "minimum": 0,
+                "name": "inputDistance",
+                "precision": 2,
+                "rows": 1,
+                "tooltip": {
+                    "id": "",
+                    "text": "",
+                    "translatable": True
+                },
+                "type": "input::number",
+                "unit": "",
+                "value": 0
+            }
+        \]
+    \],
+    "control": {
+        "id": "OkCancel"
+    },
+    "embedding": "always_toplevel",
+    "position": "automatic",
+    "size": {
+        "height": 112,
+        "width": 198
+    },
+    "sizemode": "automatic",
+    "style": "",
+    "title": {
+        "id": "",
+        "text": "Distance",
+        "translatable": True
+    }
+})
+
+```
 
 #### Extendable break dialog (`create` and `show`)
 
@@ -1098,9 +1156,20 @@ File system browser widget
 * A dialog is created and executed by subsequent commands.
 * This way, the created dialog can be modified by the script right before executing.
 
-| Creating and executing a dialog with two separate commands |
-| ---------------------------------------------------------- |
-| <pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre> |
+```{code block} python
+:caption: Creating and executing a dialog with two separate commands
+
+# Create dialog, but do not execute it yet
+DIALOG = gom.script.sys.create_user_defined_dialog (content='...')
+
+#
+# The dialog has been created. At this point of the script, the dialog handle DIALOG
+# can be used to access and configure dialog parts
+#
+
+# Execute dialog and fetch execution result
+RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )
+```
 
 #### Info dialog (`create`, `open` and `close`)
 
@@ -1114,9 +1183,28 @@ File system browser widget
 
 💡 At script termination all open dialogs are closed automatically.
 
-| Non blocking configurable dialogs |
-| --------------------------------- |
-| <pre># Create dialog but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Show dialog. The script execution continues.<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br>#<br># The dialog content can be modified here, the dialog is still open<br>#<br>DIALOG.title = 'Stufe 2'<br><br># Close dialog again<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre> |
+```{code block} python
+:caption: Non blocking configurable dialogs
+
+# Create dialog but do not execute it yet
+DIALOG = gom.script.sys.create_user_defined_dialog (content='...')
+
+#
+# The dialog has been created. At this point of the script, the dialog handle DIALOG
+# can be used to access and configure dialog parts
+#
+
+# Show dialog. The script execution continues.
+gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
+
+#
+# The dialog content can be modified here, the dialog is still open
+#
+DIALOG.title = 'Stufe 2'
+
+# Close dialog again
+gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+```
 
 ### Dialog results
 
@@ -1126,10 +1214,45 @@ File system browser widget
 * Each dialog widget which can be changed by the script user writes its resulting value into this result object.
 * The key for each widget is its object name, which is unique.
 
-| Dialog    | Result      |
-| --------- | ----------- |
-| ![](assets/result1.png)  | <pre>#<br># Print whole dialog result. This is a result map with just one entry 'distance', named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)<br><br>#<br># Print result for the element named 'distance'. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre> |
-| ![](assets/result2.png)  | <pre># Print content of the 'name' widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named 'point1'. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.ActualReference (gom.app.project.inspection['Point 5'])<br><br># Print content of the widget named 'point2'.<br>print( RESULT.point2 )<br># output: gom.ActualReference (gom.app.project.inspection['Point 6'])<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre> |
+![](assets/result1.png)
+
+``` python
+#
+# Print whole dialog result. This is a result map with just one entry 'distance', named after
+# the unique name assigned to the spinbox.
+#
+print (RESULT) # Print whole result map
+# output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)
+
+#
+# Print result for the element named 'distance'. This will lead to the spinbox content.
+#
+print (RESULT.distance)
+# output: 2.0
+```
+
+![](assets/result2.png)
+
+``` python
+# Print content of the 'name' widget
+print( RESULT.name )
+# output: Line 1
+
+# Print content of the widget named 'point1'. This can again be an element reference.
+print( RESULT.point1 )
+# output: gom.ActualReference (gom.app.project.inspection['Point 5'])
+
+# Print content of the widget named 'point2'.
+print( RESULT.point2 )
+# output: gom.ActualReference (gom.app.project.inspection['Point 6'])
+
+# construct a line with the user input. Therefore our dialog works similar to the 2-point line
+# construction dialog
+MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (
+    name= RESULT.name,
+    point1 = RESULT.point1,
+    point2 = RESULT.point2)
+```
 
 💡 The type of the result depends on the specific widget.
 
@@ -1138,7 +1261,7 @@ File system browser widget
 You can return custom results from dialogs using an optional parameter to the `close_user_defined_dialog`-function. The following example produces 'Yes' 
 and 'No' results for the different buttons and 'Cheater' when the user uses the close button of the dialog.
 
-```
+``` python
 DIALOG = gom.script.sys.create_user_defined_dialog (content='...')
 
 #
@@ -1168,9 +1291,18 @@ Please find the complete example here: [dialog_yes_no.py](assets/dialog_yes_no.p
 * Each widget in the dialog can be accessed via the dialog handle.
 * The widget is identified by its unique name.
 
-| Configuring dialog widgets |
-| -------------------------- |
-| <pre># Create dialog and receive dialog handle<br>DIALOG = gom.script.sys.create_user_defined_dialog (content='...')<br><br># The handle for a widget inside of the dialog is addressed by its unique name<br>WIDGET = DIALOG.distance<br><br># The widget parameter can be set via widget attributes. 'Value', for instance, relates to the current widget value.<br>WIDGET.value = 3.0</pre> |
+```{code-block} python
+:caption: Configuring dialog widgets
+
+# Create dialog and receive dialog handle
+DIALOG = gom.script.sys.create_user_defined_dialog (content='...')
+
+# The handle for a widget inside of the dialog is addressed by its unique name
+WIDGET = DIALOG.distance
+
+# The widget parameter can be set via widget attributes. 'Value', for instance, relates to the current widget value.
+WIDGET.value = 3.0
+```
 
 * All widgets share some common standard attributes:
 
@@ -1182,9 +1314,17 @@ Please find the complete example here: [dialog_yes_no.py](assets/dialog_yes_no.p
 
 For the type of the value property for a specific widget, see section [Specific widgets](#specific-widgets) above. For widgets which are not used to enter some value, `value` is `None` and read-only. In addition, widgets have further attributes depending on their type (see section [Specific widgets](#specific-widgets) above for details).
 
-| Accessing widget attributes |
-| --------------------------- |
-| <pre># Create dialog but do not execute it yet<br>DIALOG=gom.script.sys.create_dialog (content='...')<br><br># Set name to 'default name' and disable 'ok' button<br>DIALOG.name.value = "default name"<br>DIALOG.control.ok.enabled = False<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+```{code-block} python
+:caption: Accessing widget attributes
+# Create dialog but do not execute it yet
+DIALOG=gom.script.sys.create_dialog (content='...')
+
+# Set name to 'default name' and disable 'ok' button
+DIALOG.name.value = "default name"
+DIALOG.control.ok.enabled = False
+
+# Execute dialog
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 
 ### Event handler functions
 
@@ -1197,9 +1337,32 @@ For the type of the value property for a specific widget, see section [Specific 
 * The handler function is registered using the special attribute `handler`.
 * The **prev** and **next** buttons of a wizard dialog are the only control widgets, which trigger the event handler.
 
-| Dialog handler functions |
-| ------------------------ |
-| <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print ("Modified:", str (widget))<br>    # If the 'name' widget is empty, the 'ok' button is disabled.<br>    if DIALOG.name.value == "":<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == 'system':<br>        print("It is a global event.")<br>    elif str(widget) == 'initialize':<br>        print("Dialog is displayed for the first time.")<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+```{code-block} python
+:caption: Dialog handler functions
+
+DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
+
+# Handler function registered to the dialog
+def handler_function (widget):
+    # Print information about the modified widget
+    print ("Modified:", str (widget))
+    # If the 'name' widget is empty, the 'ok' button is disabled.
+    if DIALOG.name.value == "":
+        DIALOG.control.ok.enabled = False
+    else:
+        DIALOG.control.ok.enabled = True
+
+    if str(widget) == 'system':
+        print("It is a global event.")
+    elif str(widget) == 'initialize':
+        print("Dialog is displayed for the first time.")
+
+# Register dialog handler
+DIALOG.handler = handler_function
+
+# Execute dialog
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+```
 
 A complete example with a handler function can be found in the file [scriptingEditorExampleDialog.py](assets/scriptingEditorExampleDialog.py). The argument passed to the event handler is either the dialog widget (e.g. a button) which triggered the event handler or a string. The following table lists all possible strings:
 
@@ -1212,17 +1375,39 @@ A complete example with a handler function can be found in the file [scriptingEd
 If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the `is` operator on these objects. Always use `==` and similar 
 operators to compare the widget parameter:
 
-| Compare widget parameter |
-| ------------------------ |
-| <pre>def handler_function (widget):<br>    ...<br>    # compare widget using "==", using "is" will not work!<br>    if widget == DIALOG.textInput:<br>        if DIALOG.textInput.value == "":<br>            DIALOG.control.ok.enabled = False<br>        else:<br>           DIALOG.control.ok.enabled = True</pre> |
+```{code-block} python
+:caption: Compare widget parameter
+
+def handler_function (widget):
+    ...
+    # compare widget using "==", using "is" will not work!
+    if widget == DIALOG.textInput:
+        if DIALOG.textInput.value == "":
+            DIALOG.control.ok.enabled = False
+        else:
+           DIALOG.control.ok.enabled = True
+```
 
 #### Closing dialogs from within the event handler
 
 💡 Dialogs can be closed from within event handlers.
 
-| Dialog                                        | Event handler |
-| --------------------------------------------- | ------------- |
-| ![](assets/event_handler_script_launcher.png) | <pre>def dialog_event_handler (widget):<br>    if widget == DIALOG.button1:<br>        execute_func_1 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button2:<br>        execute_func_2 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button3:<br>        execute_func_3 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre>|
+![](assets/event_handler_script_launcher.png)
+
+```{code-block} python
+:caption: Button event handler
+
+def dialog_event_handler (widget):
+    if widget == DIALOG.button1:
+        execute_func_1 ()
+        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+    elif widget == DIALOG.button2:
+        execute_func_2 ()
+        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+    elif widget == DIALOG.button3:
+        execute_func_3 ()
+        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+```
 
 ⚠️ Right after the dialog has been closed its handle becomes invalid.
 
@@ -1234,7 +1419,7 @@ Each `DIALOG` has a special property named `DIALOG.timer`. This timer property c
 certain time intervals. When the event handler is triggered by the timer, the string `timer` is passed to it. The `__doc__`-string of the timer gives information 
 about its attributes:
 
-```
+``` python
 print(DIALOG.timer.__doc__)
 # output:
 # Timer
@@ -1248,9 +1433,47 @@ print(DIALOG.timer.__doc__)
 
 Example:
 
-| Dialog   | Event handler |
-| -------- | ------------- |
-| ![](assets/event_handler_timer_edit.png) | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == 'system':<br>        print("Its a system event.")<br>    elif str(widget) == 'timer':<br>        print("Its a timer event. Let´s swap the image.")<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = 'system_message_warning'<br>        else:<br>            DIALOG.image.system_image = 'system_message_question'<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br> |
+![](assets/event_handler_timer_edit.png)
+
+```{code-block} python
+:caption: Button/Timer event handler
+
+DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')
+
+#
+# Event handler function called if anything happens inside of the dialog
+#
+state = False
+def dialog_event_handler (widget):
+    global state
+    if widget == DIALOG.start:
+        DIALOG.timer.interval = DIALOG.interval.value * 1000
+        DIALOG.timer.enabled = True
+        DIALOG.start.enabled = False
+        DIALOG.stop.enabled = True
+    elif widget == DIALOG.stop:
+        DIALOG.timer.enabled = False
+        DIALOG.start.enabled = True
+        DIALOG.stop.enabled = False
+    elif widget == DIALOG.interval:
+        DIALOG.timer.interval = DIALOG.interval.value * 1000
+    elif widget == DIALOG.exit:
+        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+    elif str(widget) == 'system':
+        print("Its a system event.")
+    elif str(widget) == 'timer':
+        print("Its a timer event. Let´s swap the image.")
+        state = not state
+     
+        if state:
+            DIALOG.image.system_image = 'system_message_warning'
+        else:
+            DIALOG.image.system_image = 'system_message_question'
+
+DIALOG.handler = dialog_event_handler
+DIALOG.stop.enabled = False
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+```
 
 The complete code of the example can be found here: [timer.py](assets/timer.py). 
 
@@ -1262,10 +1485,32 @@ The complete code of the example can be found here: [timer.py](assets/timer.py).
 
 💡 Most objects support the attribute `__doc__` which prints the available object documentation to the console.
 
-| Print object documentation |
-| -------------------------- |
-| <pre>#<br># Query \_\_doc\_\_ attribute of a button widget<br>#<br>print (DIALOG.my_button.\_\_doc\_\_)<br># output:<br># Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type ('push', 'toggle')<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre> |
+```{code-block} python
+:caption: Print object documentation
 
+#
+# Query \_\_doc\_\_ attribute of a button widget
+#
+print (DIALOG.my_button.__doc__)
+# output:
+# Handle for a widget called 'my_button' of type 'Button' (button::pushbutton)
+#
+# Attributes:
+# name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.
+# tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.
+# enabled          (boolean)             - Enabled state of the widget. Default is 'enabled', set to false for disabling it.
+# value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be 'none' for empty widgets.
+# attributes       (map)                 - Map of all accessable widget attributes together with their current values.
+# focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.
+# text             (string)              - Text of the button
+# type             (string)              - Button type ('push', 'toggle')
+# icon             (Tom::Parse::Binary)  - Icon of the button
+# icon_file_name   (string)              - Source file name of the icon
+# icon_size        (string)              - Icon size mode (icon, full)
+# icon_type        (string)              - Icon type (none, system, file)
+# icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)
+# icon_system_size (string)              - System icon size (default, large, extra_large)
+```
 
 ## Wizards
 
@@ -1283,8 +1528,43 @@ Therefore Wizards only have simple options like exchange of images and texts in 
 
 The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:
 
-| Wizard   | Code |
-| -------- | ---- |
-| ![](assets/wizard.png) | <pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the 'prev' button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard 'page'<br>        <br>        #<br>        # Handle clicks onto the 'next' button<br>        #<br>        print("Prev button was clicked.")<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard 'page'<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print("Next button was clicked.")<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre> |
+![](assets/wizard.png)
+
+```{code-block} python
+:caption: Wizard example
+
+#
+# Create dialog with wizard control panel
+#
+DIALOG=gom.script.sys.create_user_defined_dialog (content='boring dialog definition')
+#
+# Handler function to be registered to the dialog
+#
+def func (widget):
+    #
+    # Handle clicks onto the 'prev' button
+    #
+    if widget == DIALOG.control.prev:
+        # Here you would write code to display the content of the previous wizard 'page'
+        
+        #
+        # Handle clicks onto the 'next' button
+        #
+        print("Prev button was clicked.")
+    elif widget == DIALOG.control.next:
+        # Here you would write code to display the content of the next wizard 'page'
+        
+        #
+        # Update dialog button enabled state and register handler function
+        #
+        print("Next button was clicked.")
+
+DIALOG.handler = func
+
+#
+# Execute wizard dialog
+#
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+```
 
 [Creating wizard dialogs](creating_wizard_dialogs.md) shows some ways to manage wizard dialogs in greater detail. 

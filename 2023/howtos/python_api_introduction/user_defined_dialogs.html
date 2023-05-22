@@ -107,9 +107,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#custom-results">Custom results</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#event-handler-functions">Event handler functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#registering-event-handlers">Registering event handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#closing-dialogs-from-within-the-event-handler">Closing dialogs from within the event handler</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-timer-to-activate-the-event-handler">Using a timer to activate the event handler</a></li>
 </ul>
@@ -815,9 +813,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <section id="progress-bar-widget">
 <h4>Progress bar widget<a class="headerlink" href="#progress-bar-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_progressbar.png" /></p>
-<p>Progress bar widget
-:The Progress bar widget can be used in the two modes <em>system</em> and <em>manual</em>.</p>
 <dl class="simple myst">
+<dt>Progress bar widget</dt><dd><p>The Progress bar widget can be used in the two modes <em>system</em> and <em>manual</em>.</p>
+</dd>
 <dt>Manual mode</dt><dd><p>In this mode, the user may set the progress bar through its <code class="docutils literal notranslate"><span class="pre">value</span></code> variable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span><span class="o">,</span> <span class="nn">time</span>
 <span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
@@ -957,7 +955,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h4>Element name widget<a class="headerlink" href="#element-name-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_element_name.png" /></p>
 <dl class="simple myst">
-<dt>Element name widget</dt><dd><p>The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. ‘Point 2’ if ‘Point 1’ already exists), or to enter an arbitrary name. ‘elementnameWidget is the object name of the element name widget in the example below.</p>
+<dt>Element name widget</dt><dd><p>The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. ‘Point 2’ if ‘Point 1’ already exists), or to enter an arbitrary name. <code class="docutils literal notranslate"><span class="pre">elementnameWidget</span></code> is the object name of the element name widget in the example below.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let the user define 3 new points (the coordinates are created automatically in this example)</span>
@@ -1253,7 +1251,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h4>Checkbox widget<a class="headerlink" href="#checkbox-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_checkbox.png" /></p>
 <dl class="simple myst">
-<dt>Checkbox widget</dt><dd><p>The <strong>Checkbox</strong> widget can be used to get boolean input from the user. <code class="docutils literal notranslate"><span class="pre">checkboxWidget</span></code> is the object name of the checkbox widget in the example below.</p>
+<dt>Checkbox widget</dt><dd><p>The Checkbox widget can be used to get boolean input from the user. <code class="docutils literal notranslate"><span class="pre">checkboxWidget</span></code> is the object name of the checkbox widget in the example below.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
@@ -1424,7 +1422,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h4>Color widget<a class="headerlink" href="#color-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_color.png" /></p>
 <dl class="simple myst">
-<dt>Color widget</dt><dd><p>The Color widget allows to select a color. <em>colorWidget</em> is the object name of the color widget in the example below. <code class="docutils literal notranslate"><span class="pre">gomColor</span></code> behaves in the same way as <code class="docutils literal notranslate"><span class="pre">gom.Color(</span> <span class="pre">...</span> <span class="pre">)</span></code>.</p>
+<dt>Color widget</dt><dd><p>The Color widget allows to select a color. <code class="docutils literal notranslate"><span class="pre">colorWidget</span></code> is the object name of the color widget in the example below. <code class="docutils literal notranslate"><span class="pre">gomColor</span></code> behaves in the same way as <code class="docutils literal notranslate"><span class="pre">gom.Color(</span> <span class="pre">...</span> <span class="pre">)</span></code>.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
@@ -1621,7 +1619,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h4>Selection list widget<a class="headerlink" href="#selection-list-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_list_selection.png" /></p>
 <dl class="simple myst">
-<dt>Selection list widget</dt><dd><p>The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. <code class="docutils literal notranslate"><span class="pre">_selectionListWidget</span></code>) as follows.</p>
+<dt>Selection list widget</dt><dd><p>The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. <code class="docutils literal notranslate"><span class="pre">selectionListWidget</span></code>) as follows.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">selectedValue</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">selectionListWidget</span><span class="o">.</span><span class="n">value</span>
@@ -1668,7 +1666,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <p><img alt="" src="../../_images/widget_button_off.png" /></p>
 <p><img alt="" src="../../_images/widget_button_on.png" /></p>
 <dl class="simple myst">
-<dt>Button widget</dt><dd><p>The <strong>Button</strong> widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows.</p>
+<dt>Button widget</dt><dd><p>The Button widget allows to trigger an event or to return a boolean value, respectively. There are two types of buttons: push buttons and toggle buttons. The push button is a regular button and needs an event handler to manage its action. The toggle button has two states - active and inactive - and the user can toggle between them by clicking the button. The button is highlighted in active state as shown in the screenshot. The state of the toggle button can be accessed as follows.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">toggleButtonState</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">toggleButtonWidget</span><span class="o">.</span><span class="n">value</span>
@@ -1777,7 +1775,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h4>Abort button widget<a class="headerlink" href="#abort-button-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_abort_disabled.png" /></p>
 <dl class="simple myst">
-<dt>Abort button widget</dt><dd><p>The <strong>Abort button</strong> widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.</p>
+<dt>Abort button widget</dt><dd><p>The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.</p>
 </dd>
 </dl>
 </section>
@@ -1939,9 +1937,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 </li>
 <li><p><a class="reference internal" href="#configuring-dialog-widgets">Configuring dialog widgets</a></p></li>
-<li><p><a class="reference internal" href="#event-handler-functions">Event handler functions</a></p>
+<li><p><a class="reference internal" href="#event-handler-functions"><span class="xref myst">Event handler functions</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="#registering-event-handlers">Registering event handlers</a></p></li>
+<li><p><a class="reference internal" href="#registering-event-handlers"><span class="xref myst">Registering event handlers</span></a></p></li>
 <li><p><a class="reference internal" href="#closing-dialogs-from-within-the-event-handler">Closing dialogs from within the event handler</a></p></li>
 <li><p><a class="reference internal" href="#using-a-timer-to-activate-the-event-handler">Using a timer to activate the event handler</a></p></li>
 </ul>
@@ -1959,18 +1957,66 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>The command blocks the script until the dialog is closed again.</p></li>
 <li><p>The dialog result is returned.</p></li>
 </ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Command</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/dialog1.png" /></p></td>
-<td><p><pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    “content”: [<br>        [<br>            {<br>                “columns”: 1,<br>                “name”: “label”,<br>                “rows”: 1,<br>                “text”: {<br>                    “id”: “”,<br>                    “text”: “Distance”,<br>                    “translatable”: True<br>                },<br>                “tooltip”: {<br>                    “id”: “”,<br>                    “text”: “”,<br>                    “translatable”: True<br>                },<br>                “type”: “label”,<br>                “word_wrap”: False<br>            },<br>            {<br>                “background_style”: “”,<br>                “columns”: 1,<br>                “maximum”: 1000,<br>                “minimum”: 0,<br>                “name”: “inputDistance”,<br>                “precision”: 2,<br>                “rows”: 1,<br>                “tooltip”: {<br>                    “id”: “”,<br>                    “text”: “”,<br>                    “translatable”: True<br>                },<br>                “type”: “input::number”,<br>                “unit”: “”,<br>                “value”: 0<br>            }<br>        ]<br>    ],<br>    “control”: {<br>        “id”: “OkCancel”<br>    },<br>    “embedding”: “always_toplevel”,<br>    “position”: “automatic”,<br>    “size”: {<br>        “height”: 112,<br>        “width”: 198<br>    },<br>    “sizemode”: “automatic”,<br>    “style”: “”,<br>    “title”: {<br>        “id”: “”,<br>        “text”: “Distance”,<br>        “translatable”: True<br>    }<br>})<br></pre></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/dialog1.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> \<span class="p">[</span>
+        \<span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;tooltip&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;word_wrap&quot;</span><span class="p">:</span> <span class="kc">False</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;background_style&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;inputDistance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;precision&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;tooltip&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input::number&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">}</span>
+        \<span class="p">]</span>
+    \<span class="p">],</span>
+    <span class="s2">&quot;control&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;OkCancel&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;embedding&quot;</span><span class="p">:</span> <span class="s2">&quot;always_toplevel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;automatic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">198</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;sizemode&quot;</span><span class="p">:</span> <span class="s2">&quot;automatic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+</pre></div>
+</div>
 </section>
 <section id="extendable-break-dialog-create-and-show">
 <h4>Extendable break dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">show</span></code>)<a class="headerlink" href="#extendable-break-dialog-create-and-show" title="Permalink to this heading"></a></h4>
@@ -1979,16 +2025,20 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>A dialog is created and executed by subsequent commands.</p></li>
 <li><p>This way, the created dialog can be modified by the script right before executing.</p></li>
 </ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Creating and executing a dialog with two separate commands</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre># Create dialog, but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content=’…’)<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Execute dialog and fetch execution result<br>RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )</pre></p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>:caption: Creating and executing a dialog with two separate commands
+
+# Create dialog, but do not execute it yet
+DIALOG = gom.script.sys.create_user_defined_dialog (content=&#39;...&#39;)
+
+#
+# The dialog has been created. At this point of the script, the dialog handle DIALOG
+# can be used to access and configure dialog parts
+#
+
+# Execute dialog and fetch execution result
+RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )
+</pre></div>
+</div>
 </section>
 <section id="info-dialog-create-open-and-close">
 <h4>Info dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">open</span></code> and <code class="docutils literal notranslate"><span class="pre">close</span></code>)<a class="headerlink" href="#info-dialog-create-open-and-close" title="Permalink to this heading"></a></h4>
@@ -2004,16 +2054,28 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </li>
 </ul>
 <p>💡 At script termination all open dialogs are closed automatically.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Non blocking configurable dialogs</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre># Create dialog but do not execute it yet<br>DIALOG = gom.script.sys.create_user_defined_dialog (content=’…’)<br><br>#<br># The dialog has been created. At this point of the script, the dialog handle DIALOG<br># can be used to access and configure dialog parts<br>#<br><br># Show dialog. The script execution continues.<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br>#<br># The dialog content can be modified here, the dialog is still open<br>#<br>DIALOG.title = ‘Stufe 2’<br><br># Close dialog again<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>:caption: Non blocking configurable dialogs
+
+# Create dialog but do not execute it yet
+DIALOG = gom.script.sys.create_user_defined_dialog (content=&#39;...&#39;)
+
+#
+# The dialog has been created. At this point of the script, the dialog handle DIALOG
+# can be used to access and configure dialog parts
+#
+
+# Show dialog. The script execution continues.
+gom.script.sys.open_user_defined_dialog( dialog = DIALOG )
+
+#
+# The dialog content can be modified here, the dialog is still open
+#
+DIALOG.title = &#39;Stufe 2&#39;
+
+# Close dialog again
+gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
+</pre></div>
+</div>
 </section>
 </section>
 <section id="dialog-results">
@@ -2024,27 +2086,48 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>Each dialog widget which can be changed by the script user writes its resulting value into this result object.</p></li>
 <li><p>The key for each widget is its object name, which is unique.</p></li>
 </ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Result</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/result1.png" /></p></td>
-<td><p><pre>#<br># Print whole dialog result. This is a result map with just one entry ‘distance’, named after<br># the unique name assigned to the spinbox.<br>#<br>print (RESULT) # Print whole result map<br># output: gom.dialog.DialogResult (‘distance’: 2.0, ‘label’: None)<br><br>#<br># Print result for the element named ‘distance’. This will lead to the spinbox content.<br>#<br>print (RESULT.distance)<br># output: 2.0</pre></p></td>
-</tr>
-<tr class="row-odd"><td><p><img alt="" src="../../_images/result2.png" /></p></td>
-<td><p><pre># Print content of the ‘name’ widget<br>print( RESULT.name )<br># output: Line 1<br><br># Print content of the widget named ‘point1’. This can again be an element reference.<br>print( RESULT.point1 )<br># output: gom.ActualReference (gom.app.project.inspection[‘Point 5’])<br><br># Print content of the widget named ‘point2’.<br>print( RESULT.point2 )<br># output: gom.ActualReference (gom.app.project.inspection[‘Point 6’])<br><br># construct a line with the user input. Therefore our dialog works similar to the 2-point line<br># construction dialog<br>MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (<br>    name= RESULT.name,<br>    point1 = RESULT.point1,<br>    point2 = RESULT.point2)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/result1.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Print whole dialog result. This is a result map with just one entry &#39;distance&#39;, named after</span>
+<span class="c1"># the unique name assigned to the spinbox.</span>
+<span class="c1">#</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="p">)</span> <span class="c1"># Print whole result map</span>
+<span class="c1"># output: gom.dialog.DialogResult (&#39;distance&#39;: 2.0, &#39;label&#39;: None)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Print result for the element named &#39;distance&#39;. This will lead to the spinbox content.</span>
+<span class="c1">#</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>
+<span class="c1"># output: 2.0</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../_images/result2.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print content of the &#39;name&#39; widget</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">name</span> <span class="p">)</span>
+<span class="c1"># output: Line 1</span>
+
+<span class="c1"># Print content of the widget named &#39;point1&#39;. This can again be an element reference.</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">point1</span> <span class="p">)</span>
+<span class="c1"># output: gom.ActualReference (gom.app.project.inspection[&#39;Point 5&#39;])</span>
+
+<span class="c1"># Print content of the widget named &#39;point2&#39;.</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">point2</span> <span class="p">)</span>
+<span class="c1"># output: gom.ActualReference (gom.app.project.inspection[&#39;Point 6&#39;])</span>
+
+<span class="c1"># construct a line with the user input. Therefore our dialog works similar to the 2-point line</span>
+<span class="c1"># construction dialog</span>
+<span class="n">MCAD_ELEMENT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">primitive</span><span class="o">.</span><span class="n">create_line_by_2_points</span> <span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="n">point1</span> <span class="o">=</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">point1</span><span class="p">,</span>
+    <span class="n">point2</span> <span class="o">=</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">point2</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>💡 The type of the result depends on the specific widget.</p>
 <section id="custom-results">
 <h4>Custom results<a class="headerlink" href="#custom-results" title="Permalink to this heading"></a></h4>
 <p>You can return custom results from dialogs using an optional parameter to the <code class="docutils literal notranslate"><span class="pre">close_user_defined_dialog</span></code>-function. The following example produces ‘Yes’
 and ‘No’ results for the different buttons and ‘Cheater’ when the user uses the close button of the dialog.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 <span class="c1">#</span>
 <span class="c1"># Event handler function called if anything happens inside of the dialog</span>
@@ -2075,16 +2158,19 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <li><p>Each widget in the dialog can be accessed via the dialog handle.</p></li>
 <li><p>The widget is identified by its unique name.</p></li>
 </ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Configuring dialog widgets</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre># Create dialog and receive dialog handle<br>DIALOG = gom.script.sys.create_user_defined_dialog (content=’…’)<br><br># The handle for a widget inside of the dialog is addressed by its unique name<br>WIDGET = DIALOG.distance<br><br># The widget parameter can be set via widget attributes. ‘Value’, for instance, relates to the current widget value.<br>WIDGET.value = 3.0</pre></p></td>
-</tr>
-</tbody>
-</table>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Configuring dialog widgets</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog and receive dialog handle</span>
+<span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+
+<span class="c1"># The handle for a widget inside of the dialog is addressed by its unique name</span>
+<span class="n">WIDGET</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">distance</span>
+
+<span class="c1"># The widget parameter can be set via widget attributes. &#39;Value&#39;, for instance, relates to the current widget value.</span>
+<span class="n">WIDGET</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">3.0</span>
+</pre></div>
+</div>
+</div>
 <ul class="simple">
 <li><p>All widgets share some common standard attributes:</p></li>
 </ul>
@@ -2111,39 +2197,57 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </tbody>
 </table>
 <p>For the type of the value property for a specific widget, see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above. For widgets which are not used to enter some value, <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and read-only. In addition, widgets have further attributes depending on their type (see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above for details).</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Accessing widget attributes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre># Create dialog but do not execute it yet<br>DIALOG=gom.script.sys.create_dialog (content=’…’)<br><br># Set name to ‘default name’ and disable ‘ok’ button<br>DIALOG.name.value = “default name”<br>DIALOG.control.ok.enabled = False<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="event-handler-functions">
-<h3>Event handler functions<a class="headerlink" href="#event-handler-functions" title="Permalink to this heading"></a></h3>
-<section id="registering-event-handlers">
-<h4>Registering event handlers<a class="headerlink" href="#registering-event-handlers" title="Permalink to this heading"></a></h4>
-<ul class="simple">
-<li><p>A function can be registered to the dialog called on value changed.</p></li>
-<li><p>Every time the user modified a dialog value, the <strong>handler</strong> function is called.</p></li>
-<li><p>The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string <code class="docutils literal notranslate"><span class="pre">'system'</span></code> passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.</p></li>
-<li><p>The handler function can access dialog widget properties.</p></li>
-<li><p>The handler function is registered using the special attribute <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-<li><p>The <strong>prev</strong> and <strong>next</strong> buttons of a wizard dialog are the only control widgets, which trigger the event handler.</p></li>
-</ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog handler functions</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br><br># Handler function registered to the dialog<br>def handler_function (widget):<br>    # Print information about the modified widget<br>    print (“Modified:”, str (widget))<br>    # If the ‘name’ widget is empty, the ‘ok’ button is disabled.<br>    if DIALOG.name.value == “”:<br>        DIALOG.control.ok.enabled = False<br>    else:<br>        DIALOG.control.ok.enabled = True<br><br>    if str(widget) == ‘system’:<br>        print(“It is a global event.”)<br>    elif str(widget) == ‘initialize’:<br>        print(“Dialog is displayed for the first time.”)<br><br># Register dialog handler<br>DIALOG.handler = handler_function<br><br># Execute dialog<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Accessing widget attributes</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Create dialog but do not execute it yet
+DIALOG=gom.script.sys.create_dialog (content=&#39;...&#39;)
+
+# Set name to &#39;default name&#39; and disable &#39;ok&#39; button
+DIALOG.name.value = &quot;default name&quot;
+DIALOG.control.ok.enabled = False
+
+# Execute dialog
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+
+### Event handler functions
+
+#### Registering event handlers
+
+* A function can be registered to the dialog called on value changed.
+* Every time the user modified a dialog value, the **handler** function is called.
+* The handler function is also called on application global signals, e.g. when application data has been changed. In these cases is the string `&#39;system&#39;` passed to the handler function. Those global signals are caused by changing the element selection or opening a project for example.
+* The handler function can access dialog widget properties.
+* The handler function is registered using the special attribute `handler`.
+* The **prev** and **next** buttons of a wizard dialog are the only control widgets, which trigger the event handler.
+
+```{code-block} python
+:caption: Dialog handler functions
+
+DIALOG=gom.script.sys.create_user_defined_dialog (content=&#39;dialog definition&#39;)
+
+# Handler function registered to the dialog
+def handler_function (widget):
+    # Print information about the modified widget
+    print (&quot;Modified:&quot;, str (widget))
+    # If the &#39;name&#39; widget is empty, the &#39;ok&#39; button is disabled.
+    if DIALOG.name.value == &quot;&quot;:
+        DIALOG.control.ok.enabled = False
+    else:
+        DIALOG.control.ok.enabled = True
+
+    if str(widget) == &#39;system&#39;:
+        print(&quot;It is a global event.&quot;)
+    elif str(widget) == &#39;initialize&#39;:
+        print(&quot;Dialog is displayed for the first time.&quot;)
+
+# Register dialog handler
+DIALOG.handler = handler_function
+
+# Execute dialog
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+</pre></div>
+</div>
+</div>
 <p>A complete example with a handler function can be found in the file <a class="reference download internal" download="" href="../../_downloads/df5001d15c7f4e6de709b26bc23e46df/scriptingEditorExampleDialog.py"><span class="xref download myst">scriptingEditorExampleDialog.py</span></a>. The argument passed to the event handler is either the dialog widget (e.g. a button) which triggered the event handler or a string. The following table lists all possible strings:</p>
 <table class="docutils align-default">
 <thead>
@@ -2165,32 +2269,38 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </table>
 <p>If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator on these objects. Always use <code class="docutils literal notranslate"><span class="pre">==</span></code> and similar
 operators to compare the widget parameter:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Compare widget parameter</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre>def handler_function (widget):<br>    …<br>    # compare widget using “==”, using “is” will not work!<br>    if widget == DIALOG.textInput:<br>        if DIALOG.textInput.value == “”:<br>            DIALOG.control.ok.enabled = False<br>        else:<br>           DIALOG.control.ok.enabled = True</pre></p></td>
-</tr>
-</tbody>
-</table>
-</section>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Compare widget parameter</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handler_function</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># compare widget using &quot;==&quot;, using &quot;is&quot; will not work!</span>
+    <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">textInput</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">textInput</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 <section id="closing-dialogs-from-within-the-event-handler">
 <h4>Closing dialogs from within the event handler<a class="headerlink" href="#closing-dialogs-from-within-the-event-handler" title="Permalink to this heading"></a></h4>
 <p>💡 Dialogs can be closed from within event handlers.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Event handler</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/event_handler_script_launcher.png" /></p></td>
-<td><p><pre>def dialog_event_handler (widget):<br>    if widget == DIALOG.button1:<br>        execute_func_1 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button2:<br>        execute_func_2 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif widget == DIALOG.button3:<br>        execute_func_3 ()<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/event_handler_script_launcher.png" /></p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Button event handler</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">button1</span><span class="p">:</span>
+        <span class="n">execute_func_1</span> <span class="p">()</span>
+        <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">button2</span><span class="p">:</span>
+        <span class="n">execute_func_2</span> <span class="p">()</span>
+        <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">button3</span><span class="p">:</span>
+        <span class="n">execute_func_3</span> <span class="p">()</span>
+        <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p>⚠️ Right after the dialog has been closed its handle becomes invalid.</p>
 <p>This implies, that the event handler function must be written in a way that no dialog dependent code is executed after the dialog has been closed.</p>
 </section>
@@ -2199,7 +2309,7 @@ operators to compare the widget parameter:</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> has a special property named <code class="docutils literal notranslate"><span class="pre">DIALOG.timer</span></code>. This timer property can be used to trigger the event handler registered to <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> in
 certain time intervals. When the event handler is triggered by the timer, the string <code class="docutils literal notranslate"><span class="pre">timer</span></code> is passed to it. The <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-string of the timer gives information
 about its attributes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 <span class="c1"># output:</span>
 <span class="c1"># Timer</span>
 <span class="c1">#</span>
@@ -2210,18 +2320,47 @@ about its attributes:</p>
 </div>
 <p>💡 Please note that the timer is disabled by default.</p>
 <p>Example:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Event handler</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/event_handler_timer_edit.png" /></p></td>
-<td><p><pre>DIALOG=gom.script.sys.create_user_defined_dialog (content=’boring dialog definition’)<br><br>#<br># Event handler function called if anything happens inside of the dialog<br>#<br>state = False<br>def dialog_event_handler (widget):<br>    global state<br>    if widget == DIALOG.start:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>        DIALOG.timer.enabled = True<br>        DIALOG.start.enabled = False<br>        DIALOG.stop.enabled = True<br>    elif widget == DIALOG.stop:<br>        DIALOG.timer.enabled = False<br>        DIALOG.start.enabled = True<br>        DIALOG.stop.enabled = False<br>    elif widget == DIALOG.interval:<br>        DIALOG.timer.interval = DIALOG.interval.value * 1000<br>    elif widget == DIALOG.exit:<br>        gom.script.sys.close_user_defined_dialog (dialog=DIALOG)<br>    elif str(widget) == ‘system’:<br>        print(“Its a system event.”)<br>    elif str(widget) == ‘timer’:<br>        print(“Its a timer event. Let´s swap the image.”)<br>        state = not state<br>     <br>        if state:<br>            DIALOG.image.system_image = ‘system_message_warning’<br>        else:<br>            DIALOG.image.system_image = ‘system_message_question’<br><br>DIALOG.handler = dialog_event_handler<br>DIALOG.stop.enabled = False<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</br></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/event_handler_timer_edit.png" /></p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Button/Timer event handler</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;boring dialog definition&#39;</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Event handler function called if anything happens inside of the dialog</span>
+<span class="c1">#</span>
+<span class="n">state</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">state</span>
+    <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">interval</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mi">1000</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">stop</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">stop</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">interval</span><span class="p">:</span>
+        <span class="n">DIALOG</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">interval</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mi">1000</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">exit</span><span class="p">:</span>
+        <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Its a system event.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;timer&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Its a timer event. Let´s swap the image.&quot;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">state</span>
+     
+        <span class="k">if</span> <span class="n">state</span><span class="p">:</span>
+            <span class="n">DIALOG</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">system_image</span> <span class="o">=</span> <span class="s1">&#39;system_message_warning&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">DIALOG</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">system_image</span> <span class="o">=</span> <span class="s1">&#39;system_message_question&#39;</span>
+
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">stop</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p>The complete code of the example can be found here: <a class="reference download internal" download="" href="../../_downloads/cbebcc2e1c7dcf042fbff10ce916f294/timer.py"><span class="xref download myst">timer.py</span></a>.</p>
 </section>
 </section>
@@ -2233,16 +2372,33 @@ about its attributes:</p>
 <li><p>The more commonly used widget attributes are documented in the section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above.</p></li>
 </ul>
 <p>💡 Most objects support the attribute <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> which prints the available object documentation to the console.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Print object documentation</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre>#<br># Query __doc__ attribute of a button widget<br>#<br>print (DIALOG.my_button.__doc__)<br># output:<br># Handle for a widget called ‘my_button’ of type ‘Button’ (button::pushbutton)<br>#<br># Attributes:<br># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.<br># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.<br># enabled          (boolean)             - Enabled state of the widget. Default is ‘enabled’, set to false for disabling it.<br># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be ‘none’ for empty widgets.<br># attributes       (map)                 - Map of all accessable widget attributes together with their current values.<br># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.<br># text             (string)              - Text of the button<br># type             (string)              - Button type (‘push’, ‘toggle’)<br># icon             (Tom::Parse::Binary)  - Icon of the button<br># icon_file_name   (string)              - Source file name of the icon<br># icon_size        (string)              - Icon size mode (icon, full)<br># icon_type        (string)              - Icon type (none, system, file)<br># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)<br># icon_system_size (string)              - System icon size (default, large, extra_large)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Print object documentation</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Query \_\_doc\_\_ attribute of a button widget</span>
+<span class="c1">#</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">my_button</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="c1"># output:</span>
+<span class="c1"># Handle for a widget called &#39;my_button&#39; of type &#39;Button&#39; (button::pushbutton)</span>
+<span class="c1">#</span>
+<span class="c1"># Attributes:</span>
+<span class="c1"># name             (string)              - Name of the widget. The name can be used to access the widget via a dialog handle.</span>
+<span class="c1"># tooltip          (string)              - Tooltip of the widget. If empty, no tooltip is displayed.</span>
+<span class="c1"># enabled          (boolean)             - Enabled state of the widget. Default is &#39;enabled&#39;, set to false for disabling it.</span>
+<span class="c1"># value            (unspecified/various) - The current value of the widget. Type depends on the widget type and can be &#39;none&#39; for empty widgets.</span>
+<span class="c1"># attributes       (map)                 - Map of all accessable widget attributes together with their current values.</span>
+<span class="c1"># focus            (boolean)             - Focus state of the widget. Can be used to set an explicit widget focus.</span>
+<span class="c1"># text             (string)              - Text of the button</span>
+<span class="c1"># type             (string)              - Button type (&#39;push&#39;, &#39;toggle&#39;)</span>
+<span class="c1"># icon             (Tom::Parse::Binary)  - Icon of the button</span>
+<span class="c1"># icon_file_name   (string)              - Source file name of the icon</span>
+<span class="c1"># icon_size        (string)              - Icon size mode (icon, full)</span>
+<span class="c1"># icon_type        (string)              - Icon type (none, system, file)</span>
+<span class="c1"># icon_system_type (string)              - System icon type (ok, cancel, arrow_up, arrow_down, arrow_left, arrow_right)</span>
+<span class="c1"># icon_system_size (string)              - System icon size (default, large, extra_large)</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="wizards">
@@ -2260,18 +2416,44 @@ about its attributes:</p>
 <section id="control-widgets">
 <h3>Control widgets<a class="headerlink" href="#control-widgets" title="Permalink to this heading"></a></h3>
 <p>The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Wizard</p></th>
-<th class="head"><p>Code</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/wizard.png" /></p></td>
-<td><p><pre>#<br># Create dialog with wizard control panel<br>#<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’boring dialog definition’)<br>#<br># Handler function to be registered to the dialog<br>#<br>def func (widget):<br>    #<br>    # Handle clicks onto the ‘prev’ button<br>    #<br>    if widget == DIALOG.control.prev:<br>        # Here you would write code to display the content of the previous wizard ‘page’<br>        <br>        #<br>        # Handle clicks onto the ‘next’ button<br>        #<br>        print(“Prev button was clicked.”)<br>    elif widget == DIALOG.control.next:<br>        # Here you would write code to display the content of the next wizard ‘page’<br>        <br>        #<br>        # Update dialog button enabled state and register handler function<br>        #<br>        print(“Next button was clicked.”)<br><br>DIALOG.handler = func<br><br>#<br># Execute wizard dialog<br>#<br>RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)</pre></p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/wizard.png" /></p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Wizard example</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Create dialog with wizard control panel</span>
+<span class="c1">#</span>
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;boring dialog definition&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Handler function to be registered to the dialog</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="c1">#</span>
+    <span class="c1"># Handle clicks onto the &#39;prev&#39; button</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">prev</span><span class="p">:</span>
+        <span class="c1"># Here you would write code to display the content of the previous wizard &#39;page&#39;</span>
+        
+        <span class="c1">#</span>
+        <span class="c1"># Handle clicks onto the &#39;next&#39; button</span>
+        <span class="c1">#</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prev button was clicked.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+        <span class="c1"># Here you would write code to display the content of the next wizard &#39;page&#39;</span>
+        
+        <span class="c1">#</span>
+        <span class="c1"># Update dialog button enabled state and register handler function</span>
+        <span class="c1">#</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next button was clicked.&quot;</span><span class="p">)</span>
+
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">func</span>
+
+<span class="c1">#</span>
+<span class="c1"># Execute wizard dialog</span>
+<span class="c1">#</span>
+<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p><a class="reference internal" href="creating_wizard_dialogs.html"><span class="std std-doc">Creating wizard dialogs</span></a> shows some ways to manage wizard dialogs in greater detail.</p>
 </section>
 </section>
