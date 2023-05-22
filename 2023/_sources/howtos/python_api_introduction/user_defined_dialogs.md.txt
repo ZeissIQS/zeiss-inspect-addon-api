@@ -312,7 +312,7 @@ Continuous text widget
 | text                | str  | <pre>print(DIALOG.textWidget.text)</pre>                   |
 | wordwrap            | bool | <pre>DIALOG.textWidget.wordwrap = True</pre>               |
 | visible             | bool | <pre>DIALOG.textWidget.visible = False</pre>               |                              
-| default_font_family | str  | <pre>DIALOG.text.default_font_family = 'Arial Black'</pre> |                      
+| default_font_family | str  | <pre>DIALOG.textWidget.default_font_family = 'Arial Black'</pre> |                      
 | default_font_size   | int  | <pre>DIALOG.textWidget.default_font_size = 12</pre>        |
 
 ##### Displaying keywords in a continuous text widget
@@ -389,7 +389,6 @@ Image widget
 | Property           | Type      | Example                                                      |
 | ------------------ | --------- | ------------------------------------------------------------ |
 | enabled            | bool      | <pre>DIALOG.image.enabled = False</pre>                      |
-| text               | str       | <pre>DIALOG.control.prev.text = 'Previous'</pre>             |
 | use_system_image   | bool      | <pre>DIALOG.image.use_system_image = True</pre>              |
 | system_image       | str       | <pre># Possible values: 'system_message_information', 'system_message_warning',<br> 'system_message_critical', 'system_message_question'<br>DIALOG.image.system_image = 'system_message_question'</pre> |
 | file_name          | str       | read-only!                                                   |

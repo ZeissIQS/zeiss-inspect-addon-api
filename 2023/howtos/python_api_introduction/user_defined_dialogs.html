@@ -580,7 +580,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 <tr class="row-even"><td><p>default_font_family</p></td>
 <td><p>str</p></td>
-<td><p><pre>DIALOG.text.default_font_family = ‘Arial Black’</pre></p></td>
+<td><p><pre>DIALOG.textWidget.default_font_family = ‘Arial Black’</pre></p></td>
 </tr>
 <tr class="row-odd"><td><p>default_font_size</p></td>
 <td><p>int</p></td>
@@ -667,43 +667,39 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.image.enabled = False</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>text</p></td>
-<td><p>str</p></td>
-<td><p><pre>DIALOG.control.prev.text = ‘Previous’</pre></p></td>
-</tr>
-<tr class="row-even"><td><p>use_system_image</p></td>
+<tr class="row-odd"><td><p>use_system_image</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.image.use_system_image = True</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>system_image</p></td>
+<tr class="row-even"><td><p>system_image</p></td>
 <td><p>str</p></td>
 <td><p><pre># Possible values: ‘system_message_information’, ‘system_message_warning’,<br> ‘system_message_critical’, ‘system_message_question’<br>DIALOG.image.system_image = ‘system_message_question’</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>file_name</p></td>
+<tr class="row-odd"><td><p>file_name</p></td>
 <td><p>str</p></td>
 <td><p>read-only!</p></td>
 </tr>
-<tr class="row-odd"><td><p>keep_original_size</p></td>
+<tr class="row-even"><td><p>keep_original_size</p></td>
 <td><p>bool</p></td>
 <td><p>read-only!</p></td>
 </tr>
-<tr class="row-even"><td><p>keep_aspect</p></td>
+<tr class="row-odd"><td><p>keep_aspect</p></td>
 <td><p>bool</p></td>
 <td><p>read-only!</p></td>
 </tr>
-<tr class="row-odd"><td><p>data</p></td>
+<tr class="row-even"><td><p>data</p></td>
 <td><p>(special)</p></td>
 <td><p><pre># This is the actual image data<br># Copy image from one dialog to another:<br>my_dialog.my_image.data = image_container_dialog.image_1.data</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>width</p></td>
+<tr class="row-odd"><td><p>width</p></td>
 <td><p>int</p></td>
 <td><p><pre>print(‘image width ‘ + str(DIALOG.image.width))</pre></p></td>
 </tr>
-<tr class="row-odd"><td><p>height</p></td>
+<tr class="row-even"><td><p>height</p></td>
 <td><p>int</p></td>
 <td><p><pre>print(‘image height ‘ + str(DIALOG.image.height))</pre></p></td>
 </tr>
-<tr class="row-even"><td><p>visible</p></td>
+<tr class="row-odd"><td><p>visible</p></td>
 <td><p>bool</p></td>
 <td><p><pre>DIALOG.image.visible = False</pre></p></td>
 </tr>
