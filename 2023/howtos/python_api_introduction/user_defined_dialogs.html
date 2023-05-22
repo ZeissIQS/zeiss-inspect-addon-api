@@ -613,6 +613,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h5>Internal representation of a dialog with text widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-text-widget" title="Permalink to this heading"></a></h5>
 <p>The dialog is stored as a JSON document internally.</p>
 <p><img alt="" src="../../_images/text_field.png" /></p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Internal representation of a dialog</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
 	<span class="s2">&quot;content&quot;</span><span class="p">:</span> \<span class="p">[</span>
 		\<span class="p">[</span>
@@ -642,6 +644,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
         <span class="o">...</span>
 <span class="p">})</span>
 </pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -710,6 +713,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <section id="internal-representation-of-a-dialog-with-image-widget">
 <h5>Internal representation of a dialog with image widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-image-widget" title="Permalink to this heading"></a></h5>
 <p>The dialog is stored as a JSON document internally. The ‘data’ element contains the image data.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Internal representation of an image</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;data&#39; element contains the image data (shortened version here)</span>
 <span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -753,6 +758,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
     <span class="p">}</span>
 <span class="p">})</span>
 </pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -808,18 +814,96 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 <section id="progress-bar-widget">
 <h4>Progress bar widget<a class="headerlink" href="#progress-bar-widget" title="Permalink to this heading"></a></h4>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/widget_progressbar.png" /></p></td>
-<td><p>The <strong>Progress bar</strong> widget can be used in the two modes <em>system</em> and <em>manual</em>.<br><br><strong>Manual mode:</strong><br>In this mode, the user may set the progress bar through its <code class="docutils literal notranslate"><span class="pre">value</span></code> variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br><strong>Automatic mode:</strong><br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file=’some project’)<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = “manual”<br># automatic mode:<br>DIALOG.progress.mode = “system”</pre><br><br><strong>Partially controlled system progress bar:</strong><br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br><strong>Example:</strong><pre># -<em>- coding: utf-8 -</em>-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode ‘system’<br>DIALOG=gom.script.sys.create_user_defined_dialog (content=’dialog definition’)<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part ‘0’, because we are counting from ‘0’)<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display ‘33%’.<br>gom.script.sys.load_project (file=’some project’)<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part.</p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/widget_progressbar.png" /></p>
+<p>Progress bar widget
+:The Progress bar widget can be used in the two modes <em>system</em> and <em>manual</em>.</p>
+<dl class="simple myst">
+<dt>Manual mode</dt><dd><p>In this mode, the user may set the progress bar through its <code class="docutils literal notranslate"><span class="pre">value</span></code> variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span><span class="o">,</span> <span class="nn">time</span>
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">minimum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">maximum</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">open_user_defined_dialog</span><span class="p">(</span> <span class="n">dialog</span> <span class="o">=</span> <span class="n">DIALOG</span> <span class="p">)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">66</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Automatic mode</dt><dd><p>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">open_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_project</span> <span class="p">()</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">import_project</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;some project&#39;</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># manual mode:</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;manual&quot;</span>
+
+<span class="c1"># automatic mode:</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;system&quot;</span>
+</pre></div>
+</div>
+<dl class="simple myst">
+<dt>Partially controlled system progress bar</dt><dd><p>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.</p>
+<ul>
+<li><p>The progress bar range can be split into multiple parts.</p></li>
+<li><p>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.</p></li>
+<li><p>When a command is executed, the command controls just the one active part of the progress bar widget.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="c1"># Create a user defined dialog with a progress bar, mode &#39;system&#39;</span>
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">open_user_defined_dialog</span><span class="p">(</span> <span class="n">dialog</span> <span class="o">=</span> <span class="n">DIALOG</span> <span class="p">)</span>
+
+<span class="c1"># Split progress bar into 3 parts</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">parts</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Current part is the first interval (part &#39;0&#39;, because we are counting from &#39;0&#39;)</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Execute load command. The command will control the first progress bar range from 0% to 33%.</span>
+<span class="c1"># That means when the command has been finished, the progress bar will display &#39;33%&#39;.</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">load_project</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;some project&#39;</span><span class="p">)</span>
+
+<span class="c1"># Current part is the second interval. The progress bar runs from 33% to 66%</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">switch_to_report_workspace</span> <span class="p">()</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">update_report_page</span> <span class="p">(</span>
+<span class="n">pages</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">reports</span><span class="p">,</span>
+<span class="n">switch_alignment</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="n">switch_stage</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Current part is the third interval. The progress bar runs from 66% to 100%</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">switch_to_inspection_workspace</span> <span class="p">()</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">recalculate_all_elements</span> <span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<p>💡 It is possible to switch  between automatic and manual mode for each part.</p>
+<!--
+| Dialog                              | Description |
+| ----------------------------------- | ----------- |
+| ![](assets/widget_progressbar.png)  | The **Progress bar** widget can be used in the two modes _system_ and _manual_.<br><br>**Manual mode:**<br>In this mode, the user may set the progress bar through its `value` variable.<br><pre>import gom, time<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>DIALOG.progress.minimum = 0<br>DIALOG.progress.maximum = 100<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br>DIALOG.progress.value = 0<br>time.sleep(1)<br>DIALOG.progress.value = 33<br>time.sleep(1)<br>DIALOG.progress.value = 66<br>time.sleep(1)<br>DIALOG.progress.value = 100<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>**Automatic mode:**<br>In this mode, the progress bar displays the same progress informations as the progress bar in the lower right corner of the software.<br><pre>import gom<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog (dialog=DIALOG)<br>gom.script.sys.create_project ()<br>gom.script.sys.import_project (file='some project')<br>gom.script.sys.close_user_defined_dialog (dialog=DIALOG)</pre><br><br>You can switch between automatic and manual mode from within the script by setting the mode variable as shown below:<br><pre># manual mode:<br>DIALOG.progress.mode = "manual"<br># automatic mode:<br>DIALOG.progress.mode = "system"</pre><br><br>**Partially controlled system progress bar:**<br>The range of a system progress bar can be divided into parts, sequentially controlled by an executed command.<br><ul><li>The progress bar range can be split into multiple parts.<li>Each part controls an equally sized progress bar interval. If, for example, there are 3 parts, the first part ranges from 0 to 33, the second from 33 to 66 and the third from 66 to 100.<li>When a command is executed, the command controls just the one active part of the progress bar widget.</ul><br>**Example:**<pre># -*- coding: utf-8 -*-<br><br>import gom<br><br># Create a user defined dialog with a progress bar, mode 'system'<br>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br>gom.script.sys.open_user_defined_dialog( dialog = DIALOG )<br><br># Split progress bar into 3 parts<br>DIALOG.progress.parts = 3<br><br># Current part is the first interval (part '0', because we are counting from '0')<br>DIALOG.progress.step = 0<br><br># Execute load command. The command will control the first progress bar range from 0% to 33%.<br># That means when the command has been finished, the progress bar will display '33%'.<br>gom.script.sys.load_project (file='some project')<br><br># Current part is the second interval. The progress bar runs from 33% to 66%<br>DIALOG.progress.step = 1<br><br>gom.script.sys.switch_to_report_workspace ()<br>gom.script.report.update_report_page (<br> pages=gom.app.project.reports,<br> switch_alignment=True,<br> switch_stage=False)<br><br># Current part is the third interval. The progress bar runs from 66% to 100%<br>DIALOG.progress.step = 2<br><br>gom.script.sys.switch_to_inspection_workspace ()<br>gom.script.sys.recalculate_all_elements ()</pre><br>💡 It is possible to switch  between automatic and manual mode for each part. |
+-->
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
