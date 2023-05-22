@@ -213,26 +213,46 @@
 <li><p><strong>Embedded into script</strong></p></li>
 </ul>
 <p>The base filename of a dialog file is <code class="docutils literal notranslate"><span class="pre">dialog.gdlg</span></code>, it can be renamed later. A dialog is stored as a JSON document internally.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Example: Script with separate dialog file</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=’:dialog.gdlg’)</pre></p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Example: Script with embedded dialog</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    “content”: [<br>        [<br>            {<br>                …<br>            }<br>        ]<br>    ],    <br>    “control”: {<br>        “id”: “OkCancel”<br>    },<br>    “embedding”: “always_toplevel”,<br>    “position”: “automatic”,<br>    “size”: {<br>        “height”: 155,    <br>        “width”: 198<br>    },<br>    “sizemode”: “automatic”,<br>    “style”: “”,<br>    “title”: {<br>        “id”: “”,<br>        “text”: “Message”,<br>        “translatable”:     True<br>    }<br>})</pre></p></td>
-</tr>
-</tbody>
-</table>
+  <!--
+  | Example: Script with separate dialog file |
+  | ----------------------------------------- |
+  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
+  -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;:dialog.gdlg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+  <!--
+  | Example: Script with embedded dialog |
+  | ------------------------------------ |
+  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
+  -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="o">...</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">],</span>    
+    <span class="s2">&quot;control&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;OkCancel&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;embedding&quot;</span><span class="p">:</span> <span class="s2">&quot;always_toplevel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;automatic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">155</span><span class="p">,</span>    
+        <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">198</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;sizemode&quot;</span><span class="p">:</span> <span class="s2">&quot;automatic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Message&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;translatable&quot;</span><span class="p">:</span>     <span class="kc">True</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
 </li>
 <li><p>The options for the dialog <strong>Type</strong> are</p>
 <ul class="simple">
