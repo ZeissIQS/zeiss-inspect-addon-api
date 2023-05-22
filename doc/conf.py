@@ -23,7 +23,8 @@ myst_enable_extensions = [
   'colon_fence',
   'fieldlist',
   'replacements',
-  'substitution'
+  'substitution',
+  'html_image'
 ]
 
 myst_heading_anchors = 4
