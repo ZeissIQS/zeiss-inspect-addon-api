@@ -369,6 +369,8 @@ The dialog is stored as a JSON document internally.
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | <pre>gom.script.sys.execute_user_defined_dialog (dialog={<br>	"content": \[<br>		\[<br>			{<br>                            ...<br>			},<br>			{<br>				"columns": 1,<br>				"default_font_family": "",<br>				"default_font_size": 0,<br>				"name": "text",<br>				"rows": 1,<br>				"text": {<br>					"id": "",<br>					"text": "\<html\>\<p align=\"center\"\>By clicking 'Close', the dialog will be closed.\</p\>\</html\>",<br>					"translatable": True<br>				},<br>                                ...<br>				"type": "display::text",<br>				"wordwrap": False<br>			}<br>		\]<br>	\],<br>	"control": {<br>		"id": "Close"<br>	},<br>        ...<br>})</pre> |
 
+![](assets/text_field.png)
+
 ```{code-block} python
 :caption: Example: Internal representation of a dialog
 
@@ -404,9 +406,11 @@ gom.script.sys.execute_user_defined_dialog (dialog={
 
 #### Image widget
 
-| Dialog                        | Description                                          |
-| ----------------------------- | ---------------------------------------------------- |
-| ![](assets/widget_image.png)  | The **Image** widget allows to display arbitrary images. |
+![](assets/widget_image.png)
+
+Image widget
+: The **Image** widget allows to display arbitrary images.
+
 
 | Property           | Type      | Example                                                      |
 | ------------------ | --------- | ------------------------------------------------------------ |
