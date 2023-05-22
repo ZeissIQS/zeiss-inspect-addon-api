@@ -434,7 +434,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Accessing the control widget</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print control widget properties&lt;br&gt;print (DIALOG.control.\_\_doc\_\_)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print control widget properties&lt;br&gt;print (DIALOG.control.__doc__)</span>
 <span class="n">ControlGroup</span>
 
 <span class="n">Attributes</span><span class="p">:</span>
@@ -710,12 +710,6 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <section id="internal-representation-of-a-dialog-with-image-widget">
 <h5>Internal representation of a dialog with image widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-image-widget" title="Permalink to this heading"></a></h5>
 <p>The dialog is stored as a JSON document internally. The ‘data’ element contains the image data.</p>
-<!--
-| Dialog                        | Code |
-| ----------------------------- | ---- |
-| ![](assets/widget_image.png)  | <pre># The 'data' element contains the image data (shortened version here)<br>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                "columns": 1,<br>                "data": "AAAAAYlQTkcNChoKAAAADUlIRFIAAAQAAAACQAgCAAAAnPeDgptZSsdt...",<br>                "file_name": "C:/Users/IQMPRINK/Downloads/zeiss-inspect_python.jpg",<br>                "height": 144,<br>                "keep_aspect": True,<br>                "keep_original_size": False,<br>                "name": "image",<br>                "rows": 1,<br>                "system_image": "system_message_information",<br>                "tooltip": {<br>                    "id": "",<br>                    "text": "",<br>                    "translatable": True<br>                },<br>                "type": "image",<br>                "use_system_image": False,<br>                "width": 256<br>            }<br>        ]<br>    ],<br>    "control": {<br>        "id": "Close"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 233,<br>        "width": 292<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Dialog with image",<br>        "translatable": True<br>    }<br>})</pre> |
--->
-<p><img alt="" src="../../_images/widget_image.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;data&#39; element contains the image data (shortened version here)</span>
 <span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -764,18 +758,11 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 <section id="log-widget">
 <h4>Log widget<a class="headerlink" href="#log-widget" title="Permalink to this heading"></a></h4>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/widget_log.png" /></p></td>
-<td><p>The <strong>Log</strong> widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.</p></td>
-</tr>
-</tbody>
-</table>
+<p><img alt="" src="../../_images/widget_log.png" /></p>
+<dl class="simple myst">
+<dt>Log widget</dt><dd><p>The Log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.</p>
+</dd>
+</dl>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
