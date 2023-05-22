@@ -513,22 +513,11 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <h3>Specific widgets<a class="headerlink" href="#specific-widgets" title="Permalink to this heading"></a></h3>
 <section id="description-field-label-widget">
 <h4>Description field (label) widget<a class="headerlink" href="#description-field-label-widget" title="Permalink to this heading"></a></h4>
-<!-->
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/widget_label.png" /></p></td>
-<td><p>The <strong>Description field (label)</strong> widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p></td>
-</tr>
-<tr class="row-odd"><td><p>–&gt;</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+<!--
+| Dialog                        | Description |
+| ----------------------------- | ----------- |
+| ![](assets/widget_label.png)  | The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
+-->
 <p>Description field (label) widget
 : The <strong>Description field (label)</strong> widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p>
 <table class="docutils align-default">
@@ -569,22 +558,11 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <section id="continuous-text-widget">
 <h4>Continuous text widget<a class="headerlink" href="#continuous-text-widget" title="Permalink to this heading"></a></h4>
 <p><img alt="" src="../../_images/text_field.png" /></p>
-<!-->
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img alt="" src="../../_images/text_field.png" /></p></td>
-<td><p>The <strong>Continuous text</strong> widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p></td>
-</tr>
-<tr class="row-odd"><td><p>–&gt;</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+<!--
+| Dialog                      | Description |
+| --------------------------- | ---- |
+| ![](assets/text_field.png)  | The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
+-->
 <p>Continuous text widget
 : The <strong>Continuous text</strong> widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p>
 <table class="docutils align-default">
@@ -669,6 +647,36 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 </tbody>
 </table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
+	<span class="s2">&quot;content&quot;</span><span class="p">:</span> \<span class="p">[</span>
+		\<span class="p">[</span>
+			<span class="p">{</span>
+                <span class="o">...</span>
+			<span class="p">},</span>
+			<span class="p">{</span>
+				<span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+				<span class="s2">&quot;default_font_family&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;default_font_size&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+				<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+				<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">{</span>
+					<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+					<span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;\&lt;html\&gt;\&lt;p align=</span><span class="se">\&quot;</span><span class="s2">center</span><span class="se">\&quot;</span><span class="s2">\&gt;By clicking &#39;Close&#39;, the dialog will be closed.\&lt;/p\&gt;\&lt;/html\&gt;&quot;</span><span class="p">,</span>
+					<span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+				<span class="p">},</span>
+                                <span class="o">...</span>
+				<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;display::text&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;wordwrap&quot;</span><span class="p">:</span> <span class="kc">False</span>
+			<span class="p">}</span>
+		\<span class="p">]</span>
+	\<span class="p">],</span>
+	<span class="s2">&quot;control&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Close&quot;</span>
+	<span class="p">},</span>
+        <span class="o">...</span>
+<span class="p">})</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="image-widget">
