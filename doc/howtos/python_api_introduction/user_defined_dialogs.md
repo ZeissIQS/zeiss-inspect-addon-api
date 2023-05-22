@@ -42,6 +42,7 @@
 
     ```{code-block} python
     :caption: Example: Script with separate dialog file
+
     RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')
     ```
 
@@ -50,9 +51,10 @@
     | ------------------------------------ |
     | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (dialog={<br>    "content": [<br>        [<br>            {<br>                ...<br>            }<br>        ]<br>    ],    <br>    "control": {<br>        "id": "OkCancel"<br>    },<br>    "embedding": "always_toplevel",<br>    "position": "automatic",<br>    "size": {<br>        "height": 155,    <br>        "width": 198<br>    },<br>    "sizemode": "automatic",<br>    "style": "",<br>    "title": {<br>        "id": "",<br>        "text": "Message",<br>        "translatable":     True<br>    }<br>})</pre> |
     -->
-    
+
     ```{code-block} python
     :caption: Example: Script with embedded dialog
+
     RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
         "content": [
             [
@@ -217,9 +219,24 @@ print( DIALOG.objName.__doc__ )
 * Usually, the names are corresponding with the elements' semantics. For example, the name of the **ok** button is 'ok'. The names can also be obtained from the `__doc__` string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
 
+<!-->
 | Accessing the control widget |
 | ---------------------------- |
 | <pre># Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)<br>ControlGroup<br><br>Attributes:<br><br>status (string)              - Status tool tip icon<br>ok     (unspecified/various) - Control widget<br>cancel (unspecified/various) - Control widget</pre> |
+-->
+
+```{code-block} python
+:caption: Accessing the control widget
+
+# Print control widget properties<br>print (DIALOG.control.\_\_doc\_\_)
+ControlGroup
+
+Attributes:
+
+status (string)              - Status tool tip icon
+ok     (unspecified/various) - Control widget
+cancel (unspecified/various) - Control widget
+```
 
 #### Control button properties
 
@@ -239,13 +256,9 @@ Control buttons only have the following two properties which can be set programm
 
 ![](assets/control_widget_status_label.png)
 
-<!---
-| Dialog                                      | Code |
-| ------------------------------------------- | ---- |
-| ![](assets/control_widget_status_label.png) <img src="assets/control_widget_status_label.png" width="300px"> | <pre>DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')<br><br># Set status label text<br>DIALOG.control.status = 'No point selected.'<br><br># Set 'ok' button to disabled<br>DIALOG.control.ok.enabled = False<br>gom.script.sys.show_user_defined_dialog(dialog = DIALOG)</pre> |
--->
 ```{code-block} python
-:caption: Status label
+:caption: Using the Status label
+
 DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
 
 # Set status label text
@@ -262,9 +275,14 @@ You can reset the status icon and clear the error message by assigning an empty 
 
 #### Description field (label) widget
 
+<!-->
 | Dialog                        | Description |
 | ----------------------------- | ----------- |
 | ![](assets/widget_label.png)  | The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog. |
+-->
+
+Description field (label) widget
+: The **Description field (label)** widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.
 
 | Property  | Type  | Example                                                                               |
 | --------- | ----- | ------------------------------------------------------------------------------------- |
@@ -278,9 +296,16 @@ You can reset the status icon and clear the error message by assigning an empty 
  
 #### Continuous text widget
 
+![](assets/text_field.png)
+
+<!-->
 | Dialog                      | Description |
 | --------------------------- | ---- |
 | ![](assets/text_field.png)  | The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied. |
+-->
+
+Continuous text widget
+: The **Continuous text** widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.
 
 | Editor                     | Dialog                      |
 | -------------------------- | --------------------------- |
