@@ -161,17 +161,17 @@
 <tbody>
 <tr class="row-even"><td><p>Scalar</p></td>
 <td><p>Scalar check:<br>A single scalar value is assigned to an element</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{&quot;nominal&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;actual&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code>{l=python}</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{&quot;nominal&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;actual&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code></p></td>
 <td><p>A nominal and actual double value are set, and a reference to element which was checked.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Scalar Surface</p></td>
 <td><p>Surface check:<br>A scalar deviation value is assigned to each point of a mesh.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;deviation_values&quot;</span> <span class="pre">:</span> <span class="pre">np.array(dtype=np.float32),</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code>{l=python}</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;deviation_values&quot;</span> <span class="pre">:</span> <span class="pre">np.array(dtype=np.float32),</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code></p></td>
 <td><p>A list of deviation values for each point of a mesh. The mesh is also set as “reference” parameter.<p>The number of points of the mesh and the “deviation_values” array must match.</p></td>
 </tr>
 <tr class="row-even"><td><p>Scalar Curve</p></td>
 <td><p>Curve check:<br>A scalar deviation value is assigned to each point on a curve.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;actual_values&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">'nominal_values':</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference}</span></code>{l=python}</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;actual_values&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">'nominal_values':</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference}</span></code></p></td>
 <td><p>A list of nominal and actual values for each point of a curve. The deviation values are calculated automatically as a difference between both.<p>The curve is also set as “reference” parameter.<p>The number of points of the curve and the value arrays must match.</p></td>
 </tr>
 </tbody>
