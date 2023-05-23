@@ -18,4 +18,4 @@ DIALOG.list.items = ['yes', 'we', 'can']
 
 ## Related
 
-* How-to: [Using Script Dialogs](../../howtos/python_api_introduction/script_dialogs_introduction.md)
+* How-to: [User-defined Dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)
