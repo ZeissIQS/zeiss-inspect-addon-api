@@ -204,7 +204,7 @@
 </tr>
 <tr class="row-even"><td><p>Cylinder</p></td>
 <td><p>Cylinder</p></td>
-<td><p><pre>result = Reference<code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code>result = { ‘point’: gom.Vec3d, ‘radius’: float, ‘direction’: gom.Vec3d, ‘inner’ : bool } # This does not work!</pre><br>⚠️ <strong>Workaround:</strong> set the result to <pre>{‘default’ : {‘point’: gom.Vec3d, ‘radius’: float, ‘direction’: gom.Vec3d, ‘inner’ : bool} }</pre></p></td>
+<td><p><pre>result = Reference</pre><br><pre>result = { ‘point’: gom.Vec3d, ‘radius’: float, ‘direction’: gom.Vec3d, ‘inner’ : bool } # This does not work!</pre><br>⚠️ <strong>Workaround:</strong> set the result to <pre>{‘default’ : {‘point’: gom.Vec3d, ‘radius’: float, ‘direction’: gom.Vec3d, ‘inner’ : bool} }</pre></p></td>
 <td><p>Accepts any Cylinder Trait</p></td>
 </tr>
 <tr class="row-odd"><td><p>Plane</p></td>
@@ -230,19 +230,14 @@
 <tr class="row-odd"><td><p>Volume material map</p></td>
 <td><p>Attach material labels to volume element</p></td>
 <td><p><pre>result = {<br>    ‘material_labels_draft’ : np.array (), <br>    ‘material_grey_values_draft’ : [background, material 1, …],<br>    ‘volume_reference_draft’ : Reference<br>}</pre></p></td>
-<td><p>Creates a new volume element copy with attached material labels.<p>First parameter is a numpy array of type UINT8 of the size of the volume. The values are the material index per voxel. Background has Index 0.<p>The second parameter is a list of floating point grey values that are the representative grey values of the background and the materials.<p></p></td>
+<td><p>Creates a new volume element copy with attached material labels.<p>First parameter is a numpy array of type UINT8 of the size of the volume. The values are the material index per voxel. Background has Index 0.<p>The second parameter is a list of floating point grey values that are the representative grey values of the background and the materials.<p>The third parameter is a reference to the volume element, to which material labels should be attached.</p></td>
 </tr>
-<tr class="row-even"><td><p>The third parameter is a reference to the volume element, to which material labels should be attached.</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Volume Section</p></td>
+<tr class="row-even"><td><p>Volume Section</p></td>
 <td><p>Volume section</p></td>
 <td><p><pre>result = { ‘pixel_data’ : np.array (), ‘transformation’ : gom.Mat4x4 }</pre></p></td>
 <td><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation)</p></td>
 </tr>
-<tr class="row-even"><td><p>Volume Region</p></td>
+<tr class="row-odd"><td><p>Volume Region</p></td>
 <td><p>Volume Region</p></td>
 <td><p><pre>result = {‘volume_element’: Reference,<br>          ‘offset’: gom.Vec3d,<br>          ‘data’: np.array ()}</pre></p></td>
 <td><p>Accepts a numpy array of the region data. The ‘dtype’ must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.</p></td>
