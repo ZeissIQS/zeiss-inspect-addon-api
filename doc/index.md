@@ -22,7 +22,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
    howtos/environments_for_python_scripts/environments_for_python_scripts
    howtos/python_api_introduction/python_api_introduction
    howtos/using_add_on_manager/using_add_on_manager
-   howtos/add_on_file_format
+   howtos/add_on_file_format/add_on_file_format
    howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/using_script_resources
