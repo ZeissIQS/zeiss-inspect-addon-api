@@ -40,12 +40,6 @@ Notes:
 
 ## Scripted actuals - Return values
 
-```{note}
-This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Actual+Elements).
-% TODO: 
-Content will be migrated shortly.
-```
-
 | Dialog Choice  | Comment                  | Result format                                              | Result description |
 | -------------- | ------------------------ | ---------------------------------------------------------- | ------------------ |
 | Point          | Plain 3D point           | <pre>result = (x,y,z)</pre><br><pre>result = gom.Vec3D</pre>                 | Point coordinate   |
