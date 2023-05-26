@@ -179,6 +179,8 @@ The definition of the dialog can be found in [scriptingEditorExampleDialog.py](a
     - [Button widget](#button-widget)
     - [Radio button widget](#radio-button-widget)
     - [Abort button widget](#abort-button-widget)
+    - [Tolerances widget](#tolerances-widget)
+    - [File system browser widget](#file-system-browser-widget)
 
 This section gives an overview of the available widgets. If the code examples given in this section are not intuitive to you, you might want to take a look 
 into [Executing dialogs](#executing-dialogs).
