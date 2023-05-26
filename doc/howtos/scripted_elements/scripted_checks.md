@@ -5,7 +5,7 @@
 ```
 ## Introduction
 
-Scripted checks are a specialization of scripted elements to realize customized inspections in the GOM Software. Use checks if you want to display the deviation of certain properties of *existing* elements.
+Scripted checks are a specialization of scripted elements to realize customized inspections in the ZEISS Software. Use checks if you want to display the deviation of certain properties of *existing* elements.
 
 ## Writing a scripted check
 
