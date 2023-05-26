@@ -30,7 +30,9 @@ For a successful integration with the native checks, unit and tolerance need to 
 Furthermore, checks shall be assigned an `abbreviation`. This is the short form you'll see in the 3D view labels of the check, or in the result table.
 
 ```{seealso}
-Detailed description of the [Scripted element API](../../python_api/scripted_elements_api.md).
+* Detailed description of the [Scripted element API](../../python_api/scripted_elements_api.md)
+* Documentation of the [Unit widget](../python_api_introduction/user_defined_dialogs.md#unit-widget)
+* Documentation of the [Tolerances widget](../python_api_introduction/user_defined_dialogs.md#tolerances-widget) 
 ```
 
 ## Types of scripted checks

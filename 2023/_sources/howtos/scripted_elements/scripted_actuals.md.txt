@@ -42,7 +42,7 @@ def dialog(context, params):
 
 As you can see, the function takes the parameters `context` and `params`. Although the `context` object has several members, for now we will only use it to set a name for our scripted element (line 15). The main objective of our dialog function is to fill the second parameter, the `params` map (python type: dictionary).
 
-In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We [create a user dialog](../python_api_introduction/script_dialogs_introduction.md) and in the dialog editor, we add two input widgets:
+In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We [create a user dialog](../python_api_introduction/user_defined_dialogs.md) and in the dialog editor, we add two input widgets:
 
 * `Input -> Decimal`: a decimal widget for the offset input
 * `Selection -> Selection element`: an element widget to select a point-like element
