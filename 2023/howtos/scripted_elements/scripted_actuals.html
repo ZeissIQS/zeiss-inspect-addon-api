@@ -114,11 +114,11 @@
   <section id="scripted-actuals">
 <h1>Scripted actuals<a class="headerlink" href="#scripted-actuals" title="Permalink to this heading"></a></h1>
 <p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
-<p>Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the “Actual Element” category of the GOM Inspect Element Explorer.</p>
+<p>Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the “Actual Element” category of the ZEISS Inspect Element Explorer.</p>
 <p>In this how-to, the creation of a very basic point element is presented to show how scripted actuals are developed by example.</p>
 <section id="example-simple-offset-point">
 <h2>Example: Simple offset point<a class="headerlink" href="#example-simple-offset-point" title="Permalink to this heading"></a></h2>
-<p>Assume we want to create a scripted point. A point, whose position is just offsetted by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.</p>
+<p>Assume we want to create a scripted point. A point, whose position is just offset by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.</p>
 <p>As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose “Actual element” -&gt; “Point”.</p>
 <p><img alt="" src="../../_images/offset_point_creation_type.jpg" /></p>
 <p>Then, we write the code, which needs a <code class="docutils literal notranslate"><span class="pre">dialog</span></code> and a <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function. Let’s begin with the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function.</p>
@@ -149,14 +149,14 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">-&gt;</span> <span class="pre">Selection</span> <span class="pre">element</span></code>: an element widget to select a point-like element</p></li>
 </ul>
 <p><img alt="" src="../../_images/offset_point_dialog.jpg" /></p>
-<p>It’s important to note the widgets’ “Object name”s, so we can adress them in the code. Second, it’s important to set the “Type” of the selection element widget to <code class="docutils literal notranslate"><span class="pre">Any</span> <span class="pre">point</span></code>, so the user gets only the choice between elements that offer some point information.</p>
+<p>It’s important to note the widgets’ <em>Object name</em>s, so we can adress them in the code. Second, it’s important to set the “Type” of the selection element widget to <code class="docutils literal notranslate"><span class="pre">Any</span> <span class="pre">point</span></code>, so the user gets only the choice between elements that offer some point information.</p>
 <p>When finished with dialog creation, we have our desired JSON code, which we can use as a parameter for the <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_user_defined_dialog</span></code> command (line 3). This gives as a <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> handle, which we will use further.</p>
 <p>In case the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function is called from “Edit creation parameters”, e.g the user wants to change parameters after the element was already created, the <code class="docutils literal notranslate"><span class="pre">params</span></code> map is not empty. Instead, it holds the <em>command parameters</em> from the last creation. Hence, we should prefill our DIALOG’s widgets with the current values (see line 5 to 8). We can access the values of the widgets using the dialog handle and widgets’ object names: <code class="docutils literal notranslate"><span class="pre">DIALOG.&lt;widget</span> <span class="pre">name&gt;.value</span></code>.</p>
 <p>Then, the dialog is shown to the user (line 10) and afterwards the results are collected (lines 12/13). After setting the element name, the parameters are returned. The framework then continues to call the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function.</p>
 </section>
 <section id="calculation">
 <h3><code class="docutils literal notranslate"><span class="pre">calculation</span></code><a class="headerlink" href="#calculation" title="Permalink to this heading"></a></h3>
-<p>In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values necessary.
+<p>In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values as necessary.
 However, in this example, things are easy.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 <span class="linenos">2</span>
@@ -169,7 +169,7 @@ However, in this example, things are easy.</p>
 <p>The parameters of the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function are again <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>. From the <code class="docutils literal notranslate"><span class="pre">params</span></code>, we can access the selected point element using <code class="docutils literal notranslate"><span class="pre">params['base']</span></code>.
 What we get is a <code class="docutils literal notranslate"><span class="pre">gom.Reference</span></code> to the element the user selected. We can now <a class="reference internal" href="../python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-ref">access the element’s properties</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">center_coordinate</span></code>.</p>
 <p>Finally, we have to fill the <code class="docutils literal notranslate"><span class="pre">context.result</span></code> member. Depending on the scripted element type we want to create, it takes different formats.
-As described in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API reference</span></a>, a point element takes a coorinate tuple <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>.
+As described in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API reference</span></a>, a point element takes a coordinate tuple <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>.
 The result for stage <code class="docutils literal notranslate"><span class="pre">0</span></code> (we ignore other stages for this example) is set in line 4. We return <code class="docutils literal notranslate"><span class="pre">True</span></code> to indicate the computation went fine.</p>
 </section>
 <section id="running-the-example">
