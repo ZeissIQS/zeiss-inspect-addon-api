@@ -12,7 +12,7 @@ It shows how to enhance user experience using preview calculation and error hand
 
 From many of the built-in commands of the GOM Software, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.
 
-To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: [How-to: Using script dialogs](../../howtos/python_api_introduction/script_dialogs_introduction.md)). 
+To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: [How-to: User-defined dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)). 
 
 
 ```{code-block} python
@@ -124,4 +124,4 @@ Output:
 ## Related
 
 * [Example: offset_point_simple](offset_point_simple.md)
-* [How-to: Using script dialogs](../../howtos/python_api_introduction/script_dialogs_introduction.md)
+* [How-to: User-defined dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)
