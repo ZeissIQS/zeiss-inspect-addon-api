@@ -15,7 +15,7 @@ if widget == DIALOG.unit:
   DIALOG.input.unit = DIALOG.unit.value
   DIALOG.tolerances.unit = DIALOG.unit.value
 ```
-Another interesting part of this example is the corresponding **test**. In `addon_tests/test_dialog_widgets_unit_dialog` is shown how a very basic testing of the event_handler can be realized:
+Another interesting part of this example is the corresponding **test**. In `addon_tests/test_dialog_widgets_unit_dialog` is shown how a very basic testing of the event_handler can be implemented:
 
 ```python
 DIALOG=example.setup_dialog()
