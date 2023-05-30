@@ -19,8 +19,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using script dialogs" href="script_dialogs_introduction.html" />
-    <link rel="prev" title="Environments for python scripts" href="../environments_for_python_scripts/environments_for_python_scripts.html" /> 
+    <link rel="next" title="Using Add-on Manager" href="../using_add_on_manager/using_add_on_manager.html" />
+    <link rel="prev" title="Add-On Documentation 2023" href="../../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +44,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../environments_for_python_scripts/environments_for_python_scripts.html">Environments for python scripts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#access-element-properties">Access element properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#explore-available-properties">Explore available properties</a></li>
@@ -55,11 +54,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#element-data-interfaces">Element data interfaces</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="script_dialogs_introduction.html">Using script dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
@@ -115,7 +116,7 @@
 <section id="access-element-properties">
 <h2>Access element properties<a class="headerlink" href="#access-element-properties" title="Permalink to this heading"></a></h2>
 <p>The “elements” of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.</p>
-<p>First of all, you need a reference to an element, which you can get either by <a class="reference external" href="https://connect.gom.com/display/GKB/Scripting+-+User-Defined+Dialogs">using a script dialog</a> or simply by referencing it by name.</p>
+<p>First of all, you need a reference to an element, which you can get either by <a class="reference internal" href="user_defined_dialogs.html"><span class="std std-doc">using a script dialog</span></a> or simply by referencing it by name.</p>
 <p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on from the store and loaded the <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
 </pre></div>
@@ -175,8 +176,8 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../environments_for_python_scripts/environments_for_python_scripts.html" class="btn btn-neutral float-left" title="Environments for python scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="script_dialogs_introduction.html" class="btn btn-neutral float-right" title="Using script dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Add-On Documentation 2023" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using_add_on_manager/using_add_on_manager.html" class="btn btn-neutral float-right" title="Using Add-on Manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -2,13 +2,13 @@
 
 ![](assets/scripted_actual_explorer.jpg)
 
-Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the GOM Inspect Element Explorer.
+Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the ZEISS Inspect Element Explorer.
 
 In this how-to, the creation of a very basic point element is presented to show how scripted actuals are developed by example.
 
 ## Example: Simple offset point
 
-Assume we want to create a scripted point. A point, whose position is just offsetted by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.
+Assume we want to create a scripted point. A point, whose position is just offset by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.
 
 As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose "Actual element" -> "Point".
 
@@ -42,14 +42,14 @@ def dialog(context, params):
 
 As you can see, the function takes the parameters `context` and `params`. Although the `context` object has several members, for now we will only use it to set a name for our scripted element (line 15). The main objective of our dialog function is to fill the second parameter, the `params` map (python type: dictionary).
 
-In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We [create a user dialog](../python_api_introduction/script_dialogs_introduction.md) and in the dialog editor, we add two input widgets:
+In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We [create a user dialog](../python_api_introduction/user_defined_dialogs.md) and in the dialog editor, we add two input widgets:
 
 * `Input -> Decimal`: a decimal widget for the offset input
 * `Selection -> Selection element`: an element widget to select a point-like element
 
 ![](assets/offset_point_dialog.jpg)
 
-It's important to note the widgets' "Object name"s, so we can adress them in the code. Second, it's important to set the "Type" of the selection element widget to `Any point`, so the user gets only the choice between elements that offer some point information.
+It's important to note the widgets' *Object name*s, so we can adress them in the code. Second, it's important to set the "Type" of the selection element widget to `Any point`, so the user gets only the choice between elements that offer some point information.
 
 When finished with dialog creation, we have our desired JSON code, which we can use as a parameter for the `gom.script.sys.create_user_defined_dialog` command (line 3). This gives as a `DIALOG` handle, which we will use further.
 
@@ -59,7 +59,7 @@ Then, the dialog is shown to the user (line 10) and afterwards the results are c
 
 ### `calculation`
 
-In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values necessary.
+In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values as necessary.
 However, in this example, things are easy. 
 
 ```{code-block} python
@@ -78,7 +78,7 @@ The parameters of the `calculation` function are again `context` and `params`. F
 What we get is a `gom.Reference` to the element the user selected. We can now [access the element's properties](../python_api_introduction/python_api_introduction.md#access-element-properties), such as the `center_coordinate`.
 
 Finally, we have to fill the `context.result` member. Depending on the scripted element type we want to create, it takes different formats.
-As described in the [Scripted elements API reference](../../python_api/scripted_elements_api.md), a point element takes a coorinate tuple `(x, y, z)`.
+As described in the [Scripted elements API reference](../../python_api/scripted_elements_api.md), a point element takes a coordinate tuple `(x, y, z)`.
 The result for stage `0` (we ignore other stages for this example) is set in line 4. We return `True` to indicate the computation went fine.
 
 ### Running the example

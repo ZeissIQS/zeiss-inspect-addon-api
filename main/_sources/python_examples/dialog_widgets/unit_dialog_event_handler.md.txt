@@ -15,7 +15,7 @@ if widget == DIALOG.unit:
   DIALOG.input.unit = DIALOG.unit.value
   DIALOG.tolerances.unit = DIALOG.unit.value
 ```
-Another interesting part of this example is the corresponding **test**. In `addon_tests/test_dialog_widgets_unit_dialog` is shown how a very basic testing of the event_handler can be realized:
+Another interesting part of this example is the corresponding **test**. In `addon_tests/test_dialog_widgets_unit_dialog` is shown how a very basic testing of the event_handler can be implemented:
 
 ```python
 DIALOG=example.setup_dialog()
@@ -33,4 +33,4 @@ This usage of the `DIALOG.handler` function mimics the user-interaction of chang
 
 ## Related
 
-* How-to: [Using Script Dialogs](../../howtos/python_api_introduction/script_dialogs_introduction.md)
+* How-to: [User-defined Dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)

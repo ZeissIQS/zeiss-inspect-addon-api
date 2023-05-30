@@ -12,5 +12,5 @@ This is a collection of examples that don't fit in any other category.
 ```
 
 
-```{seealso}  How-to: [Using Script Dialogs](../howtos/python_api_introduction/script_dialogs_introduction.md)
+```{seealso}  How-to: [User-defined Dialogs](../howtos/python_api_introduction/user_defined_dialogs.md)
 ```
