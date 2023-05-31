@@ -152,43 +152,43 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>.data</p></td>
+<tr class="row-even"><td><p><pre>.data</pre></p></td>
 <td><p>UDE data storage access</p></td>
 <td><p>see “calculate” Function</p></td>
 </tr>
-<tr class="row-odd"><td><p>.stages</p></td>
+<tr class="row-odd"><td><p><pre>.stages</pre></p></td>
 <td><p>Current stage</p></td>
 <td><p>List containing stage index of current stage</p></td>
 </tr>
-<tr class="row-even"><td><p>.total_stages</p></td>
+<tr class="row-even"><td><p><pre>.total_stages</pre></p></td>
 <td><p>Number of stages</p></td>
 <td><p>Valid stage indices are 0 to total_stages - 1</p></td>
 </tr>
-<tr class="row-odd"><td><p>.calc</p></td>
+<tr class="row-odd"><td><p><pre>.calc</pre></p></td>
 <td><p>Function to calculate preview</p></td>
 <td><p>See below</p></td>
 </tr>
-<tr class="row-even"><td><p>.result</p></td>
+<tr class="row-even"><td><p><pre>.result</pre></p></td>
 <td><p>Directly set preview</p></td>
 <td><p>see “calculate” Function</p></td>
 </tr>
-<tr class="row-odd"><td><p>.is_new_element</p></td>
+<tr class="row-odd"><td><p><pre>.is_new_element</pre></p></td>
 <td><p>Flag if element creation</p></td>
 <td><p>True on (edit) creation, false on recalc</p></td>
 </tr>
-<tr class="row-even"><td><p>.name</p></td>
+<tr class="row-even"><td><p><pre>.name</pre></p></td>
 <td><p>Name of created element</p></td>
 <td><p>Read/write attribute<br>Ignored on recalc and script execution</p></td>
 </tr>
-<tr class="row-odd"><td><p>.error</p></td>
+<tr class="row-odd"><td><p><pre>.error</pre></p></td>
 <td><p>Last error text from preview calculation</p></td>
 <td><p>Empty if no error occurred</p></td>
 </tr>
-<tr class="row-even"><td><p>.edit_element</p></td>
+<tr class="row-even"><td><p><pre>.edit_element</pre></p></td>
 <td><p>Reference to edited element</p></td>
 <td><p>Only available during element editing</p></td>
 </tr>
-<tr class="row-odd"><td><p>.recalc_element</p></td>
+<tr class="row-odd"><td><p><pre>.recalc_element</pre></p></td>
 <td><p>Reference to element used in project recalculation</p></td>
 <td><p></p></td>
 </tr>
@@ -215,13 +215,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>params</p></td>
+<tr class="row-even"><td><p><pre>params</pre></p></td>
 <td><p>A map of parameters to be used for preview calculation</p></td>
 </tr>
-<tr class="row-odd"><td><p>stages</p></td>
+<tr class="row-odd"><td><p><pre>stages</pre></p></td>
 <td><p>Optional: A list of stage indices to calculate a preview in</p></td>
 </tr>
-<tr class="row-even"><td><p>dialog</p></td>
+<tr class="row-even"><td><p><pre>dialog</pre></p></td>
 <td><p>Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string ‘calculated’</p></td>
 </tr>
 </tbody>
