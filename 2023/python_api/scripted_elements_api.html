@@ -70,8 +70,24 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Scripted elements API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#the-dialog-function">The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-calculation-function">The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-dialog-function">The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signature">Signature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-context">Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-params">Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-value">Return value</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calculating-a-preview">Calculating a preview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-calculation-function">The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Signature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Return value</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-return-values">Scripted actuals - Return values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-element-types">Supported Element Types</a></li>
@@ -115,29 +131,192 @@
 </div>
 <section id="the-dialog-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function<a class="headerlink" href="#the-dialog-function" title="Permalink to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This content was previously part of the GOM Connect. See <a class="reference external" href="https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference">here</a>.</p>
-<p>Content will be migrated shortly.</p>
-</div>
-<p>Notes:</p>
+<p>💡 <strong>Notes:</strong></p>
 <ul class="simple">
 <li><p>The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.</p></li>
 <li><p>All tokens of other elements can be accessed within this function.</p></li>
 </ul>
+<section id="signature">
+<h3>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</pre></div>
+</div>
+<section id="parameter-context">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#parameter-context" title="Permalink to this heading"></a></h4>
+<p>The context contains the following members:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>.data</p></td>
+<td><p>UDE data storage access</p></td>
+<td><p>see “calculate” Function</p></td>
+</tr>
+<tr class="row-odd"><td><p>.stages</p></td>
+<td><p>Current stage</p></td>
+<td><p>List containing stage index of current stage</p></td>
+</tr>
+<tr class="row-even"><td><p>.total_stages</p></td>
+<td><p>Number of stages</p></td>
+<td><p>Valid stage indices are 0 to total_stages - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>.calc</p></td>
+<td><p>Function to calculate preview</p></td>
+<td><p>See below</p></td>
+</tr>
+<tr class="row-even"><td><p>.result</p></td>
+<td><p>Directly set preview</p></td>
+<td><p>see “calculate” Function</p></td>
+</tr>
+<tr class="row-odd"><td><p>.is_new_element</p></td>
+<td><p>Flag if element creation</p></td>
+<td><p>True on (edit) creation, false on recalc</p></td>
+</tr>
+<tr class="row-even"><td><p>.name</p></td>
+<td><p>Name of created element</p></td>
+<td><p>Read/write attribute<br>Ignored on recalc and script execution</p></td>
+</tr>
+<tr class="row-odd"><td><p>.error</p></td>
+<td><p>Last error text from preview calculation</p></td>
+<td><p>Empty if no error occurred</p></td>
+</tr>
+<tr class="row-even"><td><p>.edit_element</p></td>
+<td><p>Reference to edited element</p></td>
+<td><p>Only available during element editing</p></td>
+</tr>
+<tr class="row-odd"><td><p>.recalc_element</p></td>
+<td><p>Reference to element used in project recalculation</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameter-params">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code><a class="headerlink" href="#parameter-params" title="Permalink to this heading"></a></h4>
+<p>The params contain a map of parameter values. It is only filled on element edit and contains the current parameters of the element.</p>
+</section>
+<section id="return-value">
+<h4>Return value<a class="headerlink" href="#return-value" title="Permalink to this heading"></a></h4>
+<p>The function must return a map containing the new element parameters.</p>
+<p>If no map is returned the edit/creation is regarded as aborted by the user.</p>
+</section>
+</section>
+<section id="calculating-a-preview">
+<h3>Calculating a preview<a class="headerlink" href="#calculating-a-preview" title="Permalink to this heading"></a></h3>
+<p>To calculate a preview, the <code class="docutils literal notranslate"><span class="pre">context.calc()</span></code> function can be invoked. It takes the following parameters:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>params</p></td>
+<td><p>A map of parameters to be used for preview calculation</p></td>
+</tr>
+<tr class="row-odd"><td><p>stages</p></td>
+<td><p>Optional: A list of stage indices to calculate a preview in</p></td>
+</tr>
+<tr class="row-even"><td><p>dialog</p></td>
+<td><p>Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string ‘calculated’</p></td>
+</tr>
+</tbody>
+</table>
+<p>A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.</p>
+</section>
 </section>
 <section id="the-calculation-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function<a class="headerlink" href="#the-calculation-function" title="Permalink to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This content was previously part of the GOM Connect. See <a class="reference external" href="https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference">here</a>.</p>
-<p>Content will be migrated shortly.</p>
-</div>
-<p>Notes:</p>
+<p>💡 <strong>Notes:</strong></p>
 <ul class="simple">
 <li><p>It is not possible to call script commands or read tokens from within this function. (Do not call <code class="docutils literal notranslate"><span class="pre">gom.app.project....</span></code>)</p></li>
 <li><p>The function should loop over all stages to be calculated and set a computation result  for each stage.</p></li>
 </ul>
+<section id="id1">
+<h3>Signature<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</pre></div>
+</div>
+<section id="id2">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<p>The context contains the following members:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><pre>.data[stage]</pre></p></td>
+<td><p>UDE data storage access</p></td>
+<td><p>see below</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.stages</pre></p></td>
+<td><p>Current indices</p></td>
+<td><p>List containing stage indices to calculate</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.total_stages</pre></p></td>
+<td><p>Number of stages</p></td>
+<td><p>Valid stage indices are 0 to total_stages - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.result[stage]</pre></p></td>
+<td><p>Directly set preview</p></td>
+<td><p>see below</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.is_new_element</pre></p></td>
+<td><p>Flag if element creation</p></td>
+<td><p>True on (edit) creation, false on recalc</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.name</pre></p></td>
+<td><p>Name of created element</p></td>
+<td><p>Read/write attribute<br>Ignored on recalc and script execution</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.error[stage]</pre></p></td>
+<td><p>Used to assign an error text</p></td>
+<td><p>Will set the element to not computed in the given stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.edit_element</pre></p></td>
+<td><p>Reference to edited element</p></td>
+<td><p>Only available during element editing</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.recalc_element</pre></p></td>
+<td><p>Reference to element being computed</p></td>
+<td><p>Only available during non-interactive calculation</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.progress_stages_computing</pre></p></td>
+<td><p>Number of stages which have started to compute</p></td>
+<td><p>Used to display progress information</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.progress_stages_total</pre></p></td>
+<td><p>Number of stages which have to be computed</p></td>
+<td><p>Used to display progress information</p></td>
+</tr>
+</tbody>
+</table>
+<section id="attribute-context-data">
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code><a class="headerlink" href="#attribute-context-data" title="Permalink to this heading"></a></h5>
+<p>The context.data is a list allowing to read or write additional data. The list is indexed with a stage index. The additional data is stored within the project, so the gom application must be able to serialize the provided data.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="attribute-context-result">
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.result[]</span></code><a class="headerlink" href="#attribute-context-result" title="Permalink to this heading"></a></h5>
+<p>This is a write only list used to set computation results. The context.result[] should be set for each state index listed in context.stages.</p>
+<p>The format to write must match the type of the script element. For available result types, see <a class="reference internal" href="#scripted-actuals-return-values">Scripted actuals - Return values</a> and <a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a>.</p>
+</section>
+</section>
+<section id="id3">
+<h4>Return value<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<p>On success the function must return True, otherwise False.</p>
+</section>
+</section>
 </section>
 <section id="scripted-actuals-return-values">
 <h2>Scripted actuals - Return values<a class="headerlink" href="#scripted-actuals-return-values" title="Permalink to this heading"></a></h2>

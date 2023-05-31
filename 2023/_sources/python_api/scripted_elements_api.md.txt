@@ -8,35 +8,107 @@ If you don't know about the concept yet, take a look at the [Scripted elements i
 
 ## The `dialog` function
 
-```{note}
-This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference).
-% TODO: 
-Content will be migrated shortly.
-```
-
-
-Notes:
+💡 **Notes:**
 
 * The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.
 * All tokens of other elements can be accessed within this function.
 
-% Parameter: `context`: ...
+### Signature
 
+```python
+def dialog(context, params):
+```
+
+
+#### Parameter `context`
+
+The context contains the following members:
+
+| Name            | Role                                               | Remarks                                                        |
+| --------------- | -------------------------------------------------- | -------------------------------------------------------------- |
+| .data	          | UDE data storage access                            | see "calculate" Function                                       |
+| .stages	      | Current stage	                                   | List containing stage index of current stage                   |
+| .total_stages   |	Number of stages                                   | Valid stage indices are 0 to total_stages - 1                  |
+| .calc	          | Function to calculate preview                      | See below                                                      |
+| .result	      | Directly set preview                               | see "calculate" Function                                       |
+| .is_new_element | Flag if element creation                           | True on (edit) creation, false on recalc                       |
+| .name	          | Name of created element                            | Read/write attribute<br>Ignored on recalc and script execution |
+| .error          | Last error text from preview calculation           | Empty if no error occurred                                     |
+| .edit_element   | Reference to edited element	                       | Only available during element editing                          |
+| .recalc_element | Reference to element used in project recalculation | 	                                                            |
+
+#### Parameter `params`
+
+The params contain a map of parameter values. It is only filled on element edit and contains the current parameters of the element.
+
+#### Return value
+
+The function must return a map containing the new element parameters.
+
+If no map is returned the edit/creation is regarded as aborted by the user.
+
+### Calculating a preview
+
+To calculate a preview, the `context.calc()` function can be invoked. It takes the following parameters:
+
+| Name   | Role                                                                               |
+| ------ | ---------------------------------------------------------------------------------- |
+| params |	A map of parameters to be used for preview calculation                            |
+| stages | Optional: A list of stage indices to calculate a preview in                        |
+| dialog | Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string 'calculated' |
+
+A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
 
 ## The `calculation` function
 
-```{note}
-This content was previously part of the GOM Connect. See [here](https://connect.gom.com/display/GPF/Scripted+Elements+API+Reference).
-% TODO: 
-Content will be migrated shortly.
-```
-
-Notes:
+💡 **Notes:**
 * It is not possible to call script commands or read tokens from within this function. (Do not call `gom.app.project....`)
 * The function should loop over all stages to be calculated and set a computation result  for each stage.
 
-% `context`: ...
+### Signature
 
+```python
+def calculation(context, params):
+```
+
+#### Parameter `context`
+
+The context contains the following members:
+
+| Name                                  | Role                                               | Remarks                                                        |
+| ------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------- |
+| <pre>.data[stage]</pre>               | UDE data storage access                            | see below                                                      |
+| <pre>.stages</pre>                    | Current indices                                    | List containing stage indices to calculate                     |
+| <pre>.total_stages</pre>              | Number of stages                                   | Valid stage indices are 0 to total_stages - 1                  |
+| <pre>.result[stage]</pre>             | Directly set preview                               | see below                                                      |
+| <pre>.is_new_element</pre>            | Flag if element creation                           | True on (edit) creation, false on recalc                       |
+| <pre>.name</pre>                      | Name of created element                            | Read/write attribute<br>Ignored on recalc and script execution |
+| <pre>.error[stage]</pre>              | Used to assign an error text                       | Will set the element to not computed in the given stage        |
+| <pre>.edit_element</pre>              | Reference to edited element                        | Only available during element editing                          |
+| <pre>.recalc_element</pre>            | Reference to element being computed                | Only available during non-interactive calculation              |
+| <pre>.progress_stages_computing</pre> | Number of stages which have started to compute     | Used to display progress information                           |
+| <pre>.progress_stages_total</pre>     | Number of stages which have to be computed         | Used to display progress information                           |
+
+##### Attribute `context.data[]`
+
+The context.data is a list allowing to read or write additional data. The list is indexed with a stage index. The additional data is stored within the project, so the gom application must be able to serialize the provided data. 
+
+```Python
+context.data[0] = value
+value = context.data[0]
+```
+
+##### Attribute `context.result[]`
+
+This is a write only list used to set computation results. The context.result[] should be set for each state index listed in context.stages.
+
+The format to write must match the type of the script element. For available result types, see [Scripted actuals - Return values](#scripted-actuals---return-values) and [Scripted checks - Return values](#scripted-checks---return-values).
+
+#### Return value
+
+On success the function must return True, otherwise False.
+
+% `context`: ...
 
 ## Scripted actuals - Return values
 
