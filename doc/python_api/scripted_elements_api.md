@@ -24,18 +24,18 @@ def dialog(context, params):
 
 The context contains the following members:
 
-| Name            | Role                                               | Remarks                                                        |
-| --------------- | -------------------------------------------------- | -------------------------------------------------------------- |
-| .data	          | UDE data storage access                            | see "calculate" Function                                       |
-| .stages	      | Current stage	                                   | List containing stage index of current stage                   |
-| .total_stages   |	Number of stages                                   | Valid stage indices are 0 to total_stages - 1                  |
-| .calc	          | Function to calculate preview                      | See below                                                      |
-| .result	      | Directly set preview                               | see "calculate" Function                                       |
-| .is_new_element | Flag if element creation                           | True on (edit) creation, false on recalc                       |
-| .name	          | Name of created element                            | Read/write attribute<br>Ignored on recalc and script execution |
-| .error          | Last error text from preview calculation           | Empty if no error occurred                                     |
-| .edit_element   | Reference to edited element	                       | Only available during element editing                          |
-| .recalc_element | Reference to element used in project recalculation | 	                                                            |
+| Name                       | Role                                               | Remarks                                                        |
+| -------------------------- | -------------------------------------------------- | -------------------------------------------------------------- |
+| <pre>.data</pre>           | UDE data storage access                            | see "calculate" Function                                       |
+| <pre>.stages</pre>         | Current stage                                      | List containing stage index of current stage                   |
+| <pre>.total_stages</pre>   |	Number of stages                                  | Valid stage indices are 0 to total_stages - 1                  |
+| <pre>.calc</pre>           | Function to calculate preview                      | See below                                                      |
+| <pre>.result</pre>         | Directly set preview                               | see "calculate" Function                                       |
+| <pre>.is_new_element</pre> | Flag if element creation                           | True on (edit) creation, false on recalc                       |
+| <pre>.name</pre>           | Name of created element                            | Read/write attribute<br>Ignored on recalc and script execution |
+| <pre>.error</pre>          | Last error text from preview calculation           | Empty if no error occurred                                     |
+| <pre>.edit_element</pre>   | Reference to edited element                        | Only available during element editing                          |
+| <pre>.recalc_element</pre> | Reference to element used in project recalculation |                                                                |
 
 #### Parameter `params`
 
@@ -51,11 +51,11 @@ If no map is returned the edit/creation is regarded as aborted by the user.
 
 To calculate a preview, the `context.calc()` function can be invoked. It takes the following parameters:
 
-| Name   | Role                                                                               |
-| ------ | ---------------------------------------------------------------------------------- |
-| params |	A map of parameters to be used for preview calculation                            |
-| stages | Optional: A list of stage indices to calculate a preview in                        |
-| dialog | Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string 'calculated' |
+| Name              | Role                                                                               |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| <pre>params</pre> | A map of parameters to be used for preview calculation                             |
+| <pre>stages</pre> | Optional: A list of stage indices to calculate a preview in                        |
+| <pre>dialog</pre> | Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string 'calculated' |
 
 A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
 
