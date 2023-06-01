@@ -29,6 +29,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
    howtos/adding_workspaces_to_packages/adding_workspaces_to_packages
+   howtos/localization/localization
    howtos/testing_addons/testing_addons
 ```
 
