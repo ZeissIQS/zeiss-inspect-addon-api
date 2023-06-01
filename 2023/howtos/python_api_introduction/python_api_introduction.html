@@ -51,7 +51,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#properties-of-different-stages">Properties of different stages</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#element-data-interfaces">Element data interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#element-data-interfaces">Element data interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#concept">Concept</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
@@ -164,12 +167,80 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
 </section>
 <section id="element-data-interfaces">
 <h2>Element data interfaces<a class="headerlink" href="#element-data-interfaces" title="Permalink to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This documentation used to be part of the GOM FAQ:</p>
-<p><a class="reference external" href="https://connect.gom.com/display/GPF/Mesh+data+of+elements">GOM Connect - Data Interface</a></p>
-<p>Content will be migrated to here shortly.</p>
+<p>In a script, each element present in the application (project, inspection elements, reports, …) can be referenced by a named identifier. Each identifier consists of a type and some index, which can be a name or an integer number.</p>
+<section id="concept">
+<h3>Concept<a class="headerlink" href="#concept" title="Permalink to this heading"></a></h3>
+<p>This is already the case for access via the data interface instead of the token interface: The returned value has the format <code class="docutils literal notranslate"><span class="pre">(stages,</span> <span class="pre">&lt;index</span> <span class="pre">dimensions&gt;)</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Example 1 - Mesh</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mesh in 8 stage trend project with 238654 points, each with one (x, y, z) triple</span>
+<span class="o">&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">coordinate</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">238654</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example 2 - Scalar value</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single scalar value in a 8 stages trend project</span>
+<span class="o">&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;My Check&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">result_dimension</span><span class="o">.</span><span class="n">deviation</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Example 3 - Image</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image in 8 stage trend project with 4000x3000 pixels, each with one (r, g, b, a) tuple</span>
+<span class="o">&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_list</span><span class="p">[</span><span class="s1">&#39;Scan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;M1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="s1">&#39;Left camera&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>⚠️ When accessing the image, the complete data set is <em>not</em> immediately transferred from C++ to Python ! Instead this happens just in the moment when it is converted into a numpy array !</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Example 4 - Transferring image data</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch gom.Array with image data in all stages (not transferred !)</span>
+<span class="o">&gt;</span> <span class="n">image</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_list</span><span class="p">[</span><span class="s1">&#39;Scan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;M1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="s1">&#39;Left camera&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">rgb</span>
+<span class="o">&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">type</span> <span class="p">(</span><span class="n">image</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Array</span> <span class="p">()</span>
+<span class="c1"># 45 MB Image data if on stage, transferred in &lt; 100 ms</span>
+<span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<!--
+About the notation:
+We thought about this for quite a long time. The problem is, that we have multiple data dimensions on one hand (elements, stages, indices, alignments), but just one index operator '[]' on the other hand. We cannot mix this up like {{A[element name].B[stage]...}}.
+Well, this is not entirely true, as expressions like {{gom.app.project.actual['Mesh'].coordinate[1000]}} are possible, but in this case at least the index is (element, element, element, ..., point) and not something when a stage of point is in the middle of the path.
+
+So the following procedure is recommended:
+* Evaluate if the staged {{data}} tokens plus the regular stageless global tokens are sufficient.
+* If it is really necessary to access a token which is not delivered via a data interface in another stage, we must think again.
+* Global stage switching cannot be the solution in UDEs at all, of course. So I would prefer something like this *if really necessary* 
+
+Example:
+
+```Python
+current_stage = context.stage
+context.stage = 14
+# Query token in stage 14
+value = gom.app.project.nominal['Nominal value'].scalar_value
+context.stage = current_stage
+```
+
+* This will not switch stages, but all future token queries of this UDE script run will use stage 14.
+* Of course, this can be done much more simple with:
+
+```Python
+# Deformation project with 800 stages
+> values = gom.app.project.nominal['Nominal value'].data.scalar_value
+> print (value.shape)
+(800, 1)
+```
+
+-->
+</section>
 </section>
 </section>
 
