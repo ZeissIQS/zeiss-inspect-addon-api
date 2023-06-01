@@ -61,17 +61,17 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#translating-scripts">Translating scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#generating-translatable-xliff-files">Generating translatable XLIFF files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#install-package-internationalization">Install package ‘Internationalization’</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switch-package-into-edit-mode">Switch package into ‘Edit’ mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-add-on-internationalization">Install Add-on ‘Internationalization’</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch-add-on-into-edit-mode">Switch Add-on into ‘Edit’ mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#execute-script-update-xliff-files">Execute script ‘Update XLIFF files’</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#translate-xliff-files">Translate XLIFF files</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#switching-package-languages">Switching package languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#switching-add-on-languages">Switching Add-on languages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enable-language">Enable language</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#selecting-a-package-application-language">Selecting a package/application language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-an-add-on-application-language">Selecting an Add-on/application language</a></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files">Is there a shortcut for exporting/importing the XLIFF files ?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">Are the translation entries persistent when updated via the ‘Update XLIFF files’ script ?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#after-the-application-language-is-set-the-package-is-not-displaying-the-translations-for-that-language">After the application language is set, the package is not displaying the translations for that language ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language">After the application language is set, the Add-on is not displaying the translations for that language ?</a></li>
 </ul>
 </li>
 </ul>
@@ -173,15 +173,15 @@
 <section id="generating-translatable-xliff-files">
 <h3>Generating translatable XLIFF files<a class="headerlink" href="#generating-translatable-xliff-files" title="Permalink to this heading"></a></h3>
 <p>💡 Scripts are using standard XLIFF files to access translations in different languages.</p>
-<section id="install-package-internationalization">
-<h4>Install package ‘Internationalization’<a class="headerlink" href="#install-package-internationalization" title="Permalink to this heading"></a></h4>
+<section id="install-add-on-internationalization">
+<h4>Install Add-on ‘Internationalization’<a class="headerlink" href="#install-add-on-internationalization" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p>Install the package ‘Internationalization’.</p></li>
+<li><p>Install the Add-on ‘Internationalization’.</p></li>
 <li><p>Possible via Add-on Manager or via downloading it from the connect directly plus drag/drop onto the application.</p></li>
 </ul>
 </section>
-<section id="switch-package-into-edit-mode">
-<h4>Switch package into ‘Edit’ mode<a class="headerlink" href="#switch-package-into-edit-mode" title="Permalink to this heading"></a></h4>
+<section id="switch-add-on-into-edit-mode">
+<h4>Switch Add-on into ‘Edit’ mode<a class="headerlink" href="#switch-add-on-into-edit-mode" title="Permalink to this heading"></a></h4>
 <ul>
 <li><p>Select the Add-on the translations should be added to.</p></li>
 <li><p>Switch it into ‘Edit’ mode:</p>
@@ -193,14 +193,14 @@
 <h4>Execute script ‘Update XLIFF files’<a class="headerlink" href="#execute-script-update-xliff-files" title="Permalink to this heading"></a></h4>
 <p><img alt="Start from menu" src="../../_images/start_from_menu.png" /></p>
 <ul>
-<li><p>Execute script ‘Update XLIFF files’ from package ‘Internationalization’.</p></li>
+<li><p>Execute script ‘Update XLIFF files’ from Add-on ‘Internationalization’.</p></li>
 <li><p>Select the Add-on with the translations which shall be generated or updated (1)</p></li>
 <li><p>Set the comma separated list of language identifiers for which translation files will be generated (2)</p></li>
 <li><p>Check the displayed number of translated texts for plausibility (3)</p></li>
 <li><p>Press ‘Update’ (4) to generate translatable XLIFF files (4)</p>
 <p><img alt="Update XLIFF" src="../../_images/update_xliff.png" /></p>
 </li>
-<li><p>Afterwards, the packages XLIFF translatable files will be present in the Add-on’s languages folder:</p>
+<li><p>Afterwards, the Add-on’s XLIFF translatable files will be present in the Add-on’s languages folder:</p>
 <p><img alt="XLIFF files" src="../../_images/xliff_files.png" /></p>
 </li>
 </ul>
@@ -210,7 +210,7 @@
 <ul class="simple">
 <li><p>Export the XLIFF files via ‘Export Resource…’ on the right mouse menu.</p></li>
 <li><p>Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.</p></li>
-<li><p>Import the XLIFF files back into the package via ‘Import Resource…’ on the right mouse menu.</p></li>
+<li><p>Import the XLIFF files back into the Add-on via ‘Import Resource…’ on the right mouse menu.</p></li>
 </ul>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ns0:xliff</span><span class="w"> </span><span class="na">xmlns:ns0=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.1&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">original=</span><span class="s">&quot;DL_ANALYSIS_01_curve_based.py&quot;</span><span class="w"> </span><span class="na">datatype=</span><span class="s">&quot;py&quot;</span><span class="w"> </span><span class="na">source-language=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">target-language=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>
@@ -235,13 +235,13 @@
 </section>
 </section>
 </section>
-<section id="switching-package-languages">
-<h2>Switching package languages<a class="headerlink" href="#switching-package-languages" title="Permalink to this heading"></a></h2>
+<section id="switching-add-on-languages">
+<h2>Switching Add-on languages<a class="headerlink" href="#switching-add-on-languages" title="Permalink to this heading"></a></h2>
 <section id="enable-language">
 <h3>Enable language<a class="headerlink" href="#enable-language" title="Permalink to this heading"></a></h3>
 <p>💡 The Add-on language is the same as the globally set application language.</p>
-<section id="selecting-a-package-application-language">
-<h4>Selecting a package/application language<a class="headerlink" href="#selecting-a-package-application-language" title="Permalink to this heading"></a></h4>
+<section id="selecting-an-add-on-application-language">
+<h4>Selecting an Add-on/application language<a class="headerlink" href="#selecting-an-add-on-application-language" title="Permalink to this heading"></a></h4>
 <ul>
 <li><p>Select the appropriate language the the applications preferences dialog.</p>
 <p><img alt="Update XLIFF" src="../../_images/language_preferences.png" /></p>
@@ -258,8 +258,8 @@
 <h3>Is there a shortcut for exporting/importing the XLIFF files ?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.</p></li>
-<li><p>Each package in ‘Edit’ mode mirrors its content into %APPDATA%/gom/<version>/gom_package_scripts/<package id>.</p></li>
-<li><p>The XLIFF files can be edited right there of copies/pasted from there as long as the package remains in ‘Edit’ mode.</p></li>
+<li><p>Each Add-on in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_package_scripts/&lt;add-on</span> <span class="pre">id&gt;</span></code>.</p></li>
+<li><p>The XLIFF files can be edited right there of copies/pasted from there as long as the Add-on remains in ‘Edit’ mode.</p></li>
 </ul>
 </section>
 <section id="are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">
@@ -270,20 +270,20 @@
 <li><p>Can this scheme be automated, for example in a build queue ?</p></li>
 <li><p>The ‘Update XIFF files’ script itself is designed to be interactive.</p></li>
 <li><p>But: The source is available and the logic within can be used as a base to implement a customized XLIFF files updater to automatic execution.</p></li>
-<li><p>The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the packages ‘language’ directory.</p></li>
+<li><p>The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on’s ‘language’ directory.</p></li>
 </ul>
 </section>
-<section id="after-the-application-language-is-set-the-package-is-not-displaying-the-translations-for-that-language">
-<h3>After the application language is set, the package is not displaying the translations for that language ?<a class="headerlink" href="#after-the-application-language-is-set-the-package-is-not-displaying-the-translations-for-that-language" title="Permalink to this heading"></a></h3>
+<section id="after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language">
+<h3>After the application language is set, the Add-on is not displaying the translations for that language ?<a class="headerlink" href="#after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>You might have to restart the application after switching the application language in the preferences.</p></li>
-<li><p>Please double check, too,  if the package supports that specific language at all.</p></li>
+<li><p>Please double check, too,  if the Add-on supports that specific language at all.</p></li>
 </ul>
 <!--
-### Are packages build in the internal GOM build system handled the same way ?
+### Are Add-ons built in the internal GOM build system handled the same way ?
 
 * No.
-* Packages build in the internal GOM build system right from version control are subject of a technical documentation team project.
+* Add-ons built in the internal GOM build system right from version control are subject of a technical documentation team project.
 * See internal documentation for details: [Link]
 -->
 </section>
