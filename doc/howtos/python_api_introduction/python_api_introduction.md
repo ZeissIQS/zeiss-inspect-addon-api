@@ -104,7 +104,7 @@ This is already the case for access via the data interface instead of the token 
 (8, 3000, 4000, 4)
 ```
 
-⚠️ When accessing the image, the complete data set is *not* immediately transferred from C++ to Python ! Instead this happens just in the moment when it is converted into a numpy array !
+⚠️ When accessing the image, the complete data set is *not* transferred immediately from C++ to Python! Instead this happens just in the moment when it is converted into a numpy array!
 
 ```{code-block} python
 :caption: Example 4 - Transferring image data
