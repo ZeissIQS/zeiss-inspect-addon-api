@@ -134,7 +134,7 @@
 <h2>Writing translatable scripts<a class="headerlink" href="#writing-translatable-scripts" title="Permalink to this heading"></a></h2>
 <section id="user-defined-script-dialogs">
 <h3>User-defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Permalink to this heading"></a></h3>
-<p>When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are consistently kept when the dialog is edited again and will lead to translation file entries (see below).</p>
+<p>When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are kept consistently when the dialog is edited again and will lead to translation file entries (see below).</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">[</span>
@@ -176,8 +176,7 @@
 <section id="install-add-on-internationalization">
 <h4>Install Add-on ‘Internationalization’<a class="headerlink" href="#install-add-on-internationalization" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p>Install the Add-on ‘Internationalization’.</p></li>
-<li><p>Possible via Add-on Manager or via downloading it from the connect directly plus drag/drop onto the application.</p></li>
+<li><p>Install the Add-on ‘Internationalization’ via ZQS Store or the Package Manager.</p></li>
 </ul>
 </section>
 <section id="switch-add-on-into-edit-mode">
@@ -258,7 +257,7 @@
 <h3>Is there a shortcut for exporting/importing the XLIFF files ?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.</p></li>
-<li><p>Each Add-on in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_package_scripts/&lt;add-on</span> <span class="pre">id&gt;</span></code>.</p></li>
+<li><p>Each Add-on in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_edited_addons/&lt;add-on</span> <span class="pre">uuid&gt;</span></code>.</p></li>
 <li><p>The XLIFF files can be edited right there of copies/pasted from there as long as the Add-on remains in ‘Edit’ mode.</p></li>
 </ul>
 </section>
@@ -268,7 +267,7 @@
 <li><p>As long as the original texts (the texts in the ‘id’ attribute of the ‘trans-unit’ tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.</p></li>
 <li><p>This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts ‘tr ()’ function.</p></li>
 <li><p>Can this scheme be automated, for example in a build queue ?</p></li>
-<li><p>The ‘Update XIFF files’ script itself is designed to be interactive.</p></li>
+<li><p>The ‘Update XLIFF files’ script itself is designed to be interactive.</p></li>
 <li><p>But: The source is available and the logic within can be used as a base to implement a customized XLIFF files updater to automatic execution.</p></li>
 <li><p>The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on’s ‘language’ directory.</p></li>
 </ul>
