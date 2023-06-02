@@ -45,6 +45,27 @@
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-projects">Creating projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-parts">Creating parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-elements-to-a-part">Adding elements to a part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-cad-and-actual-mesh">Accessing CAD and actual mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-an-object-s-part">Accessing an object’s part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-all-elements-and-alignments-of-a-part">Accessing all elements and alignments of a part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-elements-and-alignments-of-element-in-clipboard">Accessing elements and alignments of <em>Element in clipboard</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alignments">Alignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy-projects-part-less">Legacy projects (part-less)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#measurement-series-and-measuring-environment">Measurement series and Measuring environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reports">Reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cad-structure-and-contents">CAD structure and contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cad-assembly-structure-in-the-elements-in-clipboard">CAD assembly structure in the <em>Elements in clipboard</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#script-compatibility">Script compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actual-master-and-all-cad-group-proxy">Actual master and All CAD Group proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-series">Measurement series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tesselate-geometrical-element">Tesselate Geometrical Element</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#access-element-properties">Access element properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#explore-available-properties">Explore available properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#element-properties-in-vscode">Element properties in VSCode</a></li>
@@ -118,6 +139,233 @@
 <p><a class="reference external" href="https://connect.gom.com/display/GKB/Expert+Knowledge+-+Scripting+in+GOM+Software">Python API introduction - GOM FAQ</a></p>
 <p>Content will be migrated to here shortly.</p>
 </div>
+<section id="creating-projects">
+<h2>Creating projects<a class="headerlink" href="#creating-projects" title="Permalink to this heading"></a></h2>
+<p>You can create a new, empty project as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new project</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_project</span> <span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>💡 This way, a project in the default workflow  (part-based) is created. For the legacy workflow (part-less), please refer to <a class="reference internal" href="#legacy-projects-part-less">Legacy projects (part-less)</a></p>
+</div>
+</section>
+<section id="creating-parts">
+<h2>Creating parts<a class="headerlink" href="#creating-parts" title="Permalink to this heading"></a></h2>
+<p>The evaluation elements are usually placed under a “part”. Accordingly, an empty part can be created as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates a new part in your project with the name &#39;Part 1&#39;</span>
+<span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">create_new_part</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Part 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An existing part can be accessed via name or index in the new category:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the part object via name</span>
+<span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part 1&#39;</span><span class="p">]</span>
+ 
+<span class="c1"># or via index</span>
+<span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ 
+<span class="c1"># you can access all parts via iterating over the parts attribute</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-elements-to-a-part">
+<h2>Adding elements to a part<a class="headerlink" href="#adding-elements-to-a-part" title="Permalink to this heading"></a></h2>
+<p>If an actual mesh or CAD or elements are imported into a part project, different options are available. For scripting, the import is always separated into two different steps.</p>
+<ol class="arabic simple">
+<li><p>Importing the elements into the <em>Elements in clipboard</em></p></li>
+<li><p>Add the imported elements to a created part</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">create_new_part</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Part 1&#39;</span><span class="p">)</span>
+ 
+<span class="c1"># import element into &#39;Element in clipboard&#39;</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">import_g3d</span> <span class="p">(</span>
+  <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;D:/gom_part.g3d&#39;</span><span class="p">],</span>
+  <span class="n">import_mode</span><span class="o">=</span><span class="s1">&#39;clipboard&#39;</span>
+<span class="p">)</span>
+ 
+<span class="c1"># Move it to a created part</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">add_elements_to_part</span> <span class="p">(</span>
+  <span class="n">delete_invisible_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+  <span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">clipboard</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;gom_part&#39;</span><span class="p">]],</span>
+  <span class="n">import_mode</span><span class="o">=</span><span class="s1">&#39;new_elements&#39;</span><span class="p">,</span>
+  <span class="n">part</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part 1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In the same way, a CAD can be imported into a part project.</p>
+<p>Constructing new elements based on elements which already belong to a part are automatically added to that part.</p>
+</section>
+<section id="accessing-cad-and-actual-mesh">
+<h2>Accessing CAD and actual mesh<a class="headerlink" href="#accessing-cad-and-actual-mesh" title="Permalink to this heading"></a></h2>
+<p>A <strong>mesh element</strong> of a part can be accessed in the following ways:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is usually the most elegant way and is recommended.</span>
+<span class="c1"># Replacing your mesh will keep the correct parametric if you use</span>
+<span class="c1"># the actual values reference (like formerly the &#39;Actual master&#39; in the part-less workflow).</span>
+<span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part 1&#39;</span><span class="p">]</span>
+<span class="n">MESH_PROXY</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ActualReference</span> <span class="p">(</span><span class="n">PART_OBJECT</span><span class="p">)</span>
+ 
+<span class="c1"># If you really like to access the representing CAD Element (which is not always existing, e.g. for planning)</span>
+<span class="c1"># you can access this element via</span>
+<span class="n">MESH_ELEMENT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ActualReference</span><span class="p">(</span><span class="n">PART_OBJECT</span><span class="p">)</span><span class="o">.</span><span class="n">actual</span>
+</pre></div>
+</div>
+<p>The <strong>CAD</strong> of a part can be addressed in the following ways:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is usually the most elegant way and is recommended.</span>
+<span class="c1"># Replacing your CAD will keep the correct parametric if you use</span>
+<span class="c1"># the nominal values reference (like formerly the &#39;All CAD Group proxy&#39; in the part-less workflow)</span>
+<span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part 1&#39;</span><span class="p">]</span>
+<span class="n">CAD_PROXY</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">NominalReference</span> <span class="p">(</span><span class="n">PART_OBJECT</span><span class="p">)</span>
+ 
+<span class="c1"># If you really like to access the representing CAD Element (which is not always existing, e.g. for planning)</span>
+<span class="c1"># you can access this element via</span>
+<span class="n">CAD_ELEMENT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">NominalReference</span><span class="p">(</span><span class="n">PART_OBJECT</span><span class="p">)</span><span class="o">.</span><span class="n">nominal</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-an-object-s-part">
+<h2>Accessing an object’s part<a class="headerlink" href="#accessing-an-object-s-part" title="Permalink to this heading"></a></h2>
+<p>This information can be retrieved via an attribute of the object. Here is an example:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">PART_OBJECT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">part</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-all-elements-and-alignments-of-a-part">
+<h2>Accessing all elements and alignments of a part<a class="headerlink" href="#accessing-all-elements-and-alignments-of-a-part" title="Permalink to this heading"></a></h2>
+<p>One possibility is to iterate over all elements in the different categories (nominal, actual, inspection, alignments) and to check the part attribute. Usually, for most applications this can be achieved easier using an <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> (some elements are hidden and not listed, but usually you do not need access to these elements). Here is an example:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]]}):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-elements-and-alignments-of-element-in-clipboard">
+<h2>Accessing elements and alignments of <em>Element in clipboard</em><a class="headerlink" href="#accessing-elements-and-alignments-of-element-in-clipboard" title="Permalink to this heading"></a></h2>
+<p>Also, these elements can be easily accessed via an <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;is_element_in_clipboard&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">]}):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="alignments">
+<h2>Alignments<a class="headerlink" href="#alignments" title="Permalink to this heading"></a></h2>
+<p>Alignments are still accessible via <code class="docutils literal notranslate"><span class="pre">gom.app.project.alignments</span></code> (like in the legacy workflow). The same is valid for <code class="docutils literal notranslate"><span class="pre">gom.app.project.nominal_elements</span></code>, <code class="docutils literal notranslate"><span class="pre">gom.app.project.actual_elements</span></code> and <code class="docutils literal notranslate"><span class="pre">gom.app.project.inspection</span></code>. You have to keep in mind that you will get all elements or alignments of all parts. You can use the <code class="docutils literal notranslate"><span class="pre">part</span></code> token to establish to which part an alignment belongs to or you use an <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> (see examples above):</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;alignment&#39;</span><span class="p">]}):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is one special handling for multiple parts and scripting with the <em>Original alignment</em>. To distinguish these alignments for different parts, the scripting name contains the part name and is modified into:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">alignments</span><span class="p">[</span><span class="s1">&#39;&lt;Name of the part&gt;::Original alignment&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="legacy-projects-part-less">
+<h2>Legacy projects (part-less)<a class="headerlink" href="#legacy-projects-part-less" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>⚠️ You can skip this section unless you are dealing with legacy projects!</p>
+</div>
+<p>As shown above, the following code creates a project in the part-based workflow, which allows to analyze multiple parts:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a project (default; part-based workflow)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_project</span> <span class="p">()</span>
+
+<span class="c1"># For compatibility, the kind of project can be stated explicitely:</span>
+<span class="c1"># Create a project (part-based workflow)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_project</span> <span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can still create a project in the legacy workflow, which is restricted to a single part:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a project (part-less workflow)</span>
+<span class="c1"># Note: This allows to analyze a single part only!</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_project</span> <span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2016</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use the following code to determine the type of an existing project:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">is_part_project</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Is part project: True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Is part project: False&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In former projects, the CAD or the actual mesh have been accessed via their proxies:</p>
+<p><em>All CADGroup proxy</em></p>
+<p><em>Actual Master</em></p>
+<section id="measurement-series-and-measuring-environment">
+<h3>Measurement series and Measuring environment<a class="headerlink" href="#measurement-series-and-measuring-environment" title="Permalink to this heading"></a></h3>
+<p>The access and information about the VMR, measuring setups and measurement series  are much more separated in the part-based workflow as compared to the part-less workflow. New categories and <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> categories were introduced. If you have further questions regarding scripting purposes, please contact the ZEISS support.</p>
+<p>Here just the most important information follows. The measurements have their own category in the part-based workflow. A measurement can be accessed via the attribute <code class="docutils literal notranslate"><span class="pre">measurement_series</span></code> and no longer via <code class="docutils literal notranslate"><span class="pre">actual_elements</span></code>.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">MEASUREMENT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Scan 1&#39;</span><span class="p">]</span>
+ 
+<span class="n">MEASUREMENTS</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;measurements&#39;</span><span class="p">,</span> <span class="s1">&#39;object_family&#39;</span><span class="p">,</span> <span class="s1">&#39;measurement_series&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</section>
+<section id="reports">
+<h3>Reports<a class="headerlink" href="#reports" title="Permalink to this heading"></a></h3>
+<p>Reports did not change so much in the part-based workflow. Reports are not assigned to a part, they show the situation of measurement series, VMR or multiple parts at the same time. Some slight changes must be taken into account: The keyword <code class="docutils literal notranslate"><span class="pre">alignment</span></code> could now return names of more than one alignment (comma separated, i.e. a Python list) due to the fact that multiple parts (if visible in the report page) with their own alignment must be respected.</p>
+</section>
+<section id="cad-structure-and-contents">
+<h3>CAD structure and contents<a class="headerlink" href="#cad-structure-and-contents" title="Permalink to this heading"></a></h3>
+<p>For scripting with CADs in part-based projects, some additional information are necessary. Most importantly:</p>
+<p>Only one CAD Group per part is supported. <!-- The same also applies to the actual content of a part - only one mesh per part is supported. --></p>
+<!-- 
+How about stages?
+
+The following code prints the surface area of each stage:
+
+for s in gom.app.project.stages:
+	print (gom.app.project.parts['Part'].actual.in_stage[s.index].area)
+
+According to this, the stage (i.e. a mesh) would be a sub-element of the part. Or does this have anything to do with a proxy?
+-->
+<p>The <em>CAD Group</em> (in a part-based workflow) supports now the access via an internal file structure to represent structures stored in CAD files like <em>CATProduct</em>. These entities are imported in the part-less workflow as separated <em>CAD Groups</em>.</p>
+<p>The following simple code examples show how to access bodies or files of a CAD Group.</p>
+<p>⚠️ <strong>Keep in mind:</strong> This access gives you information about the bodies or files. You can use this also for the deletion of bodies. Visibility operations are suppressed by intention. Usage for construction purposes is not recommended due to the fact that exchanging CAD structures would <strong>not</strong> work as expected.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this example code list all bodies of all CADs for all parts</span>
+<span class="n">cad</span> <span class="o">=</span> <span class="nb">filter</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;cad&quot;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cad</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">bodies</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is an example to list files by <code class="docutils literal notranslate"><span class="pre">cat_part</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">cad</span> <span class="o">=</span> <span class="nb">filter</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;cad&quot;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span><span class="p">)</span>
+ 
+<span class="c1"># for all cads in all parts list the file structure of each CAD of one part and furthermore all bodies of each file</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cad</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Number of files: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">file</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">bodies</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="cad-assembly-structure-in-the-elements-in-clipboard">
+<h3>CAD assembly structure in the <em>Elements in clipboard</em><a class="headerlink" href="#cad-assembly-structure-in-the-elements-in-clipboard" title="Permalink to this heading"></a></h3>
+<p>These information are usually not necessary for scripting. The most important fact is that the assembly structure does not represent our CAD structure. The assembly structure shows much more internal details.</p>
+</section>
+<section id="script-compatibility">
+<h3>Script compatibility<a class="headerlink" href="#script-compatibility" title="Permalink to this heading"></a></h3>
+<section id="actual-master-and-all-cad-group-proxy">
+<h4>Actual master and All CAD Group proxy<a class="headerlink" href="#actual-master-and-all-cad-group-proxy" title="Permalink to this heading"></a></h4>
+<p>For the single part workflow old scripts using <em>Actual Master</em> and the <em>All CAD Group proxy</em> in creation commands should usually work.</p>
+<p>⚠️ <strong>Keep in mind:</strong> The functionality of these proxies is no longer present in the part-based workflow. Therefore functionalities like <em>Define Actual Master</em> will not work anymore. If the scripting tries to resolve the elements for the <em>Actual Master</em> a mapping takes place and the <em>ActualValues-Reference</em> of the unique part is returned. The same happens for the <em>All CAD Group proxy</em> and the <em>NominalValues-Reference</em>.</p>
+</section>
+<section id="measurement-series">
+<h4>Measurement series<a class="headerlink" href="#measurement-series" title="Permalink to this heading"></a></h4>
+<p>The script compatibility for the current measurement list is given in most cases. Normal information is usually accessible via the same attributes as before.</p>
+</section>
+<section id="tesselate-geometrical-element">
+<h4>Tesselate Geometrical Element<a class="headerlink" href="#tesselate-geometrical-element" title="Permalink to this heading"></a></h4>
+<p>The obsolete command <code class="docutils literal notranslate"><span class="pre">gom.script.mesh.tesselate_geometrical_element</span></code> creates an element of type mesh.</p>
+<p>In the part-based workflow this command has been replaced with the command <code class="docutils literal notranslate"><span class="pre">gom.script.primitive.tesselate_geometrical_element</span></code>, which creates elements of type surface.</p>
+</section>
+</section>
+</section>
 <section id="access-element-properties">
 <h2>Access element properties<a class="headerlink" href="#access-element-properties" title="Permalink to this heading"></a></h2>
 <p>The “elements” of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.</p>
