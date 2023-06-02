@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python API functions &mdash; Add-On Documentation  documentation</title>
+  <title>Python API documentation &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -67,28 +67,23 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#image-processing">Image processing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-project">gom.api.project</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.project.get_image_aquisition"><code class="docutils literal notranslate"><span class="pre">gom.api.project.get_image_aquisition()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-imaging">gom.api.imaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging">gom.api.imaging</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.imaging.compute_pixels_from_point"><code class="docutils literal notranslate"><span class="pre">gom.api.imaging.compute_pixels_from_point()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.imaging.compute_point_from_pixels"><code class="docutils literal notranslate"><span class="pre">gom.api.imaging.compute_point_from_pixels()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.imaging.compute_epipolar_line"><code class="docutils literal notranslate"><span class="pre">gom.api.imaging.compute_epipolar_line()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-project">gom.api.project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-create-progress-information">gom.api.project.create_progress_information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisition">gom.api.project.get_image_acquisition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#checks">Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util">gom.api.scripted_checks_util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.scripted_checks_util.is_scalar_checkable"><code class="docutils literal notranslate"><span class="pre">gom.api.scripted_checks_util.is_scalar_checkable()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.scripted_checks_util.is_surface_checkable"><code class="docutils literal notranslate"><span class="pre">gom.api.scripted_checks_util.is_surface_checkable()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom.api.scripted_checks_util.is_curve_checkable"><code class="docutils literal notranslate"><span class="pre">gom.api.scripted_checks_util.is_curve_checkable()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-get">gom.api.settings.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-list">gom.api.settings.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-set">gom.api.settings.set</a></li>
 </ul>
 </li>
 </ul>
@@ -111,7 +106,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python API functions</li>
+      <li class="breadcrumb-item active">Python API documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python_api/python_api.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -121,271 +116,355 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="python-api-functions">
-<h1>Python API functions<a class="headerlink" href="#python-api-functions" title="Permalink to this heading"></a></h1>
-<section id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This document describes the emerging GOM Python API.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The now preliminary API is currently under heavy development and will change massively in the near future.</p>
-</div>
-</section>
-<section id="image-processing">
-<h2>Image processing<a class="headerlink" href="#image-processing" title="Permalink to this heading"></a></h2>
-<p>Image related functions can be used to query images from the measurements of a project. This is not done directly, but via an ‘image acquisition’ object which acts as a proxy between the image storing data structured and the functions which can be used to process the image data.</p>
+  <section id="python-api-documentation">
+<h1>Python API documentation<a class="headerlink" href="#python-api-documentation" title="Permalink to this heading"></a></h1>
+<section id="gom-api-imaging">
+<h2>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Permalink to this heading"></a></h2>
+<p>Image point/pixel related functions</p>
+<p>Image related functions can be used to query images from the measurements of a project. This is not done directly,
+but via an ‘image acquisition’ object which acts as a proxy between the image storing data structured and the
+functions which can be used to process the image data.</p>
 <p>Terminology:</p>
 <ul class="simple">
 <li><p>‘point’: 3D coordinate in the project.</p></li>
 <li><p>‘pixel’: 2D coordinate in an image.</p></li>
 </ul>
-<section id="gom-api-project">
-<h3>gom.api.project<a class="headerlink" href="#gom-api-project" title="Permalink to this heading"></a></h3>
+<section id="gom-api-imaging-compute-epipolar-line">
+<h3>gom.api.imaging.compute_epipolar_line<a class="headerlink" href="#gom-api-imaging-compute-epipolar-line" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.project.get_image_aquisition">
-<span class="sig-prename descclassname"><span class="pre">gom.api.project.</span></span><span class="sig-name descname"><span class="pre">get_image_aquisition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stages</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.project.get_image_aquisition" title="Permalink to this definition"></a></dt>
-<dd><p>Generate a list of image acquisition objects which can be used as input for image processing functions.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_epipolar_line</span> <span class="pre">(source:</span> <span class="pre">object,</span> <span class="pre">traces:</span> <span class="pre">[],</span> <span class="pre">max_distance:</span> <span class="pre">float):</span> <span class="pre">[]</span></span></dt>
+<dd><p>Compute epipolar line coordinates</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>measurement</strong> (<em>Reference</em>) – Measurement the image is to be queried from</p></li>
-<li><p><strong>camera</strong> (<em>str</em>) – <p>Identifier for the camera which contributed to the measurement. Valid values are:</p>
-<ul>
-<li><p>’left camera’: Left camera in a two camera system or the only existing camera in a single camera system</p></li>
-<li><p>’right camera’: Right camera in a two camera system</p></li>
-<li><p>’photogrammetry’: Photogrammery (TRITOP) camera</p></li>
-</ul>
-</p></li>
-<li><p><strong>stages</strong> (<em>list</em><em> [</em><em>int</em><em>]</em>) – (<em>Optional</em>) Indices of the stages for which an image acquisition object is to be generated.</p></li>
+<li><p><strong>source</strong> (<em>object</em>) – Handle of the image acquisition the epipolar line should be found in.</p></li>
+<li><p><strong>traces</strong> (<em>[</em><em>]</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here. is the “other” acquisition providing the pixels used to find the matching epipolar lines in the <code class="docutils literal notranslate"><span class="pre">sources</span></code> object.</p></li>
+<li><p><strong>max_distance</strong> (<em>float</em>) – Maximum search distance in mm.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of image acquisition objects which can be used by image processing functions. The number of objects matches the number of stage indices in the stages parameter of the function call.</p>
+<dd class="field-odd"><p>List of matching points</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List [Reference]</p>
+<dd class="field-even"><p>[]</p>
 </dd>
 </dl>
 </dd></dl>
 
+<p>This function computes the parametrics of an epipolar line from pixels projected into images.</p>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
-<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
 <span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
- 
+
 <span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_epipolar_line</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mi">1617</span><span class="p">,</span> <span class="mi">819</span><span class="p">),</span> <span class="n">right</span><span class="p">)],</span> <span class="mf">10.0</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">4.752311764226988</span><span class="p">,</span> <span class="mf">813.7915394509045</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">10.749371580282741</span><span class="p">,</span> <span class="mf">813.748887458453</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span>
+<span class="p">(</span><span class="mf">16.73347976996274</span><span class="p">,</span> <span class="mf">813.706352662515</span><span class="p">),</span> <span class="o">...</span><span class="p">]]</span>
 </pre></div>
 </div>
 </section>
-<section id="gom-api-imaging">
-<h3>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Permalink to this heading"></a></h3>
+<section id="gom-api-imaging-compute-pixels-from-point">
+<h3>gom.api.imaging.compute_pixels_from_point<a class="headerlink" href="#gom-api-imaging-compute-pixels-from-point" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.imaging.compute_pixels_from_point">
-<span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_pixels_from_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_and_image_acquisition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_pixels_from_point" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_pixels_from_point(point_and_image_acquisitions:</span> <span class="pre">[tuple]):</span> <span class="pre">[object]</span></span></dt>
 <dd><p>Compute pixel coordinates from point coordinates</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>point_and_image_acquisition</strong> (<em>List</em>) – List of pairs where each entry describes a point coordinate plus the image acquisition object which should be used to compute the matching image pixel.</p>
+<dd class="field-even"><p><strong>point_and_image_acquisitions</strong> (<em>[</em><em>tuple</em><em>]</em>) – List of (point, acquisition) tuples</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of image pixels where each entry is the result of projecting the point via the associated image acquisition structure into the image. The pixel coordinate system center is located in the upper left corner.</p>
+<dd class="field-odd"><p>List of matching points</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List</p>
+<dd class="field-even"><p>[object]</p>
 </dd>
 </dl>
 </dd></dl>
 
+<p>This function is used to compute the location of a 3d point in a 2d image. This is a photogrammetric
+operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
+of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
+3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
+a list containing 0 zu n entries of pixel matches.</p>
 <p><strong>Example</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
 <span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
 <span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
- 
+
 <span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
- 
+
 <span class="n">p</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_pixels_from_point</span> <span class="p">([(</span><span class="n">point</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">right</span><span class="p">)])</span>
- 
+
 <span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1031.582008690226</span><span class="p">,</span> <span class="mf">1232.4155555222544</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1139.886626169376</span><span class="p">,</span> <span class="mf">1217.975608783256</span><span class="p">)]</span>
 </pre></div>
 </div>
+</section>
+<section id="gom-api-imaging-compute-point-from-pixels">
+<h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.imaging.compute_point_from_pixels">
-<span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_point_from_pixels</span></span><span class="sig-paren">(</span><span class="optional">[</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">pixel_and_image</span> <span class="pre">acquisition</span></span></em>, <span class="optional">]</span><span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">use_calibration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_point_from_pixels" title="Permalink to this definition"></a></dt>
-<dd><p>Compute point coordinate from pixel coordinates</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[tuple],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span> <span class="pre">[object]</span></span></dt>
+<dd><p>Compute 3d point coordinates from pixels in images</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>pixel_and_image_acquisition</strong> (<em>List</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point.</p></li>
+<li><p><strong>pixel_and_image_acquisitions</strong> (<em>[</em><em>tuple</em><em>]</em>) – List of (pixel, acquisition) tuples</p></li>
 <li><p><strong>use_calibration</strong> (<em>bool</em>) – If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of lists of (pixel, residuum) where each entry is the result of projecting the point via the associated image acquisition structure into the image. The pixel coordinate system center is located in the upper left corner.</p>
+<dd class="field-odd"><p>List of matching pixels and residuums</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List</p>
+<dd class="field-even"><p>[object]</p>
 </dd>
 </dl>
 </dd></dl>
 
+<p>This function is used to compute the 3d point matching the 2d points in a set of images. This is a photogrammetric
+operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
+of a 2d pixel and the matching acquisition object. The acquisition object is then used to compute the location of the
+3d point from the pixels in the referenced image.</p>
+<p>The returned value is a list of (pixel, residuum) where each entry is the result of projecting the point via the
+associated image acquisition structure into the image. The pixel coordinate system center is located in the upper
+left corner.</p>
+<p><strong>Example</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
 <span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Start Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
- 
+
 <span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
- 
+
 <span class="n">p</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_point_from_pixels</span> <span class="p">([[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">left</span><span class="p">)]],</span> <span class="kc">False</span><span class="p">)</span>
- 
+
 <span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">638.2453100625158</span><span class="p">,</span> <span class="mf">1627.6169782583584</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">]]</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="gom-api-project">
+<h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Permalink to this heading"></a></h2>
+<p>Access to project relevant structures</p>
+<p>This module contains functions for accessing project relevant data</p>
+<section id="gom-api-project-create-progress-information">
+<h3>gom.api.project.create_progress_information<a class="headerlink" href="#gom-api-project-create-progress-information" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.imaging.compute_epipolar_line">
-<span class="sig-prename descclassname"><span class="pre">gom.api.imaging.</span></span><span class="sig-name descname"><span class="pre">compute_epipolar_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">image_acquisition_1,</span> <span class="pre">[pixel_and_image_acquisition]_2,</span> <span class="pre">max_distance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.imaging.compute_epipolar_line" title="Permalink to this definition"></a></dt>
-<dd><p>Compute epipolar line coordinates</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information</span> <span class="pre">():</span> <span class="pre">object</span></span></dt>
+<dd><p>Retrieve a progress information project which can be used to query/control progress status information</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Progress information object</p>
 </dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns an internal object which can be used to query/control the progress status widget of the
+main application window. It can be used to display progress information of long running processes.</p>
+</section>
+<section id="gom-api-project-get-image-acquisition">
+<h3>gom.api.project.get_image_acquisition<a class="headerlink" href="#gom-api-project-get-image-acquisition" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisition</span> <span class="pre">(measurement:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
+<dd><p>Generate an of image acquisition object which can be used to query images from the application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>image_aquisition_1</strong> (<em>List</em>) – Handle of the image acquisition the epipolar line should be found in.</p></li>
-<li><p><strong>pixel_and_image_aquisition_2</strong> (<em>List</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here. is the “other” acquisition providing the pixels used to find the matching epipolar lines in the image_acquisition_1 object.</p></li>
-<li><p><strong>max_distance</strong> (<em>double</em>) – Maximum search distance in mm.</p></li>
+<li><p><strong>measurement</strong> (<em>object</em>) – Measurement the image is to be queried from.</p></li>
+<li><p><strong>camera</strong> (<em>str</em>) – Identifier for the camera which contributed to the measurement. See above for valid values.</p></li>
+<li><p><strong>stage</strong> (<em>int</em>) – Id of the stage for which the image acquisition object will access.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of epipolar line coordinates, each one consisting of a list of image pixels.</p>
+<dd class="field-odd"><p>Image acquisition object which can be used to fetch the images.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List</p>
+<dd class="field-even"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
-<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
- 
+<p>This function returns an image acquisition object, which in turn can then be used to query the application for
+various image variants.</p>
+<p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system of the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+
 <span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
- 
-<span class="n">l</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_epipolar_line</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mi">1617</span><span class="p">,</span> <span class="mi">819</span><span class="p">),</span> <span class="n">right</span><span class="p">)],</span> <span class="mf">10.0</span><span class="p">)</span>
- 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">4.752311764226988</span><span class="p">,</span> <span class="mf">813.7915394509045</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">10.749371580282741</span><span class="p">,</span> <span class="mf">813.748887458453</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">16.73347976996274</span><span class="p">,</span> <span class="mf">813.706352662515</span><span class="p">),</span> <span class="o">...</span><span class="p">]]</span>
+</section>
+<section id="gom-api-project-get-image-acquisitions">
+<h3>gom.api.project.get_image_acquisitions<a class="headerlink" href="#gom-api-project-get-image-acquisitions" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisitions</span> <span class="pre">(measurement_list:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
+<dd><p>Generate a list of image acquisition objects which can be used to query images from the application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>measurement</strong> – Measurement the image is to be queried from.</p></li>
+<li><p><strong>camera</strong> (<em>str</em>) – Identifier for the camera which contributed to the measurement. See above for valid values.</p></li>
+<li><p><strong>stage</strong> (<em>int</em>) – Id of the stage for which the image acquisition object will access.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Image acquisition object which can be used to fetch the images.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns a list of  image acquisition objects, which in turn can then be used to query the application
+for various image variants.</p>
+<p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system of the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">)</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
+
+<span class="n">all_left_images</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisitions</span> <span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">all_right_images</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisitions</span> <span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="checks">
-<h2>Checks<a class="headerlink" href="#checks" title="Permalink to this heading"></a></h2>
-<p>Functions used to handle checks.</p>
-<section id="gom-api-scripted-checks-util">
-<h3>gom.api.scripted_checks_util<a class="headerlink" href="#gom-api-scripted-checks-util" title="Permalink to this heading"></a></h3>
+<section id="gom-api-settings">
+<h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Permalink to this heading"></a></h2>
+<p>API for storing add-on related settings persistently</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Under development, not released yet !</p>
+</div>
+<p>This API allows reading/writing values into the application configuration permantly. The
+configuration is persistant and will survive application restarts. Also, it can be accessed
+via the applications preferences dialog.</p>
+<p>The configuration entries must be defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+<section id="gom-api-settings-get">
+<h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.scripted_checks_util.is_scalar_checkable">
-<span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_scalar_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_scalar_checkable" title="Permalink to this definition"></a></dt>
-<dd><p>Test if the referenced element is suitable for inspection with a scalar check.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.get</span> <span class="pre">(key:</span> <span class="pre">str):</span> <span class="pre">any</span></span></dt>
+<dd><p>Read value from application settings</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>context</strong> – Script execution context</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
+</ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True’ if the given element s suitable for inspection with a scalar check.</p>
+<dd class="field-odd"><p>Configuration value for that key</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-even"><p>any</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_scalar_checkable</span> <span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<p>This function reads a value from the application settings. The value is referenced by a key. Supported value types
+are integer, double, string and bool.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
-</pre></div>
-</div>
+</section>
+<section id="gom-api-settings-list">
+<h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.scripted_checks_util.is_surface_checkable">
-<span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_surface_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_surface_checkable" title="Permalink to this definition"></a></dt>
-<dd><p>Test if the referenced element is suitable for inspection with a surface check.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.list</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
+<dd><p>List all available keys for the current add-on</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
+<dd class="field-even"><p><strong>context</strong> – Script execution context</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True’ if the given element s suitable for inspection with a surface check.</p>
+<dd class="field-odd"><p>List of all the keys in the settings which belong to the current add-on</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-even"><p>[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_surface_checkable</span> <span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
-</pre></div>
-</div>
+<p>This function returns a list of all available keys in the settings for the current add-on.
+These keys are the same configuration keys are used in the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file of that add-on.</p>
+</section>
+<section id="gom-api-settings-set">
+<h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Permalink to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="gom.api.scripted_checks_util.is_curve_checkable">
-<span class="sig-prename descclassname"><span class="pre">gom.api.scripted_checks_util.</span></span><span class="sig-name descname"><span class="pre">is_curve_checkable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gom.api.scripted_checks_util.is_curve_checkable" title="Permalink to this definition"></a></dt>
-<dd><p>Test if the referenced element is suitable for inspection with a curve check.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.set</span> <span class="pre">(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">any):</span> <span class="pre">none</span></span></dt>
+<dd><p>Write value into application settings</p>
 <dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>Reference</em>) – Element to be checked</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True’ if the given element s suitable for inspection with a curve check.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>context</strong> – Script execution context</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – Value to be written</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_curve_checkable</span> <span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+<p>This function writes a value into the application settings. The value is referenced by a key. Supported value types
+are integer, double, string and bool.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
