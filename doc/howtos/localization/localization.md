@@ -4,7 +4,7 @@
 
 ### User-defined script dialogs
 
-When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are consistently kept when the dialog is edited again and will lead to translation file entries (see below).
+When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are kept consistently when the dialog is edited again and will lead to translation file entries (see below).
 
 ``` Python
 DIALOG=gom.script.sys.create_user_defined_dialog (dialog={
@@ -46,8 +46,7 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 
 #### Install Add-on 'Internationalization'
 
-* Install the Add-on 'Internationalization'.
-* Possible via Add-on Manager or via downloading it from the connect directly plus drag/drop onto the application.
+* Install the Add-on 'Internationalization' via ZQS Store or the Package Manager.
 
 #### Switch Add-on into 'Edit' mode
 
@@ -119,7 +118,7 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 ### Is there a shortcut for exporting/importing the XLIFF files ?
 
 * If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.
-* Each Add-on in 'Edit' mode mirrors its content into `%APPDATA%/gom/<version>/gom_package_scripts/<add-on id>`.
+* Each Add-on in 'Edit' mode mirrors its content into `%APPDATA%/gom/<version>/gom_edited_addons/<add-on uuid>`.
 * The XLIFF files can be edited right there of copies/pasted from there as long as the Add-on remains in 'Edit' mode.
 
 ### Are the translation entries persistent when updated via the 'Update XLIFF files' script ?
@@ -127,7 +126,7 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 * As long as the original texts (the texts in the 'id' attribute of the 'trans-unit' tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.
 * This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts 'tr ()' function.
 * Can this scheme be automated, for example in a build queue ?
-* The 'Update XIFF files' script itself is designed to be interactive.
+* The 'Update XLIFF files' script itself is designed to be interactive.
 * But: The source is available and the logic within can be used as a base to implement a customized XLIFF files updater to automatic execution.
 * The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on's 'language' directory.
 
