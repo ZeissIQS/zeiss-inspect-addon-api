@@ -112,6 +112,169 @@ On success the function must return True, otherwise False.
 
 ## Scripted actuals - Return values
 
+### Point
+
+:Element Type: Plain 3D point
+:Result: Point coordinate
+
+```{code-block} python
+:caption: Point result format
+
+result = (x,y,z)</pre><br><pre>result = gom.Vec3D
+```
+
+### Distance
+
+:Element Type: Two point distance
+:Result: Start and end point of distance
+
+```{code-block} python
+:caption: Distance result format
+
+result = { 'point1': (x,y,z), 'point2': (x,y,z) }
+result = { 'point1': gom.Vec3D, 'point2': gom.Vec3D }
+```
+
+### Value Element
+
+:Element Type: Plain value (only real values supported)
+:Result: any double value
+
+```{code-block} python
+:caption: Value element result format
+
+result = x
+```
+
+### Circle
+
+:Element Type: 2D Circle with direction
+:Result: A center point, direction vector and radius (double)
+
+```{code-block} python
+:caption: Circle result format
+
+result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }
+```
+
+### Curve
+
+:Element Type: 3D polyline
+:Result: A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.
+
+```{code-block} python
+:caption: Curve result format
+
+result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]
+```
+
+### Surface Curve
+
+:Element Type: 3D polyline with normals
+:Result: Like a curve with additional normal data.
+
+```{code-block} python
+:caption: surface curve result format
+
+result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
+```
+
+### Section
+
+:Element Type: 3D polyline with normals
+:Result:  Parameters 'plane', 'cylinder' and 'cone' are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait.
+
+```{code-block} python
+:caption: Section result format
+
+result = {'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 'plane' : {'normal' : (x, y, z), 'distance' : float}, 'cylinder': ..., 'cone' : ...}
+```
+
+### Point Cloud
+
+:Element Type: Set of 3D points
+:Result: A set of points. The 'normals 'attribute is optional.
+
+```{code-block} python
+:caption: Point cloud result format
+
+result = { 'points' :  [ gom.Vec3D, gom.Vec3D, ... ] , 'normals' : [ gom.Vec3D, gom.Vec3D, ... ] }
+```
+
+### Surface
+
+:Element Type: Mesh
+:Result: Defines a triangulation. The vertices attribute points defines all points. The triangle attribute defines triangles between these points using indices into the vertex list.
+
+```{code-block} python
+:caption: Surface result format
+
+result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
+```
+
+### Cone
+
+:Element Type: Cone
+:Result: Accepts any Plane Trait
+
+```{code-block} python
+:caption: Cone result format
+
+result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
+```
+
+:::{caution}
+The creation of planes currently does not work.
+
+**Workaround:** set the result to
+``` Python
+result = {'default' : {'normal' : gom.Vec3d, 'distance': float} }
+```
+:::
+
+### Cylinder
+
+:Element Type: Cylinder
+:Result: Accepts any Cylinder Trait
+
+```{code-block} python
+:caption: Cylinder result format
+
+
+result = Reference
+result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool } # This does not work!
+```
+
+:::{caution}
+**Workaround:** set the result to
+``` Python
+result = {'default' : {'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool} }
+```
+:::
+
+### Plane
+
+:Element Type: Plane
+:Result: Accepts any Plane Trait
+
+```{code-block} python
+:caption: Plane result format
+
+result = Reference
+result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float } # This does not work!
+```
+
+:::{caution}
+The creation of planes currently does not work.
+
+Workaround: set the result to
+``` Python
+result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }
+```
+:::
+
+
+<!--
 | Dialog Choice  | Comment                  | Result format                                              | Result description |
 | -------------- | ------------------------ | ---------------------------------------------------------- | ------------------ |
 | Point          | Plain 3D point           | <pre>result = (x,y,z)</pre><br><pre>result = gom.Vec3D</pre>                 | Point coordinate   |
@@ -120,7 +283,7 @@ On success the function must return True, otherwise False.
 | Circle	     | 2D Circle with direction | <pre>result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }</pre> | A center point, direction vector and radius (double) |
 | Curve	         | 3D polyline	           | <pre>result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]</pre>   | A curve a made up by an array of subcurves. Each subcurve is a polyline.<br>A closed curve will be created, if first point = last point. |
 | Surface Curve	 | 3D polyline with normals | <pre>result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]</pre> | Like a curve with additional normal data. |
-| Section	     | 3D polyline with normals | <pre>result = {'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 'plane' : {'normal' : (x, y, z), 'distance' : float}, 'cylinder': ..., 'cone' : ...}</pre> | Parameters 'plane', 'cylinder' and 'cone' are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait. |``
+| Section	     | 3D polyline with normals | <pre>result = {'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 'plane' : {'normal' : (x, y, z), 'distance' : float}, 'cylinder': ..., 'cone' : ...}</pre> | Parameters 'plane', 'cylinder' and 'cone' are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait. |
 | Point Cloud	 | Set of 3D points	       | <pre>result = { 'points' :  [ gom.Vec3D, gom.Vec3D, ... ] , 'normals' : [ gom.Vec3D, gom.Vec3D, ... ] }</pre> | A set of points. The 'normals 'attribute is optional. |
 | Surface	     | Mesh                     | <pre>result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }</pre> | Defines a triangulation. The vertices attribute points defines all points. The triangle attribute defines triangles between these points using indices into the vertex list. |
 | Cone	         | Cone                     | <pre>result = Reference</pre><br><pre>result = { 'normal' : gom.Vec3d, 'distance': float }</pre><br><pre>result = { 'target': Reference, 'offset': float }</pre><br>⚠️ **The creation of planes currently does not work.**<br>**Workaround:** set the result to <pre>{'default' : {'normal' : gom.Vec3d, 'distance': float} }</pre> | Accepts any Plane Trait |
@@ -133,7 +296,7 @@ On success the function must return True, otherwise False.
 | Volume Section    | Volume section        | <pre>result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }</pre> | Accepts a numpy array with pixel data and a transformation.<p>The numpy array's shape denotes the resulting volume section shape. The 'dtype' must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation) |
 | Volume Region	    | Volume Region         | <pre>result = {'volume_element': Reference,<br>          'offset': gom.Vec3d,<br>          'data': np.array ()}</pre> | Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element. |
 
-
+-->
 
 % ### Element type: Point
 
