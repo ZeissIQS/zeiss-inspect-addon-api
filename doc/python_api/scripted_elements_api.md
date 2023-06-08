@@ -173,7 +173,12 @@ result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
 :Result:  Parameters 'plane', 'cylinder' and 'cone' are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait.
 
 ```{code-block} python
-result = {'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 'plane' : {'normal' : (x, y, z), 'distance' : float}, 'cylinder': ..., 'cone' : ...}
+result = {
+  'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 
+  'plane' : {'normal' : (x, y, z), 'distance' : float}, 
+  'cylinder': ..., 
+  'cone' : ...
+}
 ```
 
 ### Point Cloud
