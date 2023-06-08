@@ -112,6 +112,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-element-types">Supported Element Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar">Scalar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar-surface">Scalar Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar-curve">Scalar Curve</a></li>
 </ul>
 </li>
 </ul>
@@ -646,33 +649,49 @@
 <p>Scripted Checks extend the concept of scripted actual elements to be able to calculate custom inspections based on python scripts.</p>
 <section id="supported-element-types">
 <h3>Supported Element Types<a class="headerlink" href="#supported-element-types" title="Permalink to this heading"></a></h3>
-<p>The following actual element types are currently supported:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Dialog Choice</p></th>
-<th class="head"><p>Comment</p></th>
-<th class="head"><p>Result format</p></th>
-<th class="head"><p>Result description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Scalar</p></td>
-<td><p>Scalar check:<br>A single scalar value is assigned to an element</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{&quot;nominal&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;actual&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code></p></td>
-<td><p>A nominal and actual double value are set, and a reference to element which was checked.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Scalar Surface</p></td>
-<td><p>Surface check:<br>A scalar deviation value is assigned to each point of a mesh.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;deviation_values&quot;</span> <span class="pre">:</span> <span class="pre">np.array(dtype=np.float32),</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference</span> <span class="pre">}</span></code></p></td>
-<td><p>A list of deviation values for each point of a mesh. The mesh is also set as “reference” parameter.<p>The number of points of the mesh and the “deviation_values” array must match.</p></td>
-</tr>
-<tr class="row-even"><td><p>Scalar Curve</p></td>
-<td><p>Curve check:<br>A scalar deviation value is assigned to each point on a curve.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">&quot;actual_values&quot;</span> <span class="pre">:</span> <span class="pre">double,</span> <span class="pre">'nominal_values':</span> <span class="pre">double,</span> <span class="pre">&quot;reference&quot;</span> <span class="pre">:</span> <span class="pre">gom.Reference}</span></code></p></td>
-<td><p>A list of nominal and actual values for each point of a curve. The deviation values are calculated automatically as a difference between both.<p>The curve is also set as “reference” parameter.<p>The number of points of the curve and the value arrays must match.</p></td>
-</tr>
-</tbody>
-</table>
+<p>The following element types are currently supported:</p>
+</section>
+<section id="scalar">
+<h3>Scalar<a class="headerlink" href="#scalar" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Scalar check:<br>A single scalar value is assigned to an element</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A nominal and actual double value are set, and a reference to element which was checked.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nominal&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;actual&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scalar-surface">
+<h3>Scalar Surface<a class="headerlink" href="#scalar-surface" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Surface check:<br>A scalar deviation value is assigned to each point of a mesh.</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of deviation values for each point of a mesh. The mesh is also set as “reference” parameter.<p>The number of points of the mesh and the “deviation_values” array must match.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;deviation_values&quot;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scalar-curve">
+<h3>Scalar Curve<a class="headerlink" href="#scalar-curve" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Curve check:<br>A scalar deviation value is assigned to each point on a curve.</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of nominal and actual values for each point of a curve. The deviation values are calculated automatically as a difference between both.<p>The curve is also set as “reference” parameter.<p>The number of points of the curve and the value arrays must match.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;actual_values&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s1">&#39;nominal_values&#39;</span><span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
