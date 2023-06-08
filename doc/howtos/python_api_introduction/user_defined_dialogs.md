@@ -1012,7 +1012,7 @@ if selectedChoice == 'ONE':
 Abort button widget
 : The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.
 
-[//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
+![](assets/built-in_progressbar.png)
 
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
