@@ -170,7 +170,7 @@ result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
 
 :::{caution}
 **Workaround:** set the result to
-```{code-block} Python
+```{code-block} python
 result = {
   "default": [
     {"points": [gom.Vec3d, gom.Vec3d, …], "normals": [gom.Vec3d, gom.Vec3d, …]},
@@ -226,7 +226,7 @@ result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
 The creation of planes currently does not work.
 
 **Workaround:** set the result to
-```{code-block} Python
+```{code-block} python
 result = {'default' : {'normal' : gom.Vec3d, 'distance': float} }
 ```
 :::
@@ -266,7 +266,7 @@ result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2'
 The creation of planes currently does not work.
 
 **Workaround:** set the result to
-```{code-block} Python
+```{code-block} python
 result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }
 ```
 :::
