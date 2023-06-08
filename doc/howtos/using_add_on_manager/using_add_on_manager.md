@@ -119,7 +119,7 @@ Click RMB on the installed Add-on > Publish
 
 * Export
 
-    Save the selected Add-on as a .package file.
+    Save the selected Add-on as a .addon file.
 
 * Upload
 
