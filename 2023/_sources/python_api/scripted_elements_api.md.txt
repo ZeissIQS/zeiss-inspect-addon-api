@@ -161,11 +161,27 @@ result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]
 ### Surface Curve
 
 :Element Type: 3D polyline with normals
-:Result: Like a curve with additional normal data.
+:Result: Like a curve with additional normal data, i.e. each surface curve can be made up by an array of subcurves.
 
 ```{code-block} python
+# This does not work!
 result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
 ```
+
+:::{caution}
+The creation of planes currently does not work.
+
+**Workaround:** set the result to
+``` Python
+result = {
+  "default": [
+    {"points": [gom.Vec3d, gom.Vec3d, …], "normals": [gom.Vec3d, gom.Vec3d, …]},
+    {…}, 
+    ...
+  ]
+} 
+```
+:::
 
 ### Section
 
@@ -225,7 +241,7 @@ result = {'default' : {'normal' : gom.Vec3d, 'distance': float} }
 ```{code-block} python
 result = Reference
 
- # This does not work!
+# This does not work!
 result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool }
 ```
 
