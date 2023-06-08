@@ -102,6 +102,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#cone">Cone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cylinder">Cylinder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#plane">Plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-defects">Volume defects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-volume-defects">2D Volume Defects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume">Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-material-map">Volume material map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-section">Volume Section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-region">Volume Region</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a><ul>
@@ -345,11 +351,8 @@
 <dd class="field-even"><p>Point coordinate</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Point result format</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="distance">
@@ -362,12 +365,9 @@
 <dd class="field-even"><p>Start and end point of distance</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Distance result format</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">}</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="value-element">
@@ -380,11 +380,8 @@
 <dd class="field-even"><p>any double value</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Value element result format</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">x</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="circle">
@@ -397,11 +394,8 @@
 <dd class="field-even"><p>A center point, direction vector and radius (double)</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Circle result format</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;center&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span> <span class="p">:</span> <span class="n">double</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="curve">
@@ -414,11 +408,8 @@
 <dd class="field-even"><p>A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Curve result format</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="p">}</span> <span class="p">]</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="surface-curve">
@@ -431,11 +422,8 @@
 <dd class="field-even"><p>Like a curve with additional normal data.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">surface curve result format</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">],</span> <span class="s1">&#39;normals&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)]</span> <span class="p">}</span> <span class="p">]</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="section">
@@ -448,11 +436,8 @@
 <dd class="field-even"><p>Parameters ‘plane’, ‘cylinder’ and ‘cone’ are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Section result format</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span> <span class="s1">&#39;normals&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">]},</span> <span class="o">...</span><span class="p">],</span> <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">},</span> <span class="s1">&#39;cylinder&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;cone&#39;</span> <span class="p">:</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="point-cloud">
@@ -465,11 +450,8 @@
 <dd class="field-even"><p>A set of points. The ‘normals ‘attribute is optional.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Point cloud result format</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;normals&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="surface">
@@ -482,11 +464,8 @@
 <dd class="field-even"><p>Defines a triangulation. The vertices attribute points defines all points. The triangle attribute defines triangles between these points using indices into the vertex list.</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Surface result format</span><a class="headerlink" href="#id12" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">],</span> <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="cone">
@@ -499,11 +478,8 @@
 <dd class="field-even"><p>Accepts any Plane Trait</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Cone result format</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">],</span> <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -524,13 +500,9 @@
 <dd class="field-even"><p>Accepts any Cylinder Trait</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Cylinder result format</span><a class="headerlink" href="#id14" title="Permalink to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span> <span class="p">:</span> <span class="nb">bool</span> <span class="p">}</span> <span class="c1"># This does not work!</span>
 </pre></div>
-</div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -550,12 +522,9 @@
 <dd class="field-even"><p>Accepts any Plane Trait</p>
 </dd>
 </dl>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Plane result format</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="nb">float</span> <span class="p">}</span> <span class="c1"># This does not work!</span>
 </pre></div>
-</div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -565,29 +534,107 @@
 </pre></div>
 </div>
 </div>
-<!--
-| Dialog Choice  | Comment                  | Result format                                              | Result description |
-| -------------- | ------------------------ | ---------------------------------------------------------- | ------------------ |
-| Point          | Plain 3D point           | <pre>result = (x,y,z)</pre><br><pre>result = gom.Vec3D</pre>                 | Point coordinate   |
-| Distance	     | Two point distance       | <pre>result = { 'point1': (x,y,z), 'point2': (x,y,z) }</pre><br><pre>result = { 'point1': gom.Vec3D, 'point2': gom.Vec3D }</pre> | Start and end point of distance |
-| Value Element	 | Plain value (only real values supported) | <pre>result = x</pre>                               | any double value   |
-| Circle	     | 2D Circle with direction | <pre>result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }</pre> | A center point, direction vector and radius (double) |
-| Curve	         | 3D polyline	           | <pre>result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]</pre>   | A curve a made up by an array of subcurves. Each subcurve is a polyline.<br>A closed curve will be created, if first point = last point. |
-| Surface Curve	 | 3D polyline with normals | <pre>result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]</pre> | Like a curve with additional normal data. |
-| Section	     | 3D polyline with normals | <pre>result = {'curves': [{'points': [(x, y, z), ...], 'normals': [(x, y, z), ...]}, ...], 'plane' : {'normal' : (x, y, z), 'distance' : float}, 'cylinder': ..., 'cone' : ...}</pre> | Parameters 'plane', 'cylinder' and 'cone' are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait. |
-| Point Cloud	 | Set of 3D points	       | <pre>result = { 'points' :  [ gom.Vec3D, gom.Vec3D, ... ] , 'normals' : [ gom.Vec3D, gom.Vec3D, ... ] }</pre> | A set of points. The 'normals 'attribute is optional. |
-| Surface	     | Mesh                     | <pre>result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }</pre> | Defines a triangulation. The vertices attribute points defines all points. The triangle attribute defines triangles between these points using indices into the vertex list. |
-| Cone	         | Cone                     | <pre>result = Reference</pre><br><pre>result = { 'normal' : gom.Vec3d, 'distance': float }</pre><br><pre>result = { 'target': Reference, 'offset': float }</pre><br>⚠️ **The creation of planes currently does not work.**<br>**Workaround:** set the result to <pre>{'default' : {'normal' : gom.Vec3d, 'distance': float} }</pre> | Accepts any Plane Trait |
-| Cylinder	     | Cylinder	               | <pre>result = Reference</pre><br><pre>result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool } # This does not work!</pre><br>⚠️ **Workaround:** set the result to <pre>{'default' : {'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool} }</pre> | Accepts any Cylinder Trait |
-| Plane	         | Plane                    | <pre>result = Reference</pre><br><pre>result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float } # This does not work!</pre><br>⚠️ **Workaround:** set the result to <pre>{'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }</pre> | Accepts any Cone Trait |
-| Volume defects | Volume defects element   | <pre>result = {<br>   'vertices': [ np.array((x,y,z), (x,y,z), ... ), np.array((x,y,z), (x,y,z), ...), ... ],<br>   'triangles':  [ np.array((v0,v1,v2), (v0,v1,v2), ... ), np.array((v0,v1,v2), (v0,v1,v2), ...), ... ],<br>   'outer_hull' : gom.Reference     # optional OR<br>   'outer_hull_vertices': np.array((x,y,z),...), 'outer_hull_triangles': np.array((v0,v1,v2),...) }<br>}</pre> | A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The 'outer_hull' parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. **Alternatively**, 'outer_hull_vertices' and 'outer_hull_triangles' can be given as explicit outer hull mesh definition.<p>For an example, see: [\[GOM Connect\] How-to: Generate volume defect elements from GOM Scripting](https://connect.gom.com/x/B8fVAg) |
-| 2D Volume Defects	| 2D volume defects element of curves<p>needed for the P201 package | <pre>result = { 'curves': [ [gom.Vec3d, gom.Vec3d, ...],<br>                       [gom.Vec3d, gom.Vec3d, ...],<br>                        ... ] }</pre> | Requires a list/array of lists/arrays of Vec3ds.<p>A list of points represents the polygon (curve) of one 2d volume defect. The list of lists of points represents all 2d volume defects that shall be included in the element. |
-| Volume	        | New volume data       | <pre>result = { 'voxel_data' : np.array (), 'transformation' : (gom.Mat4x4 \| gom.Vec3d) }</pre> | Accepts a numpy array with voxel data and a transformation. <p>The numpy array's shape denotes the resulting volume shape. The 'dtype' can be one of (UINT16, BYTE, INT16, INT16, INT32, UINT32, FLOAT, DOUBLE).<p>The transformation can be a gom.Mat4x4 (affine transformation) or a gom.Vec3d (scaling along x/y/z axis only) |
-| Volume material map | Attach material labels to volume element | <pre>result = {<br>    'material_labels_draft' : np.array (), <br>    'material_grey_values_draft' : [background, material 1, ...],<br>    'volume_reference_draft' : Reference<br>}</pre> | Creates a new volume element copy with attached material labels.<p>First parameter is a numpy array of type UINT8 of the size of the volume. The values are the material index per voxel. Background has Index 0.<p>The second parameter is a list of floating point grey values that are the representative grey values of the background and the materials.<p>The third parameter is a reference to the volume element, to which material labels should be attached. |
-| Volume Section    | Volume section        | <pre>result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }</pre> | Accepts a numpy array with pixel data and a transformation.<p>The numpy array's shape denotes the resulting volume section shape. The 'dtype' must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation) |
-| Volume Region	    | Volume Region         | <pre>result = {'volume_element': Reference,<br>          'offset': gom.Vec3d,<br>          'data': np.array ()}</pre> | Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element. |
-
--->
+</section>
+<section id="volume-defects">
+<h3>Volume defects<a class="headerlink" href="#volume-defects" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume defects</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The ‘outer_hull’ parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. <strong>Alternatively</strong>, ‘outer_hull_vertices’ and ‘outer_hull_triangles’ can be given as explicit outer hull mesh definition.<p>For an example, see: <a class="reference external" href="https://connect.gom.com/x/B8fVAg">[GOM Connect] How-to: Generate volume defect elements from GOM Scripting</a></p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="o">...</span> <span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">),</span> <span class="o">...</span> <span class="p">],</span>
+  <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="o">...</span> <span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="o">...</span><span class="p">),</span> <span class="o">...</span> <span class="p">],</span>
+  <span class="s1">&#39;outer_hull&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span>     <span class="c1"># optional OR</span>
+  <span class="s1">&#39;outer_hull_vertices&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span><span class="o">...</span><span class="p">),</span> <span class="s1">&#39;outer_hull_triangles&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span><span class="o">...</span><span class="p">)</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="d-volume-defects">
+<h3>2D Volume Defects<a class="headerlink" href="#d-volume-defects" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D volume defects element of curves<p>needed for the P201 package</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requires a list/array of lists/arrays of Vec3ds.<p>A list of points represents the polygon (curve) of one 2d volume defect. The list of lists of points represents all 2d volume defects that shall be included in the element.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="o">...</span> <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume">
+<h3>Volume<a class="headerlink" href="#volume" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New volume data</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array with voxel data and a transformation. <p>The numpy array’s shape denotes the resulting volume shape. The ‘dtype’ can be one of (UINT16, BYTE, INT16, INT16, INT32, UINT32, FLOAT, DOUBLE).<p>The transformation can be a gom.Mat4x4 (affine transformation) or a gom.Vec3d (scaling along x/y/z axis only)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;voxel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="o">|</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-material-map">
+<h3>Volume material map<a class="headerlink" href="#volume-material-map" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Attach material labels to volume element</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Creates a new volume element copy with attached material labels.<p>First parameter is a numpy array of type UINT8 of the size of the volume. The values are the material index per voxel. Background has Index 0.<p>The second parameter is a list of floating point grey values that are the representative grey values of the background and the materials.<p>The third parameter is a reference to the volume element, to which material labels should be attached.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;material_labels_draft&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span>
+  <span class="s1">&#39;material_grey_values_draft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">background</span><span class="p">,</span> <span class="n">material</span> <span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="s1">&#39;volume_reference_draft&#39;</span> <span class="p">:</span> <span class="n">Reference</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-section">
+<h3>Volume Section<a class="headerlink" href="#volume-section" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume Section</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;pixel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-region">
+<h3>Volume Region<a class="headerlink" href="#volume-region" title="Permalink to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume Region</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array of the region data. The ‘dtype’ must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;volume_element&#39;</span><span class="p">:</span> <span class="n">Reference</span><span class="p">,</span>
+  <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span>
+  <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="scripted-checks-return-values">
