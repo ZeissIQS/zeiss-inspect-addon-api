@@ -219,7 +219,9 @@ result = {'default' : {'normal' : gom.Vec3d, 'distance': float} }
 
 ```{code-block} python
 result = Reference
-result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool } # This does not work!
+
+ # This does not work!
+result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool }
 ```
 
 :::{caution}
@@ -236,13 +238,15 @@ result = {'default' : {'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec
 
 ```{code-block} python
 result = Reference
-result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float } # This does not work!
+
+# This does not work!
+result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float }
 ```
 
 :::{caution}
 The creation of planes currently does not work.
 
-Workaround: set the result to
+**Workaround:** set the result to
 ``` Python
 result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }
 ```
