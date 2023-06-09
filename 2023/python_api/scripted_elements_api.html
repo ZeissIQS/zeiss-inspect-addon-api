@@ -408,10 +408,16 @@
 <dd class="field-odd"><p>3D polyline</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.</p>
+<dd class="field-even"><p>A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.<br>As an option, a creation plane can be added.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="p">}</span> <span class="p">]</span>
+
+<span class="c1"># Optional: Curve with additional creation plane</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">]],</span>
+  <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
