@@ -118,7 +118,8 @@ On success the function must return True, otherwise False.
 :Result: Point coordinate
 
 ```{code-block} python
-result = (x,y,z)</pre><br><pre>result = gom.Vec3D
+result = (x,y,z)
+result = gom.Vec3D
 ```
 
 ### Distance
