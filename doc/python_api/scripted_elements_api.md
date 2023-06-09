@@ -152,10 +152,16 @@ result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }
 ### Curve
 
 :Element Type: 3D polyline
-:Result: A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.
+:Result: A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.<br>As an option, a creation plane can be added. 
 
 ```{code-block} python
 result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]
+
+# Optional: Curve with additional creation plane
+result = {
+  'curves': [{'points': [(x, y, z), ...]],
+  'plane' : {'normal' : (x, y, z), 'distance' : float}
+}
 ```
 
 ### Surface Curve
