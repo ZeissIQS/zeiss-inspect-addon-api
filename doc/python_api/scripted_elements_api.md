@@ -159,8 +159,8 @@ result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]
 
 # Optional: Curve with additional creation plane
 result = {
-  'curves': [{'points': [(x, y, z), ...]],
-  'plane' : {'normal' : (x, y, z), 'distance' : float}
+  'curves': [{'points': [gom.Vec3D, ...]],
+  'plane' : {'normal' : gom.Vec3D, 'distance' : float}
 }
 ```
 
