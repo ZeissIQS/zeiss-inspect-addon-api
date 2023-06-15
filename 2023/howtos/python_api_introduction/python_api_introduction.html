@@ -76,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#concept">Concept</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
@@ -491,6 +492,38 @@ context.stage = current_stage
 
 -->
 </section>
+</section>
+<section id="exception-handling">
+<h2>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading"></a></h2>
+<p>With the ZEISS Inspect Add-on API, three different types of exceptions can occur:</p>
+<ul class="simple">
+<li><p>Python built-in exceptions</p></li>
+<li><p>User defined exceptions, e.g. from a Python module</p></li>
+<li><p>ZEISS Inspect Add-on API exceptions</p></li>
+</ul>
+<p>It is <a class="reference external" href="https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/bare-except.html">recommended practice</a> to avoid bare except clauses, i.e. to specify an exception type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">calling_for_trouble</span><span class="p">()</span> <span class="c1"># could raise an exception</span>
+<span class="k">except</span> <span class="o">&lt;</span><span class="n">exception_type</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="c1"># exception handling</span>
+</pre></div>
+</div>
+<p>If the type of exception is unknown, it can be identified as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">calling_for_trouble</span><span class="p">()</span> <span class="c1"># could raise an exception; type unknown yet</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">)</span> <span class="c1"># e.g.: &lt;class &#39;gomlib.api.GomApiError&#39;&gt;</span>
+</pre></div>
+</div>
+<p>Now you can specify the expected exception type correctly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gomlib</span>
+<span class="o">...</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">calling_for_trouble</span><span class="p">()</span> <span class="c1"># could raise a GomApiError exception</span>
+<span class="k">except</span> <span class="n">gomlib</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">GomApiError</span><span class="p">:</span>
+    <span class="c1"># exception handling</span>
+</pre></div>
+</div>
 </section>
 </section>
 
