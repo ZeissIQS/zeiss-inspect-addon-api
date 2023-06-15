@@ -412,3 +412,36 @@ context.stage = current_stage
 -->
 
 % TODO: 
+
+## Exception handling
+
+With the ZEISS Inspect Add-on API, three different types of exceptions can occur:
+* Python built-in exceptions
+* User defined exceptions, e.g. from a Python module
+* ZEISS Inspect Add-on API exceptions
+
+It is [recommended practice](https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/bare-except.html) to avoid bare except clauses, i.e. to specify an exception type:
+
+```{code-block} python
+try:
+    calling_for_trouble() # could raise an exception
+except <exception_type>:
+    # exception handling
+```
+
+If the type of exception is unknown, it can be identified as follows:
+```{code-block} python
+try:
+    calling_for_trouble() # could raise an exception; type unknown yet
+except Exception as e:
+    print( type(e) ) # e.g.: <class 'gomlib.api.GomApiError'>
+```
+
+Now you can specify the expected exception type correctly:
+```{code-block} python 
+import gomlib
+...
+try:
+    calling_for_trouble() # could raise a GomApiError exception
+except gomlib.api.GomApiError:
+    # exception handling
