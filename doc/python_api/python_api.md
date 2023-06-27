@@ -5,7 +5,7 @@
 Image point/pixel related functions
 
 Image related functions can be used to query images from the measurements of a project. This is not done directly,
-but via an ‘image acquisition’ object which acts as a proxy between the image storing data structured and the
+but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
 functions which can be used to process the image data.
 
 Terminology:
@@ -20,7 +20,7 @@ Compute epipolar line coordinates
 :API version 1:
 :param source: Handle of the image acquisition the epipolar line should be found in.
 :type source: object
-:param traces: List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here. is the “other” acquisition providing the pixels used to find the matching epipolar lines in the `sources` object.
+:param traces: List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the `sources` object.
 :type traces: []
 :param max_distance: Maximum search distance in mm.
 :type max_distance: float
@@ -65,7 +65,7 @@ This function is used to compute the location of a 3d point in a 2d image. This 
 operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
 of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
 3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
-a list containing 0 zu n entries of pixel matches.
+a list containing 0 to n entries of pixel matches.
 
 **Example**
 
@@ -137,7 +137,7 @@ This module contains functions for accessing project relevant data
 
 ```{py:function} gom.api.project.create_progress_information (): object
 
-Retrieve a progress information project which can be used to query/control progress status information
+Retrieve a progress information object which can be used to query/control progress status information
 :API version 1:
 :return: Progress information object
 :rtype: object
@@ -166,7 +166,7 @@ This function returns an image acquisition object, which in turn can then be use
 various image variants.
 
 Valid valid for the `camera` parameter are:
-- `left camera`: Left camera in a two camera system of the only existing camera in a single camera system
+- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
 - `right camera`: Right camera in a two camera system
 - `photogrammetry`: Photogrammetry (TRITOP) camera
 
@@ -199,7 +199,7 @@ This function returns a list of  image acquisition objects, which in turn can th
 for various image variants.
 
 Valid valid for the `camera` parameter are:
-- `left camera`: Left camera in a two camera system of the only existing camera in a single camera system
+- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
 - `right camera`: Right camera in a two camera system
 - `photogrammetry`: Photogrammetry (TRITOP) camera
 
@@ -214,6 +214,191 @@ all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left ca
 all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
 ```
 
+## gom.api.addons
+
+API for accessing the add-ons currently installed in the running software instance
+
+```{important}
+Under development, not released yet !
+```
+
+This API enables access to the installed add-ons. Information about these add-ons can be
+queried, add-on files and resources can be read and if the calling instance is a member of
+one specific add-on, this specific add-on can be modified on-the-fly and during software
+update processes.
+
+#### gom.api.addons.AddOn.exists
+
+```{py:function} gom.api.addons.AddOn.exists (path: str): boolean
+
+Check if the given file exists in an add-on
+:API version 1:
+:param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
+:type path: str
+:return: 'true' if a file with that name exists in the add-on
+:rtype: boolean
+```
+
+This function checks if the given file exists in the add-on
+
+#### gom.api.addons.AddOn.get_file
+
+```{py:function} gom.api.addons.AddOn.get_file (): str
+
+Return the installed add-on file
+:API version 1:
+:return: Add-on file including the path
+:rtype: str
+```
+
+This function returns the installed ZIP file representing the add-on. The file might be
+empty if the add-on has never been 'completed', i.e. by being in edit mode.
+
+#### gom.api.addons.AddOn.get_file_list
+
+```{py:function} gom.api.addons.AddOn.get_file_list (): [str]
+
+Return the list of files contained in the add-on
+:API version 1:
+:return: List of files in that add-on (full path)
+:rtype: [str]
+```
+
+This function returns the list of files in an add-on. These path names can be used to
+read or write/modify add-on content. This is subject to the permission system, so the
+content of protected add-ons cannot be read at all and just the add-on a script originates
+from can be modified via this API.
+
+#### gom.api.addons.AddOn.get_id
+
+```{py:function} gom.api.addons.AddOn.get_id (): uuid
+
+Return the unique id (uuid) or this add-on
+:API version 1:
+:return: Add-on uuid
+:rtype: uuid
+```
+
+This function returns the uuid associated with this add-on. The id can be used to
+uniquely address the add-on.
+
+#### gom.api.addons.AddOn.get_name
+
+```{py:function} gom.api.addons.AddOn.get_name (): str
+
+Return the displayable name of the add-on
+:API version 1:
+:return: Add-on name
+:rtype: str
+```
+
+This function returns the displayable name of the add-on. This is the human
+readable name which is display in the add-on manager and the add-on store.
+
+#### gom.api.addons.AddOn.get_tags
+
+```{py:function} gom.api.addons.AddOn.get_tags (): [str]
+
+Return the list of tags with which the add-on has been tagged
+:API version 1:
+:return: List of tags
+:rtype: [str]
+```
+
+This function returns the list of tags in the addons `metainfo.json` file.
+
+#### gom.api.addons.AddOn.has_license
+
+```{py:function} gom.api.addons.AddOn.has_license (): boolean
+
+Return if the necessary licenses to use this add-on are present
+:API version 1:
+```
+
+This function returns if the necessary licenses to use the add-on are currently present.
+Add-ons can either be free and commercial. Commercial add-ons require the presence of a
+matching license via a license dongle or a license server.
+
+#### gom.api.addons.AddOn.is_protected
+
+```{py:function} gom.api.addons.AddOn.is_protected (): boolean
+
+Return if the add-on is protected
+:API version 1:
+:return: Add-on protection state
+:rtype: boolean
+```
+
+The content of a protected add-on is encrypted. It cannot be listed, but not read. Protection
+includes both 'IP protection' (content cannot be read) and 'copy protection' (content cannot be
+copied, as far as possible)
+
+#### gom.api.addons.AddOn.read
+
+```{py:function} gom.api.addons.AddOn.read (filename: str): bytes
+
+Read file from add-on
+:API version 1:
+:param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
+:return: Content of that file as a byte array
+:rtype: bytes
+```
+
+This function reads the content of a file from the add-on. If the add-on is protected,
+the file can still be read but will be AES encrypted.
+
+**Example:** Print all add-on 'metainfo.json' files
+
+```
+import gom
+import json
+
+for a in gom.api.addons.get_installed_add_ons ():
+text = json.loads (a.read ('metainfo.json'))
+print (json.dumps (text, indent=4))
+```
+
+#### gom.api.addons.AddOn.write
+
+```{py:function} gom.api.addons.AddOn.write (path: str, data: bytes): None
+
+Write data into add-on file
+:API version 1:
+:param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
+:type path: str
+:param data: Data to be written into that file
+:type data: bytes
+```
+
+This function writes data into a file into an add-ons file system. It can be used to update,
+migrate or adapt the one add-on the API call originates from. Protected add-ons cannot be
+modified at all.
+
+```{important}
+An add-on can modify only its own content ! Access to other add-ons is not permitted. Use this
+function with care, as the result is permanent !
+```
+
+### gom.api.addons.get_installed_add_ons
+
+```{py:function} gom.api.addons.get_installed_add_ons (): [object]
+
+Return a list of the installed add-ons
+:API version 1:
+:return: List of 'AddOn' objects. Each 'AddOn' object represents an add-on and can be used to query information about that specific add-pon.
+:rtype: [object]
+```
+
+This function can be used to query information of the add-ons which are currently
+installed in the running instance.
+
+**Example:**
+
+```
+for a in gom.api.addons.get_installed_add_ons ():
+print (a.get_id (), a.get_name ())
+```
+
 ## gom.api.settings
 
 API for storing add-on related settings persistently
@@ -226,7 +411,58 @@ This API allows reading/writing values into the application configuration perman
 configuration is persistant and will survive application restarts. Also, it can be accessed
 via the applications preferences dialog.
 
-The configuration entries must be defined in the add-ons `metainfo.json` file.
+The configuration entries must be defined in the add-ons `metainfo.json` file. This configuration
+defined the available keys, the entry types and the entry properties. If the entry type can be
+represented by some widget, the setting entry will also be present in the applications 'preferences'
+dialog and can be adapted interactively there.
+
+### Example
+
+```
+{
+"title": "Settings API example",
+"description": "Example add-on demonstrating usage of the settings API",
+"uuid": "3b515488-aa7b-4035-85e1-b9509db8af4f",
+"version": "1.0.2",
+"settings": [
+{
+"name": "dialog",
+"description": "Dialog configuration"
+},
+{
+"name": "dialog.size",
+"description": "Size of the dialog"
+},
+{
+"name": "dialog.size.width",
+"description": "Dialog width",
+"value": 640,
+"digits": 0
+},
+{
+"name": "dialog.size.height",
+"description": "Dialog height",
+"value": 480,
+"digits": 0
+},
+{
+"name": "dialog.threshold",
+"description": "Threshold",
+"value": 1.0,
+"minimum": 0.0,
+"maximum": 10.0,
+"digits": 2,
+"step": 0.01
+},
+{
+"name": "dialog.magic",
+"description": "Magic Key",
+"value": "Default text",
+"visible": false
+}
+]
+}
+```
 
 ### gom.api.settings.get
 
@@ -234,7 +470,6 @@ The configuration entries must be defined in the add-ons `metainfo.json` file.
 
 Read value from application settings
 :API version 1:
-:param context: Script execution context
 :param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
 :type key: str
 :return: Configuration value for that key
@@ -257,7 +492,6 @@ h = gom.app.settings.get ('dialog.height')
 
 List all available keys for the current add-on
 :API version 1:
-:param context: Script execution context
 :return: List of all the keys in the settings which belong to the current add-on
 :rtype: [str]
 ```
@@ -271,7 +505,6 @@ These keys are the same configuration keys are used in the `metainfo.json` file 
 
 Write value into application settings
 :API version 1:
-:param context: Script execution context
 :param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
 :type key: str
 :param value: Value to be written
