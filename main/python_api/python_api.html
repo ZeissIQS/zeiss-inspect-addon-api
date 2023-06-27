@@ -80,7 +80,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-addons">gom.api.addons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-exists">gom.api.addons.AddOn.exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-file">gom.api.addons.AddOn.get_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-file-list">gom.api.addons.AddOn.get_file_list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-id">gom.api.addons.AddOn.get_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-name">gom.api.addons.AddOn.get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-tags">gom.api.addons.AddOn.get_tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-has-license">gom.api.addons.AddOn.has_license</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-is-protected">gom.api.addons.AddOn.is_protected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-read">gom.api.addons.AddOn.read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-write">gom.api.addons.AddOn.write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-add-ons">gom.api.addons.get_installed_add_ons</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-get">gom.api.settings.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-list">gom.api.settings.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-set">gom.api.settings.set</a></li>
@@ -122,7 +137,7 @@
 <h2>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Permalink to this heading"></a></h2>
 <p>Image point/pixel related functions</p>
 <p>Image related functions can be used to query images from the measurements of a project. This is not done directly,
-but via an ‘image acquisition’ object which acts as a proxy between the image storing data structured and the
+but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
 functions which can be used to process the image data.</p>
 <p>Terminology:</p>
 <ul class="simple">
@@ -141,7 +156,7 @@ functions which can be used to process the image data.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>source</strong> (<em>object</em>) – Handle of the image acquisition the epipolar line should be found in.</p></li>
-<li><p><strong>traces</strong> (<em>[</em><em>]</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here. is the “other” acquisition providing the pixels used to find the matching epipolar lines in the <code class="docutils literal notranslate"><span class="pre">sources</span></code> object.</p></li>
+<li><p><strong>traces</strong> (<em>[</em><em>]</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the <code class="docutils literal notranslate"><span class="pre">sources</span></code> object.</p></li>
 <li><p><strong>max_distance</strong> (<em>float</em>) – Maximum search distance in mm.</p></li>
 </ul>
 </dd>
@@ -197,7 +212,7 @@ functions which can be used to process the image data.</p>
 operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
 of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
 3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
-a list containing 0 zu n entries of pixel matches.</p>
+a list containing 0 to n entries of pixel matches.</p>
 <p><strong>Example</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
 <span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
@@ -272,7 +287,7 @@ left corner.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information</span> <span class="pre">():</span> <span class="pre">object</span></span></dt>
-<dd><p>Retrieve a progress information project which can be used to query/control progress status information</p>
+<dd><p>Retrieve a progress information object which can be used to query/control progress status information</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version 1<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
@@ -317,7 +332,7 @@ main application window. It can be used to display progress information of long 
 various image variants.</p>
 <p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system of the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system or the only existing camera in a single camera system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
 </ul>
@@ -359,7 +374,7 @@ various image variants.</p>
 for various image variants.</p>
 <p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system of the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system or the only existing camera in a single camera system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
 </ul>
@@ -374,6 +389,271 @@ for various image variants.</p>
 </div>
 </section>
 </section>
+<section id="gom-api-addons">
+<h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Permalink to this heading"></a></h2>
+<p>API for accessing the add-ons currently installed in the running software instance</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Under development, not released yet !</p>
+</div>
+<p>This API enables access to the installed add-ons. Information about these add-ons can be
+queried, add-on files and resources can be read and if the calling instance is a member of
+one specific add-on, this specific add-on can be modified on-the-fly and during software
+update processes.</p>
+<section id="gom-api-addons-addon-exists">
+<h3>gom.api.addons.AddOn.exists<a class="headerlink" href="#gom-api-addons-addon-exists" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.exists</span> <span class="pre">(path:</span> <span class="pre">str):</span> <span class="pre">boolean</span></span></dt>
+<dd><p>Check if the given file exists in an add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if a file with that name exists in the add-on</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function checks if the given file exists in the add-on</p>
+</section>
+<section id="gom-api-addons-addon-get-file">
+<h3>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the installed add-on file</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on file including the path</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the installed ZIP file representing the add-on. The file might be
+empty if the add-on has never been ‘completed’, i.e. by being in edit mode.</p>
+</section>
+<section id="gom-api-addons-addon-get-file-list">
+<h3>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
+<dd><p>Return the list of files contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of files in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the list of files in an add-on. These path names can be used to
+read or write/modify add-on content. This is subject to the permission system, so the
+content of protected add-ons cannot be read at all and just the add-on a script originates
+from can be modified via this API.</p>
+</section>
+<section id="gom-api-addons-addon-get-id">
+<h3>gom.api.addons.AddOn.get_id<a class="headerlink" href="#gom-api-addons-addon-get-id" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_id</span> <span class="pre">():</span> <span class="pre">uuid</span></span></dt>
+<dd><p>Return the unique id (uuid) or this add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on uuid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>uuid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the uuid associated with this add-on. The id can be used to
+uniquely address the add-on.</p>
+</section>
+<section id="gom-api-addons-addon-get-name">
+<h3>gom.api.addons.AddOn.get_name<a class="headerlink" href="#gom-api-addons-addon-get-name" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_name</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the displayable name of the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the displayable name of the add-on. This is the human
+readable name which is display in the add-on manager and the add-on store.</p>
+</section>
+<section id="gom-api-addons-addon-get-tags">
+<h3>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_tags</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
+<dd><p>Return the list of tags with which the add-on has been tagged</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of tags</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the list of tags in the addons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+</section>
+<section id="gom-api-addons-addon-has-license">
+<h3>gom.api.addons.AddOn.has_license<a class="headerlink" href="#gom-api-addons-addon-has-license" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.has_license</span> <span class="pre">():</span> <span class="pre">boolean</span></span></dt>
+<dd><p>Return if the necessary licenses to use this add-on are present</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<p>This function returns if the necessary licenses to use the add-on are currently present.
+Add-ons can either be free and commercial. Commercial add-ons require the presence of a
+matching license via a license dongle or a license server.</p>
+</section>
+<section id="gom-api-addons-addon-is-protected">
+<h3>gom.api.addons.AddOn.is_protected<a class="headerlink" href="#gom-api-addons-addon-is-protected" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.is_protected</span> <span class="pre">():</span> <span class="pre">boolean</span></span></dt>
+<dd><p>Return if the add-on is protected</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on protection state</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The content of a protected add-on is encrypted. It cannot be listed, but not read. Protection
+includes both ‘IP protection’ (content cannot be read) and ‘copy protection’ (content cannot be
+copied, as far as possible)</p>
+</section>
+<section id="gom-api-addons-addon-read">
+<h3>gom.api.addons.AddOn.read<a class="headerlink" href="#gom-api-addons-addon-read" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.read</span> <span class="pre">(filename:</span> <span class="pre">str):</span> <span class="pre">bytes</span></span></dt>
+<dd><p>Read file from add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>path</strong> – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content of that file as a byte array</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function reads the content of a file from the add-on. If the add-on is protected,
+the file can still be read but will be AES encrypted.</p>
+<p><strong>Example:</strong> Print all add-on ‘metainfo.json’ files</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_add_ons</span> <span class="p">():</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span> <span class="p">(</span><span class="s1">&#39;metainfo.json&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-addon-write">
+<h3>gom.api.addons.AddOn.write<a class="headerlink" href="#gom-api-addons-addon-write" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.write</span> <span class="pre">(path:</span> <span class="pre">str,</span> <span class="pre">data:</span> <span class="pre">bytes):</span> <span class="pre">None</span></span></dt>
+<dd><p>Write data into add-on file</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p></li>
+<li><p><strong>data</strong> (<em>bytes</em>) – Data to be written into that file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function writes data into a file into an add-ons file system. It can be used to update,
+migrate or adapt the one add-on the API call originates from. Protected add-ons cannot be
+modified at all.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>An add-on can modify only its own content ! Access to other add-ons is not permitted. Use this
+function with care, as the result is permanent !</p>
+</div>
+</section>
+<section id="gom-api-addons-get-installed-add-ons">
+<h3>gom.api.addons.get_installed_add_ons<a class="headerlink" href="#gom-api-addons-get-installed-add-ons" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_installed_add_ons</span> <span class="pre">():</span> <span class="pre">[object]</span></span></dt>
+<dd><p>Return a list of the installed add-ons</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of ‘AddOn’ objects. Each ‘AddOn’ object represents an add-on and can be used to query information about that specific add-pon.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[object]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function can be used to query information of the add-ons which are currently
+installed in the running instance.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_add_ons</span> <span class="p">():</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_id</span> <span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="gom-api-settings">
 <h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Permalink to this heading"></a></h2>
 <p>API for storing add-on related settings persistently</p>
@@ -384,7 +664,58 @@ for various image variants.</p>
 <p>This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
 via the applications preferences dialog.</p>
-<p>The configuration entries must be defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+<p>The configuration entries must be defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file. This configuration
+defined the available keys, the entry types and the entry properties. If the entry type can be
+represented by some widget, the setting entry will also be present in the applications ‘preferences’
+dialog and can be adapted interactively there.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Settings API example&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example add-on demonstrating usage of the settings API&quot;</span><span class="p">,</span>
+<span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;3b515488-aa7b-4035-85e1-b9509db8af4f&quot;</span><span class="p">,</span>
+<span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.2&quot;</span><span class="p">,</span>
+<span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog configuration&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Size of the dialog&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size.width&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog width&quot;</span><span class="p">,</span>
+<span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span>
+<span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size.height&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog height&quot;</span><span class="p">,</span>
+<span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">480</span><span class="p">,</span>
+<span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.threshold&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Threshold&quot;</span><span class="p">,</span>
+<span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.magic&quot;</span><span class="p">,</span>
+<span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Magic Key&quot;</span><span class="p">,</span>
+<span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Default text&quot;</span><span class="p">,</span>
+<span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 <section id="gom-api-settings-get">
 <h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Permalink to this heading"></a></h3>
 <dl class="py function">
@@ -395,10 +726,7 @@ via the applications preferences dialog.</p>
 <dt class="field-odd">API version 1<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>context</strong> – Script execution context</p></li>
-<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
-</ul>
+<dd class="field-even"><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Configuration value for that key</p>
@@ -426,14 +754,11 @@ are integer, double, string and bool.</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version 1<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>context</strong> – Script execution context</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of all the keys in the settings which belong to the current add-on</p>
 </dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of all the keys in the settings which belong to the current add-on</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>[str]</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -452,7 +777,6 @@ These keys are the same configuration keys are used in the <code class="docutils
 <dd class="field-odd"><p></p></dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>context</strong> – Script execution context</p></li>
 <li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
 <li><p><strong>value</strong> (<em>any</em>) – Value to be written</p></li>
 </ul>
