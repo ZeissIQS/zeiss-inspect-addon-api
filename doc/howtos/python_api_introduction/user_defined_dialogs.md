@@ -879,7 +879,8 @@ Selection element widget
   * Plane element
   * Direction
   * User-defined
-  `elementSelectionWidget` is the object name of the element selection widget in the example below.
+
+`elementSelectionWidget` is the object name of the element selection widget in the example below.
 
 ``` python
 DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')
