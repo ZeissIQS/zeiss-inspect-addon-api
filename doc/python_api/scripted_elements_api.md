@@ -100,7 +100,7 @@ value = context.data[0]
 
 ##### Attribute `context.result[]`
 
-This is a write only list used to set computation results. The context.result[] should be set for each state index listed in context.stages.
+This is a write only list used to set computation results. The context.result[] should be set for each stage index listed in context.stages.
 
 The format to write must match the type of the script element. For available result types, see [Scripted actuals - Return values](#scripted-actuals---return-values) and [Scripted checks - Return values](#scripted-checks---return-values).
 
