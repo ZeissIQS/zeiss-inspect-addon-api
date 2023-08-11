@@ -37,7 +37,7 @@ SharedEnvProvider
 ```
 
 ```{code-block} python
-:caption: SharedEnvProvider_scripts_SharedEnvProvider.py
+:caption: SharedEnvProvider&sol;scripts&sol;SharedEnvProvider.py
 
 # -*- coding: utf-8 -*-
 
