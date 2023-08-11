@@ -24,7 +24,6 @@ Add a key-value pair `"environment": <environment_name>` to the `metainfo.json` 
 
 ### Add-on "SharedEnvProvider"
 ```{code-block}
-
 :caption: File structure
 
 SharedEnvProvider
@@ -37,9 +36,8 @@ SharedEnvProvider
 |-- metainfo.json
 ```
 
-```{code-block} python
-
-:caption: SharedEnvProvider scripts SharedEnvProvider.py
+```{code-block}
+:caption: SharedEnvProvider/scripts/SharedEnvProvider.py
 
 # -*- coding: utf-8 -*-
 
@@ -58,8 +56,7 @@ class TestObject:
 		print(self.material)
 ```
 
-```{code-block} JSON
-
+```{code-block}
 :caption: SharedEnvProvider/metainfo.json
 
 {

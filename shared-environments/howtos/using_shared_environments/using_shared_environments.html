@@ -141,9 +141,9 @@
 <h2>Example:<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <section id="add-on-sharedenvprovider">
 <h3>Add-on “SharedEnvProvider”<a class="headerlink" href="#add-on-sharedenvprovider" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">File</span> <span class="n">structure</span>
-
-<span class="n">SharedEnvProvider</span>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvProvider</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
 <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">numpy</span><span class="o">-</span><span class="n">xyz</span><span class="o">.</span><span class="n">whl</span>
@@ -153,9 +153,10 @@
 <span class="o">|--</span> <span class="n">metainfo</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">SharedEnvProvider</span> <span class="n">scripts</span> <span class="n">SharedEnvProvider</span><span class="o">.</span><span class="n">py</span>
-
-<span class="c1"># -*- coding: utf-8 -*-</span>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/scripts/SharedEnvProvider.py</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">gom</span>
 
@@ -172,35 +173,37 @@
 		<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider/metainfo.json
-
-{
-    &quot;author&quot;: &quot;Test user&quot;,
-    &quot;description&quot;: &quot;Example for shared environment&quot;,
-    &quot;environment&quot;: &quot;SharedEnv1234&quot;,
-    &quot;labels&quot;: [
-    ],
-    &quot;licensing&quot;: {
-        &quot;licenses&quot;: [
-        ],
-        &quot;product-codes&quot;: [
-        ]
-    },
-    &quot;software-revision&quot;: &quot;735&quot;,
-    &quot;software-version&quot;: &quot;ZEISS INSPECT 2023&quot;,
-    &quot;tags&quot;: [
-    ],
-    &quot;title&quot;: &quot;SharedEnvBase&quot;,
-    &quot;uuid&quot;: &quot;178f89cc-fc62-413f-b692-dbc68bf67ec8&quot;,
-    &quot;version&quot;: &quot;1.0.2
-}
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Test user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example for shared environment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="s2">&quot;SharedEnv1234&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;licensing&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;licenses&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product-codes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;software-revision&quot;</span><span class="p">:</span> <span class="s2">&quot;735&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;software-version&quot;</span><span class="p">:</span> <span class="s2">&quot;ZEISS INSPECT 2023&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SharedEnvBase&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;178f89cc-fc62-413f-b692-dbc68bf67ec8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.2</span>
+<span class="p">}</span>
 </pre></div>
+</div>
 </div>
 </section>
 <section id="add-on-sharedenvuser">
 <h3>Add-on “SharedEnvUser”<a class="headerlink" href="#add-on-sharedenvuser" title="Permalink to this heading"></a></h3>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvUser</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
