@@ -141,9 +141,9 @@
 <h2>Example:<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <section id="add-on-sharedenvprovider">
 <h3>Add-on “SharedEnvProvider”<a class="headerlink" href="#add-on-sharedenvprovider" title="Permalink to this heading"></a></h3>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvProvider</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">File</span> <span class="n">structure</span>
+
+<span class="n">SharedEnvProvider</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
 <span class="o">|</span>   <span class="o">|</span>   <span class="o">|--</span> <span class="n">numpy</span><span class="o">-</span><span class="n">xyz</span><span class="o">.</span><span class="n">whl</span>
@@ -153,27 +153,26 @@
 <span class="o">|--</span> <span class="n">metainfo</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
-</div>
-<div class="highlight-{code-block}python notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider\/scripts\/SharedEnvProvider.py
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">SharedEnvProvider</span> <span class="n">scripts</span> <span class="n">SharedEnvProvider</span><span class="o">.</span><span class="n">py</span>
 
-# -*- coding: utf-8 -*-
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
-import gom
+<span class="kn">import</span> <span class="nn">gom</span>
 
-Data = 42
+<span class="n">Data</span> <span class="o">=</span> <span class="mi">42</span>
 
-def hello(name):
-	print(f&quot;Hello {name}!&quot;)
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+	<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
-class TestObject:
-	def __init__(self, material):
-		self.material = material
+<span class="k">class</span> <span class="nc">TestObject</span><span class="p">:</span>
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
 		
-	def print_material(self):
-		print(self.material)
+	<span class="k">def</span> <span class="nf">print_material</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-{code-block}json notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider\/metainfo.json
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider/metainfo.json
 
 {
     &quot;author&quot;: &quot;Test user&quot;,
@@ -200,8 +199,8 @@ class TestObject:
 </section>
 <section id="add-on-sharedenvuser">
 <h3>Add-on “SharedEnvUser”<a class="headerlink" href="#add-on-sharedenvuser" title="Permalink to this heading"></a></h3>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvUser</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
