@@ -57,7 +57,7 @@ class TestObject:
 ```
 
 ```{code-block} json
-:caption: SharedEnvProvider_metainfo.json
+:caption: SharedEnvProvider&sol;metainfo.json
 
 {
     "author": "Test user",
@@ -94,6 +94,8 @@ SharedEnvUser
 ```
 
 ```{code-block} python
+:caption: SharedEnvUser&sol;scripts&sol;SharedEnvUser.py
+
 # -*- coding: utf-8 -*-
 
 import gom
@@ -118,7 +120,7 @@ print(a)
 ```
 
 ```{code-block}json
-:caption: SharedEnvProvider/metainfo.json
+:caption: SharedEnvProvider&sol;metainfo.json
 
 {
     "title": "SharedEnvUser",
