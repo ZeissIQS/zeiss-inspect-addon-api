@@ -36,8 +36,8 @@ SharedEnvProvider
 |-- metainfo.json
 ```
 
-```{code-block}
-:caption: SharedEnvProvider/scripts/SharedEnvProvider.py
+```{code-block} python
+:caption: SharedEnvProvider_scripts_SharedEnvProvider.py
 
 # -*- coding: utf-8 -*-
 
@@ -56,8 +56,8 @@ class TestObject:
 		print(self.material)
 ```
 
-```{code-block}
-:caption: SharedEnvProvider/metainfo.json
+```{code-block} json
+:caption: SharedEnvProvider_metainfo.json
 
 {
     "author": "Test user",
@@ -93,7 +93,7 @@ SharedEnvUser
 |-- metainfo.json
 ```
 
-```{code-block}python
+```{code-block} python
 # -*- coding: utf-8 -*-
 
 import gom
