@@ -119,8 +119,8 @@ a = np.array([1, 2, 3, 4, 5, 6])
 print(a)
 ```
 
-```{code-block}json
-:caption: SharedEnvProvider&sol;metainfo.json
+```{code-block} json
+:caption: SharedEnvUser&sol;metainfo.json
 
 {
     "title": "SharedEnvUser",
