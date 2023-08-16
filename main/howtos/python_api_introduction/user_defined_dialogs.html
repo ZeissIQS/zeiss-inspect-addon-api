@@ -2092,17 +2092,25 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <p><img alt="" src="../../_images/result1.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Print whole dialog result. This is a result map with just one entry &#39;distance&#39;, named after</span>
-<span class="c1"># the unique name assigned to the spinbox.</span>
+<span class="c1"># Print whole dialog result as an object. This is a result map with just one entry &#39;distance&#39;, named after</span>
+<span class="c1"># the unique object name assigned to the spinbox (decimal widget).</span>
 <span class="c1">#</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="p">)</span> <span class="c1"># Print whole result map</span>
 <span class="c1"># output: gom.dialog.DialogResult (&#39;distance&#39;: 2.0, &#39;label&#39;: None)</span>
 
 <span class="c1">#</span>
-<span class="c1"># Print result for the element named &#39;distance&#39;. This will lead to the spinbox content.</span>
+<span class="c1"># Print result for the element named &#39;distance&#39;. This will lead to the decimal widget content.</span>
 <span class="c1">#</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>
 <span class="c1"># output: 2.0</span>
+
+<span class="c1">#</span>
+<span class="c1"># Print whole dialog result as a dictionary with the same content as above. </span>
+<span class="c1">#</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="c1"># output: {&#39;__args__&#39;: [{&#39;distance&#39;: 2.0, &#39;label&#39;: None}], &#39;__kwargs__&#39;: {}}</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;__args__&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># output: {&#39;distance&#39;: 2.0, &#39;label&#39;: None}</span>
 </pre></div>
 </div>
 <p><img alt="" src="../../_images/result2.png" /></p>
