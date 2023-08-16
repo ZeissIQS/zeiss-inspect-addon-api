@@ -1220,8 +1220,8 @@ gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
 
 ``` python
 #
-# Print whole dialog result as an object. This is a result map with just one entry 'distance', named after
-# the unique object name assigned to the spinbox (decimal widget).
+# Print whole dialog result as an object. This is a result map with just one entry 'distance',
+# named after the unique object name assigned to the spinbox (decimal widget).
 #
 print (RESULT) # Print whole result map
 # output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)
