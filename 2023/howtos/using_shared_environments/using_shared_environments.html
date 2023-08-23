@@ -154,28 +154,29 @@
 </pre></div>
 </div>
 </div>
-<div class="highlight-{code-block}python notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider\/scripts\/SharedEnvProvider.py
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/scripts/SharedEnvProvider.py</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-# -*- coding: utf-8 -*-
+<span class="kn">import</span> <span class="nn">gom</span>
 
-import gom
+<span class="n">Data</span> <span class="o">=</span> <span class="mi">42</span>
 
-Data = 42
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+	<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
-def hello(name):
-	print(f&quot;Hello {name}!&quot;)
-
-class TestObject:
-	def __init__(self, material):
-		self.material = material
+<span class="k">class</span> <span class="nc">TestObject</span><span class="p">:</span>
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
 		
-	def print_material(self):
-		print(self.material)
+	<span class="k">def</span> <span class="nf">print_material</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-{code-block}json notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider\/metainfo.json
-
-{
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
     &quot;author&quot;: &quot;Test user&quot;,
     &quot;description&quot;: &quot;Example for shared environment&quot;,
     &quot;environment&quot;: &quot;SharedEnv1234&quot;,
@@ -197,11 +198,12 @@ class TestObject:
 }
 </pre></div>
 </div>
+</div>
 </section>
 <section id="add-on-sharedenvuser">
 <h3>Add-on “SharedEnvUser”<a class="headerlink" href="#add-on-sharedenvuser" title="Permalink to this heading"></a></h3>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvUser</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
@@ -211,38 +213,42 @@ class TestObject:
 </pre></div>
 </div>
 </div>
-<div class="highlight-{code-block}python notranslate"><div class="highlight"><pre><span></span># -*- coding: utf-8 -*-
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">SharedEnvUser/scripts/SharedEnvUser.py</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-import gom
-import SharedEnvProvider
+<span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">SharedEnvProvider</span>
 
-# Importing a package installed in SharedEnvProvider
-import numpy as np
+<span class="c1"># Importing a package installed in SharedEnvProvider</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-# Accessing data in SharedEnvProvider
-print(f&quot;Data: {SharedEnvProvider.Data}&quot;)
+<span class="c1"># Accessing data in SharedEnvProvider</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data: </span><span class="si">{</span><span class="n">SharedEnvProvider</span><span class="o">.</span><span class="n">Data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-# Calling a function in SharedEnvProvider
-SharedEnvProvider.hello(&quot;unknown Python programmer&quot;)
+<span class="c1"># Calling a function in SharedEnvProvider</span>
+<span class="n">SharedEnvProvider</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;unknown Python programmer&quot;</span><span class="p">)</span>
 
-# Using a class from SharedEnvProvider
-testObject = SharedEnvProvider.TestObject(&quot;Sheet Metal&quot;)
-testObject.print_material()
+<span class="c1"># Using a class from SharedEnvProvider</span>
+<span class="n">testObject</span> <span class="o">=</span> <span class="n">SharedEnvProvider</span><span class="o">.</span><span class="n">TestObject</span><span class="p">(</span><span class="s2">&quot;Sheet Metal&quot;</span><span class="p">)</span>
+<span class="n">testObject</span><span class="o">.</span><span class="n">print_material</span><span class="p">()</span>
 
-# Using the numpy package from SharedEnvProvider
-a = np.array([1, 2, 3, 4, 5, 6])
-print(a)
+<span class="c1"># Using the numpy package from SharedEnvProvider</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-{code-block}json notranslate"><div class="highlight"><pre><span></span>:caption: SharedEnvProvider/metainfo.json
-
-{
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
     &quot;title&quot;: &quot;SharedEnvUser&quot;,
     ...
     &quot;environment&quot;: &quot;SharedEnv1234&quot;,
     ...
 }
 </pre></div>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
