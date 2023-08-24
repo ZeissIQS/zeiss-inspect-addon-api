@@ -464,6 +464,14 @@ dialog and can be adapted interactively there.
 }
 ```
 
+This will lead to configuration entries in the applications preferences. Given that the `metainfo.json` is
+part of an add-on called 'Settings API Example', the application preferences will contain the following items
+(visible setting entries only):
+
+![Settings level 1](images/TomMPackage_settings_api_preferences_1.png)
+
+![Settings level 2](images/TomMPackage_settings_api_preferences_2.png)
+
 ### gom.api.settings.get
 
 ```{py:function} gom.api.settings.get (key: str): any

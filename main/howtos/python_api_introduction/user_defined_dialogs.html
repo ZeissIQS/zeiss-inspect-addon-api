@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Scripted elements" href="../scripted_elements/scripted_elements_toc.html" />
+    <link rel="next" title="Creating wizard dialogs" href="creating_wizard_dialogs.html" />
     <link rel="prev" title="Using Visual Studio Code as an add-on editor" href="../using_vscode_editor/using_vscode_editor.html" /> 
 </head>
 
@@ -47,6 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="python_api_introduction.html">Python API introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">User-defined Dialogs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#creating-dialogs">Creating dialogs</a><ul>
@@ -126,9 +127,12 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_packages/adding_workspaces_to_packages.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
@@ -1542,11 +1546,11 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p>Line element</p></li>
 <li><p>Plane element</p></li>
 <li><p>Direction</p></li>
-<li><p>User-defined
-<code class="docutils literal notranslate"><span class="pre">elementSelectionWidget</span></code> is the object name of the element selection widget in the example below.</p></li>
+<li><p>User-defined</p></li>
 </ul>
 </dd>
 </dl>
+<p><code class="docutils literal notranslate"><span class="pre">elementSelectionWidget</span></code> is the object name of the element selection widget in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
 
 <span class="n">selectedElement</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">elementSelectionWidget</span>
@@ -1780,6 +1784,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <dt>Abort button widget</dt><dd><p>The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.</p>
 </dd>
 </dl>
+<p><img alt="" src="../../_images/built-in_progressbar.png" /></p>
 </section>
 <section id="tolerances-widget">
 <h4>Tolerances widget<a class="headerlink" href="#tolerances-widget" title="Permalink to this heading"></a></h4>
@@ -2092,8 +2097,8 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <p><img alt="" src="../../_images/result1.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Print whole dialog result as an object. This is a result map with just one entry &#39;distance&#39;, named after</span>
-<span class="c1"># the unique object name assigned to the spinbox (decimal widget).</span>
+<span class="c1"># Print whole dialog result as an object. This is a result map with just one entry &#39;distance&#39;,</span>
+<span class="c1"># named after the unique object name assigned to the spinbox (decimal widget).</span>
 <span class="c1">#</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="p">)</span> <span class="c1"># Print whole result map</span>
 <span class="c1"># output: gom.dialog.DialogResult (&#39;distance&#39;: 2.0, &#39;label&#39;: None)</span>
@@ -2480,7 +2485,7 @@ about its attributes:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../using_vscode_editor/using_vscode_editor.html" class="btn btn-neutral float-left" title="Using Visual Studio Code as an add-on editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../scripted_elements/scripted_elements_toc.html" class="btn btn-neutral float-right" title="Scripted elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="creating_wizard_dialogs.html" class="btn btn-neutral float-right" title="Creating wizard dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
