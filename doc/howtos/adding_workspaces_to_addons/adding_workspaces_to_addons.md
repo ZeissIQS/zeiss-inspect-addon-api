@@ -1,21 +1,21 @@
 # Adding workspaces to add-ons
 
-> Abstract: An add-on can include a definition for a new workspace. 'Inspection' and 'Reporting' are examples for these workspaces. Although there is not UI based workspace editor yet, it is possible to create one nevertheless with some manual work.
+> Abstract: An add-on can include a definition for a new workspace. 'Inspection' and 'Reporting' are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.
 
 ## Workspaces
 
 ![](assets/workspace1.png)
 
-* Each GOM application does have a list of available workspace on the left side (1).
+* ZEISS INSPECT has a set of available workspaces on the left side (1).
 * Which workspaces are available depends on the available licenses and the installed add-ons.
 * A workspace bundles commands etc. thematically. If, for example, the 'inspection' workspace is selected, the toolbar (2) and the view menu (3) above will show everything the user needs to inspect parts, while the 'report' workspace provides tool for report page creation.
-* An add-on can add its own workspace. The 'Blade CMM' add-on, for example will provide tools for 'Airfoil CMM data preparation' - a feature, which is packaged and not provided by default because it is rather special.
+* An add-on can add its own workspace. The 'Blade CMM' add-on, for example will provide tools for 'Airfoil CMM Data Preparation' - a feature, which is contained in an add-on and not provided by default because it is rather special.
 
 ## Adding workspaces to add-ons
 
 > There is no UI based workspace editor yet, but workspace definitions can be added manually.
 
-* An add-on is just a ZIP file with a different extension  (.package) containing JSON based object definitions.
+* An add-on is just a ZIP file with a different extension  (.addon) containing JSON based object definitions.
 * It can be unpacked, edited and packaged again with a new workspace definition.
 
 ### Step 1: Unpack the add-on
@@ -26,107 +26,59 @@
 
   ![](assets/workspace2.png)
 
-### Step 2: Edit the main package content file
+### Step 2: Create a workspace folder inside the add-on
 
-> The file package.json contains a listing of the add-on content
+The workspace definitions must be placed in a folder named `workspaces`. A separate folder must be created for each workspace. The folder must be named according to the workspace name, i.e.
 
-* When editing the package.json file in an add-on, you will notice that all general add-on information is handled there.
-* Among data like name and description, the package.json file contains a list of "content objects".
-* Every content object in the package.json file
-  * is associated with an object_xxx.json  file containing the content data and
-  * is tagged with a provider_id entry defining the content type.
-* In the example, the "Blade CMM" add-on adds a workspace 
-  * named "Airfoil CMM Data Preparation" 
-  * which exact definition is provided in the add-on file object_0.json
-  * among other content like 'import_templates' and 'scripts'.
-
-Example: package.json
-
-~~~
-{
-  "author": "Carl Zeiss GOM Metrology GmbH",
-  "description": "System package 'Airfoil CMM Data Preparation'",
-  "uuid": "cab03223-c3ca-4001-af23-23f6d07471cb",
-  ...
-  "content": [
-    {
-      "displayname": "Airfoil CMM Data Preparation",
-      "object": "object_0.json",
-      "provider_id": "workspace",
-      "resources": [],
-      "content_id": "711632f6-7444-4e66-bf21-00cdd153d535"
-    },
-    {
-      "displayname": "import_cmm_xml.py",
-      "object": "object_1.json",
-      "provider_id": "import_templates",
-      "resources": []
-    },
-    {
-      "displayname": "Blade CMM",
-      "object": "object_2.json",
-      "provider_id": "scripts",
-      "resources": [],
-      "content_id": ":cab03223-c3ca-4001-af23-23f6d07471cb.Blade_CMM"
-    }
-  ],
-...
-}
-~~~
-  
-* So to add a workspace to your own add-on, add a new content entry to the add-ons package.json file like above.
+`My Add-on/workspaces/<workspace>`
 
 ### Step 3: Add a workspace definition file
 
-> The object_xxx.json file contains the complete workspace definition
+> The `<workspace>.json` file contains the complete workspace definition.
 
-* Add an appropriately named object definition file (object_0.json in the example above) containing the workspace definition
+Add a workspace definition file must be added to the new workspace folder, i.e.
 
-**Example:** 'object_0.json' from the 'Blade CMM' add-on defining a workspace for airfoil CMM data preparation:
+`My Add-on/workspaces/<workspace>/<workspace.json>`
+
+**Example:** From the Add-on 'Airfoil CMM Data Preparation':
 
 ~~~
 {
-  "name": "Airfoil CMM Data Preparation",
-  "uuid": "711632f6-7444-4e66-bf21-00cdd153d535",
-  "content": {
-    "color": [
-      170,
-      93,
-      30
-    ],
-    "recalc_section": true,
-    "alignment_section": true,
-    "sort_index": "19",
-    "icon": "cmd_mode_eval_blade_cmm",
-    "workflow_commands": [
-      "sys.import_file",
-      "[separator]",
-      "userscript.Blade_CMM__ProjectSetup__Project_Setup",
-      "inspect.tb_create_blade_stylus_correction_cmd_group",
-      "primitive.create_fitting_plane_mp_none_draft",
-      "inspect.tb_create_profile_section_by_projection_cmd_group",
-      "[separator]",
-      "userscript.Blade_CMM__AutoPilot__AutoPilot"
-    ],
-    "default_visible_tabs": [
-      "diagram",
-      "section_view",
-      "table",
-      "pip"
-    ]
-  }
+  "alignment_section": true,
+  "classification": {
+    "keywords": [ "AIRFOIL", "CMM" ],
+    "main_intention": "ACQUISITION"
+  },
+  "color": [ 170, 93, 30 ],
+  "default_visible_tabs": [
+    "diagram",
+    "section_view",
+    "table",
+    "pip"
+  ],
+  "icon": "cmd_mode_eval_blade_cmm",
+  "recalc_section": true,
+  "sort_index": "19",
+  "token": "airfoil_cmm_data_preparation",
+  "workflow_commands": [
+    "sys.import_file",
+    "[separator]",
+    "userscript.Blade_CMM__ProjectSetup__Project_Setup",
+    "inspect.tb_create_blade_stylus_correction_cmd_group",
+    "primitive.create_fitting_plane_mp_none",
+    "inspect.tb_create_profile_section_by_projection_cmd_group",
+    "[separator]",
+    "userscript.Blade_CMM__AutoPilot__AutoPilot"
+  ],
+  "uuid": "711632f6-7444-4e66-bf21-00cdd153d535"
 }
 ~~~
-  
-#### "name"
-
-Workspace name as displayed in the workspaces tooltip.
 
 #### "uuid"
 
-A unique id which matches the "content id" field in the packages.json file. 
+A unique id of the workspace.
 
-> Please do not define the UUID manually, but use a UUID generator like Online UUID Generator to generate a fresh, truly unique one !
+> Please do not define the UUID manually, but use a UUID generator like Online UUID Generator to generate a fresh, truly unique one!
 
 #### "color"
 
@@ -146,14 +98,14 @@ Position of that workspace in the list of workspace. The default (no value given
 
 #### "icon"
 
-The internal name of the icon file.
+The name of an (internal) icon file or an icon definition.
 
-> It is currently possible only to select icons which are part of the GOM software distribution and which are not listed anywhere for the outside world. So this important field is of limited use now. But we will add a method to add custom icons just into that particular content definition file in the near future !
+> It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.
 
-In SW2022-0 and later only:
+Since SW2022-0, workspace icon definitions can be added with the following procedure:
 
-* Choose an icon file in one of the widely supported formats (png, jpg, ...). We are using the Qt library functions to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.
-* Install add-on Workspace editor tools and use the script in Scripting / Tools / Workspace editor to create a base64 encoded file of this icons data:
+* Choose an icon file in one of the widely supported formats (png, jpg, ...). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.
+* Install the add-on 'Workspace editor tools' and use the script in 'Add-ons/Tools/Workspace editor' to create a base64 encoded file of this icons data:
 
   ![](assets/convert_base64_dialog.png)
 
@@ -161,13 +113,11 @@ In SW2022-0 and later only:
 
 ~~~
 {
-  "name": "Airfoil CMM Data Preparation",
   "uuid": "711632f6-7444-4e66-bf21-00cdd153d535",
-  "content": {
-    ...
-    # The icon definition contains the content of the created encoding as string enclosed in '"'
-    "icon": "x8Royf4mIiJq8v3YBiIj6IRvW1yr6DhnwUw45R0RErxcr+kREALZDBZvXLgYREdGZHBx1h4iIiIiI...",
-    ...
+  ...
+  # The icon definition contains the content of the created encoding as string enclosed in '"'
+  "icon": "x8Royf4mIiJq8v3YBiIj6IRvW1yr6DhnwUw45R0RErxcr+kREALZDBZvXLgYREdGZHBx1h4iIiIiI...",
+  ...
 }
 ~~~
 
@@ -196,14 +146,14 @@ Some icon guidelines
 
 Commands on the left side of the workspace toolbar. These command can either be
 * the name of a "hardcoded" GOM command,
-* the name of a script command (a command starting a python script)
+* the name of a script command (a command starting a Python script)
 * a special tag like '[separator]' for a separator in the command toolbar.
 
-The command here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and skip the 'gom.script' prefix:
+The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and skip the 'gom.script' prefix:
 
 ![](assets/workspace5.png)
 
-This works for scripts, too, if a script is executed from the 'Scripts' menu while the script editor is in recording mode.
+This works for scripts, too, if a script is executed from the 'Add-ons' menu while the script editor is in recording mode.
 
 #### "sensor_commands"
 
