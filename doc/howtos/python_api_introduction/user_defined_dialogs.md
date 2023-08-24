@@ -879,7 +879,8 @@ Selection element widget
   * Plane element
   * Direction
   * User-defined
-  `elementSelectionWidget` is the object name of the element selection widget in the example below.
+
+`elementSelectionWidget` is the object name of the element selection widget in the example below.
 
 ``` python
 DIALOG=gom.script.sys.execute_user_defined_dialog (content='dialog definition')
@@ -1012,7 +1013,7 @@ if selectedChoice == 'ONE':
 Abort button widget
 : The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.
 
-[//]: # (It behaves in the same manner as the abort button in the lower right corner of Atos **???** software.)
+![](assets/built-in_progressbar.png)
 
 [//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
 
@@ -1219,8 +1220,8 @@ gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
 
 ``` python
 #
-# Print whole dialog result as an object. This is a result map with just one entry 'distance', named after
-# the unique object name assigned to the spinbox (decimal widget).
+# Print whole dialog result as an object. This is a result map with just one entry 'distance',
+# named after the unique object name assigned to the spinbox (decimal widget).
 #
 print (RESULT) # Print whole result map
 # output: gom.dialog.DialogResult ('distance': 2.0, 'label': None)

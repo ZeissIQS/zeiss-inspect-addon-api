@@ -12,22 +12,22 @@
 
 2. Configure connection
  
-    * Ensure that the python API preferences in the GOM software are set up properly 
+    * Ensure that the python API preferences in ZEISS INSPECT are set up properly 
     
       ![](assets/setup2.png)
       
-    * Ensure that the python API settings are correct in VSCode and are matching these in the GOM software: 
+    * Ensure that the python API settings are correct in VSCode and are matching these in ZEISS INSPECT: 
     
       ![](assets/setup4.png)
 
 ### Connecting
 
-1. Have a GOM software running as a host
+1. Have ZEISS INSPECT running as a host
 2. In the VSCode status bar, the connection status is displayed:
 
    ![](assets/connecting1.png)
  
-3. Press onto the "GOM host: Disconnected" status entry to connect to the host application.
+3. Press onto the "Host: Disconnected" status entry to connect to the host application.
 4. After the connection has been established,
     * the connection status will reflect that and
     * the GOM softwares add-on editor content is mirrored and displayed in VSCode:
@@ -55,20 +55,21 @@
 
 ### Recording commands
 
-1. Select the script to record commands into to show it in the editor.
-2. In that editor, select "Record commands" from the editor toolbar.
-3. Execute commands in the GOM application
+1. Make sure that your Add-on in is in editing mode
+2. Select the script into which you want to record commands for displaying in the editor.
+3. In that editor, select "Record commands" from the editor toolbar.
+4. Execute commands in the GOM application
     * The executed commands will be recorded in the currently edited VSCode script.
     * In addition, the "GOM script commands" subsection of the output tab shows a log of the executed commands.
     
       ![](assets/recording1.png)
 
-4. For recording into a different position of the script, set the cursor to that line first or while recording.
-5. Press "Record commands" again to stop command recording.
+5. For recording into a different position of the script, set the cursor to that line first or while recording.
+6. Press "Record commands" again to stop command recording.
 
 ### Inserting elements
 
-> Elements in the GOM applications are represented by 'element references' in the script. These are python expressions which, when executed, return a reference to that element.
+> Elements in ZEISS INSPECT are represented by 'element references' in the script. These are python expressions which, when executed, return a reference to that element.
 
 1. When connected to a GOM application host, select the 'Elements' in the explorer view.
     * There, all elements in the project are listed.
@@ -112,12 +113,12 @@
 ## User defined script dialogs
 
 ```{note}
-User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, a application based script dialog can be opened. A connection to a running application must be present for that purpose.
+User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, an application based script dialog can be opened. A connection to a running application must be present for that purpose.
 ```
 
 ### Create new user defined script dialog
 
-1. Select "GOM Scripting: Insert new user defined script dialog" from the command selector or from the right mouse menu while editing the script the dialog should be inserted into.
+1. Select "GOM Scripting: Insert new user defined script dialog" from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.
 
    ![](assets/userdialog1.png)
 
@@ -193,20 +194,6 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
   ![](assets/script_editing_1.png)
 
-### Dialog editing
-
-#### I cannot edit all aspects of the user defined script dialogs in visual studio code ?
-
-* The user defined script editor is under development and probably still missing various features.
-* Workaround:
-  * Create the dialog in VSCode. If features are missing...
-
-    ![](assets/dialog_editing_1.png)
-
-  * ...continue editing the dialog in the build-in script editor.
-
-    ![](assets/dialog_editing_2.png)
-
 ### Troubleshooting
 
 #### When using IntelliSense completion, the keyword list stalls
@@ -224,5 +211,5 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
 * This is more a GOM internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.
 * The parallel debugging session (application and scripting) seem to be the problem.
-* Workaround: Do not start GOM application via the VSCode launcher, but e.g. from a command prompt.
+* Workaround: Do not start ZEISS INSPECT application via the VSCode launcher, but e.g. from a command prompt.
 
