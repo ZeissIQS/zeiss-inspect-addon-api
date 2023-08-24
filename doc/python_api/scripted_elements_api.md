@@ -170,13 +170,13 @@ result = {
 :Element Type: 3D polyline with normals
 :Result: Like a curve with additional normal data, i.e. each surface curve can be made up by an array of subcurves.
 
-```{code-block} python
-# This does not work!
-result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
-```
+% ```{code-block} python
+% # This does not work!
+% result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
+% ```
 
-:::{caution}
-**Workaround:** set the result to
+% :::{caution}
+% **Workaround:** set the result to
 ```{code-block} python
 result = {
   'default': [
@@ -186,7 +186,7 @@ result = {
   ]
 } 
 ```
-:::
+% :::
 
 ### Section
 
@@ -223,65 +223,60 @@ result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
 ### Cone
 
 :Element Type: Cone
-:Result: Accepts any Plane Trait
+:Result: Accepts any Cone Trait
 
 ```{code-block} python
-result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
+result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }
 ```
-
-:::{caution}
-The creation of planes currently does not work.
-
-**Workaround:** set the result to
-```{code-block} python
-result = {'default' : {'normal' : gom.Vec3d, 'distance': float} }
-```
-:::
 
 ### Cylinder
 
 :Element Type: Cylinder
 :Result: Accepts any Cylinder Trait
 
-```{code-block} python
+% ```{code-block} python
+% result = Reference
+%
+% # This does not work!
+% result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool }
+%```
+
+% :::{caution}
+% **Workaround:** set the result to
+```{code-block} Python
 result = Reference
 
-# This does not work!
-result = { 'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool }
-```
-
-:::{caution}
-**Workaround:** set the result to
-```{code-block} Python
 result = {'default' : {'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec3d, 'inner' : bool} }
 ```
-:::
+% :::
 
 ### Plane
 
 :Element Type: Plane
 :Result: Accepts any Plane Trait
 
+% ```{code-block} python
+% result = Reference
+%
+% # This does not work!
+% result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float }
+% ```
+
+% :::{caution}
+% The creation of planes currently does not work.
+%
+% **Workaround:** set the result to
 ```{code-block} python
 result = Reference
 
-# This does not work!
-result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float }
-```
-
-:::{caution}
-The creation of planes currently does not work.
-
-**Workaround:** set the result to
-```{code-block} python
-result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float} }
+result = {'default' : {'distance': gom.Vec3d, 'normal': gom.Vec3d} }
 ```
 :::
 
 ### Volume defects
 
 :Element Type: Volume defects
-:Result: A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The 'outer_hull' parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. **Alternatively**, 'outer_hull_vertices' and 'outer_hull_triangles' can be given as explicit outer hull mesh definition.<p>For an example, see: [\[GOM Connect\] How-to: Generate volume defect elements from GOM Scripting](https://connect.gom.com/x/B8fVAg)
+:Result: A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The 'outer_hull' parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. **Alternatively**, 'outer_hull_vertices' and 'outer_hull_triangles' can be given as explicit outer hull mesh definition.
 
 ```{code-block} python
 result = {
