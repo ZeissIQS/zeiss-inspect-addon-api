@@ -35,7 +35,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
 ```
 
 
-If you already know how to create an add-on and now you are interested in python programming in GOM Inspect, take a look at our collection of Python examples.
+If you already know how to create an add-on and now you are interested in Python programming in ZEISS INSPECT, take a look at our collection of Python examples.
 
 ```{eval-rst}
 .. toctree::
