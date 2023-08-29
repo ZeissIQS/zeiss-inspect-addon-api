@@ -1,7 +1,7 @@
 # Add-On Documentation 2023
 
 Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
-You can include several template configurations from the software, as well as completely new workflows programmed in python.
+You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
 Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? This free course teaches you the basics:
