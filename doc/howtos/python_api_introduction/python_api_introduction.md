@@ -1,8 +1,6 @@
 # Python API introduction
 
-## Introduction to Python scripting
-
-A basic overview of the Python scripting concepts can be found in the Tech Guide article [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html).
+See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
 
 ## Creating projects
 
