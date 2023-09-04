@@ -282,6 +282,21 @@ Return the unique id (uuid) or this add-on
 This function returns the uuid associated with this add-on. The id can be used to
 uniquely address the add-on.
 
+#### gom.api.addons.AddOn.get_level
+
+```{py:function} gom.api.addons.AddOn.get_level (): [str]
+
+Return the level (system/shared/user) of the add-on
+:API version 1:
+:return: Level of the add-on
+:rtype: [str]
+```
+
+This function returns the 'configuration level' of the add-on. This can be
+* 'system' for pre installed add-ons which are distributed together with the application
+* 'shared' for add-ons in the public or shared folder configured in the applications preferences or
+* 'user' for user level add-ons installed for the current user only.
+
 #### gom.api.addons.AddOn.get_name
 
 ```{py:function} gom.api.addons.AddOn.get_name (): str
@@ -353,7 +368,7 @@ the file can still be read but will be AES encrypted.
 import gom
 import json
 
-for a in gom.api.addons.get_installed_add_ons ():
+for a in gom.api.addons.get_installed_addons ():
 text = json.loads (a.read ('metainfo.json'))
 print (json.dumps (text, indent=4))
 ```
@@ -379,9 +394,52 @@ An add-on can modify only its own content ! Access to other add-ons is not permi
 function with care, as the result is permanent !
 ```
 
-### gom.api.addons.get_installed_add_ons
+### gom.api.addons.get_addon
 
-```{py:function} gom.api.addons.get_installed_add_ons (): [object]
+```{py:function} gom.api.addons.get_addon (UUId: id): str
+
+Return the add-on with the given id
+:API version 1:
+:param id: Id of the add-on to get
+:return: Add-on with the given id
+:rtype: str
+```
+
+This function returns the add-on with the given id
+
+**Example:**
+
+```
+addon = gom.api.addons.get_addon ('1127a8be-231f-44bf-b15e-56da4b510bf1')
+print (addon.get_name ())
+> 'AddOn #1'
+```
+
+\throws Exception if there is no add-on with that id
+
+### gom.api.addons.get_current_addon
+
+```{py:function} gom.api.addons.get_current_addon (): str
+
+Return the current add-on
+:API version 1:
+:return: Add-on the caller is a member of or `None` if there is no such add-on
+:rtype: str
+```
+
+This function returns the add-on the caller is a member of
+
+**Example:**
+
+```
+addon = gom.api.addons.get_current_addon ()
+print (addon.get_id ())
+> d04a082c-093e-4bb3-8714-8c36c7252fa0
+```
+
+### gom.api.addons.get_installed_addons
+
+```{py:function} gom.api.addons.get_installed_addons (): [object]
 
 Return a list of the installed add-ons
 :API version 1:
@@ -395,7 +453,7 @@ installed in the running instance.
 **Example:**
 
 ```
-for a in gom.api.addons.get_installed_add_ons ():
+for a in gom.api.addons.get_installed_addons ():
 print (a.get_id (), a.get_name ())
 ```
 
