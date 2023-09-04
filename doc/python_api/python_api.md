@@ -293,7 +293,7 @@ Return the level (system/shared/user) of the add-on
 ```
 
 This function returns the 'configuration level' of the add-on. This can be
-* 'system' for pre installed add-on which are distributed together with the application
+* 'system' for pre installed add-ons which are distributed together with the application
 * 'shared' for add-ons in the public or shared folder configured in the applications preferences or
 * 'user' for user level add-ons installed for the current user only.
 
