@@ -250,28 +250,29 @@ result = {'default' : {'point': gom.Vec3d, 'radius': float, 'direction': gom.Vec
 ```
 % :::
 
-### Plane
-
-:Element Type: Plane
-:Result: Accepts any Plane Trait
-
-% ```{code-block} python
-% result = Reference
+% See https://jira.gom.com/browse/AD-163
+% ### Plane
 %
-% # This does not work!
-% result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float }
-% ```
-
-% :::{caution}
-% The creation of planes currently does not work.
+%:Element Type: Plane
+%:Result: Accepts any Plane Trait
 %
-% **Workaround:** set the result to
-```{code-block} python
-result = Reference
-
-result = {'default' : {'distance': gom.Vec3d, 'normal': gom.Vec3d} }
-```
-:::
+%% ```{code-block} python
+%% result = Reference
+%%
+%% # This does not work!
+%% result = { 'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3d, 'radius2': float }
+%% ```
+%
+%% :::{caution}
+%% The creation of planes currently does not work.
+%%
+%% **Workaround:** set the result to
+%```{code-block} python
+%result = Reference
+%
+%result = {'default' : {'distance': gom.Vec3d, 'normal': gom.Vec3d} }
+%```
+%:::
 
 ### Volume defects
 
