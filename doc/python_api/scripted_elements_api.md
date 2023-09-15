@@ -341,7 +341,7 @@ result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }
 result = {
   'volume_element': Reference,
   'offset': gom.Vec3d,
-  'data': np.array ()
+  'voxel_data': np.array ()
 }
 ```
 
