@@ -326,7 +326,7 @@ result = {
 ### Volume Section
 
 :Element Type: Volume Section
-:Result: Accepts a numpy array with pixel data and a transformation.<p>The numpy array's shape denotes the resulting volume section shape. The 'dtype' must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation)
+:Result: Accepts a numpy array with pixel data and a transformation.<p>The numpy array's shape denotes the resulting volume section shape. The 'dtype' must be `numpy.float32`.<p>The transformation is a gom.Mat4x4 (affine transformation)
 
 ```{code-block} python
 result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }
