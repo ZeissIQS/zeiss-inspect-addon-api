@@ -596,7 +596,7 @@
 <dd class="field-odd"><p>Volume Section</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
+<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be <code class="docutils literal notranslate"><span class="pre">numpy.float32</span></code>.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;pixel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="p">}</span>
