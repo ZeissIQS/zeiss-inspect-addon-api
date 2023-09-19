@@ -381,7 +381,7 @@ function with care, as the result is permanent !
 
 ### gom.api.addons.get_installed_add_ons
 
-```{py:function} gom.api.addons.get_installed_add_ons (): [object]
+```{py:function} gom.api.addons.get_installed_addons (): [object]
 
 Return a list of the installed add-ons
 :API version 1:
