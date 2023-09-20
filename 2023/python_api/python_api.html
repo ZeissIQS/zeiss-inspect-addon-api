@@ -89,13 +89,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-file">gom.api.addons.AddOn.get_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-file-list">gom.api.addons.AddOn.get_file_list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-id">gom.api.addons.AddOn.get_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-level">gom.api.addons.AddOn.get_level</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-name">gom.api.addons.AddOn.get_name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-get-tags">gom.api.addons.AddOn.get_tags</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-has-license">gom.api.addons.AddOn.has_license</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-is-protected">gom.api.addons.AddOn.is_protected</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-read">gom.api.addons.AddOn.read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon-write">gom.api.addons.AddOn.write</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-add-ons">gom.api.addons.get_installed_add_ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-addon">gom.api.addons.get_addon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-current-addon">gom.api.addons.get_current_addon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-addons">gom.api.addons.get_installed_addons</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
@@ -492,6 +495,31 @@ from can be modified via this API.</p>
 <p>This function returns the uuid associated with this add-on. The id can be used to
 uniquely address the add-on.</p>
 </section>
+<section id="gom-api-addons-addon-get-level">
+<h3>gom.api.addons.AddOn.get_level<a class="headerlink" href="#gom-api-addons-addon-get-level" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_level</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
+<dd><p>Return the level (system/shared/user) of the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Level of the add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the ‘configuration level’ of the add-on. This can be</p>
+<ul class="simple">
+<li><p>‘system’ for pre installed add-ons which are distributed together with the application</p></li>
+<li><p>‘shared’ for add-ons in the public or shared folder configured in the applications preferences or</p></li>
+<li><p>‘user’ for user level add-ons installed for the current user only.</p></li>
+</ul>
+</section>
 <section id="gom-api-addons-addon-get-name">
 <h3>gom.api.addons.AddOn.get_name<a class="headerlink" href="#gom-api-addons-addon-get-name" title="Permalink to this heading"></a></h3>
 <dl class="py function">
@@ -598,7 +626,7 @@ the file can still be read but will be AES encrypted.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_add_ons</span> <span class="p">():</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span> <span class="p">():</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span> <span class="p">(</span><span class="s1">&#39;metainfo.json&#39;</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -631,8 +659,64 @@ modified at all.</p>
 function with care, as the result is permanent !</p>
 </div>
 </section>
-<section id="gom-api-addons-get-installed-add-ons">
-<h3>gom.api.addons.get_installed_add_ons<a class="headerlink" href="#gom-api-addons-get-installed-add-ons" title="Permalink to this heading"></a></h3>
+<section id="gom-api-addons-get-addon">
+<h3>gom.api.addons.get_addon<a class="headerlink" href="#gom-api-addons-get-addon" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_addon</span> <span class="pre">(UUId:</span> <span class="pre">id):</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the add-on with the given id</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>id</strong> – Id of the add-on to get</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Add-on with the given id</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the add-on with the given id</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_addon</span> <span class="p">(</span><span class="s1">&#39;1127a8be-231f-44bf-b15e-56da4b510bf1&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
+<span class="o">&gt;</span> <span class="s1">&#39;AddOn #1&#39;</span>
+</pre></div>
+</div>
+<p>\throws Exception if there is no add-on with that id</p>
+</section>
+<section id="gom-api-addons-get-current-addon">
+<h3>gom.api.addons.get_current_addon<a class="headerlink" href="#gom-api-addons-get-current-addon" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_current_addon</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the current add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version 1<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on the caller is a member of or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no such add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the add-on the caller is a member of</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_current_addon</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_id</span> <span class="p">())</span>
+<span class="o">&gt;</span> <span class="n">d04a082c</span><span class="o">-</span><span class="mf">093e-4</span><span class="n">bb3</span><span class="o">-</span><span class="mi">8714</span><span class="o">-</span><span class="mi">8</span><span class="n">c36c7252fa0</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-get-installed-addons">
+<h3>gom.api.addons.get_installed_addons<a class="headerlink" href="#gom-api-addons-get-installed-addons" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.get_installed_addons</span> <span class="pre">():</span> <span class="pre">[object]</span></span></dt>
@@ -652,7 +736,7 @@ function with care, as the result is permanent !</p>
 <p>This function can be used to query information of the add-ons which are currently
 installed in the running instance.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_add_ons</span> <span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span> <span class="p">():</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_id</span> <span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
 </pre></div>
 </div>
