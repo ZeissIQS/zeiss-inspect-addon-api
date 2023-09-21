@@ -79,9 +79,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files">Is there a shortcut for exporting/importing the XLIFF files ?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">Are the translation entries persistent when updated via the ‘Update XLIFF files’ script ?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language">After the application language is set, the Add-on is not displaying the translations for that language ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files">Is there a shortcut for exporting/importing the XLIFF files?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences">Why is the Add-on not displaying the translations after changing the application language in the preferences?</a></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +164,7 @@
 </section>
 <section id="text-in-scripts">
 <h3>Text in scripts<a class="headerlink" href="#text-in-scripts" title="Permalink to this heading"></a></h3>
-<p>Texts in script have to be tagged as translatable via using the <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">()</span></code>  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.</p>
+<p>Texts in scripts have to be tagged as translatable via using the <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">()</span></code>  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print (tr (&#39;This text will be translated&#39;))
 </pre></div>
 </div>
@@ -178,7 +178,7 @@
 <section id="install-add-on-internationalization">
 <h4>Install Add-on ‘Internationalization’<a class="headerlink" href="#install-add-on-internationalization" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p>Install the Add-on ‘Internationalization’ via ZQS Store or the Package Manager.</p></li>
+<li><p>Install the Add-on ‘Internationalization’ via ZQS Store or the Install/Uninstall Add-ons dialog.</p></li>
 </ul>
 </section>
 <section id="switch-add-on-into-edit-mode">
@@ -209,9 +209,9 @@
 <section id="translate-xliff-files">
 <h4>Translate XLIFF files<a class="headerlink" href="#translate-xliff-files" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p>Export the XLIFF files via ‘Export Resource…’ on the right mouse menu.</p></li>
+<li><p>Export the XLIFF files via ‘Export Resource…’ in the right mouse button menu.</p></li>
 <li><p>Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.</p></li>
-<li><p>Import the XLIFF files back into the Add-on via ‘Import Resource…’ on the right mouse menu.</p></li>
+<li><p>Import the XLIFF files back into the Add-on via ‘Import Resource…’ on the right mouse button menu.</p></li>
 </ul>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ns0:xliff</span><span class="w"> </span><span class="na">xmlns:ns0=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.1&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">original=</span><span class="s">&quot;DL_ANALYSIS_01_curve_based.py&quot;</span><span class="w"> </span><span class="na">datatype=</span><span class="s">&quot;py&quot;</span><span class="w"> </span><span class="na">source-language=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">target-language=</span><span class="s">&quot;de&quot;</span><span class="nt">&gt;</span>
@@ -256,15 +256,15 @@
 <section id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h2>
 <section id="is-there-a-shortcut-for-exporting-importing-the-xliff-files">
-<h3>Is there a shortcut for exporting/importing the XLIFF files ?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Permalink to this heading"></a></h3>
+<h3>Is there a shortcut for exporting/importing the XLIFF files?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.</p></li>
 <li><p>Each Add-on in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_edited_addons/&lt;add-on</span> <span class="pre">uuid&gt;</span></code>.</p></li>
-<li><p>The XLIFF files can be edited right there of copies/pasted from there as long as the Add-on remains in ‘Edit’ mode.</p></li>
+<li><p>The XLIFF files can be edited right there or copied/pasted from there as long as the Add-on remains in ‘Edit’ mode.</p></li>
 </ul>
 </section>
 <section id="are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">
-<h3>Are the translation entries persistent when updated via the ‘Update XLIFF files’ script ?<a class="headerlink" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script" title="Permalink to this heading"></a></h3>
+<h3>Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?<a class="headerlink" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>As long as the original texts (the texts in the ‘id’ attribute of the ‘trans-unit’ tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.</p></li>
 <li><p>This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts ‘tr ()’ function.</p></li>
@@ -274,8 +274,8 @@
 <li><p>The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on’s ‘language’ directory.</p></li>
 </ul>
 </section>
-<section id="after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language">
-<h3>After the application language is set, the Add-on is not displaying the translations for that language ?<a class="headerlink" href="#after-the-application-language-is-set-the-add-on-is-not-displaying-the-translations-for-that-language" title="Permalink to this heading"></a></h3>
+<section id="why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences">
+<h3>Why is the Add-on not displaying the translations after changing the application language in the preferences?<a class="headerlink" href="#why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>You might have to restart the application after switching the application language in the preferences.</p></li>
 <li><p>Please double check, too,  if the Add-on supports that specific language at all.</p></li>
