@@ -33,7 +33,7 @@ DIALOG=gom.script.sys.create_user_defined_dialog (dialog={
 
 ### Text in scripts
 
-Texts in script have to be tagged as translatable via using the `tr ()`  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.
+Texts in scripts have to be tagged as translatable via using the `tr ()`  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.
 
     print (tr ('This text will be translated'))
 
@@ -46,7 +46,7 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 
 #### Install Add-on 'Internationalization'
 
-* Install the Add-on 'Internationalization' via ZQS Store or the Package Manager.
+* Install the Add-on 'Internationalization' via ZQS Store or the Install/Uninstall Add-ons dialog.
 
 #### Switch Add-on into 'Edit' mode
 
@@ -73,9 +73,9 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 
 #### Translate XLIFF files
 
-* Export the XLIFF files via 'Export Resource...' on the right mouse menu.
+* Export the XLIFF files via 'Export Resource...' in the right mouse button menu.
 * Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.
-* Import the XLIFF files back into the Add-on via 'Import Resource...' on the right mouse menu.
+* Import the XLIFF files back into the Add-on via 'Import Resource...' on the right mouse button menu.
 
 ``` XML
 <ns0:xliff xmlns:ns0="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
@@ -115,13 +115,13 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 
 ## FAQ
 
-### Is there a shortcut for exporting/importing the XLIFF files ?
+### Is there a shortcut for exporting/importing the XLIFF files?
 
 * If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.
 * Each Add-on in 'Edit' mode mirrors its content into `%APPDATA%/gom/<version>/gom_edited_addons/<add-on uuid>`.
-* The XLIFF files can be edited right there of copies/pasted from there as long as the Add-on remains in 'Edit' mode.
+* The XLIFF files can be edited right there or copied/pasted from there as long as the Add-on remains in 'Edit' mode.
 
-### Are the translation entries persistent when updated via the 'Update XLIFF files' script ?
+### Are the translation entries persistent when updated via the 'Update XLIFF files' script?
 
 * As long as the original texts (the texts in the 'id' attribute of the 'trans-unit' tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.
 * This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts 'tr ()' function.
@@ -130,7 +130,7 @@ Texts in script have to be tagged as translatable via using the `tr ()`  functi
 * But: The source is available and the logic within can be used as a base to implement a customized XLIFF files updater to automatic execution.
 * The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on's 'language' directory.
 
-### After the application language is set, the Add-on is not displaying the translations for that language ?
+### Why is the Add-on not displaying the translations after changing the application language in the preferences?
 
 * You might have to restart the application after switching the application language in the preferences.
 * Please double check, too,  if the Add-on supports that specific language at all.
