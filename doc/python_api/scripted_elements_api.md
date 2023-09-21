@@ -231,9 +231,9 @@ result = {'default' : {'point1': gom.Vec3d, 'radius1': float, 'point2': gom.Vec3
 
 % see SW2024-2241
 :::{caution}
-Due to the internal represenstation of a Cone Element, the direction of the vector P1 -> P2 is always from the smaller to the larger circle (Radius 1 < Radius 2).
+Due to the internal represenstation of a Cone Element, the direction of the vector `point1` -> `point2` is always from the smaller to the larger circle (`radius1` < `radius2`).
 
-If you specify Radius 1 > Radius 2 in the creation parameters, [Point 1; Radius 1] and [Point 2; Radius 2] are swapped automatically.
+If you specify `radius1` > `radius2` in the creation parameters, [`point1`; `radius1`] and [`point2`; `radius2`] are swapped automatically.
 :::
 
 ### Cylinder
