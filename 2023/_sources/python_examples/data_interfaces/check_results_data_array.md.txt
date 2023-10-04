@@ -1,6 +1,6 @@
 # check_results_data_array
 
-![](check_results_data_array.jpg)
+![](check_results_data_array.png)
 
 ## Short description
 
