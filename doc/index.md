@@ -1,14 +1,14 @@
 # Add-On Documentation 2023
 
-Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your GOM Inspect software. 
-You can include several template configurations from the software, as well as completely new workflows programmed in python.
+Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
+You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
-Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of the GOM Software beforehand. New to GOM Inspect? This free course teaches you the basics:
+Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? This free course teaches you the basics:
 
-[(eLearning) 780 Starter Training GOM Inspect](https://training.gom.com/home/LearningPath/7265)
+[(eLearning) 780 Starter Training ZEISS INSPECT](https://training.gom.com/home/LearningPath/7265)
 
-Or, depending on your application, you might be interested in the specific starter trainings for [GOM Volume Inspect](https://training.gom.com/home/LearningPath/7280), [GOM Correlate](https://training.gom.com/home/LearningPath/7282), or [GOM Blade Inspect](https://training.gom.com/home/LearningPath/7281).
+Or, depending on your application, you might be interested in the specific starter trainings for [ZEISS INSPECT X-Ray](https://training.gom.com/home/LearningPath/7280), [ZEISS INSPECT Correlate](https://training.gom.com/home/LearningPath/7282), or [ZEISS INSPECT Airfoil](https://training.gom.com/home/LearningPath/7281).
 
 ```
 
@@ -35,7 +35,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
 ```
 
 
-If you already know how to create an add-on and now you are interested in python programming in GOM Inspect, take a look at our collection of Python examples.
+If you already know how to create an add-on and now you are interested in Python programming in ZEISS INSPECT, take a look at our collection of Python examples.
 
 ```{eval-rst}
 .. toctree::

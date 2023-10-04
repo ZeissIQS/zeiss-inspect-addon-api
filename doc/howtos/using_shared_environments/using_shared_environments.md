@@ -120,7 +120,7 @@ print(a)
 ```
 
 ```{code-block} json
-:caption: SharedEnvProvider&sol;metainfo.json
+:caption: SharedEnvUser&sol;metainfo.json
 
 {
     "title": "SharedEnvUser",
