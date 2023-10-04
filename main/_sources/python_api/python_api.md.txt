@@ -586,4 +586,3 @@ are integer, double, string and bool.
 gom.app.settings.set ('dialog.width', 640)
 gom.app.settings.set ('dialog.height', 480)
 ```
-

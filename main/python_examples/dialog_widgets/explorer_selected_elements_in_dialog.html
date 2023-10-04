@@ -109,7 +109,7 @@
              
   <section id="explorer-selected-elements-in-dialog">
 <h1>explorer_selected_elements_in_dialog<a class="headerlink" href="#explorer-selected-elements-in-dialog" title="Permalink to this heading"></a></h1>
-<p><img alt="" src="../../_images/explorer_selected_elements_in_dialog.jpg" /></p>
+<p><img alt="" src="../../_images/explorer_selected_elements_in_dialog.png" /></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
 <p>Sometimes you might want to get the list of elements currently selected in the element explorer. This example shows how to do so, e.g. in a script dialog.</p>
@@ -117,14 +117,14 @@
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
 <p>You can get all elements of a certain category by using a <code class="docutils literal notranslate"><span class="pre">gom.ElementSelection</span></code>. Then you can iterate over this list to check which ones are currently selected.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">actual_elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">]})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">actual_elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">]})</span>
 <span class="n">selected_actuals</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">actual_elements</span> <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">is_selected</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>As the <code class="docutils literal notranslate"><span class="pre">gom.ElementSelection</span></code>s get pretty lengthy, it is advised to generate these expressions using the “Script Object” explorer (<code class="docutils literal notranslate"><span class="pre">F2</span></code>). Select a category of elements and directly click “OK” to insert a corresponding selection expression.</p>
-<p><img alt="Script object explorer image" src="../../_images/explorer_selected_elements_script_explorer.jpg" /></p>
+<p><img alt="Script object explorer image" src="../../_images/explorer_selected_elements_script_explorer.png" /></p>
 </div>
 <p>In the example, an exemplary selection of elements is also triggered by the script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">example_selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane 1&#39;</span><span class="p">],</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane X +0.00 mm&#39;</span><span class="p">]]</span>

@@ -103,7 +103,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#surface">Surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cone">Cone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cylinder">Cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#plane">Plane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#volume-defects">Volume defects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#d-volume-defects">2D Volume Defects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#volume">Volume</a></li>
@@ -434,13 +433,6 @@
 <dd class="field-even"><p>Like a curve with additional normal data, i.e. each surface curve can be made up by an array of subcurves.</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This does not work!</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">],</span> <span class="s1">&#39;normals&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)]</span> <span class="p">}</span> <span class="p">]</span>
-</pre></div>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p><strong>Workaround:</strong> set the result to</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>result = {
   &#39;default&#39;: [
     {&#39;points&#39;: [gom.Vec3d, gom.Vec3d, …], &#39;normals&#39;: [gom.Vec3d, gom.Vec3d, …]},
@@ -449,7 +441,6 @@
   ]
 } 
 </pre></div>
-</div>
 </div>
 </section>
 <section id="section">
@@ -506,19 +497,16 @@
 <dd class="field-odd"><p>Cone</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>Accepts any Plane Trait</p>
+<dd class="field-even"><p>Accepts any Cone Trait</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">],</span> <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">}</span> <span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The creation of planes currently does not work.</p>
-<p><strong>Workaround:</strong> set the result to</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">}</span> <span class="p">}</span>
-</pre></div>
-</div>
+<p>Due to the internal represenstation of a Cone Element, the direction of the vector <code class="docutils literal notranslate"><span class="pre">point1</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">point2</span></code> is always from the smaller to the larger circle (<code class="docutils literal notranslate"><span class="pre">radius1</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>).</p>
+<p>If you specify <code class="docutils literal notranslate"><span class="pre">radius1</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code> in the creation parameters, [<code class="docutils literal notranslate"><span class="pre">point1</span></code>; <code class="docutils literal notranslate"><span class="pre">radius1</span></code>] and [<code class="docutils literal notranslate"><span class="pre">point2</span></code>; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>] are swapped automatically.</p>
 </div>
 </section>
 <section id="cylinder">
@@ -531,43 +519,10 @@
 <dd class="field-even"><p>Accepts any Cylinder Trait</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
 
-<span class="c1"># This does not work!</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span> <span class="p">:</span> <span class="nb">bool</span> <span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span> <span class="p">:</span> <span class="nb">bool</span><span class="p">}</span> <span class="p">}</span>
 </pre></div>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p><strong>Workaround:</strong> set the result to</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span> <span class="p">:</span> <span class="nb">bool</span><span class="p">}</span> <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="plane">
-<h3>Plane<a class="headerlink" href="#plane" title="Permalink to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Element Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Plane</p>
-</dd>
-<dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>Accepts any Plane Trait</p>
-</dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
-
-<span class="c1"># This does not work!</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="nb">float</span> <span class="p">}</span>
-</pre></div>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>The creation of planes currently does not work.</p>
-<p><strong>Workaround:</strong> set the result to</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">}</span> <span class="p">}</span>
-</pre></div>
-</div>
 </div>
 </section>
 <section id="volume-defects">
@@ -577,7 +532,7 @@
 <dd class="field-odd"><p>Volume defects</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The ‘outer_hull’ parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. <strong>Alternatively</strong>, ‘outer_hull_vertices’ and ‘outer_hull_triangles’ can be given as explicit outer hull mesh definition.<p>For an example, see: <a class="reference external" href="https://connect.gom.com/x/B8fVAg">[GOM Connect] How-to: Generate volume defect elements from GOM Scripting</a></p>
+<dd class="field-even"><p>A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The ‘outer_hull’ parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. <strong>Alternatively</strong>, ‘outer_hull_vertices’ and ‘outer_hull_triangles’ can be given as explicit outer hull mesh definition.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
@@ -646,7 +601,7 @@
 <dd class="field-odd"><p>Volume Section</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be FLOAT.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
+<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be <code class="docutils literal notranslate"><span class="pre">numpy.float32</span></code>.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;pixel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="p">}</span>
@@ -666,7 +621,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;volume_element&#39;</span><span class="p">:</span> <span class="n">Reference</span><span class="p">,</span>
   <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span>
-  <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">()</span>
+  <span class="s1">&#39;voxel_data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>

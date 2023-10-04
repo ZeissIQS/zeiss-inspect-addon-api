@@ -1,12 +1,6 @@
 # Python API introduction
 
-```{note}
-The basic introduction for the Python API used to be part of the GOM FAQ:
-
-[Python API introduction - GOM FAQ](https://connect.gom.com/display/GKB/Expert+Knowledge+-+Scripting+in+GOM+Software)
-
-Content will be migrated to here shortly.
-```
+See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
 
 ## Creating projects
 
