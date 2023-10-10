@@ -227,7 +227,7 @@ queried, add-on files and resources can be read and if the calling instance is a
 one specific add-on, this specific add-on can be modified on-the-fly and during software
 update processes.
 
-#### gom.api.addons.AddOn.exists
+### gom.api.addons.AddOn.exists
 
 ```{py:function} gom.api.addons.AddOn.exists (path: str): boolean
 
@@ -241,7 +241,7 @@ Check if the given file exists in an add-on
 
 This function checks if the given file exists in the add-on
 
-#### gom.api.addons.AddOn.get_file
+### gom.api.addons.AddOn.get_file
 
 ```{py:function} gom.api.addons.AddOn.get_file (): str
 
@@ -254,7 +254,7 @@ Return the installed add-on file
 This function returns the installed ZIP file representing the add-on. The file might be
 empty if the add-on has never been 'completed', i.e. by being in edit mode.
 
-#### gom.api.addons.AddOn.get_file_list
+### gom.api.addons.AddOn.get_file_list
 
 ```{py:function} gom.api.addons.AddOn.get_file_list (): [str]
 
@@ -269,7 +269,7 @@ read or write/modify add-on content. This is subject to the permission system, s
 content of protected add-ons cannot be read at all and just the add-on a script originates
 from can be modified via this API.
 
-#### gom.api.addons.AddOn.get_id
+### gom.api.addons.AddOn.get_id
 
 ```{py:function} gom.api.addons.AddOn.get_id (): uuid
 
@@ -282,7 +282,7 @@ Return the unique id (uuid) or this add-on
 This function returns the uuid associated with this add-on. The id can be used to
 uniquely address the add-on.
 
-#### gom.api.addons.AddOn.get_level
+### gom.api.addons.AddOn.get_level
 
 ```{py:function} gom.api.addons.AddOn.get_level (): [str]
 
@@ -297,7 +297,7 @@ This function returns the 'configuration level' of the add-on. This can be
 * 'shared' for add-ons in the public or shared folder configured in the applications preferences or
 * 'user' for user level add-ons installed for the current user only.
 
-#### gom.api.addons.AddOn.get_name
+### gom.api.addons.AddOn.get_name
 
 ```{py:function} gom.api.addons.AddOn.get_name (): str
 
@@ -310,7 +310,7 @@ Return the displayable name of the add-on
 This function returns the displayable name of the add-on. This is the human
 readable name which is display in the add-on manager and the add-on store.
 
-#### gom.api.addons.AddOn.get_tags
+### gom.api.addons.AddOn.get_tags
 
 ```{py:function} gom.api.addons.AddOn.get_tags (): [str]
 
@@ -322,7 +322,7 @@ Return the list of tags with which the add-on has been tagged
 
 This function returns the list of tags in the addons `metainfo.json` file.
 
-#### gom.api.addons.AddOn.has_license
+### gom.api.addons.AddOn.has_license
 
 ```{py:function} gom.api.addons.AddOn.has_license (): boolean
 
@@ -334,7 +334,7 @@ This function returns if the necessary licenses to use the add-on are currently 
 Add-ons can either be free and commercial. Commercial add-ons require the presence of a
 matching license via a license dongle or a license server.
 
-#### gom.api.addons.AddOn.is_protected
+### gom.api.addons.AddOn.is_protected
 
 ```{py:function} gom.api.addons.AddOn.is_protected (): boolean
 
@@ -348,7 +348,7 @@ The content of a protected add-on is encrypted. It cannot be listed, but not rea
 includes both 'IP protection' (content cannot be read) and 'copy protection' (content cannot be
 copied, as far as possible)
 
-#### gom.api.addons.AddOn.read
+### gom.api.addons.AddOn.read
 
 ```{py:function} gom.api.addons.AddOn.read (filename: str): bytes
 
@@ -373,7 +373,7 @@ text = json.loads (a.read ('metainfo.json'))
 print (json.dumps (text, indent=4))
 ```
 
-#### gom.api.addons.AddOn.write
+### gom.api.addons.AddOn.write
 
 ```{py:function} gom.api.addons.AddOn.write (path: str, data: bytes): None
 

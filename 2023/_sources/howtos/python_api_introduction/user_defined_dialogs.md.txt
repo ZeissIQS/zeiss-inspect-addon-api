@@ -666,9 +666,8 @@ userInput = RESULT.decimalWidget
 | precision | double | <pre># Set precision to 2 decimals<br>DIALOG.input.precision = 2</pre>   |
 | unit      | str    | <pre># Set unit ID<br>DIALOG.input.unit = 'LENGTH'</pre>                 |
 
-[//]: # ( No visible effect )
-
-[//]: # ( background_style - str - Set style sheet based background color  - red, green, blue )
+% No visible effect:
+% background_style - str - Set style sheet based background color  - red, green, blue 
 
 #### Text entry field
 ![](assets/widget_text_entry.png)
@@ -720,9 +719,8 @@ print( RESULT.sliderWidget ) # some text
 | step          | double | <pre># Set step size to 15<br>DIALOG.input.step = 15</pre>                 |
 | orientation   | str    | <pre>print(DIALOG.input.orientation)</pre>⚠️ read-only                     |
 
-[//]: # ( ticks are not drawn )
-
-[//]: # ( tick_interval - double - Interval of ticks drawn )
+% ticks are not drawn
+% tick_interval - double - Interval of ticks drawn
 
 
 #### Checkbox widget
@@ -769,9 +767,8 @@ File widget
 | file_types | list | <pre># Show only specified file types; each list item must consist of \[\<filename_extension\>, \<description\>\]<br>DIALOG.inputFile.file_types = \[\['*.g3d', 'Mesh data'\], \['*.stp', 'CAD data'\]\]</pre> ⚠️ ``limited`` must be set to ``True`` in order to apply the filter! |
 | limited    | bool | <pre># Limit file selection to 'file_types'<br>DIALOG.inputFile.limited = True</pre>                 |
 
-[//]: # (Clarify this)
-
-[//]: # (selection_type - str - File selector type; any, directory, executable, file, multi_file )
+% Clarify this:
+% selection_type - str - File selector type; any, directory, executable, file, multi_file
 
 #### Date widget
 
@@ -926,7 +923,7 @@ print("Chosen system plane:", RESULT.input_new.name)
 
 The complete code of the example is attached to this document. 
 
-[//]: # (To Do: attach example)
+% To Do: attach example
 
 #### Selection list widget
 
@@ -1014,7 +1011,7 @@ Abort button widget
 
 ![](assets/built-in_progressbar.png)
 
-[//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
+% To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.
 
 #### Tolerances widget
 
