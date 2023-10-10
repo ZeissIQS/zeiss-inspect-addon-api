@@ -77,7 +77,7 @@ class TestObject:
     ],
     "title": "SharedEnvBase",
     "uuid": "178f89cc-fc62-413f-b692-dbc68bf67ec8",
-    "version": "1.0.2
+    "version": "1.0.2"
 }
 ```
 
@@ -124,9 +124,9 @@ print(a)
 
 {
     "title": "SharedEnvUser",
-    ...
+    "...": "...",
     "environment": "SharedEnv1234",
-    ...
+    "...": "..."
 }
 ```
 

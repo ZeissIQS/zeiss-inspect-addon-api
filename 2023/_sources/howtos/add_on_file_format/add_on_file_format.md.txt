@@ -91,10 +91,10 @@ labels
         "!all:" {
             "label_background": "gom.Color (0, 0, 0, 0)",
             "label_border_mode": "'none'",
-            ...
+            "...": "...",
             "label_text": "..."
         },
-        ...
+        "...": "..."
     },
     "sort_index": 1,
     "uuid": "4a6ef87a-5214-4089-bdc3-5a96cf8b5108"
