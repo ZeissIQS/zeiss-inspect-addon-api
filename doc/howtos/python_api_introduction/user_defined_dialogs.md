@@ -292,21 +292,20 @@ Continuous text widget
 | ![](assets/edit_text.png)  | ![](assets/widget_text.png) |
 
 
-[//]: # (* The keywords displayed in text field widgets can originate from different source:)
-
-[//]: # (    * Global application keywords)
-
-[//]: # (    * project related keywords)
- 
-[//]: # (    * local script variables.)
-
-[//]: # (⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.)
-
-[//]: # ( * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text)
-
-[//]: # (field editor prior to script execution, so an invalid value will most certainly be displayed instead.)
-
-[//]: # (To Do: Check how to insert local variables)
+% * The keywords displayed in text field widgets can originate from different source:
+%
+%     * Global application keywords
+%
+%     * project related keywords
+%
+%     * local script variables.
+%
+% ⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.
+%
+%  * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text
+%  field editor prior to script execution, so an invalid value will most certainly be displayed instead.
+% 
+% To Do: Check how to insert local variables
 
 | Property            | Type | Example                                                    |
 | ------------------- | ---- | ---------------------------------------------------------- |
