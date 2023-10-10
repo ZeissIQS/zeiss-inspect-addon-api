@@ -1,6 +1,8 @@
-.. meta::
-   :description: ZEISS INSPECT 2023 Add-on Python API Documentation
-   :keywords: Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation  
+---
+html_meta:
+  "description": "ZEISS INSPECT 2023 Add-on Python API Documentation"
+  "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
+--- 
 
 # Add-On Documentation 2023
 
