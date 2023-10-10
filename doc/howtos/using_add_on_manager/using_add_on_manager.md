@@ -6,13 +6,13 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
 - [Writing python scripts](#writing-python-scripts)
   * [New folder or script](#new-folder-or-script)
   * [Install python packages](#install-python-packages)
-- [Add- and removing contents](#add--and-removing-contents)
+- [Adding- and removing contents](#adding-and-removing-contents)
 - [Completing the edit](#completing-the-edit)
 - [Editing an installed Add-on](#editing-an-installed-add-on)
 - [Publishing an Add-on](#publishing-an-add-on)
 - [Add-ons from External Folder](#add-ons-from-external-folder)
-  * [Open- and deleting External Folder](#open--and-deleting-external-folder)
-  * [Add-ons in External Folder](#add-ons-in-external-folder)
+  * [Opening- and deleting External Folder](#opening-and-deleting-external-folder)
+  * [Creating Add-ons in External Folder](#creating-add-ons-in-external-folder)
 
 ## Add-on Manager Layout
 ![Add-on Manager Layout](assets/formation.png)
