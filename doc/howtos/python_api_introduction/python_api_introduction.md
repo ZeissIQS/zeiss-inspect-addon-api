@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Add-ons"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos"
+---
+
 # Python API introduction
 
 See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
