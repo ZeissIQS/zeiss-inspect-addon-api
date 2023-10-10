@@ -41,13 +41,13 @@
     -->
 
     ```{code-block} python
-    :caption: Example: Script with separate dialog file
+    :caption: Example&colon; Script with separate dialog file
 
     RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')
     ```
 
     ```{code-block} python
-    :caption: Example: Script with embedded dialog
+    :caption: Example&colon; Script with embedded dialog
 
     RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
         "content": [
