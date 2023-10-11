@@ -49,3 +49,6 @@ favicons = [
         "type": "image/png",
     }
 ]
+
+# Source: https://brand.zeiss.com/cmsPublic/brandportal/basic-design-elements/logo-tagline.html
+html_logo =  "_static/zeiss-logo-rgb.png"
