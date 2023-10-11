@@ -31,7 +31,8 @@ myst_heading_anchors = 4
 
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
-html_baseurl = 'https://zeissiqs.github.io/'
+html_baseurl = 'https://zeissiqs.github.io/2023/'
+sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
