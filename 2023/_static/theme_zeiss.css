@@ -1,0 +1,9 @@
+/* Override some styles to match ZEISS branding */
+
+/* Based on Read the Docs theme */
+@import 'theme.css';
+
+/* Changed from #298069 */ 
+.wy-side-nav-search {
+    background: #343131;
+}
