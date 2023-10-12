@@ -9,12 +9,13 @@
 }
 
 /* Section headings in menu bar - changed from #55a5d9 to ZEISS Cyan #008BD0 */
-.wy-menu-vertical p.caption {
-    color: #008BD0;
-}
+.wy-menu-vertical {
+    p.caption {
+        color: #008BD0;
+    }
 
-/* Links in menu bar - changed from #d9d9d9 to Azure #0072EF */
-.wy-menu-vertical a {
-    color: #0072EF;
+    /* Links in menu bar - changed from #d9d9d9 to Azure #0072EF */
+    a {
+        color: #0072EF;
+    }
 }
-
