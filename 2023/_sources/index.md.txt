@@ -2,12 +2,12 @@
 myst:
    html_meta:
       "description": "ZEISS INSPECT 2023 Add-on Python API Documentation"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
 --- 
 
-# Add-On Documentation 2023
+# ZEISS INSPECT Add-On Development Documentation 2023
 
-Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
+Welcome to the ZEISS INSPECT Add-On development documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}

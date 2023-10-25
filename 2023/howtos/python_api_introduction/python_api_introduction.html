@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <meta content="Introduction to the Python API for extending ZEISS INSPECT 2023 with Add-ons" name="description" />
-<meta content="Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos" name="keywords" />
+<meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python API introduction &mdash; Add-On Documentation  documentation</title>
+  <title>ZEISS INSPECT Python API Introduction &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme_zeiss.css" type="text/css" />
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/python_api_introduction/python_api_introduction.html" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using Add-on Manager" href="../using_add_on_manager/using_add_on_manager.html" />
-    <link rel="prev" title="Add-On Documentation 2023" href="../../index.html" /> 
+    <link rel="prev" title="ZEISS INSPECT Add-On Development Documentation 2023" href="../../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,7 +48,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API introduction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT Python API Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#creating-projects">Creating projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-parts">Creating parts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-elements-to-a-part">Adding elements to a part</a></li>
@@ -98,7 +98,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
@@ -109,7 +109,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
@@ -128,7 +128,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python API introduction</li>
+      <li class="breadcrumb-item active">ZEISS INSPECT Python API Introduction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/howtos/python_api_introduction/python_api_introduction.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -138,8 +138,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="python-api-introduction">
-<h1>Python API introduction<a class="headerlink" href="#python-api-introduction" title="Permalink to this heading"></a></h1>
+  <section id="zeiss-inspect-python-api-introduction">
+<h1>ZEISS INSPECT Python API Introduction<a class="headerlink" href="#zeiss-inspect-python-api-introduction" title="Permalink to this heading"></a></h1>
+<p>Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into Add-on development for ZEISS INSPECT. Here you find out what you can do with Add-ons, how they work and how you create them.</p>
 <p>See <a class="reference external" href="https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html">Introduction to Python Scripting</a> if you are new to Python or the ZEISS INSPECT Python interface.</p>
 <section id="creating-projects">
 <h2>Creating projects<a class="headerlink" href="#creating-projects" title="Permalink to this heading"></a></h2>
@@ -531,7 +532,7 @@ context.stage = current_stage
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../index.html" class="btn btn-neutral float-left" title="Add-On Documentation 2023" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../index.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Add-On Development Documentation 2023" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../using_add_on_manager/using_add_on_manager.html" class="btn btn-neutral float-right" title="Using Add-on Manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

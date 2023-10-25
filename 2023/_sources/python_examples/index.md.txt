@@ -2,11 +2,11 @@
 myst:
    html_meta:
       "description": "Examples for using the ZEISS INSPECT 2023 Add-on Python API"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, Examples"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Examples"
 ---
-# Overview
+#  ZEISS INSPECT Python API Examples Overview
 
-Welcome to the Python API Examples. Here you can find the documentation of the examples which are provided by the
+Welcome to the ZEISS INSPECT Python API Examples. Here you can find the documentation of the examples which are provided by the
 `Python API Examples` Add-On. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.
 
 ## How the examples are structured
