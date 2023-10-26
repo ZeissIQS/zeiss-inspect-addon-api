@@ -921,7 +921,7 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG4)
 print("Chosen system plane:", RESULT.input_new.name)
 ```
 
-Please find the complete example here: [dialog_custom_elem_select.py.py](assets/dialog_custom_elem_select.py)
+Please find the complete example here: [dialog_custom_elem_select.py](assets/dialog_custom_elem_select.py)
 
 #### Selection list widget
 
