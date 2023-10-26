@@ -2,10 +2,12 @@
 myst:
    html_meta:
       "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Add-ons"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, How-tos"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos"
 ---
 
-# Python API introduction
+# ZEISS INSPECT Python API Introduction
+
+Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into Add-on development for ZEISS INSPECT. Here you find out what you can do with Add-ons, how they work and how you create them.
 
 See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
 
@@ -411,8 +413,6 @@ context.stage = current_stage
 ```
 
 -->
-
-% TODO: 
 
 ## Exception handling
 

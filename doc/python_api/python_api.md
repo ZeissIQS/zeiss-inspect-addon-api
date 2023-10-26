@@ -2,9 +2,15 @@
 myst:
    html_meta:
       "description": "ZEISS INSPECT 2023 Add-on Python API Specification"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, Scripting, Add-ons, Specification, Documentation"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation"
 ---
-# Python API documentation
+# ZEISS INSPECT Python API documentation
+
+Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the Add-on programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
+
+```{important}
+This API is currently under heavy development. Modifications and amendments will be made frequently.
+```
 
 ## gom.api.imaging
 
