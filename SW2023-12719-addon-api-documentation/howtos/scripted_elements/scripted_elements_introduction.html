@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to scripted elements &mdash; Add-On Documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="canonical" href="https://zeissiqs.github.io/howtos/scripted_elements/scripted_elements_introduction.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Scripted actuals" href="scripted_actuals.html" />
+    <link rel="prev" title="Scripted elements" href="scripted_elements_toc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="scripted_elements_toc.html">Scripted elements</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to scripted elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-element-creation-type">Set element creation type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-structure">Code structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actuals.html">Scripted actuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_checks.html">Scripted checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokens_on_scripted_elements.html">Tokens on scripted elements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="scripted_elements_toc.html">Scripted elements</a></li>
+      <li class="breadcrumb-item active">Introduction to scripted elements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/howtos/scripted_elements/scripted_elements_introduction.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-scripted-elements">
+<h1>Introduction to scripted elements<a class="headerlink" href="#introduction-to-scripted-elements" title="Permalink to this heading"></a></h1>
+<p>This documentation is intended to demonstrate the ability to create parametric elements in the GOM Software using custom python code.</p>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this heading"></a></h2>
+<p>A Script Element is always of a certain geometric type, like a point, surface curve, mesh etc. After creation, it can be used in the project identically to regular actual elements of the same type.
+Script Elements can depend on other elements, other elements can depend on script elements and they are recalculate if needed.</p>
+<p>There are currently two categories of scripted elements:</p>
+<ul class="simple">
+<li><p>Scripted actual elements</p>
+<ul>
+<li><p>Point, Circle, Cylinder, …</p></li>
+</ul>
+</li>
+<li><p>Scripted checks</p>
+<ul>
+<li><p>Scalar check, surface check, …</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>To create a scripted element, the general prodecure is as follows:</p>
+<ol class="arabic simple">
+<li><p>Create a script in the script editor or using VS Code.</p></li>
+<li><p>Select the type of element that is created by this script in the script properties.</p></li>
+<li><p>Write your script code in a certain structure (see <a class="reference internal" href="#code-structure">Code structure</a>).</p></li>
+</ol>
+<section id="set-element-creation-type">
+<h3>Set element creation type<a class="headerlink" href="#set-element-creation-type" title="Permalink to this heading"></a></h3>
+<a class="reference internal image-reference" href="../../_images/script_properties_dialog.png"><img alt="../../_images/script_properties_dialog.png" class="align-right" src="../../_images/script_properties_dialog.png" style="width: 150px;" /></a>
+<p>You can set different properties to a script in the script editor. For scripted elements, the “Element creation” section provides drop-down menus to select the element type.</p>
+<p>Right-click (or double click) on an editable script in the script editor
+Enable element creation, e.g. “Actual element”
+Select the desired element type, e.g. “Circle”
+Each element type requires the script to provide for certain values of specific data types, which are defined in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted Elements API Specification</span></a>.</p>
+</section>
+<section id="code-structure">
+<h3>Code structure<a class="headerlink" href="#code-structure" title="Permalink to this heading"></a></h3>
+<p>The script must contain two special functions as entry points for the gom application. One is responsible for creating a user interface, the other one for computing the element data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+  <span class="c1"># [...]</span>
+  <span class="c1"># show dialog, fill param map, ...</span>
+  <span class="c1"># [...]</span>
+  <span class="k">return</span> <span class="n">params</span>
+  
+<span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+  <span class="c1"># [...]</span>
+  <span class="c1"># read params, perform calculation, set results</span>
+  <span class="c1"># [...]</span>
+  <span class="k">return</span> <span class="n">is_computation_valid</span> <span class="c1"># (True/False)</span>
+</pre></div>
+</div>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function</strong></p>
+<p>The dialog function will be invoked, when the command is firstly run (from the menu or from the script editor) or when editing a created element using “Edit creation parameters”. Most commonly, you would create a script dialog and show it to the user, who can then select the desired parameters for element creation.</p>
+<p>The dialog function can initiate a preview calculation of the element to be created in the background.</p>
+<p>As a result of <code class="docutils literal notranslate"><span class="pre">dialog</span></code>, a parameter map that defines the <em>command parameters</em> of the created element is returned.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For implementation details, see the corresponding part of the <a class="reference internal" href="../../python_api/scripted_elements_api.html#the-dialog-function"><span class="std std-ref">Scripted Elements API Specification</span></a>.</p>
+</div>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function</strong></p>
+<p>The calculation function will be invoked by the application, when the parameter map changes to recalculate necessary element values. This is usually the first time when the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function returns or if a preview calculation is triggered.</p>
+<p>In case the <em>command parameters</em> contain references to other elements of the project, these elements are regarded as dependencies. Consequently, the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> is triggered as well when one of the dependencies changed.
+This approach is called <em>parametric element creation</em>.</p>
+<p>At the end of the calculation, the results have to be set to <code class="docutils literal notranslate"><span class="pre">context.result</span></code>. This member of the function’s <code class="docutils literal notranslate"><span class="pre">context</span></code> parameter can hold result data for each project stage. You can get all available project stages with <code class="docutils literal notranslate"><span class="pre">context.stages</span></code>. The type of result you have to assign for a successful element creation is dependent on which type of element you want to create, e.g. setting <em>(x, y, z)</em> values for a scripted point element.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For implementation details, see the corresponding part of the <a class="reference internal" href="../../python_api/scripted_elements_api.html#the-calculation-function"><span class="std std-ref">Scripted Elements API Specification</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading"></a></h2>
+<p>To understand how Scripted elements work in practice, head over to the next chapter of <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted Actual Elements</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scripted_elements_toc.html" class="btn btn-neutral float-left" title="Scripted elements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripted_actuals.html" class="btn btn-neutral float-right" title="Scripted actuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
