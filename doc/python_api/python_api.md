@@ -1,16 +1,4 @@
----
-myst:
-   html_meta:
-      "description": "ZEISS INSPECT 2023 Add-on Python API Specification"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation"
----
-# ZEISS INSPECT Python API documentation
-
-Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the Add-on programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
-
-```{important}
-This API is currently under heavy development. Modifications and amendments will be made frequently.
-```
+# Python API documentation
 
 ## gom.api.imaging
 
@@ -239,7 +227,7 @@ queried, add-on files and resources can be read and if the calling instance is a
 one specific add-on, this specific add-on can be modified on-the-fly and during software
 update processes.
 
-### gom.api.addons.AddOn.exists
+#### gom.api.addons.AddOn.exists
 
 ```{py:function} gom.api.addons.AddOn.exists (path: str): boolean
 
@@ -253,20 +241,22 @@ Check if the given file exists in an add-on
 
 This function checks if the given file exists in the add-on
 
-### gom.api.addons.AddOn.get_file
+#### gom.api.addons.AddOn.get_file
 
 ```{py:function} gom.api.addons.AddOn.get_file (): str
 
 Return the installed add-on file
 :API version 1:
-:return: Add-on file including the path
+:return: Add-on file path (path to the add-ons installed ZIP file) or add-on edit directory if the add-on is currently in edit mode.
 :rtype: str
 ```
 
 This function returns the installed ZIP file representing the add-on. The file might be
-empty if the add-on has never been 'completed', i.e. by being in edit mode.
+empty if the add-on has never been 'completed'. If the add-on is currently in edit mode,
+instead the edit directory containing the unpacked add-on sources is returned. In any way,
+this function returns the location the application uses, too, to access add-on content.
 
-### gom.api.addons.AddOn.get_file_list
+#### gom.api.addons.AddOn.get_file_list
 
 ```{py:function} gom.api.addons.AddOn.get_file_list (): [str]
 
@@ -281,7 +271,31 @@ read or write/modify add-on content. This is subject to the permission system, s
 content of protected add-ons cannot be read at all and just the add-on a script originates
 from can be modified via this API.
 
-### gom.api.addons.AddOn.get_id
+Please note that the list of files can only be obtained for add-ons which are currently not
+in edit mode ! An add-on in edit mode is unzipped and the `get_file ()` function will return
+the file system path to its directory in that case. That directory can then be browsed with
+the standard file tools instead.
+
+#### Example
+
+```
+for addon in gom.api.addons.get_installed_addons():
+# Protected add-ins cannot be read at all
+if not addon.is_protected():
+
+# Edit add-ons are file system based and must be accessed via file system functions
+if addon.is_edited():
+for root, dirs, files in os.walk(addon.get_file ()):
+for file in files:
+print(os.path.join(root, file))
+
+# Finished add-ons can be accessed via this function
+else:
+for file in addon.get_file_list():
+print (file)
+```
+
+#### gom.api.addons.AddOn.get_id
 
 ```{py:function} gom.api.addons.AddOn.get_id (): uuid
 
@@ -294,7 +308,7 @@ Return the unique id (uuid) or this add-on
 This function returns the uuid associated with this add-on. The id can be used to
 uniquely address the add-on.
 
-### gom.api.addons.AddOn.get_level
+#### gom.api.addons.AddOn.get_level
 
 ```{py:function} gom.api.addons.AddOn.get_level (): [str]
 
@@ -305,11 +319,11 @@ Return the level (system/shared/user) of the add-on
 ```
 
 This function returns the 'configuration level' of the add-on. This can be
-* 'system' for pre installed add-ons which are distributed together with the application
+* 'system' for pre installed add-on which are distributed together with the application
 * 'shared' for add-ons in the public or shared folder configured in the applications preferences or
 * 'user' for user level add-ons installed for the current user only.
 
-### gom.api.addons.AddOn.get_name
+#### gom.api.addons.AddOn.get_name
 
 ```{py:function} gom.api.addons.AddOn.get_name (): str
 
@@ -322,7 +336,7 @@ Return the displayable name of the add-on
 This function returns the displayable name of the add-on. This is the human
 readable name which is display in the add-on manager and the add-on store.
 
-### gom.api.addons.AddOn.get_tags
+#### gom.api.addons.AddOn.get_tags
 
 ```{py:function} gom.api.addons.AddOn.get_tags (): [str]
 
@@ -334,7 +348,7 @@ Return the list of tags with which the add-on has been tagged
 
 This function returns the list of tags in the addons `metainfo.json` file.
 
-### gom.api.addons.AddOn.has_license
+#### gom.api.addons.AddOn.has_license
 
 ```{py:function} gom.api.addons.AddOn.has_license (): boolean
 
@@ -346,7 +360,20 @@ This function returns if the necessary licenses to use the add-on are currently 
 Add-ons can either be free and commercial. Commercial add-ons require the presence of a
 matching license via a license dongle or a license server.
 
-### gom.api.addons.AddOn.is_protected
+#### gom.api.addons.AddOn.is_edited
+
+```{py:function} gom.api.addons.AddOn.is_edited (): bool
+
+Return if the add-on is currently edited
+:API version 1:
+:return: 'true' if the add-on is currently in edit mode
+:rtype: bool
+```
+
+Usually, an add-on is simply a ZIP file which is included into the applications file system. When
+an add-on is in edit mode, it will be temporarily unzipped and is then present on disk in a directory.
+
+#### gom.api.addons.AddOn.is_protected
 
 ```{py:function} gom.api.addons.AddOn.is_protected (): boolean
 
@@ -360,7 +387,7 @@ The content of a protected add-on is encrypted. It cannot be listed, but not rea
 includes both 'IP protection' (content cannot be read) and 'copy protection' (content cannot be
 copied, as far as possible)
 
-### gom.api.addons.AddOn.read
+#### gom.api.addons.AddOn.read
 
 ```{py:function} gom.api.addons.AddOn.read (filename: str): bytes
 
@@ -385,7 +412,7 @@ text = json.loads (a.read ('metainfo.json'))
 print (json.dumps (text, indent=4))
 ```
 
-### gom.api.addons.AddOn.write
+#### gom.api.addons.AddOn.write
 
 ```{py:function} gom.api.addons.AddOn.write (path: str, data: bytes): None
 
@@ -598,3 +625,4 @@ are integer, double, string and bool.
 gom.app.settings.set ('dialog.width', 640)
 gom.app.settings.set ('dialog.height', 480)
 ```
+
