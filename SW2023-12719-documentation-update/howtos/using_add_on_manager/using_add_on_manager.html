@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Add-on Manager &mdash; Add-On Documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme_zeiss.css" type="text/css" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_add_on_manager/using_add_on_manager.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Add-on file format" href="../add_on_file_format/add_on_file_format.html" />
+    <link rel="prev" title="ZEISS INSPECT Python API Introduction" href="../python_api_introduction/python_api_introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Add-on Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-on-manager-layout">Add-on Manager Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-python-scripts">Writing Python scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New folder or script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-python-packages">Install Python packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-contents">Adding and removing contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#completing-the-edit">Completing the edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-an-installed-add-on">Editing an installed Add-on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-an-add-on">Publishing an Add-on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-ons-from-external-folder">Add-ons from External Folder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-and-deleting-external-folder">Opening and deleting External Folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-add-ons-in-external-folder">Creating Add-ons in External Folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Add-on Manager</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/howtos/using_add_on_manager/using_add_on_manager.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-add-on-manager">
+<h1>Using Add-on Manager<a class="headerlink" href="#using-add-on-manager" title="Permalink to this heading"></a></h1>
+<p>Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write Python scripts, add/remove contents, create/edit and publish Add-ons.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#add-on-manager-layout">Add-on Manager Layout</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></p></li>
+<li><p><a class="reference internal" href="#writing-python-scripts">Writing python scripts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#new-folder-or-script">New folder or script</a></p></li>
+<li><p><a class="reference internal" href="#install-python-packages">Install python packages</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#adding-and-removing-contents">Adding- and removing contents</a></p></li>
+<li><p><a class="reference internal" href="#completing-the-edit">Completing the edit</a></p></li>
+<li><p><a class="reference internal" href="#editing-an-installed-add-on">Editing an installed Add-on</a></p></li>
+<li><p><a class="reference internal" href="#publishing-an-add-on">Publishing an Add-on</a></p></li>
+<li><p><a class="reference internal" href="#add-ons-from-external-folder">Add-ons from External Folder</a></p>
+<ul>
+<li><p><a class="reference internal" href="#opening-and-deleting-external-folder">Opening- and deleting External Folder</a></p></li>
+<li><p><a class="reference internal" href="#creating-add-ons-in-external-folder">Creating Add-ons in External Folder</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="add-on-manager-layout">
+<h2>Add-on Manager Layout<a class="headerlink" href="#add-on-manager-layout" title="Permalink to this heading"></a></h2>
+<p><img alt="Add-on Manager Layout" src="../../_images/formation.png" /></p>
+<ol class="arabic">
+<li><p>Add-on Explorer</p>
+<p>Installed Add-ons and being edited Add-ons are displayed in the Explorer.</p>
+<ul>
+<li><p>Installed
+<br/>: All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select “edit”, “uninstall”, or “publish” the Add-on.</p>
+<p><img alt="" src="../../_images/installed.png" /></p>
+</li>
+<li><p>Being Edited
+<br/>: Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select “complete the edit” or “delete”.</p>
+<p><img alt="" src="../../_images/edited2.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Contents Provider</p>
+<p>Here are contents from the current project which can be included in an Add-on. Contents can be moved by dragging and dropping between contents provider and a being edited Add-on. For more information about contents providers, please see the Add-on Format documentation.</p>
+</li>
+<li><p>Top of Display</p>
+<p>The name of the selected object in the Add-on explorer is displayed.</p>
+</li>
+<li><p>Tool Bar</p>
+<p>Depending on the type of the selected object, the following buttons are shown:</p>
+<ul class="simple">
+<li><p>Script object - Save | Record Run Stop | Expand/Collapse</p></li>
+<li><p>Editable object - Save</p></li>
+<li><p>Others - None</p></li>
+</ul>
+</li>
+<li><p>Editor</p>
+<p>The content of the selected object is displayed and if it is an editable object, you can edit it.</p>
+</li>
+<li><p>Output Window</p>
+<p>The output of the executed script is displayed here.</p>
+</li>
+</ol>
+</section>
+<section id="creating-a-new-add-on">
+<h2>Creating a new Add-on<a class="headerlink" href="#creating-a-new-add-on" title="Permalink to this heading"></a></h2>
+<p>Click RMB on the header of Being Edited category or in an area of the Add-on explorer where no object is selected &gt; New Add-on</p>
+<p>An Add-on being edited will be created, including default folders and files.</p>
+<p><strong>🛈 Default folders and files of an Add-on</strong></p>
+<p><img alt="" src="../../_images/new_addon.png" /></p>
+</section>
+<section id="writing-python-scripts">
+<h2>Writing Python scripts<a class="headerlink" href="#writing-python-scripts" title="Permalink to this heading"></a></h2>
+<section id="new-folder-or-script">
+<h3>New folder or script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
+<p>Click RMB on the ‘scripts’ folder of an Add-on being edited &gt; New Folder/Script</p>
+</section>
+<section id="install-python-packages">
+<h3>Install Python packages<a class="headerlink" href="#install-python-packages" title="Permalink to this heading"></a></h3>
+<p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ‘Install Python Packages…’, the dialog for the installation will be popped up.</p>
+<ul>
+<li><p>from Network</p>
+<ul class="simple">
+<li><p>The package list from network must be separated with a comma.</p></li>
+<li><p>To install the packages of a specific version, write the version after “==”. ex) numpy==1.22.0</p></li>
+</ul>
+<p><img alt="" src="../../_images/install_network.png" /></p>
+</li>
+<li><p>from Local</p>
+<ul class="simple">
+<li><p>Python wheel files (*.whl) can be added or removed.</p></li>
+</ul>
+<p><img alt="" src="../../_images/install_local.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="adding-and-removing-contents">
+<h2>Adding and removing contents<a class="headerlink" href="#adding-and-removing-contents" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Contents can be added and removed between Contents Provider and an Add-on being edited by dragging and dropping.</p></li>
+<li><p>Moving contents between Add-ons being edited is also supported.</p></li>
+</ul>
+<p><img alt="" src="../../_images/dnd.gif" /></p>
+</section>
+<section id="completing-the-edit">
+<h2>Completing the edit<a class="headerlink" href="#completing-the-edit" title="Permalink to this heading"></a></h2>
+<p>Click RMB on the Add-on being edited &gt; completing the edit</p>
+<ul class="simple">
+<li><p>If the Add-on has not yet been installed and</p>
+<ul>
+<li><p>you are using the public folder, the dialog for selecting a location to install the Add-on will be popped up.</p></li>
+<li><p>you are not using the public folder, the Add-on will be installed in the user folder automatically.</p></li>
+</ul>
+</li>
+<li><p>If the Add-on has already been installed, the Add-on will be overwritten at its original location.</p></li>
+</ul>
+<p>The Add-on being edited will be removed after completion and the completed Add-on will be updated in the Installed category. Completing the edit is not available for external folders. More information about external folders can be found <a class="reference internal" href="#add-ons-from-external-folder">here</a>.</p>
+</section>
+<section id="editing-an-installed-add-on">
+<h2>Editing an installed Add-on<a class="headerlink" href="#editing-an-installed-add-on" title="Permalink to this heading"></a></h2>
+<p>Click RMB on the installed Add-on &gt; Edit</p>
+<p>System Add-ons are not editable and protected Add-ons can be edited only if the given password is correct. If the installed Add-on is being edited, all contents are grayed out and cannot be selected.</p>
+</section>
+<section id="publishing-an-add-on">
+<h2>Publishing an Add-on<a class="headerlink" href="#publishing-an-add-on" title="Permalink to this heading"></a></h2>
+<p>Click RMB on the installed Add-on &gt; Publish</p>
+<ul>
+<li><p>Export</p>
+<p>Save the selected Add-on as a .addon file.</p>
+</li>
+<li><p>Upload</p>
+<p>Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approval.</p>
+</li>
+</ul>
+</section>
+<section id="add-ons-from-external-folder">
+<h2>Add-ons from External Folder<a class="headerlink" href="#add-ons-from-external-folder" title="Permalink to this heading"></a></h2>
+<section id="opening-and-deleting-external-folder">
+<h3>Opening and deleting External Folder<a class="headerlink" href="#opening-and-deleting-external-folder" title="Permalink to this heading"></a></h3>
+<p>External Folder enables the user to run scripts from a path of his/her own choice. More than one external folders can be added.</p>
+<ul>
+<li><p>Connecting</p>
+<p>Click RMB in an area of the Add-on Explorer where no object is selected &gt; Connect External Folder…</p>
+</li>
+<li><p>Disconnecting</p>
+<p>Click RMB on the external folder you want to delete &gt; Disconnect…</p>
+<p>External folder is deleted from the Add-on Explorer but the contents remain in the file system.</p>
+</li>
+</ul>
+</section>
+<section id="creating-add-ons-in-external-folder">
+<h3>Creating Add-ons in External Folder<a class="headerlink" href="#creating-add-ons-in-external-folder" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Creating a new Add-on in the external folder</p>
+<p>Click RMB on the External Folder &gt; New Add-on</p>
+</li>
+</ul>
+<p>“Completing the edit” is not supported for Add-ons from external folders, however they can be published, although they are considered still to be work in progress.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../python_api_introduction/python_api_introduction.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../add_on_file_format/add_on_file_format.html" class="btn btn-neutral float-right" title="Add-on file format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
