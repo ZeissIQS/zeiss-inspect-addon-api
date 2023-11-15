@@ -11,13 +11,16 @@ Welcome to the ZEISS INSPECT Add-On development documentation. With Add-Ons, you
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
-Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? This free course teaches you the basics:
+Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:
 
-[(eLearning) 780 Starter Training ZEISS INSPECT](https://training.gom.com/home/LearningPath/7265)
+[Access Point: ZEISS INSPECT](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_inspect.html)
 
-Or, depending on your application, you might be interested in the specific starter trainings for [ZEISS INSPECT X-Ray](https://training.gom.com/home/LearningPath/7280), [ZEISS INSPECT Correlate](https://training.gom.com/home/LearningPath/7282), or [ZEISS INSPECT Airfoil](https://training.gom.com/home/LearningPath/7281).
+Or, depending on your application, you might be interested in the specific articles [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html) or [Access Point: ZEISS INSPECT Airfoil](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html).
 
 ```
+<!--
+Not available yet: [Access Point: ZEISS INSPECT Correlate]()
+-->
 
 If you are new to add-ons, we recommend following our how-to guides to get you started.
 
