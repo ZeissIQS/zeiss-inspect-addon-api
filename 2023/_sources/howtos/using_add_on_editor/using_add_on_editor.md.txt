@@ -1,7 +1,8 @@
-# Using Add-on Manager
-Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write Python scripts, add/remove contents, create/edit and publish Add-ons.
+# Using the Add-on Editor
 
-- [Add-on Manager Layout](#add-on-manager-layout)
+Script Editor and Package Manager have been integrated as the Add-on Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Add-ons.
+
+- [Add-on Editor Layout](#add-on-editor-layout)
 - [Creating a new Add-on](#creating-a-new-add-on)
 - [Writing python scripts](#writing-python-scripts)
   * [New folder or script](#new-folder-or-script)
@@ -14,19 +15,21 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
   * [Opening- and deleting External Folder](#opening-and-deleting-external-folder)
   * [Creating Add-ons in External Folder](#creating-add-ons-in-external-folder)
 
-## Add-on Manager Layout
-![Add-on Manager Layout](assets/formation.png)
+## Add-on Editor Layout
+![Add-on Editor Layout](assets/formation.png)
 1. Add-on Explorer
 
     Installed Add-ons and being edited Add-ons are displayed in the Explorer.
     
     * Installed
-      <br/>: All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select "edit", "uninstall", or "publish" the Add-on.
+      
+      All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select "edit", "uninstall", or "publish" the Add-on.
       
       ![](assets/installed.png)
       
     * Being Edited
-      <br/>: Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select "complete the edit" or "delete".
+      
+      Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select "complete the edit" or "delete".
       
       ![](assets/edited2.png)
     
@@ -36,7 +39,7 @@ Script Editor and Package Manager have been integrated as the Add-on Manager. He
     
 3. Top of Display
 
-    The name of the selected object in the Add-on explorer is displayed.
+    The name of the selected object in the Add-on Explorer is displayed.
     
 4. Tool Bar
 
@@ -77,7 +80,7 @@ Python packages can be installed to the Add-on and the installed python packages
 
 * from Network
     - The package list from network must be separated with a comma.
-    - To install the packages of a specific version, write the version after “==”. ex) numpy==1.22.0
+    - To install the packages of a specific version, write the version after “==”, e.g. `numpy==1.22.0`
 
     ![](assets/install_network.png)
 

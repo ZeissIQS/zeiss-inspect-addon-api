@@ -4,10 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using Add-on Manager &mdash; Add-On Documentation  documentation</title>
+  <title>Using the Add-on Editor &mdash; Add-On Documentation  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme_zeiss.css" type="text/css" />
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_add_on_manager/using_add_on_manager.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_add_on_editor/using_add_on_editor.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,8 +47,8 @@
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Add-on Manager</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#add-on-manager-layout">Add-on Manager Layout</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Add-on Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-on-editor-layout">Add-on Editor Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-python-scripts">Writing Python scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New folder or script</a></li>
@@ -110,9 +110,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Using Add-on Manager</li>
+      <li class="breadcrumb-item active">Using the Add-on Editor</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/howtos/using_add_on_manager/using_add_on_manager.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/howtos/using_add_on_editor/using_add_on_editor.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -120,11 +120,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="using-add-on-manager">
-<h1>Using Add-on Manager<a class="headerlink" href="#using-add-on-manager" title="Permalink to this heading"></a></h1>
-<p>Script Editor and Package Manager have been integrated as the Add-on Manager. Here you can write Python scripts, add/remove contents, create/edit and publish Add-ons.</p>
+  <section id="using-the-add-on-editor">
+<h1>Using the Add-on Editor<a class="headerlink" href="#using-the-add-on-editor" title="Permalink to this heading"></a></h1>
+<p>Script Editor and Package Manager have been integrated as the Add-on Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Add-ons.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#add-on-manager-layout">Add-on Manager Layout</a></p></li>
+<li><p><a class="reference internal" href="#add-on-editor-layout">Add-on Editor Layout</a></p></li>
 <li><p><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></p></li>
 <li><p><a class="reference internal" href="#writing-python-scripts">Writing python scripts</a></p>
 <ul>
@@ -143,19 +143,19 @@
 </ul>
 </li>
 </ul>
-<section id="add-on-manager-layout">
-<h2>Add-on Manager Layout<a class="headerlink" href="#add-on-manager-layout" title="Permalink to this heading"></a></h2>
-<p><img alt="Add-on Manager Layout" src="../../_images/formation.png" /></p>
+<section id="add-on-editor-layout">
+<h2>Add-on Editor Layout<a class="headerlink" href="#add-on-editor-layout" title="Permalink to this heading"></a></h2>
+<p><img alt="Add-on Editor Layout" src="../../_images/formation.png" /></p>
 <ol class="arabic">
 <li><p>Add-on Explorer</p>
 <p>Installed Add-ons and being edited Add-ons are displayed in the Explorer.</p>
 <ul>
-<li><p>Installed
-<br/>: All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select “edit”, “uninstall”, or “publish” the Add-on.</p>
+<li><p>Installed</p>
+<p>All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select “edit”, “uninstall”, or “publish” the Add-on.</p>
 <p><img alt="" src="../../_images/installed.png" /></p>
 </li>
-<li><p>Being Edited
-<br/>: Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select “complete the edit” or “delete”.</p>
+<li><p>Being Edited</p>
+<p>Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select “complete the edit” or “delete”.</p>
 <p><img alt="" src="../../_images/edited2.png" /></p>
 </li>
 </ul>
@@ -164,7 +164,7 @@
 <p>Here are contents from the current project which can be included in an Add-on. Contents can be moved by dragging and dropping between contents provider and a being edited Add-on. For more information about contents providers, please see the Add-on Format documentation.</p>
 </li>
 <li><p>Top of Display</p>
-<p>The name of the selected object in the Add-on explorer is displayed.</p>
+<p>The name of the selected object in the Add-on Explorer is displayed.</p>
 </li>
 <li><p>Tool Bar</p>
 <p>Depending on the type of the selected object, the following buttons are shown:</p>
@@ -202,7 +202,7 @@
 <li><p>from Network</p>
 <ul class="simple">
 <li><p>The package list from network must be separated with a comma.</p></li>
-<li><p>To install the packages of a specific version, write the version after “==”. ex) numpy==1.22.0</p></li>
+<li><p>To install the packages of a specific version, write the version after “==”, e.g. <code class="docutils literal notranslate"><span class="pre">numpy==1.22.0</span></code></p></li>
 </ul>
 <p><img alt="" src="../../_images/install_network.png" /></p>
 </li>
