@@ -36,7 +36,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    :caption: How-to Guides
 
    howtos/python_api_introduction/python_api_introduction
-   howtos/using_add_on_manager/using_add_on_manager
+   howtos/using_add_on_editor/using_add_on_editor
    howtos/add_on_file_format/add_on_file_format
    howtos/add_on_documentation/add_on_documentation
    howtos/using_vscode_editor/using_vscode_editor
