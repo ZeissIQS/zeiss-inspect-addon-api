@@ -50,18 +50,20 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Add-on Editor</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-on-editor-layout">Add-on Editor Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#writing-python-scripts">Writing Python scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New folder or script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-python-packages">Install Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entering-and-leaving-editing-mode">Entering and Leaving Editing Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-python-scripts">Writing Python Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New folder or Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-python-packages">Installing Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-python-scripts">Running Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-commands">Recording Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-element-values">Inserting Element Values</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-contents">Adding and removing contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#completing-the-edit">Completing the edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-an-installed-add-on">Editing an installed Add-on</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#publishing-an-add-on">Publishing an Add-on</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#add-ons-from-external-folder">Add-ons from External Folder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opening-and-deleting-external-folder">Opening and deleting External Folder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-add-ons-in-external-folder">Creating Add-ons in External Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-contents">Adding and Removing Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-or-publishing-an-add-on">Exporting or Publishing an Add-on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-ons-from-external-folders">Add-ons from External Folders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-and-disconnecting-external-folders">Connecting and Disconnecting External Folders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-add-ons-in-external-folders">Creating Add-ons in External Folders</a></li>
 </ul>
 </li>
 </ul>
@@ -126,78 +128,82 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#add-on-editor-layout">Add-on Editor Layout</a></p></li>
 <li><p><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></p></li>
-<li><p><a class="reference internal" href="#writing-python-scripts">Writing python scripts</a></p>
+<li><p><a class="reference internal" href="#entering-and-leaving-editing-mode">Entering and Leaving Editing Mode</a></p></li>
+<li><p><a class="reference internal" href="#writing-python-scripts">Writing Python scripts</a></p>
 <ul>
-<li><p><a class="reference internal" href="#new-folder-or-script">New folder or script</a></p></li>
-<li><p><a class="reference internal" href="#install-python-packages">Install python packages</a></p></li>
+<li><p><a class="reference internal" href="#new-folder-or-script">New Folder or Script</a></p></li>
+<li><p><a class="reference internal" href="#installing-python-packages">Installing Python packages</a></p></li>
+<li><p><a class="reference internal" href="#running-python-scripts">Running Python Scripts</a></p></li>
+<li><p><a class="reference internal" href="#recording-commands">Recording Commands</a></p></li>
+<li><p><a class="reference internal" href="#inserting-element-values">Inserting Element Values</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#adding-and-removing-contents">Adding- and removing contents</a></p></li>
-<li><p><a class="reference internal" href="#completing-the-edit">Completing the edit</a></p></li>
-<li><p><a class="reference internal" href="#editing-an-installed-add-on">Editing an installed Add-on</a></p></li>
-<li><p><a class="reference internal" href="#publishing-an-add-on">Publishing an Add-on</a></p></li>
-<li><p><a class="reference internal" href="#add-ons-from-external-folder">Add-ons from External Folder</a></p>
+<li><p><a class="reference internal" href="#adding-and-removing-contents">Adding and Removing Contents</a></p></li>
+<li><p><a class="reference internal" href="#exporting-or-publishing-an-add-on">Exporting or Publishing an Add-on</a></p></li>
+<li><p><a class="reference internal" href="#add-ons-from-external-folders">Add-ons from External Folders</a></p>
 <ul>
-<li><p><a class="reference internal" href="#opening-and-deleting-external-folder">Opening- and deleting External Folder</a></p></li>
-<li><p><a class="reference internal" href="#creating-add-ons-in-external-folder">Creating Add-ons in External Folder</a></p></li>
+<li><p><a class="reference internal" href="#connecting-and-disconnecting-external-folders">Connecting and Disconnecting External Folders</a></p></li>
+<li><p><a class="reference internal" href="#creating-add-ons-in-external-folders">Creating Add-ons in External Folders</a></p></li>
 </ul>
 </li>
 </ul>
 <section id="add-on-editor-layout">
 <h2>Add-on Editor Layout<a class="headerlink" href="#add-on-editor-layout" title="Permalink to this heading"></a></h2>
-<p><img alt="Add-on Editor Layout" src="../../_images/formation.png" /></p>
+<p><img alt="Add-on Editor Layout" src="../../_images/01-Add-on_Editor_Intro_v2.png" /></p>
 <ol class="arabic">
 <li><p>Add-on Explorer</p>
-<p>Installed Add-ons and being edited Add-ons are displayed in the Explorer.</p>
-<ul>
-<li><p>Installed</p>
-<p>All of the installed Add-ons (System, User, Public) are listed and these are not editable. If you click RMB on an installed Add-on, you can select “edit”, “uninstall”, or “publish” the Add-on.</p>
-<p><img alt="" src="../../_images/installed.png" /></p>
+<p>The Add-on Explorer shows all installed Add-ons. The professional version of ZEISS INSPECT already provides some system Add-ons in the “Installed Add-ons” section of the Add-on Explorer. You cannot delete or modify these pre-installed Add-ons. To install additional Add-ons, use the integrated “Install/Uninstall Add-ons” dialog or the ZEISS Quality Software Store.</p>
 </li>
-<li><p>Being Edited</p>
-<p>Being edited Add-ons are listed in this category and you can add or remove contents to them. If you click RMB on a being edited Add-on, you can select “complete the edit” or “delete”.</p>
-<p><img alt="" src="../../_images/edited2.png" /></p>
+<li><p>Available Contents</p>
+<p>The Available Contents section contains all items in your active project, e.g., templates, report styles etc. Add these items by dragging and dropping them to your Add-on in the Add-on Explorer. If you add an item to an Add-on, it is removed from Available Contents.</p>
+<p>It is also possible to drag &amp; drop content in-between Add-ons.</p>
 </li>
-</ul>
-</li>
-<li><p>Contents Provider</p>
-<p>Here are contents from the current project which can be included in an Add-on. Contents can be moved by dragging and dropping between contents provider and a being edited Add-on. For more information about contents providers, please see the Add-on Format documentation.</p>
-</li>
-<li><p>Top of Display</p>
-<p>The name of the selected object in the Add-on Explorer is displayed.</p>
-</li>
-<li><p>Tool Bar</p>
-<p>Depending on the type of the selected object, the following buttons are shown:</p>
-<ul class="simple">
-<li><p>Script object - Save | Record Run Stop | Expand/Collapse</p></li>
-<li><p>Editable object - Save</p></li>
-<li><p>Others - None</p></li>
-</ul>
-</li>
-<li><p>Editor</p>
-<p>The content of the selected object is displayed and if it is an editable object, you can edit it.</p>
-</li>
-<li><p>Output Window</p>
-<p>The output of the executed script is displayed here.</p>
+<li><p>Preview / Editor</p>
+<p>The Preview / Editor section shows the contents of a file depending the file type. If the selected Add-on is in editing mode, Add-on properties or script contents can be edited here.</p>
 </li>
 </ol>
 </section>
 <section id="creating-a-new-add-on">
 <h2>Creating a new Add-on<a class="headerlink" href="#creating-a-new-add-on" title="Permalink to this heading"></a></h2>
-<p>Click RMB on the header of Being Edited category or in an area of the Add-on explorer where no object is selected &gt; New Add-on</p>
+<p>Create a new Add-on in the following ways:</p>
+<ul class="simple">
+<li><p>By using the “Create Add-on” button in the top-right corner of the Add-on Explorer</p></li>
+<li><p>By using RMB ► Create Add-on on Installed Add-ons</p></li>
+<li><p>By using RMB ► Create Add-on on a connected external folder</p></li>
+</ul>
+<p>A newly created Add-on has the default title “My Add-on”. Rename your Add-on in the properties dialog on the right. A blue dot next to the Add-on title indicates that the Add-on is in editing mode.</p>
 <p>An Add-on being edited will be created, including default folders and files.</p>
-<p><strong>🛈 Default folders and files of an Add-on</strong></p>
-<p><img alt="" src="../../_images/new_addon.png" /></p>
+<p><strong>Default Folders and Files of an Add-on</strong></p>
+<p><img alt="" src="../../_images/07-New_Add-on_v2.png" /></p>
+</section>
+<section id="entering-and-leaving-editing-mode">
+<h2>Entering and Leaving Editing Mode<a class="headerlink" href="#entering-and-leaving-editing-mode" title="Permalink to this heading"></a></h2>
+<p>Before you can modify an installed Add-on, you must set it to editing mode first. A newly created Add-on is already in editing mode.</p>
+<p>Set an Add-on to editing mode</p>
+<ul class="simple">
+<li><p>By using RMB ► Edit on the Add-on parent node in the Add-on Explorer or</p></li>
+<li><p>By clicking the Edit button in the Add-on properties window.</p></li>
+</ul>
+<p>A blue dot next to the Add-on title indicates that the Add-on is in editing mode.</p>
+<p>When you have finished editing the Add-on, you can leave the editing mode</p>
+<ul class="simple">
+<li><p>By using RMB ► Finish Editing on the Add-on parent node in the Add-on Explorer or</p></li>
+<li><p>By clicking the Finish Editing button in the Add-on properties window.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Editing is only finished after all mandatory information has been entered in the Add-on properties dialog.</p>
+</div>
 </section>
 <section id="writing-python-scripts">
-<h2>Writing Python scripts<a class="headerlink" href="#writing-python-scripts" title="Permalink to this heading"></a></h2>
+<h2>Writing Python Scripts<a class="headerlink" href="#writing-python-scripts" title="Permalink to this heading"></a></h2>
 <section id="new-folder-or-script">
-<h3>New folder or script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
-<p>Click RMB on the ‘scripts’ folder of an Add-on being edited &gt; New Folder/Script</p>
+<h3>New folder or Script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
+<p>Click RMB on the ‘scripts’ folder of an Add-on (in editing mode) ► New Folder/Script</p>
 </section>
-<section id="install-python-packages">
-<h3>Install Python packages<a class="headerlink" href="#install-python-packages" title="Permalink to this heading"></a></h3>
-<p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ‘Install Python Packages…’, the dialog for the installation will be popped up.</p>
+<section id="installing-python-packages">
+<h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this heading"></a></h3>
+<p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation will be popped up.</p>
 <ul>
 <li><p>from Network</p>
 <ul class="simple">
@@ -214,69 +220,64 @@
 </li>
 </ul>
 </section>
+<section id="running-python-scripts">
+<h3>Running Python Scripts<a class="headerlink" href="#running-python-scripts" title="Permalink to this heading"></a></h3>
+<p><img alt="" src="../../_images/Script_Run.png" /></p>
+<p>You start or stop script execution with the buttons in the top right corner of the Script Editor.</p>
+</section>
+<section id="recording-commands">
+<h3>Recording Commands<a class="headerlink" href="#recording-commands" title="Permalink to this heading"></a></h3>
+<p>You start or stop recording of commands executed in ZEISS INSPECT by using the Record button in the top right corner of the Script Editor. The recorded commands can be edited afterwards.</p>
+</section>
+<section id="inserting-element-values">
+<h3>Inserting Element Values<a class="headerlink" href="#inserting-element-values" title="Permalink to this heading"></a></h3>
+<p>You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ►  Element Value in the script editor.</p>
+</section>
 </section>
 <section id="adding-and-removing-contents">
-<h2>Adding and removing contents<a class="headerlink" href="#adding-and-removing-contents" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Contents can be added and removed between Contents Provider and an Add-on being edited by dragging and dropping.</p></li>
-<li><p>Moving contents between Add-ons being edited is also supported.</p></li>
-</ul>
+<h2>Adding and Removing Contents<a class="headerlink" href="#adding-and-removing-contents" title="Permalink to this heading"></a></h2>
+<p>You add contents from the Available Contents section to Add-ons (in editing mode) by drag and drop. You remove contents from an Add-on by drag and drop to Available Contents. Moving contents between Add-ons (in editing mode) is also supported.</p>
 <p><img alt="" src="../../_images/dnd.gif" /></p>
 </section>
-<section id="completing-the-edit">
-<h2>Completing the edit<a class="headerlink" href="#completing-the-edit" title="Permalink to this heading"></a></h2>
-<p>Click RMB on the Add-on being edited &gt; completing the edit</p>
-<ul class="simple">
-<li><p>If the Add-on has not yet been installed and</p>
-<ul>
-<li><p>you are using the public folder, the dialog for selecting a location to install the Add-on will be popped up.</p></li>
-<li><p>you are not using the public folder, the Add-on will be installed in the user folder automatically.</p></li>
-</ul>
-</li>
-<li><p>If the Add-on has already been installed, the Add-on will be overwritten at its original location.</p></li>
-</ul>
-<p>The Add-on being edited will be removed after completion and the completed Add-on will be updated in the Installed category. Completing the edit is not available for external folders. More information about external folders can be found <a class="reference internal" href="#add-ons-from-external-folder">here</a>.</p>
-</section>
-<section id="editing-an-installed-add-on">
-<h2>Editing an installed Add-on<a class="headerlink" href="#editing-an-installed-add-on" title="Permalink to this heading"></a></h2>
-<p>Click RMB on the installed Add-on &gt; Edit</p>
-<p>System Add-ons are not editable and protected Add-ons can be edited only if the given password is correct. If the installed Add-on is being edited, all contents are grayed out and cannot be selected.</p>
-</section>
-<section id="publishing-an-add-on">
-<h2>Publishing an Add-on<a class="headerlink" href="#publishing-an-add-on" title="Permalink to this heading"></a></h2>
-<p>Click RMB on the installed Add-on &gt; Publish</p>
+<section id="exporting-or-publishing-an-add-on">
+<h2>Exporting or Publishing an Add-on<a class="headerlink" href="#exporting-or-publishing-an-add-on" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Export</p>
-<p>Save the selected Add-on as a .addon file.</p>
+<p>Click RMB on the installed Add-on ► Export: Save the selected Add-on as a .addon file.</p>
 </li>
-<li><p>Upload</p>
-<p>Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approval.</p>
+<li><p>Publish in Software Store</p>
+<p>Click RMB on the installed Add-on ► Publish in Software Store: Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approval.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Publishing an Add-on requires special permission that ZEISS grants upon request.</p>
+</div>
 </li>
 </ul>
 </section>
-<section id="add-ons-from-external-folder">
-<h2>Add-ons from External Folder<a class="headerlink" href="#add-ons-from-external-folder" title="Permalink to this heading"></a></h2>
-<section id="opening-and-deleting-external-folder">
-<h3>Opening and deleting External Folder<a class="headerlink" href="#opening-and-deleting-external-folder" title="Permalink to this heading"></a></h3>
-<p>External Folder enables the user to run scripts from a path of his/her own choice. More than one external folders can be added.</p>
+<section id="add-ons-from-external-folders">
+<h2>Add-ons from External Folders<a class="headerlink" href="#add-ons-from-external-folders" title="Permalink to this heading"></a></h2>
+<section id="connecting-and-disconnecting-external-folders">
+<h3>Connecting and Disconnecting External Folders<a class="headerlink" href="#connecting-and-disconnecting-external-folders" title="Permalink to this heading"></a></h3>
+<p><img alt="" src="../../_images/03-Add-on_External_Folder_v2.png" /></p>
+<p>External Folder enables the user to run scripts from a selected path. More than one external folders can be added.</p>
 <ul>
 <li><p>Connecting</p>
-<p>Click RMB in an area of the Add-on Explorer where no object is selected &gt; Connect External Folder…</p>
+<p>Click RMB in an area of the Add-on Explorer where no object is selected ► Connect External Folder…</p>
 </li>
 <li><p>Disconnecting</p>
-<p>Click RMB on the external folder you want to delete &gt; Disconnect…</p>
-<p>External folder is deleted from the Add-on Explorer but the contents remain in the file system.</p>
+<p>Click RMB on the external folder you want to delete ► Disconnect…</p>
+<p>The External Folder is removed from the Add-on Explorer but its contents remain in the file system.</p>
 </li>
 </ul>
 </section>
-<section id="creating-add-ons-in-external-folder">
-<h3>Creating Add-ons in External Folder<a class="headerlink" href="#creating-add-ons-in-external-folder" title="Permalink to this heading"></a></h3>
+<section id="creating-add-ons-in-external-folders">
+<h3>Creating Add-ons in External Folders<a class="headerlink" href="#creating-add-ons-in-external-folders" title="Permalink to this heading"></a></h3>
 <ul>
-<li><p>Creating a new Add-on in the external folder</p>
-<p>Click RMB on the External Folder &gt; New Add-on</p>
+<li><p>Creating a new Add-on in an external folder</p>
+<p>Click RMB on the External Folder ► New Add-on</p>
 </li>
 </ul>
-<p>“Completing the edit” is not supported for Add-ons from external folders, however they can be published, although they are considered still to be work in progress.</p>
+<p>“Finish Editing” is not available for Add-ons from external folders, however they can be published, although they are considered still to be work in progress.</p>
 </section>
 </section>
 </section>
