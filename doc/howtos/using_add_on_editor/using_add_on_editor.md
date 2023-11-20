@@ -15,7 +15,7 @@ Script Editor and Package Manager have been integrated as the Add-on Editor. Her
 - [Exporting or Publishing an Add-on](#exporting-or-publishing-an-add-on)
 - [Add-ons from External Folders](#add-ons-from-external-folders)
   * [Connecting and Disconnecting External Folders](#connecting-and-disconnecting-external-folders)
-  * [Creating Add-ons in External Folder](#creating-add-ons-in-external-folders)
+  * [Creating Add-ons in External Folders](#creating-add-ons-in-external-folders)
 
 ## Add-on Editor Layout
 
@@ -119,7 +119,7 @@ You add contents from the Available Contents section to Add-ons (in editing mode
 
     Click RMB on the installed Add-on ► Publish in Software Store: Upload the selected Add-on into the Zeiss Quality Software Store. The uploaded Add-on will be queued into the staging area and will be release after approval.
     
-    ```{info}
+    ```{note}
     Publishing an Add-on requires special permission that ZEISS grants upon request.
     ```
 
@@ -127,7 +127,7 @@ You add contents from the Available Contents section to Add-ons (in editing mode
 
 ### Connecting and Disconnecting External Folders
 
-![](03-Add-on_External_Folder_v2.png)
+![](assets/03-Add-on_External_Folder_v2.png)
 
 External Folder enables the user to run scripts from a selected path. More than one external folders can be added.
 
@@ -141,9 +141,9 @@ External Folder enables the user to run scripts from a selected path. More than 
     
     The External Folder is removed from the Add-on Explorer but its contents remain in the file system.
 
-### Creating Add-ons in External Folder
+### Creating Add-ons in External Folders
 
-* Creating a new Add-on in the external folder
+* Creating a new Add-on in an external folder
     
     Click RMB on the External Folder ► New Add-on
 
