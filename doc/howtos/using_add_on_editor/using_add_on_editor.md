@@ -29,13 +29,11 @@ See the ZEISS Quality Tech Guide article [Add-on Editor](https://techguide.zeiss
     
 2. Available Contents
 
-    The Available Contents section contains all items in your active project, e.g., templates, report styles etc. Add these items by dragging and dropping them to your Add-on in the Add-on Explorer. If you add an item to an Add-on, it is removed from Available Contents.
-
-    It is also possible to drag & drop content in-between Add-ons.
+    The Available Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your Add-on in the Add-on Explorer. If you add an item to an Add-on, it is removed from Available Contents.
 
 3. Preview / Editor
 
-    The Preview / Editor section shows the contents of a file depending the file type. If the selected Add-on is in editing mode, Add-on properties or script contents can be edited here.  
+    The Preview / Editor section shows the contents of a file depending its file type. If the selected Add-on is in editing mode, Add-on properties or script contents can be edited here.  
 
 ## Creating a new Add-on
 
@@ -46,7 +44,7 @@ Create a new Add-on in the following ways:
         
 A newly created Add-on has the default title "My Add-on". Rename your Add-on in the properties dialog on the right. A blue dot next to the Add-on title indicates that the Add-on is in editing mode.
 
-An Add-on being edited will be created, including default folders and files.
+An new Add-on has a set of default folders and files.
 
 **Default Folders and Files of an Add-on**
 
@@ -57,13 +55,13 @@ An Add-on being edited will be created, including default folders and files.
 Before you can modify an installed Add-on, you must set it to editing mode first. A newly created Add-on is already in editing mode.
 
 Set an Add-on to editing mode
-* By using RMB ► Edit on the Add-on parent node in the Add-on Explorer or
+* By using RMB ► Edit on the Add-on root node in the Add-on Explorer or
 * By clicking the Edit button in the Add-on properties window.
 
 A blue dot next to the Add-on title indicates that the Add-on is in editing mode.
 
 When you have finished editing the Add-on, you can leave the editing mode
-* By using RMB ► Finish Editing on the Add-on parent node in the Add-on Explorer or
+* By using RMB ► Finish Editing on the Add-on root node in the Add-on Explorer or
 * By clicking the Finish Editing button in the Add-on properties window.
 
 ```{note}
@@ -72,13 +70,13 @@ Editing is only finished after all mandatory information has been entered in the
 
 ## Writing Python Scripts
 
-### New folder or Script
+### New Folder or Script
 
 Click RMB on the 'scripts' folder of an Add-on (in editing mode) ► New Folder/Script
 
 ### Installing Python Packages
 
-Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select ► Install Python Packages..., the dialog for the installation will be popped up.
+Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select ► Install Python Packages..., the dialog for the installation is shown.
 
 * from Network
     - The package list from network must be separated with a comma.
