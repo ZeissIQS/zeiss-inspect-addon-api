@@ -78,14 +78,13 @@ Click RMB on the 'scripts' folder of an Add-on (in editing mode) ► New Folder/
 
 Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select ► Install Python Packages..., the dialog for the installation is shown.
 
-* from Network
-    - The package list from network must be separated with a comma.
-    - To install the packages of a specific version, write the version after “==”, e.g. `numpy==1.22.0`
+* From network
+    The package list from network must be separated with a comma. To install the packages of a specific version, write the version after “==”, e.g. `numpy==1.22.0`
 
     ![](assets/install_network.png)
 
-* from Local
-    - Python wheel files (*.whl) can be added or removed.
+* From local file system
+    Python wheel files (*.whl) can be added or removed.
 
     ![](assets/install_local.png)
 
