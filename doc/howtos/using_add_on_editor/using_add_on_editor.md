@@ -2,6 +2,8 @@
 
 Script Editor and Package Manager have been integrated as the Add-on Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Add-ons.
 
+See the ZEISS Quality Tech Guide article [Add-on Editor](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/cmd_sys_manage_add_ons.html) for more details.
+
 - [Add-on Editor Layout](#add-on-editor-layout)
 - [Creating a new Add-on](#creating-a-new-add-on)
 - [Entering and Leaving Editing Mode](#entering-and-leaving-editing-mode)
