@@ -52,7 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-new-add-on">Creating a new Add-on</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entering-and-leaving-editing-mode">Entering and Leaving Editing Mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-python-scripts">Writing Python Scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New folder or Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-folder-or-script">New Folder or Script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-python-packages">Installing Python Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-python-scripts">Running Python Scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#recording-commands">Recording Commands</a></li>
@@ -156,11 +156,10 @@
 <p>The Add-on Explorer shows all installed Add-ons. The professional version of ZEISS INSPECT already provides some system Add-ons in the “Installed Add-ons” section of the Add-on Explorer. You cannot delete or modify these pre-installed Add-ons. To install additional Add-ons, use the integrated “Install/Uninstall Add-ons” dialog or the ZEISS Quality Software Store.</p>
 </li>
 <li><p>Available Contents</p>
-<p>The Available Contents section contains all items in your active project, e.g., templates, report styles etc. Add these items by dragging and dropping them to your Add-on in the Add-on Explorer. If you add an item to an Add-on, it is removed from Available Contents.</p>
-<p>It is also possible to drag &amp; drop content in-between Add-ons.</p>
+<p>The Available Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your Add-on in the Add-on Explorer. If you add an item to an Add-on, it is removed from Available Contents.</p>
 </li>
 <li><p>Preview / Editor</p>
-<p>The Preview / Editor section shows the contents of a file depending the file type. If the selected Add-on is in editing mode, Add-on properties or script contents can be edited here.</p>
+<p>The Preview / Editor section shows the contents of a file depending its file type. If the selected Add-on is in editing mode, Add-on properties or script contents can be edited here.</p>
 </li>
 </ol>
 </section>
@@ -173,7 +172,7 @@
 <li><p>By using RMB ► Create Add-on on a connected external folder</p></li>
 </ul>
 <p>A newly created Add-on has the default title “My Add-on”. Rename your Add-on in the properties dialog on the right. A blue dot next to the Add-on title indicates that the Add-on is in editing mode.</p>
-<p>An Add-on being edited will be created, including default folders and files.</p>
+<p>An new Add-on has a set of default folders and files.</p>
 <p><strong>Default Folders and Files of an Add-on</strong></p>
 <p><img alt="" src="../../_images/07-New_Add-on_v2.png" /></p>
 </section>
@@ -182,13 +181,13 @@
 <p>Before you can modify an installed Add-on, you must set it to editing mode first. A newly created Add-on is already in editing mode.</p>
 <p>Set an Add-on to editing mode</p>
 <ul class="simple">
-<li><p>By using RMB ► Edit on the Add-on parent node in the Add-on Explorer or</p></li>
+<li><p>By using RMB ► Edit on the Add-on root node in the Add-on Explorer or</p></li>
 <li><p>By clicking the Edit button in the Add-on properties window.</p></li>
 </ul>
 <p>A blue dot next to the Add-on title indicates that the Add-on is in editing mode.</p>
 <p>When you have finished editing the Add-on, you can leave the editing mode</p>
 <ul class="simple">
-<li><p>By using RMB ► Finish Editing on the Add-on parent node in the Add-on Explorer or</p></li>
+<li><p>By using RMB ► Finish Editing on the Add-on root node in the Add-on Explorer or</p></li>
 <li><p>By clicking the Finish Editing button in the Add-on properties window.</p></li>
 </ul>
 <div class="admonition note">
@@ -199,12 +198,12 @@
 <section id="writing-python-scripts">
 <h2>Writing Python Scripts<a class="headerlink" href="#writing-python-scripts" title="Permalink to this heading"></a></h2>
 <section id="new-folder-or-script">
-<h3>New folder or Script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
+<h3>New Folder or Script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
 <p>Click RMB on the ‘scripts’ folder of an Add-on (in editing mode) ► New Folder/Script</p>
 </section>
 <section id="installing-python-packages">
 <h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this heading"></a></h3>
-<p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation will be popped up.</p>
+<p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation is shown.</p>
 <ul>
 <li><p>from Network</p>
 <ul class="simple">
