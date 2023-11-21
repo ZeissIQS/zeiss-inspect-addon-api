@@ -106,7 +106,7 @@ You insert objects from ZEISS INSPECT into your Python script by using RMB ► I
 
 You add contents from the Available Contents section to Add-ons (in editing mode) by drag and drop. You remove contents from an Add-on by drag and drop to Available Contents. Moving contents between Add-ons (in editing mode) is also supported.
 
-![](assets/dnd.gif)
+![](assets/add_on_editor_dnd.gif)
 
 ## Exporting or Publishing an Add-on
 
