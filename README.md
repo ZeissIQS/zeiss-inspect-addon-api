@@ -1,3 +1,6 @@
-# Zeiss Inspect Add-on API
+# ZEISS INSPECT Add-on API
 
-The repository contains documentation about and examples for the add-on development of Zeiss Inspect.
+This repository contains documentation sources and examples for the Add-on development of [ZEISS INSPECT](https://www.zeiss.com/metrology/products/software.html#inspectionsolutions).
+
+> [!NOTE]
+> Please refer to the [ZEISS INSPECT Add-On Documentation 2023](https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/) for the resulting rendered output.
