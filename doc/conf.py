@@ -39,6 +39,9 @@ sitemap_url_scheme = "{link}"
 
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
+# "sphinx_rtd_theme" appends " &mdash; <project>  documentation" to the page heading -
+# this changes the title to "<page_heading> &mdash; <project>"
+html_title = project
 html_static_path = ['_static']
 
 # -- Override some "sphinx_rtd_theme" styles to match ZEISS branding ---------------
