@@ -42,7 +42,7 @@ reference_point = measurement.reference_point_coordinate[index]
 
 Interactive display of pixel coordinates:
 
-```{image} point_pixel_transformations/assets/measurement_creation_parameters.png
+```{image} point_pixel_transformations/assets/camera_image_reference_points.png
 :width: 400
 ```
 
