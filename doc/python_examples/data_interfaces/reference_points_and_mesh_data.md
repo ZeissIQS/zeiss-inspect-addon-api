@@ -1,18 +1,18 @@
 # reference_points_and_mesh_data
 
+![Point Cloud and Surface Elements from Reference Points/Mesh](refpoints_and_mesh.png){w=800px}
+
 ## Short description
 
 This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from the both data structures, respectively.  
-
-![Point Cloud and Surface Elements from Reference Points/Mesh](refpoints_and_mesh.png){w=600px}
 
 ## Highlights
 
 1. You access the reference points of a measurements in a script by inserting its keyword `Data arrays/Geometry/Coordinate`
 
-![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png){w=800px}
+![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png)
 
-The resulting data Python data structure is a numpy-array of shape (1, \<n\>, 3):
+The resulting Python data structure is a numpy-array of shape (1, \<n\>, 3):
 
 Index 0
 : Stage
@@ -27,7 +27,7 @@ Index 2
 reference_points = np.array (gom.app.project.measurement_series[MEASUREMENT_SERIES].results['points'].data.coordinate)
 ```
 
-`reference_points[0]` (stage index 0) gives a 2-dimensional numpy-array of the reference points' coordinates:
+`reference_points[0]` (i.e. stage index 0) gives a 2-dimensional numpy-array of the reference points' coordinates:
 
 ```
 [[-235.58721273  -39.50188087  -21.06407058]
@@ -47,7 +47,7 @@ reference_points = np.array (gom.app.project.measurement_series[MEASUREMENT_SERI
 
 This can be used as input parameter to a script for creating a point cloud element: 
 
-```
+```{code-block} python
 create_point_cloud = gom.script.sys.create_element_by_script (
 	  check_type='none', 
 	  element_type='point_cloud', 
@@ -67,7 +67,7 @@ The function `gom.script.sys.create_element_by_script()` calls the script by its
 
 The **coordinates** are the vertex points of the mesh.
 
-The resulting data Python data structure is a numpy-array of shape (1, \<n\>, 3):
+The resulting Python data structure is a numpy-array of shape (1, \<n\>, 3):
 
 Index 0
 : Stage
@@ -112,7 +112,7 @@ Index 1
 : Triangle [0...\<m\>-1]
 
 Index 2
-: Indices into array of vertex points [indexA, indexB, indexC], which define the points A, B, C of the triangle.
+: Indices into array of vertex points [indexA, indexB, indexC], which define the points A, B, C of each triangle.
 
 ```{code-block} python
 part_triangles = np.array (gom.app.project.parts[PART].actual.data.triangle)
@@ -129,9 +129,9 @@ Example:
   [244350 244349 244343]]]
 ```
 
-I.e. the first row (indexes into array of vertex points) defines a triangle with points IndexA=1, IndexB=4 and IndexC=5 or edges ab=(1,4), bc=(4,5) and ca=(5, 1).
+I.e. the first row (indices into array of vertex points) defines a triangle with points IndexA=1, IndexB=4 and IndexC=5 or edges ab=(1, 4), bc=(4, 5) and ca=(5, 1).
 
-Looking up the indexes in the array of vertex points gives the point coordinates:
+Looking up the indexes in the array of vertex points in the example above gives the point coordinates:
 
 A = [-260.2262357   -54.66295906  -29.56445928]
 
