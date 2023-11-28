@@ -8,7 +8,7 @@ This example demonstrates how to access the reference points in a measurement an
 
 ## Highlights
 
-1. You access the reference points of a measurements in a script by inserting its keyword `Data arrays/Geometry/Coordinate`
+### 1. You access the reference points of a measurements in a script by inserting its keyword `Data arrays/Geometry/Coordinate`
 
 ![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png)
 
@@ -61,7 +61,7 @@ create_point_cloud = gom.script.sys.create_element_by_script (
 
 The function `gom.script.sys.create_element_by_script()` calls the script by its `script_uuid`.
 
-2. You access a mesh in a script by inserting its data structures `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle`
+### 2. You access a mesh in a script by inserting its data structures `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle`
 
 ![Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate](mesh_coordinates.png)
 
@@ -155,7 +155,7 @@ create_surface = gom.script.sys.create_element_by_script (
 )
 ```
 
-3. Script for creating a surface element
+### 3. Script for creating a surface element
 
 The scripts `create_point_cloud.py` and `create_surface.py` are provided in the example Add-on.
 
