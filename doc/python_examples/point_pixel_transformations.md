@@ -40,13 +40,13 @@ right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stag
 reference_point = measurement.reference_point_coordinate[index]
 ```
 
-Interactive display of pixel coordinates
-
+Explorer: Measurement - Edit Creation Parameters
 
 ```{image} point_pixel_transformations/assets/measurement_creation_parameters.png
 :width: 400
 ```
 
+Interactive display of pixel coordinates
 
 ```{image} point_pixel_transformations/assets/camera_image_reference_points.png
 :width: 800
