@@ -28,26 +28,13 @@ reference_point = measurement.reference_point_coordinate[index]
 
 Reference point's IDs and coordinates
 
-```{image} point_pixel_transformations/assets/reference_points_table.png 
-:width: 800
-```
+![Table: Reference Points](point_pixel_transformations/assets/reference_points_table.png){w=800px}
 
 2. Get the left and right camera image
 
 ```{code-block} python
 left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_index])[0]
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
-```
-
-Explorer: Measurement &mdash; Edit Creation Parameters
-
-![Measurement Creation Parameters](point_pixel_transformations/assets/measurement_creation_parameters.png){w=400px}
-
-
-Interactive display of pixel coordinates
-
-```{image} point_pixel_transformations/assets/camera_image_reference_points.png
-:width: 800
 ```
 
 3. Compute 2D pixel coordinates from 3D point
@@ -67,6 +54,17 @@ use_calibration = False
 computed_point = gom.api.imaging.compute_point_from_pixels ([[(image_coordinates[0], left), (image_coordinates[1], right)]], use_calibration)
 print(f'\tComputation result: P = {computed_point[0][0]}')
 ```
+
+5. For comparison: Interactive display of reference points and pixel coordinates
+
+Explorer: Measurement &mdash; Edit Creation Parameters
+
+![Measurement Creation Parameters](point_pixel_transformations/assets/measurement_creation_parameters.png){w=400px}
+
+
+Edit Creation Parameters Dialog
+
+![Edit Creation Parameters Dialog](point_pixel_transformations/assets/camera_image_reference_points.png){w=800px}
 
 ## Related
 
