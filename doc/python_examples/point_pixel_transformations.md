@@ -39,9 +39,9 @@ left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
 ```
 
-    Explorer: Measurement &mdash; Edit Creation Parameters
+Explorer: Measurement &mdash; Edit Creation Parameters
 
-    ![Measurement Creation Parameters](point_pixel_transformations/assets/measurement_creation_parameters.png){w=400px}
+![Measurement Creation Parameters](point_pixel_transformations/assets/measurement_creation_parameters.png){w=400px}
 
 
 Interactive display of pixel coordinates
