@@ -60,14 +60,15 @@ The following project files are included:
 
 ## Examples by topic
 
-| Folder                                   | Description                                                  |
-| ---------------------------------------- | ------------------------------------------------------------ |
-| [data_interfaces](data_interfaces.md)    | Access to data of GOM "elements"                             |
-| [dialog_widgets](dialog_widgets.md)      | Examples how use custom dialogs and handle user input events |
-| [misc](misc.md)                          | Miscellaneous examples                                       |
-| [script_icons](script_icons.md)          | Set icons for scripts or buttons                             |
-| [script_resources](script_resources.md)  | How to access binary data of your add-on (resources)         |
-| [scripted_actuals](scripted_actuals.md)  | Building actual elements with custom python code             |
-| [scripted_checks](scripted_checks.md)    | Building custom checks with python code                      |
+| Folder                                                        | Description                                                             |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [data_interfaces](data_interfaces.md)                         | Access to data of GOM "elements"                                        |
+| [point_pixel_transformations](point_pixel_transformations.md) | Computing 2D pixel coordinates from 3D point coordinates and vice versa |
+| [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
+| [misc](misc.md)                                               | Miscellaneous examples                                                  |
+| [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
+| [script_resources](script_resources.md)                       | How to access binary data of your add-on (resources)                    |
+| [scripted_actuals](scripted_actuals.md)                       | Building actual elements with custom python code                        |
+| [scripted_checks](scripted_checks.md)                         | Building custom checks with python code                                 |
 
  
