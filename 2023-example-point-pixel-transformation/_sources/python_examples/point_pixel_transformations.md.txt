@@ -68,5 +68,5 @@ Edit Creation Parameters Dialog
 
 ## Related
 
-* [gom.api.omaging.compute_pixels_from_point](../python_api/python_api.md#gomapiimagingcompute_pixels_from_point)
+* [gom.api.imaging.compute_pixels_from_point](../python_api/python_api.md#gomapiimagingcompute_pixels_from_point)
 * [gom.api.imaging.compute_point_from_pixels](../python_api/python_api.md#gomapiimagingcompute_point_from_pixels)
