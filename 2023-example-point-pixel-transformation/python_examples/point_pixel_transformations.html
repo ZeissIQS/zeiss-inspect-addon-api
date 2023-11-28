@@ -121,6 +121,7 @@
 <li><p>Set the point coordinate</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="n">MEASUREMENT_SERIES</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="n">MEASUREMENT</span><span class="p">]</span>
+<span class="n">stage_index</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># Using the first valid reference point in the selected measurement as the point example</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="nb">id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">measurement</span><span class="o">.</span><span class="n">reference_point_id</span><span class="p">):</span>

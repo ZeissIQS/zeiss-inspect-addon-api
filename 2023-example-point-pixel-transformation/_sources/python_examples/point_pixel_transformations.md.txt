@@ -17,6 +17,7 @@ Each measurement has two arrays for reference points with matching indices:
 
 ```{code-block} python
 measurement = gom.app.project.measurement_series[MEASUREMENT_SERIES].measurements[MEASUREMENT]
+stage_index = 0
 
 # Using the first valid reference point in the selected measurement as the point example
 for index, id in enumerate(measurement.reference_point_id):
