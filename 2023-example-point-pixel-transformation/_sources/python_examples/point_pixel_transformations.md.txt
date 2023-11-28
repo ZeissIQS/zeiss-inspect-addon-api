@@ -37,8 +37,6 @@ left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
 ```
 
-reference_point = measurement.reference_point_coordinate[index]
-```
 
 Explorer: Measurement - Edit Creation Parameters
 
