@@ -73,5 +73,5 @@ print(f'\tComputation result: P = {computed_point[0][0]}')
 
 ## Related
 
-* [gom.api.omaging.compute_pixels_from_point](../python_api/python_api.md#gom-api-imaging-compute-pixels-from-point)
-* [gom.api.imaging.compute_point_from_pixels](../python_api/python_api.md#gom-api-imaging-compute-point-from-pixels)
+* [gom.api.omaging.compute_pixels_from_point](../python_api/python_api.md#gomapiimagingcompute_pixels_from_point)
+* [gom.api.imaging.compute_point_from_pixels](../python_api/python_api.md#gomapiimagingcompute_point_from_pixels)
