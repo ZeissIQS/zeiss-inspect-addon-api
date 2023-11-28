@@ -33,7 +33,7 @@ reference_point = measurement.reference_point_coordinate[index]
 
 2. Get the left and right camera image
 
-```{python}
+```{code-block} python
 left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_index])[0]
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
 ```
@@ -55,7 +55,7 @@ Interactive display of pixel coordinates:
 
 3. Compute 2D pixel coordinates from 3D point
 
-```{python}
+```{code-block} python
 image_coordinates = gom.api.imaging.compute_pixels_from_point ([(reference_point, left), (reference_point, right)])
 print(f'\tImage coordinates of reference point (left, right): {image_coordinates}')
 ```
@@ -64,7 +64,7 @@ print(f'\tImage coordinates of reference point (left, right): {image_coordinates
 
 The resulting 2D pixels from the previous step are used as the input parameters to the transformation.
 
-```{python}
+```{code-block} python
 print(f'\tLeft image: {image_coordinates[0]}, Right image: {image_coordinates[1]}')
 use_calibration = False
 computed_point = gom.api.imaging.compute_point_from_pixels ([[(image_coordinates[0], left), (image_coordinates[1], right)]], use_calibration)
