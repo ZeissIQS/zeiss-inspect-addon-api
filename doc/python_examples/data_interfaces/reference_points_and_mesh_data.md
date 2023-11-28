@@ -1,3 +1,5 @@
+# reference_points_and_mesh_data
+
 ## Short description
 
 This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from the both data structures, respectively.  
@@ -8,7 +10,7 @@ This example demonstrates how to access the reference points in a measurement an
 
 1. You access the reference points of a measurements in a script by inserting its keyword `Data arrays/Geometry/Coordinate`
 
-![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](image.png){w=800px}
+![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png){w=800px}
 
 The resulting data Python data structure is a numpy-array of shape (1, \<n\>, 3):
 
