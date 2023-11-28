@@ -130,7 +130,12 @@
 <span class="n">reference_point</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">reference_point_coordinate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/reference_points_table.png"><img alt="../_images/reference_points_table.png" src="../_images/reference_points_table.png" style="width: 800px;" /></a>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{image} point_pixel_transformations/assets/reference_points_table.png
+:caption: Reference Point&#39;s IDs and Coordinates
+:width: 800
+```
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li><p>Get the left and right camera image</p></li>
 </ol>
@@ -138,10 +143,19 @@
 <span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span><span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage_index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Explorer: Measurement - Edit Creation Parameters</p>
-<a class="reference internal image-reference" href="../_images/measurement_creation_parameters.png"><img alt="../_images/measurement_creation_parameters.png" src="../_images/measurement_creation_parameters.png" style="width: 400px;" /></a>
-<p>Interactive display of pixel coordinates</p>
-<a class="reference internal image-reference" href="../_images/camera_image_reference_points.png"><img alt="../_images/camera_image_reference_points.png" src="../_images/camera_image_reference_points.png" style="width: 800px;" /></a>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{image} point_pixel_transformations/assets/measurement_creation_parameters.png
+:caption: Explorer &amp;colon; Measurement &amp;mdash; Edit Creation Parameters 
+:width: 400
+```
+
+
+
+```{image} point_pixel_transformations/assets/camera_image_reference_points.png
+:caption: Interactive display of pixel coordinates
+:width: 800
+```
+</pre></div>
+</div>
 <ol class="arabic simple" start="3">
 <li><p>Compute 2D pixel coordinates from 3D point</p></li>
 </ol>
