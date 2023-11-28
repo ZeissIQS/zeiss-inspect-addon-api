@@ -26,8 +26,8 @@ for index, id in enumerate(measurement.reference_point_id):
 reference_point = measurement.reference_point_coordinate[index]
 ```
 
-    ```{image} point_pixel_transformations/assets/reference_points_table.png
-    :caption: Reference Point's IDs and Coordinates
+    Reference point's IDs and coordinates
+    ```{image} point_pixel_transformations/assets/reference_points_table.png 
     :width: 800
     ```
 
@@ -38,15 +38,14 @@ left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
 ```
 
+    Explorer: Measurement &mdash; Edit Creation Parameters 
     ```{image} point_pixel_transformations/assets/measurement_creation_parameters.png
-    :caption: Explorer &colon; Measurement &mdash; Edit Creation Parameters 
     :width: 400
     ```
 
 
-
+    Interactive display of pixel coordinates
     ```{image} point_pixel_transformations/assets/camera_image_reference_points.png
-    :caption: Interactive display of pixel coordinates
     :width: 800
     ```
 
