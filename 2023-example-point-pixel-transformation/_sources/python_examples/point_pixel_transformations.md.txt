@@ -27,7 +27,7 @@ reference_point = measurement.reference_point_coordinate[index]
 ```
 
 ```{image} point_pixel_transformations/assets/reference_points_table.png
-:width: 600
+:width: 800
 ```
 
 2. Get the left and right camera image
@@ -43,11 +43,11 @@ reference_point = measurement.reference_point_coordinate[index]
 Interactive display of pixel coordinates:
 
 ```{image} point_pixel_transformations/assets/measurement_creation_parameters.png
-:width: 300
+:width: 400
 ```
 
 ```{image} point_pixel_transformations/assets/camera_image_reference_points.png
-:width: 600
+:width: 800
 ```
 
 3. Compute 2D pixel coordinates from 3D point
