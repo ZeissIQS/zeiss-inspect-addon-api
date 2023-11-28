@@ -185,6 +185,6 @@ def calculation(context, params):
 ## Related
 
 * How-to: [Access element properties and data](../../howtos/python_api_introduction/python_api_introduction.md#access-element-properties)
-* How-to: [Introduction to scripted elements](../howtos/scripted_elements/scripted_elements_introduction.md)
-* How-to: [Scripted actuals](../howtos/scripted_elements/scripted_actuals.md)
-* Python API Specification: [Scripted elements API](../scripted_elements_api.md)
+* How-to: [Introduction to scripted elements](../../howtos/scripted_elements/scripted_elements_introduction.md)
+* How-to: [Scripted actuals](../../howtos/scripted_elements/scripted_actuals.md)
+* Python API Specification: [Scripted elements API](../../python_api/scripted_elements_api.md)
