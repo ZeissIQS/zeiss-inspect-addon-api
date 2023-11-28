@@ -115,7 +115,7 @@
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
 <p>The example uses <code class="docutils literal notranslate"><span class="pre">gom.api.imaging</span></code> functions. The transformations work with any 3D point, but using a reference point increases the comprehensibility.</p>
 <p>Each measurement has two arrays for reference points with matching indices:</p>
-<p><code class="docutils literal notranslate"><span class="pre">measurement.reference_point_id</span></code> - The reference points’ Ids or ‘None’ for an invalid reference point
+<p><code class="docutils literal notranslate"><span class="pre">measurement.reference_point_id</span></code> - The reference points’ Ids or <code class="docutils literal notranslate"><span class="pre">None</span></code> for an invalid reference point
 <code class="docutils literal notranslate"><span class="pre">measurement.reference_point_coordinate</span></code> - The reference points’ coordinates</p>
 <ol class="arabic simple">
 <li><p>Set the point coordinate</p></li>
@@ -128,9 +128,10 @@
 		<span class="k">break</span>
 
 <span class="n">reference_point</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">reference_point_coordinate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">First reference point in </span><span class="si">{</span><span class="n">MEASUREMENT_SERIES</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">MEASUREMENT</span><span class="si">}</span><span class="s1">: ID = </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">, P = </span><span class="si">{</span><span class="n">reference_point</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Reference point’s IDs and coordinates</p>
+<p>Reference points’ IDs and coordinates</p>
 <p><a class="reference internal" href="../_images/reference_points_table.png"><img alt="Table: Reference Points" src="../_images/reference_points_table.png" style="width: 800px;" /></a></p>
 <ol class="arabic simple" start="2">
 <li><p>Get the left and right camera image</p></li>
@@ -146,6 +147,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Image coordinates of reference point (left, right): </span><span class="si">{</span><span class="n">image_coordinates</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">First</span> <span class="n">reference</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">Scan</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">M1</span><span class="p">:</span> <span class="n">ID</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="mf">31.3076865556476</span><span class="p">,</span> <span class="mf">201.84682632142676</span><span class="p">,</span> <span class="o">-</span><span class="mf">174.57793227593282</span><span class="p">))</span>
+<span class="n">Image</span> <span class="n">coordinates</span> <span class="n">of</span> <span class="n">reference</span> <span class="n">point</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1980.7299023612043</span><span class="p">,</span> <span class="mf">150.31166936961336</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">2545.676173697585</span><span class="p">,</span> <span class="mf">124.49594153283601</span><span class="p">)]</span>
+</pre></div>
+</div>
 <ol class="arabic simple" start="4">
 <li><p>Compute 3D point coordinate from 2D pixels</p></li>
 </ol>
@@ -154,6 +160,11 @@
 <span class="n">use_calibration</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">computed_point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_point_from_pixels</span> <span class="p">([[(</span><span class="n">image_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">left</span><span class="p">),</span> <span class="p">(</span><span class="n">image_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">right</span><span class="p">)]],</span> <span class="n">use_calibration</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Computation result: P = </span><span class="si">{</span><span class="n">computed_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Left</span> <span class="n">image</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1980.7299023612043</span><span class="p">,</span> <span class="mf">150.31166936961336</span><span class="p">),</span> <span class="n">Right</span> <span class="n">image</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">2545.676173697585</span><span class="p">,</span> <span class="mf">124.49594153283601</span><span class="p">)</span>
+<span class="n">Computation</span> <span class="n">result</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="mf">31.30768655560711</span><span class="p">,</span> <span class="mf">201.84682632118486</span><span class="p">,</span> <span class="o">-</span><span class="mf">174.5779322757101</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
