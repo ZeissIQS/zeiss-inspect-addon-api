@@ -157,7 +157,7 @@ create_surface = gom.script.sys.create_element_by_script (
 
 The scripts `create_point_cloud.py` and `create_surface.py` are provided in the example Add-on.
 
-Since no user interaction is required, the `dialog()` function shown in [Introduction to scripted elements](../howtos/scripted_elements/scripted_elements_introduction.md) as part of the code pattern can be omitted. Consequently, the box Interactive Script in the Script Properties dialog is unchecked.
+Since no user interaction is required, the `dialog()` function shown in [Introduction to scripted elements](../../howtos/scripted_elements/scripted_elements_introduction.md) as part of the code pattern can be omitted. Consequently, the box Interactive Script in the Script Properties dialog is unchecked.
 
 ![Create Surface - Script Properties](create_surface_script_properties.png)
 
