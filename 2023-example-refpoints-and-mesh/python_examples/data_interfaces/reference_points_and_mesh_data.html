@@ -112,18 +112,17 @@
              
   <section id="reference-points-and-mesh-data">
 <h1>reference_points_and_mesh_data<a class="headerlink" href="#reference-points-and-mesh-data" title="Permalink to this heading"></a></h1>
+<p><a class="reference internal" href="../../_images/refpoints_and_mesh.png"><img alt="Point Cloud and Surface Elements from Reference Points/Mesh" src="../../_images/refpoints_and_mesh.png" style="width: 800px;" /></a></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
 <p>This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from the both data structures, respectively.</p>
-<p><a class="reference internal" href="../../_images/refpoints_and_mesh.png"><img alt="Point Cloud and Surface Elements from Reference Points/Mesh" src="../../_images/refpoints_and_mesh.png" style="width: 600px;" /></a></p>
 </section>
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>You access the reference points of a measurements in a script by inserting its keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code></p></li>
-</ol>
-<p><a class="reference internal" href="../../_images/reference_points_script_object.png"><img alt="Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/reference_points_script_object.png" style="width: 800px;" /></a></p>
-<p>The resulting data Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
+<section id="you-access-the-reference-points-of-a-measurements-in-a-script-by-inserting-its-keyword-data-arrays-geometry-coordinate">
+<h3>1. You access the reference points of a measurements in a script by inserting its keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code><a class="headerlink" href="#you-access-the-reference-points-of-a-measurements-in-a-script-by-inserting-its-keyword-data-arrays-geometry-coordinate" title="Permalink to this heading"></a></h3>
+<p><img alt="Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/reference_points_script_object.png" /></p>
+<p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
 <dl class="simple myst">
 <dt>Index 0</dt><dd><p>Stage</p>
 </dd>
@@ -135,7 +134,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reference_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="n">MEASUREMENT_SERIES</span><span class="p">]</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">reference_points[0]</span></code> (stage index 0) gives a 2-dimensional numpy-array of the reference points’ coordinates:</p>
+<p><code class="docutils literal notranslate"><span class="pre">reference_points[0]</span></code> (i.e. stage index 0) gives a 2-dimensional numpy-array of the reference points’ coordinates:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="o">-</span><span class="mf">235.58721273</span>  <span class="o">-</span><span class="mf">39.50188087</span>  <span class="o">-</span><span class="mf">21.06407058</span><span class="p">]</span>
  <span class="p">[</span><span class="o">-</span><span class="mf">191.48581469</span>  <span class="o">-</span><span class="mf">13.62221568</span>  <span class="o">-</span><span class="mf">48.50181859</span><span class="p">]</span>
  <span class="o">...</span>
@@ -150,7 +149,7 @@
 </pre></div>
 </div>
 <p>This can be used as input parameter to a script for creating a point cloud element:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_point_cloud</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_point_cloud</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
 	  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
 	  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;point_cloud&#39;</span><span class="p">,</span> 
 	  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;reference_points&#39;</span><span class="p">],</span> 
@@ -162,12 +161,12 @@
 </pre></div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_element_by_script()</span></code> calls the script by its <code class="docutils literal notranslate"><span class="pre">script_uuid</span></code>.</p>
-<ol class="arabic simple" start="2">
-<li><p>You access a mesh in a script by inserting its data structures <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code></p></li>
-</ol>
+</section>
+<section id="you-access-a-mesh-in-a-script-by-inserting-its-data-structures-data-arrays-geometry-coordinate-and-data-arrays-geometry-triangle">
+<h3>2. You access a mesh in a script by inserting its data structures <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code><a class="headerlink" href="#you-access-a-mesh-in-a-script-by-inserting-its-data-structures-data-arrays-geometry-coordinate-and-data-arrays-geometry-triangle" title="Permalink to this heading"></a></h3>
 <p><img alt="Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/mesh_coordinates.png" /></p>
 <p>The <strong>coordinates</strong> are the vertex points of the mesh.</p>
-<p>The resulting data Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
+<p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
 <dl class="simple myst">
 <dt>Index 0</dt><dd><p>Stage</p>
 </dd>
@@ -202,7 +201,7 @@
 </dd>
 <dt>Index 1</dt><dd><p>Triangle [0…&lt;m&gt;-1]</p>
 </dd>
-<dt>Index 2</dt><dd><p>Indices into array of vertex points [indexA, indexB, indexC], which define the points A, B, C of the triangle.</p>
+<dt>Index 2</dt><dd><p>Indices into array of vertex points [indexA, indexB, indexC], which define the points A, B, C of each triangle.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">part_triangles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">PART</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">triangle</span><span class="p">)</span>
@@ -218,8 +217,8 @@
   <span class="p">[</span><span class="mi">244350</span> <span class="mi">244349</span> <span class="mi">244343</span><span class="p">]]]</span>
 </pre></div>
 </div>
-<p>I.e. the first row (indexes into array of vertex points) defines a triangle with points IndexA=1, IndexB=4 and IndexC=5 or edges ab=(1,4), bc=(4,5) and ca=(5, 1).</p>
-<p>Looking up the indexes in the array of vertex points gives the point coordinates:</p>
+<p>I.e. the first row (indices into array of vertex points) defines a triangle with points IndexA=1, IndexB=4 and IndexC=5 or edges ab=(1, 4), bc=(4, 5) and ca=(5, 1).</p>
+<p>Looking up the indexes in the array of vertex points in the example above gives the point coordinates:</p>
 <p>A = [-260.2262357   -54.66295906  -29.56445928]</p>
 <p>B = [-260.19041153  -54.08518361  -29.07912709]</p>
 <p>C = [-260.18363995  -54.31011231  -29.50854346]</p>
@@ -236,9 +235,9 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Script for creating a surface element</p></li>
-</ol>
+</section>
+<section id="script-for-creating-a-surface-element">
+<h3>3. Script for creating a surface element<a class="headerlink" href="#script-for-creating-a-surface-element" title="Permalink to this heading"></a></h3>
 <p>The scripts <code class="docutils literal notranslate"><span class="pre">create_point_cloud.py</span></code> and <code class="docutils literal notranslate"><span class="pre">create_surface.py</span></code> are provided in the example Add-on.</p>
 <p>Since no user interaction is required, the <code class="docutils literal notranslate"><span class="pre">dialog()</span></code> function shown in <a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Introduction to scripted elements</span></a> as part of the code pattern can be omitted. Consequently, the box Interactive Script in the Script Properties dialog is unchecked.</p>
 <p><img alt="Create Surface - Script Properties" src="../../_images/create_surface_script_properties.png" /></p>
@@ -263,6 +262,7 @@
 </pre></div>
 </div>
 </div>
+</section>
 </section>
 <section id="related">
 <h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
