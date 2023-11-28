@@ -15,7 +15,7 @@ Each measurement has two arrays for reference points with matching indices:
 
 1. Set the point coordinate
 
-```{python}
+```{code-block} python
 measurement = gom.app.project.measurement_series[MEASUREMENT_SERIES].measurements[MEASUREMENT]
 
 # Using the first valid reference point in the selected measurement as the point example
@@ -26,7 +26,7 @@ for index, id in enumerate(measurement.reference_point_id):
 reference_point = measurement.reference_point_coordinate[index]
 ```
 
-```{image} point_pixel_transformations/assets/referents_points_table.png
+```{image} point_pixel_transformations/assets/reference_points_table.png
 :align: right
 :width: 150
 ```
