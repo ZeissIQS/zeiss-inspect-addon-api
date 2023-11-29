@@ -8,7 +8,9 @@ This example demonstrates how to access the reference points in a measurement an
 
 ## Highlights
 
-### 1. You access the reference points of a measurements in a script by inserting its keyword `Data arrays/Geometry/Coordinate`
+### 1. Accessing the reference points of a measurement
+
+In the Script Object dialog, select the keyword `Data arrays/Geometry/Coordinate`:
 
 ![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png)
 
@@ -36,7 +38,7 @@ reference_points = np.array (gom.app.project.measurement_series[MEASUREMENT_SERI
  [ 228.23743314   41.62522002 -141.81405049]]
 ```
 
-`reference_points[0].tolist()` creates am ordinary Python list from the numpy-array:
+`reference_points[0].tolist()` creates an ordinary Python list from the numpy-array:
 
 ```
 [[-235.5872127320349, -39.501880871176816, -21.064070577410664],
@@ -49,19 +51,21 @@ This can be used as input parameter to a script for creating a point cloud eleme
 
 ```{code-block} python
 create_point_cloud = gom.script.sys.create_element_by_script (
-  check_type='none', 
-  element_type='point_cloud', 
-  name=element_names['reference_points'], 
-  parameters= {
-    'points': reference_points[0].tolist()
-  }, 
-  script_uuid='ff73513a-e857-43da-b4d2-382f80f25c28'
+    check_type='none', 
+    element_type='point_cloud', 
+    name=element_names['reference_points'], 
+    parameters= {
+      'points': reference_points[0].tolist()
+    }, 
+    script_uuid='ff73513a-e857-43da-b4d2-382f80f25c28'
 )
 ```
 
 The function `gom.script.sys.create_element_by_script()` calls the script by its `script_uuid`.
 
-### 2. You access a mesh in a script by inserting its data structures `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle`
+### 2. Accessing a mesh
+
+In the Script Object dialog, select the data structures  `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle`.
 
 ![Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate](mesh_coordinates.png)
 
@@ -144,14 +148,14 @@ The arrays of vertex points and triangles can be used as input parameters to a s
 
 ```{code-block} python
 create_surface = gom.script.sys.create_element_by_script (
-  check_type='none', 
-  element_type='surface', 
-  name=element_names['shifted_part_surface'],
-  parameters= {
-    'vertices': shifted_part_points[0].tolist(),
-    'triangles': part_triangles[0].tolist()
-  }, 
-  script_uuid='af863fa6-27d6-44d9-bba3-636eb09119fa'
+    check_type='none', 
+    element_type='surface', 
+    name=element_names['shifted_part_surface'],
+    parameters= {
+      'vertices': shifted_part_points[0].tolist(),
+      'triangles': part_triangles[0].tolist()
+    }, 
+    script_uuid='af863fa6-27d6-44d9-bba3-636eb09119fa'
 )
 ```
 

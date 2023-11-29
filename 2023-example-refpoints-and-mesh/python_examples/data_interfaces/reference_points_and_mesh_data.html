@@ -119,8 +119,9 @@
 </section>
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
-<section id="you-access-the-reference-points-of-a-measurements-in-a-script-by-inserting-its-keyword-data-arrays-geometry-coordinate">
-<h3>1. You access the reference points of a measurements in a script by inserting its keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code><a class="headerlink" href="#you-access-the-reference-points-of-a-measurements-in-a-script-by-inserting-its-keyword-data-arrays-geometry-coordinate" title="Permalink to this heading"></a></h3>
+<section id="accessing-the-reference-points-of-a-measurement">
+<h3>1. Accessing the reference points of a measurement<a class="headerlink" href="#accessing-the-reference-points-of-a-measurement" title="Permalink to this heading"></a></h3>
+<p>In the Script Object dialog, select the keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code>:</p>
 <p><img alt="Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/reference_points_script_object.png" /></p>
 <p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
 <dl class="simple myst">
@@ -141,7 +142,7 @@
  <span class="p">[</span> <span class="mf">228.23743314</span>   <span class="mf">41.62522002</span> <span class="o">-</span><span class="mf">141.81405049</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">reference_points[0].tolist()</span></code> creates am ordinary Python list from the numpy-array:</p>
+<p><code class="docutils literal notranslate"><span class="pre">reference_points[0].tolist()</span></code> creates an ordinary Python list from the numpy-array:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="o">-</span><span class="mf">235.5872127320349</span><span class="p">,</span> <span class="o">-</span><span class="mf">39.501880871176816</span><span class="p">,</span> <span class="o">-</span><span class="mf">21.064070577410664</span><span class="p">],</span>
  <span class="p">[</span><span class="o">-</span><span class="mf">191.48581468551652</span><span class="p">,</span> <span class="o">-</span><span class="mf">13.62221567687171</span><span class="p">,</span> <span class="o">-</span><span class="mf">48.50181859232822</span><span class="p">],</span> 
  <span class="o">...</span><span class="p">,</span> 
@@ -150,20 +151,21 @@
 </div>
 <p>This can be used as input parameter to a script for creating a point cloud element:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_point_cloud</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
-  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
-  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;point_cloud&#39;</span><span class="p">,</span> 
-  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;reference_points&#39;</span><span class="p">],</span> 
-  <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="n">reference_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-  <span class="p">},</span> 
-  <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;ff73513a-e857-43da-b4d2-382f80f25c28&#39;</span>
+    <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+    <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;point_cloud&#39;</span><span class="p">,</span> 
+    <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;reference_points&#39;</span><span class="p">],</span> 
+    <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="n">reference_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="p">},</span> 
+    <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;ff73513a-e857-43da-b4d2-382f80f25c28&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_element_by_script()</span></code> calls the script by its <code class="docutils literal notranslate"><span class="pre">script_uuid</span></code>.</p>
 </section>
-<section id="you-access-a-mesh-in-a-script-by-inserting-its-data-structures-data-arrays-geometry-coordinate-and-data-arrays-geometry-triangle">
-<h3>2. You access a mesh in a script by inserting its data structures <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code><a class="headerlink" href="#you-access-a-mesh-in-a-script-by-inserting-its-data-structures-data-arrays-geometry-coordinate-and-data-arrays-geometry-triangle" title="Permalink to this heading"></a></h3>
+<section id="accessing-a-mesh">
+<h3>2. Accessing a mesh<a class="headerlink" href="#accessing-a-mesh" title="Permalink to this heading"></a></h3>
+<p>In the Script Object dialog, select the data structures  <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code>.</p>
 <p><img alt="Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/mesh_coordinates.png" /></p>
 <p>The <strong>coordinates</strong> are the vertex points of the mesh.</p>
 <p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
@@ -224,14 +226,14 @@
 <p>C = [-260.18363995  -54.31011231  -29.50854346]</p>
 <p>The arrays of vertex points and triangles can be used as input parameters to a script for creating a surface element:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_surface</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
-  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
-  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> 
-  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;shifted_part_surface&#39;</span><span class="p">],</span>
-  <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="n">shifted_part_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-    <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="n">part_triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-  <span class="p">},</span> 
-  <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;af863fa6-27d6-44d9-bba3-636eb09119fa&#39;</span>
+    <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+    <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> 
+    <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;shifted_part_surface&#39;</span><span class="p">],</span>
+    <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="n">shifted_part_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+      <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="n">part_triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="p">},</span> 
+    <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;af863fa6-27d6-44d9-bba3-636eb09119fa&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
