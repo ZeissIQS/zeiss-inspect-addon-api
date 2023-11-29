@@ -121,13 +121,13 @@
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
 <section id="accessing-the-reference-points-of-a-measurement">
 <h3>1. Accessing the reference points of a measurement<a class="headerlink" href="#accessing-the-reference-points-of-a-measurement" title="Permalink to this heading"></a></h3>
-<p>In the Script Object dialog, select the keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code>:</p>
+<p>In the Script Object dialog, select the keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> of the reference points element:</p>
 <p><img alt="Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/reference_points_script_object.png" /></p>
 <p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
 <dl class="simple myst">
 <dt>Index 0</dt><dd><p>Stage</p>
 </dd>
-<dt>Index 1</dt><dd><p>Reference Points [0…n]</p>
+<dt>Index 1</dt><dd><p>Reference Points [0…&lt;n&gt;-1]</p>
 </dd>
 <dt>Index 2</dt><dd><p>Coordinate [x, y, z]</p>
 </dd>
@@ -165,7 +165,7 @@
 </section>
 <section id="accessing-a-mesh">
 <h3>2. Accessing a mesh<a class="headerlink" href="#accessing-a-mesh" title="Permalink to this heading"></a></h3>
-<p>In the Script Object dialog, select the data structures  <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code>.</p>
+<p>In the Script Object dialog, select the data structures <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code> of the mesh element:</p>
 <p><img alt="Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/mesh_coordinates.png" /></p>
 <p>The <strong>coordinates</strong> are the vertex points of the mesh.</p>
 <p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
@@ -191,13 +191,13 @@
   <span class="p">[</span> <span class="mf">223.86296211</span>  <span class="mf">175.77943045</span> <span class="o">-</span><span class="mf">208.493199</span>  <span class="p">]]]</span>
 </pre></div>
 </div>
-<p>Numpy-arrays can be handled very efficiently. The following code example creates a copy of the original mesh vertex points and shifts all points by 200mm in Z direction:</p>
+<p>Numpy-arrays can be handled very efficiently. The following code example creates a copy of the original mesh vertex points and shifts all points in Z direction by 200mm:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shifted_part_points</span> <span class="o">=</span> <span class="n">part_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">shifted_part_points</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">200</span>
 </pre></div>
 </div>
 <p><img alt="Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Triangle" src="../../_images/mesh_triangles.png" /></p>
-<p>The <strong>triangles</strong> are the edges between the vertex points, a numpy-array with shape (1, &lt;m&gt;, 3).</p>
+<p>The <strong>triangles</strong> are the edges between the vertex points. The resulting data structure is a numpy-array of shape (1, &lt;m&gt;, 3).</p>
 <dl class="simple myst">
 <dt>Index 0</dt><dd><p>Stage</p>
 </dd>
@@ -241,7 +241,7 @@
 <section id="script-for-creating-a-surface-element">
 <h3>3. Script for creating a surface element<a class="headerlink" href="#script-for-creating-a-surface-element" title="Permalink to this heading"></a></h3>
 <p>The scripts <code class="docutils literal notranslate"><span class="pre">create_point_cloud.py</span></code> and <code class="docutils literal notranslate"><span class="pre">create_surface.py</span></code> are provided in the example Add-on.</p>
-<p>Since no user interaction is required, the <code class="docutils literal notranslate"><span class="pre">dialog()</span></code> function shown in <a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Introduction to scripted elements</span></a> as part of the code pattern can be omitted. Consequently, the box Interactive Script in the Script Properties dialog is unchecked.</p>
+<p>Since no user interaction is required, the <code class="docutils literal notranslate"><span class="pre">dialog()</span></code> function shown in <a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Introduction to scripted elements</span></a> as part of the code pattern can be omitted. Consequently, the checkbox Interactive Script in the Script Properties dialog is disabled.</p>
 <p><img alt="Create Surface - Script Properties" src="../../_images/create_surface_script_properties.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">create_surface.py</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
