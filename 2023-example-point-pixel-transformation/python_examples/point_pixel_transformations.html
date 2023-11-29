@@ -117,9 +117,8 @@
 <p>Each measurement has two arrays for reference points with matching indices:</p>
 <p><code class="docutils literal notranslate"><span class="pre">measurement.reference_point_id</span></code> - The reference points’ Ids or <code class="docutils literal notranslate"><span class="pre">None</span></code> for an invalid reference point
 <code class="docutils literal notranslate"><span class="pre">measurement.reference_point_coordinate</span></code> - The reference points’ coordinates</p>
-<ol class="arabic simple">
-<li><p>Set the point coordinate</p></li>
-</ol>
+<section id="set-the-point-coordinate">
+<h3>1. Set the point coordinate<a class="headerlink" href="#set-the-point-coordinate" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="n">MEASUREMENT_SERIES</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="n">MEASUREMENT</span><span class="p">]</span>
 <span class="n">stage_index</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -134,16 +133,16 @@
 </div>
 <p>Reference points’ IDs and coordinates</p>
 <p><a class="reference internal" href="../_images/reference_points_table.png"><img alt="Table: Reference Points" src="../_images/reference_points_table.png" style="width: 800px;" /></a></p>
-<ol class="arabic simple" start="2">
-<li><p>Get the left and right camera image</p></li>
-</ol>
+</section>
+<section id="get-the-left-and-right-camera-image">
+<h3>2. Get the left and right camera image<a class="headerlink" href="#get-the-left-and-right-camera-image" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span><span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage_index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span><span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage_index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Compute 2D pixel coordinates from 3D point</p></li>
-</ol>
+</section>
+<section id="compute-2d-pixel-coordinates-from-3d-point">
+<h3>3. Compute 2D pixel coordinates from 3D point<a class="headerlink" href="#compute-2d-pixel-coordinates-from-3d-point" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">image_coordinates</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_pixels_from_point</span> <span class="p">([(</span><span class="n">reference_point</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="p">(</span><span class="n">reference_point</span><span class="p">,</span> <span class="n">right</span><span class="p">)])</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Image coordinates of reference point (left, right): </span><span class="si">{</span><span class="n">image_coordinates</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -153,9 +152,9 @@
 <span class="n">Image</span> <span class="n">coordinates</span> <span class="n">of</span> <span class="n">reference</span> <span class="n">point</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1980.7299023612043</span><span class="p">,</span> <span class="mf">150.31166936961336</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">2545.676173697585</span><span class="p">,</span> <span class="mf">124.49594153283601</span><span class="p">)]</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Compute 3D point coordinate from 2D pixels</p></li>
-</ol>
+</section>
+<section id="compute-3d-point-coordinate-from-2d-pixels">
+<h3>4. Compute 3D point coordinate from 2D pixels<a class="headerlink" href="#compute-3d-point-coordinate-from-2d-pixels" title="Permalink to this heading"></a></h3>
 <p>The resulting 2D pixels from the previous step are used as the input parameters to the transformation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Left image: </span><span class="si">{</span><span class="n">image_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">, Right image: </span><span class="si">{</span><span class="n">image_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">use_calibration</span> <span class="o">=</span> <span class="kc">False</span>
@@ -168,13 +167,14 @@
 <span class="n">Computation</span> <span class="n">result</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="mf">31.30768655560711</span><span class="p">,</span> <span class="mf">201.84682632118486</span><span class="p">,</span> <span class="o">-</span><span class="mf">174.5779322757101</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>For comparison: Interactive display of reference points and pixel coordinates</p></li>
-</ol>
+</section>
+<section id="for-comparison-interactive-display-of-reference-points-and-pixel-coordinates">
+<h3>5. For comparison: Interactive display of reference points and pixel coordinates<a class="headerlink" href="#for-comparison-interactive-display-of-reference-points-and-pixel-coordinates" title="Permalink to this heading"></a></h3>
 <p>Explorer: Measurement — Edit Creation Parameters</p>
 <p><a class="reference internal" href="../_images/measurement_creation_parameters.png"><img alt="Measurement Creation Parameters" src="../_images/measurement_creation_parameters.png" style="width: 400px;" /></a></p>
 <p>Edit Creation Parameters Dialog</p>
 <p><a class="reference internal" href="../_images/camera_image_reference_points.png"><img alt="Edit Creation Parameters Dialog" src="../_images/camera_image_reference_points.png" style="width: 800px;" /></a></p>
+</section>
 </section>
 <section id="related">
 <h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
