@@ -4,7 +4,7 @@
 
 ## Short description
 
-This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from the both data structures, respectively.  
+This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from both data structures, respectively.  
 
 ## Highlights
 
@@ -49,13 +49,13 @@ This can be used as input parameter to a script for creating a point cloud eleme
 
 ```{code-block} python
 create_point_cloud = gom.script.sys.create_element_by_script (
-	  check_type='none', 
-	  element_type='point_cloud', 
-	  name=element_names['reference_points'], 
-		parameters= {
-			'points': reference_points[0].tolist()
-		}, 
-		script_uuid='ff73513a-e857-43da-b4d2-382f80f25c28'
+  check_type='none', 
+  element_type='point_cloud', 
+  name=element_names['reference_points'], 
+  parameters= {
+    'points': reference_points[0].tolist()
+  }, 
+  script_uuid='ff73513a-e857-43da-b4d2-382f80f25c28'
 )
 ```
 
@@ -142,16 +142,16 @@ C = [-260.18363995  -54.31011231  -29.50854346]
 
 The arrays of vertex points and triangles can be used as input parameters to a script for creating a surface element: 
 
-```
+```{code-block} python
 create_surface = gom.script.sys.create_element_by_script (
-    check_type='none', 
-    element_type='surface', 
-    name=element_names['shifted_part_surface'],
-    parameters= {
-      'vertices': shifted_part_points[0].tolist(),
-      'triangles': part_triangles[0].tolist()
-    }, 
-    script_uuid='af863fa6-27d6-44d9-bba3-636eb09119fa'
+  check_type='none', 
+  element_type='surface', 
+  name=element_names['shifted_part_surface'],
+  parameters= {
+    'vertices': shifted_part_points[0].tolist(),
+    'triangles': part_triangles[0].tolist()
+  }, 
+  script_uuid='af863fa6-27d6-44d9-bba3-636eb09119fa'
 )
 ```
 
