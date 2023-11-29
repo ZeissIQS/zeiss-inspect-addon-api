@@ -10,7 +10,7 @@ This example demonstrates how to access the reference points in a measurement an
 
 ### 1. Accessing the reference points of a measurement
 
-In the Script Object dialog, select the keyword `Data arrays/Geometry/Coordinate`:
+In the Script Object dialog, select the keyword `Data arrays/Geometry/Coordinate` of the reference points element:
 
 ![Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate](reference_points_script_object.png)
 
@@ -20,7 +20,7 @@ Index 0
 : Stage
 
 Index 1
-: Reference Points [0...n]
+: Reference Points [0...\<n\>-1]
 
 Index 2
 : Coordinate [x, y, z]
@@ -65,7 +65,7 @@ The function `gom.script.sys.create_element_by_script()` calls the script by its
 
 ### 2. Accessing a mesh
 
-In the Script Object dialog, select the data structures  `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle`.
+In the Script Object dialog, select the data structures `Data arrays/Geometry/Coordinate` and `Data arrays/Geometry/Triangle` of the mesh element:
 
 ![Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate](mesh_coordinates.png)
 
@@ -98,7 +98,7 @@ Example:
   [ 223.86296211  175.77943045 -208.493199  ]]]
 ```
 
-Numpy-arrays can be handled very efficiently. The following code example creates a copy of the original mesh vertex points and shifts all points by 200mm in Z direction:
+Numpy-arrays can be handled very efficiently. The following code example creates a copy of the original mesh vertex points and shifts all points in Z direction by 200mm:
 
 ```{code-block} python 
 shifted_part_points = part_points.copy()
@@ -107,7 +107,7 @@ shifted_part_points[0, :, 2] += 200
 
 ![Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Triangle](mesh_triangles.png)
 
-The **triangles** are the edges between the vertex points, a numpy-array with shape (1, \<m\>, 3).
+The **triangles** are the edges between the vertex points. The resulting data structure is a numpy-array of shape (1, \<m\>, 3).
 
 Index 0
 : Stage
@@ -163,7 +163,7 @@ create_surface = gom.script.sys.create_element_by_script (
 
 The scripts `create_point_cloud.py` and `create_surface.py` are provided in the example Add-on.
 
-Since no user interaction is required, the `dialog()` function shown in [Introduction to scripted elements](../../howtos/scripted_elements/scripted_elements_introduction.md) as part of the code pattern can be omitted. Consequently, the box Interactive Script in the Script Properties dialog is unchecked.
+Since no user interaction is required, the `dialog()` function shown in [Introduction to scripted elements](../../howtos/scripted_elements/scripted_elements_introduction.md) as part of the code pattern can be omitted. Consequently, the checkbox Interactive Script in the Script Properties dialog is disabled.
 
 ![Create Surface - Script Properties](create_surface_script_properties.png)
 
