@@ -1,6 +1,6 @@
 # Using Python wheelhouses
 
-> Abstract: Usually installing Python packages via the Add-on Explorer in the Add-on Editor works just fine. In certain cases, the installation succeeds but the Add-on will fail with the error message `The specified module could not be found.`. This could be caused by inter-wheel dependencies or by hardcoded paths in packages, which are different from the ones used by the ZEISS INSPECT software. This is solved by creating a Python wheelhouse, which is installed in the same way as a normal Python wheel. Technically, a wheelhouse is a ZIP archive of Python wheels.
+> Abstract: Usually installing Python packages via the Add-on Explorer in the Add-on Editor works just fine. In certain cases, the installation succeeds but the Add-on will fail with the error message `The specified module could not be found.` This could be caused by inter-wheel dependencies or by hardcoded paths in packages, which are different from the ones used by the ZEISS INSPECT software. This is solved by creating a Python wheelhouse, which is installed in the same way as a normal Python wheel. Technically, a wheelhouse is a ZIP archive of Python wheels.
 
 ## Creating a wheelhouse
 
