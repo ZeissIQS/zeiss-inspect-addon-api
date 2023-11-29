@@ -115,7 +115,7 @@
 <p><a class="reference internal" href="../../_images/refpoints_and_mesh.png"><img alt="Point Cloud and Surface Elements from Reference Points/Mesh" src="../../_images/refpoints_and_mesh.png" style="width: 800px;" /></a></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
-<p>This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from the both data structures, respectively.</p>
+<p>This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from both data structures, respectively.</p>
 </section>
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
@@ -150,13 +150,13 @@
 </div>
 <p>This can be used as input parameter to a script for creating a point cloud element:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_point_cloud</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
-	  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
-	  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;point_cloud&#39;</span><span class="p">,</span> 
-	  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;reference_points&#39;</span><span class="p">],</span> 
-		<span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
-			<span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="n">reference_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-		<span class="p">},</span> 
-		<span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;ff73513a-e857-43da-b4d2-382f80f25c28&#39;</span>
+  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;point_cloud&#39;</span><span class="p">,</span> 
+  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;reference_points&#39;</span><span class="p">],</span> 
+  <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="n">reference_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+  <span class="p">},</span> 
+  <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;ff73513a-e857-43da-b4d2-382f80f25c28&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -223,15 +223,15 @@
 <p>B = [-260.19041153  -54.08518361  -29.07912709]</p>
 <p>C = [-260.18363995  -54.31011231  -29.50854346]</p>
 <p>The arrays of vertex points and triangles can be used as input parameters to a script for creating a surface element:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create_surface</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
-    <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
-    <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> 
-    <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;shifted_part_surface&#39;</span><span class="p">],</span>
-    <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="n">shifted_part_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-      <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="n">part_triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="p">},</span> 
-    <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;af863fa6-27d6-44d9-bba3-636eb09119fa&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_surface</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
+  <span class="n">check_type</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+  <span class="n">element_type</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> 
+  <span class="n">name</span><span class="o">=</span><span class="n">element_names</span><span class="p">[</span><span class="s1">&#39;shifted_part_surface&#39;</span><span class="p">],</span>
+  <span class="n">parameters</span><span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="n">shifted_part_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+    <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="n">part_triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+  <span class="p">},</span> 
+  <span class="n">script_uuid</span><span class="o">=</span><span class="s1">&#39;af863fa6-27d6-44d9-bba3-636eb09119fa&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
