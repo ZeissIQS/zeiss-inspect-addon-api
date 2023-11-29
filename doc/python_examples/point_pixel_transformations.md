@@ -13,7 +13,7 @@ Each measurement has two arrays for reference points with matching indices:
 `measurement.reference_point_id` - The reference points' Ids or `None` for an invalid reference point
 `measurement.reference_point_coordinate` - The reference points' coordinates
 
-1. Set the point coordinate
+### 1. Set the point coordinate
 
 ```{code-block} python
 measurement = gom.app.project.measurement_series[MEASUREMENT_SERIES].measurements[MEASUREMENT]
@@ -32,14 +32,14 @@ Reference points' IDs and coordinates
 
 ![Table: Reference Points](point_pixel_transformations/assets/reference_points_table.png){w=800px}
 
-2. Get the left and right camera image
+### 2. Get the left and right camera image
 
 ```{code-block} python
 left = gom.api.project.get_image_acquisition(measurement, 'left camera', [stage_index])[0]
 right = gom.api.project.get_image_acquisition(measurement, 'right camera', [stage_index])[0]
 ```
 
-3. Compute 2D pixel coordinates from 3D point
+### 3. Compute 2D pixel coordinates from 3D point
 
 ```{code-block} python
 image_coordinates = gom.api.imaging.compute_pixels_from_point ([(reference_point, left), (reference_point, right)])
@@ -53,7 +53,7 @@ First reference point in Scan 1 - M1: ID = 1000, P = gom.Vec3d (31.3076865556476
 Image coordinates of reference point (left, right): [gom.Vec2d (1980.7299023612043, 150.31166936961336), gom.Vec2d (2545.676173697585, 124.49594153283601)]
 ```
 
-4. Compute 3D point coordinate from 2D pixels
+### 4. Compute 3D point coordinate from 2D pixels
 
 The resulting 2D pixels from the previous step are used as the input parameters to the transformation.
 
@@ -71,7 +71,7 @@ Left image: gom.Vec2d (1980.7299023612043, 150.31166936961336), Right image: gom
 Computation result: P = gom.Vec3d (31.30768655560711, 201.84682632118486, -174.5779322757101)
 ```
 
-5. For comparison: Interactive display of reference points and pixel coordinates
+### 5. For comparison: Interactive display of reference points and pixel coordinates
 
 Explorer: Measurement &mdash; Edit Creation Parameters
 
