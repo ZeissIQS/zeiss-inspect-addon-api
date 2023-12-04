@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add-on file format &mdash; Add-On Documentation  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-    <link rel="canonical" href="https://zeissiqs.github.io/howtos/add_on_file_format/add_on_file_format.html" />
+  <title>Add-on file format &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/add_on_file_format/add_on_file_format.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -21,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Documenting Add-ons" href="../add_on_documentation/add_on_documentation.html" />
-    <link rel="prev" title="Using Add-on Manager" href="../using_add_on_manager/using_add_on_manager.html" /> 
+    <link rel="prev" title="Using the Add-on Editor" href="../using_add_on_editor/using_add_on_editor.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,6 +36,7 @@
           
           <a href="../../index.html" class="icon icon-home">
             Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -45,8 +48,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Add-on file format</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a><ul>
@@ -81,7 +84,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
@@ -92,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
@@ -321,19 +324,19 @@
 <li><p>The JSON file in each folder contains both administrative data and content information</p></li>
 </ul>
 <p><strong>Name.json</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;content&quot;: {
-        &quot;!all:&quot; {
-            &quot;label_background&quot;: &quot;gom.Color (0, 0, 0, 0)&quot;,
-            &quot;label_border_mode&quot;: &quot;&#39;none&#39;&quot;,
-            ...
-            &quot;label_text&quot;: &quot;...&quot;
-        },
-        ...
-    },
-    &quot;sort_index&quot;: 1,
-    &quot;uuid&quot;: &quot;4a6ef87a-5214-4089-bdc3-5a96cf8b5108&quot;
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;!all:&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label_background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gom.Color (0, 0, 0, 0)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;label_border_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&#39;none&#39;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;label_text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;sort_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4a6ef87a-5214-4089-bdc3-5a96cf8b5108&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -371,7 +374,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../using_add_on_manager/using_add_on_manager.html" class="btn btn-neutral float-left" title="Using Add-on Manager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using_add_on_editor/using_add_on_editor.html" class="btn btn-neutral float-left" title="Using the Add-on Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../add_on_documentation/add_on_documentation.html" class="btn btn-neutral float-right" title="Documenting Add-ons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

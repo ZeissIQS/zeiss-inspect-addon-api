@@ -16,7 +16,7 @@
 > There is no UI based workspace editor yet, but workspace definitions can be added manually.
 
 * An add-on is just a ZIP file with a different extension  (.addon) containing JSON based object definitions.
-* It can be unpacked, edited and packaged again with a new workspace definition.
+* It can be unpacked, edited and packed again with a new workspace definition.
 
 ### Step 1: Unpack the add-on
 
@@ -38,7 +38,7 @@ The workspace definitions must be placed in a folder named `workspaces`. A separ
 
 Add a workspace definition file must be added to the new workspace folder, i.e.
 
-`My Add-on/workspaces/<workspace>/<workspace.json>`
+`My Add-on/workspaces/<workspace>/<workspace>.json`
 
 **Example:** From the Add-on 'Airfoil CMM Data Preparation':
 
@@ -149,7 +149,7 @@ Commands on the left side of the workspace toolbar. These command can either be
 * the name of a script command (a command starting a Python script)
 * a special tag like '[separator]' for a separator in the command toolbar.
 
-The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and skip the 'gom.script' prefix:
+The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and omit the 'gom.script' prefix:
 
 ![](assets/workspace5.png)
 

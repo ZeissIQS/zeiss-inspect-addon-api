@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<meta content="ZEISS INSPECT 2023 Add-on Python API Documentation" name="description" />
+<meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add-On Documentation 2023 &mdash; Add-On Documentation  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="canonical" href="https://zeissiqs.github.io/index.html" />
+  <title>ZEISS INSPECT Add-On Development Documentation 2023 &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme_zeiss.css" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/index.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,7 +24,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python API introduction" href="howtos/python_api_introduction/python_api_introduction.html" /> 
+    <link rel="next" title="ZEISS INSPECT Python API Introduction" href="howtos/python_api_introduction/python_api_introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -33,6 +37,7 @@
           
           <a href="#" class="icon icon-home">
             Add-On Documentation
+              <img src="_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,8 +49,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="howtos/python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="howtos/using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
@@ -60,7 +65,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/data_interfaces.html">data_interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/misc.html">misc</a></li>
@@ -71,7 +76,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="python_api/python_api.html">Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_api/scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
@@ -90,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Add-On Documentation 2023</li>
+      <li class="breadcrumb-item active">ZEISS INSPECT Add-On Development Documentation 2023</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,22 +105,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="add-on-documentation-2023">
-<h1>Add-On Documentation 2023<a class="headerlink" href="#add-on-documentation-2023" title="Permalink to this heading"></a></h1>
-<p>Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software.
+  <section id="zeiss-inspect-add-on-development-documentation-2023">
+<h1>ZEISS INSPECT Add-On Development Documentation 2023<a class="headerlink" href="#zeiss-inspect-add-on-development-documentation-2023" title="Permalink to this heading"></a></h1>
+<p>Welcome to the ZEISS INSPECT Add-On development documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software.
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? This free course teaches you the basics:</p>
-<p><a class="reference external" href="https://training.gom.com/home/LearningPath/7265">(eLearning) 780 Starter Training ZEISS INSPECT</a></p>
-<p>Or, depending on your application, you might be interested in the specific starter trainings for <a class="reference external" href="https://training.gom.com/home/LearningPath/7280">ZEISS INSPECT X-Ray</a>, <a class="reference external" href="https://training.gom.com/home/LearningPath/7282">ZEISS INSPECT Correlate</a>, or <a class="reference external" href="https://training.gom.com/home/LearningPath/7281">ZEISS INSPECT Airfoil</a>.</p>
+<p>Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:</p>
+<p><a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_inspect.html">Access Point: ZEISS INSPECT</a></p>
+<p>Or, depending on your application, you might be interested in the specific articles <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html">Access Point: ZEISS INSPECT X-Ray</a> or <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html">Access Point: ZEISS INSPECT Airfoil</a>.</p>
 </div>
-<p>If you are new to add-ons, we recommend following our how-to guides to get you started.</p>
+<!--
+Not available yet: [Access Point: ZEISS INSPECT Correlate]()
+-->
+<p>If you are new to Add-ons, you find some introductions in the ZEISS Quality Tech Guide:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/introduction_to_add-ons.html">Introduction to Add-ons</a></p></li>
+<li><p><a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_a_basic_add_on.html">How to Create a Basic Add-on</a></p></li>
+<li><p><a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html">How to Create an Advanced Add-on</a></p></li>
+</ul>
+<p>Furthermore, we recommend following our how-to guides to get you started.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="howtos/python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="howtos/using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
@@ -133,7 +147,7 @@ You can include several template configurations from the software, as well as co
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/data_interfaces.html">data_interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_examples/misc.html">misc</a></li>
@@ -147,7 +161,7 @@ You can include several template configurations from the software, as well as co
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="python_api/python_api.html">Python API documentation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="python_api/python_api.html">ZEISS INSPECT Python API documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python_api/python_api.html#gom-api-imaging">gom.api.imaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_api/python_api.html#gom-api-project">gom.api.project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_api/python_api.html#gom-api-addons">gom.api.addons</a></li>
@@ -174,7 +188,7 @@ You can include several template configurations from the software, as well as co
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="howtos/python_api_introduction/python_api_introduction.html" class="btn btn-neutral float-right" title="Python API introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="howtos/python_api_introduction/python_api_introduction.html" class="btn btn-neutral float-right" title="ZEISS INSPECT Python API Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

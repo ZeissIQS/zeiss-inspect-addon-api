@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using shared environments &mdash; Add-On Documentation  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-    <link rel="canonical" href="https://zeissiqs.github.io/howtos/using_shared_environments/using_shared_environments.html" />
+  <title>Using shared environments &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_shared_environments/using_shared_environments.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -34,6 +36,7 @@
           
           <a href="../../index.html" class="icon icon-home">
             Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -45,8 +48,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">Python API introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_add_on_manager/using_add_on_manager.html">Using Add-on Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
@@ -71,7 +74,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
@@ -82,7 +85,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
@@ -177,26 +180,26 @@
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;author&quot;: &quot;Test user&quot;,
-    &quot;description&quot;: &quot;Example for shared environment&quot;,
-    &quot;environment&quot;: &quot;SharedEnv1234&quot;,
-    &quot;labels&quot;: [
-    ],
-    &quot;licensing&quot;: {
-        &quot;licenses&quot;: [
-        ],
-        &quot;product-codes&quot;: [
-        ]
-    },
-    &quot;software-revision&quot;: &quot;735&quot;,
-    &quot;software-version&quot;: &quot;ZEISS INSPECT 2023&quot;,
-    &quot;tags&quot;: [
-    ],
-    &quot;title&quot;: &quot;SharedEnvBase&quot;,
-    &quot;uuid&quot;: &quot;178f89cc-fc62-413f-b692-dbc68bf67ec8&quot;,
-    &quot;version&quot;: &quot;1.0.2
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test user&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example for shared environment&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedEnv1234&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;licensing&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;licenses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;product-codes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;software-revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;735&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;software-version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZEISS INSPECT 2023&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedEnvBase&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;178f89cc-fc62-413f-b692-dbc68bf67ec8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.2&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -242,12 +245,12 @@
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">SharedEnvUser/metainfo.json</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;title&quot;: &quot;SharedEnvUser&quot;,
-    ...
-    &quot;environment&quot;: &quot;SharedEnv1234&quot;,
-    ...
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedEnvUser&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedEnv1234&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
