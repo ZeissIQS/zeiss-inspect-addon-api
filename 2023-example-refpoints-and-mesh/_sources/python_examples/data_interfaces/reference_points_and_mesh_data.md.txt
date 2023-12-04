@@ -61,7 +61,7 @@ create_point_cloud = gom.script.sys.create_element_by_script (
 )
 ```
 
-The function `gom.script.sys.create_element_by_script()` calls the script by its `script_uuid`.
+The function `gom.script.sys.create_element_by_script()` calls the script `create_point_cloud.py` by its `script_uuid`. The `script_uuid` can be found via the Add-on Explorer in the Script Properties (see [3. Script for creating a surface element](#3-script-for-creating-a-surface-element)).
 
 ### 2. Accessing a mesh
 
