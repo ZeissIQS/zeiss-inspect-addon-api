@@ -41,13 +41,13 @@
     -->
 
     ```{code-block} python
-    :caption: Example: Script with separate dialog file
+    :caption: Example&colon; Script with separate dialog file
 
     RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')
     ```
 
     ```{code-block} python
-    :caption: Example: Script with embedded dialog
+    :caption: Example&colon; Script with embedded dialog
 
     RESULT=gom.script.sys.execute_user_defined_dialog (dialog={
         "content": [
@@ -292,21 +292,20 @@ Continuous text widget
 | ![](assets/edit_text.png)  | ![](assets/widget_text.png) |
 
 
-[//]: # (* The keywords displayed in text field widgets can originate from different source:)
-
-[//]: # (    * Global application keywords)
-
-[//]: # (    * project related keywords)
- 
-[//]: # (    * local script variables.)
-
-[//]: # (⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.)
-
-[//]: # ( * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text)
-
-[//]: # (field editor prior to script execution, so an invalid value will most certainly be displayed instead.)
-
-[//]: # (To Do: Check how to insert local variables)
+% * The keywords displayed in text field widgets can originate from different source:
+%
+%     * Global application keywords
+%
+%     * project related keywords
+%
+%     * local script variables.
+%
+% ⚠️ Local script variables can be displayed in text fields by inserting them via the 'insert expression' dialog.
+%
+%  * Local script variables are invalid until the variable assignment is reached. They cannot be displayed statically in the text
+%  field editor prior to script execution, so an invalid value will most certainly be displayed instead.
+% 
+% To Do: Check how to insert local variables
 
 | Property            | Type | Example                                                    |
 | ------------------- | ---- | ---------------------------------------------------------- |
@@ -667,9 +666,8 @@ userInput = RESULT.decimalWidget
 | precision | double | <pre># Set precision to 2 decimals<br>DIALOG.input.precision = 2</pre>   |
 | unit      | str    | <pre># Set unit ID<br>DIALOG.input.unit = 'LENGTH'</pre>                 |
 
-[//]: # ( No visible effect )
-
-[//]: # ( background_style - str - Set style sheet based background color  - red, green, blue )
+% No visible effect:
+% background_style - str - Set style sheet based background color  - red, green, blue 
 
 #### Text entry field
 ![](assets/widget_text_entry.png)
@@ -721,9 +719,8 @@ print( RESULT.sliderWidget ) # some text
 | step          | double | <pre># Set step size to 15<br>DIALOG.input.step = 15</pre>                 |
 | orientation   | str    | <pre>print(DIALOG.input.orientation)</pre>⚠️ read-only                     |
 
-[//]: # ( ticks are not drawn )
-
-[//]: # ( tick_interval - double - Interval of ticks drawn )
+% ticks are not drawn
+% tick_interval - double - Interval of ticks drawn
 
 
 #### Checkbox widget
@@ -770,9 +767,8 @@ File widget
 | file_types | list | <pre># Show only specified file types; each list item must consist of \[\<filename_extension\>, \<description\>\]<br>DIALOG.inputFile.file_types = \[\['*.g3d', 'Mesh data'\], \['*.stp', 'CAD data'\]\]</pre> ⚠️ ``limited`` must be set to ``True`` in order to apply the filter! |
 | limited    | bool | <pre># Limit file selection to 'file_types'<br>DIALOG.inputFile.limited = True</pre>                 |
 
-[//]: # (Clarify this)
-
-[//]: # (selection_type - str - File selector type; any, directory, executable, file, multi_file )
+% Clarify this:
+% selection_type - str - File selector type; any, directory, executable, file, multi_file
 
 #### Date widget
 
@@ -925,9 +921,7 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG4)
 print("Chosen system plane:", RESULT.input_new.name)
 ```
 
-The complete code of the example is attached to this document. 
-
-[//]: # (To Do: attach example)
+Please find the complete example here: [dialog_custom_elem_select.py](assets/dialog_custom_elem_select.py)
 
 #### Selection list widget
 
@@ -1015,7 +1009,7 @@ Abort button widget
 
 ![](assets/built-in_progressbar.png)
 
-[//]: # (To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.)
+% To Do: Add enabled abort button. Check if the button still exists in ZEISS Inspect.
 
 #### Tolerances widget
 

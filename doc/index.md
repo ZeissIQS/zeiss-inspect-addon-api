@@ -1,18 +1,34 @@
-# Add-On Documentation 2023
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2023 Add-on Python API Documentation"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
+--- 
 
-Welcome to the Add-On documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
+# ZEISS INSPECT Add-On Development Documentation 2023
+
+Welcome to the ZEISS INSPECT Add-On development documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
-Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? This free course teaches you the basics:
+Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:
 
-[(eLearning) 780 Starter Training ZEISS INSPECT](https://training.gom.com/home/LearningPath/7265)
+[Access Point: ZEISS INSPECT](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_inspect.html)
 
-Or, depending on your application, you might be interested in the specific starter trainings for [ZEISS INSPECT X-Ray](https://training.gom.com/home/LearningPath/7280), [ZEISS INSPECT Correlate](https://training.gom.com/home/LearningPath/7282), or [ZEISS INSPECT Airfoil](https://training.gom.com/home/LearningPath/7281).
+Or, depending on your application, you might be interested in the specific articles [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html) or [Access Point: ZEISS INSPECT Airfoil](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html).
 
 ```
+<!--
+Not available yet: [Access Point: ZEISS INSPECT Correlate]()
+-->
 
-If you are new to add-ons, we recommend following our how-to guides to get you started.
+If you are new to Add-ons, you find some introductions in the ZEISS Quality Tech Guide:
+
+* [Introduction to Add-ons](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/introduction_to_add-ons.html)
+* [How to Create a Basic Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_a_basic_add_on.html)
+* [How to Create an Advanced Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html)
+
+Furthermore, we recommend following our how-to guides to get you started.
 
 ```{eval-rst}
 .. toctree::
@@ -20,7 +36,7 @@ If you are new to add-ons, we recommend following our how-to guides to get you s
    :caption: How-to Guides
 
    howtos/python_api_introduction/python_api_introduction
-   howtos/using_add_on_manager/using_add_on_manager
+   howtos/using_add_on_editor/using_add_on_editor
    howtos/add_on_file_format/add_on_file_format
    howtos/add_on_documentation/add_on_documentation
    howtos/using_vscode_editor/using_vscode_editor

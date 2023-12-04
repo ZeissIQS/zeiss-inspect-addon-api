@@ -31,14 +31,22 @@ myst_heading_anchors = 4
 
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
-html_baseurl = 'https://zeissiqs.github.io/'
+html_baseurl = 'https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/'
+sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
+# "sphinx_rtd_theme" appends " &mdash; <project>  documentation" to the page heading -
+# this changes the title to "<page_heading> &mdash; <project>"
+html_title = project
 html_static_path = ['_static']
+
+# -- Override some "sphinx_rtd_theme" styles to match ZEISS branding ---------------
+# https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
+html_style = "css/theme_zeiss.css"
 
 favicons = [
     {
@@ -48,3 +56,6 @@ favicons = [
         "type": "image/png",
     }
 ]
+
+# Source: https://brand.zeiss.com/cmsPublic/brandportal/basic-design-elements/logo-tagline.html
+html_logo =  "_static/zeiss-logo-rgb.png"
