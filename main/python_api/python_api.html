@@ -845,8 +845,8 @@ part of an add-on called ‘Settings API Example’, the application preferences
 <p>This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -892,8 +892,8 @@ These keys are the same configuration keys are used in the <code class="docutils
 <p>This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
-<span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

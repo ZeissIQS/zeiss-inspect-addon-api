@@ -560,8 +560,8 @@ are integer, double, string and bool.
 **Example**
 
 ```
-w = gom.app.settings.get ('dialog.width')
-h = gom.app.settings.get ('dialog.height')
+w = gom.api.settings.get ('dialog.width')
+h = gom.api.settings.get ('dialog.height')
 ```
 
 ### gom.api.settings.list
@@ -595,6 +595,6 @@ are integer, double, string and bool.
 **Example**
 
 ```
-gom.app.settings.set ('dialog.width', 640)
-gom.app.settings.set ('dialog.height', 480)
+gom.api.settings.set ('dialog.width', 640)
+gom.api.settings.set ('dialog.height', 480)
 ```
