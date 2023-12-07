@@ -36,6 +36,8 @@ sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+# Do not show "View page source" link on every page
+html_show_sourcelink = False
 
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
