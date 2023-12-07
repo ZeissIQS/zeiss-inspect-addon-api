@@ -20,8 +20,8 @@ A project must be loaded to access project keywords. This is checked with the fo
 
 ```{code-block} python
 if not hasattr(gom.app, 'project'):
-	gom.script.sys.execute_user_defined_dialog (file='no_project.gdlg')
-	quit(0)
+  gom.script.sys.execute_user_defined_dialog (file='no_project.gdlg')
+  quit(0)
 ```
 
 This Add-on handles the project variables `user_project`, `user_company`, `user_department` and `user_part`.
@@ -31,7 +31,7 @@ If available, the project keywords are written to the text widgets in the column
 
 ```{code-block} python
 if 'user_project' in gom.app.project.project_keywords:
-	DIALOG.project_zi.value = getattr(gom.app.project, 'user_project')
+  DIALOG.project_zi.value = getattr(gom.app.project, 'user_project')
 ```
 
 The text widget entries in the column 'INSPECT' can be edited or loaded from the database (the database entry is selected by 'Project').
@@ -40,18 +40,18 @@ Finally the project keywords are updated from the text widgets, if the dialog is
 
 ```{code-block} python
 try:
-	RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+  RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 except gom.BreakError as e:
-	# Dialog window was closed or 'Cancel' button was pressed
-	pass
+  # Dialog window was closed or 'Cancel' button was pressed
+  pass
 else:
-	# 'Ok' button was pressed
-	gom.script.sys.set_project_keywords (keywords = {
-		'project': RESULT.project_zi,
-		'company': RESULT.company_zi,
-		'department':  RESULT.department_zi,
-		'part': RESULT.part_zi
-	})
+  # 'Ok' button was pressed
+  gom.script.sys.set_project_keywords (keywords = {
+    'project': RESULT.project_zi,
+    'company': RESULT.company_zi,
+    'department':  RESULT.department_zi,
+    'part': RESULT.part_zi
+  })
 ```
 
 ### 2. Installing a test database server
@@ -72,10 +72,10 @@ A new database is created using the function `create_database()`, which calls [M
 def create_database(host_name, user_name, user_password, database):
   try:
 	  connection = mysql.connector.connect(
-		  host=host_name,
-		  user=user_name,
-		  passwd=user_password
-    )
+      host=host_name,
+      user=user_name,
+      passwd=user_password
+  )
   except Error as err:
     print(f"Error: '{err}'")
     return err
@@ -190,7 +190,7 @@ In this example, whe only use the project name for selecting database entries. T
 
 ```{code-block} python
 query = """SELECT company_name, department_name, part_name FROM projects
-		WHERE project_name=%s"""
+        WHERE project_name=%s"""
 values = (DIALOG.project_zi.value, )
 result, err = execute_query(CONNECTION, query, values)
 ```
@@ -199,18 +199,18 @@ With:
 
 ```{code-block} python
 def execute_query(connection, query, values):
-	cursor = connection.cursor(buffered=True, dictionary=True)
-	err = None
-	try:
-		cursor.execute(query, values)
-		result = cursor.fetchone()
-		print("Query successful")
-	except Error as err:
-		print(f"Error: '{err}'")
-		return None, err
-	cursor.close()
-	
-	return result, err
+  cursor = connection.cursor(buffered=True, dictionary=True)
+  err = None
+  try:
+    cursor.execute(query, values)
+    result = cursor.fetchone()
+    print("Query successful")
+  except Error as err:
+    print(f"Error: '{err}'")
+    return None, err
+  
+  cursor.close()
+  return result, err
 ```
 
 As specified in `connection.cursor()` above, the result is a dictionary, e.g. `{'company_name': 'Carl Zeiss GOM Metrology GmbH', 'department_name': 'A2', 'part_name': 'ZEISS Training Object'}`.
@@ -224,8 +224,8 @@ Inserting:
 ```{code-block} python
 # New project, insert
 query = """INSERT INTO projects
-      (project_name, company_name, department_name, part_name)
-      VALUES (%s, %s, %s, %s)"""
+        (project_name, company_name, department_name, part_name)
+        VALUES (%s, %s, %s, %s)"""
 values = (DIALOG.project_zi.value, DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value)
 result, err = execute_commit(CONNECTION, query, values)
 ```
@@ -235,7 +235,7 @@ Updating:
 ```{code-block} python
 # Project already exists, update
 query = """UPDATE projects SET company_name=%s, department_name=%s, part_name=%s
-    WHERE project_name=%s;"""
+        WHERE project_name=%s;"""
 values = (DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value, DIALOG.project_zi.value)
 result, err = execute_commit(CONNECTION, query, values)
 ```
@@ -244,18 +244,18 @@ Both transactions use the function `execute_commit()`:
 
 ```{code-block} python
 def execute_commit(connection, query, values):
-	cursor = connection.cursor(buffered=True)
-	err = None
-	try:
-		cursor.execute(query, values)
-		connection.commit()
-		print("Query successful")
-	except Error as err:
-		print(f"Error: '{err}'")
-		return None, err
-	cursor.close()
-	
-	return cursor, err
+  cursor = connection.cursor(buffered=True)
+  err = None
+  try:
+    cursor.execute(query, values)
+    connection.commit()
+    print("Query successful")
+  except Error as err:
+    print(f"Error: '{err}'")
+    return None, err
+    
+  cursor.close()
+  return cursor, err
 ```
 
 #### Deleting

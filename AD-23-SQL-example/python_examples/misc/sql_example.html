@@ -125,32 +125,32 @@
 <h3>1. Accessing project keywords<a class="headerlink" href="#accessing-project-keywords" title="Permalink to this heading"></a></h3>
 <p>A project must be loaded to access project keywords. This is checked with the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">):</span>
-	<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;no_project.gdlg&#39;</span><span class="p">)</span>
-	<span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;no_project.gdlg&#39;</span><span class="p">)</span>
+  <span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This Add-on handles the project variables <code class="docutils literal notranslate"><span class="pre">user_project</span></code>, <code class="docutils literal notranslate"><span class="pre">user_company</span></code>, <code class="docutils literal notranslate"><span class="pre">user_department</span></code> and <code class="docutils literal notranslate"><span class="pre">user_part</span></code>.
 For each of these variables, two text widgets are used - one for the value in ZEISS INSPECT (e.g. <code class="docutils literal notranslate"><span class="pre">project_zi</span></code>) and one for the value in the database (e.g. <code class="docutils literal notranslate"><span class="pre">project_db</span></code>).</p>
 <p>If available, the project keywords are written to the text widgets in the column ‘INSPECT’ (<code class="docutils literal notranslate"><span class="pre">*_zi</span></code>):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;user_project&#39;</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">project_keywords</span><span class="p">:</span>
-	<span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;user_project&#39;</span><span class="p">)</span>
+  <span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;user_project&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The text widget entries in the column ‘INSPECT’ can be edited or loaded from the database (the database entry is selected by ‘Project’).</p>
 <p>Finally the project keywords are updated from the text widgets, if the dialog is closed with the ‘Ok’ button:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-	<span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+  <span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-	<span class="c1"># Dialog window was closed or &#39;Cancel&#39; button was pressed</span>
-	<span class="k">pass</span>
+  <span class="c1"># Dialog window was closed or &#39;Cancel&#39; button was pressed</span>
+  <span class="k">pass</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="c1"># &#39;Ok&#39; button was pressed</span>
-	<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">set_project_keywords</span> <span class="p">(</span><span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">project_zi</span><span class="p">,</span>
-		<span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">company_zi</span><span class="p">,</span>
-		<span class="s1">&#39;department&#39;</span><span class="p">:</span>  <span class="n">RESULT</span><span class="o">.</span><span class="n">department_zi</span><span class="p">,</span>
-		<span class="s1">&#39;part&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">part_zi</span>
-	<span class="p">})</span>
+  <span class="c1"># &#39;Ok&#39; button was pressed</span>
+  <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">set_project_keywords</span> <span class="p">(</span><span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">project_zi</span><span class="p">,</span>
+    <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">company_zi</span><span class="p">,</span>
+    <span class="s1">&#39;department&#39;</span><span class="p">:</span>  <span class="n">RESULT</span><span class="o">.</span><span class="n">department_zi</span><span class="p">,</span>
+    <span class="s1">&#39;part&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">part_zi</span>
+  <span class="p">})</span>
 </pre></div>
 </div>
 </section>
@@ -170,10 +170,10 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_database</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
   <span class="k">try</span><span class="p">:</span>
 	  <span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-		  <span class="n">host</span><span class="o">=</span><span class="n">host_name</span><span class="p">,</span>
-		  <span class="n">user</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
-		  <span class="n">passwd</span><span class="o">=</span><span class="n">user_password</span>
-    <span class="p">)</span>
+      <span class="n">host</span><span class="o">=</span><span class="n">host_name</span><span class="p">,</span>
+      <span class="n">user</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
+      <span class="n">passwd</span><span class="o">=</span><span class="n">user_password</span>
+  <span class="p">)</span>
   <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">err</span>
@@ -294,25 +294,25 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <h4>Querying the database<a class="headerlink" href="#querying-the-database" title="Permalink to this heading"></a></h4>
 <p>In this example, whe only use the project name for selecting database entries. The project names must be unique, so we use <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchone.html">MySQLCursor.fetchone()</a> to get a single row from the <code class="docutils literal notranslate"><span class="pre">projects</span></code> table as result.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT company_name, department_name, part_name FROM projects</span>
-<span class="s2">		WHERE project_name=</span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        WHERE project_name=</span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">)</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_query</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>With:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
-	<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-	<span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="k">try</span><span class="p">:</span>
-		<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-		<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
-	<span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-		<span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
-	<span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-	
-	<span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
+  
+  <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 </div>
 <p>As specified in <code class="docutils literal notranslate"><span class="pre">connection.cursor()</span></code> above, the result is a dictionary, e.g. <code class="docutils literal notranslate"><span class="pre">{'company_name':</span> <span class="pre">'Carl</span> <span class="pre">Zeiss</span> <span class="pre">GOM</span> <span class="pre">Metrology</span> <span class="pre">GmbH',</span> <span class="pre">'department_name':</span> <span class="pre">'A2',</span> <span class="pre">'part_name':</span> <span class="pre">'ZEISS</span> <span class="pre">Training</span> <span class="pre">Object'}</span></code>.</p>
@@ -323,8 +323,8 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <p>Inserting:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># New project, insert</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO projects</span>
-<span class="s2">      (project_name, company_name, department_name, part_name)</span>
-<span class="s2">      VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+<span class="s2">        (project_name, company_name, department_name, part_name)</span>
+<span class="s2">        VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">company_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">department_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">part_zi</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_commit</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
 </pre></div>
@@ -332,25 +332,25 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <p>Updating:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Project already exists, update</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;UPDATE projects SET company_name=</span><span class="si">%s</span><span class="s2">, department_name=</span><span class="si">%s</span><span class="s2">, part_name=</span><span class="si">%s</span>
-<span class="s2">    WHERE project_name=</span><span class="si">%s</span><span class="s2">;&quot;&quot;&quot;</span>
+<span class="s2">        WHERE project_name=</span><span class="si">%s</span><span class="s2">;&quot;&quot;&quot;</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">company_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">department_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">part_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_commit</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Both transactions use the function <code class="docutils literal notranslate"><span class="pre">execute_commit()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_commit</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
-	<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-	<span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="k">try</span><span class="p">:</span>
-		<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-		<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
-	<span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-		<span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
-	<span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-	
-	<span class="k">return</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">err</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
+    
+  <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 </div>
 </section>
