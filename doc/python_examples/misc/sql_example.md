@@ -111,7 +111,7 @@ else:
   print(f"Using database {database}")
 ```
 
-4. The table `projects` is created
+4. A database table is created
 
 Table: `projects`
 
