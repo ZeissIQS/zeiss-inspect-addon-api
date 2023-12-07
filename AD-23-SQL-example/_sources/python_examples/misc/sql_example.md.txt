@@ -6,7 +6,7 @@
 
 This example demonstrates how to access an SQL database from an Add-on. For demonstration purposes, project keywords are written to or read from a database, respectively.
 
-The database access is implemented using [mysql-connector-python](https://pypi.org/project/mysql-connector-python/). A database server is set up using [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
+The database access is implemented using [mysql-connector-python](https://pypi.org/project/mysql-connector-python/). A test database server is set up using [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
 
 Besides, [gom.api.settings](../../python_api/python_api.md#gomapisettings) is used to save and restore entries made in a dialog.
 
@@ -25,16 +25,16 @@ if not hasattr(gom.app, 'project'):
 ```
 
 This Add-on handles the project variables `user_project`, `user_company`, `user_department` and `user_part`.
-For each of these variables, two text widgets are used - one for value in ZEISS INSPECT (e.g. `project_zi`) and one for the value in the database (e.g. `project_db`). 
+For each of these variables, two text widgets are used - one for the value in ZEISS INSPECT (e.g. `project_zi`) and one for the value in the database (e.g. `project_db`). 
 
-If available the project keywords are written to the text widgets `*_zi`:
+If available, the project keywords are written to the text widgets in the column 'INSPECT' (`*_zi`):
 
 ```{code-block} python
-  	if 'user_project' in gom.app.project.project_keywords:
-			DIALOG.project_zi.value = getattr(gom.app.project, 'user_project')
+if 'user_project' in gom.app.project.project_keywords:
+	DIALOG.project_zi.value = getattr(gom.app.project, 'user_project')
 ```
 
-The text widget entries in the column 'INSPECT' can be edited or loaded from the database (the row is selected by 'Project').
+The text widget entries in the column 'INSPECT' can be edited or loaded from the database (the database entry is selected by 'Project').
 
 Finally the project keywords are updated from the text widgets, if the dialog is closed with the 'Ok' button:
 
@@ -60,7 +60,7 @@ Install the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) as 
 
 ### 3. Accessing the database
 
-After the database server has been installed and started, you can try to connect to it, but the 'Connection Status' will show 'Unknown database "<name>"' because no database has been created yet.
+After the database server has been installed and started, you can try to connect to it, but the 'Connection Status' will show 'Unknown database "\<name\>"', because no database has been created yet.
 
 #### Creating a database
 
@@ -83,32 +83,32 @@ def create_database(host_name, user_name, user_password, database):
 
 2. The database is created
 
-The SQL command `CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'` is passed as a parameter to the [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method.
+The SQL command `CREATE DATABASE {database} DEFAULT CHARACTER SET 'utf8'` is passed as a parameter to the [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method.
 
 ```
-	cursor = connection.cursor()
-	try:
-		cursor.execute(
-			"CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(database))
-	except mysql.connector.Error as err:
-		print(f"Failed creating database: {err}")
-		#return err
-	else:
-		print(f"Created database {database}")
+cursor = connection.cursor()
+try:
+  cursor.execute(
+    "CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(database))
+except mysql.connector.Error as err:
+  print(f"Failed creating database: {err}")
+  #return err
+else:
+  print(f"Created database {database}")
 ```
 
 3. The database is selected
 
-Again, the method [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) is called.
+Again, the method [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) is called &mdash; this time with the SQL command `USE {database}`.
 
 ```
-	try:
-		cursor.execute("USE {}".format(database))
-	except mysql.connector.Error as err:
-		print(f"Database {database} does not exists.")
-		print(err)
-	else:
-		print(f"Using database {database}")
+try:
+  cursor.execute("USE {}".format(database))
+except mysql.connector.Error as err:
+  print(f"Database {database} does not exists.")
+  print(err)
+else:
+  print(f"Using database {database}")
 ```
 
 4. The table `projects` is created
@@ -133,22 +133,22 @@ TABLES['projects'] = (
 	") ENGINE=InnoDB")
 ```
 
-The table data structure (SQL command) is passed to the method [MySQLConnection.connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html).
+The table data structure is passed as the SQL command to the method [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html).
 
 ```{code-block} python
-	for table_name in TABLES:
-		table_description = TABLES[table_name]
-		try:
-			print("Creating table {}: ".format(table_name), end='')
-			cursor.execute(table_description)
-		except mysql.connector.Error as err:
-			if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
-				print("already exists.")
-			else:
-				print(err.msg)
-				return err
-		else:
-			print("OK")
+for table_name in TABLES:
+  table_description = TABLES[table_name]
+  try:
+    print("Creating table {}: ".format(table_name), end='')
+    cursor.execute(table_description)
+  except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
+      print("already exists.")
+    else:
+      print(err.msg)
+      return err
+  else:
+    print("OK")
 ```
 
 5. Final steps
@@ -156,14 +156,14 @@ The table data structure (SQL command) is passed to the method [MySQLConnection.
 The methods [MySQLCursor.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html) and [MySQLConnection.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) are called.
 
 ```
-	cursor.close()
-	connection.close()
-	return None
+cursor.close()
+connection.close()
+return None
 ```
 
 #### Connecting the database
 
-The function `create_server_connection()` creates a connection to the server and selects the database.  
+The function `create_server_connection()` creates a connection to the server and selects the database by calling [MySQLConnection.connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html).
 
 ```
 def create_server_connection(host_name, user_name, user_password, database):
@@ -186,13 +186,13 @@ def create_server_connection(host_name, user_name, user_password, database):
 
 #### Querying the database
 
-In this example, whe only use the project name for selecting database entries. The project names must be unique, so we use [MySQLCursor.fetchone()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchone.html) to get a single row as result.
+In this example, whe only use the project name for selecting database entries. The project names must be unique, so we use [MySQLCursor.fetchone()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchone.html) to get a single row from the `projects` table as result.
 
 ```
 query = """SELECT company_name, department_name, part_name FROM projects
-				WHERE project_name=%s"""
-		values = (DIALOG.project_zi.value, )
-		result, err = execute_query(CONNECTION, query, values)
+		WHERE project_name=%s"""
+values = (DIALOG.project_zi.value, )
+result, err = execute_query(CONNECTION, query, values)
 ```
 
 With:
@@ -213,7 +213,7 @@ def execute_query(connection, query, values):
 	return result, err
 ```
 
-As specified in `connection.cursor()` above, the result is a dictionary, e.g. `{'company_name': 'Carl Zeiss GOM Metrology GmbH', 'department_name': 'A2', 'part_name': 'ZEISS Training Object'}`
+As specified in `connection.cursor()` above, the result is a dictionary, e.g. `{'company_name': 'Carl Zeiss GOM Metrology GmbH', 'department_name': 'A2', 'part_name': 'ZEISS Training Object'}`.
 
 #### Inserting / Updating
 
@@ -222,22 +222,22 @@ Both inserting a new and updating an existing table row are based on [MySQLCurso
 Inserting:
 
 ```
-			# New project, insert
-			query = """INSERT INTO projects
-				   (project_name, company_name, department_name, part_name)
-				   VALUES (%s, %s, %s, %s)"""
-			values = (DIALOG.project_zi.value, DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value)
-		result, err = execute_commit(CONNECTION, query, values)
+# New project, insert
+query = """INSERT INTO projects
+      (project_name, company_name, department_name, part_name)
+      VALUES (%s, %s, %s, %s)"""
+values = (DIALOG.project_zi.value, DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value)
+result, err = execute_commit(CONNECTION, query, values)
 ```
 
 Updating:
 
 ```
-      # Project already exists, update
-			query = """UPDATE projects SET company_name=%s, department_name=%s, part_name=%s
-					WHERE project_name=%s;"""
-			values = (DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value, DIALOG.project_zi.value)
-			result, err = execute_commit(CONNECTION, query, values)
+# Project already exists, update
+query = """UPDATE projects SET company_name=%s, department_name=%s, part_name=%s
+    WHERE project_name=%s;"""
+values = (DIALOG.company_zi.value, DIALOG.department_zi.value, DIALOG.part_zi.value, DIALOG.project_zi.value)
+result, err = execute_commit(CONNECTION, query, values)
 ```
 
 Both transactions use the function `execute_commit()`:
@@ -263,9 +263,9 @@ def execute_commit(connection, query, values):
 Deleting a table row implemented using `execute_query()`. 
 
 ```
-	query = """DELETE FROM projects WHERE project_name=%s"""
-	values = (DIALOG.project_zi.value, )
-	result, err = execute_query(CONNECTION, query, values)
+query = """DELETE FROM projects WHERE project_name=%s"""
+values = (DIALOG.project_zi.value, )
+result, err = execute_query(CONNECTION, query, values)
 ```
 
 ## Related
