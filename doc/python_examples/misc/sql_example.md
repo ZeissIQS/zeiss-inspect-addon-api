@@ -88,8 +88,7 @@ The SQL command `CREATE DATABASE {database} DEFAULT CHARACTER SET 'utf8'` is pas
 ```{code-block} python
 cursor = connection.cursor()
 try:
-  cursor.execute(
-    "CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(database))
+  cursor.execute("CREATE DATABASE {} DEFAULT CHARACTER SET 'utf8'".format(database))
 except mysql.connector.Error as err:
   print(f"Failed creating database: {err}")
   #return err
