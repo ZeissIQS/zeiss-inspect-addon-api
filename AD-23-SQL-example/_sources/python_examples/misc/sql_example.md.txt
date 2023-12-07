@@ -70,22 +70,22 @@ A new database is created using the function `create_database()`, which calls [M
 
 ```{code-block} python
 def create_database(host_name, user_name, user_password, database):
-	try:
-		connection = mysql.connector.connect(
-			host=host_name,
-			user=user_name,
-			passwd=user_password
-		)
-	except Error as err:
-		print(f"Error: '{err}'")
-		return err
+  try:
+	  connection = mysql.connector.connect(
+		  host=host_name,
+		  user=user_name,
+		  passwd=user_password
+    )
+  except Error as err:
+    print(f"Error: '{err}'")
+    return err
 ```
 
 2. The database is created
 
 The SQL command `CREATE DATABASE {database} DEFAULT CHARACTER SET 'utf8'` is passed as a parameter to the [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method.
 
-```
+```{code-block} python
 cursor = connection.cursor()
 try:
   cursor.execute(
@@ -101,7 +101,7 @@ else:
 
 Again, the method [MySQLCursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) is called &mdash; this time with the SQL command `USE {database}`.
 
-```
+```{code-block} python
 try:
   cursor.execute("USE {}".format(database))
 except mysql.connector.Error as err:
@@ -111,7 +111,7 @@ else:
   print(f"Using database {database}")
 ```
 
-4. The table `projects` is created
+4. A database table is created
 
 Table: `projects`
 
@@ -155,7 +155,7 @@ for table_name in TABLES:
 
 The methods [MySQLCursor.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html) and [MySQLConnection.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) are called.
 
-```
+```{code-block} python
 cursor.close()
 connection.close()
 return None
@@ -165,30 +165,30 @@ return None
 
 The function `create_server_connection()` creates a connection to the server and selects the database by calling [MySQLConnection.connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html).
 
-```
+```{code-block} python
 def create_server_connection(host_name, user_name, user_password, database):
-	connection = None
-	error = None
-	try:
-		connection = mysql.connector.connect(
-			host=host_name,
-			user=user_name,
-			passwd=user_password,
-			database=database
-		)
-		print("MySQL Database connection successful")
-	except Error as err:
-		print(f"Error: '{err}'")
-		error = err
+  connection = None
+  error = None
+  try:
+    connection = mysql.connector.connect(
+      host=host_name,
+      user=user_name,
+      passwd=user_password,
+      database=database
+    )
+    print("MySQL Database connection successful")
+  except Error as err:
+    print(f"Error: '{err}'")
+    error = err
 
-	return connection, error
+  return connection, error
 ```
 
 #### Querying the database
 
 In this example, whe only use the project name for selecting database entries. The project names must be unique, so we use [MySQLCursor.fetchone()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchone.html) to get a single row from the `projects` table as result.
 
-```
+```{code-block} python
 query = """SELECT company_name, department_name, part_name FROM projects
 		WHERE project_name=%s"""
 values = (DIALOG.project_zi.value, )
@@ -197,7 +197,7 @@ result, err = execute_query(CONNECTION, query, values)
 
 With:
 
-```
+```{code-block} python
 def execute_query(connection, query, values):
 	cursor = connection.cursor(buffered=True, dictionary=True)
 	err = None
@@ -221,7 +221,7 @@ Both inserting a new and updating an existing table row are based on [MySQLCurso
 
 Inserting:
 
-```
+```{code-block} python
 # New project, insert
 query = """INSERT INTO projects
       (project_name, company_name, department_name, part_name)
@@ -232,7 +232,7 @@ result, err = execute_commit(CONNECTION, query, values)
 
 Updating:
 
-```
+```{code-block} python
 # Project already exists, update
 query = """UPDATE projects SET company_name=%s, department_name=%s, part_name=%s
     WHERE project_name=%s;"""
@@ -242,7 +242,7 @@ result, err = execute_commit(CONNECTION, query, values)
 
 Both transactions use the function `execute_commit()`:
 
-```
+```{code-block} python
 def execute_commit(connection, query, values):
 	cursor = connection.cursor(buffered=True)
 	err = None
@@ -262,7 +262,7 @@ def execute_commit(connection, query, values):
 
 Deleting a table row implemented using `execute_query()`. 
 
-```
+```{code-block} python
 query = """DELETE FROM projects WHERE project_name=%s"""
 values = (DIALOG.project_zi.value, )
 result, err = execute_query(CONNECTION, query, values)
