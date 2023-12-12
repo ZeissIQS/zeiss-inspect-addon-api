@@ -31,6 +31,10 @@ Check out the ZEISS INSPECT Add-On news page!
    :maxdepth: 1
    
    news
+   
+   :hidden:
+   
+   news/welcome
 ```
 
 Furthermore, we recommend following our how-to guides to get you started.
