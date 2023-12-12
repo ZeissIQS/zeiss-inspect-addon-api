@@ -29,12 +29,9 @@ Check out the ZEISS INSPECT Add-On news page!
 ```{eval-rst}
 .. toctree::
    :maxdepth: 1
+   :hidden: news/welcome
    
    news
-   
-   :hidden:
-   
-   news/welcome
 ```
 
 Furthermore, we recommend following our how-to guides to get you started.

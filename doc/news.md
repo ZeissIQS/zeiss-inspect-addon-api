@@ -17,5 +17,5 @@ The newsfeed has been created.
    :title: Welcome
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.html
 
-   welcome
+   news/welcome
 ```
