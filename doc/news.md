@@ -7,7 +7,7 @@ myst:
 
 # What's New
 
-ZEISS INSPECT Add-on Python API [RSS News Feed](index.rss)
+ZEISS INSPECT Add-on Python API [RSS News Feed](index.rss){.external}
 
 % <link rel="alternate"
 %      type="application/rss+xml"
