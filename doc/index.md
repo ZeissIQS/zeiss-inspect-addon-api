@@ -33,12 +33,12 @@ Check out the ZEISS INSPECT Add-On news page!
    news
 ```
 
-```{eval-rst}
-.. toctree::
-   :hidden:
-   
-   news/welcome
-```
+%```{eval-rst}
+%.. toctree::
+%   :hidden:
+%   
+%   news/welcome
+%```
 
 Furthermore, we recommend following our how-to guides to get you started.
 
