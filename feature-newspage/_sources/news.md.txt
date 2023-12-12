@@ -7,6 +7,11 @@ myst:
 
 # What's New
 
+<link rel="alternate"
+      type="application/rss+xml"
+      title="ZEISS INSPECT Add-on Python API News"
+      href="/index.rss" />
+
 ## December 2023
 
 The newsfeed has been created.
