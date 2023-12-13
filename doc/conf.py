@@ -43,7 +43,6 @@ html_show_sourcelink = False
 html_theme = "sphinx_rtd_theme"
 # "sphinx_rtd_theme" appends " &mdash; <project>  documentation" to the page heading -
 # this changes the title to "<page_heading> &mdash; <project>"
-html_head = '<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />'
 html_title = project
 html_static_path = ['_static']
 
@@ -62,3 +61,4 @@ favicons = [
 
 # Source: https://brand.zeiss.com/cmsPublic/brandportal/basic-design-elements/logo-tagline.html
 html_logo =  "_static/zeiss-logo-rgb.png"
+html_head = '<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />'
