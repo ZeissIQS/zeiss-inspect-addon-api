@@ -4,8 +4,7 @@ myst:
       "description": "ZEISS INSPECT 2023 Add-on Python API News"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation, News, Newsfeed, RSS"
       
-   .. raw:: html
-
+custom_header:
     <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />
 --- 
 
