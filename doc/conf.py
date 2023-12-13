@@ -28,7 +28,6 @@ myst_enable_extensions = [
 ]
 
 myst_heading_anchors = 4
-myst_topmatter = True
 
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
@@ -44,6 +43,7 @@ html_show_sourcelink = False
 html_theme = "sphinx_rtd_theme"
 # "sphinx_rtd_theme" appends " &mdash; <project>  documentation" to the page heading -
 # this changes the title to "<page_heading> &mdash; <project>"
+html_head = '<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />'
 html_title = project
 html_static_path = ['_static']
 
