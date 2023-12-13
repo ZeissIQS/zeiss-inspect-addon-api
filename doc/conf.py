@@ -28,6 +28,7 @@ myst_enable_extensions = [
 ]
 
 myst_heading_anchors = 4
+myst_topmatter = True
 
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
