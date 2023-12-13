@@ -4,7 +4,7 @@
     <title>Welcome</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.html</link>
     <description></description>
-    <lastBuildDate>Wed, 13 Dec 2023 12:30:59 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 13 Dec 2023 12:38:54 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>Welcome!!!</title>
@@ -15,7 +15,7 @@ release announcements and other project news.&lt;/p&gt;
 &lt;/div&gt;
 </description>
       <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.htmlnews/welcome.html</guid>
-      <pubDate>Tue, 12 Dec 2023 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 12 Dec 2023 12:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
