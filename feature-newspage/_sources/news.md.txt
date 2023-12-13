@@ -9,7 +9,9 @@ myst:
 
 ZEISS INSPECT Add-on Python API [RSS News Feed](index.rss){.external}
 
+```html
 <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />
+```
 
 ## December 2023
 
