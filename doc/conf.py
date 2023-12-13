@@ -62,3 +62,4 @@ favicons = [
 # Source: https://brand.zeiss.com/cmsPublic/brandportal/basic-design-elements/logo-tagline.html
 html_logo =  "_static/zeiss-logo-rgb.png"
 html_head = '<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />'
+today_fmt = '%Y-%m-%d'
