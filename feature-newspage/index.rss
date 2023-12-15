@@ -2,13 +2,13 @@
 <rss version="2.0">
   <channel>
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
-    <link>news</link>
+    <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/</link>
     <description></description>
-    <lastBuildDate>Fri, 15 Dec 2023 13:28:32 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 Dec 2023 13:40:03 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>New API Examples</title>
-      <link>newsnews/api-examples-20231215.html</link>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/api-examples-20231215.html</link>
       <description>&lt;div class="compound"&gt;
 &lt;section id="id1"&gt;
 &lt;h1&gt;&lt;a class="reference external" href="../python_examples/reference_points_and_mesh_data"&gt;reference_points_and_mesh_data&lt;/a&gt;&lt;a class="headerlink" href="#id1" title="Permalink to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
@@ -20,18 +20,18 @@
 &lt;/section&gt;
 &lt;/div&gt;
 </description>
-      <guid>newsnews/api-examples-20231215.html</guid>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/api-examples-20231215.html</guid>
       <pubDate>Fri, 15 Dec 2023 13:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Welcome!!!</title>
-      <link>newsnews/welcome.html</link>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/welcome.html</link>
       <description>&lt;div class="compound"&gt;
 &lt;p&gt;Welcome to the ZEISS INSPECT 2023 Add-on Python API News Feed.  Here we will post
 release announcements and other project news.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-      <guid>newsnews/welcome.html</guid>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/welcome.html</guid>
       <pubDate>Tue, 12 Dec 2023 12:00:00 GMT</pubDate>
     </item>
   </channel>
