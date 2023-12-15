@@ -12,7 +12,6 @@ myst:
 ## December 2023
 
 The newsfeed has been created.
-<hr/>
 
 ```{eval-rst}
 .. feed::
