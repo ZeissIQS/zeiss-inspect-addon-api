@@ -7,10 +7,6 @@ myst:
 
 # What's New
 
-<img src="_static/SocialBlog.svg" alt="Blog Icon" width="18" height="18"/>&#x200B;&nbsp;[Subscribe to RSS News Feed](index.rss){.external}
-
-<a href="index.rss">&#x200B;<i class="fa fa-rss"></i> Subscribe to RSS News Feed</a>
-
 <a href="index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
 
 ## December 2023
