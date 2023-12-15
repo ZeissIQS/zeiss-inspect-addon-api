@@ -21,5 +21,8 @@ The newsfeed has been created.
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/
 
    news/api-examples-20231215
+
+   ----
+
    news/welcome
 ```
