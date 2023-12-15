@@ -25,6 +25,15 @@ The newsfeed has been created.
 ```{eval-rst}
 .. feed::
    :rss: index.rss
+   :title: New API Examples reference_points_and_mesh_data and point_pixel_transformations
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.html
+
+   news/api-examples-20231215
+```
+
+```{eval-rst}
+.. feed::
+   :rss: index.rss
    :title: Welcome
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.html
 
