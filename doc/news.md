@@ -18,7 +18,7 @@ The newsfeed has been created.
 .. feed::
    :rss: index.rss
    :title: ZEISS INSPECT 2023 Add-on Python API News
-   :link: news
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/
 
    news/api-examples-20231215
    news/welcome
