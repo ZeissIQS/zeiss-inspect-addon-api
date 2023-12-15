@@ -173,7 +173,7 @@ pre {
 /******************************************************************************
  * Separator between feed entries
  ******************************************************************************/
-.feed-more {
+.feed-ref {
     unicode-bidi: isolate;
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
