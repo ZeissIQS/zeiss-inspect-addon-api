@@ -4,7 +4,7 @@ New API Examples
 .. feed-entry::
    :date: 2023-12-15 13:00
 
-`reference_points_and_mesh_data <python_examples/reference_points_and_mesh_data>`_
+`reference_points_and_mesh_data <python_examples/data_interfaces/reference_points_and_mesh_data.html>`_
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 This example demonstrates how to access reference points in a measurement and meshes from Python.
 
