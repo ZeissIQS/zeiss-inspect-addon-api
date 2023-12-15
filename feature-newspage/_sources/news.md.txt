@@ -10,7 +10,7 @@ custom_header:
 
 # What's New
 
-ZEISS INSPECT Add-on Python API [RSS News Feed](index.rss){.external}
+<img src="_static/SocoialBlog.svg" alt="Blog Icon"/>[Subscribe to RSS News Feed](index.rss){.external}
 
 ```{eval-rst}
 .. raw:: html
