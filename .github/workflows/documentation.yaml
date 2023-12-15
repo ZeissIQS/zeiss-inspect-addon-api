@@ -20,6 +20,9 @@ jobs:
           else
             echo -e "\033[1;32mSphinx build PASSED\033[0m\n"
           fi
+      - name: Insert RSS link into news page HTML header
+        run: |
+          sed '|</head>| i\<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />' _build/news.html
       - name: Set branch name
         id: branch
         run: echo "SUBDIR_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
