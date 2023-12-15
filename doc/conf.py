@@ -13,7 +13,7 @@ author = 'Carl Zeiss GOM Metrology GmbH'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap','sphinxcontrib.newsfeed']
+extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap', 'sphinxcontrib.newsfeed']
 source_suffix = ['.rst', '.md']
 
 templates_path = ['_templates']
@@ -61,5 +61,3 @@ favicons = [
 
 # Source: https://brand.zeiss.com/cmsPublic/brandportal/basic-design-elements/logo-tagline.html
 html_logo =  "_static/zeiss-logo-rgb.png"
-html_head = '<link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />'
-today_fmt = '%Y-%m-%d'
