@@ -173,6 +173,6 @@ pre {
 /******************************************************************************
  * Separator between feed entries
  ******************************************************************************/
-.feed-meta {
-  border-bottom: 0.5em solid grey;
+.feed-ref {
+  border-bottom: 1px solid grey;
 }
