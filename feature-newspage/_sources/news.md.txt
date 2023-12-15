@@ -10,7 +10,7 @@ custom_header:
 
 # What's New
 
-<img src="_static/SocialBlog.svg" alt="Blog Icon" width="12" height="12"/>[Subscribe to RSS News Feed](index.rss){.external}
+<img src="_static/SocialBlog.svg" alt="Blog Icon" width="18" height="18"/>[Subscribe to RSS News Feed](index.rss){.external}
 
 ```{eval-rst}
 .. raw:: html
