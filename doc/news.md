@@ -11,11 +11,7 @@ myst:
 
 <a href="index.rss">&#x200B;<i class="fa fa-rss"></i> Subscribe to RSS News Feed</a>
 
-```{eval-rst}
-.. raw:: html
-
-    <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />
-```
+<a href="index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
 
 ## December 2023
 
@@ -26,7 +22,7 @@ The newsfeed has been created.
 .. feed::
    :rss: index.rss
    :title: New API Examples reference_points_and_mesh_data and point_pixel_transformations
-   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/feature-newspage/news.html
+   :link: news/api-examples-20231215
 
    news/api-examples-20231215
 ```
