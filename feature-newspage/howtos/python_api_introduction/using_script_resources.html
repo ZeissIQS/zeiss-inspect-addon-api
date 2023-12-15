@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using script resources &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/python_api_introduction/using_script_resources.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -113,15 +113,15 @@
            <div itemprop="articleBody">
              
   <section id="using-script-resources">
-<h1>Using script resources<a class="headerlink" href="#using-script-resources" title="Permalink to this heading"></a></h1>
+<h1>Using script resources<a class="headerlink" href="#using-script-resources" title="Link to this heading"></a></h1>
 <p>The term “resource” is used to describe any files in your scripts directories that are not python scripts (<code class="docutils literal notranslate"><span class="pre">*.py</span></code>). You can use these files to include binary data such as images or other data like config files etc. in your add-ons.</p>
 <section id="importing-resources">
-<h2>Importing resources<a class="headerlink" href="#importing-resources" title="Permalink to this heading"></a></h2>
+<h2>Importing resources<a class="headerlink" href="#importing-resources" title="Link to this heading"></a></h2>
 <p>The resources files in your scripts directory are automatically recognized as such. You can as well add (import) resources using the context menu of the script editor.</p>
 <p><img alt="" src="../../_images/import_script_resource.jpg" /></p>
 </section>
 <section id="usage-in-scripts">
-<h2>Usage in scripts<a class="headerlink" href="#usage-in-scripts" title="Permalink to this heading"></a></h2>
+<h2>Usage in scripts<a class="headerlink" href="#usage-in-scripts" title="Link to this heading"></a></h2>
 <p>To get access to resource data in a script, the qualified name or relative path to the resource is needed.
 The qualified name starts with a <code class="docutils literal notranslate"><span class="pre">:</span></code> followed by the top-level folder and the path to the resource, e.g. <code class="docutils literal notranslate"><span class="pre">:PythonApiExamples/examples/script_resources/test_resource.txt</span></code>. You can also use a relative path to the currently executed script.</p>
 <div class="admonition hint">
@@ -136,7 +136,7 @@ The qualified name starts with a <code class="docutils literal notranslate"><spa
 </div>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../python_examples/script_resources.html"><span class="std std-doc">Examples of category <code class="docutils literal notranslate"><span class="pre">script_resources</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="../../python_api/resource_api.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">gom.Resource</span></code> API Definition</span></a></p></li>

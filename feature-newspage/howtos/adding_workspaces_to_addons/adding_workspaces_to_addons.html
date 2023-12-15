@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adding workspaces to add-ons &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -138,12 +138,12 @@
            <div itemprop="articleBody">
              
   <section id="adding-workspaces-to-add-ons">
-<h1>Adding workspaces to add-ons<a class="headerlink" href="#adding-workspaces-to-add-ons" title="Permalink to this heading"></a></h1>
+<h1>Adding workspaces to add-ons<a class="headerlink" href="#adding-workspaces-to-add-ons" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>Abstract: An add-on can include a definition for a new workspace. ‘Inspection’ and ‘Reporting’ are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.</p>
 </div></blockquote>
 <section id="workspaces">
-<h2>Workspaces<a class="headerlink" href="#workspaces" title="Permalink to this heading"></a></h2>
+<h2>Workspaces<a class="headerlink" href="#workspaces" title="Link to this heading"></a></h2>
 <p><img alt="" src="../../_images/workspace1.png" /></p>
 <ul class="simple">
 <li><p>ZEISS INSPECT has a set of available workspaces on the left side (1).</p></li>
@@ -153,7 +153,7 @@
 </ul>
 </section>
 <section id="id1">
-<h2>Adding workspaces to add-ons<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Adding workspaces to add-ons<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>There is no UI based workspace editor yet, but workspace definitions can be added manually.</p>
 </div></blockquote>
@@ -162,7 +162,7 @@
 <li><p>It can be unpacked, edited and packed again with a new workspace definition.</p></li>
 </ul>
 <section id="step-1-unpack-the-add-on">
-<h3>Step 1: Unpack the add-on<a class="headerlink" href="#step-1-unpack-the-add-on" title="Permalink to this heading"></a></h3>
+<h3>Step 1: Unpack the add-on<a class="headerlink" href="#step-1-unpack-the-add-on" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Use the tool of your choice to unpack the add-on file.</p></li>
 <li><p>We recommend 7-zip for that task, but every other zip tool will do the job, too.</p></li>
@@ -172,12 +172,12 @@
 </ul>
 </section>
 <section id="step-2-create-a-workspace-folder-inside-the-add-on">
-<h3>Step 2: Create a workspace folder inside the add-on<a class="headerlink" href="#step-2-create-a-workspace-folder-inside-the-add-on" title="Permalink to this heading"></a></h3>
+<h3>Step 2: Create a workspace folder inside the add-on<a class="headerlink" href="#step-2-create-a-workspace-folder-inside-the-add-on" title="Link to this heading"></a></h3>
 <p>The workspace definitions must be placed in a folder named <code class="docutils literal notranslate"><span class="pre">workspaces</span></code>. A separate folder must be created for each workspace. The folder must be named according to the workspace name, i.e.</p>
 <p><code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">Add-on/workspaces/&lt;workspace&gt;</span></code></p>
 </section>
 <section id="step-3-add-a-workspace-definition-file">
-<h3>Step 3: Add a workspace definition file<a class="headerlink" href="#step-3-add-a-workspace-definition-file" title="Permalink to this heading"></a></h3>
+<h3>Step 3: Add a workspace definition file<a class="headerlink" href="#step-3-add-a-workspace-definition-file" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>The <code class="docutils literal notranslate"><span class="pre">&lt;workspace&gt;.json</span></code> file contains the complete workspace definition.</p>
 </div></blockquote>
@@ -216,30 +216,30 @@
 </pre></div>
 </div>
 <section id="uuid">
-<h4>“uuid”<a class="headerlink" href="#uuid" title="Permalink to this heading"></a></h4>
+<h4>“uuid”<a class="headerlink" href="#uuid" title="Link to this heading"></a></h4>
 <p>A unique id of the workspace.</p>
 <blockquote>
 <div><p>Please do not define the UUID manually, but use a UUID generator like Online UUID Generator to generate a fresh, truly unique one!</p>
 </div></blockquote>
 </section>
 <section id="color">
-<h4>“color”<a class="headerlink" href="#color" title="Permalink to this heading"></a></h4>
+<h4>“color”<a class="headerlink" href="#color" title="Link to this heading"></a></h4>
 <p>RGB color of the workspace toolbar background. This default may be overwritten by themes, so e.g. in dark theme the toolbar will be colored in rgb(51,51,51) always.</p>
 </section>
 <section id="recalc-section">
-<h4>“recalc_section”<a class="headerlink" href="#recalc-section" title="Permalink to this heading"></a></h4>
+<h4>“recalc_section”<a class="headerlink" href="#recalc-section" title="Link to this heading"></a></h4>
 <p>True, if the toolbar should contain a section for recalculation commands</p>
 </section>
 <section id="alignment-section">
-<h4>“alignment_section”<a class="headerlink" href="#alignment-section" title="Permalink to this heading"></a></h4>
+<h4>“alignment_section”<a class="headerlink" href="#alignment-section" title="Link to this heading"></a></h4>
 <p>True, if the toolbar should contain a section for alignment commands.</p>
 </section>
 <section id="sort-index">
-<h4>“sort_index”<a class="headerlink" href="#sort-index" title="Permalink to this heading"></a></h4>
+<h4>“sort_index”<a class="headerlink" href="#sort-index" title="Link to this heading"></a></h4>
 <p>Position of that workspace in the list of workspace. The default (no value given) will add the workspace to the end of the workspace list, which is often fine.</p>
 </section>
 <section id="icon">
-<h4>“icon”<a class="headerlink" href="#icon" title="Permalink to this heading"></a></h4>
+<h4>“icon”<a class="headerlink" href="#icon" title="Link to this heading"></a></h4>
 <p>The name of an (internal) icon file or an icon definition.</p>
 <blockquote>
 <div><p>It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.</p>
@@ -297,7 +297,7 @@
 </ul>
 </section>
 <section id="workflow-commands">
-<h4>“workflow_commands”<a class="headerlink" href="#workflow-commands" title="Permalink to this heading"></a></h4>
+<h4>“workflow_commands”<a class="headerlink" href="#workflow-commands" title="Link to this heading"></a></h4>
 <p>Commands on the left side of the workspace toolbar. These command can either be</p>
 <ul class="simple">
 <li><p>the name of a “hardcoded” GOM command,</p></li>
@@ -309,21 +309,21 @@
 <p>This works for scripts, too, if a script is executed from the ‘Add-ons’ menu while the script editor is in recording mode.</p>
 </section>
 <section id="sensor-commands">
-<h4>“sensor_commands”<a class="headerlink" href="#sensor-commands" title="Permalink to this heading"></a></h4>
+<h4>“sensor_commands”<a class="headerlink" href="#sensor-commands" title="Link to this heading"></a></h4>
 <p>Commands on the right side of the workspace toolbar. Same principle as above.</p>
 </section>
 <section id="default-visible-views">
-<h4>“default_visible_views”<a class="headerlink" href="#default-visible-views" title="Permalink to this heading"></a></h4>
+<h4>“default_visible_views”<a class="headerlink" href="#default-visible-views" title="Link to this heading"></a></h4>
 <p>Views that are visible per default, e.g.  adding “right_docking_area” shows the properties/toolbox window(star) on right side, which is collapsed by default. ( (star) as long as the default_view_layout_right_ isn’t changed). To investigate the name of the view to enter here, start script recording again and switch to that view in the applications UI. This will record a command containing that name:</p>
 <p><img alt="" src="../../_images/workspace6.png" /></p>
 </section>
 <section id="default-visible-tabs">
-<h4>“default_visible_tabs”<a class="headerlink" href="#default-visible-tabs" title="Permalink to this heading"></a></h4>
+<h4>“default_visible_tabs”<a class="headerlink" href="#default-visible-tabs" title="Link to this heading"></a></h4>
 <p>Views that are visible as tabs per default → these are still initially collapsed until adding them to “default_visible_views”.</p>
 </section>
 </section>
 <section id="step-4-test-your-workspace">
-<h3>Step 4: Test your workspace<a class="headerlink" href="#step-4-test-your-workspace" title="Permalink to this heading"></a></h3>
+<h3>Step 4: Test your workspace<a class="headerlink" href="#step-4-test-your-workspace" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Save that new content in the add-on.</p></li>
 <li><p>Install the add-on.</p></li>
@@ -332,9 +332,9 @@
 </section>
 </section>
 <section id="guidelines">
-<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading"></a></h2>
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Link to this heading"></a></h2>
 <section id="icon-guidelines">
-<h3>Icon guidelines<a class="headerlink" href="#icon-guidelines" title="Permalink to this heading"></a></h3>
+<h3>Icon guidelines<a class="headerlink" href="#icon-guidelines" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>SVG Format, with a page size of 16x16. E.g. Inkscape page template “Icon 16x16”</p></li>
 <li><p>Only use two colors:</p>
@@ -356,9 +356,9 @@
 </section>
 </section>
 <section id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h2>
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
 <section id="how-can-i-add-icons-to-the-workspace-toolbar">
-<h3>How can I add icons to the workspace toolbar ?<a class="headerlink" href="#how-can-i-add-icons-to-the-workspace-toolbar" title="Permalink to this heading"></a></h3>
+<h3>How can I add icons to the workspace toolbar ?<a class="headerlink" href="#how-can-i-add-icons-to-the-workspace-toolbar" title="Link to this heading"></a></h3>
 <p>You can only add commands to the toolbar. The commands will bring their own icons. For scripts, which can be added like commands, a custom script icon can be set in the script editor via the ‘edit properties’ feature in the right mouse menu of the script:</p>
 <p><img alt="" src="../../_images/workspace7.png" /></p>
 </section>

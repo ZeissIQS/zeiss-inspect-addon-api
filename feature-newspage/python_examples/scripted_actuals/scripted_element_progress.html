@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>scripted_element_progress &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/scripted_actuals/scripted_element_progress.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -115,15 +115,15 @@
            <div itemprop="articleBody">
              
   <section id="scripted-element-progress">
-<h1>scripted_element_progress<a class="headerlink" href="#scripted-element-progress" title="Permalink to this heading"></a></h1>
+<h1>scripted_element_progress<a class="headerlink" href="#scripted-element-progress" title="Link to this heading"></a></h1>
 <p><img alt="" src="../../_images/scripted_element_progress_preview.jpg" /></p>
 <p><img alt="" src="../../_images/scripted_element_progress_computation.jpg" /></p>
 <section id="short-description">
-<h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
+<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
 <p>This examples demonstrates how to show progress information to the user while calcualting a scripted element.</p>
 </section>
 <section id="highlights">
-<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
 <p>The scripted element itself is not of interest here, as it is rather meaningless: a point that will always be created at <em>(1,0,0)</em>.
 To showcase the display of calculation progress, a loop with 100 steps containing a <code class="docutils literal notranslate"><span class="pre">sleep</span></code> call to simulate computation are performed in the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -138,7 +138,7 @@ To showcase the display of calculation progress, a loop with 100 steps containin
 <p>To indicate progress, you need to set <code class="docutils literal notranslate"><span class="pre">context.progress_stages_total</span></code> to the amount of steps you expect to compute. This can but not has to be the number of stages in trend projects. You can also set any arbitrary number. As soon as you set <code class="docutils literal notranslate"><span class="pre">context.progress_stages_computing</span></code>, the progress will be indicated in the bottom are of the application (see top screenshot).</p>
 </section>
 <section id="related">
-<h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>How-to: <a class="reference internal" href="../../howtos/scripted_elements/scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a></p></li>
 </ul>

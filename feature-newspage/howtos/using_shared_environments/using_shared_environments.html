@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using shared environments &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_shared_environments/using_shared_environments.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -118,17 +118,17 @@
            <div itemprop="articleBody">
              
   <section id="using-shared-environments">
-<h1>Using shared environments<a class="headerlink" href="#using-shared-environments" title="Permalink to this heading"></a></h1>
+<h1>Using shared environments<a class="headerlink" href="#using-shared-environments" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>Abstract: With software version 2023, each Add-on has a separate script execution environment. That means, a script can only <code class="docutils literal notranslate"><span class="pre">import</span></code> Python modules located in the same Add-on and can only use Python modules (wheels) installed in the same Add-on’s <code class="docutils literal notranslate"><span class="pre">scripts/modules</span></code> folder. This property can be changed by using the shared environment concept described in this How-to Guide.</p>
 </div></blockquote>
 <section id="why-separate-script-environments-are-useful">
-<h2>Why separate script environments are useful<a class="headerlink" href="#why-separate-script-environments-are-useful" title="Permalink to this heading"></a></h2>
+<h2>Why separate script environments are useful<a class="headerlink" href="#why-separate-script-environments-are-useful" title="Link to this heading"></a></h2>
 <p>Separate script environments prevent conflicts between Add-ons. An Add-on is self-contained, i.e. there are no dependencies on Python modules installed in other Add-ons or in a global script environment. There is no impact on other Add-ons by installing, uninstalling or updating a module.</p>
 <p>In most cases, using the separate script environment in an Add-on is the preferred way.</p>
 </section>
 <section id="use-cases-for-shared-environments">
-<h2>Use cases for shared environments<a class="headerlink" href="#use-cases-for-shared-environments" title="Permalink to this heading"></a></h2>
+<h2>Use cases for shared environments<a class="headerlink" href="#use-cases-for-shared-environments" title="Link to this heading"></a></h2>
 <p>Shared environments are useful if</p>
 <ul class="simple">
 <li><p>Modules (wheels) from external sources shall be installed in a shared folder</p>
@@ -141,15 +141,15 @@
 </ul>
 </section>
 <section id="how-to-create-a-shared-environment">
-<h2>How to create a shared environment<a class="headerlink" href="#how-to-create-a-shared-environment" title="Permalink to this heading"></a></h2>
+<h2>How to create a shared environment<a class="headerlink" href="#how-to-create-a-shared-environment" title="Link to this heading"></a></h2>
 <p>Add a key-value pair <code class="docutils literal notranslate"><span class="pre">&quot;environment&quot;:</span> <span class="pre">&lt;environment_name&gt;</span></code> to the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> files of all Add-ons which you want to share the environment. <code class="docutils literal notranslate"><span class="pre">&lt;environment_name&gt;</span></code> can be any string, but you are adviced to use a unique name to avoid potential conflicts with other, separate environments. The <code class="docutils literal notranslate"><span class="pre">environment</span></code> element can be placed at any position within the JSON file.</p>
 </section>
 <section id="example">
-<h2>Example:<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
 <section id="add-on-sharedenvprovider">
-<h3>Add-on “SharedEnvProvider”<a class="headerlink" href="#add-on-sharedenvprovider" title="Permalink to this heading"></a></h3>
+<h3>Add-on “SharedEnvProvider”<a class="headerlink" href="#add-on-sharedenvprovider" title="Link to this heading"></a></h3>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvProvider</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
@@ -162,7 +162,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/scripts/SharedEnvProvider.py</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/scripts/SharedEnvProvider.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">gom</span>
@@ -182,7 +182,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">SharedEnvProvider/metainfo.json</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test user&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example for shared environment&quot;</span><span class="p">,</span>
@@ -208,9 +208,9 @@
 </div>
 </section>
 <section id="add-on-sharedenvuser">
-<h3>Add-on “SharedEnvUser”<a class="headerlink" href="#add-on-sharedenvuser" title="Permalink to this heading"></a></h3>
+<h3>Add-on “SharedEnvUser”<a class="headerlink" href="#add-on-sharedenvuser" title="Link to this heading"></a></h3>
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">File structure</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SharedEnvUser</span>
 <span class="o">|--</span> <span class="n">scripts</span>
 <span class="o">|</span>   <span class="o">|--</span> <span class="n">modules</span>
@@ -221,7 +221,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">SharedEnvUser/scripts/SharedEnvUser.py</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">SharedEnvUser/scripts/SharedEnvUser.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">gom</span>
@@ -247,7 +247,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">SharedEnvUser/metainfo.json</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">SharedEnvUser/metainfo.json</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedEnvUser&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>

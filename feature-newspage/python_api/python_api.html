@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="ZEISS INSPECT 2023 Add-on Python API Specification" name="description" />
 <meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZEISS INSPECT Python API documentation &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_api/python_api.html" />
@@ -16,11 +16,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -148,14 +148,14 @@
            <div itemprop="articleBody">
              
   <section id="zeiss-inspect-python-api-documentation">
-<h1>ZEISS INSPECT Python API documentation<a class="headerlink" href="#zeiss-inspect-python-api-documentation" title="Permalink to this heading"></a></h1>
+<h1>ZEISS INSPECT Python API documentation<a class="headerlink" href="#zeiss-inspect-python-api-documentation" title="Link to this heading"></a></h1>
 <p>Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the Add-on programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This API is currently under heavy development. Modifications and amendments will be made frequently.</p>
 </div>
 <section id="gom-api-imaging">
-<h2>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Permalink to this heading"></a></h2>
+<h2>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Link to this heading"></a></h2>
 <p>Image point/pixel related functions</p>
 <p>Image related functions can be used to query images from the measurements of a project. This is not done directly,
 but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
@@ -166,7 +166,7 @@ functions which can be used to process the image data.</p>
 <li><p>‘pixel’: 2D coordinate in an image.</p></li>
 </ul>
 <section id="gom-api-imaging-compute-epipolar-line">
-<h3>gom.api.imaging.compute_epipolar_line<a class="headerlink" href="#gom-api-imaging-compute-epipolar-line" title="Permalink to this heading"></a></h3>
+<h3>gom.api.imaging.compute_epipolar_line<a class="headerlink" href="#gom-api-imaging-compute-epipolar-line" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.imaging.compute_epipolar_line</span> <span class="pre">(source:</span> <span class="pre">object,</span> <span class="pre">traces:</span> <span class="pre">[],</span> <span class="pre">max_distance:</span> <span class="pre">float):</span> <span class="pre">[]</span></span></dt>
@@ -209,7 +209,7 @@ functions which can be used to process the image data.</p>
 </div>
 </section>
 <section id="gom-api-imaging-compute-pixels-from-point">
-<h3>gom.api.imaging.compute_pixels_from_point<a class="headerlink" href="#gom-api-imaging-compute-pixels-from-point" title="Permalink to this heading"></a></h3>
+<h3>gom.api.imaging.compute_pixels_from_point<a class="headerlink" href="#gom-api-imaging-compute-pixels-from-point" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.imaging.compute_pixels_from_point(point_and_image_acquisitions:</span> <span class="pre">[tuple]):</span> <span class="pre">[object]</span></span></dt>
@@ -252,7 +252,7 @@ a list containing 0 to n entries of pixel matches.</p>
 </div>
 </section>
 <section id="gom-api-imaging-compute-point-from-pixels">
-<h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Permalink to this heading"></a></h3>
+<h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[tuple],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span> <span class="pre">[object]</span></span></dt>
@@ -300,11 +300,11 @@ left corner.</p>
 </section>
 </section>
 <section id="gom-api-project">
-<h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Permalink to this heading"></a></h2>
+<h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Link to this heading"></a></h2>
 <p>Access to project relevant structures</p>
 <p>This module contains functions for accessing project relevant data</p>
 <section id="gom-api-project-create-progress-information">
-<h3>gom.api.project.create_progress_information<a class="headerlink" href="#gom-api-project-create-progress-information" title="Permalink to this heading"></a></h3>
+<h3>gom.api.project.create_progress_information<a class="headerlink" href="#gom-api-project-create-progress-information" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information</span> <span class="pre">():</span> <span class="pre">object</span></span></dt>
@@ -325,7 +325,7 @@ left corner.</p>
 main application window. It can be used to display progress information of long running processes.</p>
 </section>
 <section id="gom-api-project-get-image-acquisition">
-<h3>gom.api.project.get_image_acquisition<a class="headerlink" href="#gom-api-project-get-image-acquisition" title="Permalink to this heading"></a></h3>
+<h3>gom.api.project.get_image_acquisition<a class="headerlink" href="#gom-api-project-get-image-acquisition" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisition</span> <span class="pre">(measurement:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
@@ -367,7 +367,7 @@ various image variants.</p>
 </div>
 </section>
 <section id="gom-api-project-get-image-acquisitions">
-<h3>gom.api.project.get_image_acquisitions<a class="headerlink" href="#gom-api-project-get-image-acquisitions" title="Permalink to this heading"></a></h3>
+<h3>gom.api.project.get_image_acquisitions<a class="headerlink" href="#gom-api-project-get-image-acquisitions" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisitions</span> <span class="pre">(measurement_list:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
@@ -411,7 +411,7 @@ for various image variants.</p>
 </section>
 </section>
 <section id="gom-api-addons">
-<h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Permalink to this heading"></a></h2>
+<h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Link to this heading"></a></h2>
 <p>API for accessing the add-ons currently installed in the running software instance</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -422,7 +422,7 @@ queried, add-on files and resources can be read and if the calling instance is a
 one specific add-on, this specific add-on can be modified on-the-fly and during software
 update processes.</p>
 <section id="gom-api-addons-addon-exists">
-<h3>gom.api.addons.AddOn.exists<a class="headerlink" href="#gom-api-addons-addon-exists" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.exists<a class="headerlink" href="#gom-api-addons-addon-exists" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.exists</span> <span class="pre">(path:</span> <span class="pre">str):</span> <span class="pre">boolean</span></span></dt>
@@ -445,7 +445,7 @@ update processes.</p>
 <p>This function checks if the given file exists in the add-on</p>
 </section>
 <section id="gom-api-addons-addon-get-file">
-<h3>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
@@ -466,7 +466,7 @@ update processes.</p>
 empty if the add-on has never been ‘completed’, i.e. by being in edit mode.</p>
 </section>
 <section id="gom-api-addons-addon-get-file-list">
-<h3>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
@@ -489,7 +489,7 @@ content of protected add-ons cannot be read at all and just the add-on a script 
 from can be modified via this API.</p>
 </section>
 <section id="gom-api-addons-addon-get-id">
-<h3>gom.api.addons.AddOn.get_id<a class="headerlink" href="#gom-api-addons-addon-get-id" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_id<a class="headerlink" href="#gom-api-addons-addon-get-id" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_id</span> <span class="pre">():</span> <span class="pre">uuid</span></span></dt>
@@ -510,7 +510,7 @@ from can be modified via this API.</p>
 uniquely address the add-on.</p>
 </section>
 <section id="gom-api-addons-addon-get-level">
-<h3>gom.api.addons.AddOn.get_level<a class="headerlink" href="#gom-api-addons-addon-get-level" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_level<a class="headerlink" href="#gom-api-addons-addon-get-level" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_level</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
@@ -535,7 +535,7 @@ uniquely address the add-on.</p>
 </ul>
 </section>
 <section id="gom-api-addons-addon-get-name">
-<h3>gom.api.addons.AddOn.get_name<a class="headerlink" href="#gom-api-addons-addon-get-name" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_name<a class="headerlink" href="#gom-api-addons-addon-get-name" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_name</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
@@ -556,7 +556,7 @@ uniquely address the add-on.</p>
 readable name which is display in the add-on manager and the add-on store.</p>
 </section>
 <section id="gom-api-addons-addon-get-tags">
-<h3>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_tags</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
@@ -576,7 +576,7 @@ readable name which is display in the add-on manager and the add-on store.</p>
 <p>This function returns the list of tags in the addons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
 </section>
 <section id="gom-api-addons-addon-has-license">
-<h3>gom.api.addons.AddOn.has_license<a class="headerlink" href="#gom-api-addons-addon-has-license" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.has_license<a class="headerlink" href="#gom-api-addons-addon-has-license" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.has_license</span> <span class="pre">():</span> <span class="pre">boolean</span></span></dt>
@@ -592,7 +592,7 @@ Add-ons can either be free and commercial. Commercial add-ons require the presen
 matching license via a license dongle or a license server.</p>
 </section>
 <section id="gom-api-addons-addon-is-protected">
-<h3>gom.api.addons.AddOn.is_protected<a class="headerlink" href="#gom-api-addons-addon-is-protected" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.is_protected<a class="headerlink" href="#gom-api-addons-addon-is-protected" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.is_protected</span> <span class="pre">():</span> <span class="pre">boolean</span></span></dt>
@@ -614,7 +614,7 @@ includes both ‘IP protection’ (content cannot be read) and ‘copy protectio
 copied, as far as possible)</p>
 </section>
 <section id="gom-api-addons-addon-read">
-<h3>gom.api.addons.AddOn.read<a class="headerlink" href="#gom-api-addons-addon-read" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.read<a class="headerlink" href="#gom-api-addons-addon-read" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.read</span> <span class="pre">(filename:</span> <span class="pre">str):</span> <span class="pre">bytes</span></span></dt>
@@ -647,7 +647,7 @@ the file can still be read but will be AES encrypted.</p>
 </div>
 </section>
 <section id="gom-api-addons-addon-write">
-<h3>gom.api.addons.AddOn.write<a class="headerlink" href="#gom-api-addons-addon-write" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.AddOn.write<a class="headerlink" href="#gom-api-addons-addon-write" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.write</span> <span class="pre">(path:</span> <span class="pre">str,</span> <span class="pre">data:</span> <span class="pre">bytes):</span> <span class="pre">None</span></span></dt>
@@ -674,7 +674,7 @@ function with care, as the result is permanent !</p>
 </div>
 </section>
 <section id="gom-api-addons-get-addon">
-<h3>gom.api.addons.get_addon<a class="headerlink" href="#gom-api-addons-get-addon" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.get_addon<a class="headerlink" href="#gom-api-addons-get-addon" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.get_addon</span> <span class="pre">(UUId:</span> <span class="pre">id):</span> <span class="pre">str</span></span></dt>
@@ -704,7 +704,7 @@ function with care, as the result is permanent !</p>
 <p>\throws Exception if there is no add-on with that id</p>
 </section>
 <section id="gom-api-addons-get-current-addon">
-<h3>gom.api.addons.get_current_addon<a class="headerlink" href="#gom-api-addons-get-current-addon" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.get_current_addon<a class="headerlink" href="#gom-api-addons-get-current-addon" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.get_current_addon</span> <span class="pre">():</span> <span class="pre">str</span></span></dt>
@@ -730,7 +730,7 @@ function with care, as the result is permanent !</p>
 </div>
 </section>
 <section id="gom-api-addons-get-installed-addons">
-<h3>gom.api.addons.get_installed_addons<a class="headerlink" href="#gom-api-addons-get-installed-addons" title="Permalink to this heading"></a></h3>
+<h3>gom.api.addons.get_installed_addons<a class="headerlink" href="#gom-api-addons-get-installed-addons" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.get_installed_addons</span> <span class="pre">():</span> <span class="pre">[object]</span></span></dt>
@@ -757,7 +757,7 @@ installed in the running instance.</p>
 </section>
 </section>
 <section id="gom-api-settings">
-<h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Permalink to this heading"></a></h2>
+<h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Link to this heading"></a></h2>
 <p>API for storing add-on related settings persistently</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -771,7 +771,7 @@ defined the available keys, the entry types and the entry properties. If the ent
 represented by some widget, the setting entry will also be present in the applications ‘preferences’
 dialog and can be adapted interactively there.</p>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Settings API example&quot;</span><span class="p">,</span>
 <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example add-on demonstrating usage of the settings API&quot;</span><span class="p">,</span>
@@ -824,7 +824,7 @@ part of an add-on called ‘Settings API Example’, the application preferences
 <p><img alt="Settings level 2" src="../_images/TomMPackage_settings_api_preferences_2.png" /></p>
 </section>
 <section id="gom-api-settings-get">
-<h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Permalink to this heading"></a></h3>
+<h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.get</span> <span class="pre">(key:</span> <span class="pre">str):</span> <span class="pre">any</span></span></dt>
@@ -853,7 +853,7 @@ are integer, double, string and bool.</p>
 </div>
 </section>
 <section id="gom-api-settings-list">
-<h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Permalink to this heading"></a></h3>
+<h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.list</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
@@ -874,7 +874,7 @@ are integer, double, string and bool.</p>
 These keys are the same configuration keys are used in the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file of that add-on.</p>
 </section>
 <section id="gom-api-settings-set">
-<h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Permalink to this heading"></a></h3>
+<h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.set</span> <span class="pre">(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">any):</span> <span class="pre">none</span></span></dt>

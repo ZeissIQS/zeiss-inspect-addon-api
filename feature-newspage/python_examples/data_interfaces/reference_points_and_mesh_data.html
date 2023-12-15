@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>reference_points_and_mesh_data &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=05bbff2e" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/data_interfaces/reference_points_and_mesh_data.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -114,16 +114,16 @@
            <div itemprop="articleBody">
              
   <section id="reference-points-and-mesh-data">
-<h1>reference_points_and_mesh_data<a class="headerlink" href="#reference-points-and-mesh-data" title="Permalink to this heading"></a></h1>
+<h1>reference_points_and_mesh_data<a class="headerlink" href="#reference-points-and-mesh-data" title="Link to this heading"></a></h1>
 <p><a class="reference internal" href="../../_images/refpoints_and_mesh.png"><img alt="Point Cloud and Surface Elements from Reference Points/Mesh" src="../../_images/refpoints_and_mesh.png" style="width: 800px;" /></a></p>
 <section id="short-description">
-<h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
+<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
 <p>This example demonstrates how to access the reference points in a measurement and the mesh from Python. For demonstration purposes, scripted point clouds or scripted surfaces are created from both data structures, respectively.</p>
 </section>
 <section id="highlights">
-<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
 <section id="accessing-the-reference-points-of-a-measurement">
-<h3>1. Accessing the reference points of a measurement<a class="headerlink" href="#accessing-the-reference-points-of-a-measurement" title="Permalink to this heading"></a></h3>
+<h3>1. Accessing the reference points of a measurement<a class="headerlink" href="#accessing-the-reference-points-of-a-measurement" title="Link to this heading"></a></h3>
 <p>In the Script Object dialog, select the keyword <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> of the reference points element:</p>
 <p><img alt="Script Object, Object Group: Elements, Measurements/Actual Measurements Series/Scan 1/Referenzpunkte, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/reference_points_script_object.png" /></p>
 <p>The resulting Python data structure is a numpy-array of shape (1, &lt;n&gt;, 3):</p>
@@ -167,7 +167,7 @@
 <p>The function <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_element_by_script()</span></code> calls the script <code class="docutils literal notranslate"><span class="pre">create_point_cloud.py</span></code> by its <code class="docutils literal notranslate"><span class="pre">script_uuid</span></code>. The <code class="docutils literal notranslate"><span class="pre">script_uuid</span></code> can be found via the Add-on Explorer in the Script Properties (see <a class="reference internal" href="#script-for-creating-a-surface-element">3. Script for creating a surface element</a>).</p>
 </section>
 <section id="accessing-a-mesh">
-<h3>2. Accessing a mesh<a class="headerlink" href="#accessing-a-mesh" title="Permalink to this heading"></a></h3>
+<h3>2. Accessing a mesh<a class="headerlink" href="#accessing-a-mesh" title="Link to this heading"></a></h3>
 <p>In the Script Object dialog, select the data structures <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Coordinate</span></code> and <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">arrays/Geometry/Triangle</span></code> of the mesh element:</p>
 <p><img alt="Script Object, Object Group: Elements, Part/Mesh, Keyword: Data arrays/Geometry/Coordinate" src="../../_images/mesh_coordinates.png" /></p>
 <p>The <strong>coordinates</strong> are the vertex points of the mesh.</p>
@@ -242,12 +242,12 @@
 </div>
 </section>
 <section id="script-for-creating-a-surface-element">
-<h3>3. Script for creating a surface element<a class="headerlink" href="#script-for-creating-a-surface-element" title="Permalink to this heading"></a></h3>
+<h3>3. Script for creating a surface element<a class="headerlink" href="#script-for-creating-a-surface-element" title="Link to this heading"></a></h3>
 <p>The scripts <code class="docutils literal notranslate"><span class="pre">create_point_cloud.py</span></code> and <code class="docutils literal notranslate"><span class="pre">create_surface.py</span></code> are provided in the example Add-on.</p>
 <p>Since no user interaction is required, the <code class="docutils literal notranslate"><span class="pre">dialog()</span></code> function shown in <a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Introduction to scripted elements</span></a> as part of the code pattern can be omitted. Consequently, the checkbox Interactive Script in the Script Properties dialog is disabled.</p>
 <p><img alt="Create Surface - Script Properties" src="../../_images/create_surface_script_properties.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">create_surface.py</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">create_surface.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 	<span class="n">valid_results</span><span class="o">=</span><span class="kc">False</span>
 	
@@ -270,7 +270,7 @@
 </section>
 </section>
 <section id="related">
-<h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>How-to: <a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-ref">Access element properties and data</span></a></p></li>
 <li><p>How-to: <a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Introduction to scripted elements</span></a></p></li>
