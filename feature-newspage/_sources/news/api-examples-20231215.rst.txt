@@ -10,4 +10,4 @@ This example demonstrates how to access reference points in a measurement and me
 
 `point_pixel_transformations <python_examples/point_pixel_transformations.html>`_
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-This example adresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.
+This example addresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.
