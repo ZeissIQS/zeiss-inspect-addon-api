@@ -48,6 +48,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
    howtos/localization/localization
    howtos/testing_addons/testing_addons
+   howtos/faq/faq
 ```
 
 
