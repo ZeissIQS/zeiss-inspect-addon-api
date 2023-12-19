@@ -138,8 +138,8 @@ An Add-on has to be finished (with **Finish Editing**) before its Python files c
 
 | Provider Add-on | User Add-on | Description                                                        |
 | --------------- | ----------- | ------------------------------------------------------------------ |
-| protected       | unprotected | :x: curently not supported                                         |
-| unprotected     | protected   | :heavy_check_mark: no additional measures required                 |
-| protected       | protected   | :key: 'shared secret' must be created when applying the protection |
+| protected       | unprotected | &#x274c; curently not supported                                         |
+| unprotected     | protected   | &#x2714; no additional measures required                 |
+| protected       | protected   | &#x1f511; 'shared secret' must be created when applying the protection |
 
 Protecting an Add-on and creating the shared secret is done with a tool by ZEISS IQS, which is currently provided on request.
