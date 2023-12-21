@@ -18,15 +18,27 @@ Creating add-ons is a rather advanced topic, so you should be familiar with the 
 Or, depending on your application, you might be interested in the specific articles [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html), [Access Point: ZEISS INSPECT Airfoil](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html) or [Access Point: ZEISS INSPECT Correlate](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_zeiss_inspect_correlate.html).
 
 ```
-<!--
-Not available yet: [Access Point: ZEISS INSPECT Correlate]()
--->
-
 If you are new to Add-ons, you find some introductions in the ZEISS Quality Tech Guide:
 
 * [Introduction to Add-ons](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/introduction_to_add-ons.html)
 * [How to Create a Basic Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_a_basic_add_on.html)
 * [How to Create an Advanced Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html)
+
+Check out the ZEISS INSPECT Add-On news page!
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   
+   news
+```
+
+%```{eval-rst}
+%.. toctree::
+%   :hidden:
+%   
+%   news/welcome
+%```
 
 Furthermore, we recommend following our how-to guides to get you started.
 
@@ -48,6 +60,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
    howtos/localization/localization
    howtos/testing_addons/testing_addons
+   howtos/faq/faq
 ```
 
 

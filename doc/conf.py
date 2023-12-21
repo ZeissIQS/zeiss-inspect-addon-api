@@ -13,7 +13,7 @@ author = 'Carl Zeiss GOM Metrology GmbH'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap']
+extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap', 'sphinxcontrib.newsfeed']
 source_suffix = ['.rst', '.md']
 
 templates_path = ['_templates']
@@ -36,7 +36,7 @@ sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-# Do not show "View page source" on every page
+# Do not show "View page source" link on every page
 html_show_sourcelink = False
 
 #html_theme = 'alabaster'
