@@ -7,6 +7,10 @@ myst:
    suppress_warnings:
       ["myst.header"]
 ---
+```{eval-rst}
+.. myst.header::
+   :class: suppress
+```
 
 # ZEISS INSPECT Python API documentation
 
