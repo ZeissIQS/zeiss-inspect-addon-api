@@ -40,7 +40,7 @@ Check out the ZEISS INSPECT Add-On news page!
    news/20231215-api-examples
    news/20231221-faq
    news/welcome
-%```
+```
 
 Furthermore, we recommend following our how-to guides to get you started.
 
