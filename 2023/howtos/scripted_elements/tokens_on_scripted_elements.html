@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tokens on scripted elements &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/scripted_elements/tokens_on_scripted_elements.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -76,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -121,19 +125,19 @@
            <div itemprop="articleBody">
              
   <section id="tokens-on-scripted-elements">
-<h1>Tokens on scripted elements<a class="headerlink" href="#tokens-on-scripted-elements" title="Permalink to this heading"></a></h1>
+<h1>Tokens on scripted elements<a class="headerlink" href="#tokens-on-scripted-elements" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This section assumes that you are familiar with the basic concept of Scripted elements. If not, take a look at the <a class="reference internal" href="scripted_elements_introduction.html"><span class="std std-doc">Introduction</span></a>, <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a> and <a class="reference internal" href="scripted_checks.html"><span class="std std-doc">Scripted checks</span></a> sections.</p>
 </div>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>This page describes how user-defined tokens can be set to user-defined elements (UDEs).</p>
 </section>
 <section id="instructions">
-<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading"></a></h2>
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading"></a></h2>
 <section id="how-user-defined-tokens-are-set">
-<h3>How user-defined tokens are set<a class="headerlink" href="#how-user-defined-tokens-are-set" title="Permalink to this heading"></a></h3>
+<h3>How user-defined tokens are set<a class="headerlink" href="#how-user-defined-tokens-are-set" title="Link to this heading"></a></h3>
 <p>In the calculation function that generated the results, the <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code> field can be read and written.</p>
 <p>In the following example, a volume defects element was created with following snippet inside the <code class="docutils literal notranslate"><span class="pre">calculation()</span></code> function:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Simulating user-defined token data</span>
@@ -153,7 +157,7 @@
 </div>
 </section>
 <section id="usage-of-user-defined-tokens-in-scripts">
-<h3>Usage of user-defined tokens in scripts<a class="headerlink" href="#usage-of-user-defined-tokens-in-scripts" title="Permalink to this heading"></a></h3>
+<h3>Usage of user-defined tokens in scripts<a class="headerlink" href="#usage-of-user-defined-tokens-in-scripts" title="Link to this heading"></a></h3>
 <p>Let’s see how this data can be retrieved after the element was successfully created:</p>
 <ol class="arabic">
 <li><p>Open the script editor and create a new script. In the new script, press “F2” or right-click → Insert → Element Value.</p>
@@ -168,7 +172,7 @@
 </ol>
 </section>
 <section id="usage-in-user-defined-checks">
-<h3>Usage in user-defined checks<a class="headerlink" href="#usage-in-user-defined-checks" title="Permalink to this heading"></a></h3>
+<h3>Usage in user-defined checks<a class="headerlink" href="#usage-in-user-defined-checks" title="Link to this heading"></a></h3>
 <p>Just as all other tokens on the element, you can access the data in user-defined checks.</p>
 <p>For simple data types, this is straightforward. To make this work for indexed data, as in the example of “defect_ids”, you have to make sure that the array data you set to the token has the same length as the indices of the element.</p>
 <p>In the example above, the defect element gets 166 meshes, which will result in indices from 0 to 165.</p>

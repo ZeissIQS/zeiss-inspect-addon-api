@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scripted elements API &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_api/scripted_elements_api.html" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -61,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -152,26 +156,26 @@
            <div itemprop="articleBody">
              
   <section id="scripted-elements-api">
-<h1>Scripted elements API<a class="headerlink" href="#scripted-elements-api" title="Permalink to this heading"></a></h1>
+<h1>Scripted elements API<a class="headerlink" href="#scripted-elements-api" title="Link to this heading"></a></h1>
 <p>This reference describes functions and data structures necessary for the implementation of “scripted elements”.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>If you don’t know about the concept yet, take a look at the <a class="reference internal" href="../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Scripted elements introduction</span></a>.</p>
 </div>
 <section id="the-dialog-function">
-<h2>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function<a class="headerlink" href="#the-dialog-function" title="Permalink to this heading"></a></h2>
+<h2>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function<a class="headerlink" href="#the-dialog-function" title="Link to this heading"></a></h2>
 <p>💡 <strong>Notes:</strong></p>
 <ul class="simple">
 <li><p>The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.</p></li>
 <li><p>All tokens of other elements can be accessed within this function.</p></li>
 </ul>
 <section id="signature">
-<h3>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a></h3>
+<h3>Signature<a class="headerlink" href="#signature" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 </pre></div>
 </div>
 <section id="parameter-context">
-<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#parameter-context" title="Permalink to this heading"></a></h4>
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#parameter-context" title="Link to this heading"></a></h4>
 <p>The context contains the following members:</p>
 <table class="docutils align-default">
 <thead>
@@ -225,17 +229,17 @@
 </table>
 </section>
 <section id="parameter-params">
-<h4>Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code><a class="headerlink" href="#parameter-params" title="Permalink to this heading"></a></h4>
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code><a class="headerlink" href="#parameter-params" title="Link to this heading"></a></h4>
 <p>The params contain a map of parameter values. It is only filled on element edit and contains the current parameters of the element.</p>
 </section>
 <section id="return-value">
-<h4>Return value<a class="headerlink" href="#return-value" title="Permalink to this heading"></a></h4>
+<h4>Return value<a class="headerlink" href="#return-value" title="Link to this heading"></a></h4>
 <p>The function must return a map containing the new element parameters.</p>
 <p>If no map is returned the edit/creation is regarded as aborted by the user.</p>
 </section>
 </section>
 <section id="calculating-a-preview">
-<h3>Calculating a preview<a class="headerlink" href="#calculating-a-preview" title="Permalink to this heading"></a></h3>
+<h3>Calculating a preview<a class="headerlink" href="#calculating-a-preview" title="Link to this heading"></a></h3>
 <p>To calculate a preview, the <code class="docutils literal notranslate"><span class="pre">context.calc()</span></code> function can be invoked. It takes the following parameters:</p>
 <table class="docutils align-default">
 <thead>
@@ -259,19 +263,19 @@
 </section>
 </section>
 <section id="the-calculation-function">
-<h2>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function<a class="headerlink" href="#the-calculation-function" title="Permalink to this heading"></a></h2>
+<h2>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function<a class="headerlink" href="#the-calculation-function" title="Link to this heading"></a></h2>
 <p>💡 <strong>Notes:</strong></p>
 <ul class="simple">
 <li><p>It is not possible to call script commands or read tokens from within this function. (Do not call <code class="docutils literal notranslate"><span class="pre">gom.app.project....</span></code>)</p></li>
 <li><p>The function should loop over all stages to be calculated and set a computation result  for each stage.</p></li>
 </ul>
 <section id="id1">
-<h3>Signature<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Signature<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 </pre></div>
 </div>
 <section id="id2">
-<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
 <p>The context contains the following members:</p>
 <table class="docutils align-default">
 <thead>
@@ -328,7 +332,7 @@
 </tbody>
 </table>
 <section id="attribute-context-data">
-<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code><a class="headerlink" href="#attribute-context-data" title="Permalink to this heading"></a></h5>
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code><a class="headerlink" href="#attribute-context-data" title="Link to this heading"></a></h5>
 <p>The context.data is a list allowing to read or write additional data. The list is indexed with a stage index. The additional data is stored within the project, so the gom application must be able to serialize the provided data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -336,21 +340,21 @@
 </div>
 </section>
 <section id="attribute-context-result">
-<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.result[]</span></code><a class="headerlink" href="#attribute-context-result" title="Permalink to this heading"></a></h5>
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.result[]</span></code><a class="headerlink" href="#attribute-context-result" title="Link to this heading"></a></h5>
 <p>This is a write only list used to set computation results. The context.result[] should be set for each stage index listed in context.stages.</p>
 <p>The format to write must match the type of the script element. For available result types, see <a class="reference internal" href="#scripted-actuals-return-values">Scripted actuals - Return values</a> and <a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a>.</p>
 </section>
 </section>
 <section id="id3">
-<h4>Return value<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<h4>Return value<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
 <p>On success the function must return True, otherwise False.</p>
 </section>
 </section>
 </section>
 <section id="scripted-actuals-return-values">
-<h2>Scripted actuals - Return values<a class="headerlink" href="#scripted-actuals-return-values" title="Permalink to this heading"></a></h2>
+<h2>Scripted actuals - Return values<a class="headerlink" href="#scripted-actuals-return-values" title="Link to this heading"></a></h2>
 <section id="point">
-<h3>Point<a class="headerlink" href="#point" title="Permalink to this heading"></a></h3>
+<h3>Point<a class="headerlink" href="#point" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Plain 3D point</p>
@@ -365,7 +369,7 @@
 </div>
 </section>
 <section id="distance">
-<h3>Distance<a class="headerlink" href="#distance" title="Permalink to this heading"></a></h3>
+<h3>Distance<a class="headerlink" href="#distance" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Two point distance</p>
@@ -380,7 +384,7 @@
 </div>
 </section>
 <section id="value-element">
-<h3>Value Element<a class="headerlink" href="#value-element" title="Permalink to this heading"></a></h3>
+<h3>Value Element<a class="headerlink" href="#value-element" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Plain value (only real values supported)</p>
@@ -394,7 +398,7 @@
 </div>
 </section>
 <section id="circle">
-<h3>Circle<a class="headerlink" href="#circle" title="Permalink to this heading"></a></h3>
+<h3>Circle<a class="headerlink" href="#circle" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D Circle with direction</p>
@@ -408,7 +412,7 @@
 </div>
 </section>
 <section id="curve">
-<h3>Curve<a class="headerlink" href="#curve" title="Permalink to this heading"></a></h3>
+<h3>Curve<a class="headerlink" href="#curve" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>3D polyline</p>
@@ -428,7 +432,7 @@
 </div>
 </section>
 <section id="surface-curve">
-<h3>Surface Curve<a class="headerlink" href="#surface-curve" title="Permalink to this heading"></a></h3>
+<h3>Surface Curve<a class="headerlink" href="#surface-curve" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>3D polyline with normals</p>
@@ -448,7 +452,7 @@
 </div>
 </section>
 <section id="section">
-<h3>Section<a class="headerlink" href="#section" title="Permalink to this heading"></a></h3>
+<h3>Section<a class="headerlink" href="#section" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>3D polyline with normals</p>
@@ -467,7 +471,7 @@
 </div>
 </section>
 <section id="point-cloud">
-<h3>Point Cloud<a class="headerlink" href="#point-cloud" title="Permalink to this heading"></a></h3>
+<h3>Point Cloud<a class="headerlink" href="#point-cloud" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Set of 3D points</p>
@@ -481,7 +485,7 @@
 </div>
 </section>
 <section id="surface">
-<h3>Surface<a class="headerlink" href="#surface" title="Permalink to this heading"></a></h3>
+<h3>Surface<a class="headerlink" href="#surface" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Mesh</p>
@@ -495,7 +499,7 @@
 </div>
 </section>
 <section id="cone">
-<h3>Cone<a class="headerlink" href="#cone" title="Permalink to this heading"></a></h3>
+<h3>Cone<a class="headerlink" href="#cone" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Cone</p>
@@ -514,7 +518,7 @@
 </div>
 </section>
 <section id="cylinder">
-<h3>Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this heading"></a></h3>
+<h3>Cylinder<a class="headerlink" href="#cylinder" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Cylinder</p>
@@ -530,7 +534,7 @@
 </div>
 </section>
 <section id="volume-defects">
-<h3>Volume defects<a class="headerlink" href="#volume-defects" title="Permalink to this heading"></a></h3>
+<h3>Volume defects<a class="headerlink" href="#volume-defects" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Volume defects</p>
@@ -549,7 +553,7 @@
 </div>
 </section>
 <section id="d-volume-defects">
-<h3>2D Volume Defects<a class="headerlink" href="#d-volume-defects" title="Permalink to this heading"></a></h3>
+<h3>2D Volume Defects<a class="headerlink" href="#d-volume-defects" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D volume defects element of curves<p>needed for the P201 package</p>
@@ -567,7 +571,7 @@
 </div>
 </section>
 <section id="volume">
-<h3>Volume<a class="headerlink" href="#volume" title="Permalink to this heading"></a></h3>
+<h3>Volume<a class="headerlink" href="#volume" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>New volume data</p>
@@ -581,7 +585,7 @@
 </div>
 </section>
 <section id="volume-material-map">
-<h3>Volume material map<a class="headerlink" href="#volume-material-map" title="Permalink to this heading"></a></h3>
+<h3>Volume material map<a class="headerlink" href="#volume-material-map" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Attach material labels to volume element</p>
@@ -599,7 +603,7 @@
 </div>
 </section>
 <section id="volume-section">
-<h3>Volume Section<a class="headerlink" href="#volume-section" title="Permalink to this heading"></a></h3>
+<h3>Volume Section<a class="headerlink" href="#volume-section" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Volume Section</p>
@@ -613,7 +617,7 @@
 </div>
 </section>
 <section id="volume-region">
-<h3>Volume Region<a class="headerlink" href="#volume-region" title="Permalink to this heading"></a></h3>
+<h3>Volume Region<a class="headerlink" href="#volume-region" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Volume Region</p>
@@ -632,14 +636,14 @@
 </section>
 </section>
 <section id="scripted-checks-return-values">
-<h2>Scripted checks - Return values<a class="headerlink" href="#scripted-checks-return-values" title="Permalink to this heading"></a></h2>
+<h2>Scripted checks - Return values<a class="headerlink" href="#scripted-checks-return-values" title="Link to this heading"></a></h2>
 <p>Scripted Checks extend the concept of scripted actual elements to be able to calculate custom inspections based on python scripts.</p>
 <section id="supported-element-types">
-<h3>Supported Element Types<a class="headerlink" href="#supported-element-types" title="Permalink to this heading"></a></h3>
+<h3>Supported Element Types<a class="headerlink" href="#supported-element-types" title="Link to this heading"></a></h3>
 <p>The following element types are currently supported:</p>
 </section>
 <section id="scalar">
-<h3>Scalar<a class="headerlink" href="#scalar" title="Permalink to this heading"></a></h3>
+<h3>Scalar<a class="headerlink" href="#scalar" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Scalar check:<br>A single scalar value is assigned to an element</p>
@@ -653,7 +657,7 @@
 </div>
 </section>
 <section id="scalar-surface">
-<h3>Scalar Surface<a class="headerlink" href="#scalar-surface" title="Permalink to this heading"></a></h3>
+<h3>Scalar Surface<a class="headerlink" href="#scalar-surface" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Surface check:<br>A scalar deviation value is assigned to each point of a mesh.</p>
@@ -667,7 +671,7 @@
 </div>
 </section>
 <section id="scalar-curve">
-<h3>Scalar Curve<a class="headerlink" href="#scalar-curve" title="Permalink to this heading"></a></h3>
+<h3>Scalar Curve<a class="headerlink" href="#scalar-curve" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
 <dt class="field-odd">Element Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Curve check:<br>A scalar deviation value is assigned to each point on a curve.</p>

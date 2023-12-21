@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing add-ons &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/testing_addons/testing_addons.html" />
@@ -14,15 +14,15 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ZEISS INSPECT Python API Examples Overview" href="../../python_examples/index.html" />
+    <link rel="next" title="Frequently asked questions" href="../faq/faq.html" />
     <link rel="prev" title="Localization of Add-ons" href="../localization/localization.html" /> 
 </head>
 
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -73,6 +76,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#working-with-test-data">Working with test data</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -117,18 +121,18 @@
            <div itemprop="articleBody">
              
   <section id="testing-add-ons">
-<h1>Testing add-ons<a class="headerlink" href="#testing-add-ons" title="Permalink to this heading"></a></h1>
+<h1>Testing add-ons<a class="headerlink" href="#testing-add-ons" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, which you can find in the store, as an example how to include tests in your add-on.</p>
 </div>
 <section id="why-testing">
-<h2>Why testing?<a class="headerlink" href="#why-testing" title="Permalink to this heading"></a></h2>
+<h2>Why testing?<a class="headerlink" href="#why-testing" title="Link to this heading"></a></h2>
 <p>Testing your add-on is a crucial step for maintainability, especially when dealing with multiple software versions or updates. As manually testing your add-on is often tedious and time consuming, this how-to focuses on how to include <strong>automated tests</strong> in your add-on.</p>
 <p>Automated tests are important when writing add-ons in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the GOM Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the add-on, as well as to ensure it meets the user’s requirements.</p>
 </section>
 <section id="file-structure">
-<h2>File structure<a class="headerlink" href="#file-structure" title="Permalink to this heading"></a></h2>
+<h2>File structure<a class="headerlink" href="#file-structure" title="Link to this heading"></a></h2>
 <p>For test discovery to work, the file and folder structure of add-on tests needs to adhere to the following conventions, which are similar to the <em>pyTest</em>s <a class="reference external" href="https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery">Conventions for Python test discovery</a>.</p>
 <ul class="simple">
 <li><p>test script file names <strong>start with <code class="docutils literal notranslate"><span class="pre">test_</span></code></strong></p></li>
@@ -142,7 +146,7 @@
 <figure class="align-center" id="id1">
 <img alt="../../_images/file_structure.jpg" src="../../_images/file_structure.jpg" />
 <figcaption>
-<p><span class="caption-text">Exemplary file structure.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Exemplary file structure.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -151,7 +155,7 @@
 </div>
 </section>
 <section id="writing-a-test-script">
-<h2>Writing a test script<a class="headerlink" href="#writing-a-test-script" title="Permalink to this heading"></a></h2>
+<h2>Writing a test script<a class="headerlink" href="#writing-a-test-script" title="Link to this heading"></a></h2>
 <p>The following steps are required to write a new test script. The example code is taken from the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on, which you can find in the store.</p>
 <ol class="arabic">
 <li><p>Create a test script: Create a Python file with the convention test_*.py.
@@ -182,10 +186,10 @@ For more details, see also: <a class="reference internal" href="../../python_exa
 <p>That’s all it takes to create a simple test, which can now be run.</p>
 </section>
 <section id="running-add-on-tests">
-<h2>Running add-on tests<a class="headerlink" href="#running-add-on-tests" title="Permalink to this heading"></a></h2>
+<h2>Running add-on tests<a class="headerlink" href="#running-add-on-tests" title="Link to this heading"></a></h2>
 <p>To run add-on tests, either a single one or multiple/all tests of an add-on, you can use the integrated script editor or VSCode. You can also execute tests from a script.</p>
 <section id="using-the-script-editor">
-<h3>Using the script editor<a class="headerlink" href="#using-the-script-editor" title="Permalink to this heading"></a></h3>
+<h3>Using the script editor<a class="headerlink" href="#using-the-script-editor" title="Link to this heading"></a></h3>
 <p>To run the tests of a specific test script, use the context menu and select “Run tests…”.</p>
 <p><img alt="" src="../../_images/execute_tests_command.jpg" /></p>
 <p>You can use this context also on higher levels of the file hierarchy, e.g. to execute all tests of a folder or of the complete add-on.</p>
@@ -193,13 +197,13 @@ For more details, see also: <a class="reference internal" href="../../python_exa
 <p><img alt="" src="../../_images/test_log.jpg" /></p>
 </section>
 <section id="using-vscode">
-<h3>Using VSCode<a class="headerlink" href="#using-vscode" title="Permalink to this heading"></a></h3>
+<h3>Using VSCode<a class="headerlink" href="#using-vscode" title="Link to this heading"></a></h3>
 <p>The Zeiss inspect add-on extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
 To use this feature, navigate to the “Testing” workspace of VSCode and select the test items you want to run.</p>
 <p><img alt="" src="../../_images/vscode_testing.jpg" /></p>
 </section>
 <section id="from-scripts">
-<h3>From scripts<a class="headerlink" href="#from-scripts" title="Permalink to this heading"></a></h3>
+<h3>From scripts<a class="headerlink" href="#from-scripts" title="Link to this heading"></a></h3>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">execute_addon_tests</span></code> command to run tests of an add-on. It takes the add-on UUID as mandatory argument. If solely given, all tests of the add-on are executed. You can also provide a list of test paths with the argument <code class="docutils literal notranslate"><span class="pre">test_paths</span></code> in form of relative paths inside the add-on. The suffix <code class="docutils literal notranslate"><span class="pre">#test_&lt;...&gt;</span></code> indicates, which test function to run.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_addon_tests_draft</span><span class="p">(</span><span class="n">addon_uuid</span><span class="o">=</span><span class="s1">&#39;5f396cc9-7865-44a1-8a85-ed7c1689dd68&#39;</span><span class="p">)</span>
 </pre></div>
@@ -212,7 +216,7 @@ To use this feature, navigate to the “Testing” workspace of VSCode and selec
 </section>
 </section>
 <section id="working-with-test-data">
-<h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Permalink to this heading"></a></h2>
+<h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Link to this heading"></a></h2>
 <p>In the namespace <code class="docutils literal notranslate"><span class="pre">addon</span></code>, there are two new classes: <code class="docutils literal notranslate"><span class="pre">addon.ArrayDataTest</span></code> and <code class="docutils literal notranslate"><span class="pre">addon.ElementTest</span></code>.</p>
 <p>These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by <code class="docutils literal notranslate"><span class="pre">test_data_interfaces_volume_section.py</span></code> of the Python API Examples add-on.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addon</span> <span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
@@ -255,7 +259,7 @@ If a relative path is given, like here, a resource inside the add-on is created 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../localization/localization.html" class="btn btn-neutral float-left" title="Localization of Add-ons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../python_examples/index.html" class="btn btn-neutral float-right" title="ZEISS INSPECT Python API Examples Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../faq/faq.html" class="btn btn-neutral float-right" title="Frequently asked questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating wizard dialogs &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/python_api_introduction/creating_wizard_dialogs.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -72,6 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -116,7 +120,7 @@
            <div itemprop="articleBody">
              
   <section id="creating-wizard-dialogs">
-<h1>Creating wizard dialogs<a class="headerlink" href="#creating-wizard-dialogs" title="Permalink to this heading"></a></h1>
+<h1>Creating wizard dialogs<a class="headerlink" href="#creating-wizard-dialogs" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="#what-is-a-wizard-dialog">What is a wizard dialog</a></p></li>
 <li><p><a class="reference internal" href="#creating-a-simple-wizard-dialog">Creating a simple wizard dialogs</a></p></li>
@@ -125,12 +129,12 @@
 <li><p><a class="reference internal" href="#final-scripts">Final scripts</a></p></li>
 </ul>
 <section id="what-is-a-wizard-dialog">
-<h2>What is a wizard dialog<a class="headerlink" href="#what-is-a-wizard-dialog" title="Permalink to this heading"></a></h2>
+<h2>What is a wizard dialog<a class="headerlink" href="#what-is-a-wizard-dialog" title="Link to this heading"></a></h2>
 <p>A wizard dialog is a sequence of steps, which guides the user through a process flow. The wizard dialog has a back button to go to the previous step, a next button to proceed with the next step and a Close button to complete the wizard dialog. The wizards layout is created through the scripting dialog editor like any other dialog and its transition logic for going through the steps is specified by a handler function.</p>
 <p>💡 Note that it is only possible to change the content of the wizards’ widgets in the handler function. This means particularly, that it is not possible to remove or add widgets after the definition of the wizards’ layout.</p>
 </section>
 <section id="creating-a-simple-wizard-dialog">
-<h2>Creating a simple wizard dialog<a class="headerlink" href="#creating-a-simple-wizard-dialog" title="Permalink to this heading"></a></h2>
+<h2>Creating a simple wizard dialog<a class="headerlink" href="#creating-a-simple-wizard-dialog" title="Link to this heading"></a></h2>
 <p>The screenshots below show a wizard with three steps, which will be created in this tutorial.</p>
 <p><img alt="Step 1" src="../../_images/wizard_dialog_step_1.png" /> <img alt="Step 2" src="../../_images/wizard_dialog_step_2.png" /></p>
 <p><img alt="Step 3" src="../../_images/wizard_dialog_step_3.png" /> <img alt="Step 4" src="../../_images/wizard_dialog_step_4.png" /></p>
@@ -213,7 +217,7 @@ Finally we register the handler function to the dialog and display the wizard di
 </div>
 </section>
 <section id="changing-the-button-text">
-<h2>Changing the button text<a class="headerlink" href="#changing-the-button-text" title="Permalink to this heading"></a></h2>
+<h2>Changing the button text<a class="headerlink" href="#changing-the-button-text" title="Link to this heading"></a></h2>
 <p>You can easily change the text of the <strong>Next</strong> and <strong>Back</strong> buttons:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;randomButtonText&quot;</span>
 <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">prev</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;anotherRandomButtonText&quot;</span>
@@ -221,7 +225,7 @@ Finally we register the handler function to the dialog and display the wizard di
 </div>
 </section>
 <section id="creating-wizards-with-different-layouts-per-step">
-<h2>Creating wizards with different layouts per step<a class="headerlink" href="#creating-wizards-with-different-layouts-per-step" title="Permalink to this heading"></a></h2>
+<h2>Creating wizards with different layouts per step<a class="headerlink" href="#creating-wizards-with-different-layouts-per-step" title="Link to this heading"></a></h2>
 <p>Despite the limitations mentioned above, you may use a different layout for each step in the wizard by using a more sophisticated step transition logic. Instead of changing the content of the displayed wizard dialog, you may display another wizard at each step. Let us go through the code necessary for doing that.
 First of all we have to define appropriate dialogs:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="n">Boring</span> <span class="n">dialog</span> <span class="n">definition</span><span class="o">...</span><span class="p">})</span>
@@ -267,10 +271,10 @@ First of all we have to define appropriate dialogs:</p>
 <p>The program will enter the while loop, if the the wizard step changed (or due to initialization) and launch a new dialog. As long as the user clicks <strong>Next</strong> or <strong>Back</strong> in the current dialog, the while loop won’t be left and “the” wizard will be displayed. If the user leaves the dialog through <strong>Close</strong>, the while loop will be left and “the” wizard terminates. <code class="docutils literal notranslate"><span class="pre">noteInput</span></code> is the object name of the text entry field within the scripting dialog editor as before. Please note that the <code class="docutils literal notranslate"><span class="pre">.value</span></code> suffix has to be omitted here.</p>
 </section>
 <section id="final-scripts">
-<h2>Final scripts<a class="headerlink" href="#final-scripts" title="Permalink to this heading"></a></h2>
+<h2>Final scripts<a class="headerlink" href="#final-scripts" title="Link to this heading"></a></h2>
 <p>The following scripts combine the code snippets above. The first one is the single layout wizard, the second one the multi layout wizard.</p>
 <section id="single-layout-wizard">
-<h3>Single Layout Wizard<a class="headerlink" href="#single-layout-wizard" title="Permalink to this heading"></a></h3>
+<h3>Single Layout Wizard<a class="headerlink" href="#single-layout-wizard" title="Link to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../_downloads/7358cc5321d10932c3b63f88db9dc229/SingleLayoutWizard.py"><span class="xref download myst">SingleLayoutWizard.py</span></a></p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -349,7 +353,7 @@ First of all we have to define appropriate dialogs:</p>
 </div>
 </section>
 <section id="multi-layout-wizard">
-<h3>Multi Layout Wizard<a class="headerlink" href="#multi-layout-wizard" title="Permalink to this heading"></a></h3>
+<h3>Multi Layout Wizard<a class="headerlink" href="#multi-layout-wizard" title="Link to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../_downloads/80984896c0fd765493602c64d84d4d35/MultiLayoutWizard.py"><span class="xref download myst">MultiLayoutWizard.py</span></a></p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 

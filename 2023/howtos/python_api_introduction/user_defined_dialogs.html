@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User-defined Dialogs &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/python_api_introduction/user_defined_dialogs.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -138,6 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -182,7 +186,7 @@
            <div itemprop="articleBody">
              
   <section id="user-defined-dialogs">
-<h1>User-defined Dialogs<a class="headerlink" href="#user-defined-dialogs" title="Permalink to this heading"></a></h1>
+<h1>User-defined Dialogs<a class="headerlink" href="#user-defined-dialogs" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="#creating-dialogs">Creating dialogs</a></p></li>
 <li><p><a class="reference internal" href="#dialog-widgets">Dialog widgets</a></p></li>
@@ -190,7 +194,7 @@
 <li><p><a class="reference internal" href="#wizards">Wizards</a></p></li>
 </ul>
 <section id="creating-dialogs">
-<h2>Creating dialogs<a class="headerlink" href="#creating-dialogs" title="Permalink to this heading"></a></h2>
+<h2>Creating dialogs<a class="headerlink" href="#creating-dialogs" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#dialog-designer">Dialog designer</a></p></li>
 <li><p><a class="reference internal" href="#dialog-layout">Dialog layout</a></p>
@@ -208,7 +212,7 @@
 <li><p><a class="reference internal" href="#editing-already-created-dialogs">Editing already created dialogs</a></p></li>
 </ul>
 <section id="dialog-designer">
-<h3>Dialog designer<a class="headerlink" href="#dialog-designer" title="Permalink to this heading"></a></h3>
+<h3>Dialog designer<a class="headerlink" href="#dialog-designer" title="Link to this heading"></a></h3>
 <ul>
 <li><p>User defined <strong>Dialogs</strong> can be inserted into the script using <em>right mouse button</em>-&gt;”Insert / Dialog…”.</p>
 <p><img alt="" src="../../_images/insert_dialog.png" /></p>
@@ -229,13 +233,13 @@
   | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
   -->
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Example: Script with separate dialog file</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Example: Script with separate dialog file</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;:dialog.gdlg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Example: Script with embedded dialog</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Example: Script with embedded dialog</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">[</span>
@@ -279,13 +283,13 @@
 </ul>
 </section>
 <section id="dialog-layout">
-<h3>Dialog layout<a class="headerlink" href="#dialog-layout" title="Permalink to this heading"></a></h3>
+<h3>Dialog layout<a class="headerlink" href="#dialog-layout" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The <strong>Dialog Editor</strong> is using a grid based layout.</p></li>
 <li><p>Elements can be inserted into the grid via drag and drop.</p></li>
 </ul>
 <section id="editing-the-grid">
-<h4>Editing the grid<a class="headerlink" href="#editing-the-grid" title="Permalink to this heading"></a></h4>
+<h4>Editing the grid<a class="headerlink" href="#editing-the-grid" title="Link to this heading"></a></h4>
 <p>💡 Editing the layout means changing the underlying grid.</p>
 <ul>
 <li><p>Because the underlying layout is a grid, the following actions are possible:</p>
@@ -318,7 +322,7 @@
 </ul>
 </section>
 <section id="spacers">
-<h4>Spacers<a class="headerlink" href="#spacers" title="Permalink to this heading"></a></h4>
+<h4>Spacers<a class="headerlink" href="#spacers" title="Link to this heading"></a></h4>
 <p>💡 <strong>Spacers</strong> are empty spaces extending in either horizontal or vertical direction.</p>
 <ul class="simple">
 <li><p>If a spacer is inserted into a cell, the cell claims the maximum available space in spacer direction.</p></li>
@@ -328,9 +332,9 @@
 </section>
 </section>
 <section id="widgets">
-<h3>Widgets<a class="headerlink" href="#widgets" title="Permalink to this heading"></a></h3>
+<h3>Widgets<a class="headerlink" href="#widgets" title="Link to this heading"></a></h3>
 <section id="inserting-and-removing-widgets">
-<h4>Inserting and removing widgets<a class="headerlink" href="#inserting-and-removing-widgets" title="Permalink to this heading"></a></h4>
+<h4>Inserting and removing widgets<a class="headerlink" href="#inserting-and-removing-widgets" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The list of available widgets resides at the left of the Dialog Editor in the section <strong>Dialog Elements</strong>.</p></li>
 <li><p><strong>Widgets</strong> are inserted via drag and drop.</p></li>
@@ -347,7 +351,7 @@
 <p><img alt="" src="../../_images/separator_line.png" /></p>
 </section>
 <section id="configuring-widgets">
-<h4>Configuring widgets<a class="headerlink" href="#configuring-widgets" title="Permalink to this heading"></a></h4>
+<h4>Configuring widgets<a class="headerlink" href="#configuring-widgets" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The properties of selected widgets can be edited in the <strong>Property Editor</strong> at the right side of the Dialog Editor.</p></li>
 <li><p>Every widget has at least a unique <strong>Object name</strong>.</p></li>
@@ -358,7 +362,7 @@
 </section>
 </section>
 <section id="editing-already-created-dialogs">
-<h3>Editing already created dialogs<a class="headerlink" href="#editing-already-created-dialogs" title="Permalink to this heading"></a></h3>
+<h3>Editing already created dialogs<a class="headerlink" href="#editing-already-created-dialogs" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Creating a dialog leads to a script command with a dialog representation as JSON code, which can either be embedded or stored in an external dialog file (<code class="docutils literal notranslate"><span class="pre">*.gdlg</span></code>).</p></li>
 <li><p>Double clicking onto the embedded dialog or the dialog file opens the Dialog Editor again.</p></li>
@@ -366,7 +370,7 @@
 </section>
 </section>
 <section id="dialog-widgets">
-<h2>Dialog widgets<a class="headerlink" href="#dialog-widgets" title="Permalink to this heading"></a></h2>
+<h2>Dialog widgets<a class="headerlink" href="#dialog-widgets" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#use-of-the-doc-string">Use of the __doc__ string</a></p></li>
 <li><p><a class="reference internal" href="#control-widget">Control widget</a></p>
@@ -406,7 +410,7 @@
 <p>This section gives an overview of the available widgets. If the code examples given in this section are not intuitive to you, you might want to take a look
 into <a class="reference internal" href="#executing-dialogs">Executing dialogs</a>.</p>
 <section id="use-of-the-doc-string">
-<h3>Use of the __doc__ string<a class="headerlink" href="#use-of-the-doc-string" title="Permalink to this heading"></a></h3>
+<h3>Use of the __doc__ string<a class="headerlink" href="#use-of-the-doc-string" title="Link to this heading"></a></h3>
 <p>Information about the widgets can be obtained by accessing their doc string. Let <code class="docutils literal notranslate"><span class="pre">objName</span></code> be the object name of a widget and <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> the dialog handle
 (see <a class="reference internal" href="#executing-dialogs">Executing dialogs</a> if this is unclear to you), the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> string can be obtained as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">objName</span><span class="o">.</span><span class="vm">__doc__</span> <span class="p">)</span>
@@ -414,7 +418,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </div>
 </section>
 <section id="control-widget">
-<h3>Control widget<a class="headerlink" href="#control-widget" title="Permalink to this heading"></a></h3>
+<h3>Control widget<a class="headerlink" href="#control-widget" title="Link to this heading"></a></h3>
 <p>💡 The <strong>Control</strong> widget contains the <strong>ok</strong> / <strong>cancel</strong> or similar buttons of the dialog.</p>
 <ul class="simple">
 <li><p>The control elements of a dialog cannot be configured like other dialog widgets.</p></li>
@@ -444,14 +448,14 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tbody>
 </table>
 <section id="control-widget-elements">
-<h4>Control widget elements<a class="headerlink" href="#control-widget-elements" title="Permalink to this heading"></a></h4>
+<h4>Control widget elements<a class="headerlink" href="#control-widget-elements" title="Link to this heading"></a></h4>
 <p>💡 The names of the <strong>Control</strong> widget elements are fixed</p>
 <ul class="simple">
 <li><p>Usually, the names are corresponding with the elements’ semantics. For example, the name of the <strong>ok</strong> button is ‘ok’. The names can also be obtained from the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> string as shown in the code example below.</p></li>
 <li><p>The control elements are accessed like all other widget attributes.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Accessing the control widget</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Accessing the control widget</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print control widget properties&lt;br&gt;print (DIALOG.control.__doc__)</span>
 <span class="n">ControlGroup</span>
 
@@ -465,7 +469,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </div>
 </section>
 <section id="control-button-properties">
-<h4>Control button properties<a class="headerlink" href="#control-button-properties" title="Permalink to this heading"></a></h4>
+<h4>Control button properties<a class="headerlink" href="#control-button-properties" title="Link to this heading"></a></h4>
 <p>Control buttons only have the following two properties which can be set programmatically:</p>
 <table class="docutils align-default">
 <thead>
@@ -487,7 +491,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="status-label">
-<h4>Status label<a class="headerlink" href="#status-label" title="Permalink to this heading"></a></h4>
+<h4>Status label<a class="headerlink" href="#status-label" title="Link to this heading"></a></h4>
 <p>⚠️ The <strong>Status label</strong> of the control widget is invisible until a status text is set.</p>
 <ul class="simple">
 <li><p>If a status text is set, a small warning icon appears, like in regular applications’ dialogs.</p></li>
@@ -495,7 +499,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <p><img alt="" src="../../_images/control_widget_status_label.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Using the Status label</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Using the Status label</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
 
 <span class="c1"># Set status label text</span>
@@ -510,9 +514,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 </section>
 <section id="specific-widgets">
-<h3>Specific widgets<a class="headerlink" href="#specific-widgets" title="Permalink to this heading"></a></h3>
+<h3>Specific widgets<a class="headerlink" href="#specific-widgets" title="Link to this heading"></a></h3>
 <section id="description-field-label-widget">
-<h4>Description field (label) widget<a class="headerlink" href="#description-field-label-widget" title="Permalink to this heading"></a></h4>
+<h4>Description field (label) widget<a class="headerlink" href="#description-field-label-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_label.png" /></p>
 <dl class="simple myst">
 <dt>Description field (label) widget</dt><dd><p>The Description field (label) widget allows to display static text. It is typically used for labelling a section or an individual element of a dialog.</p>
@@ -554,7 +558,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="continuous-text-widget">
-<h4>Continuous text widget<a class="headerlink" href="#continuous-text-widget" title="Permalink to this heading"></a></h4>
+<h4>Continuous text widget<a class="headerlink" href="#continuous-text-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/text_field.png" /></p>
 <dl class="simple myst">
 <dt>Continuous text widget</dt><dd><p>The Continuous text widget allows to display static text and keywords. A double click onto a text field widget opens the content editor. Some formatting can be applied.</p>
@@ -607,7 +611,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tbody>
 </table>
 <section id="displaying-keywords-in-a-continuous-text-widget">
-<h5>Displaying keywords in a continuous text widget<a class="headerlink" href="#displaying-keywords-in-a-continuous-text-widget" title="Permalink to this heading"></a></h5>
+<h5>Displaying keywords in a continuous text widget<a class="headerlink" href="#displaying-keywords-in-a-continuous-text-widget" title="Link to this heading"></a></h5>
 <p>A keyword can be inserted into the text with the following procedure:</p>
 <ol class="arabic">
 <li><p>RMB -&gt; ‘Insert Expression…’</p>
@@ -628,11 +632,11 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ol>
 </section>
 <section id="internal-representation-of-a-dialog-with-text-widget">
-<h5>Internal representation of a dialog with text widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-text-widget" title="Permalink to this heading"></a></h5>
+<h5>Internal representation of a dialog with text widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-text-widget" title="Link to this heading"></a></h5>
 <p>The dialog is stored as a JSON document internally.</p>
 <p><img alt="" src="../../_images/text_field.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Internal representation of a dialog</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Internal representation of a dialog</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
 	<span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
 		<span class="p">[</span>
@@ -667,7 +671,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 </section>
 <section id="image-widget">
-<h4>Image widget<a class="headerlink" href="#image-widget" title="Permalink to this heading"></a></h4>
+<h4>Image widget<a class="headerlink" href="#image-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_image.png" /></p>
 <dl class="simple myst">
 <dt>Image widget</dt><dd><p>The Image widget allows to display arbitrary images.</p>
@@ -725,10 +729,10 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 <p>Note that you can switch from a system image to a user image using the property <code class="docutils literal notranslate"><span class="pre">use_system_image</span></code>. But this user image must have been selected beforehand in the designer. You cannot read a new image file by setting the <code class="docutils literal notranslate"><span class="pre">filename</span></code> property. Also, all of the image formatting properties (<code class="docutils literal notranslate"><span class="pre">keep_original_size</span></code>, <code class="docutils literal notranslate"><span class="pre">keep_aspect</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>) only work in the designer. From the script you can only read these values. Although you cannot read images using the <code class="docutils literal notranslate"><span class="pre">filename</span></code> property you can copy images from one dialog to another using the <code class="docutils literal notranslate"><span class="pre">data</span></code> property. So you are able to prepare (create) a dialog as an image container holding several images. You can then use this image container dialog to copy the image you need to an actually displayed dialog.</p>
 <section id="internal-representation-of-a-dialog-with-image-widget">
-<h5>Internal representation of a dialog with image widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-image-widget" title="Permalink to this heading"></a></h5>
+<h5>Internal representation of a dialog with image widget<a class="headerlink" href="#internal-representation-of-a-dialog-with-image-widget" title="Link to this heading"></a></h5>
 <p>The dialog is stored as a JSON document internally. The ‘data’ element contains the image data.</p>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Internal representation of an image</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Internal representation of an image</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;data&#39; element contains the image data (shortened version here)</span>
 <span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -777,7 +781,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 </section>
 <section id="log-widget">
-<h4>Log widget<a class="headerlink" href="#log-widget" title="Permalink to this heading"></a></h4>
+<h4>Log widget<a class="headerlink" href="#log-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_log.png" /></p>
 <dl class="simple myst">
 <dt>Log widget</dt><dd><p>The Log widget can display multiple lines of unformatted text, which can be easily saved to a text file by clicking the save button.</p>
@@ -827,7 +831,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="progress-bar-widget">
-<h4>Progress bar widget<a class="headerlink" href="#progress-bar-widget" title="Permalink to this heading"></a></h4>
+<h4>Progress bar widget<a class="headerlink" href="#progress-bar-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_progressbar.png" /></p>
 <dl class="simple myst">
 <dt>Progress bar widget</dt><dd><p>The Progress bar widget can be used in the two modes <em>system</em> and <em>manual</em>.</p>
@@ -968,7 +972,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="element-name-widget">
-<h4>Element name widget<a class="headerlink" href="#element-name-widget" title="Permalink to this heading"></a></h4>
+<h4>Element name widget<a class="headerlink" href="#element-name-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_element_name.png" /></p>
 <dl class="simple myst">
 <dt>Element name widget</dt><dd><p>The Element name widget is used to request an element name from the user. It is possible to select the default name (according to naming scheme, e.g. ‘Point 2’ if ‘Point 1’ already exists), or to enter an arbitrary name. <code class="docutils literal notranslate"><span class="pre">elementnameWidget</span></code> is the object name of the element name widget in the example below.</p>
@@ -1040,7 +1044,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="integer-widget">
-<h4>Integer widget<a class="headerlink" href="#integer-widget" title="Permalink to this heading"></a></h4>
+<h4>Integer widget<a class="headerlink" href="#integer-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_integer.png" /></p>
 <dl class="simple myst">
 <dt>Integer widget</dt><dd><p>The Integer widget is used to request an integer value from the user. <code class="docutils literal notranslate"><span class="pre">integerWidget</span></code> is the object name of the integer widget in the example below.</p>
@@ -1090,7 +1094,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="decimal-widget">
-<h4>Decimal widget<a class="headerlink" href="#decimal-widget" title="Permalink to this heading"></a></h4>
+<h4>Decimal widget<a class="headerlink" href="#decimal-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_decimal.png" /></p>
 <dl class="simple myst">
 <dt>Decimal widget</dt><dd><p>The Decimal widget is used to request a floating point value from the user. It is possible to choose the number of digits and a unit. The selectable units are the ones from the user preferences (Edit &gt; Application &gt; Settings &gt; Preferences) in the <em>Default units</em> tab. <code class="docutils literal notranslate"><span class="pre">decimalWidget</span></code> is the object name of the decimal widget in the example below.</p>
@@ -1148,7 +1152,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="text-entry-field">
-<h4>Text entry field<a class="headerlink" href="#text-entry-field" title="Permalink to this heading"></a></h4>
+<h4>Text entry field<a class="headerlink" href="#text-entry-field" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_text_entry.png" /></p>
 <dl class="simple myst">
 <dt>Text entry field</dt><dd><p>The Text entry field widget can be used to get string input from the user. A simple use case is given by the next code block. <code class="docutils literal notranslate"><span class="pre">textEntryWidget</span></code> is the object name of the widget in the example below.</p>
@@ -1200,7 +1204,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="slider-widget">
-<h4>Slider widget<a class="headerlink" href="#slider-widget" title="Permalink to this heading"></a></h4>
+<h4>Slider widget<a class="headerlink" href="#slider-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_slider.png" /></p>
 <dl class="simple myst">
 <dt>Slider widget</dt><dd><p>The Slider widget can be used to get a float value from a certain interval from the user. <code class="docutils literal notranslate"><span class="pre">sliderWidget</span></code> is the object name of the slider widget in the example below.</p>
@@ -1264,7 +1268,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="checkbox-widget">
-<h4>Checkbox widget<a class="headerlink" href="#checkbox-widget" title="Permalink to this heading"></a></h4>
+<h4>Checkbox widget<a class="headerlink" href="#checkbox-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_checkbox.png" /></p>
 <dl class="simple myst">
 <dt>Checkbox widget</dt><dd><p>The Checkbox widget can be used to get boolean input from the user. <code class="docutils literal notranslate"><span class="pre">checkboxWidget</span></code> is the object name of the checkbox widget in the example below.</p>
@@ -1308,7 +1312,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="file-widget">
-<h4>File widget<a class="headerlink" href="#file-widget" title="Permalink to this heading"></a></h4>
+<h4>File widget<a class="headerlink" href="#file-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_file.png" /></p>
 <dl class="simple myst">
 <dt>File widget</dt><dd><p>By clicking the File widget, a file selection dialog is opened. This allows to select a file from the file system.</p>
@@ -1370,7 +1374,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="date-widget">
-<h4>Date widget<a class="headerlink" href="#date-widget" title="Permalink to this heading"></a></h4>
+<h4>Date widget<a class="headerlink" href="#date-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_date.png" /></p>
 <dl class="simple myst">
 <dt>Date widget</dt><dd><p>The Date widget requests a date from the user. <code class="docutils literal notranslate"><span class="pre">dateWidget</span></code> is the object name of the date widget in the example below.</p>
@@ -1435,7 +1439,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="color-widget">
-<h4>Color widget<a class="headerlink" href="#color-widget" title="Permalink to this heading"></a></h4>
+<h4>Color widget<a class="headerlink" href="#color-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_color.png" /></p>
 <dl class="simple myst">
 <dt>Color widget</dt><dd><p>The Color widget allows to select a color. <code class="docutils literal notranslate"><span class="pre">colorWidget</span></code> is the object name of the color widget in the example below. <code class="docutils literal notranslate"><span class="pre">gomColor</span></code> behaves in the same way as <code class="docutils literal notranslate"><span class="pre">gom.Color(</span> <span class="pre">...</span> <span class="pre">)</span></code>.</p>
@@ -1493,7 +1497,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="unit-widget">
-<h4>Unit widget<a class="headerlink" href="#unit-widget" title="Permalink to this heading"></a></h4>
+<h4>Unit widget<a class="headerlink" href="#unit-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_unit.png" /></p>
 <dl class="simple myst">
 <dt>Unit widget</dt><dd><p>The Unit widget allows to select a unit. <code class="docutils literal notranslate"><span class="pre">unitWidget</span></code> is the object name of the color widget in the example below.</p>
@@ -1546,7 +1550,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="selection-element-widget">
-<h4>Selection element widget<a class="headerlink" href="#selection-element-widget" title="Permalink to this heading"></a></h4>
+<h4>Selection element widget<a class="headerlink" href="#selection-element-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_selection_element.png" /></p>
 <dl class="simple myst">
 <dt>Selection element widget</dt><dd><p>The Selection element widget can be used to select the elements from the element explorer. The following element types can be chosen:</p>
@@ -1632,7 +1636,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <p>Please find the complete example here: <a class="reference download internal" download="" href="../../_downloads/103208b9004accadabdd7dfe3eea9371/dialog_custom_elem_select.py"><span class="xref download myst">dialog_custom_elem_select.py</span></a></p>
 </section>
 <section id="selection-list-widget">
-<h4>Selection list widget<a class="headerlink" href="#selection-list-widget" title="Permalink to this heading"></a></h4>
+<h4>Selection list widget<a class="headerlink" href="#selection-list-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_list_selection.png" /></p>
 <dl class="simple myst">
 <dt>Selection list widget</dt><dd><p>The Selection list widget allows to make a selection from a predefined set of options. The selected item can be accessed from a script through its object name (e.g. <code class="docutils literal notranslate"><span class="pre">selectionListWidget</span></code>) as follows.</p>
@@ -1678,7 +1682,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="button-widget">
-<h4>Button widget<a class="headerlink" href="#button-widget" title="Permalink to this heading"></a></h4>
+<h4>Button widget<a class="headerlink" href="#button-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_button_off.png" /></p>
 <p><img alt="" src="../../_images/widget_button_on.png" /></p>
 <dl class="simple myst">
@@ -1739,7 +1743,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <p>💡 There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.</p>
 </section>
 <section id="radio-button-widget">
-<h4>Radio button widget<a class="headerlink" href="#radio-button-widget" title="Permalink to this heading"></a></h4>
+<h4>Radio button widget<a class="headerlink" href="#radio-button-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_radiobutton.png" /></p>
 <dl class="simple myst">
 <dt>Radio button widget</dt><dd><p>The Radio button widget enables the user to choose an option from a predefined set. Each option has a label and a unique ID, which both can be set in the scripting dialog editor by double clicking the widget. The IDs are ‘ONE’, ‘TWO’ and ‘THREE’ in the example below.</p>
@@ -1788,7 +1792,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="abort-button-widget">
-<h4>Abort button widget<a class="headerlink" href="#abort-button-widget" title="Permalink to this heading"></a></h4>
+<h4>Abort button widget<a class="headerlink" href="#abort-button-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_abort_disabled.png" /></p>
 <dl class="simple myst">
 <dt>Abort button widget</dt><dd><p>The Abort button widget aborts the current action. It is disabled if no action is currently executed. It behaves in the same manner as the abort button in the lower right corner of the ZEISS Inspect software.</p>
@@ -1797,7 +1801,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <p><img alt="" src="../../_images/built-in_progressbar.png" /></p>
 </section>
 <section id="tolerances-widget">
-<h4>Tolerances widget<a class="headerlink" href="#tolerances-widget" title="Permalink to this heading"></a></h4>
+<h4>Tolerances widget<a class="headerlink" href="#tolerances-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_tolerances.png" /></p>
 <dl class="simple myst">
 <dt>Tolerances widget</dt><dd><p>The Tolerances widget is a group of input widgets which allows to configure all parameters related to tolerances.</p>
@@ -1871,7 +1875,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </table>
 </section>
 <section id="file-system-browser-widget">
-<h4>File system browser widget<a class="headerlink" href="#file-system-browser-widget" title="Permalink to this heading"></a></h4>
+<h4>File system browser widget<a class="headerlink" href="#file-system-browser-widget" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/widget_fsbrowser.png" /></p>
 <dl class="simple myst">
 <dt>File system browser widget</dt><dd><p>The File system browser widget allows to view the file system and to select a file or a set of files, respectively. A filter can be set to show only files with certain filename extensions.</p>
@@ -1939,7 +1943,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 </section>
 <section id="executing-dialogs">
-<h2>Executing dialogs<a class="headerlink" href="#executing-dialogs" title="Permalink to this heading"></a></h2>
+<h2>Executing dialogs<a class="headerlink" href="#executing-dialogs" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#dialog-commands">Dialog commands</a></p>
 <ul>
@@ -1964,9 +1968,9 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <li><p><a class="reference internal" href="#determining-the-existing-widget-attributes">Determining the existing widget attributes</a></p></li>
 </ul>
 <section id="dialog-commands">
-<h3>Dialog commands<a class="headerlink" href="#dialog-commands" title="Permalink to this heading"></a></h3>
+<h3>Dialog commands<a class="headerlink" href="#dialog-commands" title="Link to this heading"></a></h3>
 <section id="break-dialog-execute">
-<h4>Break dialog (<code class="docutils literal notranslate"><span class="pre">execute</span></code>)<a class="headerlink" href="#break-dialog-execute" title="Permalink to this heading"></a></h4>
+<h4>Break dialog (<code class="docutils literal notranslate"><span class="pre">execute</span></code>)<a class="headerlink" href="#break-dialog-execute" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/dialog1_break.png" /></p>
 <ul class="simple">
 <li><p>Standard case of a dialog.</p></li>
@@ -2036,14 +2040,14 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </div>
 </section>
 <section id="extendable-break-dialog-create-and-show">
-<h4>Extendable break dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">show</span></code>)<a class="headerlink" href="#extendable-break-dialog-create-and-show" title="Permalink to this heading"></a></h4>
+<h4>Extendable break dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">show</span></code>)<a class="headerlink" href="#extendable-break-dialog-create-and-show" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/dialog2_extendable_break.png" /></p>
 <ul class="simple">
 <li><p>A dialog is created and executed by subsequent commands.</p></li>
 <li><p>This way, the created dialog can be modified by the script right before execution.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Creating and executing a dialog with two separate commands</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Creating and executing a dialog with two separate commands</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog, but do not execute it yet</span>
 <span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
@@ -2059,7 +2063,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </div>
 </section>
 <section id="info-dialog-create-open-and-close">
-<h4>Info dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">open</span></code> and <code class="docutils literal notranslate"><span class="pre">close</span></code>)<a class="headerlink" href="#info-dialog-create-open-and-close" title="Permalink to this heading"></a></h4>
+<h4>Info dialog (<code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">open</span></code> and <code class="docutils literal notranslate"><span class="pre">close</span></code>)<a class="headerlink" href="#info-dialog-create-open-and-close" title="Link to this heading"></a></h4>
 <p><img alt="" src="../../_images/dialog3_info.png" /></p>
 <ul class="simple">
 <li><p>In this mode, the script execution continues after the dialog has been opened.</p></li>
@@ -2073,7 +2077,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </ul>
 <p>💡 At script termination all open dialogs are closed automatically.</p>
 <div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Non blocking configurable dialogs</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Non blocking configurable dialogs</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog but do not execute it yet</span>
 <span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
@@ -2098,7 +2102,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </section>
 </section>
 <section id="dialog-results">
-<h3>Dialog results<a class="headerlink" href="#dialog-results" title="Permalink to this heading"></a></h3>
+<h3>Dialog results<a class="headerlink" href="#dialog-results" title="Link to this heading"></a></h3>
 <p>💡 The return value is an object with one property per interactive dialog widget containing its current value.</p>
 <ul class="simple">
 <li><p>The return value is an object containing all current values.</p></li>
@@ -2151,7 +2155,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </div>
 <p>💡 The type of the result depends on the specific widget.</p>
 <section id="custom-results">
-<h4>Custom results<a class="headerlink" href="#custom-results" title="Permalink to this heading"></a></h4>
+<h4>Custom results<a class="headerlink" href="#custom-results" title="Link to this heading"></a></h4>
 <p>You can return custom results from dialogs using an optional parameter to the <code class="docutils literal notranslate"><span class="pre">close_user_defined_dialog</span></code>-function. The following example produces ‘Yes’
 and ‘No’ results for the different buttons and ‘Cheater’ when the user uses the close button of the dialog.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
@@ -2179,14 +2183,14 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </section>
 </section>
 <section id="configuring-dialog-widgets">
-<h3>Configuring dialog widgets<a class="headerlink" href="#configuring-dialog-widgets" title="Permalink to this heading"></a></h3>
+<h3>Configuring dialog widgets<a class="headerlink" href="#configuring-dialog-widgets" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Dialogs created with the <code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">open</span></code> commands can be modified before executed.</p></li>
 <li><p>Each widget in the dialog can be accessed via the dialog handle.</p></li>
 <li><p>The widget is identified by its unique name.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Configuring dialog widgets</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Configuring dialog widgets</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog and receive dialog handle</span>
 <span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
@@ -2225,7 +2229,7 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </table>
 <p>For the type of the value property for a specific widget, see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above. For widgets which are not used to enter some value, <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and read-only. In addition, widgets have further attributes depending on their type (see section <a class="reference internal" href="#specific-widgets">Specific widgets</a> above for details).</p>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Accessing widget attributes</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Accessing widget attributes</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dialog but do not execute it yet</span>
 <span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
@@ -2240,9 +2244,9 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 </div>
 </section>
 <section id="event-handler-functions">
-<h3>Event handler functions<a class="headerlink" href="#event-handler-functions" title="Permalink to this heading"></a></h3>
+<h3>Event handler functions<a class="headerlink" href="#event-handler-functions" title="Link to this heading"></a></h3>
 <section id="registering-event-handlers">
-<h4>Registering event handlers<a class="headerlink" href="#registering-event-handlers" title="Permalink to this heading"></a></h4>
+<h4>Registering event handlers<a class="headerlink" href="#registering-event-handlers" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>A function can be registered to the dialog called on value changed.</p></li>
 <li><p>Every time the user modified a dialog value, the <strong>handler</strong> function is called.</p></li>
@@ -2252,7 +2256,7 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <li><p>The <strong>prev</strong> and <strong>next</strong> buttons of a wizard dialog are the only control widgets, which trigger the event handler.</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Dialog handler functions</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Dialog handler functions</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;dialog definition&#39;</span><span class="p">)</span>
 
 <span class="c1"># Handler function registered to the dialog</span>
@@ -2300,7 +2304,7 @@ and ‘No’ results for the different buttons and ‘Cheater’ when the user u
 <p>If the widget parameter is not a string, it represents a widget object. Note, that you cannot use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator on these objects. Always use <code class="docutils literal notranslate"><span class="pre">==</span></code> and similar
 operators to compare the widget parameter:</p>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Comparing widget parameters</span><a class="headerlink" href="#id12" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Comparing widget parameters</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handler_function</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="c1"># compare widget using &quot;==&quot;, using &quot;is&quot; will not work!</span>
@@ -2314,11 +2318,11 @@ operators to compare the widget parameter:</p>
 </div>
 </section>
 <section id="closing-dialogs-from-within-the-event-handler">
-<h4>Closing dialogs from within the event handler<a class="headerlink" href="#closing-dialogs-from-within-the-event-handler" title="Permalink to this heading"></a></h4>
+<h4>Closing dialogs from within the event handler<a class="headerlink" href="#closing-dialogs-from-within-the-event-handler" title="Link to this heading"></a></h4>
 <p>💡 Dialogs can be closed from within event handlers.</p>
 <p><img alt="" src="../../_images/event_handler_script_launcher.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Button event handler</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Button event handler</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">button1</span><span class="p">:</span>
         <span class="n">execute_func_1</span> <span class="p">()</span>
@@ -2336,7 +2340,7 @@ operators to compare the widget parameter:</p>
 <p>This implies, that the event handler function must be written in a way that no dialog dependent code is executed after the dialog has been closed.</p>
 </section>
 <section id="using-a-timer-to-activate-the-event-handler">
-<h4>Using a timer to activate the event handler<a class="headerlink" href="#using-a-timer-to-activate-the-event-handler" title="Permalink to this heading"></a></h4>
+<h4>Using a timer to activate the event handler<a class="headerlink" href="#using-a-timer-to-activate-the-event-handler" title="Link to this heading"></a></h4>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> has a special property named <code class="docutils literal notranslate"><span class="pre">DIALOG.timer</span></code>. This timer property can be used to trigger the event handler registered to <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> in
 certain time intervals. When the event handler is triggered by the timer, the string <code class="docutils literal notranslate"><span class="pre">timer</span></code> is passed to it. The <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-string of the timer gives information
 about its attributes:</p>
@@ -2353,7 +2357,7 @@ about its attributes:</p>
 <p>Example:</p>
 <p><img alt="" src="../../_images/event_handler_timer_edit.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Button/Timer event handler</span><a class="headerlink" href="#id14" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Button/Timer event handler</span><a class="headerlink" href="#id14" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;boring dialog definition&#39;</span><span class="p">)</span>
 
 <span class="c1">#</span>
@@ -2396,7 +2400,7 @@ about its attributes:</p>
 </section>
 </section>
 <section id="determining-the-existing-widget-attributes">
-<h3>Determining the existing widget attributes<a class="headerlink" href="#determining-the-existing-widget-attributes" title="Permalink to this heading"></a></h3>
+<h3>Determining the existing widget attributes<a class="headerlink" href="#determining-the-existing-widget-attributes" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Because Python is a very dynamic language, the type of a variable or attribute can not be determined statically.</p></li>
 <li><p>Instead, it is possible to query the variable dynamically during runtime.</p></li>
@@ -2404,7 +2408,7 @@ about its attributes:</p>
 </ul>
 <p>💡 Most objects support the attribute <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> which prints the available object documentation to the console.</p>
 <div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Print object documentation</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Print object documentation</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># Query __doc__ attribute of a button widget</span>
 <span class="c1">#</span>
@@ -2433,7 +2437,7 @@ about its attributes:</p>
 </section>
 </section>
 <section id="wizards">
-<h2>Wizards<a class="headerlink" href="#wizards" title="Permalink to this heading"></a></h2>
+<h2>Wizards<a class="headerlink" href="#wizards" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#control-widgets">Control widgets</a></p></li>
 </ul>
@@ -2445,11 +2449,11 @@ about its attributes:</p>
 <p>⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created!</p>
 <p>Therefore Wizards only have simple options like exchange of images and texts in those containing elements.</p>
 <section id="control-widgets">
-<h3>Control widgets<a class="headerlink" href="#control-widgets" title="Permalink to this heading"></a></h3>
+<h3>Control widgets<a class="headerlink" href="#control-widgets" title="Link to this heading"></a></h3>
 <p>The operational elements in a control widget from a wizard do act like those in regular dialogs und can be accessed via handles as well:</p>
 <p><img alt="" src="../../_images/wizard.png" /></p>
 <div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">Wizard example</span><a class="headerlink" href="#id16" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Wizard example</span><a class="headerlink" href="#id16" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># Create dialog with wizard control panel</span>
 <span class="c1">#</span>

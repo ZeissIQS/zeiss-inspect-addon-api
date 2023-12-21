@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documenting Add-ons &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/add_on_documentation/add_on_documentation.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -70,6 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -114,10 +118,10 @@
            <div itemprop="articleBody">
              
   <section id="documenting-add-ons">
-<h1>Documenting Add-ons<a class="headerlink" href="#documenting-add-ons" title="Permalink to this heading"></a></h1>
+<h1>Documenting Add-ons<a class="headerlink" href="#documenting-add-ons" title="Link to this heading"></a></h1>
 <p>💡 The add-on documentation is part of the packaged add-on.</p>
 <section id="terminology">
-<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h2>
+<h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h2>
 <p><img alt="" src="../../_images/add-on_terminology.png" /></p>
 <table class="docutils align-default">
 <thead>
@@ -157,14 +161,14 @@
 </table>
 </section>
 <section id="add-on-structure">
-<h2>Add-on structure<a class="headerlink" href="#add-on-structure" title="Permalink to this heading"></a></h2>
+<h2>Add-on structure<a class="headerlink" href="#add-on-structure" title="Link to this heading"></a></h2>
 <p>An add-on file is technically a ZIP file.</p>
 <ul class="simple">
 <li><p>It must at least contain a file <code class="docutils literal notranslate"><span class="pre">doc\README.md</span></code>, which will be rendered as the product’s splash description ad.</p></li>
 <li><p>It can contain an arbitrary number of additional files in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder referenced from within the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file.</p></li>
 </ul>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Documentation related content of the add-on ‘Python API Examples’:</p>
 <p><img alt="" src="../../_images/7-ZIP_README.png" /></p>
@@ -179,7 +183,7 @@
 </section>
 </section>
 <section id="markdown">
-<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this heading"></a></h2>
+<h2>Markdown<a class="headerlink" href="#markdown" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference external" href="https://www.markdownguide.org/basic-syntax/">markdown guide</a> for a brief description of the markdown format.</p>
@@ -189,10 +193,10 @@
 A markdown editor/viewer is integrated in the ZEISS Inspect Add-on editor.</p>
 </section>
 <section id="portable-document-format-pdf">
-<h2>Portable Document Format (PDF)<a class="headerlink" href="#portable-document-format-pdf" title="Permalink to this heading"></a></h2>
+<h2>Portable Document Format (PDF)<a class="headerlink" href="#portable-document-format-pdf" title="Link to this heading"></a></h2>
 <p>The standard expression to reference a PDF from <code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code> is:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">doc/README.md</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">doc/README.md</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>See PDF for detailed description: [<span class="nt">PDF</span>](<span class="na">README.pdf</span>)
 </pre></div>
 </div>

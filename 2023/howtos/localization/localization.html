@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Localization of Add-ons &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/localization/localization.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -91,6 +94,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -135,11 +139,11 @@
            <div itemprop="articleBody">
              
   <section id="localization-of-add-ons">
-<h1>Localization of Add-ons<a class="headerlink" href="#localization-of-add-ons" title="Permalink to this heading"></a></h1>
+<h1>Localization of Add-ons<a class="headerlink" href="#localization-of-add-ons" title="Link to this heading"></a></h1>
 <section id="writing-translatable-scripts">
-<h2>Writing translatable scripts<a class="headerlink" href="#writing-translatable-scripts" title="Permalink to this heading"></a></h2>
+<h2>Writing translatable scripts<a class="headerlink" href="#writing-translatable-scripts" title="Link to this heading"></a></h2>
 <section id="user-defined-script-dialogs">
-<h3>User-defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Permalink to this heading"></a></h3>
+<h3>User-defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Link to this heading"></a></h3>
 <p>When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are kept consistently when the dialog is edited again and will lead to translation file entries (see below).</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -167,7 +171,7 @@
 </div>
 </section>
 <section id="text-in-scripts">
-<h3>Text in scripts<a class="headerlink" href="#text-in-scripts" title="Permalink to this heading"></a></h3>
+<h3>Text in scripts<a class="headerlink" href="#text-in-scripts" title="Link to this heading"></a></h3>
 <p>Texts in scripts have to be tagged as translatable via using the <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">()</span></code>  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print (tr (&#39;This text will be translated&#39;))
 </pre></div>
@@ -175,18 +179,18 @@
 </section>
 </section>
 <section id="translating-scripts">
-<h2>Translating scripts<a class="headerlink" href="#translating-scripts" title="Permalink to this heading"></a></h2>
+<h2>Translating scripts<a class="headerlink" href="#translating-scripts" title="Link to this heading"></a></h2>
 <section id="generating-translatable-xliff-files">
-<h3>Generating translatable XLIFF files<a class="headerlink" href="#generating-translatable-xliff-files" title="Permalink to this heading"></a></h3>
+<h3>Generating translatable XLIFF files<a class="headerlink" href="#generating-translatable-xliff-files" title="Link to this heading"></a></h3>
 <p>💡 Scripts are using standard XLIFF files to access translations in different languages.</p>
 <section id="install-add-on-internationalization">
-<h4>Install Add-on ‘Internationalization’<a class="headerlink" href="#install-add-on-internationalization" title="Permalink to this heading"></a></h4>
+<h4>Install Add-on ‘Internationalization’<a class="headerlink" href="#install-add-on-internationalization" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Install the Add-on ‘Internationalization’ via ZQS Store or the Install/Uninstall Add-ons dialog.</p></li>
 </ul>
 </section>
 <section id="switch-add-on-into-edit-mode">
-<h4>Switch Add-on into ‘Edit’ mode<a class="headerlink" href="#switch-add-on-into-edit-mode" title="Permalink to this heading"></a></h4>
+<h4>Switch Add-on into ‘Edit’ mode<a class="headerlink" href="#switch-add-on-into-edit-mode" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Select the Add-on the translations should be added to.</p></li>
 <li><p>Switch it into ‘Edit’ mode:</p>
@@ -195,7 +199,7 @@
 </ul>
 </section>
 <section id="execute-script-update-xliff-files">
-<h4>Execute script ‘Update XLIFF files’<a class="headerlink" href="#execute-script-update-xliff-files" title="Permalink to this heading"></a></h4>
+<h4>Execute script ‘Update XLIFF files’<a class="headerlink" href="#execute-script-update-xliff-files" title="Link to this heading"></a></h4>
 <p><img alt="Start from menu" src="../../_images/start_from_menu.png" /></p>
 <ul>
 <li><p>Execute script ‘Update XLIFF files’ from Add-on ‘Internationalization’.</p></li>
@@ -211,7 +215,7 @@
 </ul>
 </section>
 <section id="translate-xliff-files">
-<h4>Translate XLIFF files<a class="headerlink" href="#translate-xliff-files" title="Permalink to this heading"></a></h4>
+<h4>Translate XLIFF files<a class="headerlink" href="#translate-xliff-files" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Export the XLIFF files via ‘Export Resource…’ in the right mouse button menu.</p></li>
 <li><p>Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.</p></li>
@@ -241,12 +245,12 @@
 </section>
 </section>
 <section id="switching-add-on-languages">
-<h2>Switching Add-on languages<a class="headerlink" href="#switching-add-on-languages" title="Permalink to this heading"></a></h2>
+<h2>Switching Add-on languages<a class="headerlink" href="#switching-add-on-languages" title="Link to this heading"></a></h2>
 <section id="enable-language">
-<h3>Enable language<a class="headerlink" href="#enable-language" title="Permalink to this heading"></a></h3>
+<h3>Enable language<a class="headerlink" href="#enable-language" title="Link to this heading"></a></h3>
 <p>💡 The Add-on language is the same as the globally set application language.</p>
 <section id="selecting-an-add-on-application-language">
-<h4>Selecting an Add-on/application language<a class="headerlink" href="#selecting-an-add-on-application-language" title="Permalink to this heading"></a></h4>
+<h4>Selecting an Add-on/application language<a class="headerlink" href="#selecting-an-add-on-application-language" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Select the appropriate language the the applications preferences dialog.</p>
 <p><img alt="Update XLIFF" src="../../_images/language_preferences.png" /></p>
@@ -258,9 +262,9 @@
 </section>
 </section>
 <section id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h2>
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
 <section id="is-there-a-shortcut-for-exporting-importing-the-xliff-files">
-<h3>Is there a shortcut for exporting/importing the XLIFF files?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Permalink to this heading"></a></h3>
+<h3>Is there a shortcut for exporting/importing the XLIFF files?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.</p></li>
 <li><p>Each Add-on in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_edited_addons/&lt;add-on</span> <span class="pre">uuid&gt;</span></code>.</p></li>
@@ -268,7 +272,7 @@
 </ul>
 </section>
 <section id="are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">
-<h3>Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?<a class="headerlink" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script" title="Permalink to this heading"></a></h3>
+<h3>Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?<a class="headerlink" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>As long as the original texts (the texts in the ‘id’ attribute of the ‘trans-unit’ tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.</p></li>
 <li><p>This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts ‘tr ()’ function.</p></li>
@@ -279,7 +283,7 @@
 </ul>
 </section>
 <section id="why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences">
-<h3>Why is the Add-on not displaying the translations after changing the application language in the preferences?<a class="headerlink" href="#why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences" title="Permalink to this heading"></a></h3>
+<h3>Why is the Add-on not displaying the translations after changing the application language in the preferences?<a class="headerlink" href="#why-is-the-add-on-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>You might have to restart the application after switching the application language in the preferences.</p></li>
 <li><p>Please double check, too,  if the Add-on supports that specific language at all.</p></li>
