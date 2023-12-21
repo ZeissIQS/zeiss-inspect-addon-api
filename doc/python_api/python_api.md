@@ -8,7 +8,7 @@ myst:
       ["myst.header"]
 ---
 ```{eval-rst}
-.. myst.header::
+..  Non-consecutive::
    :class: suppress
 ```
 
