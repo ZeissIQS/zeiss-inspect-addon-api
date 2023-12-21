@@ -2,10 +2,9 @@
 myst:
    html_meta:
       "description": "ZEISS INSPECT 2023 Add-on Python API Specification"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation"
-    
-   suppress_warnings:
-     - myst.header
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation"   
+suppress_warnings:
+  - myst.header
 ---
 # ZEISS INSPECT Python API documentation
 
