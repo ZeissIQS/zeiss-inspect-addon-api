@@ -133,3 +133,13 @@ print(a)
 ```{note}
 An Add-on has to be finished (with **Finish Editing**) before its Python files can be imported as modules in another Add-on, otherwise a `ModuleNotFoundError` will be thrown. 
 ```
+
+## Using shared environments with protected Add-ons
+
+| Provider Add-on | User Add-on | Description                                                        |
+| --------------- | ----------- | ------------------------------------------------------------------ |
+| protected       | unprotected | &#x274c; curently not supported                                         |
+| unprotected     | protected   | &#x2714; no additional measures required                 |
+| protected       | protected   | &#x1f511; 'shared secret' must be created when applying the protection |
+
+Protecting an Add-on and creating the shared secret is done with a tool by ZEISS IQS, which is currently provided on request.
