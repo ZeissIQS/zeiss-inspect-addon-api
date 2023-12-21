@@ -5,7 +5,7 @@ myst:
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Specification, Documentation"
     
    suppress_warnings:
-      ["myst.header"]
+     - myst.header
 ---
 ```{eval-rst}
 ..  Non-consecutive::
