@@ -13,7 +13,7 @@ author = 'Carl Zeiss GOM Metrology GmbH'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap']
+extensions = ['myst_parser', 'sphinx_rtd_theme', 'sphinx_favicon', 'sphinx.ext.githubpages', 'sphinx_sitemap', 'sphinxcontrib.newsfeed']
 source_suffix = ['.rst', '.md']
 
 templates_path = ['_templates']
