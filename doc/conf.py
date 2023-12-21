@@ -41,6 +41,11 @@ html_show_sourcelink = False
 
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
+html_theme_options = {
+  # Toc options
+  'includehidden': False
+}
+
 # "sphinx_rtd_theme" appends " &mdash; <project>  documentation" to the page heading -
 # this changes the title to "<page_heading> &mdash; <project>"
 html_title = project
