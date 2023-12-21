@@ -30,7 +30,7 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :maxdepth: 1
    
-   news
+   news/news
 ```
 
 %```{eval-rst}

@@ -22,7 +22,7 @@ jobs:
           fi
       - name: Insert RSS link into news page HTML header
         run: |
-          sed -i 's|</head>|    <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />\n</head>|' _build/news.html
+          sed -i 's|</head>|    <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="/index.rss" />\n</head>|' _build/news/news.html
       - name: Set branch name
         id: branch
         run: echo "SUBDIR_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
