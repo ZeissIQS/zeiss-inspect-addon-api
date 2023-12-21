@@ -7,7 +7,7 @@ myst:
 
 # What's New
 
-<a href="index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
+<a href="../index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
 
 ## December 2023
 
