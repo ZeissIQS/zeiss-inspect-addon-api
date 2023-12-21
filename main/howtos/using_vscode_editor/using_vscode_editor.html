@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using Visual Studio Code as an add-on editor &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_vscode_editor/using_vscode_editor.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -146,11 +149,11 @@
            <div itemprop="articleBody">
              
   <section id="using-visual-studio-code-as-an-add-on-editor">
-<h1>Using Visual Studio Code as an add-on editor<a class="headerlink" href="#using-visual-studio-code-as-an-add-on-editor" title="Permalink to this heading"></a></h1>
+<h1>Using Visual Studio Code as an add-on editor<a class="headerlink" href="#using-visual-studio-code-as-an-add-on-editor" title="Link to this heading"></a></h1>
 <section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Installation</p>
 <ul>
@@ -173,7 +176,7 @@
 </ol>
 </section>
 <section id="connecting">
-<h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this heading"></a></h3>
+<h3>Connecting<a class="headerlink" href="#connecting" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Have ZEISS INSPECT running as a host</p></li>
 <li><p>In the VSCode status bar, the connection status is displayed:</p>
@@ -192,9 +195,9 @@
 </section>
 </section>
 <section id="editing">
-<h2>Editing<a class="headerlink" href="#editing" title="Permalink to this heading"></a></h2>
+<h2>Editing<a class="headerlink" href="#editing" title="Link to this heading"></a></h2>
 <section id="creating-scripts">
-<h3>Creating scripts<a class="headerlink" href="#creating-scripts" title="Permalink to this heading"></a></h3>
+<h3>Creating scripts<a class="headerlink" href="#creating-scripts" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Select ‘New GOM script’ from the file explorers right mouse menu.</p></li>
 <li><p>Enter unique name for that script.</p></li>
@@ -202,7 +205,7 @@
 <p><img alt="" src="../../_images/editing1.png" /></p>
 </section>
 <section id="executing-scripts">
-<h3>Executing scripts<a class="headerlink" href="#executing-scripts" title="Permalink to this heading"></a></h3>
+<h3>Executing scripts<a class="headerlink" href="#executing-scripts" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Select script to execute in the VSCode explorer.</p>
 <ul class="simple">
@@ -216,7 +219,7 @@
 </ol>
 </section>
 <section id="recording-commands">
-<h3>Recording commands<a class="headerlink" href="#recording-commands" title="Permalink to this heading"></a></h3>
+<h3>Recording commands<a class="headerlink" href="#recording-commands" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Make sure that your Add-on in is in editing mode</p></li>
 <li><p>Select the script into which you want to record commands for displaying in the editor.</p></li>
@@ -234,7 +237,7 @@
 </ol>
 </section>
 <section id="inserting-elements">
-<h3>Inserting elements<a class="headerlink" href="#inserting-elements" title="Permalink to this heading"></a></h3>
+<h3>Inserting elements<a class="headerlink" href="#inserting-elements" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>Elements in ZEISS INSPECT are represented by ‘element references’ in the script. These are python expressions which, when executed, return a reference to that element.</p>
 </div></blockquote>
@@ -255,7 +258,7 @@
 </ol>
 </section>
 <section id="inserting-keywords">
-<h3>Inserting keywords<a class="headerlink" href="#inserting-keywords" title="Permalink to this heading"></a></h3>
+<h3>Inserting keywords<a class="headerlink" href="#inserting-keywords" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>A keyword is an attribute used to query an element property. Various element attributes are existing depending on the element type.</p>
 </div></blockquote>
@@ -272,9 +275,9 @@
 </section>
 </section>
 <section id="debugging">
-<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading"></a></h2>
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
 <section id="start-debugging">
-<h3>Start debugging<a class="headerlink" href="#start-debugging" title="Permalink to this heading"></a></h3>
+<h3>Start debugging<a class="headerlink" href="#start-debugging" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Prepare debugged script as usual by setting breakpoints etc.</p>
 <p><img alt="" src="../../_images/debugging1.png" /></p>
@@ -295,13 +298,13 @@
 </section>
 </section>
 <section id="user-defined-script-dialogs">
-<h2>User defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Permalink to this heading"></a></h2>
+<h2>User defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, an application based script dialog can be opened. A connection to a running application must be present for that purpose.</p>
 </div>
 <section id="create-new-user-defined-script-dialog">
-<h3>Create new user defined script dialog<a class="headerlink" href="#create-new-user-defined-script-dialog" title="Permalink to this heading"></a></h3>
+<h3>Create new user defined script dialog<a class="headerlink" href="#create-new-user-defined-script-dialog" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Select “GOM Scripting: Insert new user defined script dialog” from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.</p>
 <p><img alt="" src="../../_images/userdialog1.png" /></p>
@@ -321,7 +324,7 @@
 </ol>
 </section>
 <section id="edit-user-defined-script-dialog">
-<h3>Edit user defined script dialog<a class="headerlink" href="#edit-user-defined-script-dialog" title="Permalink to this heading"></a></h3>
+<h3>Edit user defined script dialog<a class="headerlink" href="#edit-user-defined-script-dialog" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Edit script dialog file (*.gdlg) can be edited either in JSON format directly (possible, but not recommended) or by opening the script dialog editor in the connected application:</p>
 <p><img alt="" src="../../_images/userdialog6.png" /></p>
@@ -338,11 +341,11 @@
 </section>
 </section>
 <section id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h2>
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
 <section id="configuration">
-<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h3>
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
 <section id="how-do-i-set-a-shortcut-to-toggle-the-recording-mode">
-<h4>How do I set a shortcut to toggle the recording mode ?<a class="headerlink" href="#how-do-i-set-a-shortcut-to-toggle-the-recording-mode" title="Permalink to this heading"></a></h4>
+<h4>How do I set a shortcut to toggle the recording mode ?<a class="headerlink" href="#how-do-i-set-a-shortcut-to-toggle-the-recording-mode" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Select the “Keyboard Shortcuts” properties from the configurations menu:</p>
 <p><img alt="" src="../../_images/toggle_recording_1.png" /></p>
@@ -359,7 +362,7 @@
 </ul>
 </section>
 <section id="how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host">
-<h4>How do I set shortcuts for starting the current script in the GOM host ?<a class="headerlink" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host" title="Permalink to this heading"></a></h4>
+<h4>How do I set shortcuts for starting the current script in the GOM host ?<a class="headerlink" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>See above for the general process.</p></li>
 <li><p>The relevant commands here are:</p>
@@ -373,9 +376,9 @@
 </section>
 </section>
 <section id="script-editing">
-<h3>Script editing<a class="headerlink" href="#script-editing" title="Permalink to this heading"></a></h3>
+<h3>Script editing<a class="headerlink" href="#script-editing" title="Link to this heading"></a></h3>
 <section id="can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project">
-<h4>Can I use local workspaces from disk instead of the application script database for my project ?<a class="headerlink" href="#can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project" title="Permalink to this heading"></a></h4>
+<h4>Can I use local workspaces from disk instead of the application script database for my project ?<a class="headerlink" href="#can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Yes.</p></li>
 <li><p>You can add arbitrary folders to the workspace and edit and starts scripts from right there.</p></li>
@@ -386,9 +389,9 @@
 </section>
 </section>
 <section id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h3>
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
 <section id="when-using-intellisense-completion-the-keyword-list-stalls">
-<h4>When using IntelliSense completion, the keyword list stalls<a class="headerlink" href="#when-using-intellisense-completion-the-keyword-list-stalls" title="Permalink to this heading"></a></h4>
+<h4>When using IntelliSense completion, the keyword list stalls<a class="headerlink" href="#when-using-intellisense-completion-the-keyword-list-stalls" title="Link to this heading"></a></h4>
 <ul>
 <li><p>When using the ‘.’ or a hotkey to access the list of possible completions, a tooltip displays ‘Loading…’ but nothing happens:</p>
 <p><img alt="" src="../../_images/keyword_list_1.png" /></p>
@@ -400,7 +403,7 @@
 </ul>
 </section>
 <section id="when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen">
-<h4>When starting both the application and a script from within Visual Studio Code, crashes can happen<a class="headerlink" href="#when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen" title="Permalink to this heading"></a></h4>
+<h4>When starting both the application and a script from within Visual Studio Code, crashes can happen<a class="headerlink" href="#when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>This is more a GOM internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.</p></li>
 <li><p>The parallel debugging session (application and scripting) seem to be the problem.</p></li>

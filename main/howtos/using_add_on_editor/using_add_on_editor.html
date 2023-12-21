@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using the Add-on Editor &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_add_on_editor/using_add_on_editor.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Add-on Editor</a><ul>
@@ -125,7 +128,7 @@
            <div itemprop="articleBody">
              
   <section id="using-the-add-on-editor">
-<h1>Using the Add-on Editor<a class="headerlink" href="#using-the-add-on-editor" title="Permalink to this heading"></a></h1>
+<h1>Using the Add-on Editor<a class="headerlink" href="#using-the-add-on-editor" title="Link to this heading"></a></h1>
 <p>Script Editor and Package Manager have been integrated as the Add-on Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Add-ons.</p>
 <p>See the ZEISS Quality Tech Guide article <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/cmd_sys_manage_add_ons.html">Add-on Editor</a> for more details.</p>
 <ul class="simple">
@@ -151,7 +154,7 @@
 </li>
 </ul>
 <section id="add-on-editor-layout">
-<h2>Add-on Editor Layout<a class="headerlink" href="#add-on-editor-layout" title="Permalink to this heading"></a></h2>
+<h2>Add-on Editor Layout<a class="headerlink" href="#add-on-editor-layout" title="Link to this heading"></a></h2>
 <p><img alt="Add-on Editor Layout" src="../../_images/01-Add-on_Editor_Intro_v2.png" /></p>
 <ol class="arabic">
 <li><p>Add-on Explorer</p>
@@ -166,7 +169,7 @@
 </ol>
 </section>
 <section id="creating-a-new-add-on">
-<h2>Creating a new Add-on<a class="headerlink" href="#creating-a-new-add-on" title="Permalink to this heading"></a></h2>
+<h2>Creating a new Add-on<a class="headerlink" href="#creating-a-new-add-on" title="Link to this heading"></a></h2>
 <p>Create a new Add-on in the following ways:</p>
 <ul class="simple">
 <li><p>By using the “Create Add-on” button in the top-right corner of the Add-on Explorer</p></li>
@@ -179,7 +182,7 @@
 <p><img alt="" src="../../_images/07-New_Add-on_v2.png" /></p>
 </section>
 <section id="entering-and-leaving-editing-mode">
-<h2>Entering and Leaving Editing Mode<a class="headerlink" href="#entering-and-leaving-editing-mode" title="Permalink to this heading"></a></h2>
+<h2>Entering and Leaving Editing Mode<a class="headerlink" href="#entering-and-leaving-editing-mode" title="Link to this heading"></a></h2>
 <p>Before you can modify an installed Add-on, you must set it to editing mode first. A newly created Add-on is already in editing mode.</p>
 <p>Set an Add-on to editing mode</p>
 <ul class="simple">
@@ -198,13 +201,13 @@
 </div>
 </section>
 <section id="writing-python-scripts">
-<h2>Writing Python Scripts<a class="headerlink" href="#writing-python-scripts" title="Permalink to this heading"></a></h2>
+<h2>Writing Python Scripts<a class="headerlink" href="#writing-python-scripts" title="Link to this heading"></a></h2>
 <section id="new-folder-or-script">
-<h3>New Folder or Script<a class="headerlink" href="#new-folder-or-script" title="Permalink to this heading"></a></h3>
+<h3>New Folder or Script<a class="headerlink" href="#new-folder-or-script" title="Link to this heading"></a></h3>
 <p>Click RMB on the ‘scripts’ folder of an Add-on (in editing mode) ► New Folder/Script</p>
 </section>
 <section id="installing-python-packages">
-<h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this heading"></a></h3>
+<h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading"></a></h3>
 <p>Python packages can be installed to the Add-on and the installed python packages are only valid for scripts in the same Add-on. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation is shown.</p>
 <ul>
 <li><p>From network
@@ -218,26 +221,26 @@ Python wheel files (*.whl) can be added or removed.</p>
 </ul>
 </section>
 <section id="running-python-scripts">
-<h3>Running Python Scripts<a class="headerlink" href="#running-python-scripts" title="Permalink to this heading"></a></h3>
+<h3>Running Python Scripts<a class="headerlink" href="#running-python-scripts" title="Link to this heading"></a></h3>
 <p><img alt="" src="../../_images/Script_Run.png" /></p>
 <p>You start or stop script execution with the buttons in the top right corner of the Script Editor.</p>
 </section>
 <section id="recording-commands">
-<h3>Recording Commands<a class="headerlink" href="#recording-commands" title="Permalink to this heading"></a></h3>
+<h3>Recording Commands<a class="headerlink" href="#recording-commands" title="Link to this heading"></a></h3>
 <p>You start or stop recording of commands executed in ZEISS INSPECT by using the Record button in the top right corner of the Script Editor. The recorded commands can be edited afterwards.</p>
 </section>
 <section id="inserting-element-values">
-<h3>Inserting Element Values<a class="headerlink" href="#inserting-element-values" title="Permalink to this heading"></a></h3>
+<h3>Inserting Element Values<a class="headerlink" href="#inserting-element-values" title="Link to this heading"></a></h3>
 <p>You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ►  Element Value in the script editor.</p>
 </section>
 </section>
 <section id="adding-and-removing-contents">
-<h2>Adding and Removing Contents<a class="headerlink" href="#adding-and-removing-contents" title="Permalink to this heading"></a></h2>
+<h2>Adding and Removing Contents<a class="headerlink" href="#adding-and-removing-contents" title="Link to this heading"></a></h2>
 <p>You add contents from the Available Contents section to Add-ons (in editing mode) by drag and drop. You remove contents from an Add-on by drag and drop to Available Contents. Moving contents between Add-ons (in editing mode) is also supported.</p>
 <p><img alt="" src="../../_images/add_on_editor_dnd.gif" /></p>
 </section>
 <section id="exporting-or-publishing-an-add-on">
-<h2>Exporting or Publishing an Add-on<a class="headerlink" href="#exporting-or-publishing-an-add-on" title="Permalink to this heading"></a></h2>
+<h2>Exporting or Publishing an Add-on<a class="headerlink" href="#exporting-or-publishing-an-add-on" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Export</p>
 <p>Click RMB on the installed Add-on ► Export: Save the selected Add-on as a .addon file.</p>
@@ -252,9 +255,9 @@ Python wheel files (*.whl) can be added or removed.</p>
 </ul>
 </section>
 <section id="add-ons-from-external-folders">
-<h2>Add-ons from External Folders<a class="headerlink" href="#add-ons-from-external-folders" title="Permalink to this heading"></a></h2>
+<h2>Add-ons from External Folders<a class="headerlink" href="#add-ons-from-external-folders" title="Link to this heading"></a></h2>
 <section id="connecting-and-disconnecting-external-folders">
-<h3>Connecting and Disconnecting External Folders<a class="headerlink" href="#connecting-and-disconnecting-external-folders" title="Permalink to this heading"></a></h3>
+<h3>Connecting and Disconnecting External Folders<a class="headerlink" href="#connecting-and-disconnecting-external-folders" title="Link to this heading"></a></h3>
 <p><img alt="" src="../../_images/03-Add-on_External_Folder_v2.png" /></p>
 <p>External Folder enables the user to run scripts from a selected path. More than one external folders can be added.</p>
 <ul>
@@ -268,7 +271,7 @@ Python wheel files (*.whl) can be added or removed.</p>
 </ul>
 </section>
 <section id="creating-add-ons-in-external-folders">
-<h3>Creating Add-ons in External Folders<a class="headerlink" href="#creating-add-ons-in-external-folders" title="Permalink to this heading"></a></h3>
+<h3>Creating Add-ons in External Folders<a class="headerlink" href="#creating-add-ons-in-external-folders" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Creating a new Add-on in an external folder</p>
 <p>Click RMB on the External Folder ► New Add-on</p>

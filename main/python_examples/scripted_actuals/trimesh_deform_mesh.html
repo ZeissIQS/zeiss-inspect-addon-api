@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>trimesh_deform_mesh &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/scripted_actuals/trimesh_deform_mesh.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -112,18 +115,18 @@
            <div itemprop="articleBody">
              
   <section id="trimesh-deform-mesh">
-<h1>trimesh_deform_mesh<a class="headerlink" href="#trimesh-deform-mesh" title="Permalink to this heading"></a></h1>
+<h1>trimesh_deform_mesh<a class="headerlink" href="#trimesh-deform-mesh" title="Link to this heading"></a></h1>
 <p><img alt="" src="../../_images/trimesh_deform_mesh.jpg" /></p>
 <section id="short-description">
-<h2>Short description<a class="headerlink" href="#short-description" title="Permalink to this heading"></a></h2>
+<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
 <p>This example demonstrates how to generate a custom surface element using a scripted element. The example script accesses mesh information from an existing mesh in the project and adds a random deformation to each point.</p>
 <p>Finally, the result is transfered back to the GOM Software, where an actual surface element is created.</p>
 </section>
 <section id="highlights">
-<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading"></a></h2>
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
 <p>The dialog was created using the script dialog editor and contains an “Element selection” widget to let the user choose which mesh to deform.</p>
 <section id="dialog-element-filter">
-<h3>Dialog: Element filter<a class="headerlink" href="#dialog-element-filter" title="Permalink to this heading"></a></h3>
+<h3>Dialog: Element filter<a class="headerlink" href="#dialog-element-filter" title="Link to this heading"></a></h3>
 <p>In the script, a filter function is implemented to populate the “Element selection” widget only with elements of a certain type. To this end, the widget’s type property is first set to “User-defined script function”.</p>
 <p><img alt="" src="../../_images/trimesh_deform_mesh_dialog.jpg" /></p>
 <p>Then, in the script, the filter property is set to the following function:</p>
@@ -141,7 +144,7 @@
 <p>Furthermore, the dialog contains a name widget with a default name set for the result element and a decimal widget to let the user choose the magnitude of deformation.</p>
 </section>
 <section id="calculation-mesh-deformation-with-trimesh">
-<h3>Calculation: Mesh deformation with <code class="docutils literal notranslate"><span class="pre">trimesh</span></code><a class="headerlink" href="#calculation-mesh-deformation-with-trimesh" title="Permalink to this heading"></a></h3>
+<h3>Calculation: Mesh deformation with <code class="docutils literal notranslate"><span class="pre">trimesh</span></code><a class="headerlink" href="#calculation-mesh-deformation-with-trimesh" title="Link to this heading"></a></h3>
 <p>The logic of mesh deformation happens in the calculation function. Here, the stored parameters are read from the ‘params’ array and used to perform the calculation.</p>
 <p>The access to the mesh data is done via numpy arrays that can be retrieved by an elements data interface. This interface is accessible by the <code class="docutils literal notranslate"><span class="pre">.data</span></code> property and yields the results usually for all stages. Using <code class="docutils literal notranslate"><span class="pre">[s]</span></code> as a subscript gives the data for stage <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span><span class="n">selected_element</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)[</span><span class="n">s</span><span class="p">]</span>
@@ -166,7 +169,7 @@ To deform the mesh, we then apply some noise to the data using <a class="referen
 </section>
 </section>
 <section id="related">
-<h2>Related<a class="headerlink" href="#related" title="Permalink to this heading"></a></h2>
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>How-to: <a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces"><span class="std std-ref">Python API introduction - Element data interfaces</span></a></p></li>
 </ul>

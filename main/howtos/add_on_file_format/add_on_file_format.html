@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Add-on file format &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/add_on_file_format/add_on_file_format.html" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -46,7 +46,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
@@ -125,16 +128,16 @@
            <div itemprop="articleBody">
              
   <section id="add-on-file-format">
-<h1>Add-on file format<a class="headerlink" href="#add-on-file-format" title="Permalink to this heading"></a></h1>
+<h1>Add-on file format<a class="headerlink" href="#add-on-file-format" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>💡 An Add-on file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames.</p>
 <p>While an Add-on file will be created and modified with the Add-on Manager in most cases, it can also be unzipped/edited/zipped manually if necessary.</p>
 </section>
 <section id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this heading"></a></h2>
+<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading"></a></h2>
 <section id="folder-structure">
-<h3>Folder structure<a class="headerlink" href="#folder-structure" title="Permalink to this heading"></a></h3>
+<h3>Folder structure<a class="headerlink" href="#folder-structure" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>File</p></th>
@@ -164,7 +167,7 @@
 </table>
 </section>
 <section id="content-types">
-<h3>Content types<a class="headerlink" href="#content-types" title="Permalink to this heading"></a></h3>
+<h3>Content types<a class="headerlink" href="#content-types" title="Link to this heading"></a></h3>
 <p>💡 The top level folders determine the “content type”. Inside these top level folders, a separate sub folder must be provided for each item.</p>
 <table class="docutils align-default">
 <thead>
@@ -298,7 +301,7 @@
 </table>
 </section>
 <section id="content-data">
-<h3>Content data<a class="headerlink" href="#content-data" title="Permalink to this heading"></a></h3>
+<h3>Content data<a class="headerlink" href="#content-data" title="Link to this heading"></a></h3>
 <p>💡 Each “content object” consists of a folder in one of the “content type” (top level) folders.</p>
 <ul class="simple">
 <li><p>A “content object” is a single template/script/element/… distributed via an Add-on.</p></li>
@@ -308,7 +311,7 @@
 <li><p>For template-like objects, there is always a JSON file with administrative data present. Other types may vary.</p></li>
 </ul>
 <section id="example-labels">
-<h4>Example: Labels<a class="headerlink" href="#example-labels" title="Permalink to this heading"></a></h4>
+<h4>Example: Labels<a class="headerlink" href="#example-labels" title="Link to this heading"></a></h4>
 <p><strong>Folder layout ‘labels’</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metainfo</span><span class="o">.</span><span class="n">json</span>
 <span class="n">labels</span>
@@ -341,7 +344,7 @@
 </div>
 </section>
 <section id="example-scripts">
-<h4>Example: Scripts<a class="headerlink" href="#example-scripts" title="Permalink to this heading"></a></h4>
+<h4>Example: Scripts<a class="headerlink" href="#example-scripts" title="Link to this heading"></a></h4>
 <p><strong>Folder layout ‘scripts’</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scripts</span><span class="o">/</span>
 <span class="o">|--</span> <span class="n">Tools</span><span class="o">/</span>
@@ -356,11 +359,11 @@
 </section>
 </section>
 <section id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h2>
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
 <section id="id1">
-<h3>Structure<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Structure<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <section id="why-is-there-a-folder-for-every-single-element">
-<h4>Why is there a folder for every single element?<a class="headerlink" href="#why-is-there-a-folder-for-every-single-element" title="Permalink to this heading"></a></h4>
+<h4>Why is there a folder for every single element?<a class="headerlink" href="#why-is-there-a-folder-for-every-single-element" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The Add-on Manager can handle the elements transparently in this way. Just the folder is dragged &amp; dropped, visible etc., while the content is abstracted and can edited (e.g. in a graphical editor)</p></li>
 <li><p>The content format specification of an element can easier be changed over time</p></li>
