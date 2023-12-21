@@ -69,6 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#add-on-sharedenvuser">Add-on “SharedEnvUser”</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#using-shared-environments-with-protected-add-ons">Using shared environments with protected Add-ons</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
@@ -263,6 +264,32 @@
 <p>An Add-on has to be finished (with <strong>Finish Editing</strong>) before its Python files can be imported as modules in another Add-on, otherwise a <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> will be thrown.</p>
 </div>
 </section>
+</section>
+<section id="using-shared-environments-with-protected-add-ons">
+<h2>Using shared environments with protected Add-ons<a class="headerlink" href="#using-shared-environments-with-protected-add-ons" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Provider Add-on</p></th>
+<th class="head"><p>User Add-on</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>protected</p></td>
+<td><p>unprotected</p></td>
+<td><p>❌ curently not supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>unprotected</p></td>
+<td><p>protected</p></td>
+<td><p>✔ no additional measures required</p></td>
+</tr>
+<tr class="row-even"><td><p>protected</p></td>
+<td><p>protected</p></td>
+<td><p>🔑 ‘shared secret’ must be created when applying the protection</p></td>
+</tr>
+</tbody>
+</table>
+<p>Protecting an Add-on and creating the shared secret is done with a tool by ZEISS IQS, which is currently provided on request.</p>
 </section>
 </section>
 
