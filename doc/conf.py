@@ -29,6 +29,10 @@ myst_enable_extensions = [
 
 myst_heading_anchors = 4
 
+# Suppress the warning "WARNING: Non-consecutive header level increase" which commonly appears in python_api/python_api.md
+# Unfortunately, suppressing this only for a single file does not seem to work...
+suppress_warnings  = ['myst.header']
+
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
 html_baseurl = 'https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/'
