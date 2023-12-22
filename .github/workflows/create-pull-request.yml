@@ -39,7 +39,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           #source_branch: apidoc-update-main
           target_branch: ${{ format('{0}', steps.target.outputs.target_branch) }}
-          title: Python API documentation update pull request
+          title: ${{ format('Python API documentation update pull request ({0})', steps.target.outputs.target_branch) }}
           #template: .github/PULL_REQUEST_TEMPLATE.md
           body: "**Automated pull request**"
           reviewer: ${{ format('{0}', steps.reviewers.outputs.curr_reviewers) }}
@@ -52,3 +52,8 @@ jobs:
           get_diff: true
           ignore_users: "dependabot"
           allow_no_diff: false
+        - name: Mark as successful
+          # "Create Pull Request" fails if the PR already exists
+          if: always()
+          run: echo "::set-output name=result::success"
+          # or run: echo "RESULT=success" >> $GITHUB_ENV
