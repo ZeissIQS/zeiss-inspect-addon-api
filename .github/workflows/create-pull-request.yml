@@ -55,5 +55,4 @@ jobs:
       - name: Mark as successful
         # "Create Pull Request" fails if the PR already exists
         if: always()
-        run: echo "::set-output name=result::success"
-        # or run: echo "RESULT=success" >> $GITHUB_ENV
+        run: echo "RESULT=success" >> $GITHUB_OUTPUT
