@@ -41,6 +41,34 @@ print (RESULT.__dict__['__args__'][0])
 
 See [User-defined dialogs / Executing dialogs / Dialog results](../python_api_introduction/user_defined_dialogs.md#dialog-results) for more details.
 
+## How can I use an image from a script resource file in a user defined dialog?
+
+You add your image file as a resource to the Add-on:
+
+![Add-on Explorer - PNG file as resource](assets/resource_file_as_image_data.png)
+
+You create a dialog file with an [Image widget](../python_api_introduction/user_defined_dialogs.md#image-widget), but without setting the actual image in the dialog editor.
+
+In the Python script, you assign the resource as data to the image widget object:
+
+```{code-block} python
+import gom
+
+DIALOG=gom.script.sys.create_user_defined_dialog (file='dialog.gdlg')
+
+#
+# Event handler function called if anything happens inside of the dialog
+#
+def dialog_event_handler (widget):
+	pass
+
+DIALOG.handler = dialog_event_handler
+
+DIALOG.image.data = gom.app.resource[":example.png"]
+
+RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+``` 
+
 ## How do I check if the sensor warm-up is completed or how long it will take, respectively?
 
 ```{code-block} python
