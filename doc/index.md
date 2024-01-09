@@ -61,6 +61,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_shared_environments/using_shared_environments
    howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
    howtos/localization/localization
+   howtos/starting_options/starting_options
    howtos/testing_addons/testing_addons
    howtos/faq/faq
 ```
