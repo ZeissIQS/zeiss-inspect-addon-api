@@ -65,13 +65,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Software and script starting options</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#starting-add-ons-from-the-gui">Starting Add-ons from the GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#starting-a-script-from-the-windows-command-line">Starting a script from the Windows command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-a-script-from-the-windows-command-line">Starting a script from the Windows command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-command-line-options">Basic command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-zeiss-inspect-python-scripts">Starting ZEISS INSPECT Python scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-parameters-to-a-script">Passing parameters to a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-interactive-script-execution">Non-interactive script execution</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#basic-command-line-options">Basic command line options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#starting-zeiss-inspect-python-scripts">Starting ZEISS INSPECT Python scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#passing-parameters-to-a-script">Passing parameters to a script</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#non-interactive-script-execution">Non-interactive script execution</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-with-a-windows-shortcut">Starting ZEISS INSPECT with a Windows shortcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-from-a-batch-file">Starting ZEISS INSPECT from a batch file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-as-a-subprocess-in-a-python-script">Starting ZEISS INSPECT as a subprocess in a Python script</a></li>
@@ -139,10 +139,8 @@
 </section>
 <section id="starting-a-script-from-the-windows-command-line">
 <h2>Starting a script from the Windows command line<a class="headerlink" href="#starting-a-script-from-the-windows-command-line" title="Link to this heading"></a></h2>
-</section>
-</section>
 <section id="basic-command-line-options">
-<h1>Basic command line options<a class="headerlink" href="#basic-command-line-options" title="Link to this heading"></a></h1>
+<h3>Basic command line options<a class="headerlink" href="#basic-command-line-options" title="Link to this heading"></a></h3>
 <p>You start ZEISS INSPECT from the command line with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span>
 </pre></div>
@@ -153,7 +151,7 @@
 </div>
 </section>
 <section id="starting-zeiss-inspect-python-scripts">
-<h1>Starting ZEISS INSPECT Python scripts<a class="headerlink" href="#starting-zeiss-inspect-python-scripts" title="Link to this heading"></a></h1>
+<h3>Starting ZEISS INSPECT Python scripts<a class="headerlink" href="#starting-zeiss-inspect-python-scripts" title="Link to this heading"></a></h3>
 <p>You start ZEISS INSPECT and execute a script with <code class="docutils literal notranslate"><span class="pre">-eval</span> <span class="pre">&quot;gom.script.userscript.&lt;scriptfolder&gt;__&lt;script&gt;()&quot;</span></code></p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">&lt;Add-on_Folder&gt;/scripts/tools/convert_mesh.py</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span> <span class="o">-</span><span class="nb">eval</span> <span class="s2">&quot;gom.script.userscript.tools__convert_mesh()&quot;</span>
@@ -169,7 +167,7 @@
 </div>
 </section>
 <section id="passing-parameters-to-a-script">
-<h1>Passing parameters to a script<a class="headerlink" href="#passing-parameters-to-a-script" title="Link to this heading"></a></h1>
+<h3>Passing parameters to a script<a class="headerlink" href="#passing-parameters-to-a-script" title="Link to this heading"></a></h3>
 <p>You can execute a script with parameters by passing a Python dictionary to it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span> <span class="o">-</span><span class="nb">eval</span> <span class="s2">&quot;gom.script.userscript.myscript(parameters={&#39;variable_1&#39;:&#39;value_1&#39;,&#39;variable_2&#39;:&#39;value_2&#39;})&quot;</span>
 </pre></div>
@@ -190,7 +188,7 @@
 </div>
 </section>
 <section id="non-interactive-script-execution">
-<h1>Non-interactive script execution<a class="headerlink" href="#non-interactive-script-execution" title="Link to this heading"></a></h1>
+<h3>Non-interactive script execution<a class="headerlink" href="#non-interactive-script-execution" title="Link to this heading"></a></h3>
 <p>In some cases, you want to run a script without user interaction. If applicable, replace interactive commands with script commands, e.g. use</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">automation</span><span class="o">.</span><span class="n">execute_active_measurement_series</span> <span class="p">(</span><span class="n">clear_measurement_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -199,6 +197,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">interactive</span><span class="o">.</span><span class="n">automation</span><span class="o">.</span><span class="n">execute_active_measurement_series</span> <span class="p">(</span><span class="n">clear_measurement_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+</section>
 <section id="starting-zeiss-inspect-with-a-windows-shortcut">
 <h2>Starting ZEISS INSPECT with a Windows shortcut<a class="headerlink" href="#starting-zeiss-inspect-with-a-windows-shortcut" title="Link to this heading"></a></h2>
 <ol class="arabic simple">

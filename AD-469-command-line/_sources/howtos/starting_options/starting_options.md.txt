@@ -12,7 +12,7 @@ You normally start the ZEISS INSPECT application from the ZEISS Quality Suite. I
 
 ## Starting a script from the Windows command line
 
-# Basic command line options
+### Basic command line options
 
 You start ZEISS INSPECT from the command line with
 
@@ -29,7 +29,7 @@ This will start the application with all available licenses. You can specify the
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -license volume
 ```
 
-# Starting ZEISS INSPECT Python scripts
+### Starting ZEISS INSPECT Python scripts
 
 You start ZEISS INSPECT and execute a script with `-eval "gom.script.userscript.<scriptfolder>__<script>()"`
 
@@ -53,7 +53,7 @@ If the script's name is not unique within all installed Add-ons and connected Ad
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -script "C:\temp\convert.py"
 ```
 
-# Passing parameters to a script
+### Passing parameters to a script
 
 % https://forum.gom.com/topic/3520-start-zeiss-inspect-2023-addon-with-parameter/
 
@@ -83,7 +83,7 @@ if 'variable_1' not in globals() or 'variable_2' not in globals():
 	variable_2 = 'default_value_2'
 ```
 
-# Non-interactive script execution
+### Non-interactive script execution
 
 % https://forum.gom.com/topic/332-running-atos-unattended/ -> gom.script vs. gom.interactive
 
