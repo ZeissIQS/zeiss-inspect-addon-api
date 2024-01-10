@@ -58,6 +58,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/python_api_introduction/creating_wizard_dialogs
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
+   howtos/project_keywords/project_keywords
    howtos/using_shared_environments/using_shared_environments
    howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
    howtos/localization/localization
