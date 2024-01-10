@@ -37,6 +37,10 @@ By default, all licensed Add-ons with a valid license and all license-free Add-o
 
 You find the UUID in the Add-on's `metainfo.json` file.
 
+You can reduce the software startup time by skipping the splash screen with the parameter `-nosplash`.
+
+The initial appearance of the ZEISS INSPECT window can be set with the parameters `-minimized`, `-maximized` and `-fullscreen`.
+
 The software configuration is stored in the file `%APPDATA%\GOM\<VERSION>\gomsoftware.cfg`. You can make a copy of the configuration created for a special purpose and later apply it with the parameter `-config`:
 
 ```
