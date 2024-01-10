@@ -66,6 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-are-add-ons-located-in-the-file-system">Where are Add-ons located in the file system?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
@@ -118,6 +119,11 @@
              
   <section id="frequently-asked-questions">
 <h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h1>
+<section id="where-are-add-ons-located-in-the-file-system">
+<h2>Where are Add-ons located in the file system?<a class="headerlink" href="#where-are-add-ons-located-in-the-file-system" title="Link to this heading"></a></h2>
+<p>Add-ons which are edited are located in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code> (or <code class="docutils literal notranslate"><span class="pre">%APPDATA%\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code>, respectively). There is a subfolder for each Add-on named by its UUID.</p>
+<p>When editing is finished, an Add-on file (see <a class="reference internal" href="../add_on_file_format/add_on_file_format.html"><span class="std std-doc">Add-on file format</span></a>) is created and saved in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_addons</span></code>.</p>
+</section>
 <section id="how-can-i-stop-script-execution">
 <h2>How can I stop script execution?<a class="headerlink" href="#how-can-i-stop-script-execution" title="Link to this heading"></a></h2>
 <p>In a user defined dialog, you can call <code class="docutils literal notranslate"><span class="pre">gom.script.sys.close_user_defined_dialog</span> <span class="pre">(dialog=\&lt;your_dialog\&gt;)</span></code>.</p>
