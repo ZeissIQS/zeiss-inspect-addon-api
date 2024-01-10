@@ -1057,7 +1057,7 @@ File system browser widget
 | selected           | list                  | <pre>print(DIALOG.filesystemWidget.selected)<br># example output: \['C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 1.g3d', 'C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 2.g3d'\]</pre> |
 | filter             | list                  | <pre># Apply a filter of filename extensions<br>DIALOG.filesystemWidget.filter = \[ '\*.g3d', '\*.stp' \]</pre> |
 
-### Widget text formatting at run time
+### Widget text assignment and formatting at run time
 
 The [Description field (label) widget](#description-field-label-widget) and the [Continuous text widget](#continuous-text-widget) support HTML / CSS syntax for text formatting and character encoding.
 
