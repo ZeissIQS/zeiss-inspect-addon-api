@@ -105,6 +105,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#file-system-browser-widget">File system browser widget</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#widget-text-formatting-at-run-time">Widget text formatting at run time</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#executing-dialogs">Executing dialogs</a><ul>
@@ -1942,6 +1943,36 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tbody>
 </table>
 </section>
+</section>
+<section id="widget-text-formatting-at-run-time">
+<h3>Widget text formatting at run time<a class="headerlink" href="#widget-text-formatting-at-run-time" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="#description-field-label-widget">Description field (label) widget</a> and the <a class="reference internal" href="#continuous-text-widget">Continuous text widget</a> support HTML / CSS syntax for text formatting and character encoding.</p>
+<p>Example: Dialog with a label widget (<code class="docutils literal notranslate"><span class="pre">label</span></code>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Label - font size: 18 pt, style: bold, special character: &#39;Diameter&#39;</span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size:18pt&quot;&gt;&lt;b&gt;Cylinder &amp;#x2300;&lt;/b&gt;&lt;/span&gt;&#39;</span>
+</pre></div>
+</div>
+<p>Example: Continuous text widget (<code class="docutils literal notranslate"><span class="pre">cont_text</span></code>) with formatted text</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Continuous text - font size: 18 pt, font weight: 600, color: red, </span>
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size:18pt; font-weight:600; color:red;&quot;&gt;Attention!&lt;/span&gt;&#39;</span>
+</pre></div>
+</div>
+<p>Example: Continuous text widget (<code class="docutils literal notranslate"><span class="pre">cont_text</span></code>) with a table containing values from variables</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="mf">9.8</span>
+<span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">var3</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">var4</span> <span class="o">=</span> <span class="s2">&quot;pass&quot;</span>
+
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&lt;table width=&quot;200&quot;&gt;&#39;</span>\
+<span class="s1">&#39;&lt;tr&gt;&lt;th&gt;Actual&lt;/th&gt;&lt;th&gt;Nominal&lt;/th&gt;&lt;th&gt;Tolerance&lt;/th&gt;&lt;th&gt;Result&lt;/th&gt;&lt;/tr&gt;&#39;</span>\
+<span class="sa">f</span><span class="s1">&#39;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var1</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var2</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var3</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var4</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case a character string is not recognizes as HTML code automatically, enclose it in <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tags:</p>
+<p><code class="docutils literal notranslate"><span class="pre">DIALOG.label.text</span> <span class="pre">=</span> <span class="pre">'&lt;html&gt;Diameter</span> <span class="pre">&amp;#x2300;&lt;/html&gt;'</span></code></p>
+</div>
 </section>
 </section>
 <section id="executing-dialogs">
