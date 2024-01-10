@@ -149,6 +149,15 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span> <span class="o">-</span><span class="n">license</span> <span class="n">volume</span>
 </pre></div>
 </div>
+<p>By default, all licensed Add-ons with a valid license and all license-free Add-ons are visible in the application. This can be changed with the parameter <code class="docutils literal notranslate"><span class="pre">-packages</span></code>, which restricts the visible Add-ons to those listed by UUID:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span> <span class="o">-</span><span class="n">packages</span> <span class="mi">36687</span><span class="n">b47</span><span class="o">-</span><span class="mi">6</span><span class="n">ee0</span><span class="o">-</span><span class="mi">448</span><span class="n">c</span><span class="o">-</span><span class="mi">886</span><span class="n">a</span><span class="o">-</span><span class="n">eba02c9d0329</span><span class="p">,</span><span class="n">a8c6baec</span><span class="o">-</span><span class="n">c6ed</span><span class="o">-</span><span class="mi">409</span><span class="n">d</span><span class="o">-</span><span class="n">a2dc</span><span class="o">-</span><span class="n">dd3d032db8bd</span>
+</pre></div>
+</div>
+<p>You find the UUID in the Add-on’s <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+<p>The software configuration is stored in the file <code class="docutils literal notranslate"><span class="pre">%APPDATA%\GOM\&lt;VERSION&gt;\gomsoftware.cfg</span></code>. You can make a copy of the configuration created for a special purpose and later apply it with the parameter <code class="docutils literal notranslate"><span class="pre">-config</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Zeiss\INSPECT</span><span class="se">\202</span><span class="s2">3</span><span class="se">\b</span><span class="s2">in\ZEISS_INSPECT.exe&quot;</span> <span class="o">-</span><span class="n">config</span> <span class="n">C</span><span class="p">:</span>\<span class="n">temp</span>\<span class="n">my_inspection</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
 </section>
 <section id="starting-zeiss-inspect-python-scripts">
 <h3>Starting ZEISS INSPECT Python scripts<a class="headerlink" href="#starting-zeiss-inspect-python-scripts" title="Link to this heading"></a></h3>
