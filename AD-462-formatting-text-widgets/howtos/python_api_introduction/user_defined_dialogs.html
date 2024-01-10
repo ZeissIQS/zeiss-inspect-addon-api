@@ -1952,11 +1952,13 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <span class="n">DIALOG</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size:18pt&quot;&gt;&lt;b&gt;Cylinder &amp;#x2300;&lt;/b&gt;&lt;/span&gt;&#39;</span>
 </pre></div>
 </div>
+<p><img alt="Label widget with HTML formatted text" src="../../_images/widget_text_html_label.png" /></p>
 <p>Example: Continuous text widget (<code class="docutils literal notranslate"><span class="pre">cont_text</span></code>) with formatted text</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Continuous text - font size: 18 pt, font weight: 600, color: red, </span>
 <span class="n">DIALOG</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size:18pt; font-weight:600; color:red;&quot;&gt;Attention!&lt;/span&gt;&#39;</span>
 </pre></div>
 </div>
+<p><img alt="Continuous text widget with HTML formatted text" src="../../_images/widget_text_html_formatting.png" /></p>
 <p>Example: Continuous text widget (<code class="docutils literal notranslate"><span class="pre">cont_text</span></code>) with a table containing values from variables</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="mf">9.8</span>
 <span class="n">var2</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1968,6 +1970,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <span class="sa">f</span><span class="s1">&#39;&lt;tr&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var1</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var2</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var3</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">var4</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#39;</span>
 </pre></div>
 </div>
+<p><img alt="Continuous text widget with HTML table" src="../../_images/widget_text_html_table.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In case a character string is not recognizes as HTML code automatically, enclose it in <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tags:</p>
