@@ -29,6 +29,20 @@ This will start the application with all available licenses. You can specify the
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -license volume
 ```
 
+By default, all licensed Add-ons with a valid license and all license-free Add-ons are visible in the application. This can be changed with the parameter `-packages`, which restricts the visible Add-ons to those listed by UUID:
+
+```
+"C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -packages 36687b47-6ee0-448c-886a-eba02c9d0329,a8c6baec-c6ed-409d-a2dc-dd3d032db8bd
+```
+
+You find the UUID in the Add-on's `metainfo.json` file.
+
+The software configuration is stored in the file `%APPDATA%\GOM\<VERSION>\gomsoftware.cfg`. You can make a copy of the configuration created for a special purpose and later apply it with the parameter `-config`:
+
+```
+"C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -config C:\temp\my_inspection.cfg
+```
+
 ### Starting ZEISS INSPECT Python scripts
 
 You start ZEISS INSPECT and execute a script with `-eval "gom.script.userscript.<scriptfolder>__<script>()"`
