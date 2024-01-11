@@ -47,6 +47,10 @@ The software configuration is stored in the file `%APPDATA%\GOM\<VERSION>\gomsof
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -config C:\temp\my_inspection.cfg
 ```
 
+```{note}
+The configuration file contains user- and language-specific entries which limit its portability. Depending on the actual use case, some entries may have to be deleted or modified.
+```
+
 ### Starting ZEISS INSPECT Python scripts
 
 You start ZEISS INSPECT and execute a script with `-eval "gom.script.userscript.<scriptfolder>__<script>()"`
