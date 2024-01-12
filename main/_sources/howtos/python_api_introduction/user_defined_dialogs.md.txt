@@ -1057,6 +1057,50 @@ File system browser widget
 | selected           | list                  | <pre>print(DIALOG.filesystemWidget.selected)<br># example output: \['C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 1.g3d', 'C:/temp/Basic_Training_GOM_Inspect_Pro/Training Data/Raw Data/Actual/GOM Training Object Mesh 2.g3d'\]</pre> |
 | filter             | list                  | <pre># Apply a filter of filename extensions<br>DIALOG.filesystemWidget.filter = \[ '\*.g3d', '\*.stp' \]</pre> |
 
+### Widget text assignment and formatting at run time
+
+The [Description field (label) widget](#description-field-label-widget) and the [Continuous text widget](#continuous-text-widget) support HTML / CSS syntax for text formatting and character encoding.
+
+Example: Dialog with a label widget (`label`)
+
+```{code-block} python
+# Label - font size: 18 pt, style: bold, special character: 'Diameter'
+DIALOG.label.text = '<span style="font-size:18pt"><b>Cylinder &#x2300;</b></span>'
+```
+
+![Label widget with HTML formatted text](assets/widget_text_html_label.png)
+
+Example: Continuous text widget (`cont_text`) with formatted text
+
+```{code-block} python
+# Continuous text - font size: 18 pt, font weight: 600, color: red, 
+DIALOG.text.text = '<span style="font-size:18pt; font-weight:600; color:red;">Attention!</span>'
+```
+
+![Continuous text widget with HTML formatted text](assets/widget_text_html_formatting.png)
+
+Example: Continuous text widget (`cont_text`) with a table containing values from variables
+
+```{code-block} python
+var1 = 9.8
+var2 = 10
+var3 = 0.3
+var4 = "pass"
+
+DIALOG.text.text = '<table width="200">'\
+'<tr><th>Actual</th><th>Nominal</th><th>Tolerance</th><th>Result</th></tr>'\
+f'<tr><td>{var1}</td><td>{var2}</td><td>{var3}</td><td>{var4}</td></tr></table>'
+```
+
+![Continuous text widget with HTML table](assets/widget_text_html_table.png)
+
+```{note}
+In case a character string is not recognizes as HTML code automatically, enclose it in `<html>` tags:
+
+`DIALOG.label.text = '<html>Diameter &#x2300;</html>'`
+```
+
+
 ## Executing dialogs
 
 - [Dialog commands](#dialog-commands)
