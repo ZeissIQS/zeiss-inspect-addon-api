@@ -72,6 +72,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">How can I use an image from a script resource file in a user defined dialog?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
 </ul>
 </li>
@@ -182,6 +184,28 @@
 <span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">
+<h2>How can I get the position of a label and apply it to another label?<a class="headerlink" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label" title="Link to this heading"></a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">gom.script.cad.set_label_position()</span></code> to set the offset of the new label to the offset of the old label:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">label_old</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">deviation_label</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1.1&#39;</span><span class="p">]</span>
+<span class="n">label_new</span> <span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">deviation_label</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1.2&#39;</span><span class="p">]</span>
+
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">cad</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">label_new</span><span class="p">],</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">label_old</span><span class="o">.</span><span class="n">label_offset_in_3d_view</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">offset</span></code> has the type <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code></p>
+</section>
+<section id="how-can-i-conditionally-set-the-label-border-color">
+<h2>How can I conditionally set the label (border) color?<a class="headerlink" href="#how-can-i-conditionally-set-the-label-border-color" title="Link to this heading"></a></h2>
+<p>In the label properties, you can create a new label template and change the background color to ‘dynamic’. This allows to add an expression in a Python-like syntax, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">result_dimension</span> <span class="o">&lt;</span> <span class="n">result_dimension</span><span class="o">.</span><span class="n">upper_tolerance_limit</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#00ff5e&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#ff0000&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also [ZEISS Quality Tech Guide: Edit Expression (label background color)|https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html]</p>
 </section>
 <section id="how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">
 <h2>How do I check if the sensor warm-up is completed or how long it will take, respectively?<a class="headerlink" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively" title="Link to this heading"></a></h2>
