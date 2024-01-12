@@ -86,7 +86,7 @@ label_new =gom.app.project.inspection['Surface comparison 1'].deviation_label['S
 gom.script.cad.set_label_position(elements = [label_new], offset = label_old.label_offset_in_3d_view)
 ```
 
-`offset` has the type `gom.Vec3d`
+`offset` has the type `gom.Vec3d`.
 
 ## How can I conditionally set the label (border) color?
 
