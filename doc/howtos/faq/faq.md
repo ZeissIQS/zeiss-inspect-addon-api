@@ -75,6 +75,32 @@ DIALOG.image.data = gom.app.resource[":example.png"]
 RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 ``` 
 
+## How can I get the position of a label and apply it to another label? 
+
+You can use `gom.script.cad.set_label_position()` to set the offset of the new label to the offset of the old label:
+
+```{code-block} python
+label_old = gom.app.project.inspection['Surface comparison 1'].deviation_label['Surface comparison 1.1']
+label_new =gom.app.project.inspection['Surface comparison 1'].deviation_label['Surface comparison 1.2']
+
+gom.script.cad.set_label_position(elements = [label_new], offset = label_old.label_offset_in_3d_view)
+```
+
+`offset` has the type `gom.Vec3d`.
+
+## How can I conditionally set the label (border) color?
+
+In the label properties, you can create a new label template and change the background color to 'dynamic'. This allows to add an expression in a Python-like syntax, e.g.
+
+```{code-block} python
+if result_dimension < result_dimension.upper_tolerance_limit:
+		return color('#00ff5e')
+else:
+		return color('#ff0000')
+```
+
+See also [ZEISS Quality Tech Guide: Edit Expression (label background color)|https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html]
+
 ## How do I check if the sensor warm-up is completed or how long it will take, respectively?
 
 ```{code-block} python
