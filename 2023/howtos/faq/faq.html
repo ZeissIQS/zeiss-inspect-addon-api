@@ -200,9 +200,9 @@
 <h2>How can I conditionally set the label (border) color?<a class="headerlink" href="#how-can-i-conditionally-set-the-label-border-color" title="Link to this heading"></a></h2>
 <p>In the label properties, you can create a new label template and change the background color to ‘dynamic’. This allows to add an expression in a Python-like syntax, e.g.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">result_dimension</span> <span class="o">&lt;</span> <span class="n">result_dimension</span><span class="o">.</span><span class="n">upper_tolerance_limit</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#00ff5e&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#00ff5e&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#ff0000&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#ff0000&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>See also [ZEISS Quality Tech Guide: Edit Expression (label background color)|https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html]</p>

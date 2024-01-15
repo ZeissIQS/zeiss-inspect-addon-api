@@ -94,9 +94,9 @@ In the label properties, you can create a new label template and change the back
 
 ```{code-block} python
 if result_dimension < result_dimension.upper_tolerance_limit:
-		return color('#00ff5e')
+    return color('#00ff5e')
 else:
-		return color('#ff0000')
+    return color('#ff0000')
 ```
 
 See also [ZEISS Quality Tech Guide: Edit Expression (label background color)|https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html]
