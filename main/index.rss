@@ -4,10 +4,10 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Mon, 15 Jan 2024 09:33:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2024 09:38:45 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
-      <title>Project Keywords</title>
+      <title>Software and script starting options</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240115-software-starting-options.html</link>
       <description>&lt;div class="compound"&gt;
 &lt;p&gt;There is a new page &lt;a href="../howtos/starting_options/starting_options.html"&gt;HOW-TO GUIDES - Software and script starting options&lt;/a&gt;, which deals with various ways to start ZEISS INSPECT and optionally execute a script.&lt;/p&gt;
