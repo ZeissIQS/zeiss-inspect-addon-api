@@ -37,6 +37,8 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240115-software-starting-options
+   news/20240115-project-keywords
    news/20231215-api-examples
    news/20231221-faq
    news/welcome
