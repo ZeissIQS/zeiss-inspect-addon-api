@@ -26,3 +26,7 @@ cd tmp
 ![Install Python Package dialog - install from local file](install_python_package.png)
 
 ![Add Python Packages dialog - add Python wheelhouse files](add_wheelhouse.png)
+
+```{note}
+For some reason, `PyQt5.sip` (a Python wheel required by `PyQt5`) could not be used from the Python wheelhouse, but had to be installed additionally using the Add-on Explorer.
+```
