@@ -96,8 +96,8 @@ The script distinguishes the following cases:
 ```{code-block} python
 ukw = "user_" + key
 if not ukw in gom.app.project.project_keywords:
-		print(f"New keyword {key}='{val}' added")
-		gom.script.sys.set_project_keywords(keywords={key:val}, keywords_description={key:desc})
+    print(f"New keyword {key}='{val}' added")
+    gom.script.sys.set_project_keywords(keywords={key:val}, keywords_description={key:desc})
 else:
     ex_val = gom.app.project.get(ukw)
     ex_desc = gom.app.project.get(f'description({ukw})')
@@ -131,7 +131,7 @@ Finally, the updated project keywords are listed:
 ```{code-block} python
 print("\n-- Updated keywords --")
 for k in gom.app.project.project_keywords:
-	  print(f"{k}='{gom.app.project.get(k)}'")
+    print(f"{k}='{gom.app.project.get(k)}'")
 ```
 
 ## Excel write example: `export_project_keywords.py`
@@ -163,32 +163,31 @@ Next, the table header is formatted and the column widths are adjusted:
 ```{code-block} python
 # Change table header layout
 for cell in ['A1', 'B1', 'C1']:
-  	ws[cell].font = Font(bold=True, size=16) 
+    ws[cell].font = Font(bold=True, size=16) 
     ws.column_dimensions['A'].width = 30
-	  ws.column_dimensions['B'].width = 70
-	  ws.column_dimensions['C'].width = 50
+    ws.column_dimensions['B'].width = 70
+    ws.column_dimensions['C'].width = 50
 ```
 
 The script iterates over all project keywords and gets the values and keyword descriptions. A type conversion has been implemented for date entries. The method `ws.append([key, val, desc])` writes the variables `key`, `val` and `desc` - which are combined into an array - to the next three cells of the worksheet.
 
 ```{code-block} python
-	for key in gom.app.project.project_keywords:
-		val = gom.app.project.get(key)
-		desc = gom.app.project.get(f'description({key})')
+for key in gom.app.project.project_keywords:
+    val = gom.app.project.get(key)
+    desc = gom.app.project.get(f'description({key})')
 
-		# Remove prefix 'user_' from key
-		key = key[5:]
-		print(f"{key} - {desc}: {val}")
+    # Remove prefix 'user_' from key
+    key = key[5:]
+    print(f"{key} - {desc}: {val}")
 		
-		# Special case - convert gom.Date to datetime-object
-		# and format Excel cell accordingly 
-		if type(val) is gom.Date:
-			val = datetime.datetime(val.year, val.month, val.day)
-			ws.append([key, desc, val])
-			ws.cell(row=ws.max_row, column=2).number_format = "yyyy-mm-dd"
-		else:
-			ws.append([key, desc, val])
-      
+    # Special case - convert gom.Date to datetime-object
+    # and format Excel cell accordingly 
+    if type(val) is gom.Date:
+        val = datetime.datetime(val.year, val.month, val.day)
+        ws.append([key, desc, val])
+        ws.cell(row=ws.max_row, column=2).number_format = "yyyy-mm-dd"
+    else:
+        ws.append([key, desc, val])
 ```
 
 Specific cells can be selected with `ws.cell(row=<row>, column=<column>)`. This can be used for
