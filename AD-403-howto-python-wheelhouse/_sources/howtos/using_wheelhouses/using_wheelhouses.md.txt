@@ -4,7 +4,7 @@
 
 ## Creating a wheelhouse
 
-PyQt5 is used as a real-world example here.
+[PyQt5](https://pypi.org/project/PyQt5/) is used as a real-world example here.
 
 1. Install all required Python wheels into a temporary folder
 
