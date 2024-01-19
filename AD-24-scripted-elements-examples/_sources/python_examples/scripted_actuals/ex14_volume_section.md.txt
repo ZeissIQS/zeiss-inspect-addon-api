@@ -2,7 +2,7 @@
 
 ![Scripted volume section element example](ex14_volume_section.png)
 
-This is an example for a scripted 'volume section' element. The dialog allows to select an image file, which is converted to a grayscale image and then to an `np.array()`. Further, a transformation is applied to the image.
+This is an example for a scripted 'volume section' element. The dialog allows to select an image file, which is converted to a grayscale image (`calculation()`, line 22) and then to an `np.array()` (line 24). Further, a transformation is applied to the image.
 
 ```{note}
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
@@ -14,6 +14,11 @@ Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with 
 ---
 linenos:
 ---
+import numpy as np
+from math import sin, cos
+from PIL import Image
+from io import BytesIO
+
 def dialog(context, params):
     DIALOG = gom.script.sys.create_user_defined_dialog(file='ex14_volume_section.gdlg')
 
