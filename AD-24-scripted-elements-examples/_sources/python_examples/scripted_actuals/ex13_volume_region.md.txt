@@ -120,5 +120,5 @@ def calculation(context, params):
 
 ## Related
 
-* [Scripted actuals - Section](../../python_api/scripted_elements_api.md#volume-region)
+* [Scripted actuals - Volume region](../../python_api/scripted_elements_api.md#volume-region)
 * [How-to: User-defined dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)
