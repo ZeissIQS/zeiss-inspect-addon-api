@@ -1,4 +1,4 @@
-# ex4_surface_curve
+# ex04_surface_curve
 
 ![Scripted surface curve element example](ex04_surface_curve.png)
 
