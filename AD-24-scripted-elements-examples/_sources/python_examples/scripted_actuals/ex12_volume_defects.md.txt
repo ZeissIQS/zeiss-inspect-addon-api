@@ -1,8 +1,8 @@
-# ex08_volume_defects
+# ex12_volume_defects
 
 ![Scripted volume defects element example](ex12_volume_defects.png)
 
-This is an example for a scripted 'volume defects' element. Each defect is defined by a mesh. In this example, a single defect is created by setting the coordinates of for vertices from a dialog. The mesh triangles are hard-coded in the `calculation()` function. The resulting element has the shape of a tetrahedron.
+This is an example for a scripted 'volume defects' element. Each defect is defined by a mesh. In this example, a single defect is created by setting the coordinates of four vertices from a dialog. The mesh triangles are hard-coded in the `calculation()` function. The resulting element has the shape of a tetrahedron.
 
 ```{note}
 The mesh triangles are defined by indices into the array of vertices. The vertices defining a triangle must be specified in counter-clockwise
