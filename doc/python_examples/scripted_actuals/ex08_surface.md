@@ -23,8 +23,7 @@ def dialog(context, params):
         DIALOG.v0_y.value = params['v0_y']
     if 'v0_z' in params:
         DIALOG.v0_z.value = params['v0_z']
-
-#[...]
+    #[...]
     if 'v7_z' in params:
         DIALOG.v7_z.value = params['v7_z']
 
