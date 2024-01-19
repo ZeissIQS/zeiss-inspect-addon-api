@@ -1,4 +1,4 @@
-# ex2_circle
+# ex02_circle
 
 ![Scripted circle element example](ex02_circle.png)
 
