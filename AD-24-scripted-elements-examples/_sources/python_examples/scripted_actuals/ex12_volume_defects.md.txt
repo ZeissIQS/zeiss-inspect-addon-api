@@ -105,5 +105,5 @@ def calculation(context, params):
 
 ## Related
 
-* [Scripted actuals - Surface](../../python_api/scripted_elements_api.md#volume-defects)
+* [Scripted actuals - Volume defects](../../python_api/scripted_elements_api.md#volume-defects)
 * [How-to: User-defined dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)
