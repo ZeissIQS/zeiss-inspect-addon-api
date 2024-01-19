@@ -2,7 +2,13 @@
 
 ![Scripted volume element example](ex11_volume.png)
 
-This is an example for a scripted 'volume' element. The volume data is created as an np.array of shape 70&times;70&times;70. Each element defines a voxel with a default gray value. The function `set_voxeldata()` changes some of the gray values. The resulting volume object resembles a die.
+This is an example for a scripted 'volume' element. The volume data is created as an np.array of shape 70&times;70&times;70. Each element defines a voxel with a default gray value `gv1` (`calculation()`, lines 8&amp;9). The function `set_voxeldata()` changes some of the gray values to `gv2` (line 10). The resulting volume object resembles a die. Finally the volume data is padded in each direction with voxels of the background gray value `gv0`.
+
+The dialog allows to set the gray values and to apply a transformation to the volume element.
+
+```{caution}
+The voxel (measurement) coordinate system may differ from the CAD coordinate system. 
+```
 
 ```{note}
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
