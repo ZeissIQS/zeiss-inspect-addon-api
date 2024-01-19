@@ -90,6 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ex10_section.html">ex10_section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex11_volume.html">ex11_volume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex12_volume_defects.html">ex12_volume_defects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex13_volume_region.html">ex13_volume_region</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offset_point_simple.html">offset_point_simple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offset_point_v2.html">offset_point_v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripted_element_progress.html">scripted_element_progress</a></li>
@@ -133,6 +134,11 @@
 <h1>ex08_surface<a class="headerlink" href="#ex08-surface" title="Link to this heading"></a></h1>
 <p><img alt="Scripted surface element example" src="../../_images/ex08_surface.png" /></p>
 <p>This is an example for a scripted ‘surface’ element. The dialog allows to specify the coordinates of eight vertices defining a mesh. The triangles for defining the mesh are hard-coded in this example. The resulting body is a cuboid.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mesh triangles are defined by indices into the array of vertices. The vertices defining a triangle must be specified in counter-clockwise
+order (as viewed from outside).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Please see <a class="reference internal" href="offset_point_v2.html"><span class="std std-doc">offset_point_v2.md</span></a> for a complete example with detailed description.</p>

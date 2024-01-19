@@ -5,6 +5,11 @@
 This is an example for a scripted 'surface' element. The dialog allows to specify the coordinates of eight vertices defining a mesh. The triangles for defining the mesh are hard-coded in this example. The resulting body is a cuboid.
 
 ```{note}
+The mesh triangles are defined by indices into the array of vertices. The vertices defining a triangle must be specified in counter-clockwise
+order (as viewed from outside).
+```
+
+```{note}
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
 ```
 
