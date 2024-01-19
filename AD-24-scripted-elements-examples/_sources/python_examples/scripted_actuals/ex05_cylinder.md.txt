@@ -1,4 +1,4 @@
-# ex5_cylinder
+# ex05_cylinder
 
 ![Scripted cylinder element example](ex05_cylinder.png)
 

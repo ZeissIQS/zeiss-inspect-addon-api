@@ -1,4 +1,4 @@
-# ex3_curve
+# ex03_curve
 
 ![Scripted curve element example](ex03_curve.png)
 

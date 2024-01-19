@@ -1,4 +1,4 @@
-# ex5_cone
+# ex05_cone
 
 ![Scripted cone element example](ex06_cone.png)
 
