@@ -5,7 +5,7 @@
 This is an example for a scripted 'section' element. The dialog allows to select an existing section, which may consist of multiple sub sections. The script creates a new section from the existing one, with the selected filter criterion.
 
 ```{note}
-Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
+Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
 ## Dialog event handler
