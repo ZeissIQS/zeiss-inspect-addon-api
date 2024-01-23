@@ -8,48 +8,6 @@ This is an example for a scripted 'section' element. The dialog allows to select
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
-
-```{code-block} python
----
-linenos:
----
-def dialog(context, params):
-    '''Scripted section dialog function'''
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex10_section.gdlg')
-
-    if "i_elem" in params:
-        DIALOG.i_elem.value = params["i_elem"]
-
-    if "i_mode" in params:
-        DIALOG.i_mode.value = params["i_mode"]
-
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        params["i_elem"] = DIALOG.i_elem.value
-        params["i_mode"] = DIALOG.i_mode.value
-        DIALOG.control.ok.enabled = False
-        context.name = str(DIALOG.i_elem.value.name) + f".Filter({params['i_mode']})"
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.i_elem.filter = lambda x: True
-    DIALOG.handler = dialog_event_handler
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-
-    return params
-```
 
 ## Functions for calculating the section
 
@@ -109,12 +67,15 @@ def filter_by_length(sub_sections, mode):
         return r_min
 ```    
 
-## Stageful calculation and error handling
+## Dialog and calculation functions
 
 ```{code-block} python
 ---
 linenos:
 ---
+def dialog(context, params):
+    #[...]
+
 def calculation(context, params):
     '''Scripted section calculation function'''
     valid_results = False

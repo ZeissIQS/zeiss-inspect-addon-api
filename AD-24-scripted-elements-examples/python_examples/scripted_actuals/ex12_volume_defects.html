@@ -144,87 +144,36 @@ order (as viewed from outside).</p>
 <p class="admonition-title">Note</p>
 <p>Please see <a class="reference internal" href="offset_point_v2.html"><span class="std std-doc">offset_point_v2.md</span></a> for a complete scripted elements example with detailed description.</p>
 </div>
-<section id="dialog-event-handler">
-<h2>Dialog event handler<a class="headerlink" href="#dialog-event-handler" title="Link to this heading"></a></h2>
+<section id="source-code-excerpt">
+<h2>Source code excerpt<a class="headerlink" href="#source-code-excerpt" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="n">DIALOG</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;ex12_volume_defects.gdlg&#39;</span><span class="p">)</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span>    <span class="k">if</span> <span class="s1">&#39;v0_x&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-<span class="linenos"> 5</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_x&#39;</span><span class="p">]</span>
-<span class="linenos"> 6</span>    <span class="k">if</span> <span class="s1">&#39;v0_y&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-<span class="linenos"> 7</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_y&#39;</span><span class="p">]</span>
-<span class="linenos"> 8</span>    <span class="k">if</span> <span class="s1">&#39;v0_z&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-<span class="linenos"> 9</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_z</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_z&#39;</span><span class="p">]</span>
+<span class="linenos"> 2</span>    <span class="c1">#[...]</span>
+<span class="linenos"> 3</span>    
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 6</span>    <span class="n">v0</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_z&#39;</span><span class="p">])</span>
+<span class="linenos"> 7</span>    <span class="n">v1</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_z&#39;</span><span class="p">])</span>
+<span class="linenos"> 8</span>    <span class="n">v2</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_z&#39;</span><span class="p">])</span>
+<span class="linenos"> 9</span>    <span class="n">v3</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_z&#39;</span><span class="p">])</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span>    <span class="c1">#[...]</span>
-<span class="linenos">12</span>    
-<span class="linenos">13</span>    <span class="k">if</span> <span class="s1">&#39;v3_z&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-<span class="linenos">14</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">v3_z</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_z&#39;</span><span class="p">]</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span>    <span class="c1"># Get previous element name, when started from &quot;Edit creation&quot;</span>
-<span class="linenos">17</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">18</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">name</span>
-<span class="linenos">19</span>
-<span class="linenos">20</span>    <span class="c1"># -------------------------------------------------------------------------</span>
-<span class="linenos">21</span>    <span class="k">def</span> <span class="nf">dialog_event_handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
-<span class="linenos">22</span>        <span class="c1"># No treatment of system events</span>
-<span class="linenos">23</span>        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
-<span class="linenos">24</span>            <span class="k">return</span>
-<span class="linenos">25</span>        <span class="c1"># If preview calculation returned with error</span>
-<span class="linenos">26</span>        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
-<span class="linenos">27</span>            <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">error</span>
-<span class="linenos">28</span>            <span class="k">return</span>
-<span class="linenos">29</span>        <span class="c1"># If preview calculation was successful</span>
-<span class="linenos">30</span>        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;calculated&#39;</span><span class="p">:</span>
-<span class="linenos">31</span>            <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="linenos">32</span>            <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">33</span>            <span class="k">return</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span>        <span class="c1"># All other changes in the dialog --&gt; calculate preview</span>
-<span class="linenos">36</span>        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_x</span><span class="o">.</span><span class="n">value</span>
-<span class="linenos">37</span>        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_y</span><span class="o">.</span><span class="n">value</span>
-<span class="linenos">38</span>        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">v0_z</span><span class="o">.</span><span class="n">value</span>
-<span class="linenos">39</span>        <span class="c1">#[...]</span>
-<span class="linenos">40</span>        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">v3_z</span><span class="o">.</span><span class="n">value</span>
-<span class="linenos">41</span>
-<span class="linenos">42</span>        <span class="n">context</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span>
-<span class="linenos">43</span>        <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos">44</span>        <span class="n">context</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
-<span class="linenos">45</span>
-<span class="linenos">46</span>    <span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
-<span class="linenos">47</span>    <span class="c1"># -------------------------------------------------------------------------</span>
-<span class="linenos">48</span>    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
-<span class="linenos">49</span>    <span class="k">return</span> <span class="n">params</span>
-</pre></div>
-</div>
-</section>
-<section id="stageful-calculation-and-error-handling">
-<h2>Stageful calculation and error handling<a class="headerlink" href="#stageful-calculation-and-error-handling" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos"> 3</span>    <span class="n">v0</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v0_z&#39;</span><span class="p">])</span>
-<span class="linenos"> 4</span>    <span class="n">v1</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v1_z&#39;</span><span class="p">])</span>
-<span class="linenos"> 5</span>    <span class="n">v2</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v2_z&#39;</span><span class="p">])</span>
-<span class="linenos"> 6</span>    <span class="n">v3</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;v3_z&#39;</span><span class="p">])</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span>    <span class="c1"># Calculating all available stages</span>
-<span class="linenos"> 9</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
-<span class="linenos">10</span>        <span class="c1"># Access element properties with error handling</span>
-<span class="linenos">11</span>        <span class="k">try</span><span class="p">:</span>
-<span class="linenos">12</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos">13</span>                <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">])],</span>
-<span class="linenos">14</span>                <span class="c1"># Note:</span>
-<span class="linenos">15</span>                <span class="c1"># Triangles are defined by indices into the array of vertices.</span>
-<span class="linenos">16</span>                <span class="c1"># The vertices defining a triangle must be specified in counter-clockwise</span>
-<span class="linenos">17</span>                <span class="c1"># order, otherwise the resulting surface would be inverted, i.e. invisible!</span>
-<span class="linenos">18</span>                <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])]</span>
-<span class="linenos">19</span>            <span class="p">}</span>
-<span class="linenos">20</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 12&quot;</span><span class="p">}</span>
-<span class="linenos">21</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-<span class="linenos">22</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<span class="linenos">23</span>        <span class="k">else</span><span class="p">:</span>
-<span class="linenos">24</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">25</span>    <span class="k">return</span> <span class="n">valid_results</span>
+<span class="linenos">11</span>    <span class="c1"># Calculating all available stages</span>
+<span class="linenos">12</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="c1"># Access element properties with error handling</span>
+<span class="linenos">14</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">15</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">16</span>                <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">])],</span>
+<span class="linenos">17</span>                <span class="c1"># Note:</span>
+<span class="linenos">18</span>                <span class="c1"># Triangles are defined by indices into the array of vertices.</span>
+<span class="linenos">19</span>                <span class="c1"># The vertices defining a triangle must be specified in counter-clockwise</span>
+<span class="linenos">20</span>                <span class="c1"># order, otherwise the resulting surface would be inverted, i.e. invisible!</span>
+<span class="linenos">21</span>                <span class="s1">&#39;triangles&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])]</span>
+<span class="linenos">22</span>            <span class="p">}</span>
+<span class="linenos">23</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 12&quot;</span><span class="p">}</span>
+<span class="linenos">24</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="linenos">25</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">27</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">28</span>    <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
 </section>
