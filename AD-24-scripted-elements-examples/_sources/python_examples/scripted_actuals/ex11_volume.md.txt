@@ -15,7 +15,7 @@ Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elem
 ```
 
 
-## Functions for setting voxel data
+## Function for setting voxel data
 
 ```{code-block} python
 ---
