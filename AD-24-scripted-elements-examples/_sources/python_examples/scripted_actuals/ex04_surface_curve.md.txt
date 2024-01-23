@@ -8,58 +8,6 @@ This is an example for a scripted 'surface curve' element. A parametric function
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
-
-```{code-block} python
----
-linenos:
----
-def dialog(context, params):
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex04_surface_curve.gdlg')
-
-    if 'r' in params:
-        DIALOG.r.value = params['r']
-    if 'theta' in params:
-        DIALOG.theta.value = params['theta']
-    if 'phi_min' in params:
-        DIALOG.phi_min.value = params['phi_min']
-    if 'phi_max' in params:
-        DIALOG.phi_max.value = params['phi_max']
-
-    # Get previous element name, when started from "Edit creation"
-    if len(params) > 0:
-        DIALOG.name.value = context.name
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        # All other changes in the dialog --> calculate preview
-        params['r'] = DIALOG.r.value
-        params['theta'] = DIALOG.theta.value
-        params['phi_min'] = DIALOG.phi_min.value
-        params['phi_max'] = DIALOG.phi_max.value
-
-        context.name = DIALOG.name.value
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```
 
 ## Source code excerpt
 
