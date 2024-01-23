@@ -5,7 +5,7 @@
 This is an example for a scripted 'curve' element. A parametric function is used to create a 3-dimensional curve - a helix - with a fixed number of points. `np.arange()` is used to iterate from `t_min` to `t_max` with a non-integer step size.
 
 ```{note}
-Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
+Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
 ## Dialog event handler

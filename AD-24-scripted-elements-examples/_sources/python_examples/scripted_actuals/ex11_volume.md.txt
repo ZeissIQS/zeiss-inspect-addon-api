@@ -11,7 +11,7 @@ The voxel (measurement) coordinate system may differ from the CAD coordinate sys
 ```
 
 ```{note}
-Please see [offset_point_v2.md](offset_point_v2.md) for a complete example with detailed description.
+Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
 ## Dialog event handler
