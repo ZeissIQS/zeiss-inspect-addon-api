@@ -8,72 +8,8 @@ This is an example for a scripted 'curve' element. A parametric function is used
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
 
-```{code-block} python
----
-linenos:
----
-def dialog(context, params):
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex03_curve.gdlg')
-
-    if 'x0' in params:
-        DIALOG.x0.value = params['x0']
-    if 'y0' in params:
-        DIALOG.y0.value = params['y0']
-    if 'z0' in params:
-        DIALOG.z0.value = params['z0']
-    if 'radius' in params:
-        DIALOG.radius.value = params['radius']
-    if 'j' in params:
-        DIALOG.j.value = params['j']
-    if 'k' in params:
-        DIALOG.k.value = params['k']
-    if 't_min' in params:
-        DIALOG.t_min.value = params['t_min']
-    if 't_max' in params:
-        DIALOG.t_max.value = params['t_max']
-
-    # Get previous element name, when started from "Edit creation"
-    if len(params) > 0:
-        DIALOG.name.value = context.name
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        # All other changes in the dialog --> calculate preview
-        params['x0'] = DIALOG.x0.value
-        params['y0'] = DIALOG.y0.value
-        params['z0'] = DIALOG.z0.value
-        params['radius'] = DIALOG.radius.value
-        params['j'] = DIALOG.j.value
-        params['k'] = DIALOG.k.value
-        params['t_min'] = DIALOG.t_min.value
-        params['t_max'] = DIALOG.t_max.value
-
-        context.name = DIALOG.name.value
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```
-
-## Stageful calculation and error handling
+## Source code excerpt
 
 ```{code-block} python
 ---
@@ -82,6 +18,9 @@ linenos:
 import math
 import numpy as np
 
+def dialog(context, params):
+    #[...]
+    
 def calculation(context, params):
     valid_results = False
 

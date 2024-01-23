@@ -12,84 +12,16 @@ The voxel (measurement) coordinate system may differ from the CAD coordinate sys
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
+
+## Source code excerpt
 
 ```{code-block} python
 ---
 linenos:
 ---
 def dialog(context, params):
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex13_volume_region.gdlg')
+    #[...]
 
-    if 'x0' in params:
-        DIALOG.x0.value = params['x0']
-    if 'y0' in params:
-        DIALOG.y0.value = params['y0']
-    if 'z0' in params:
-        DIALOG.z0.value = params['z0']
-
-    if 'dx' in params:
-        DIALOG.dx.value = params['dx']
-    if 'dy' in params:
-        DIALOG.dy.value = params['dy']
-    if 'dz' in params:
-        DIALOG.dz.value = params['dz']
-
-    if 'volume_ele' in params:
-        DIALOG.volume_ele.value = params['volume_ele']
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        # All other changes in the dialog --> calculate preview
-        params['x0'] = DIALOG.x0.value
-        params['y0'] = DIALOG.y0.value
-        params['z0'] = DIALOG.z0.value
-        params['dx'] = DIALOG.dx.value
-        params['dy'] = DIALOG.dy.value
-        params['dz'] = DIALOG.dz.value
-        params['volume_ele'] = DIALOG.volume_ele.value
-
-        if DIALOG.volume_ele is None:
-            context.name = "New Volume Region"
-        else:
-            context.name = str(DIALOG.volume_ele.value) + ".Region"
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    def element_filter(element):
-        try:
-            if element.type == 'volume' or element.type == 'linked_volume':
-                return True
-        except Exception as e:
-            pass
-        return False
-
-    DIALOG.volume_ele.filter = element_filter
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```    
-
-## Stageful calculation and error handling
-
-```{code-block} python
----
-linenos:
----
 def calculation(context, params):
     valid_results = False
 

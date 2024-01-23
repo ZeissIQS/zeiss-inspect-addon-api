@@ -8,76 +8,16 @@ This is an example for a scripted 'cylinder' element.
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
+
+## Source code excerpt
 
 ```{code-block} python
 ---
 linenos:
 ---
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex05_cylinder.gdlg')
+def dialog(context, params):
+    #[...]
 
-    if 'point_x' in params:
-        DIALOG.point_x.value = params['point_x']
-    if 'point_y' in params:
-        DIALOG.point_y.value = params['point_y']
-    if 'point_z' in params:
-        DIALOG.point_z.value = params['point_z']
-    if 'dir_x' in params:
-        DIALOG.dir_x.value = params['dir_x']
-    if 'dir_y' in params:
-        DIALOG.dir_y.value = params['dir_y']
-    if 'dir_z' in params:
-        DIALOG.dir_z.value = params['dir_z']
-    if 'radius' in params:
-        DIALOG.radius.value = params['radius']
-    if 'inner' in params:
-        DIALOG.radius.value = params['inner']
-
-    # Get previous element name, when started from "Edit creation"
-    if len(params) > 0:
-        DIALOG.name.value = context.name
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        # All other changes in the dialog --> calculate preview
-        params['point_x'] = DIALOG.point_x.value
-        params['point_y'] = DIALOG.point_y.value
-        params['point_z'] = DIALOG.point_z.value
-        params['dir_x'] = DIALOG.dir_x.value
-        params['dir_y'] = DIALOG.dir_y.value
-        params['dir_z'] = DIALOG.dir_z.value
-        params['radius'] = DIALOG.radius.value
-        params['inner'] = DIALOG.inner.value
-
-        context.name = DIALOG.name.value
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```
-
-## Stageful calculation and error handling
-
-```{code-block} python
----
-linenos:
----
 def calculation(context, params):
     valid_results = False
     # Calculating all available stages

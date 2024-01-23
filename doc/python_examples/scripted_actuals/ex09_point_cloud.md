@@ -8,77 +8,16 @@ This is an example for a scripted 'point cloud' element. A parametric function i
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
+
+## Source code excerpt
 
 ```{code-block} python
 ---
 linenos:
 ---
 def dialog(context, params):
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex09_point_cloud.gdlg')
+    #[...]
 
-    if 'R' in params:
-        DIALOG.R.value = params['R']
-    if 'r' in params:
-        DIALOG.r.value = params['r']
-    if 'u_min' in params:
-        DIALOG.u_min.value = params['u_min']
-    if 'u_max' in params:
-        DIALOG.u_max.value = params['u_max']
-    if 'u_steps' in params:
-        DIALOG.u_steps.value = params['u_steps']
-    if 'v_min' in params:
-        DIALOG.v_min.value = params['v_min']
-    if 'v_max' in params:
-        DIALOG.v_max.value = params['v_max']
-    if 'v_steps' in params:
-        DIALOG.v_steps.value = params['v_steps']
-
-    # Get previous element name, when started from "Edit creation"
-    if len(params) > 0:
-        DIALOG.name.value = context.name
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-
-        # All other changes in the dialog --> calculate preview
-        params['R'] = DIALOG.R.value
-        params['r'] = DIALOG.r.value
-        params['u_min'] = DIALOG.u_min.value
-        params['u_max'] = DIALOG.u_max.value
-        params['u_steps'] = DIALOG.u_steps.value
-        params['v_min'] = DIALOG.v_min.value
-        params['v_max'] = DIALOG.v_max.value
-        params['v_steps'] = DIALOG.v_steps.value
-
-        context.name = DIALOG.name.value
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```
-
-## Stageful calculation and error handling
-
-```{code-block} python
----
-linenos:
----
 def calculation(context, params):
     valid_results = False
 

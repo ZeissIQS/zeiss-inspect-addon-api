@@ -61,12 +61,15 @@ def dialog(context, params):
     return params
 ```
 
-## Stageful calculation and error handling
+## Source code excerpt
 
 ```{code-block} python
 ---
 linenos:
 ---
+def dialog(context, params):
+    #[...]
+
 def calculation(context, params):
     valid_results = False
 

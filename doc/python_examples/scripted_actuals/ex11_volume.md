@@ -14,85 +14,6 @@ The voxel (measurement) coordinate system may differ from the CAD coordinate sys
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
 ```
 
-## Dialog event handler
-
-```{code-block} python
----
-linenos:
----
-def dialog(context, params):
-    DIALOG = gom.script.sys.create_user_defined_dialog(file='ex11_volume.gdlg')
-
-    if 'gv_background' in params:
-        DIALOG.gv_background.value = params['gv_background']
-    if 'gv_mat1' in params:
-        DIALOG.gv_mat1.value = params['gv_mat1']
-    if 'gv_mat2' in params:
-        DIALOG.gv_mat2.value = params['gv_mat2']
-    if 'dx' in params:
-        DIALOG.dx.value = params['dx']
-    if 'dy' in params:
-        DIALOG.dy.value = params['dy']
-    if 'dz' in params:
-        DIALOG.dz.value = params['dz']
-    if 'rx' in params:
-        DIALOG.rx.value = params['rx']
-    if 'ry' in params:
-        DIALOG.ry.value = params['ry']
-    if 'rz' in params:
-        DIALOG.rz.value = params['rz']
-
-    # Get previous element name, when started from "Edit creation"
-    if len(params) > 0:
-        DIALOG.name.value = context.name
-
-    # -------------------------------------------------------------------------
-    def dialog_event_handler(widget):
-        # No treatment of system events
-        if str(widget) == 'system':
-            return
-        # If preview calculation returned with error
-        if str(widget) == 'error':
-            DIALOG.control.status = context.error
-            return
-        # If preview calculation was successful
-        if str(widget) == 'calculated':
-            DIALOG.control.status = ''
-            DIALOG.control.ok.enabled = True
-            return
-        if widget == DIALOG.random:
-            if DIALOG.random.value == True:
-                DIALOG.rx.enabled = False
-                DIALOG.ry.enabled = False
-                DIALOG.rz.enabled = False
-                DIALOG.rx.value = random.randrange(0, 3) * math.pi / 2
-                DIALOG.ry.value = random.randrange(0, 3) * math.pi / 2
-                DIALOG.rz.value = random.randrange(0, 3) * math.pi / 2
-            else:
-                DIALOG.rx.enabled = True
-                DIALOG.ry.enabled = True
-                DIALOG.rz.enabled = True
-
-        # All other changes in the dialog --> calculate preview
-        params['gv_background'] = DIALOG.gv_background.value
-        params['gv_mat1'] = DIALOG.gv_mat1.value
-        params['gv_mat2'] = DIALOG.gv_mat2.value
-        params['dx'] = DIALOG.dx.value
-        params['dy'] = DIALOG.dy.value
-        params['dz'] = DIALOG.dz.value
-        params['rx'] = DIALOG.rx.value
-        params['ry'] = DIALOG.ry.value
-        params['rz'] = DIALOG.rz.value
-
-        context.name = DIALOG.name.value
-        DIALOG.control.ok.enabled = False
-        context.calc(params=params, dialog=DIALOG)
-
-    DIALOG.handler = dialog_event_handler
-    # -------------------------------------------------------------------------
-    RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG)
-    return params
-```
 
 ## Functions for setting voxel data
 
@@ -135,12 +56,15 @@ def set_voxeldata(voxels, gv, e):
     #[...]
 ```    
 
-## Stageful calculation and error handling
+## Dialog and calculation functions
 
 ```{code-block} python
 ---
 linenos:
 ---
+def dialog(context, params):
+    #[...]
+
 def calculation(context, params):
     valid_results = False
 
