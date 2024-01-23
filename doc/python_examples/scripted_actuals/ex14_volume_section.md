@@ -2,7 +2,7 @@
 
 ![Scripted volume section element example](ex14_volume_section.png)
 
-This is an example for a scripted 'volume section' element. The dialog allows to select an image file, which is converted to a grayscale image (`calculation()`, line 22) and then to an `np.array()` (line 24). Further, a transformation is applied to the image.
+This is an example for a scripted 'volume section' element. The dialog allows to select an image file, which is converted to a grayscale image (`calculation()`, line 30) and then to an `np.array()` (line 32). Further, a transformation is applied to the image.
 
 ```{note}
 Please see [offset_point_v2.md](offset_point_v2.md) for a complete scripted elements example with detailed description.
