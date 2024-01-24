@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>scripted_element_progress &mdash; Add-On Documentation</title>
+  <title>ex05_cone &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/scripted_actuals/scripted_element_progress.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/scripted_actuals/ex06_cone.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="trimesh_deform_mesh" href="trimesh_deform_mesh.html" />
-    <link rel="prev" title="offset_point_v2" href="offset_point_v2.html" /> 
+    <link rel="next" title="ex08_surface" href="ex08_surface.html" />
+    <link rel="prev" title="ex05_cylinder" href="ex05_cylinder.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -84,7 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ex03_curve.html">ex03_curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex04_surface_curve.html">ex04_surface_curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex05_cylinder.html">ex05_cylinder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ex06_cone.html">ex05_cone</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ex05_cone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex08_surface.html">ex08_surface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex09_point_cloud.html">ex09_point_cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex10_section.html">ex10_section</a></li>
@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ex14_volume_section.html">ex14_volume_section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offset_point_simple.html">offset_point_simple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offset_point_v2.html">offset_point_v2</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">scripted_element_progress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_element_progress.html">scripted_element_progress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh_deform_mesh.html">trimesh_deform_mesh</a></li>
 </ul>
 </li>
@@ -122,7 +122,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../scripted_actuals.html">scripted_actuals</a></li>
-      <li class="breadcrumb-item active">scripted_element_progress</li>
+      <li class="breadcrumb-item active">ex05_cone</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -131,33 +131,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="scripted-element-progress">
-<h1>scripted_element_progress<a class="headerlink" href="#scripted-element-progress" title="Link to this heading"></a></h1>
-<p><img alt="" src="../../_images/scripted_element_progress_preview.jpg" /></p>
-<p><img alt="" src="../../_images/scripted_element_progress_computation.jpg" /></p>
-<section id="short-description">
-<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
-<p>This examples demonstrates how to show progress information to the user while calcualting a scripted element.</p>
-</section>
-<section id="highlights">
-<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
-<p>The scripted element itself is not of interest here, as it is rather meaningless: a point that will always be created at <em>(1,0,0)</em>.
-To showcase the display of calculation progress, a loop with 100 steps containing a <code class="docutils literal notranslate"><span class="pre">sleep</span></code> call to simulate computation are performed in the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-  <span class="n">context</span><span class="o">.</span><span class="n">progress_stages_total</span> <span class="o">=</span> <span class="n">limit</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">limit</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">progress_stages_computing</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-
-  <span class="c1"># [...]</span>
+  <section id="ex05-cone">
+<h1>ex05_cone<a class="headerlink" href="#ex05-cone" title="Link to this heading"></a></h1>
+<p><img alt="Scripted cone element example" src="../../_images/ex06_cone.png" /></p>
+<p>This is an example for a scripted ‘cone’ element.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Due to the internal represenstation of a Cone Element, the direction of the vector <code class="docutils literal notranslate"><span class="pre">point1</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">point2</span></code> is always from the smaller to the larger circle (<code class="docutils literal notranslate"><span class="pre">radius1</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>).</p>
+<p>If you specify <code class="docutils literal notranslate"><span class="pre">radius1</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code> in the creation parameters, [<code class="docutils literal notranslate"><span class="pre">point1</span></code>; <code class="docutils literal notranslate"><span class="pre">radius1</span></code>] and [<code class="docutils literal notranslate"><span class="pre">point2</span></code>; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>] are swapped automatically.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please see <a class="reference internal" href="offset_point_v2.html"><span class="std std-doc">offset_point_v2.md</span></a> for a complete scripted elements example with detailed description.</p>
+</div>
+<section id="source-code-excerpt">
+<h2>Source code excerpt<a class="headerlink" href="#source-code-excerpt" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="c1">#[...]</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 6</span>    <span class="c1"># Calculating all available stages</span>
+<span class="linenos"> 7</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+<span class="linenos"> 8</span>        <span class="c1"># Access element properties with error handling</span>
+<span class="linenos"> 9</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">10</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos">11</span>                <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;p1_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;p1_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;p1_z&#39;</span><span class="p">]),</span>
+<span class="linenos">12</span>                <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;radius_1&#39;</span><span class="p">],</span>
+<span class="linenos">13</span>                <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;p2_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;p2_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;p2_z&#39;</span><span class="p">]),</span>
+<span class="linenos">14</span>                <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;radius_2&#39;</span><span class="p">]</span>
+<span class="linenos">15</span>            <span class="p">}}</span>
+<span class="linenos">16</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 6&quot;</span><span class="p">}</span>
+<span class="linenos">17</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="linenos">18</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="linenos">19</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">20</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">21</span>    <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
-<p>To indicate progress, you need to set <code class="docutils literal notranslate"><span class="pre">context.progress_stages_total</span></code> to the amount of steps you expect to compute. This can but not has to be the number of stages in trend projects. You can also set any arbitrary number. As soon as you set <code class="docutils literal notranslate"><span class="pre">context.progress_stages_computing</span></code>, the progress will be indicated in the bottom are of the application (see top screenshot).</p>
 </section>
 <section id="related">
 <h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>How-to: <a class="reference internal" href="../../howtos/scripted_elements/scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a></p></li>
+<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html#cone"><span class="std std-ref">Scripted actuals - Cone</span></a></p></li>
+<li><p><a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">How-to: User-defined dialogs</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -166,8 +183,8 @@ To showcase the display of calculation progress, a loop with 100 steps containin
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="offset_point_v2.html" class="btn btn-neutral float-left" title="offset_point_v2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="trimesh_deform_mesh.html" class="btn btn-neutral float-right" title="trimesh_deform_mesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ex05_cylinder.html" class="btn btn-neutral float-left" title="ex05_cylinder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ex08_surface.html" class="btn btn-neutral float-right" title="ex08_surface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
