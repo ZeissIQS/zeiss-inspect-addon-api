@@ -84,5 +84,5 @@ Edit Creation Parameters Dialog
 
 ## Related
 
-* [gom.api.imaging.compute_pixels_from_point](../python_api/python_api.html#gom-api-imaging-compute_pixels_from_point)
-* [gom.api.imaging.compute_point_from_pixels](../python_api/python_api.html#gom-api-imaging-compute_point_from_pixels)
+* <a href="../python_api/python_api.html#gom-api-imaging-compute_pixels_from_point">gom.api.imaging.compute_pixels_from_point</a>
+* <a href="../python_api/python_api.html#gom-api-imaging-compute_point_from_pixels">gom.api.imaging.compute_point_from_pixels</a>
