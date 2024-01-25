@@ -8,7 +8,7 @@ This example demonstrates how to access an SQL database from an Add-on. For demo
 
 The database access is implemented using [mysql-connector-python](https://pypi.org/project/mysql-connector-python/). A test database server is set up using [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
 
-Besides, [gom.api.settings](../../python_api/python_api.html#gomapisettings) is used to save and restore entries made in a dialog.
+Besides, [gom.api.settings](../../python_api/python_api.md#gom-api-settings) is used to save and restore entries made in a dialog.
 
 ## Highlights
 
