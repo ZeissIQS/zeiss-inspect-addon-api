@@ -9,6 +9,7 @@
 project = 'Add-On Documentation'
 copyright = '2023, Carl Zeiss GOM Metrology GmbH'
 author = 'Carl Zeiss GOM Metrology GmbH'
+extrafooter = '<a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
