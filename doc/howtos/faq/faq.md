@@ -19,7 +19,46 @@ import sys
 
 sys.exit(0)
 
-```  
+```
+
+## How do I filter nominal or actual elements?
+
+Use `print (gom.app.project.nominal_elements.__doc__)` to to get the available properties of nominal elements and `print (gom.app.project.actual_elements.__doc__)` to get the available properties of actual elements.
+
+To show all actual elements by name and type:
+
+```{code-block} python
+for element in gom.app.project.actual_elements:
+    print (f'{element.name} - type: {element.type}')
+```
+
+You can create a loop in Python to iterate over the elements as shown above and apply a comparison to their attributes, but there is a faster solution!
+
+The `filter()` method handles this far more efficiently!
+
+### Examples for filtering actual elements
+
+```{code-block} python
+group = gom.app.project.actual_elements
+
+f = group.filter("is_selected", True)
+print (f) # array of elements matching the filter criterion 'is_selected == True'
+
+f = group.filter("type, "plane")
+print (f) # array of elements matching the filter criterion 'type == Plane'
+```
+
+### Examples for filtering nominal elements
+
+```{code-block} python
+group = gom.app.project.nominal_elements
+
+f = group.filter("is_visible", True)
+print (f) # array of elements matching the filter criterion 'is_visible == True'
+
+f = group.filter("type, "cad")
+print (f) # array of elements matching the filter criterion 'type == cad'
+```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
 
