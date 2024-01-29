@@ -70,6 +70,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-add-ons-located-in-the-file-system">Where are Add-ons located in the file system?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-or-actual-elements">How do I filter nominal or actual elements?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-actual-elements">Examples for filtering actual elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-nominal-elements">Examples for filtering nominal elements</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">How can I use an image from a script resource file in a user defined dialog?</a></li>
@@ -139,6 +144,41 @@
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="how-do-i-filter-nominal-or-actual-elements">
+<h2>How do I filter nominal or actual elements?<a class="headerlink" href="#how-do-i-filter-nominal-or-actual-elements" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.nominal_elements.__doc__)</span></code> to to get the available properties of nominal elements and <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.actual_elements.__doc__)</span></code> to get the available properties of actual elements.</p>
+<p>To show all actual elements by name and type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> - type: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can create a loop in Python to iterate over the elements as shown above and apply a comparison to their attributes, but there is a faster solution!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">filter()</span></code> method handles this far more efficiently!</p>
+<section id="examples-for-filtering-actual-elements">
+<h3>Examples for filtering actual elements<a class="headerlink" href="#examples-for-filtering-actual-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_selected&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_selected == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type, &quot;</span><span class="n">plane</span><span class="s2">&quot;)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == Plane&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="examples-for-filtering-nominal-elements">
+<h3>Examples for filtering nominal elements<a class="headerlink" href="#examples-for-filtering-nominal-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_visible&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_visible == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type, &quot;</span><span class="n">cad</span><span class="s2">&quot;)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == cad&#39;</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">
 <h2>How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)<a class="headerlink" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window" title="Link to this heading"></a></h2>
