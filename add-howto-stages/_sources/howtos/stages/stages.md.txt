@@ -55,13 +55,19 @@ for stage in gom.app.project.stages:
 
 # Iteration over selected stages
 # Note: The order is always the same as in the timeline, even if the values of `first` and `last` swapped!
-for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Object Mesh 2'], last=gom.app.project.stages['ZEISS Training Object Mesh 4']):
+for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Object Mesh 2'],
+                                last=gom.app.project.stages['ZEISS Training Object Mesh 4']):
     print(f'Stage {stage.index} Name: {stage.name}')
+    
+# output:
+# Stage 1 Name: ZEISS Training Object Mesh 2
+# Stage 2 Name: ZEISS Training Object Mesh 3
+# Stage 3 Name: ZEISS Training Object Mesh 4
 ```
 
 ## Setting or modifying timestamps
 
-It is possible to apply timestamps to stages. A common use case are deformation measurements, which are typically performed in a fixed interval.
+It is possible to apply timestamps to stages. A common use case are deformation measurements, which are typically performed at a fixed interval.
 
 The following code writes timestamps to all stages:
 
@@ -84,7 +90,12 @@ Occasionally, stages in the timeline are not in the required order and must be r
 Create an array with the stage names in the target order - this is typically done with the built-in Python sorting function `sorted()`.
 
 ```{code-block} python
-target_list = ['ZEISS Training Object Mesh 5', 'ZEISS Training Object Mesh 4', 'ZEISS Training Object Mesh 3', 'ZEISS Training Object Mesh 2', 'ZEISS Training Object Mesh 1']
+target_list = [
+    'ZEISS Training Object Mesh 5',
+    'ZEISS Training Object Mesh 4',
+    'ZEISS Training Object Mesh 3',
+    'ZEISS Training Object Mesh 2',
+    'ZEISS Training Object Mesh 1']
 ```
 
 Use the function `change_stage_order()` to move each stage to the desired position: 
@@ -93,10 +104,11 @@ Use the function `change_stage_order()` to move each stage to the desired positi
 for i, stage_name in enumerate(target_list):
     print(f'Moving {stage_name} to index {i}')
     gom.script.sys.change_stage_order(
-        stages=gom.StageSelection(first=gom.app.project.stages[stage_name], last=gom.app.project.stages[stage_name]),
+        stages=gom.StageSelection(first=gom.app.project.stages[stage_name],
+                                  last=gom.app.project.stages[stage_name]),
         target=gom.app.project.stages[i])
 
 ## Related
 
-* <a href="../python_api_introduction/python_api_introduction.html##properties-of-different-stages">ZEISS INSPECT Python API Introduction - Access element properties - Properties of different stages</a>
+* <a href="../python_api_introduction/python_api_introduction.html#properties-of-different-stages">ZEISS INSPECT Python API Introduction - Access element properties - Properties of different stages</a>
 * <a href="../project_keywords/project_keywords.html#stage-specific-keywords">Project keyword handling - Stage specific keywords</a>
