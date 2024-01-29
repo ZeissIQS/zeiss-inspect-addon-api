@@ -107,6 +107,7 @@ for i, stage_name in enumerate(target_list):
         stages=gom.StageSelection(first=gom.app.project.stages[stage_name],
                                   last=gom.app.project.stages[stage_name]),
         target=gom.app.project.stages[i])
+```
 
 ## Related
 
