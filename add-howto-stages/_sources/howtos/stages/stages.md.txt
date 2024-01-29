@@ -55,7 +55,7 @@ for stage in gom.app.project.stages:
 
 # Iteration over selected stages
 # Note: 
-# The order is always the same as in the timeline, even if the values of `first` and `last` swapped!
+# The order is always the same as in the timeline, even if the values of `first` and `last` are swapped!
 for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Object Mesh 2'],
                                 last=gom.app.project.stages['ZEISS Training Object Mesh 4']):
     print(f'Stage {stage.index} Name: {stage.name}')
