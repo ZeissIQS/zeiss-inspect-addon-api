@@ -54,7 +54,8 @@ for stage in gom.app.project.stages:
 # Stage 4 Name: ZEISS Training Object Mesh 5
 
 # Iteration over selected stages
-# Note: The order is always the same as in the timeline, even if the values of `first` and `last` swapped!
+# Note: 
+# The order is always the same as in the timeline, even if the values of `first` and `last` swapped!
 for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Object Mesh 2'],
                                 last=gom.app.project.stages['ZEISS Training Object Mesh 4']):
     print(f'Stage {stage.index} Name: {stage.name}')
@@ -77,7 +78,8 @@ for stage in gom.app.project.stages:
     # Set the timestamp of each stage to a new value
     gom.script.sys.set_stage_time_stamp(
         stage=stage,
-        timestamp=gom.StageTimeStamp(year=2024, month=1, day=29, hour=8, minute=30, second=timestamp, millisecond=0))
+        timestamp=gom.StageTimeStamp(year=2024, month=1, day=29, 
+                                     hour=8, minute=30, second=timestamp, millisecond=0))
     timestamp += 1
 ```
 
