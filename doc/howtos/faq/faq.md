@@ -21,9 +21,9 @@ sys.exit(0)
 
 ```
 
-## How do I filter nominal or actual elements?
+## How do I filter nominal, actual or inspection elements?
 
-Use `print (gom.app.project.nominal_elements.__doc__)` to to get the available properties of nominal elements and `print (gom.app.project.actual_elements.__doc__)` to get the available properties of actual elements.
+Use `print (gom.app.project.<element_type>.__doc__)` where you replace `<element_type>` by `actual_elements`, `nominal_elements` or `inspection` as needed to get the available properties.
 
 To show all actual elements by name and type:
 
@@ -44,7 +44,7 @@ group = gom.app.project.actual_elements
 f = group.filter("is_selected", True)
 print (f) # array of elements matching the filter criterion 'is_selected == True'
 
-f = group.filter("type, "plane")
+f = group.filter("type", "plane")
 print (f) # array of elements matching the filter criterion 'type == Plane'
 ```
 
@@ -56,8 +56,20 @@ group = gom.app.project.nominal_elements
 f = group.filter("is_visible", True)
 print (f) # array of elements matching the filter criterion 'is_visible == True'
 
-f = group.filter("type, "cad")
+f = group.filter("type", "cad")
 print (f) # array of elements matching the filter criterion 'type == cad'
+```
+
+### Examples for filtering inspection elements
+
+```{code-block} python
+group = gom.app.project.inspection
+
+f = group.filter("is_element_modified_since_import", True)
+print (f) # array of elements matching the filter criterion 'is_element_modified_since_import == True'
+
+f = group.filter("type", "cad")
+print (f) # array of elements matching the filter criterion 'type == surface_comparison'
 ```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
