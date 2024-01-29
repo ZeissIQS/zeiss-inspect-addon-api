@@ -1,6 +1,6 @@
 # Working with stages
 
-> Abstract: Stages are used in ZEISS INSPECT for comparing inspections results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are uses for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.
+> Abstract: Stages are used in ZEISS INSPECT for comparing inspections results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.
 
 Stage reference
 : The ZEISS INSPECT internal reference to a stage
@@ -32,7 +32,7 @@ print(gom.app.project.stages[-1])
 # output: gom.app.project.stages['ZEISS Training Object Mesh 5']
 
 # Select stage by name
-print(gom.app.project.stages['GOM Training Object Mesh 2'])
+print(gom.app.project.stages['ZEISS Training Object Mesh 2'])
 # output: gom.app.project.stages['ZEISS Training Object Mesh 2']
 
 # Select stage by index
@@ -47,15 +47,15 @@ for stage in gom.app.project.stages:
     print(f'Stage {stage.index} Name: {stage.name}')
 
 # output:
-# Stage 0 Name: GOM Training Object Mesh 1
-# Stage 1 Name: GOM Training Object Mesh 2
-# Stage 2 Name: GOM Training Object Mesh 3
-# Stage 3 Name: GOM Training Object Mesh 4
-# Stage 4 Name: GOM Training Object Mesh 5
+# Stage 0 Name: ZEISS Training Object Mesh 1
+# Stage 1 Name: ZEISS Training Object Mesh 2
+# Stage 2 Name: ZEISS Training Object Mesh 3
+# Stage 3 Name: ZEISS Training Object Mesh 4
+# Stage 4 Name: ZEISS Training Object Mesh 5
 
 # Iteration over selected stages
 # Note: The order is always the same as in the timeline, even if the values of `first` and `last` swapped!
-for stage in gom.StageSelection(first=gom.app.project.stages['GOM Training Object Mesh 2'], last=gom.app.project.stages['GOM Training Object Mesh 4']):
+for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Object Mesh 2'], last=gom.app.project.stages['ZEISS Training Object Mesh 4']):
     print(f'Stage {stage.index} Name: {stage.name}')
 ```
 
@@ -84,7 +84,7 @@ Occasionally, stages in the timeline are not in the required order and must be r
 Create an array with the stage names in the target order - this is typically done with the built-in Python sorting function `sorted()`.
 
 ```{code-block} python
-target_list = ['GOM Training Object Mesh 5', 'GOM Training Object Mesh 4', 'GOM Training Object Mesh 3', 'GOM Training Object Mesh 2', 'GOM Training Object Mesh 1']
+target_list = ['ZEISS Training Object Mesh 5', 'ZEISS Training Object Mesh 4', 'ZEISS Training Object Mesh 3', 'ZEISS Training Object Mesh 2', 'ZEISS Training Object Mesh 1']
 ```
 
 Use the function `change_stage_order()` to move each stage to the desired position: 
