@@ -70,9 +70,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-add-ons-located-in-the-file-system">Where are Add-ons located in the file system?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-or-actual-elements">How do I filter nominal or actual elements?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-actual-or-inspection-elements">How do I filter nominal, actual or inspection elements?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-actual-elements">Examples for filtering actual elements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-nominal-elements">Examples for filtering nominal elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-inspection-elements">Examples for filtering inspection elements</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
@@ -145,9 +146,9 @@
 </pre></div>
 </div>
 </section>
-<section id="how-do-i-filter-nominal-or-actual-elements">
-<h2>How do I filter nominal or actual elements?<a class="headerlink" href="#how-do-i-filter-nominal-or-actual-elements" title="Link to this heading"></a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.nominal_elements.__doc__)</span></code> to to get the available properties of nominal elements and <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.actual_elements.__doc__)</span></code> to get the available properties of actual elements.</p>
+<section id="how-do-i-filter-nominal-actual-or-inspection-elements">
+<h2>How do I filter nominal, actual or inspection elements?<a class="headerlink" href="#how-do-i-filter-nominal-actual-or-inspection-elements" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.&lt;element_type&gt;.__doc__)</span></code> where you replace <code class="docutils literal notranslate"><span class="pre">&lt;element_type&gt;</span></code> by <code class="docutils literal notranslate"><span class="pre">actual_elements</span></code>, <code class="docutils literal notranslate"><span class="pre">nominal_elements</span></code> or <code class="docutils literal notranslate"><span class="pre">inspection</span></code> as needed to get the available properties.</p>
 <p>To show all actual elements by name and type:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> - type: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -162,7 +163,7 @@
 <span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_selected&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_selected == True&#39;</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type, &quot;</span><span class="n">plane</span><span class="s2">&quot;)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;plane&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == Plane&#39;</span>
 </pre></div>
 </div>
@@ -174,8 +175,20 @@
 <span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_visible&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_visible == True&#39;</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type, &quot;</span><span class="n">cad</span><span class="s2">&quot;)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;cad&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == cad&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="examples-for-filtering-inspection-elements">
+<h3>Examples for filtering inspection elements<a class="headerlink" href="#examples-for-filtering-inspection-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_element_modified_since_import&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_element_modified_since_import == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;cad&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == surface_comparison&#39;</span>
 </pre></div>
 </div>
 </section>
