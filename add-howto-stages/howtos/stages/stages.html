@@ -120,7 +120,7 @@
   <section id="working-with-stages">
 <h1>Working with stages<a class="headerlink" href="#working-with-stages" title="Link to this heading"></a></h1>
 <blockquote>
-<div><p>Abstract: Stages are used in ZEISS INSPECT for comparing inspections results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are uses for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.</p>
+<div><p>Abstract: Stages are used in ZEISS INSPECT for comparing inspections results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.</p>
 </div></blockquote>
 <dl class="simple myst">
 <dt>Stage reference</dt><dd><p>The ZEISS INSPECT internal reference to a stage</p>
@@ -142,7 +142,7 @@
 <span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 5&#39;]</span>
 
 <span class="c1"># Select stage by name</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;GOM Training Object Mesh 2&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 2&#39;</span><span class="p">])</span>
 <span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 2&#39;]</span>
 
 <span class="c1"># Select stage by index</span>
@@ -157,15 +157,15 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Stage </span><span class="si">{</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="si">}</span><span class="s1"> Name: </span><span class="si">{</span><span class="n">stage</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># output:</span>
-<span class="c1"># Stage 0 Name: GOM Training Object Mesh 1</span>
-<span class="c1"># Stage 1 Name: GOM Training Object Mesh 2</span>
-<span class="c1"># Stage 2 Name: GOM Training Object Mesh 3</span>
-<span class="c1"># Stage 3 Name: GOM Training Object Mesh 4</span>
-<span class="c1"># Stage 4 Name: GOM Training Object Mesh 5</span>
+<span class="c1"># Stage 0 Name: ZEISS Training Object Mesh 1</span>
+<span class="c1"># Stage 1 Name: ZEISS Training Object Mesh 2</span>
+<span class="c1"># Stage 2 Name: ZEISS Training Object Mesh 3</span>
+<span class="c1"># Stage 3 Name: ZEISS Training Object Mesh 4</span>
+<span class="c1"># Stage 4 Name: ZEISS Training Object Mesh 5</span>
 
 <span class="c1"># Iteration over selected stages</span>
 <span class="c1"># Note: The order is always the same as in the timeline, even if the values of `first` and `last` swapped!</span>
-<span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">StageSelection</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;GOM Training Object Mesh 2&#39;</span><span class="p">],</span> <span class="n">last</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;GOM Training Object Mesh 4&#39;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">StageSelection</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 2&#39;</span><span class="p">],</span> <span class="n">last</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 4&#39;</span><span class="p">]):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Stage </span><span class="si">{</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="si">}</span><span class="s1"> Name: </span><span class="si">{</span><span class="n">stage</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -188,7 +188,7 @@
 <h2>Reordering stages<a class="headerlink" href="#reordering-stages" title="Link to this heading"></a></h2>
 <p>Occasionally, stages in the timeline are not in the required order and must be reordered.</p>
 <p>Create an array with the stage names in the target order - this is typically done with the built-in Python sorting function <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GOM Training Object Mesh 5&#39;</span><span class="p">,</span> <span class="s1">&#39;GOM Training Object Mesh 4&#39;</span><span class="p">,</span> <span class="s1">&#39;GOM Training Object Mesh 3&#39;</span><span class="p">,</span> <span class="s1">&#39;GOM Training Object Mesh 2&#39;</span><span class="p">,</span> <span class="s1">&#39;GOM Training Object Mesh 1&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">target_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 5&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS Training Object Mesh 4&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS Training Object Mesh 3&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS Training Object Mesh 2&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS Training Object Mesh 1&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Use the function <code class="docutils literal notranslate"><span class="pre">change_stage_order()</span></code> to move each stage to the desired position:</p>
