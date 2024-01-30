@@ -37,6 +37,9 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240130-working-with-stages
+   news/20240130-using-wheelhouses
+   news/20240119-scripted-elements-examples
    news/20240115-software-starting-options
    news/20240115-project-keywords
    news/20231215-api-examples
@@ -60,6 +63,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/python_api_introduction/creating_wizard_dialogs
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
+   howtos/stages/stages
    howtos/project_keywords/project_keywords
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
