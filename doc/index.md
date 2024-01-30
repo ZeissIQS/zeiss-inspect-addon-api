@@ -38,7 +38,7 @@ Check out the ZEISS INSPECT Add-On news page!
    :hidden:
    
    news/20240130-working-with-stages
-   news/20240130-using-python-wheelhouses
+   news/20240130-using-wheelhouses
    news/20240119-scripted-elements-examples
    news/20240115-software-starting-options
    news/20240115-project-keywords

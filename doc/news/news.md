@@ -16,7 +16,7 @@ myst:
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/
 
    20240130-working-with-stages
-   20240130-using-python-wheelhouses
+   20240130-using-wheelhouses
    20240119-scripted-elements-examples
    20240115-software-starting-options
    20240115-project-keywords
