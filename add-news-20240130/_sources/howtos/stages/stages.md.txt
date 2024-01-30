@@ -1,6 +1,6 @@
 # Working with stages
 
-> Abstract: Stages are used in ZEISS INSPECT for comparing inspections results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.
+> Abstract: Stages are used in ZEISS INSPECT for comparing inspection results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. This section provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.
 
 Stage reference
 : The ZEISS INSPECT internal reference to a stage
