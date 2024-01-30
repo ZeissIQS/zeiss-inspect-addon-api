@@ -4,8 +4,29 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Tue, 30 Jan 2024 08:39:09 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2024 10:52:52 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Working with stages</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240130-working-with-stages.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Stages are used in ZEISS INSPECT for comparing inspection results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. &lt;a href="../howtos/stages/stages.html"&gt;Working with stages&lt;/a&gt; provides some basic information about using stages in Add-ons and shows typical applications of Python scripts for working with stages.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240130-working-with-stages.html</guid>
+      <pubDate>Tue, 30 Jan 2024 11:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Using Python wheelhouses</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240130-using-wheelhouses.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;In most cases, Python packages — also known as Python wheels — are installed as described in &lt;a href="../howtos/using_add_on_editor/using_add_on_editor.html#installing-python-packages"&gt;Using the Add-on Editor - Installing Python Packages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In case this does not work, &lt;a href="../howtos/using_wheelhouses/using_wheelhouses.html"&gt;Using Python wheelhouses&lt;/a&gt; can provide a solution.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240130-using-wheelhouses.html</guid>
+      <pubDate>Tue, 30 Jan 2024 11:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Scripted elements examples</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240119-scripted-elements-examples.html</link>
