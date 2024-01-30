@@ -1,5 +1,7 @@
 # Frequently asked questions
 
+If you did not find an answer here, you might want to check <a href="https://forum.gom.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
+
 ## Where are Add-ons located in the file system?
 
 Add-ons which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each Add-on named by its UUID.
@@ -19,7 +21,58 @@ import sys
 
 sys.exit(0)
 
-```  
+```
+
+## How do I filter nominal, actual or inspection elements?
+
+Use `print (gom.app.project.<element_type>.__doc__)` where you replace `<element_type>` by `actual_elements`, `nominal_elements` or `inspection` as needed to get the available properties.
+
+To show all actual elements by name and type:
+
+```{code-block} python
+for element in gom.app.project.actual_elements:
+    print (f'{element.name} - type: {element.type}')
+```
+
+You can create a loop in Python to iterate over the elements as shown above and apply a comparison to their attributes, but there is a faster solution!
+
+The `filter()` method handles this far more efficiently!
+
+### Examples for filtering actual elements
+
+```{code-block} python
+group = gom.app.project.actual_elements
+
+f = group.filter("is_selected", True)
+print (f) # array of elements matching the filter criterion 'is_selected == True'
+
+f = group.filter("type", "plane")
+print (f) # array of elements matching the filter criterion 'type == Plane'
+```
+
+### Examples for filtering nominal elements
+
+```{code-block} python
+group = gom.app.project.nominal_elements
+
+f = group.filter("is_visible", True)
+print (f) # array of elements matching the filter criterion 'is_visible == True'
+
+f = group.filter("type", "cad")
+print (f) # array of elements matching the filter criterion 'type == cad'
+```
+
+### Examples for filtering inspection elements
+
+```{code-block} python
+group = gom.app.project.inspection
+
+f = group.filter("is_element_modified_since_import", True)
+print (f) # array of elements matching the filter criterion 'is_element_modified_since_import == True'
+
+f = group.filter("type", "cad")
+print (f) # array of elements matching the filter criterion 'type == surface_comparison'
+```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
 
