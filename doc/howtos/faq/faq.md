@@ -1,5 +1,7 @@
 # Frequently asked questions
 
+If you did not find an answer here, you might want to check <a href="https://forum.gom.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
+
 ## Where are Add-ons located in the file system?
 
 Add-ons which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each Add-on named by its UUID.
