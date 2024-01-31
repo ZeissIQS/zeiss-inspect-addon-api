@@ -6,8 +6,8 @@
 
 There are three main reasons for using an additional GUI library:
 
-* You are missing a feature in the Add-on development environment
-* You want to integrate existing Python code using a GUI library into an Add-on
+* You are missing an important feature in the Add-on development environment
+* You want to integrate existing Python GUI code into an Add-on
 * You are already familiar with a GUI library as a developer
 
 ## Options
@@ -24,11 +24,11 @@ PyQt and Pyside are technical siblings, but they are provided with different lic
 
 ZEISS INSPECT currently uses Qt5, so implementing an Add-on with PyQt5/Pyside2 will definitely integrate seamlessly into the look and feel. 
 
-Tkinter has a look and feel which differs significantly from the usual Windows/ZEISS INSPECT GUIs. It is probably only an option if you have to integrate legacy code.
+Tkinter's look and feel differs significantly from the usual Windows/ZEISS INSPECT GUIs. It is probably only an option if you have to integrate legacy code.
 
 ### Installing PyQt
 
-Both PyQt5 and PyQt6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>. Additionally, the Python packages `PyQt5-sip` or `PyQt6-sip` have to be installed with the Add-on Explorer.
+Both PyQt5 and PyQt6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>. Additionally, the Python packages `PyQt5-sip` or `PyQt6-sip`, respectively,  have to be installed with the Add-on Explorer.
 
 ### Installing PySide
 
