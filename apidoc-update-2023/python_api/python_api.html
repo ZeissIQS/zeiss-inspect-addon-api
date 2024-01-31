@@ -120,6 +120,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file-selector">File selector</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-get">gom.api.settings.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-list">gom.api.settings.list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-set">gom.api.settings.set</a></li>
@@ -828,11 +832,7 @@ installed in the running instance.</p>
 </section>
 <section id="gom-api-settings">
 <h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Link to this heading"></a></h2>
-<p>API for storing add-on related settings persistently</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Under development, not released yet !</p>
-</div>
+<p>&#64;brief API for storing add-on related settings persistently</p>
 <p>This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
 via the applications preferences dialog.</p>
@@ -882,6 +882,20 @@ dialog and can be adapted interactively there.</p>
      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Magic Key&quot;</span><span class="p">,</span>
      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Default text&quot;</span><span class="p">,</span>
      <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;enable&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Enable size storage&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+     <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Selected file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
    <span class="p">}</span>
   <span class="p">]</span>
  <span class="p">}</span>
@@ -893,84 +907,79 @@ part of an add-on called ‘Settings API Example’, the application preferences
 <p><img alt="Settings level 1" src="../_images/TomMPackage_settings_api_preferences_1.png" /></p>
 <p><img alt="Settings level 2" src="../_images/TomMPackage_settings_api_preferences_2.png" /></p>
 </section>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h3>
+<p>See the examples above for how to configure the different settings type. Usually, the <code class="docutils literal notranslate"><span class="pre">value</span></code> field determines the
+type of the setting. For example, a <code class="docutils literal notranslate"><span class="pre">23</span></code> indicates that an integer is requested. A <code class="docutils literal notranslate"><span class="pre">23.0</span></code> with <code class="docutils literal notranslate"><span class="pre">digits</span></code> greater than
+0 will lead to a float settings type.</p>
+<p>Special non basic types are specified via the <code class="docutils literal notranslate"><span class="pre">type</span></code> field explicitly. For example, the file selector is configured
+if the <code class="docutils literal notranslate"><span class="pre">type</span></code> field has been set to <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
+<section id="file-selector">
+<h4>File selector<a class="headerlink" href="#file-selector" title="Link to this heading"></a></h4>
+<p>The file selector provides a <code class="docutils literal notranslate"><span class="pre">mode</span></code> attribute in addition to the standard settings entry attributes. The <code class="docutils literal notranslate"><span class="pre">mode</span></code>
+attribute determines what kind of files or directories can be selected.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">any</span></code>: Any file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new</span></code>: Any file not yet existing in a writable directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_file</span></code>: Existing file with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_files</span></code>: Multi existing files with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_file</span></code>: Existing or new file with writing permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_dir</span></code>: Existing directory with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_dir</span></code>: Existing directory with writing permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec</span></code>: Existing executable file</p></li>
+</ul>
+</section>
+</section>
 <section id="gom-api-settings-get">
 <h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.settings.get</span> <span class="pre">(key:</span> <span class="pre">str):</span> <span class="pre">any</span></span></dt>
-<dd><p>Read value from application settings</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Configuration value for that key</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">gom.api.settings.get</span> <span class="pre">(key:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd></dd></dl>
 
+<p>&#64;brief Read value from application settings
+&#64;version 1</p>
 <p>This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>&#64;param key     Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.
+&#64;return Configuration value for that key</p>
 </section>
 <section id="gom-api-settings-list">
 <h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.settings.list</span> <span class="pre">():</span> <span class="pre">[str]</span></span></dt>
-<dd><p>List all available keys for the current add-on</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of all the keys in the settings which belong to the current add-on</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>[str]</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">gom.api.settings.list</span> <span class="pre">():</span> <span class="pre">list[str]</span></span></dt>
+<dd></dd></dl>
 
+<p>&#64;brief List all available keys for the current add-on
+&#64;version 1</p>
 <p>This function returns a list of all available keys in the settings for the current add-on.
 These keys are the same configuration keys are used in the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file of that add-on.</p>
+<p>&#64;return List of all the keys in the settings which belong to the current add-on</p>
 </section>
 <section id="gom-api-settings-set">
 <h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.settings.set</span> <span class="pre">(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">any):</span> <span class="pre">none</span></span></dt>
-<dd><p>Write value into application settings</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
-<li><p><strong>value</strong> (<em>any</em>) – Value to be written</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">gom.api.settings.set</span> <span class="pre">(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">Any):</span> <span class="pre">None</span></span></dt>
+<dd></dd></dl>
 
+<p>&#64;brief Write value into application settings
+&#64;version 1</p>
 <p>This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
-<span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>&#64;param key     Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.
+&#64;param value   Value to be written</p>
 </section>
 </section>
 </section>
@@ -997,7 +1006,7 @@ are integer, double, string and bool.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7ff4e7306d10>
+  <jinja2.runtime.BlockReference object at 0x7fdbaf6ab970>
 
 
 </footer>

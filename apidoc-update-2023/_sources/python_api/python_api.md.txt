@@ -510,11 +510,8 @@ for a in gom.api.addons.get_installed_addons ():
 
 ## gom.api.settings
 
-API for storing add-on related settings persistently
 
-```{important}
-Under development, not released yet !
-```
+@brief API for storing add-on related settings persistently
 
 This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
@@ -568,6 +565,20 @@ dialog and can be adapted interactively there.
      "description": "Magic Key",
      "value": "Default text",
      "visible": false
+   },
+   {
+     "name": "enable",
+     "description": "Enable size storage",
+     "value": true,
+     "visible": true
+   },
+   {
+     "name": "dialog.file",
+     "description": "Selected file",
+     "value": "",
+     "type": "file",
+     "mode": "any",
+     "visible": true
    }
   ]
  }
@@ -581,17 +592,36 @@ part of an add-on called 'Settings API Example', the application preferences wil
 
 ![Settings level 2](images/TomMPackage_settings_api_preferences_2.png)
 
+### Types
+
+See the examples above for how to configure the different settings type. Usually, the `value` field determines the
+type of the setting. For example, a `23` indicates that an integer is requested. A `23.0` with `digits` greater than
+0 will lead to a float settings type.
+
+Special non basic types are specified via the `type` field explicitly. For example, the file selector is configured
+if the `type` field has been set to `file`.
+
+#### File selector
+
+The file selector provides a `mode` attribute in addition to the standard settings entry attributes. The `mode`
+attribute determines what kind of files or directories can be selected.
+
+- `any`: Any file
+- `new`: Any file not yet existing in a writable directory
+- `load_file`: Existing file with reading permissions
+- `load_files`: Multi existing files with reading permissions
+- `save_file`: Existing or new file with writing permissions
+- `load_dir`: Existing directory with reading permissions
+- `save_dir`: Existing directory with writing permissions
+- `exec`: Existing executable file
+
 ### gom.api.settings.get
 
-```{py:function} gom.api.settings.get (key: str): any
-
-Read value from application settings
-:API version: 1
-:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-:type key: str
-:return: Configuration value for that key
-:rtype: any
+```{py:function} gom.api.settings.get (key: str): Any
 ```
+
+@brief Read value from application settings
+@version 1
 
 This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -599,34 +629,33 @@ are integer, double, string and bool.
 **Example**
 
 ```
-w = gom.app.settings.get ('dialog.width')
-h = gom.app.settings.get ('dialog.height')
+w = gom.api.settings.get ('dialog.width')
+h = gom.api.settings.get ('dialog.height')
 ```
+
+@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+@return Configuration value for that key
 
 ### gom.api.settings.list
 
-```{py:function} gom.api.settings.list (): [str]
-
-List all available keys for the current add-on
-:API version: 1
-:return: List of all the keys in the settings which belong to the current add-on
-:rtype: [str]
+```{py:function} gom.api.settings.list (): list[str]
 ```
+
+@brief List all available keys for the current add-on
+@version 1
 
 This function returns a list of all available keys in the settings for the current add-on.
 These keys are the same configuration keys are used in the `metainfo.json` file of that add-on.
 
+@return List of all the keys in the settings which belong to the current add-on
+
 ### gom.api.settings.set
 
-```{py:function} gom.api.settings.set (key: str, value: any): none
-
-Write value into application settings
-:API version: 1
-:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-:type key: str
-:param value: Value to be written
-:type value: any
+```{py:function} gom.api.settings.set (key: str, value: Any): None
 ```
+
+@brief Write value into application settings
+@version 1
 
 This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -634,7 +663,10 @@ are integer, double, string and bool.
 **Example**
 
 ```
-gom.app.settings.set ('dialog.width', 640)
-gom.app.settings.set ('dialog.height', 480)
+gom.api.settings.set ('dialog.width', 640)
+gom.api.settings.set ('dialog.height', 480)
 ```
+
+@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+@param value   Value to be written
 
