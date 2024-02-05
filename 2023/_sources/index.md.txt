@@ -37,6 +37,7 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240205-using-gui-libraries
    news/20240130-working-with-stages
    news/20240130-using-wheelhouses
    news/20240119-scripted-elements-examples
