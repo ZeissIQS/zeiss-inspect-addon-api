@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scripted elements &mdash; Add-On Documentation</title>
+  <title>Using an additional Python GUI library &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/scripted_elements/scripted_elements_toc.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_gui_libraries/using_gui_libraries.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to scripted elements" href="scripted_elements_introduction.html" />
-    <link rel="prev" title="Using an additional Python GUI library" href="../using_gui_libraries/using_gui_libraries.html" /> 
+    <link rel="next" title="Scripted elements" href="../scripted_elements/scripted_elements_toc.html" />
+    <link rel="prev" title="Creating wizard dialogs" href="../python_api_introduction/creating_wizard_dialogs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,14 +58,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripted elements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scripted_elements_introduction.html">Introduction to scripted elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scripted_actuals.html">Scripted actuals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scripted_checks.html">Scripted checks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tokens_on_scripted_elements.html">Tokens on scripted elements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using an additional Python GUI library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-cases">Use-cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-pyqt">Installing PyQt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-pyside">Installing PySide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tkinter">Tkinter</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
@@ -110,7 +113,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Scripted elements</li>
+      <li class="breadcrumb-item active">Using an additional Python GUI library</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -119,25 +122,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="scripted-elements">
-<h1>Scripted elements<a class="headerlink" href="#scripted-elements" title="Link to this heading"></a></h1>
-<p>The following how-tos will introduce the concept of scripted elements, i.e. elements of the GOM Software that are created by calculation logic written in Python.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="scripted_elements_introduction.html">Introduction to scripted elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_actuals.html">Scripted actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_checks.html">Scripted checks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tokens_on_scripted_elements.html">Tokens on scripted elements</a></li>
+  <section id="using-an-additional-python-gui-library">
+<h1>Using an additional Python GUI library<a class="headerlink" href="#using-an-additional-python-gui-library" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>Abstract: The Add-on Editor and the Dialog Designer provide an easy and convenient way of adding a graphical user interface to your Add-on — see <a href="../python_api_introduction/user_defined_dialogs.md">User-defined dialogs</a>. GUIs which are created this way seamlessly integrate into the look and feel of ZEISS INSPECT. However, there are reasons why using a separate Python GUI library might be preferred. This article gives a brief overview on use-cases, options and installation.</p>
+</div></blockquote>
+<section id="use-cases">
+<h2>Use-cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
+<p>There are three main reasons for using an additional GUI library:</p>
+<ul class="simple">
+<li><p>You are missing an important feature in the Add-on development environment</p></li>
+<li><p>You want to integrate existing Python GUI code into an Add-on</p></li>
+<li><p>You are already familiar with a GUI library as a developer</p></li>
 </ul>
-</div>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<p><a href="https://www.pythonguis.com/faq/which-python-gui-library/" target="_blank" rel="noopener noreferrer">Which Python GUI library should you use? - Comparing the Python GUI libraries available in 2023</a> gives an excellent overview on available options.</p>
+<p>The most relevant libraries for Add-on development are:</p>
+<ul class="simple">
+<li><p>PyQt5/PySide2</p></li>
+<li><p>PyQt6/PySide6</p></li>
+<li><p>Tkinter</p></li>
+</ul>
+<p>PyQt and Pyside are technical siblings, but they are provided with different licenses — see <a href="https://www.pythonguis.com/faq/pyqt-vs-pyside/" target="_blank" rel="noopener noreferrer">PyQt vs PySide Licensing</a>.</p>
+<p>ZEISS INSPECT currently uses Qt5, so implementing an Add-on with PyQt5/Pyside2 will definitely integrate seamlessly into the look and feel.</p>
+<p>Tkinter’s look and feel differs significantly from the usual Windows/ZEISS INSPECT GUIs. It is probably only an option if you have to integrate legacy code.</p>
+<section id="installing-pyqt">
+<h3>Installing PyQt<a class="headerlink" href="#installing-pyqt" title="Link to this heading"></a></h3>
+<p>Both PyQt5 and PyQt6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>. Additionally, the Python packages <code class="docutils literal notranslate"><span class="pre">PyQt5-sip</span></code> or <code class="docutils literal notranslate"><span class="pre">PyQt6-sip</span></code>, respectively,  have to be installed with the Add-on Explorer.</p>
+</section>
+<section id="installing-pyside">
+<h3>Installing PySide<a class="headerlink" href="#installing-pyside" title="Link to this heading"></a></h3>
+<p>Both PySide2 and PySide6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>.</p>
+</section>
+<section id="tkinter">
+<h3>Tkinter<a class="headerlink" href="#tkinter" title="Link to this heading"></a></h3>
+<p>Tkinter is already part of the ZEISS INSPECT Python installation.</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../using_gui_libraries/using_gui_libraries.html" class="btn btn-neutral float-left" title="Using an additional Python GUI library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="scripted_elements_introduction.html" class="btn btn-neutral float-right" title="Introduction to scripted elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python_api_introduction/creating_wizard_dialogs.html" class="btn btn-neutral float-left" title="Creating wizard dialogs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../scripted_elements/scripted_elements_toc.html" class="btn btn-neutral float-right" title="Scripted elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -154,7 +185,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f0dd4c18c10>
+  <jinja2.runtime.BlockReference object at 0x7f0dd5505e10>
 
 
 </footer>

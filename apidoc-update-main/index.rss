@@ -4,8 +4,18 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Fri, 02 Feb 2024 19:11:01 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Feb 2024 19:15:01 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Using an additional Python GUI library</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240205-using-gui-libraries.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;The Add-on Editor and the Dialog Designer provide an easy and convenient way of adding a graphical user interface to your Add-on — see &lt;a href="../python_api_introduction/user_defined_dialogs.md"&gt;User-defined dialogs&lt;/a&gt;. GUIs which are created this way seamlessly integrate into the look and feel of ZEISS INSPECT. However, there are reasons why using a separate Python GUI library might be preferred. &lt;a href="../howtos/using_gui_libraries/using_gui_libraries.html"&gt;Using an additional Python GUI library&lt;/a&gt; gives a brief overview on use-cases, options and installation.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240205-using-gui-libraries.html</guid>
+      <pubDate>Mon, 05 Feb 2024 12:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Working with stages</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240130-working-with-stages.html</link>
