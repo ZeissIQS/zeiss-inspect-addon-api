@@ -61,6 +61,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
+   howtos/using_gui_libraries/using_gui_libraries
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
    howtos/stages/stages
