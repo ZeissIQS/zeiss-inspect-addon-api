@@ -30,7 +30,7 @@
 3. Press onto the "Host: Disconnected" status entry to connect to the host application.
 4. After the connection has been established,
     * the connection status will reflect that and
-    * the GOM softwares add-on editor content is mirrored and displayed in VSCode:
+    * the ZEISS INSPECT Add-on Explorer content is mirrored and displayed in VSCode:
     
       ![](assets/connecting2.png)
 
@@ -47,8 +47,8 @@
 ### Executing scripts
 
 1. Select script to execute in the VSCode explorer.
-    * The script can either reside in the mirrored application scripting database or be a local file from any other workspace location.
-2. Select "Run script in GOM host" from the editors toolbar
+    * The script can either reside in the internal edited Add-ons folder or be a local file from any other workspace location.
+2. Select "Run script in ZEISS INSPECT host" from the editors toolbar
 3. The script outputs will be shown in the "debug console".
 
    ![](assets/editing2.png)
@@ -58,7 +58,7 @@
 1. Make sure that your Add-on in is in editing mode
 2. Select the script into which you want to record commands for displaying in the editor.
 3. In that editor, select "Record commands" from the editor toolbar.
-4. Execute commands in the GOM application
+4. Execute commands in the ZEISS INSPECT application
     * The executed commands will be recorded in the currently edited VSCode script.
     * In addition, the "ZEISS INSPECT script commands" subsection of the output tab shows a log of the executed commands.
     
@@ -71,7 +71,7 @@
 
 > Elements in ZEISS INSPECT are represented by 'element references' in the script. These are python expressions which, when executed, return a reference to that element.
 
-1. When connected to a GOM application host, select the 'Elements' in the explorer view.
+1. When connected to a ZEISS INSPECT application host, select the 'Elements' in the explorer view.
     * There, all elements in the project are listed.
 2. Set editor cursor to the place the element should be into inserted into.
 3. Select "Insert element into editor" from the top toolbar of the 'Elements' tab
@@ -97,7 +97,7 @@
 
    ![](assets/debugging1.png)
 
-2. Start debugger by selecting "Debug script in GOM host" from the editor toolbar
+2. Start debugger by selecting "Debug script in ZEISS INSPECT host" from the editor toolbar
 
    ![](assets/debugging2.png)
 
@@ -118,7 +118,7 @@ User defined script dialogs cannot be edited graphically in VSCode at the moment
 
 ### Create new user defined script dialog
 
-1. Select "GOM Scripting: Insert new user defined script dialog" from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.
+1. Select "Python API: Insert new user defined script dialog" from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.
 
    ![](assets/userdialog1.png)
 
@@ -176,7 +176,7 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
   ![](assets/toggle_recording_3.png)
 
-#### How do I set shortcuts for starting the current script in the GOM host ?
+#### How do I set shortcuts for starting the current script in the ZEISS INSPECT host ?
 
 * See above for the general process.
 * The relevant commands here are:
@@ -208,7 +208,7 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
 #### When starting both the application and a script from within Visual Studio Code, crashes can happen
 
-* This is more a GOM internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.
+* This is more a ZEISS internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.
 * The parallel debugging session (application and scripting) seem to be the problem.
 * Workaround: Do not start ZEISS INSPECT application via the VSCode launcher, but e.g. from a command prompt.
 
