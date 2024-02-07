@@ -233,7 +233,7 @@
 <li><p>Execute commands in the GOM application</p>
 <ul>
 <li><p>The executed commands will be recorded in the currently edited VSCode script.</p></li>
-<li><p>In addition, the “GOM script commands” subsection of the output tab shows a log of the executed commands.</p>
+<li><p>In addition, the “ZEISS INSPECT script commands” subsection of the output tab shows a log of the executed commands.</p>
 <p><img alt="" src="../../_images/recording1.png" /></p>
 </li>
 </ul>
@@ -356,7 +356,7 @@
 <li><p>Select the “Keyboard Shortcuts” properties from the configurations menu:</p>
 <p><img alt="" src="../../_images/toggle_recording_1.png" /></p>
 </li>
-<li><p>Assign the command “GOM Scripting: Toggle recording” to a key:</p>
+<li><p>Assign the command “Python API: Toggle command recording” to a key:</p>
 <p><img alt="" src="../../_images/toggle_recording_2.png" /></p>
 </li>
 <li><p>The ‘when’ clause determines when the command is available. The correct ‘when’ clause here ist:</p>
@@ -373,8 +373,8 @@
 <li><p>See above for the general process.</p></li>
 <li><p>The relevant commands here are:</p>
 <ul>
-<li><p>‘GOM Scripting: Run script in GOM host’: Start the script.</p></li>
-<li><p>‘GOM Scripting: Debug script in GOM host’: Start the script with debugger attached.</p></li>
+<li><p>‘Python API: Run script in ZEISS INSPECT host’: Start the script.</p></li>
+<li><p>‘Python API: Debug script in ZEISS INSPECT host’: Start the script with debugger attached.</p></li>
 </ul>
 </li>
 <li><p>F9 / CTRL + F9 might be valid keys for that.</p></li>
@@ -386,10 +386,9 @@
 <section id="can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project">
 <h4>Can I use local workspaces from disk instead of the application script database for my project ?<a class="headerlink" href="#can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project" title="Link to this heading"></a></h4>
 <ul>
-<li><p>Yes.</p></li>
-<li><p>You can add arbitrary folders to the workspace and edit and starts scripts from right there.</p></li>
-<li><p>A limitation is that environments and packages cannot yet be handled by VSCode. As a workaround, the edited external folder can be added to the internal script editor, so that it can be processed from there:</p>
-<p><img alt="" src="../../_images/script_editing_1.png" /></p>
+<li><p>Yes. You can add arbitrary folders to the workspace and edit and starts scripts from right there.</p></li>
+<li><p>The edited external folder can be connected to the ZEISS INSPECT Add-on Explorer, so that it can be used from there:</p>
+<p><img alt="" src="../../_images/03-Add-on_External_Folder_v21.png" /></p>
 </li>
 </ul>
 </section>
@@ -442,7 +441,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fc486fc54b0>
+  <jinja2.runtime.BlockReference object at 0x7f4ec3721cc0>
 
 
 </footer>
