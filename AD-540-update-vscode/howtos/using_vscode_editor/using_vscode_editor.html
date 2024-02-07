@@ -81,7 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#how-do-i-set-a-shortcut-to-toggle-the-recording-mode">How do I set a shortcut to toggle the recording mode ?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host">How do I set shortcuts for starting the current script in the GOM host ?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host">How do I set shortcuts for starting the current script in the ZEISS INSPECT host ?</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#script-editing">Script editing</a><ul>
@@ -192,7 +192,7 @@
 <li><p>After the connection has been established,</p>
 <ul>
 <li><p>the connection status will reflect that and</p></li>
-<li><p>the GOM softwares add-on editor content is mirrored and displayed in VSCode:</p>
+<li><p>the ZEISS INSPECT Add-on Explorer content is mirrored and displayed in VSCode:</p>
 <p><img alt="" src="../../_images/connecting2.png" /></p>
 </li>
 </ul>
@@ -215,10 +215,10 @@
 <ol class="arabic">
 <li><p>Select script to execute in the VSCode explorer.</p>
 <ul class="simple">
-<li><p>The script can either reside in the mirrored application scripting database or be a local file from any other workspace location.</p></li>
+<li><p>The script can either reside in the internal edited Add-ons folder or be a local file from any other workspace location.</p></li>
 </ul>
 </li>
-<li><p>Select “Run script in GOM host” from the editors toolbar</p></li>
+<li><p>Select “Run script in ZEISS INSPECT host” from the editors toolbar</p></li>
 <li><p>The script outputs will be shown in the “debug console”.</p>
 <p><img alt="" src="../../_images/editing2.png" /></p>
 </li>
@@ -230,7 +230,7 @@
 <li><p>Make sure that your Add-on in is in editing mode</p></li>
 <li><p>Select the script into which you want to record commands for displaying in the editor.</p></li>
 <li><p>In that editor, select “Record commands” from the editor toolbar.</p></li>
-<li><p>Execute commands in the GOM application</p>
+<li><p>Execute commands in the ZEISS INSPECT application</p>
 <ul>
 <li><p>The executed commands will be recorded in the currently edited VSCode script.</p></li>
 <li><p>In addition, the “ZEISS INSPECT script commands” subsection of the output tab shows a log of the executed commands.</p>
@@ -248,7 +248,7 @@
 <div><p>Elements in ZEISS INSPECT are represented by ‘element references’ in the script. These are python expressions which, when executed, return a reference to that element.</p>
 </div></blockquote>
 <ol class="arabic">
-<li><p>When connected to a GOM application host, select the ‘Elements’ in the explorer view.</p>
+<li><p>When connected to a ZEISS INSPECT application host, select the ‘Elements’ in the explorer view.</p>
 <ul class="simple">
 <li><p>There, all elements in the project are listed.</p></li>
 </ul>
@@ -288,7 +288,7 @@
 <li><p>Prepare debugged script as usual by setting breakpoints etc.</p>
 <p><img alt="" src="../../_images/debugging1.png" /></p>
 </li>
-<li><p>Start debugger by selecting “Debug script in GOM host” from the editor toolbar</p>
+<li><p>Start debugger by selecting “Debug script in ZEISS INSPECT host” from the editor toolbar</p>
 <p><img alt="" src="../../_images/debugging2.png" /></p>
 </li>
 <li><p>Full VSCode debugging functionality can be used now, including</p>
@@ -312,7 +312,7 @@
 <section id="create-new-user-defined-script-dialog">
 <h3>Create new user defined script dialog<a class="headerlink" href="#create-new-user-defined-script-dialog" title="Link to this heading"></a></h3>
 <ol class="arabic">
-<li><p>Select “GOM Scripting: Insert new user defined script dialog” from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.</p>
+<li><p>Select “Python API: Insert new user defined script dialog” from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.</p>
 <p><img alt="" src="../../_images/userdialog1.png" /></p>
 </li>
 <li><p>Choose a name for the dialog file which will then be created.</p>
@@ -367,8 +367,8 @@
 </li>
 </ul>
 </section>
-<section id="how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host">
-<h4>How do I set shortcuts for starting the current script in the GOM host ?<a class="headerlink" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-gom-host" title="Link to this heading"></a></h4>
+<section id="how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host">
+<h4>How do I set shortcuts for starting the current script in the ZEISS INSPECT host ?<a class="headerlink" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>See above for the general process.</p></li>
 <li><p>The relevant commands here are:</p>
@@ -410,7 +410,7 @@
 <section id="when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen">
 <h4>When starting both the application and a script from within Visual Studio Code, crashes can happen<a class="headerlink" href="#when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>This is more a GOM internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.</p></li>
+<li><p>This is more a ZEISS internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.</p></li>
 <li><p>The parallel debugging session (application and scripting) seem to be the problem.</p></li>
 <li><p>Workaround: Do not start ZEISS INSPECT application via the VSCode launcher, but e.g. from a command prompt.</p></li>
 </ul>
@@ -441,7 +441,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f4ec3721cc0>
+  <jinja2.runtime.BlockReference object at 0x7fdfd169be50>
 
 
 </footer>
