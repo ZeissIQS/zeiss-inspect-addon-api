@@ -60,7 +60,7 @@
 3. In that editor, select "Record commands" from the editor toolbar.
 4. Execute commands in the GOM application
     * The executed commands will be recorded in the currently edited VSCode script.
-    * In addition, the "GOM script commands" subsection of the output tab shows a log of the executed commands.
+    * In addition, the "ZEISS INSPECT script commands" subsection of the output tab shows a log of the executed commands.
     
       ![](assets/recording1.png)
 
@@ -164,7 +164,7 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
   ![](assets/toggle_recording_1.png)
 
-* Assign the command "GOM Scripting: Toggle recording" to a key:
+* Assign the command "Python API: Toggle command recording" to a key:
 
   ![](assets/toggle_recording_2.png)
 
@@ -180,19 +180,18 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 
 * See above for the general process.
 * The relevant commands here are:
-  * 'GOM Scripting: Run script in GOM host': Start the script.
-  * 'GOM Scripting: Debug script in GOM host': Start the script with debugger attached.
+  * 'Python API: Run script in ZEISS INSPECT host': Start the script.
+  * 'Python API: Debug script in ZEISS INSPECT host': Start the script with debugger attached.
 * F9 / CTRL + F9 might be valid keys for that.
 
 ### Script editing
 
 #### Can I use local workspaces from disk instead of the application script database for my project ?
 
-* Yes.
-* You can add arbitrary folders to the workspace and edit and starts scripts from right there.
-* A limitation is that environments and packages cannot yet be handled by VSCode. As a workaround, the edited external folder can be added to the internal script editor, so that it can be processed from there:
+* Yes. You can add arbitrary folders to the workspace and edit and starts scripts from right there.
+* The edited external folder can be connected to the ZEISS INSPECT Add-on Explorer, so that it can be used from there:
 
-  ![](assets/script_editing_1.png)
+  ![](assets/03-Add-on_External_Folder_v2.png)
 
 ### Troubleshooting
 
