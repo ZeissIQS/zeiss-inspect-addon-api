@@ -84,7 +84,7 @@
 > A keyword is an attribute used to query an element property. Various element attributes are existing depending on the element type.
 
 1. Insert an element reference in the script as mentioned above.
-2. After the element reference, press '.' to insert a point
+2. After the element reference, press '.' to insert a dot
     * A selection menu opens presenting the available keywords for that element
     
       ![](assets/inserting_keywords.png)
