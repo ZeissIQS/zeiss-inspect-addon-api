@@ -66,6 +66,16 @@ for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Obj
 # Stage 3 Name: ZEISS Training Object Mesh 4
 ```
 
+% https://forum.gom.com/topic/80-how-to-access-results-of-surface-point-inspections-within-the-script-faster/
+To access values from a set of stages, you can use the `in_stage` accessor. The following example shows how strain values of a set of points are printed for a set of stages:
+
+```{code-block} python
+for i in range(NPOINTS):
+    for j in STAGES:
+        x_strain = gom.app.project.inspection[f'Point {i+1}.epsX'].in_stage[gom.app.project.stages[j].index].result_dimension
+        print(f'Point {i+1}, Stage {j}: {x_strain}')
+´´´
+
 ## Setting or modifying timestamps
 
 It is possible to apply timestamps to stages. A common use case are deformation measurements, which are typically performed at a fixed interval.
