@@ -74,7 +74,7 @@ for i in range(NPOINTS):
     for j in STAGES:
         x_strain = gom.app.project.inspection[f'Point {i+1}.epsX'].in_stage[gom.app.project.stages[j].index].result_dimension
         print(f'Point {i+1}, Stage {j}: {x_strain}')
-´´´
+```
 
 ## Setting or modifying timestamps
 
