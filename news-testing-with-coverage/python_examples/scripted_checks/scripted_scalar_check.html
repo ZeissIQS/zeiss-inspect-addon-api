@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripted_scalar_check &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/scripted_checks/scripted_scalar_check.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="scripted_surface_check" href="scripted_surface_check.html" />
+    <link rel="prev" title="scripted_curve_check" href="scripted_curve_check.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scripted_checks.html">scripted_checks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="scripted_curve_check.html">scripted_curve_check</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">scripted_scalar_check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_surface_check.html">scripted_surface_check</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../scripted_checks.html">scripted_checks</a></li>
+      <li class="breadcrumb-item active">scripted_scalar_check</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripted-scalar-check">
+<h1>scripted_scalar_check<a class="headerlink" href="#scripted-scalar-check" title="Link to this heading"></a></h1>
+<p><img alt="" src="../../_images/scripted_scalar_check.jpg" /></p>
+<section id="short-description">
+<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
+<p>This example shows how to create a scalar check by script. A scalar check is the most basic check, as it assigns a scalar value to an element. Nearly all elements you can find in the software can be checked like this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A scripted check has a lot in common with the scripted actual elements. Therefore, the identical mechanisms and concepts will not be explained here. See <a class="reference internal" href="../../howtos/scripted_elements/scripted_actuals.html"><span class="std std-doc">How-to: Scripted actuals</span></a> if you are not already familiar with the concept of scripted elements.</p>
+</div>
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
+<p>First of all, we need to check if the element selected by the user by the <code class="docutils literal notranslate"><span class="pre">DIALOG.slct_element</span></code> widget is suitable for being checked with a scalar check. You can implement your own filter for that, but you can also use the API convenience function for that purpose:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">.</span><span class="n">slct_element</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">is_scalar_checkable</span>
+</pre></div>
+</div>
+<p>As you can assign a scalar value to all common element types, this filter allows all element types available in the <em>element explorer</em>.</p>
+<p>Furthermore, as described in the <a class="reference internal" href="../../howtos/scripted_elements/scripted_checks.html"><span class="std std-doc">How-to: Scripted checks</span></a>, the special parameters for scripted checks are also assigned in the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function. For ease of use, the respective dialog widgets are used, so we only need to assign the widgets’ values to the parameters array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+  <span class="c1"># [...]</span>
+  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;tolerance&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">tolerances</span><span class="o">.</span><span class="n">value</span>
+  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">value</span>
+  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;ScrSca&#39;</span>
+</pre></div>
+</div>
+<p>In the calculation function, there is not much calculation but just an exemplary assignment of scalar values to the result. For the scripted <code class="docutils literal notranslate"><span class="pre">Scalar</span> <span class="pre">check</span></code>, the result dictionary needs to contain <code class="docutils literal notranslate"><span class="pre">&quot;nominal&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;actual&quot;</span></code> members, as well as a reference to the element which is checked.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+  <span class="c1"># [...]</span>
+  <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+    <span class="n">actual_result</span>  <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">nominal_result</span> <span class="o">=</span> <span class="mf">2.0</span>
+    
+    <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nominal&quot;</span> <span class="p">:</span> <span class="n">nominal_result</span><span class="p">,</span> 
+              <span class="s2">&quot;actual&quot;</span> <span class="p">:</span> <span class="n">actual_result</span><span class="p">,</span> 
+              <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">element</span> <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="related">
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../howtos/scripted_elements/scripted_checks.html"><span class="std std-doc">How-to: Scripted checks</span></a></p></li>
+<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted Element API</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scripted_curve_check.html" class="btn btn-neutral float-left" title="scripted_curve_check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripted_surface_check.html" class="btn btn-neutral float-right" title="scripted_surface_check" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7f258c706f20>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
