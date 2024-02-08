@@ -67,7 +67,7 @@ for stage in gom.StageSelection(first=gom.app.project.stages['ZEISS Training Obj
 ```
 
 % https://forum.gom.com/topic/80-how-to-access-results-of-surface-point-inspections-within-the-script-faster/
-To access elements values in a specific stage, you can use the `in_stage` accessor. The following example shows how strain values of a set of points are printed for a set of stages:
+To access element values in a specific stage, you can use the `in_stage` accessor. The following example shows how strain values of a set of points are printed for a set of stages:
 
 ```{code-block} python
 for i in range(NPOINTS):
