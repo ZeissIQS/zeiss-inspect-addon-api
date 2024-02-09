@@ -37,6 +37,8 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240209-test-coverage
+   news/20240205-using-gui-libraries
    news/20240130-working-with-stages
    news/20240130-using-wheelhouses
    news/20240119-scripted-elements-examples
@@ -61,6 +63,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
+   howtos/using_gui_libraries/using_gui_libraries
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
    howtos/stages/stages

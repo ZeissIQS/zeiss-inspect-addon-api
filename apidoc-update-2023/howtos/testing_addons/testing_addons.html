@@ -58,6 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
@@ -78,6 +79,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-test-data">Working with test data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-add-on-tests-with-code-coverage">Running Add-on tests with code coverage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
@@ -256,6 +258,61 @@ If a relative path is given, like here, a resource inside the add-on is created 
 <p><img alt="" src="../../_images/run_tests_create_data.jpg" /></p>
 <p>In a “normal” test run, data will be compared to the stored resources.</p>
 </section>
+<section id="running-add-on-tests-with-code-coverage">
+<h2>Running Add-on tests with code coverage<a class="headerlink" href="#running-add-on-tests-with-code-coverage" title="Link to this heading"></a></h2>
+<p>Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The Add-on <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage">TemplateUnittestCoverage</a> / <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon">TemplateUnittestCoverage.addon</a> provides a template for running unit tests and generating a code coverage report.</p>
+<p>The test case structure is the same as described in the preceding sections, but to generate a coverage report, the tests must be run with the script <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/blob/main/examples/TemplateUnittestCoverage/scripts/run_tests.py">run_tests.py</a> while the Add-on is in editing mode.</p>
+<p>With the provided example, the test results are shown as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">case</span> <span class="n">folder</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>
+<span class="o">--</span> <span class="n">Project</span> <span class="n">keywords</span> <span class="o">--</span>
+<span class="n">user_project</span><span class="o">=</span><span class="s1">&#39;Test Project&#39;</span>
+<span class="n">user_inspector</span><span class="o">=</span><span class="s1">&#39;Clouseau&#39;</span>
+<span class="n">F</span>
+<span class="n">F</span><span class="o">.</span>
+<span class="p">{</span><span class="s1">&#39;user_project&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Project Name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;Test Project&#39;</span><span class="p">},</span> <span class="s1">&#39;user_inspector&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Inspector&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;Clouseau&#39;</span><span class="p">}}</span>
+<span class="o">.</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">unittest</span><span class="o">.</span><span class="n">case</span><span class="o">.</span><span class="n">FunctionTestCase</span> <span class="p">(</span><span class="n">test_blackbox</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\&lt;USERID&gt;\AppData\Roaming\gom</span><span class="se">\202</span><span class="s2">3\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts</span><span class="se">\t</span><span class="s2">ests</span><span class="se">\t</span><span class="s2">est_blackbox.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">28</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_blackbox</span>
+    <span class="k">assert</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_project&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Test Projet&#39;</span> <span class="c1"># intended to fail</span>
+<span class="ne">AssertionError</span>
+
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">unittest</span><span class="o">.</span><span class="n">case</span><span class="o">.</span><span class="n">FunctionTestCase</span> <span class="p">(</span><span class="n">test_fail</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\&lt;USERID&gt;\AppData\Roaming\gom</span><span class="se">\202</span><span class="s2">3\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts</span><span class="se">\t</span><span class="s2">ests</span><span class="se">\t</span><span class="s2">est_fail.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">14</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_fail</span>
+    <span class="k">assert</span> <span class="kc">False</span>
+<span class="ne">AssertionError</span>
+
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.441</span><span class="n">s</span>
+
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The textual test coverage report is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>                                                                                                                                <span class="n">Stmts</span>   <span class="n">Miss</span>  <span class="n">Cover</span>
+<span class="o">-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_blackbox</span><span class="o">.</span><span class="n">py</span>        <span class="mi">9</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_fail</span><span class="o">.</span><span class="n">py</span>            <span class="mi">3</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_pass</span><span class="o">.</span><span class="n">py</span>            <span class="mi">3</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_whitebox</span><span class="o">.</span><span class="n">py</span>        <span class="mi">6</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">uut_project_keywords</span><span class="o">.</span><span class="n">py</span>      <span class="mi">19</span>      <span class="mi">1</span>    <span class="mi">95</span><span class="o">%</span>
+<span class="o">-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">TOTAL</span>                                                                                                                                  <span class="mi">40</span>      <span class="mi">1</span>    <span class="mi">98</span><span class="o">%</span>
+
+<span class="n">HTML</span> <span class="n">coverage</span> <span class="n">report</span><span class="p">:</span>
+<span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">coverage_html</span>\<span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The HTML coverage report summary shows the same information:</p>
+<p><img alt="HTML coverage report, summary" src="../../_images/coverage-1.jpeg" /></p>
+<p>Clicking a module shows a detailed report with code lines marked as run (green), missing (red) or excluded (gray). A code section (single line or begin of block) can be excluded from the coverage report with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code>.</p>
+<p><img alt="HTML coverage report, file based" src="../../_images/coverage-2.jpeg" /></p>
+</section>
 </section>
 
 
@@ -280,7 +337,7 @@ If a relative path is given, like here, a resource inside the add-on is created 
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fccf062c040>
+  <jinja2.runtime.BlockReference object at 0x7f57611b6620>
 
 
 </footer>
