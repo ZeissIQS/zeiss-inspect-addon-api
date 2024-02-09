@@ -99,7 +99,7 @@ for addon in gom.api.addons.get_installed_addons():
 
 ```{py:function} gom.api.addons.AddOn.get_id(): UUID
 
-Return the unique id (uuid) or this add-on
+Return the unique id (uuid) of this add-on
 :API version: 1
 :return: Add-on uuid
 :rtype: UUID
@@ -310,14 +310,36 @@ Terminology:
 - 'point': 3D coordinate in the project.
 - 'pixel': 2D coordinate in an image.
 
+### gom.api.imaging.Acquisition
+
+Class representing a single acquisition
+
+An acquisition describes a camera position and viewing direction of a measurement.
+
+#### gom.api.imaging.Acquisition.get_angle
+
+```{py:function} gom.api.imaging.Acquisition.get_angle(): gom.Vec3d
+
+Return viewing angles of the camera during the measurement
+```
+
+
+#### gom.api.imaging.Acquisition.get_coordinate
+
+```{py:function} gom.api.imaging.Acquisition.get_coordinate(): gom.Vec3d
+
+Return 3d coordinate of the camera during the measurement
+```
+
+
 ### gom.api.imaging.compute_epipolar_line
 
-```{py:function} gom.api.imaging.compute_epipolar_line(source: gom.Object, traces: list[tuple[gom.Vec2d, gom.Object]], max_distance: float): list[list[gom.Vec2d]]
+```{py:function} gom.api.imaging.compute_epipolar_line(source: gom.api.imaging.Acquisition, traces: list[tuple[gom.Vec2d, gom.Object]], max_distance: float): list[list[gom.Vec2d]]
 
 Compute epipolar line coordinates
 :API version: 1
 :param source: Handle of the image acquisition the epipolar line should be found in.
-:type source: gom.Object
+:type source: gom.api.imaging.Acquisition
 :param traces: List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the `sources` object.
 :type traces: list[tuple[gom.Vec2d, gom.Object]]
 :param max_distance: Maximum search distance in mm.
@@ -386,12 +408,12 @@ print (p)
 
 ### gom.api.imaging.compute_point_from_pixels
 
-```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.Object]]], use_calibration: bool): list[tuple[gom.Vec3d, float]]
+```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.api.imaging.Acquisition]]], use_calibration: bool): list[tuple[gom.Vec3d, float]]
 
 Compute 3d point coordinates from pixels in images
 :API version: 1
 :param pixel_and_image_acquisitions: List of (pixel, acquisition) tuples
-:type pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.Object]]]
+:type pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.api.imaging.Acquisition]]]
 :param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
 :type use_calibration: bool
 :return: List of matching pixels and residuums
@@ -425,20 +447,322 @@ print (p)
 [[gom.Vec3d (-638.2453100625158, 1627.6169782583584, 0.0), 0.0]]
 ```
 
+## gom.api.introspection
+
+Introspection API for accessing the available API modules, functions and classes
+
+This API enables access to the API structure in general. It is meant to be mainly for debugging and
+testing purposes.
+
+### gom.api.introspection.Class
+
+Introspection interface for a class
+
+This interface can be used to query various information about a class definition
+
+#### gom.api.introspection.Class.description
+
+```{py:function} gom.api.introspection.Class.description(): str
+
+Returns and optional class description
+:API version: 1
+:return: Class description
+:rtype: str
+```
+
+
+#### gom.api.introspection.Class.methods
+
+```{py:function} gom.api.introspection.Class.methods(): list[gom.api.introspection.Method]
+
+Returns all class methods
+:API version: 1
+:return: List of class methods
+:rtype: list[gom.api.introspection.Method]
+```
+
+
+#### gom.api.introspection.Class.name
+
+```{py:function} gom.api.introspection.Class.name(): str
+
+Returns the name of the class
+:API version: 1
+:return: Class name
+:rtype: str
+```
+
+
+#### gom.api.introspection.Class.type
+
+```{py:function} gom.api.introspection.Class.type(): str
+
+Returns the unique internal type name of the class
+:API version: 1
+:return: Type name
+:rtype: str
+```
+
+
+### gom.api.introspection.Function
+
+Introspection interface for a function
+
+This interface can be used to query various information about a function
+
+#### gom.api.introspection.Function.arguments
+
+```{py:function} gom.api.introspection.Function.arguments(): list[[str, str, str]]
+
+Returns detailed information about the function arguments
+:API version: 1
+:return: Function arguments information
+:rtype: list[[str, str, str]]
+```
+
+
+#### gom.api.introspection.Function.descripion
+
+```{py:function} gom.api.introspection.Function.descripion(): str
+
+Returns the optional function description
+:API version: 1
+:return: Function description
+:rtype: str
+```
+
+
+#### gom.api.introspection.Function.name
+
+```{py:function} gom.api.introspection.Function.name(): str
+
+Returns the name of the function
+:API version: 1
+:return: Function name
+:rtype: str
+```
+
+
+#### gom.api.introspection.Function.returns
+
+```{py:function} gom.api.introspection.Function.returns(): [str, str]
+
+Returns detailed information about the function returned value
+:API version: 1
+:return: Function returned value information
+:rtype: [str, str]
+```
+
+
+#### gom.api.introspection.Function.signature
+
+```{py:function} gom.api.introspection.Function.signature(): list[str]
+
+Returns the function signature
+:API version: 1
+:return: Function signature
+:rtype: list[str]
+```
+
+The first type in the returned list is the function return value.
+
+### gom.api.introspection.Method
+
+Introspection interface for a method
+
+This interface can be used to query various information about a method
+
+#### gom.api.introspection.Method.arguments
+
+```{py:function} gom.api.introspection.Method.arguments(): list[[str, str, str]]
+
+Returns detailed information about the method arguments
+:API version: 1
+:return: Method argument information
+:rtype: list[[str, str, str]]
+```
+
+
+#### gom.api.introspection.Method.description
+
+```{py:function} gom.api.introspection.Method.description(): str
+
+Returns the optional method description
+:API version: 1
+:return: Method description
+:rtype: str
+```
+
+
+#### gom.api.introspection.Method.name
+
+```{py:function} gom.api.introspection.Method.name(): str
+
+Returns the name of the method
+:API version: 1
+:return: Method name
+:rtype: str
+```
+
+
+#### gom.api.introspection.Method.returns
+
+```{py:function} gom.api.introspection.Method.returns(): [str, str]
+
+Returns detailed information about the return value
+:API version: 1
+:return: Return value information
+:rtype: [str, str]
+```
+
+
+#### gom.api.introspection.Method.signature
+
+```{py:function} gom.api.introspection.Method.signature(): list[str]
+
+Returns the method signature
+:API version: 1
+:return: Method signature in form of list
+:rtype: list[str]
+```
+
+This function returns the signature. The first type in the list is the expected return value
+
+### gom.api.introspection.Module
+
+Introspection interface for a module
+
+This interface can be used to query various information about a module
+
+#### gom.api.introspection.Module.description
+
+```{py:function} gom.api.introspection.Module.description(): str
+
+Returns the optional module description
+:API version: 1
+:return: Module description
+:rtype: str
+```
+
+
+#### gom.api.introspection.Module.functions
+
+```{py:function} gom.api.introspection.Module.functions(): list[gom.api.introspection.Function]
+
+Returns all available function of the module
+:API version: 1
+:return: Module functions
+:rtype: list[gom.api.introspection.Function]
+```
+
+
+#### gom.api.introspection.Module.name
+
+```{py:function} gom.api.introspection.Module.name(): str
+
+Returns the name of the module
+:API version: 1
+:return: Module name
+:rtype: str
+```
+
+
+#### gom.api.introspection.Module.tags
+
+```{py:function} gom.api.introspection.Module.tags(): list[str]
+
+Returns the tags of the module
+:API version: 1
+:return: Module tags
+:rtype: list[str]
+```
+
+Each module can have a set of tags classifying it or its properties.
+
+#### gom.api.introspection.Module.version
+
+```{py:function} gom.api.introspection.Module.version(): int
+
+Returns the version of the module
+:API version: 1
+:return: Module version
+:rtype: int
+```
+
+
+### gom.api.introspection.classes
+
+```{py:function} gom.api.introspection.classes(): gom.api.introspection.Class
+
+Return introspection interface for a class instance
+:API version: 1
+:param instance: 'Class' instance to inspect
+:return: Introspection object
+:rtype: gom.api.introspection.Class
+```
+
+
+### gom.api.introspection.modules
+
+```{py:function} gom.api.introspection.modules(): list[gom.api.introspection.Module]
+
+Return a list of available modules
+:API version: 1
+:return: List of 'Module' objects.
+:rtype: list[gom.api.introspection.Module]
+```
+
+This function can be used to query the modules of the API
+
+**Example:**
+
+```
+for m in gom.api.introspection.modules ():
+  print (m.name ())
+```
+
 ## gom.api.project
 
 Access to project relevant structures
 
 This module contains functions for accessing project relevant data
 
+### gom.api.project.ProgressInformation
+
+Auxillary class allowing to set progress information
+
+This class is used to access the progress bar and progress message widgets of the application.
+
+#### gom.api.project.ProgressInformation.set_message
+
+```{py:function} gom.api.project.ProgressInformation.set_message(text: str): None
+
+Set progress message
+:API version: 1
+:param text: Message to be displayed in the progress displaying widget
+:type text: str
+```
+
+
+#### gom.api.project.ProgressInformation.set_percent
+
+```{py:function} gom.api.project.ProgressInformation.set_percent(percent: float): None
+
+Set progress value from 0 to 100 percent
+:API version: 1
+:param percent: Progress bar value in percent (0...100)
+:type percent: float
+```
+
+
 ### gom.api.project.create_progress_information
 
-```{py:function} gom.api.project.create_progress_information(): object
+```{py:function} gom.api.project.create_progress_information(): gom.api.project.ProgressInformation
 
 Retrieve a progress information object which can be used to query/control progress status information
 :API version: 1
 :return: Progress information object
-:rtype: object
+:rtype: gom.api.project.ProgressInformation
 ```
 
 This function returns an internal object which can be used to query/control the progress status widget of the
@@ -511,6 +835,107 @@ point = gom.app.project.actual_elements['Point 1'].coordinate
 all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
 all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
 ```
+
+### gom.api.script_resources.create
+
+```{py:function} gom.api.script_resources.create(path: str): bool
+
+Create a new resource under the root folder of a given script, if not already present.
+:param path: Resource path
+:type path: str
+:return: `true` if a valid resource was found or created.
+:rtype: bool
+```
+
+
+### gom.api.script_resources.exists
+
+```{py:function} gom.api.script_resources.exists(path: str): bool
+
+Check if the resource with the given path exists
+:param path: Resource path
+:type path: str
+:return: 'True' if a resource with that path exists
+:rtype: bool
+```
+
+
+### gom.api.script_resources.list
+
+```{py:function} gom.api.script_resources.list(): list[str]
+
+Return the list of existing resources
+:return: List of existing resources
+:rtype: list[str]
+```
+
+
+### gom.api.script_resources.load
+
+```{py:function} gom.api.script_resources.load(path: str, size: int): str
+
+Load resource into shared memory
+:param path: Resource path
+:type path: str
+:param size: Buffer size
+:type size: int
+:return: Shared memory key of the loaded resource
+:rtype: str
+```
+
+
+### gom.api.script_resources.mem_size
+
+```{py:function} gom.api.script_resources.mem_size(path: str): int
+
+Return size of the resource shared memory segment
+:param path: Resource path
+:type path: str
+:return: Shared memory segment size
+:rtype: int
+```
+
+
+### gom.api.script_resources.save
+
+```{py:function} gom.api.script_resources.save(path: str, size: int): bool
+
+Save resource changes from shared memory
+:param path: Resource path
+:type path: str
+:param size: Buffer size
+:type size: int
+:return: 'True' if the data could be written
+:rtype: bool
+```
+
+
+### gom.api.script_resources.save_as
+
+```{py:function} gom.api.script_resources.save_as(old_path: str, new_path: str, overwrite: bool): bool
+
+Save resource changes from shared memory at new path
+:param old_path: Old resource path
+:type old_path: str
+:param new_path: New resource path
+:type new_path: str
+:param size: Buffer size
+:return: 'True' if the data could be written
+:rtype: bool
+```
+
+
+### gom.api.script_resources.unload
+
+```{py:function} gom.api.script_resources.unload(path: str): bool
+
+Unload resource from shared memory
+:param path: Resource path
+:type path: str
+:return: 'True' if the unloading succeeded
+:rtype: bool
+```
+
 
 ## gom.api.settings
 
@@ -682,6 +1107,57 @@ API with testing and verification functions
 This API provides various functions which can be of use when testing and developing
 API features.
 
+### gom.api.testing.TestObject
+
+Simple object which can be passed around the API for testing purpose
+
+This object is used by various test setups to test object handling in the API
+
+#### gom.api.testing.TestObject.get_id
+
+```{py:function} gom.api.testing.TestObject.get_id(): UUID
+
+Return the unique id (uuid) of this object
+:API version: 1
+:return: Object uuid
+:rtype: UUID
+```
+
+This function returns the uuid associated with this object. The id is generated
+randomly when the object is generated.
+
+#### gom.api.testing.TestObject.get_name
+
+```{py:function} gom.api.testing.TestObject.get_name(): str
+
+Return the name of this object
+:API version: 1
+:return: Object name
+:rtype: str
+```
+
+This function returns the name of this object.
+
+### gom.api.testing.generate_test_object
+
+```{py:function} gom.api.testing.generate_test_object(content: str): gom.api.testing.TestObject
+
+Generate test object
+:API version: 1
+:param name: Name of the test object
+:return: Test object instance
+:rtype: gom.api.testing.TestObject
+```
+
+This function is used for API testing. It generates a simple test object which can then
+be passed around the API.
+
+**Example:**
+
+```
+obj = gom.api.testing.generate_test_object('test1)
+```
+
 ### gom.api.testing.reflect
 
 ```{py:function} gom.api.testing.reflect(content: Any): Any
@@ -690,7 +1166,7 @@ Send value to the API and return an echo
 :API version: 1
 :param content: The value to be reflected
 :type content: Any
-:return: Reflected calue
+:return: Reflected value
 :rtype: Any
 ```
 
