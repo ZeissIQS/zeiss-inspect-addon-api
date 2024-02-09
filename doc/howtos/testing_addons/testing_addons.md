@@ -163,7 +163,7 @@ F.
 FAIL: unittest.case.FunctionTestCase (test_blackbox)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\IQMPRINK\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py", line 28, in test_blackbox
+  File "C:\Users\<USERID>\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py", line 28, in test_blackbox
     assert gom.app.project.get('user_project') == 'Test Projet' # intended to fail
 AssertionError
 
@@ -171,7 +171,7 @@ AssertionError
 FAIL: unittest.case.FunctionTestCase (test_fail)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\IQMPRINK\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py", line 14, in test_fail
+  File "C:\Users\<USERID>\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py", line 14, in test_fail
     assert False
 AssertionError
 
@@ -186,16 +186,16 @@ The textual test coverage report is shown below:
 ```
 Name                                                                                                                                Stmts   Miss  Cover
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-C:\Users\IQMPRINK\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py        9      0   100%
-C:\Users\IQMPRINK\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py            3      0   100%
-C:\Users\IQMPRINK\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_pass.py            3      0   100%
-C:\Users\IQMPRINK\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_whitebox.py        6      0   100%
-C:\Users\IQMPRINK\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\uut_project_keywords.py      19      1    95%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py        9      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py            3      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_pass.py            3      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_whitebox.py        6      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\uut_project_keywords.py      19      1    95%
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 TOTAL                                                                                                                                  40      1    98%
 
 HTML coverage report:
-C:/Users/IQMPRINK/AppData/Roaming/gom/2023/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\coverage_html\index.html
+C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\coverage_html\index.html
 ```
 
 The HTML coverage report summary shows the same information:
