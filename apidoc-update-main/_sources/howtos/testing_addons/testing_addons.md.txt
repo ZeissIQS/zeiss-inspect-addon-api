@@ -141,3 +141,67 @@ These classes will **create the test data** for you, if you run the test executi
 ![](run_tests_create_data.jpg)
 
 In a "normal" test run, data will be compared to the stored resources.
+
+## Running Add-on tests with code coverage
+
+Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The Add-on [TemplateUnittestCoverage](https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage) / [TemplateUnittestCoverage.addon](https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon) provides a template for running unit tests and generating a code coverage report.
+
+The test case structure is the same as described in the preceding sections, but to generate a coverage report, the tests must be run with the script [run_tests.py](https://github.com/ZeissIQS/AddOnExamples/blob/main/examples/TemplateUnittestCoverage/scripts/run_tests.py) while the Add-on is in editing mode.
+
+With the provided example, the test results are shown as follows:
+
+```
+Test case folder: [...]/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests
+-- Project keywords --
+user_project='Test Project'
+user_inspector='Clouseau'
+F
+F.
+{'user_project': {'description': 'Project Name', 'value': 'Test Project'}, 'user_inspector': {'description': 'Inspector', 'value': 'Clouseau'}}
+.
+======================================================================
+FAIL: unittest.case.FunctionTestCase (test_blackbox)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\<USERID>\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py", line 28, in test_blackbox
+    assert gom.app.project.get('user_project') == 'Test Projet' # intended to fail
+AssertionError
+
+======================================================================
+FAIL: unittest.case.FunctionTestCase (test_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\<USERID>\AppData\Roaming\gom\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py", line 14, in test_fail
+    assert False
+AssertionError
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.441s
+
+FAILED (failures=2)
+```
+
+The textual test coverage report is shown below:
+
+```
+Name                                                                                                                                Stmts   Miss  Cover
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_blackbox.py        9      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_fail.py            3      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_pass.py            3      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\test_whitebox.py        6      0   100%
+C:\Users\<USERID>\AppData\Roaming\GOM\2023\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\uut_project_keywords.py      19      1    95%
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                  40      1    98%
+
+HTML coverage report:
+C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests\coverage_html\index.html
+```
+
+The HTML coverage report summary shows the same information:
+
+![HTML coverage report, summary](coverage-1.jpeg)
+
+Clicking a module shows a detailed report with code lines marked as run (green), missing (red) or excluded (gray). A code section (single line or begin of block) can be excluded from the coverage report with `# pragma: no cover`.
+
+![HTML coverage report, file based](coverage-2.jpeg)
