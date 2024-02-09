@@ -12,38 +12,250 @@ myst:
 
 Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the Add-on programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
 
+## gom.api.imaging
+
+Image point/pixel related functions
+
+Image related functions can be used to query images from the measurements of a project. This is not done directly,
+but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
+functions which can be used to process the image data.
+
+Terminology:
+- 'point': 3D coordinate in the project.
+- 'pixel': 2D coordinate in an image.
+
+### gom.api.imaging.compute_epipolar_line
+
+```{py:function} gom.api.imaging.compute_epipolar_line (source: object, traces: [], max_distance: float): []
+
+Compute epipolar line coordinates
+:API version: 1
+:param source: Handle of the image acquisition the epipolar line should be found in.
+:type source: object
+:param traces: List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the `sources` object.
+:type traces: []
+:param max_distance: Maximum search distance in mm.
+:type max_distance: float
+:return: List of matching points
+:rtype: []
+```
+
+This function computes the parametrics of an epipolar line from pixels projected into images.
+
+**Example**
+
+```
+stage = gom.app.project.stages['Stage 1']
+point = gom.app.project.actual_elements['Point 1'].coordinate
+
+left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
+
+l = gom.api.imaging.compute_epipolar_line (left, [(gom.Vec2d (1617, 819), right)], 10.0)
+
+print (l)
+```
+
+```
+[[gom.Vec2d (4.752311764226988, 813.7915394509045), gom.Vec2d (10.749371580282741, 813.748887458453), gom.Vec2d
+(16.73347976996274, 813.706352662515), ...]]
+```
+
+### gom.api.imaging.compute_pixels_from_point
+
+```{py:function} gom.api.imaging.compute_pixels_from_point(point_and_image_acquisitions: [tuple]): [object]
+
+Compute pixel coordinates from point coordinates
+:API version: 1
+:param point_and_image_acquisitions: List of (point, acquisition) tuples
+:type point_and_image_acquisitions: [tuple]
+:return: List of matching points
+:rtype: [object]
+```
+
+This function is used to compute the location of a 3d point in a 2d image. This is a photogrammetric
+operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
+of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
+3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
+a list containing 0 to n entries of pixel matches.
+
+**Example**
+
+```
+measurement = gom.app.project.measurement_series['Deformation series'].measurements['D1']
+stage = gom.app.project.stages['Stage 1']
+point = gom.app.project.actual_elements['Point 1'].coordinate
+
+left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
+
+p = gom.api.imaging.compute_pixels_from_point ([(point, left), (point, right)])
+
+print (p)
+```
+
+```
+[gom.Vec2d (1031.582008690226, 1232.4155555222544), gom.Vec2d (1139.886626169376, 1217.975608783256)]
+```
+
+### gom.api.imaging.compute_point_from_pixels
+
+```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: [tuple], use_calibration: bool): [object]
+
+Compute 3d point coordinates from pixels in images
+:API version: 1
+:param pixel_and_image_acquisitions: List of (pixel, acquisition) tuples
+:type pixel_and_image_acquisitions: [tuple]
+:param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
+:type use_calibration: bool
+:return: List of matching pixels and residuums
+:rtype: [object]
+```
+
+This function is used to compute the 3d point matching the 2d points in a set of images. This is a photogrammetric
+operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
+of a 2d pixel and the matching acquisition object. The acquisition object is then used to compute the location of the
+3d point from the pixels in the referenced image.
+
+The returned value is a list of (pixel, residuum) where each entry is the result of projecting the point via the
+associated image acquisition structure into the image. The pixel coordinate system center is located in the upper
+left corner.
+
+**Example**
+
+```
+measurement = gom.app.project.measurement_series['Deformation 1'].measurements['D1']
+stage = gom.app.project.stages[0]
+point = gom.app.project.actual_elements['Start Point 1'].coordinate
+
+left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+
+p = gom.api.imaging.compute_point_from_pixels ([[(gom.Vec2d (10, 10), left)]], False)
+
+print (p)
+```
+
+```
+[[gom.Vec3d (-638.2453100625158, 1627.6169782583584, 0.0), 0.0]]
+```
+
+## gom.api.project
+
+Access to project relevant structures
+
+This module contains functions for accessing project relevant data
+
+### gom.api.project.create_progress_information
+
+```{py:function} gom.api.project.create_progress_information (): object
+
+Retrieve a progress information object which can be used to query/control progress status information
+:API version: 1
+:return: Progress information object
+:rtype: object
+```
+
+This function returns an internal object which can be used to query/control the progress status widget of the
+main application window. It can be used to display progress information of long running processes.
+
+### gom.api.project.get_image_acquisition
+
+```{py:function} gom.api.project.get_image_acquisition (measurement: object, camera: str, stage: int): object
+
+Generate an of image acquisition object which can be used to query images from the application
+:API version: 1
+:param measurement: Measurement the image is to be queried from.
+:type measurement: object
+:param camera: Identifier for the camera which contributed to the measurement. See above for valid values.
+:type camera: str
+:param stage: Id of the stage for which the image acquisition object will access.
+:type stage: int
+:return: Image acquisition object which can be used to fetch the images.
+:rtype: object
+```
+
+This function returns an image acquisition object, which in turn can then be used to query the application for
+various image variants.
+
+Valid valid for the `camera` parameter are:
+- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
+- `right camera`: Right camera in a two camera system
+- `photogrammetry`: Photogrammetry (TRITOP) camera
+
+**Example**
+
+```
+measurement = gom.app.project.measurement_series['Deformation series'].measurements['D1']
+stage = gom.app.project.stages['Stage 1']
+
+left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
+```
+
+### gom.api.project.get_image_acquisitions
+
+```{py:function} gom.api.project.get_image_acquisitions (measurement_list: object, camera: str, stage: int): object
+
+Generate a list of image acquisition objects which can be used to query images from the application
+:API version: 1
+:param measurement: Measurement the image is to be queried from.
+:param camera: Identifier for the camera which contributed to the measurement. See above for valid values.
+:type camera: str
+:param stage: Id of the stage for which the image acquisition object will access.
+:type stage: int
+:return: Image acquisition object which can be used to fetch the images.
+:rtype: object
+```
+
+This function returns a list of  image acquisition objects, which in turn can then be used to query the application
+for various image variants.
+
+Valid valid for the `camera` parameter are:
+- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
+- `right camera`: Right camera in a two camera system
+- `photogrammetry`: Photogrammetry (TRITOP) camera
+
+**Example**
+
+```
+measurements = list (gom.app.project.measurement_series['Deformation series'].measurements)
+stage = gom.app.project.stages['Stage 1']
+point = gom.app.project.actual_elements['Point 1'].coordinate
+
+all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
+all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
+```
+
 ## gom.api.addons
 
 API for accessing the add-ons currently installed in the running software instance
+
+```{important}
+Under development, not released yet !
+```
 
 This API enables access to the installed add-ons. Information about these add-ons can be
 queried, add-on files and resources can be read and if the calling instance is a member of
 one specific add-on, this specific add-on can be modified on-the-fly and during software
 update processes.
 
-### gom.api.addons.AddOn
-
-Class representing a single add-on
-
-This class represents a single add-on. Properties of that add-on can be queried from here.
-
 #### gom.api.addons.AddOn.exists
 
-```{py:function} gom.api.addons.AddOn.exists(path: str): bool
+```{py:function} gom.api.addons.AddOn.exists (path: str): boolean
 
 Check if the given file exists in an add-on
 :API version: 1
 :param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
 :type path: str
 :return: 'true' if a file with that name exists in the add-on
-:rtype: bool
+:rtype: boolean
 ```
 
 This function checks if the given file exists in the add-on
 
 #### gom.api.addons.AddOn.get_file
 
-```{py:function} gom.api.addons.AddOn.get_file(): str
+```{py:function} gom.api.addons.AddOn.get_file (): str
 
 Return the installed add-on file
 :API version: 1
@@ -58,12 +270,12 @@ this function returns the location the application uses, too, to access add-on c
 
 #### gom.api.addons.AddOn.get_file_list
 
-```{py:function} gom.api.addons.AddOn.get_file_list(): str
+```{py:function} gom.api.addons.AddOn.get_file_list (): [str]
 
 Return the list of files contained in the add-on
 :API version: 1
 :return: List of files in that add-on (full path)
-:rtype: str
+:rtype: [str]
 ```
 
 This function returns the list of files in an add-on. These path names can be used to
@@ -97,12 +309,12 @@ for addon in gom.api.addons.get_installed_addons():
 
 #### gom.api.addons.AddOn.get_id
 
-```{py:function} gom.api.addons.AddOn.get_id(): UUID
+```{py:function} gom.api.addons.AddOn.get_id (): uuid
 
 Return the unique id (uuid) of this add-on
 :API version: 1
 :return: Add-on uuid
-:rtype: UUID
+:rtype: uuid
 ```
 
 This function returns the uuid associated with this add-on. The id can be used to
@@ -110,12 +322,12 @@ uniquely address the add-on.
 
 #### gom.api.addons.AddOn.get_level
 
-```{py:function} gom.api.addons.AddOn.get_level(): str
+```{py:function} gom.api.addons.AddOn.get_level (): [str]
 
 Return the level (system/shared/user) of the add-on
 :API version: 1
 :return: Level of the add-on
-:rtype: str
+:rtype: [str]
 ```
 
 This function returns the 'configuration level' of the add-on. This can be
@@ -125,7 +337,7 @@ This function returns the 'configuration level' of the add-on. This can be
 
 #### gom.api.addons.AddOn.get_name
 
-```{py:function} gom.api.addons.AddOn.get_name(): str
+```{py:function} gom.api.addons.AddOn.get_name (): str
 
 Return the displayable name of the add-on
 :API version: 1
@@ -138,19 +350,19 @@ readable name which is displayed in the add-on manager and the add-on store.
 
 #### gom.api.addons.AddOn.get_tags
 
-```{py:function} gom.api.addons.AddOn.get_tags(): str
+```{py:function} gom.api.addons.AddOn.get_tags (): [str]
 
 Return the list of tags with which the add-on has been tagged
 :API version: 1
 :return: List of tags
-:rtype: str
+:rtype: [str]
 ```
 
 This function returns the list of tags in the addons `metainfo.json` file.
 
 #### gom.api.addons.AddOn.has_license
 
-```{py:function} gom.api.addons.AddOn.has_license(): bool
+```{py:function} gom.api.addons.AddOn.has_license (): boolean
 
 Return if the necessary licenses to use this add-on are present
 :API version: 1
@@ -162,7 +374,7 @@ matching license via a license dongle or a license server.
 
 #### gom.api.addons.AddOn.is_edited
 
-```{py:function} gom.api.addons.AddOn.is_edited(): bool
+```{py:function} gom.api.addons.AddOn.is_edited (): bool
 
 Return if the add-on is currently edited
 :API version: 1
@@ -175,12 +387,12 @@ an add-on is in edit mode, it will be temporarily unzipped and is then present o
 
 #### gom.api.addons.AddOn.is_protected
 
-```{py:function} gom.api.addons.AddOn.is_protected(): bool
+```{py:function} gom.api.addons.AddOn.is_protected (): boolean
 
 Return if the add-on is protected
 :API version: 1
 :return: Add-on protection state
-:rtype: bool
+:rtype: boolean
 ```
 
 The content of a protected add-on is encrypted. It can be listed, but not read. Protection
@@ -189,12 +401,11 @@ copied, as far as possible)
 
 #### gom.api.addons.AddOn.read
 
-```{py:function} gom.api.addons.AddOn.read(path: str): bytes
+```{py:function} gom.api.addons.AddOn.read (filename: str): bytes
 
 Read file from add-on
 :API version: 1
 :param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
-:type path: str
 :return: Content of that file as a byte array
 :rtype: bytes
 ```
@@ -215,7 +426,7 @@ for a in gom.api.addons.get_installed_addons ():
 
 #### gom.api.addons.AddOn.write
 
-```{py:function} gom.api.addons.AddOn.write(path: str, data: bytes): None
+```{py:function} gom.api.addons.AddOn.write (path: str, data: bytes): None
 
 Write data into add-on file
 :API version: 1
@@ -236,14 +447,13 @@ function with care, as the result is permanent !
 
 ### gom.api.addons.get_addon
 
-```{py:function} gom.api.addons.get_addon(id: UUID): gom.api.addons.AddOn
+```{py:function} gom.api.addons.get_addon (UUId: id): str
 
 Return the add-on with the given id
 :API version: 1
 :param id: Id of the add-on to get
-:type id: UUID
 :return: Add-on with the given id
-:rtype: gom.api.addons.AddOn
+:rtype: str
 ```
 
 This function returns the add-on with the given id
@@ -260,12 +470,12 @@ print (addon.get_name ())
 
 ### gom.api.addons.get_current_addon
 
-```{py:function} gom.api.addons.get_current_addon(): gom.api.addons.AddOn
+```{py:function} gom.api.addons.get_current_addon (): str
 
 Return the current add-on
 :API version: 1
 :return: Add-on the caller is a member of or `None` if there is no such add-on
-:rtype: gom.api.addons.AddOn
+:rtype: str
 ```
 
 This function returns the add-on the caller is a member of
@@ -280,12 +490,12 @@ print (addon.get_id ())
 
 ### gom.api.addons.get_installed_addons
 
-```{py:function} gom.api.addons.get_installed_addons(): list[gom.api.addons.AddOn]
+```{py:function} gom.api.addons.get_installed_addons (): [object]
 
 Return a list of the installed add-ons
 :API version: 1
 :return: List of 'AddOn' objects. Each 'AddOn' object represents an add-on and can be used to query information about that specific add-on.
-:rtype: list[gom.api.addons.AddOn]
+:rtype: [object]
 ```
 
 This function can be used to query information of the add-ons which are currently
@@ -298,648 +508,10 @@ for a in gom.api.addons.get_installed_addons ():
   print (a.get_id (), a.get_name ())
 ```
 
-## gom.api.imaging
-
-Image point/pixel related functions
-
-Image related functions can be used to query images from the measurements of a project. This is not done directly,
-but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
-functions which can be used to process the image data.
-
-Terminology:
-- 'point': 3D coordinate in the project.
-- 'pixel': 2D coordinate in an image.
-
-### gom.api.imaging.Acquisition
-
-Class representing a single acquisition
-
-An acquisition describes a camera position and viewing direction of a measurement.
-
-#### gom.api.imaging.Acquisition.get_angle
-
-```{py:function} gom.api.imaging.Acquisition.get_angle(): gom.Vec3d
-
-Return viewing angles of the camera during the measurement
-```
-
-
-#### gom.api.imaging.Acquisition.get_coordinate
-
-```{py:function} gom.api.imaging.Acquisition.get_coordinate(): gom.Vec3d
-
-Return 3d coordinate of the camera during the measurement
-```
-
-
-### gom.api.imaging.compute_epipolar_line
-
-```{py:function} gom.api.imaging.compute_epipolar_line(source: gom.api.imaging.Acquisition, traces: list[tuple[gom.Vec2d, gom.Object]], max_distance: float): list[list[gom.Vec2d]]
-
-Compute epipolar line coordinates
-:API version: 1
-:param source: Handle of the image acquisition the epipolar line should be found in.
-:type source: gom.api.imaging.Acquisition
-:param traces: List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the `sources` object.
-:type traces: list[tuple[gom.Vec2d, gom.Object]]
-:param max_distance: Maximum search distance in mm.
-:type max_distance: float
-:return: List of matching points
-:rtype: list[list[gom.Vec2d]]
-```
-
-This function computes the parametrics of an epipolar line from pixels projected into images.
-
-**Example**
-
-```
-stage = gom.app.project.stages['Stage 1']
-point = gom.app.project.actual_elements['Point 1'].coordinate
-
-left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
-right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
-
-l = gom.api.imaging.compute_epipolar_line (left, [(gom.Vec2d (1617, 819), right)], 10.0)
-
-print (l)
-```
-
-```
-[[gom.Vec2d (4.752311764226988, 813.7915394509045), gom.Vec2d (10.749371580282741, 813.748887458453), gom.Vec2d
-(16.73347976996274, 813.706352662515), ...]]
-```
-
-### gom.api.imaging.compute_pixels_from_point
-
-```{py:function} gom.api.imaging.compute_pixels_from_point(point_and_image_acquisitions: list[tuple[gom.Vec3d, gom.Object]]): list[gom.Vec2d]
-
-Compute pixel coordinates from point coordinates
-:API version: 1
-:param point_and_image_acquisitions: List of (point, acquisition) tuples
-:type point_and_image_acquisitions: list[tuple[gom.Vec3d, gom.Object]]
-:return: List of matching points
-:rtype: list[gom.Vec2d]
-```
-
-This function is used to compute the location of a 3d point in a 2d image. This is a photogrammetric
-operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
-of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
-3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
-a list containing 0 to n entries of pixel matches.
-
-**Example**
-
-```
-measurement = gom.app.project.measurement_series['Deformation series'].measurements['D1']
-stage = gom.app.project.stages['Stage 1']
-point = gom.app.project.actual_elements['Point 1'].coordinate
-
-left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
-right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
-
-p = gom.api.imaging.compute_pixels_from_point ([(point, left), (point, right)])
-
-print (p)
-```
-
-```
-[gom.Vec2d (1031.582008690226, 1232.4155555222544), gom.Vec2d (1139.886626169376, 1217.975608783256)]
-```
-
-### gom.api.imaging.compute_point_from_pixels
-
-```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.api.imaging.Acquisition]]], use_calibration: bool): list[tuple[gom.Vec3d, float]]
-
-Compute 3d point coordinates from pixels in images
-:API version: 1
-:param pixel_and_image_acquisitions: List of (pixel, acquisition) tuples
-:type pixel_and_image_acquisitions: list[list[tuple[gom.Vec2d, gom.api.imaging.Acquisition]]]
-:param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
-:type use_calibration: bool
-:return: List of matching pixels and residuums
-:rtype: list[tuple[gom.Vec3d, float]]
-```
-
-This function is used to compute the 3d point matching the 2d points in a set of images. This is a photogrammetric
-operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
-of a 2d pixel and the matching acquisition object. The acquisition object is then used to compute the location of the
-3d point from the pixels in the referenced image.
-
-The returned value is a list of (pixel, residuum) where each entry is the result of projecting the point via the
-associated image acquisition structure into the image. The pixel coordinate system center is located in the upper
-left corner.
-
-**Example**
-
-```
-measurement = gom.app.project.measurement_series['Deformation 1'].measurements['D1']
-stage = gom.app.project.stages[0]
-point = gom.app.project.actual_elements['Start Point 1'].coordinate
-
-left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
-
-p = gom.api.imaging.compute_point_from_pixels ([[(gom.Vec2d (10, 10), left)]], False)
-
-print (p)
-```
-
-```
-[[gom.Vec3d (-638.2453100625158, 1627.6169782583584, 0.0), 0.0]]
-```
-
-## gom.api.introspection
-
-Introspection API for accessing the available API modules, functions and classes
-
-This API enables access to the API structure in general. It is meant to be mainly for debugging and
-testing purposes.
-
-### gom.api.introspection.Class
-
-Introspection interface for a class
-
-This interface can be used to query various information about a class definition
-
-#### gom.api.introspection.Class.description
-
-```{py:function} gom.api.introspection.Class.description(): str
-
-Returns and optional class description
-:API version: 1
-:return: Class description
-:rtype: str
-```
-
-
-#### gom.api.introspection.Class.methods
-
-```{py:function} gom.api.introspection.Class.methods(): list[gom.api.introspection.Method]
-
-Returns all class methods
-:API version: 1
-:return: List of class methods
-:rtype: list[gom.api.introspection.Method]
-```
-
-
-#### gom.api.introspection.Class.name
-
-```{py:function} gom.api.introspection.Class.name(): str
-
-Returns the name of the class
-:API version: 1
-:return: Class name
-:rtype: str
-```
-
-
-#### gom.api.introspection.Class.type
-
-```{py:function} gom.api.introspection.Class.type(): str
-
-Returns the unique internal type name of the class
-:API version: 1
-:return: Type name
-:rtype: str
-```
-
-
-### gom.api.introspection.Function
-
-Introspection interface for a function
-
-This interface can be used to query various information about a function
-
-#### gom.api.introspection.Function.arguments
-
-```{py:function} gom.api.introspection.Function.arguments(): list[[str, str, str]]
-
-Returns detailed information about the function arguments
-:API version: 1
-:return: Function arguments information
-:rtype: list[[str, str, str]]
-```
-
-
-#### gom.api.introspection.Function.descripion
-
-```{py:function} gom.api.introspection.Function.descripion(): str
-
-Returns the optional function description
-:API version: 1
-:return: Function description
-:rtype: str
-```
-
-
-#### gom.api.introspection.Function.name
-
-```{py:function} gom.api.introspection.Function.name(): str
-
-Returns the name of the function
-:API version: 1
-:return: Function name
-:rtype: str
-```
-
-
-#### gom.api.introspection.Function.returns
-
-```{py:function} gom.api.introspection.Function.returns(): [str, str]
-
-Returns detailed information about the function returned value
-:API version: 1
-:return: Function returned value information
-:rtype: [str, str]
-```
-
-
-#### gom.api.introspection.Function.signature
-
-```{py:function} gom.api.introspection.Function.signature(): list[str]
-
-Returns the function signature
-:API version: 1
-:return: Function signature
-:rtype: list[str]
-```
-
-The first type in the returned list is the function return value.
-
-### gom.api.introspection.Method
-
-Introspection interface for a method
-
-This interface can be used to query various information about a method
-
-#### gom.api.introspection.Method.arguments
-
-```{py:function} gom.api.introspection.Method.arguments(): list[[str, str, str]]
-
-Returns detailed information about the method arguments
-:API version: 1
-:return: Method argument information
-:rtype: list[[str, str, str]]
-```
-
-
-#### gom.api.introspection.Method.description
-
-```{py:function} gom.api.introspection.Method.description(): str
-
-Returns the optional method description
-:API version: 1
-:return: Method description
-:rtype: str
-```
-
-
-#### gom.api.introspection.Method.name
-
-```{py:function} gom.api.introspection.Method.name(): str
-
-Returns the name of the method
-:API version: 1
-:return: Method name
-:rtype: str
-```
-
-
-#### gom.api.introspection.Method.returns
-
-```{py:function} gom.api.introspection.Method.returns(): [str, str]
-
-Returns detailed information about the return value
-:API version: 1
-:return: Return value information
-:rtype: [str, str]
-```
-
-
-#### gom.api.introspection.Method.signature
-
-```{py:function} gom.api.introspection.Method.signature(): list[str]
-
-Returns the method signature
-:API version: 1
-:return: Method signature in form of list
-:rtype: list[str]
-```
-
-This function returns the signature. The first type in the list is the expected return value
-
-### gom.api.introspection.Module
-
-Introspection interface for a module
-
-This interface can be used to query various information about a module
-
-#### gom.api.introspection.Module.description
-
-```{py:function} gom.api.introspection.Module.description(): str
-
-Returns the optional module description
-:API version: 1
-:return: Module description
-:rtype: str
-```
-
-
-#### gom.api.introspection.Module.functions
-
-```{py:function} gom.api.introspection.Module.functions(): list[gom.api.introspection.Function]
-
-Returns all available function of the module
-:API version: 1
-:return: Module functions
-:rtype: list[gom.api.introspection.Function]
-```
-
-
-#### gom.api.introspection.Module.name
-
-```{py:function} gom.api.introspection.Module.name(): str
-
-Returns the name of the module
-:API version: 1
-:return: Module name
-:rtype: str
-```
-
-
-#### gom.api.introspection.Module.tags
-
-```{py:function} gom.api.introspection.Module.tags(): list[str]
-
-Returns the tags of the module
-:API version: 1
-:return: Module tags
-:rtype: list[str]
-```
-
-Each module can have a set of tags classifying it or its properties.
-
-#### gom.api.introspection.Module.version
-
-```{py:function} gom.api.introspection.Module.version(): int
-
-Returns the version of the module
-:API version: 1
-:return: Module version
-:rtype: int
-```
-
-
-### gom.api.introspection.classes
-
-```{py:function} gom.api.introspection.classes(): gom.api.introspection.Class
-
-Return introspection interface for a class instance
-:API version: 1
-:param instance: 'Class' instance to inspect
-:return: Introspection object
-:rtype: gom.api.introspection.Class
-```
-
-
-### gom.api.introspection.modules
-
-```{py:function} gom.api.introspection.modules(): list[gom.api.introspection.Module]
-
-Return a list of available modules
-:API version: 1
-:return: List of 'Module' objects.
-:rtype: list[gom.api.introspection.Module]
-```
-
-This function can be used to query the modules of the API
-
-**Example:**
-
-```
-for m in gom.api.introspection.modules ():
-  print (m.name ())
-```
-
-## gom.api.project
-
-Access to project relevant structures
-
-This module contains functions for accessing project relevant data
-
-### gom.api.project.ProgressInformation
-
-Auxillary class allowing to set progress information
-
-This class is used to access the progress bar and progress message widgets of the application.
-
-#### gom.api.project.ProgressInformation.set_message
-
-```{py:function} gom.api.project.ProgressInformation.set_message(text: str): None
-
-Set progress message
-:API version: 1
-:param text: Message to be displayed in the progress displaying widget
-:type text: str
-```
-
-
-#### gom.api.project.ProgressInformation.set_percent
-
-```{py:function} gom.api.project.ProgressInformation.set_percent(percent: float): None
-
-Set progress value from 0 to 100 percent
-:API version: 1
-:param percent: Progress bar value in percent (0...100)
-:type percent: float
-```
-
-
-### gom.api.project.create_progress_information
-
-```{py:function} gom.api.project.create_progress_information(): gom.api.project.ProgressInformation
-
-Retrieve a progress information object which can be used to query/control progress status information
-:API version: 1
-:return: Progress information object
-:rtype: gom.api.project.ProgressInformation
-```
-
-This function returns an internal object which can be used to query/control the progress status widget of the
-main application window. It can be used to display progress information of long running processes.
-
-### gom.api.project.get_image_acquisition
-
-```{py:function} gom.api.project.get_image_acquisition(measurement: gom.Reference, camera: str, stage: int): object
-
-Generate an of image acquisition object which can be used to query images from the application
-:API version: 1
-:param measurement: Measurement the image is to be queried from.
-:type measurement: gom.Reference
-:param camera: Identifier for the camera which contributed to the measurement. See above for valid values.
-:type camera: str
-:param stage: Id of the stage for which the image acquisition object will access.
-:type stage: int
-:return: Image acquisition object which can be used to fetch the images.
-:rtype: object
-```
-
-This function returns an image acquisition object, which in turn can then be used to query the application for
-various image variants.
-
-Valid valid for the `camera` parameter are:
-- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
-- `right camera`: Right camera in a two camera system
-- `photogrammetry`: Photogrammetry (TRITOP) camera
-
-**Example**
-
-```
-measurement = gom.app.project.measurement_series['Deformation series'].measurements['D1']
-stage = gom.app.project.stages['Stage 1']
-
-left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
-right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
-```
-
-### gom.api.project.get_image_acquisitions
-
-```{py:function} gom.api.project.get_image_acquisitions(measurement_list: object, camera: str, stage: int): object
-
-Generate a list of image acquisition objects which can be used to query images from the application
-:API version: 1
-:param measurement: Measurement the image is to be queried from.
-:param camera: Identifier for the camera which contributed to the measurement. See above for valid values.
-:type camera: str
-:param stage: Id of the stage for which the image acquisition object will access.
-:type stage: int
-:return: Image acquisition object which can be used to fetch the images.
-:rtype: object
-```
-
-This function returns a list of  image acquisition objects, which in turn can then be used to query the application
-for various image variants.
-
-Valid valid for the `camera` parameter are:
-- `left camera`: Left camera in a two camera system or the only existing camera in a single camera system
-- `right camera`: Right camera in a two camera system
-- `photogrammetry`: Photogrammetry (TRITOP) camera
-
-**Example**
-
-```
-measurements = list (gom.app.project.measurement_series['Deformation series'].measurements)
-stage = gom.app.project.stages['Stage 1']
-point = gom.app.project.actual_elements['Point 1'].coordinate
-
-all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
-all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
-```
-
-### gom.api.script_resources.create
-
-```{py:function} gom.api.script_resources.create(path: str): bool
-
-Create a new resource under the root folder of a given script, if not already present.
-:param path: Resource path
-:type path: str
-:return: `true` if a valid resource was found or created.
-:rtype: bool
-```
-
-
-### gom.api.script_resources.exists
-
-```{py:function} gom.api.script_resources.exists(path: str): bool
-
-Check if the resource with the given path exists
-:param path: Resource path
-:type path: str
-:return: 'True' if a resource with that path exists
-:rtype: bool
-```
-
-
-### gom.api.script_resources.list
-
-```{py:function} gom.api.script_resources.list(): list[str]
-
-Return the list of existing resources
-:return: List of existing resources
-:rtype: list[str]
-```
-
-
-### gom.api.script_resources.load
-
-```{py:function} gom.api.script_resources.load(path: str, size: int): str
-
-Load resource into shared memory
-:param path: Resource path
-:type path: str
-:param size: Buffer size
-:type size: int
-:return: Shared memory key of the loaded resource
-:rtype: str
-```
-
-
-### gom.api.script_resources.mem_size
-
-```{py:function} gom.api.script_resources.mem_size(path: str): int
-
-Return size of the resource shared memory segment
-:param path: Resource path
-:type path: str
-:return: Shared memory segment size
-:rtype: int
-```
-
-
-### gom.api.script_resources.save
-
-```{py:function} gom.api.script_resources.save(path: str, size: int): bool
-
-Save resource changes from shared memory
-:param path: Resource path
-:type path: str
-:param size: Buffer size
-:type size: int
-:return: 'True' if the data could be written
-:rtype: bool
-```
-
-
-### gom.api.script_resources.save_as
-
-```{py:function} gom.api.script_resources.save_as(old_path: str, new_path: str, overwrite: bool): bool
-
-Save resource changes from shared memory at new path
-:param old_path: Old resource path
-:type old_path: str
-:param new_path: New resource path
-:type new_path: str
-:param size: Buffer size
-:return: 'True' if the data could be written
-:rtype: bool
-```
-
-
-### gom.api.script_resources.unload
-
-```{py:function} gom.api.script_resources.unload(path: str): bool
-
-Unload resource from shared memory
-:param path: Resource path
-:type path: str
-:return: 'True' if the unloading succeeded
-:rtype: bool
-```
-
-
 ## gom.api.settings
 
-API for storing add-on related settings persistently
+
+@brief API for storing add-on related settings persistently
 
 This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
@@ -1016,9 +588,9 @@ This will lead to configuration entries in the applications preferences. Given t
 part of an add-on called 'Settings API Example', the application preferences will contain the following items
 (visible setting entries only):
 
-![Settings level 1](images/settings_api_preferences_1.png)
+![Settings level 1](images/TomMPackage_settings_api_preferences_1.png)
 
-![Settings level 2](images/settings_api_preferences_2.png)
+![Settings level 2](images/TomMPackage_settings_api_preferences_2.png)
 
 ### Types
 
@@ -1045,15 +617,11 @@ attribute determines what kind of files or directories can be selected.
 
 ### gom.api.settings.get
 
-```{py:function} gom.api.settings.get(key: str): Any
-
-Read value from application settings
-:API version: 1
-:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-:type key: str
-:return: Configuration value for that key
-:rtype: Any
+```{py:function} gom.api.settings.get (key: str): Any
 ```
+
+@brief Read value from application settings
+@version 1
 
 This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -1065,30 +633,29 @@ w = gom.api.settings.get ('dialog.width')
 h = gom.api.settings.get ('dialog.height')
 ```
 
+@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+@return Configuration value for that key
+
 ### gom.api.settings.list
 
-```{py:function} gom.api.settings.list(): list[str]
-
-List all available keys for the current add-on
-:API version: 1
-:return: List of all the keys in the settings which belong to the current add-on
-:rtype: list[str]
+```{py:function} gom.api.settings.list (): list[str]
 ```
+
+@brief List all available keys for the current add-on
+@version 1
 
 This function returns a list of all available keys in the settings for the current add-on.
 These keys are the same configuration keys are used in the `metainfo.json` file of that add-on.
 
+@return List of all the keys in the settings which belong to the current add-on
+
 ### gom.api.settings.set
 
-```{py:function} gom.api.settings.set(key: str, value: Any): None
-
-Write value into application settings
-:API version: 1
-:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-:type key: str
-:param value: Value to be written
-:type value: Any
+```{py:function} gom.api.settings.set (key: str, value: Any): None
 ```
+
+@brief Write value into application settings
+@version 1
 
 This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -1100,82 +667,6 @@ gom.api.settings.set ('dialog.width', 640)
 gom.api.settings.set ('dialog.height', 480)
 ```
 
-## gom.api.testing
-
-API with testing and verification functions
-
-This API provides various functions which can be of use when testing and developing
-API features.
-
-### gom.api.testing.TestObject
-
-Simple object which can be passed around the API for testing purpose
-
-This object is used by various test setups to test object handling in the API
-
-#### gom.api.testing.TestObject.get_id
-
-```{py:function} gom.api.testing.TestObject.get_id(): UUID
-
-Return the unique id (uuid) of this object
-:API version: 1
-:return: Object uuid
-:rtype: UUID
-```
-
-This function returns the uuid associated with this object. The id is generated
-randomly when the object is generated.
-
-#### gom.api.testing.TestObject.get_name
-
-```{py:function} gom.api.testing.TestObject.get_name(): str
-
-Return the name of this object
-:API version: 1
-:return: Object name
-:rtype: str
-```
-
-This function returns the name of this object.
-
-### gom.api.testing.generate_test_object
-
-```{py:function} gom.api.testing.generate_test_object(content: str): gom.api.testing.TestObject
-
-Generate test object
-:API version: 1
-:param name: Name of the test object
-:return: Test object instance
-:rtype: gom.api.testing.TestObject
-```
-
-This function is used for API testing. It generates a simple test object which can then
-be passed around the API.
-
-**Example:**
-
-```
-obj = gom.api.testing.generate_test_object('test1)
-```
-
-### gom.api.testing.reflect
-
-```{py:function} gom.api.testing.reflect(content: Any): Any
-
-Send value to the API and return an echo
-:API version: 1
-:param content: The value to be reflected
-:type content: Any
-:return: Reflected value
-:rtype: Any
-```
-
-This function is used for API testing. It just reflects the given value, so some conversions
-back and forth will be performed.
-
-**Example:**
-
-```
-result = gom.api.testing.reflect ({'a': [1, 2, 3], 'b':('foo', 'bar')})
-```
+@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+@param value   Value to be written
 
