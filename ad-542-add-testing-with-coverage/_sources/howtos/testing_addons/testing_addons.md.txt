@@ -151,7 +151,7 @@ The test case structure is the same as described in the preceding sections, but 
 With the provided example, the test results are shown as follows:
 
 ```
-Test case folder: C:/Users/IQMPRINK/AppData/Roaming/gom/2023/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests
+Test case folder: [...]/gom_edited_addons/d569d88b-a493-4298-ad4a-0875f5173ce1\scripts\tests
 -- Project keywords --
 user_project='Test Project'
 user_inspector='Clouseau'
