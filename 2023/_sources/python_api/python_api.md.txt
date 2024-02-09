@@ -311,7 +311,7 @@ for addon in gom.api.addons.get_installed_addons():
 
 ```{py:function} gom.api.addons.AddOn.get_id (): uuid
 
-Return the unique id (uuid) or this add-on
+Return the unique id (uuid) of this add-on
 :API version: 1
 :return: Add-on uuid
 :rtype: uuid
