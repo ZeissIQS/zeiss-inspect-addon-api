@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding workspaces to add-ons &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Localization of Add-ons" href="../localization/localization.html" />
+    <link rel="prev" title="Using Python wheelhouses" href="../using_wheelhouses/using_wheelhouses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding workspaces to add-ons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workspaces">Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Adding workspaces to add-ons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-unpack-the-add-on">Step 1: Unpack the add-on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-create-a-workspace-folder-inside-the-add-on">Step 2: Create a workspace folder inside the add-on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-add-a-workspace-definition-file">Step 3: Add a workspace definition file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uuid">“uuid”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color">“color”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recalc-section">“recalc_section”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment-section">“alignment_section”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sort-index">“sort_index”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icon">“icon”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-commands">“workflow_commands”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-commands">“sensor_commands”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-visible-views">“default_visible_views”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-visible-tabs">“default_visible_tabs”</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-test-your-workspace">Step 4: Test your workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#icon-guidelines">Icon guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-add-icons-to-the-workspace-toolbar">How can I add icons to the workspace toolbar ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding workspaces to add-ons</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="adding-workspaces-to-add-ons">
+<h1>Adding workspaces to add-ons<a class="headerlink" href="#adding-workspaces-to-add-ons" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>Abstract: An add-on can include a definition for a new workspace. ‘Inspection’ and ‘Reporting’ are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.</p>
+</div></blockquote>
+<section id="workspaces">
+<h2>Workspaces<a class="headerlink" href="#workspaces" title="Link to this heading"></a></h2>
+<p><img alt="" src="../../_images/workspace1.png" /></p>
+<ul class="simple">
+<li><p>ZEISS INSPECT has a set of available workspaces on the left side (1).</p></li>
+<li><p>Which workspaces are available depends on the available licenses and the installed add-ons.</p></li>
+<li><p>A workspace bundles commands etc. thematically. If, for example, the ‘inspection’ workspace is selected, the toolbar (2) and the view menu (3) above will show everything the user needs to inspect parts, while the ‘report’ workspace provides tool for report page creation.</p></li>
+<li><p>An add-on can add its own workspace. The ‘Blade CMM’ add-on, for example will provide tools for ‘Airfoil CMM Data Preparation’ - a feature, which is contained in an add-on and not provided by default because it is rather special.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>Adding workspaces to add-ons<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>There is no UI based workspace editor yet, but workspace definitions can be added manually.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>An add-on is just a ZIP file with a different extension  (.addon) containing JSON based object definitions.</p></li>
+<li><p>It can be unpacked, edited and packed again with a new workspace definition.</p></li>
+</ul>
+<section id="step-1-unpack-the-add-on">
+<h3>Step 1: Unpack the add-on<a class="headerlink" href="#step-1-unpack-the-add-on" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Use the tool of your choice to unpack the add-on file.</p></li>
+<li><p>We recommend 7-zip for that task, but every other zip tool will do the job, too.</p></li>
+<li><p>If you want to perform these tasks often, you can register your ZIP tool in the Windows “Choose default apps by file type” settings. Then, instead of unpacking and packing the add-on again for each edit, you can fiddle with the add-on content directly from the ZIP tool:</p>
+<p><img alt="" src="../../_images/workspace2.png" /></p>
+</li>
+</ul>
+</section>
+<section id="step-2-create-a-workspace-folder-inside-the-add-on">
+<h3>Step 2: Create a workspace folder inside the add-on<a class="headerlink" href="#step-2-create-a-workspace-folder-inside-the-add-on" title="Link to this heading"></a></h3>
+<p>The workspace definitions must be placed in a folder named <code class="docutils literal notranslate"><span class="pre">workspaces</span></code>. A separate folder must be created for each workspace. The folder must be named according to the workspace name, i.e.</p>
+<p><code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">Add-on/workspaces/&lt;workspace&gt;</span></code></p>
+</section>
+<section id="step-3-add-a-workspace-definition-file">
+<h3>Step 3: Add a workspace definition file<a class="headerlink" href="#step-3-add-a-workspace-definition-file" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>The <code class="docutils literal notranslate"><span class="pre">&lt;workspace&gt;.json</span></code> file contains the complete workspace definition.</p>
+</div></blockquote>
+<p>Add a workspace definition file must be added to the new workspace folder, i.e.</p>
+<p><code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">Add-on/workspaces/&lt;workspace&gt;/&lt;workspace&gt;.json</span></code></p>
+<p><strong>Example:</strong> From the Add-on ‘Airfoil CMM Data Preparation’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;alignment_section&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;classification&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;AIRFOIL&quot;</span><span class="p">,</span> <span class="s2">&quot;CMM&quot;</span> <span class="p">],</span>
+    <span class="s2">&quot;main_intention&quot;</span><span class="p">:</span> <span class="s2">&quot;ACQUISITION&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">30</span> <span class="p">],</span>
+  <span class="s2">&quot;default_visible_tabs&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;diagram&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;section_view&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;table&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pip&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd_mode_eval_blade_cmm&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;recalc_section&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;sort_index&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;airfoil_cmm_data_preparation&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;workflow_commands&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;sys.import_file&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;userscript.Blade_CMM__ProjectSetup__Project_Setup&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;inspect.tb_create_blade_stylus_correction_cmd_group&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;primitive.create_fitting_plane_mp_none&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;inspect.tb_create_profile_section_by_projection_cmd_group&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;userscript.Blade_CMM__AutoPilot__AutoPilot&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;711632f6-7444-4e66-bf21-00cdd153d535&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uuid">
+<h4>“uuid”<a class="headerlink" href="#uuid" title="Link to this heading"></a></h4>
+<p>A unique id of the workspace.</p>
+<blockquote>
+<div><p>Please do not define the UUID manually, but use a UUID generator like Online UUID Generator to generate a fresh, truly unique one!</p>
+</div></blockquote>
+</section>
+<section id="color">
+<h4>“color”<a class="headerlink" href="#color" title="Link to this heading"></a></h4>
+<p>RGB color of the workspace toolbar background. This default may be overwritten by themes, so e.g. in dark theme the toolbar will be colored in rgb(51,51,51) always.</p>
+</section>
+<section id="recalc-section">
+<h4>“recalc_section”<a class="headerlink" href="#recalc-section" title="Link to this heading"></a></h4>
+<p>True, if the toolbar should contain a section for recalculation commands</p>
+</section>
+<section id="alignment-section">
+<h4>“alignment_section”<a class="headerlink" href="#alignment-section" title="Link to this heading"></a></h4>
+<p>True, if the toolbar should contain a section for alignment commands.</p>
+</section>
+<section id="sort-index">
+<h4>“sort_index”<a class="headerlink" href="#sort-index" title="Link to this heading"></a></h4>
+<p>Position of that workspace in the list of workspace. The default (no value given) will add the workspace to the end of the workspace list, which is often fine.</p>
+</section>
+<section id="icon">
+<h4>“icon”<a class="headerlink" href="#icon" title="Link to this heading"></a></h4>
+<p>The name of an (internal) icon file or an icon definition.</p>
+<blockquote>
+<div><p>It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.</p>
+</div></blockquote>
+<p>Since SW2022-0, workspace icon definitions can be added with the following procedure:</p>
+<ul>
+<li><p>Choose an icon file in one of the widely supported formats (png, jpg, …). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.</p></li>
+<li><p>Install the add-on ‘Workspace editor tools’ and use the script in ‘Add-ons/Tools/Workspace editor’ to create a base64 encoded file of this icons data:</p>
+<p><img alt="" src="../../_images/convert_base64_dialog.png" /></p>
+</li>
+<li><p>Insert the resulting file content as a text item into the icon property:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;711632f6-7444-4e66-bf21-00cdd153d535&quot;</span><span class="p">,</span>
+  <span class="o">...</span>
+  <span class="c1"># The icon definition contains the content of the created encoding as string enclosed in &#39;&quot;&#39;</span>
+  <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;x8Royf4mIiJq8v3YBiIj6IRvW1yr6DhnwUw45R0RErxcr+kREALZDBZvXLgYREdGZHBx1h4iIiIiI...&quot;</span><span class="p">,</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Some icon guidelines</p>
+<ul>
+<li><p>Use only black/white icons to match with the overall application style</p>
+<ul class="simple">
+<li><p>Black color: HEX (#333333), RGB (51,51,51)</p></li>
+<li><p>White color: HEX (#FFFFFF), RGB (255,255,255)</p></li>
+</ul>
+</li>
+<li><p>Use image formats that support transparency (e.g. ‘.png’)</p></li>
+<li><p>Image size:</p>
+<ul class="simple">
+<li><p>preferably from 24x24 px (minimum, for script icons) to 64x64 px (recommended for workspace icons)</p></li>
+<li><p>Try NOT to use any form of compression</p></li>
+</ul>
+</li>
+<li><p>Set the workspace (and scripts) icons to look good on a bright background</p>
+<ul class="simple">
+<li><p>Normally, this means just a black icon with transparent background</p></li>
+<li><p>To look good on darker background you have two options:</p>
+<ol class="arabic simple">
+<li><p>You put a bright (white) padding around the icon, so it is still visible on dark backgrounds</p></li>
+<li><p>You let the software automatically invert the icon to white color. The icons will get autobrightened, if the icon contains ONLY the standard black color (see above), and no bright colors (Lightness &gt; 127)</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Example</p>
+<p><img alt="" src="../../_images/icon_guideline.png" /></p>
+<ul class="simple">
+<li><p>(1) = Icon with padding, stays the same in all modes</p></li>
+<li><p>(2) = Icon in pure #333333 black, gets auto-brightened in dark modes</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="workflow-commands">
+<h4>“workflow_commands”<a class="headerlink" href="#workflow-commands" title="Link to this heading"></a></h4>
+<p>Commands on the left side of the workspace toolbar. These command can either be</p>
+<ul class="simple">
+<li><p>the name of a “hardcoded” GOM command,</p></li>
+<li><p>the name of a script command (a command starting a Python script)</p></li>
+<li><p>a special tag like ‘[separator]’ for a separator in the command toolbar.</p></li>
+</ul>
+<p>The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and omit the ‘gom.script’ prefix:</p>
+<p><img alt="" src="../../_images/workspace5.png" /></p>
+<p>This works for scripts, too, if a script is executed from the ‘Add-ons’ menu while the script editor is in recording mode.</p>
+</section>
+<section id="sensor-commands">
+<h4>“sensor_commands”<a class="headerlink" href="#sensor-commands" title="Link to this heading"></a></h4>
+<p>Commands on the right side of the workspace toolbar. Same principle as above.</p>
+</section>
+<section id="default-visible-views">
+<h4>“default_visible_views”<a class="headerlink" href="#default-visible-views" title="Link to this heading"></a></h4>
+<p>Views that are visible per default, e.g.  adding “right_docking_area” shows the properties/toolbox window(star) on right side, which is collapsed by default. ( (star) as long as the default_view_layout_right_ isn’t changed). To investigate the name of the view to enter here, start script recording again and switch to that view in the applications UI. This will record a command containing that name:</p>
+<p><img alt="" src="../../_images/workspace6.png" /></p>
+</section>
+<section id="default-visible-tabs">
+<h4>“default_visible_tabs”<a class="headerlink" href="#default-visible-tabs" title="Link to this heading"></a></h4>
+<p>Views that are visible as tabs per default → these are still initially collapsed until adding them to “default_visible_views”.</p>
+</section>
+</section>
+<section id="step-4-test-your-workspace">
+<h3>Step 4: Test your workspace<a class="headerlink" href="#step-4-test-your-workspace" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Save that new content in the add-on.</p></li>
+<li><p>Install the add-on.</p></li>
+<li><p>Look for a new workspace in the workspace toolbar on the left side of the application.</p></li>
+</ul>
+</section>
+</section>
+<section id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Link to this heading"></a></h2>
+<section id="icon-guidelines">
+<h3>Icon guidelines<a class="headerlink" href="#icon-guidelines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>SVG Format, with a page size of 16x16. E.g. Inkscape page template “Icon 16x16”</p></li>
+<li><p>Only use two colors:</p>
+<ul>
+<li><p>white (#ffffff) background</p></li>
+<li><p>black (#333333) foreground</p></li>
+</ul>
+</li>
+<li><p>For proper appearance in dark themes:</p>
+<ul>
+<li><p>Only use “black” color, so the icon will get inverted automatically in dark mode</p>
+<ul>
+<li><p>Use a white padding of 0.5px on each side</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
+<section id="how-can-i-add-icons-to-the-workspace-toolbar">
+<h3>How can I add icons to the workspace toolbar ?<a class="headerlink" href="#how-can-i-add-icons-to-the-workspace-toolbar" title="Link to this heading"></a></h3>
+<p>You can only add commands to the toolbar. The commands will bring their own icons. For scripts, which can be added like commands, a custom script icon can be set in the script editor via the ‘edit properties’ feature in the right mouse menu of the script:</p>
+<p><img alt="" src="../../_images/workspace7.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../using_wheelhouses/using_wheelhouses.html" class="btn btn-neutral float-left" title="Using Python wheelhouses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../localization/localization.html" class="btn btn-neutral float-right" title="Localization of Add-ons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7f1d5f87e110>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
