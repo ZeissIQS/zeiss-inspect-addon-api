@@ -62,7 +62,7 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 * Execute script 'Update XLIFF files' from Add-on 'Internationalization'.
 * Select the Add-on with the translations which shall be generated or updated (1)
 * Select the translation file which shall be generated or updated (2)
-* Select the ID file, which contains the number of the next available message ID. (3)
+* Optional: Select the ID file, which contains the number of the next available message ID. (3)
 * Set language identifier for which translation file will be generated (4)
 * Set the log level - log output will be written to the Add-on Editor console. (5)
 * Check 'Dry-Run' if you want to try execution without modifying files. (6)
