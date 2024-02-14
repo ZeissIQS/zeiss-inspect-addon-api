@@ -94,7 +94,7 @@ True, if the toolbar should contain a section for alignment commands.
 
 #### "sort_index"
 
-Position of that workspace in the list of workspace. The default (no value given) will add the workspace to the end of the workspace list, which is often fine.
+Position of this workspace in the list of workspaces. If the element `sort_index` is not provided in `<workspace>.json`, the workspace will be appended to the end of the workspace list (which is often fine).
 
 #### "icon"
 
