@@ -15,6 +15,7 @@
 
 > There is no UI based workspace editor yet, but workspace definitions can be added manually.
 
+* An example can be found in the add-on 'Workspace editor tools'
 * An add-on is just a ZIP file with a different extension  (.addon) containing JSON based object definitions.
 * It can be unpacked, edited and packed again with a new workspace definition.
 
