@@ -764,6 +764,9 @@ function with care, as the result is permanent !</p>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Exception if there is no add-on with that id</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -774,7 +777,6 @@ function with care, as the result is permanent !</p>
 <span class="o">&gt;</span> <span class="s1">&#39;AddOn #1&#39;</span>
 </pre></div>
 </div>
-<p>\throws Exception if there is no add-on with that id</p>
 </section>
 <section id="gom-api-addons-get-current-addon">
 <h3>gom.api.addons.get_current_addon<a class="headerlink" href="#gom-api-addons-get-current-addon" title="Link to this heading"></a></h3>
@@ -833,7 +835,7 @@ installed in the running instance.</p>
 </section>
 <section id="gom-api-settings">
 <h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Link to this heading"></a></h2>
-<p>&#64;brief API for storing add-on related settings persistently</p>
+<p>API for storing add-on related settings persistently</p>
 <p>This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
 via the applications preferences dialog.</p>
@@ -936,10 +938,23 @@ attribute determines what kind of files or directories can be selected.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.get</span> <span class="pre">(key:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
-<dd></dd></dl>
+<dd><p>Read value from application settings</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration value for that key</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
 
-<p>&#64;brief Read value from application settings
-&#64;version 1</p>
 <p>This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
@@ -947,31 +962,48 @@ are integer, double, string and bool.</p>
 <span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>&#64;param key     Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.
-&#64;return Configuration value for that key</p>
 </section>
 <section id="gom-api-settings-list">
 <h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.list</span> <span class="pre">():</span> <span class="pre">list[str]</span></span></dt>
-<dd></dd></dl>
+<dd><p>List all available keys for the current add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of all the keys in the settings which belong to the current add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
-<p>&#64;brief List all available keys for the current add-on
-&#64;version 1</p>
 <p>This function returns a list of all available keys in the settings for the current add-on.
 These keys are the same configuration keys are used in the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file of that add-on.</p>
-<p>&#64;return List of all the keys in the settings which belong to the current add-on</p>
 </section>
 <section id="gom-api-settings-set">
 <h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.settings.set</span> <span class="pre">(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">Any):</span> <span class="pre">None</span></span></dt>
-<dd></dd></dl>
+<dd><p>Write value into application settings</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – Value to be written</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
-<p>&#64;brief Write value into application settings
-&#64;version 1</p>
 <p>This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.</p>
 <p><strong>Example</strong></p>
@@ -979,8 +1011,6 @@ are integer, double, string and bool.</p>
 <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>&#64;param key     Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.
-&#64;param value   Value to be written</p>
 </section>
 </section>
 </section>
@@ -1007,7 +1037,7 @@ are integer, double, string and bool.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fbab3a43e20>
+  <jinja2.runtime.BlockReference object at 0x7f7116374670>
 
 
 </footer>

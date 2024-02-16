@@ -61,41 +61,87 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 
 * Execute script 'Update XLIFF files' from Add-on 'Internationalization'.
 * Select the Add-on with the translations which shall be generated or updated (1)
-* Set the comma separated list of language identifiers for which translation files will be generated (2)
-* Check the displayed number of translated texts for plausibility (3)
-* Press 'Update' (4) to generate translatable XLIFF files (4)
+* Select the translation file which shall be generated or updated (2)
+* Optional: Select the ID file, which contains the number of the next available message ID. (3)
+* Set language identifier for which translation file will be generated (4)
+* Set the log level - log output will be written to the Add-on Editor console. (5)
+* Check 'Dry-Run' if you want to try execution without modifying files. (6)
+* Press 'Execute' (7)
 
     ![Update XLIFF](assets/update_xliff.png)
+    
+    **Log output:**
+    
+    ```
+    INFO:Update script translations
+    INFO:--------------------------
+    INFO:Add-on source directory: C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c
+    INFO:XLIFF file: C:/temp/InternationalizationTools/translations_en.xlf
+    INFO:*** DRY RUN ***
+    INFO:Loading existing XLIFF file: C:/temp/InternationalizationTools/translations_en.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\icon.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\metainfo.json
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc\README.md
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc\README.pdf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\appdata_access.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\edit_mode.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\language_preferences.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\README.md
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\start_from_menu.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\update_xliff.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\doc-complete\xliff_files.png
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_cs.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_de.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_en.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_es.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_fr.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_it.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_ja.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_ko.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_pl.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_pt.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_ru.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\languages\InternationalizationTools_zh.xlf
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\license\license.txt
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\gom-addon-translations.metainfo
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\gom-addon-translations.py
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\update_xliff_files.gdlg
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\update_xliff_files.metainfo
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\update_xliff_files.py
+    INFO:Processing C:/Users/<USERID>/AppData/Roaming/gom/2023/gom_edited_addons/5b812296-45f9-4831-a43c-3eb3e867476c\scripts\update_xliff_files.py.lock
+    ```
 
-* Afterwards, the Add-on's XLIFF translatable files will be present in the Add-on's languages folder:
+* If you have selected a separate folder for the XLIFF translation files, copy the files to the Add-on folder:
 
     ![XLIFF files](assets/xliff_files.png)
 
 #### Translate XLIFF files
 
-* Export the XLIFF files via 'Export Resource...' in the right mouse button menu.
+* Export the XLIFF files 
+% via 'Export Resource...' in the right mouse button menu.
 * Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.
-* Import the XLIFF files back into the Add-on via 'Import Resource...' on the right mouse button menu.
+* Import the XLIFF files back into the Add-on 
+% via 'Import Resource...' on the right mouse button menu.
 
 ``` XML
-<ns0:xliff xmlns:ns0="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
-    <file original="DL_ANALYSIS_01_curve_based.py" datatype="py" source-language="en" target-language="de">
-    <group restype="x-gettext-domain" resname="">
-        <trans-unit id="Save Log File">
-        <source xml:space="preserve">Save Log File</source>
-        <target xml:space="preserve">Protokolldatei speichern</target>
-        </trans-unit>
-        <trans-unit id="Curve inspection">
-        <source xml:space="preserve">Curve inspection</source>
-        <target xml:space="preserve">Kurveninspektion</target>
-        </trans-unit>
-        <trans-unit id="Processing...">
-        <source xml:space="preserve">Processing...</source>
-        <target xml:space="preserve">In Bearbeitung...</target>
-        </trans-unit>
-    </group>
-    </file>
-</ns0:xliff>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
+    <file original="metainfo.json" datatype="json" source-language="en" target_language="en">
+	    <group restype="x-gettext-domain" resname="metainfo.json">
+			<trans-unit id="msg1" resname="author">
+				<source xml:space="preserve">Carl Zeiss GOM Metrology GmbH</source>
+				<target xml:space="preserve">Carl Zeiss GOM Metrology GmbH</target>
+			</trans-unit>
+			<trans-unit id="msg2" resname="description">
+				<source xml:space="preserve">Tools for add-on internationalization</source>
+				<target xml:space="preserve">Tools for add-on internationalization</target>
+			</trans-unit>
+			<trans-unit id="msg3" resname="title">
+				<source xml:space="preserve">Internationalization Tools</source>
+				<target xml:space="preserve">Internationalization Tools</target>
+			</trans-unit>
+		</group>
+	</file>
+</xliff>
 ```
 
 ## Switching Add-on languages
@@ -120,25 +166,15 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 * If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.
 * Each Add-on in 'Edit' mode mirrors its content into `%APPDATA%/gom/<version>/gom_edited_addons/<add-on uuid>`.
 * The XLIFF files can be edited right there or copied/pasted from there as long as the Add-on remains in 'Edit' mode.
+* The Python script `gom-addon-translation.py` used by the Internationalization Add-on can be used on the command line, i.e. without graphical user interface.
 
 ### Are the translation entries persistent when updated via the 'Update XLIFF files' script?
 
 * As long as the original texts (the texts in the 'id' attribute of the 'trans-unit' tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.
 * This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts 'tr ()' function.
-* Can this scheme be automated, for example in a build queue ?
-* The 'Update XLIFF files' script itself is designed to be interactive.
-* But: The source is available and the logic within can be used as a base to implement a customized XLIFF files updater to automatic execution.
-* The goal of the scheme is to have translated XLIFF files with a name scheme as shown above in the Add-on's 'language' directory.
 
 ### Why is the Add-on not displaying the translations after changing the application language in the preferences?
 
 * You might have to restart the application after switching the application language in the preferences.
-* Please double check, too,  if the Add-on supports that specific language at all.
+* Please double check, if the Add-on supports that specific language at all, too.
 
-<!--
-### Are Add-ons built in the internal GOM build system handled the same way ?
-
-* No.
-* Add-ons built in the internal GOM build system right from version control are subject of a technical documentation team project.
-* See internal documentation for details: [Link]
--->
