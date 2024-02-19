@@ -454,6 +454,7 @@ Return the add-on with the given id
 :param id: Id of the add-on to get
 :return: Add-on with the given id
 :rtype: str
+:throws: Exception if there is no add-on with that id
 ```
 
 This function returns the add-on with the given id
@@ -465,8 +466,6 @@ addon = gom.api.addons.get_addon ('1127a8be-231f-44bf-b15e-56da4b510bf1')
 print (addon.get_name ())
 > 'AddOn #1'
 ```
-
-\throws Exception if there is no add-on with that id
 
 ### gom.api.addons.get_current_addon
 
@@ -510,8 +509,7 @@ for a in gom.api.addons.get_installed_addons ():
 
 ## gom.api.settings
 
-
-@brief API for storing add-on related settings persistently
+API for storing add-on related settings persistently
 
 This API allows reading/writing values into the application configuration permantly. The
 configuration is persistant and will survive application restarts. Also, it can be accessed
@@ -618,10 +616,14 @@ attribute determines what kind of files or directories can be selected.
 ### gom.api.settings.get
 
 ```{py:function} gom.api.settings.get (key: str): Any
-```
 
-@brief Read value from application settings
-@version 1
+Read value from application settings
+:API version: 1
+:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+:type key: str
+:return: Configuration value for that key
+:rtype: Any
+```
 
 This function reads a value from the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -633,29 +635,30 @@ w = gom.api.settings.get ('dialog.width')
 h = gom.api.settings.get ('dialog.height')
 ```
 
-@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-@return Configuration value for that key
-
 ### gom.api.settings.list
 
 ```{py:function} gom.api.settings.list (): list[str]
-```
 
-@brief List all available keys for the current add-on
-@version 1
+List all available keys for the current add-on
+:API version: 1
+:return: List of all the keys in the settings which belong to the current add-on
+:rtype: list[str]
+```
 
 This function returns a list of all available keys in the settings for the current add-on.
 These keys are the same configuration keys are used in the `metainfo.json` file of that add-on.
 
-@return List of all the keys in the settings which belong to the current add-on
-
 ### gom.api.settings.set
 
 ```{py:function} gom.api.settings.set (key: str, value: Any): None
-```
 
-@brief Write value into application settings
-@version 1
+Write value into application settings
+:API version: 1
+:param key: Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
+:type key: str
+:param value: Value to be written
+:type value: Any
+```
 
 This function writes a value into the application settings. The value is referenced by a key. Supported value types
 are integer, double, string and bool.
@@ -666,7 +669,4 @@ are integer, double, string and bool.
 gom.api.settings.set ('dialog.width', 640)
 gom.api.settings.set ('dialog.height', 480)
 ```
-
-@param key     Configuration key. Must be a key as defined in the add-ons `metainfo.json` file.
-@param value   Value to be written
 
