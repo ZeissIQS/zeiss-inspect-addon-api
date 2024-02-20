@@ -34,3 +34,7 @@ jobs:
           publish_dir: _build/
           destination_dir: ${{ env.SUBDIR_NAME }}
           full_commit_message: Deploy documentation of '${{ env.SUBDIR_NAME }}' to GitHub Pages
+      - name: Linkcheck
+        uses: filiph/linkcheck@2.0.23
+        with:
+          arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/
