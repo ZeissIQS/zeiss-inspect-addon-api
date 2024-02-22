@@ -18,7 +18,7 @@
 
 ### Dialog designer
 
-* User defined **Dialogs** can be inserted into the script using _right mouse button_->"Insert / Dialog...".
+* User defined **Dialogs** can be inserted into the script using _right mouse button_ → Insert → Dialog... in the <a href="../using_add_on_editor/using_add_on_editor.md">Add-on Editor</a>.
 
     ![](assets/insert_dialog.png)
 
@@ -33,12 +33,6 @@
     * **Embedded into script**
 
     The base filename of a dialog file is `dialog.gdlg`, it can be renamed later. A dialog is stored as a JSON document internally.
-
-    <!--
-    | Example: Script with separate dialog file |
-    | ----------------------------------------- |
-    | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
-    -->
 
     ```{code-block} python
     :caption: Example&colon; Script with separate dialog file
@@ -84,9 +78,16 @@
     The dialog type is explained in section [Executing dialogs](#executing-dialogs)
 
 
-* Dialogs are designed using a GUI based **Dialog Editor**.
+* Dialogs are designed using the GUI based **Dialog Editor**.
 
     ![](assets/dialog_editor.png)
+    
+```{note}
+The Dialog Editor is opened from the <a href="../using_add_on_editor/using_add_on_editor.md">Add-on Editor</a> by
+* Selecting a dialog file (*.gdlg) in the Add-on Explorer
+* Selecting a dialog definition embedded in a Python script
+* Using _right mouse button_ → Insert → Dialog... in the script editor
+```
 
 ### Dialog layout
 
