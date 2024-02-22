@@ -213,7 +213,7 @@ Console.WriteLine("hello from C#")
 # call the static method StaticAdd() of class Adder from our MyDotNetClassLib library
 print(f"My C# Adder.StaticAdd(1,2): {Adder.StaticAdd(1,2)}")
 
-# create an object from the class Adder...
+# create an object of the class Adder...
 adder = Adder()
 
 # ... call its Add() method
