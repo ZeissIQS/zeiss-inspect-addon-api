@@ -84,6 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-use-a-c-net-library-in-an-add-on">How do I use a C# / .NET library in an Add-on?</a></li>
 </ul>
 </li>
 </ul>
@@ -271,6 +272,70 @@
 </div>
 <p>The function blocks until the sensor is ready or the timeout specified with <code class="docutils literal notranslate"><span class="pre">my_timeout</span></code> occurs.</p>
 </section>
+<section id="how-do-i-use-a-c-net-library-in-an-add-on">
+<h2>How do I use a C# / .NET library in an Add-on?<a class="headerlink" href="#how-do-i-use-a-c-net-library-in-an-add-on" title="Link to this heading"></a></h2>
+<p>First you have to install the <a class="reference external" href="https://pypi.org/project/pythonnet/">Python.NET</a> package in your Add-on.</p>
+<p>Here is a simple C# library source code example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Example: Adder.cs</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">MyDotNetClassLib</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Adder</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Adder&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">StaticAdd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>This code has been compiled into the library <code class="docutils literal notranslate"><span class="pre">MyDotNetClassLib.dll</span></code>.</p>
+<p>The following example Python script uses methods and members of this library:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example: dotnetlibtemplate.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">clr</span> <span class="c1"># .NET Common Language Runtime (provided by Python.NET package)</span>
+<span class="kn">from</span> <span class="nn">System</span> <span class="kn">import</span> <span class="n">Console</span>
+	
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>                   <span class="c1"># append path to the DLL file</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;MyDotNetClassLib&quot;</span><span class="p">)</span>   <span class="c1"># name of the assembly (usually the DLL filename without extension .dll)</span>
+<span class="kn">from</span> <span class="nn">MyDotNetClassLib</span> <span class="kn">import</span> <span class="n">Adder</span>     <span class="c1"># import the module (the C# namespace)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello from python&quot;</span><span class="p">)</span>
+
+<span class="c1"># execute a C# function</span>
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">&quot;hello from C#&quot;</span><span class="p">)</span>
+
+<span class="c1"># call the static method StaticAdd() of class Adder from our MyDotNetClassLib library</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# Adder.StaticAdd(1,2): </span><span class="si">{</span><span class="n">Adder</span><span class="o">.</span><span class="n">StaticAdd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># create an object from the class Adder...</span>
+<span class="n">adder</span> <span class="o">=</span> <span class="n">Adder</span><span class="p">()</span>
+
+<span class="c1"># ... call its Add() method</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.Add(3,4): </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ... read the member variable className</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.className: </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">className</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ... write and read back the member variable className</span>
+<span class="n">adder</span><span class="o">.</span><span class="n">className</span> <span class="o">=</span> <span class="s2">&quot;Renamed Adder&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.className: </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">className</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This example is based on <a href="https://stackoverflow.com/questions/7367976/calling-a-c-sharp-library-from-python/" target="_blank" rel="noopener noreferrer">Stack Overflow: “Calling a C# library from python”</a>.</p>
+<p>See <a class="reference external" href="https://pythonnet.github.io/pythonnet/index.html">Python.NET documentation</a> for more details.</p>
+</section>
 </section>
 
 
@@ -295,7 +360,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7017f7f1f0>
+  <jinja2.runtime.BlockReference object at 0x7fdbfd61a9e0>
 
 
 </footer>
