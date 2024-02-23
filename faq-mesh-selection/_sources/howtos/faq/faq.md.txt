@@ -78,7 +78,7 @@ print (f) # array of elements matching the filter criterion 'type == surface_com
 
 ![Selection on mesh](assets/mesh_selection.png)
 
-The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals.
+The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals and `gom.app.project.parts['Training Object'].actual.selection.triangle` the triangles defining the mesh.
 
 ```{code-block} python
 import gom
@@ -106,6 +106,8 @@ print(selection)
 #  [-3.96552365e+01  2.10394088e+01  3.26750288e-03]
 #  [-4.00649288e+01  2.07525728e+01  7.25684079e-02]]]
 ```
+
+This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
 
