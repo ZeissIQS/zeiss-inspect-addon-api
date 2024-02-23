@@ -74,6 +74,39 @@ f = group.filter("type", "cad")
 print (f) # array of elements matching the filter criterion 'type == surface_comparison'
 ```
 
+## How can I access the coordinates of a selection on a mesh?
+
+![Selection on mesh](assets/mesh_selection.png)
+
+The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals.
+
+```{code-block} python
+import gom
+import numpy as np
+
+print(gom.app.project.parts['Training Object'].actual.selection.coordinate)
+# Output: gom.Array (element=gom.app.project.parts['Training Object'].actual.selection.coordinate, shape=(1, 1343, 3))
+
+print(gom.app.project.parts['Training Object'].actual.selection.normal)
+# Output: gom.Array (element=gom.app.project.parts['Training Object'].actual.selection.normal, shape=(1, 1343, 3))
+
+# Typically a numpy-array is used for further processing
+selection = np.array(gom.app.project.parts['Training Object'].actual.selection.coordinate)
+
+print(selection.shape)
+# Output: (1, 1343, 3)
+
+print(selection)
+# Output:
+# [[[-2.41255735e+01  2.21117734e+01 -1.91864308e+01]
+#  [-2.45970797e+01  2.21050666e+01 -1.97100373e+01]
+#  [-2.81128953e+01  2.20834014e+01 -2.04692317e+01]
+#  ...
+#  [-3.93854225e+01  2.09585465e+01  8.64908297e-02]
+#  [-3.96552365e+01  2.10394088e+01  3.26750288e-03]
+#  [-4.00649288e+01  2.07525728e+01  7.25684079e-02]]]
+```
+
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
 
 ![Dialog types](assets/dialog_types.png)
