@@ -8,6 +8,10 @@ Add-ons which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<
 
 When editing is finished, an Add-on file (see [Add-on file format](../add_on_file_format/add_on_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
 
+## How can I update the Add-ons after changes made outside of ZEISS INSPECT?
+
+After creating, modifying or deleting an Add-on outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal Add-on database. 
+
 ## How can I stop script execution?
 
 In a user defined dialog, you can call `gom.script.sys.close_user_defined_dialog (dialog=\<your_dialog\>)`.
@@ -72,6 +76,45 @@ print (f) # array of elements matching the filter criterion 'is_element_modified
 
 f = group.filter("type", "cad")
 print (f) # array of elements matching the filter criterion 'type == surface_comparison'
+```
+
+## How can I access the coordinates of a selection on a mesh?
+
+![Selection on mesh](assets/mesh_selection.png)
+
+The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals and `gom.app.project.parts['<part name>'].actual.selection.triangle` the triangles defining the mesh.
+
+```{code-block} python
+import gom
+import numpy as np
+
+print(gom.app.project.parts['Training Object'].actual.selection.coordinate)
+# Output: gom.Array (element=gom.app.project.parts['Training Object'].actual.selection.coordinate, shape=(1, 1343, 3))
+
+print(gom.app.project.parts['Training Object'].actual.selection.normal)
+# Output: gom.Array (element=gom.app.project.parts['Training Object'].actual.selection.normal, shape=(1, 1343, 3))
+
+# Typically a numpy-array is used for further processing
+selection = np.array(gom.app.project.parts['Training Object'].actual.selection.coordinate)
+
+print(selection.shape)
+# Output: (1, 1343, 3)
+
+print(selection)
+# Output:
+# [[[-2.41255735e+01  2.21117734e+01 -1.91864308e+01]
+#  [-2.45970797e+01  2.21050666e+01 -1.97100373e+01]
+#  [-2.81128953e+01  2.20834014e+01 -2.04692317e+01]
+#  ...
+#  [-3.93854225e+01  2.09585465e+01  8.64908297e-02]
+#  [-3.96552365e+01  2.10394088e+01  3.26750288e-03]
+#  [-4.00649288e+01  2.07525728e+01  7.25684079e-02]]]
+```
+
+This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.
+
+```{warning}
+The triangles returned by `gom.app.project.parts['<part name>'].actual.selection.triangle` are provided as indices to vertices of the global mesh. The helper function [localize_triangles](assets/localize_triangles.py) remaps these indices to vertices of the local (selected) mesh.
 ```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
@@ -161,3 +204,72 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 ```
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
+
+## How do I use a C# / .NET library in an Add-on?
+
+First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your Add-on.
+
+Here is a simple C# library source code example: 
+
+```{code-block} csharp
+:caption: Example&colon; Adder.cs
+
+namespace MyDotNetClassLib
+{
+    public class Adder
+    {
+        public string className = "Adder";
+        public static int StaticAdd(int left, int right)
+        {
+            return left + right;
+        }
+        public int Add(int left, int right)
+        {
+            return left + right;
+        }
+    }
+}
+```
+
+This code has been compiled into the library `MyDotNetClassLib.dll`.
+
+The following example Python script uses methods and members of this library:
+
+```{code-block} python
+:caption: Example&colon; dotnetlibtemplate.py
+
+import gom
+import clr # .NET Common Language Runtime (provided by Python.NET package)
+from System import Console
+	
+import sys
+sys.path.append('.')                   # append path to the DLL file
+clr.AddReference("MyDotNetClassLib")   # name of the assembly (usually the DLL filename without extension .dll)
+from MyDotNetClassLib import Adder     # import the module (the C# namespace)
+
+print()
+print("hello from python")
+
+# execute a C# function
+Console.WriteLine("hello from C#")
+
+# call the static method StaticAdd() of class Adder from our MyDotNetClassLib library
+print(f"My C# Adder.StaticAdd(1,2): {Adder.StaticAdd(1,2)}")
+
+# create an object of the class Adder...
+adder = Adder()
+
+# ... call its Add() method
+print(f"My C# adder.Add(3,4): {adder.Add(3,4)}")
+
+# ... read the member variable className
+print(f"My C# adder.className: {adder.className}")
+
+# ... write and read back the member variable className
+adder.className = "Renamed Adder"
+print(f"My C# adder.className: {adder.className}")
+```
+
+This example is based on <a href="https://stackoverflow.com/questions/7367976/calling-a-c-sharp-library-from-python/" target="_blank" rel="noopener noreferrer">Stack Overflow: "Calling a C# library from python"</a>. 
+
+See [Python.NET documentation](https://pythonnet.github.io/pythonnet/index.html) for more details.
