@@ -78,7 +78,7 @@ print (f) # array of elements matching the filter criterion 'type == surface_com
 
 ![Selection on mesh](assets/mesh_selection.png)
 
-The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals and `gom.app.project.parts['Training Object'].actual.selection.triangle` the triangles defining the mesh.
+The token `gom.app.project.parts['<part name>'].actual.selection.coordinate` provides a `gom.Array` of the selected vertices. Likewise, `gom.app.project.parts['<part name>'].actual.selection.normal` gives the corresponding normals and `gom.app.project.parts['<part name>'].actual.selection.triangle` the triangles defining the mesh.
 
 ```{code-block} python
 import gom
@@ -108,6 +108,10 @@ print(selection)
 ```
 
 This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.
+
+```{warning}
+The triangles returned by `gom.app.project.parts['<part name>'].actual.selection.triangle` are provided as indices to vertices of the global mesh. The helper function [localize_triangles](assets/localize_triangles.py) can be used remap the indices to vertices of the local (selected) mesh.
+```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
 
