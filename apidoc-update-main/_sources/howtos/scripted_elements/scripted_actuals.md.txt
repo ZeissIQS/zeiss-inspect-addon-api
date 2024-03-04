@@ -2,7 +2,7 @@
 
 ![](assets/scripted_actual_explorer.jpg)
 
-Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the ZEISS Inspect Element Explorer.
+Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the ZEISS INSPECT Element Explorer.
 
 In this how-to, the creation of a very basic point element is presented to show how scripted actuals are developed by example.
 
