@@ -37,4 +37,4 @@ jobs:
       - name: Linkcheck
         uses: filiph/linkcheck@2.0.23
         with:
-          arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/
+          arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/
