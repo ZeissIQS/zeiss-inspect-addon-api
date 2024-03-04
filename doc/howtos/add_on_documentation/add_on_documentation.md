@@ -43,7 +43,7 @@ See [markdown guide](https://www.markdownguide.org/basic-syntax/) for a brief de
 See ZEISS Industrial Quality Suite → Store → Python API Examples for example.
 
 ![](assets/markdown_editor_viewer.png)
-A markdown editor/viewer is integrated in the ZEISS Inspect Add-on editor.
+A markdown editor/viewer is integrated in the ZEISS INSPECT Add-on editor.
 
 ## Portable Document Format (PDF)
 

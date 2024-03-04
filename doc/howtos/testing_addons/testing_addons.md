@@ -25,7 +25,7 @@ Exemplary file structure.
 
 
 ```{note}
-In ZEISS Inspect 2023, there is no need anymore for a script at the top-level that executes all of your tests. Instead, use the "Execute add-on tests" command (see [Running tests](#running-add-on-tests)).
+In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the "Execute add-on tests" command (see [Running tests](#running-add-on-tests)).
 ```
 
 ## Writing a test script
@@ -79,7 +79,7 @@ Results will be shown in the log of the script editor.
 
 ### Using VSCode
 
-The Zeiss inspect add-on extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
+The ZEISS INSPECT add-on extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
 To use this feature, navigate to the "Testing" workspace of VSCode and select the test items you want to run.
 
 ![](vscode_testing.jpg)
