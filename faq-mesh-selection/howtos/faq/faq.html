@@ -200,7 +200,7 @@
 <section id="how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">
 <h2>How can I access the coordinates of a selection on a mesh?<a class="headerlink" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh" title="Link to this heading"></a></h2>
 <p><img alt="Selection on mesh" src="../../_images/mesh_selection.png" /></p>
-<p>The token <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.coordinate</span></code> provides a <code class="docutils literal notranslate"><span class="pre">gom.Array</span></code> of the selected vertices. Likewise, <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.normal</span></code> gives the corresponding normals and <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['Training</span> <span class="pre">Object'].actual.selection.triangle</span></code> the triangles defining the mesh.</p>
+<p>The token <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.coordinate</span></code> provides a <code class="docutils literal notranslate"><span class="pre">gom.Array</span></code> of the selected vertices. Likewise, <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.normal</span></code> gives the corresponding normals and <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> the triangles defining the mesh.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -228,6 +228,10 @@
 </pre></div>
 </div>
 <p>This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The triangles returned by <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> are provided as indices to vertices of the global mesh. The helper function <a class="reference download internal" download="" href="../../_downloads/bab594f916667a1393cc743397e08882/localize_triangles.py"><span class="xref download myst">localize_triangles</span></a> can be used remap the indices to vertices of the local (selected) mesh.</p>
+</div>
 </section>
 <section id="how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">
 <h2>How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)<a class="headerlink" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window" title="Link to this heading"></a></h2>
@@ -328,7 +332,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8a1992e1d0>
+  <jinja2.runtime.BlockReference object at 0x7f4c10641c90>
 
 
 </footer>
