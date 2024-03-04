@@ -220,7 +220,7 @@
 <section id="dialog-designer">
 <h3>Dialog designer<a class="headerlink" href="#dialog-designer" title="Link to this heading"></a></h3>
 <ul>
-<li><p>User defined <strong>Dialogs</strong> can be inserted into the script using <em>right mouse button</em>-&gt;”Insert / Dialog…”.</p>
+<li><p>User defined <strong>Dialogs</strong> can be inserted into the script using <em>right mouse button</em> → Insert → Dialog… in the <a href="../using_add_on_editor/using_add_on_editor.md">Add-on Editor</a>.</p>
 <p><img alt="" src="../../_images/insert_dialog.png" /></p>
 </li>
 <li><p>When a new dialog is inserted, a dialog <strong>Template</strong>, the <strong>target location</strong> of the dialog configuration and the dialog <strong>Type</strong> can be selected.</p>
@@ -233,11 +233,6 @@
 <li><p><strong>Embedded into script</strong></p></li>
 </ul>
 <p>The base filename of a dialog file is <code class="docutils literal notranslate"><span class="pre">dialog.gdlg</span></code>, it can be renamed later. A dialog is stored as a JSON document internally.</p>
-  <!--
-  | Example: Script with separate dialog file |
-  | ----------------------------------------- |
-  | <pre>RESULT=gom.script.sys.execute_user_defined_dialog (file=':dialog.gdlg')</pre> |
-  -->
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Example: Script with separate dialog file</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;:dialog.gdlg&#39;</span><span class="p">)</span>
@@ -283,10 +278,19 @@
 </ul>
 <p>The dialog type is explained in section <a class="reference internal" href="#executing-dialogs">Executing dialogs</a></p>
 </li>
-<li><p>Dialogs are designed using a GUI based <strong>Dialog Editor</strong>.</p>
+<li><p>Dialogs are designed using the GUI based <strong>Dialog Editor</strong>.</p>
 <p><img alt="" src="../../_images/dialog_editor.png" /></p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Dialog Editor is opened from the <a href="../using_add_on_editor/using_add_on_editor.md">Add-on Editor</a> by</p>
+<ul class="simple">
+<li><p>Selecting a dialog file (*.gdlg) in the Add-on Explorer</p></li>
+<li><p>Selecting a dialog definition embedded in a Python script</p></li>
+<li><p>Using <em>right mouse button</em> → Insert → Dialog… in the script editor</p></li>
+</ul>
+</div>
 </section>
 <section id="dialog-layout">
 <h3>Dialog layout<a class="headerlink" href="#dialog-layout" title="Link to this heading"></a></h3>
@@ -2555,7 +2559,7 @@ about its attributes:</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f5b9c21b100>
+  <jinja2.runtime.BlockReference object at 0x7fa7849cee00>
 
 
 </footer>
