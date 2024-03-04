@@ -214,10 +214,14 @@ result = { 'points' :  [ gom.Vec3D, gom.Vec3D, ... ] , 'normals' : [ gom.Vec3D, 
 ### Surface
 
 :Element Type: Mesh
-:Result: Defines a triangulation. The vertices attribute points defines all points. The triangle attribute defines triangles between these points using indices into the vertex list.
+:Result: Defines a triangulation. The vertices attribute defines all points. The triangle attribute defines triangles between these points using indices into the vertex list.
 
 ```{code-block} python
 result = { 'vertices': [ (x,y,z) ], 'triangles':  [ (v0,v1,v2) ] }
+```
+
+```{seealso}
+[FAQ: How can I access the coordinates of a selection on a mesh?](../howtos/faq/faq.md#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh) 
 ```
 
 ### Cone

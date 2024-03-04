@@ -79,6 +79,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-inspection-elements">Examples for filtering inspection elements</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">How can I access the coordinates of a selection on a mesh?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">How can I use an image from a script resource file in a user defined dialog?</a></li>
@@ -201,6 +202,42 @@
 </div>
 </section>
 </section>
+<section id="how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">
+<h2>How can I access the coordinates of a selection on a mesh?<a class="headerlink" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh" title="Link to this heading"></a></h2>
+<p><img alt="Selection on mesh" src="../../_images/mesh_selection.png" /></p>
+<p>The token <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.coordinate</span></code> provides a <code class="docutils literal notranslate"><span class="pre">gom.Array</span></code> of the selected vertices. Likewise, <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.normal</span></code> gives the corresponding normals and <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> the triangles defining the mesh.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+<span class="c1"># Output: gom.Array (element=gom.app.project.parts[&#39;Training Object&#39;].actual.selection.coordinate, shape=(1, 1343, 3))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+<span class="c1"># Output: gom.Array (element=gom.app.project.parts[&#39;Training Object&#39;].actual.selection.normal, shape=(1, 1343, 3))</span>
+
+<span class="c1"># Typically a numpy-array is used for further processing</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># Output: (1, 1343, 3)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># [[[-2.41255735e+01  2.21117734e+01 -1.91864308e+01]</span>
+<span class="c1">#  [-2.45970797e+01  2.21050666e+01 -1.97100373e+01]</span>
+<span class="c1">#  [-2.81128953e+01  2.20834014e+01 -2.04692317e+01]</span>
+<span class="c1">#  ...</span>
+<span class="c1">#  [-3.93854225e+01  2.09585465e+01  8.64908297e-02]</span>
+<span class="c1">#  [-3.96552365e+01  2.10394088e+01  3.26750288e-03]</span>
+<span class="c1">#  [-4.00649288e+01  2.07525728e+01  7.25684079e-02]]]</span>
+</pre></div>
+</div>
+<p>This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The triangles returned by <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> are provided as indices to vertices of the global mesh. The helper function <a class="reference download internal" download="" href="../../_downloads/bab594f916667a1393cc743397e08882/localize_triangles.py"><span class="xref download myst">localize_triangles</span></a> remaps these indices to vertices of the local (selected) mesh.</p>
+</div>
+</section>
 <section id="how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">
 <h2>How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)<a class="headerlink" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window" title="Link to this heading"></a></h2>
 <p><img alt="Dialog types" src="../../_images/dialog_types.png" /></p>
@@ -300,7 +337,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa7849225f0>
+  <jinja2.runtime.BlockReference object at 0x7f0165e17f10>
 
 
 </footer>
