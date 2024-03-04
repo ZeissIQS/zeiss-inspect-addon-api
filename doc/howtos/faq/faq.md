@@ -110,7 +110,7 @@ print(selection)
 This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.
 
 ```{warning}
-The triangles returned by `gom.app.project.parts['<part name>'].actual.selection.triangle` are provided as indices to vertices of the global mesh. The helper function [localize_triangles](assets/localize_triangles.py) can be used remap the indices to vertices of the local (selected) mesh.
+The triangles returned by `gom.app.project.parts['<part name>'].actual.selection.triangle` are provided as indices to vertices of the global mesh. The helper function [localize_triangles](assets/localize_triangles.py) remaps these indices to vertices of the local (selected) mesh.
 ```
 
 ## How do I check if a dialog was closed with 'Ok', 'Yes'/'No' or 'Close', respectively? (And not with 'Cancel' or by closing the dialog window.)
