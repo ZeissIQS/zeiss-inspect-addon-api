@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-add-ons-located-in-the-file-system">Where are Add-ons located in the file system?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect">How can I update the Add-ons after changes made outside of ZEISS INSPECT?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-actual-or-inspection-elements">How do I filter nominal, actual or inspection elements?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-actual-elements">Examples for filtering actual elements</a></li>
@@ -136,6 +137,10 @@
 <h2>Where are Add-ons located in the file system?<a class="headerlink" href="#where-are-add-ons-located-in-the-file-system" title="Link to this heading"></a></h2>
 <p>Add-ons which are edited are located in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code> (or <code class="docutils literal notranslate"><span class="pre">%APPDATA%\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code>, respectively). There is a subfolder for each Add-on named by its UUID.</p>
 <p>When editing is finished, an Add-on file (see <a class="reference internal" href="../add_on_file_format/add_on_file_format.html"><span class="std std-doc">Add-on file format</span></a>) is created and saved in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_addons</span></code>.</p>
+</section>
+<section id="how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect">
+<h2>How can I update the Add-ons after changes made outside of ZEISS INSPECT?<a class="headerlink" href="#how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect" title="Link to this heading"></a></h2>
+<p>After creating, modifying or deleting an Add-on outside of ZEISS INSPECT, you can use <code class="docutils literal notranslate"><span class="pre">gom.script.sys.update_addon_database()</span></code> to update the internal Add-on database.</p>
 </section>
 <section id="how-can-i-stop-script-execution">
 <h2>How can I stop script execution?<a class="headerlink" href="#how-can-i-stop-script-execution" title="Link to this heading"></a></h2>
@@ -295,7 +300,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f0ba17b90f0>
+  <jinja2.runtime.BlockReference object at 0x7f5b9c20cc70>
 
 
 </footer>
