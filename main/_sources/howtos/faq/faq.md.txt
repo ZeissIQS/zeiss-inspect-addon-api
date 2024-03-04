@@ -204,3 +204,72 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 ```
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
+
+## How do I use a C# / .NET library in an Add-on?
+
+First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your Add-on.
+
+Here is a simple C# library source code example: 
+
+```{code-block} csharp
+:caption: Example&colon; Adder.cs
+
+namespace MyDotNetClassLib
+{
+    public class Adder
+    {
+        public string className = "Adder";
+        public static int StaticAdd(int left, int right)
+        {
+            return left + right;
+        }
+        public int Add(int left, int right)
+        {
+            return left + right;
+        }
+    }
+}
+```
+
+This code has been compiled into the library `MyDotNetClassLib.dll`.
+
+The following example Python script uses methods and members of this library:
+
+```{code-block} python
+:caption: Example&colon; dotnetlibtemplate.py
+
+import gom
+import clr # .NET Common Language Runtime (provided by Python.NET package)
+from System import Console
+	
+import sys
+sys.path.append('.')                   # append path to the DLL file
+clr.AddReference("MyDotNetClassLib")   # name of the assembly (usually the DLL filename without extension .dll)
+from MyDotNetClassLib import Adder     # import the module (the C# namespace)
+
+print()
+print("hello from python")
+
+# execute a C# function
+Console.WriteLine("hello from C#")
+
+# call the static method StaticAdd() of class Adder from our MyDotNetClassLib library
+print(f"My C# Adder.StaticAdd(1,2): {Adder.StaticAdd(1,2)}")
+
+# create an object of the class Adder...
+adder = Adder()
+
+# ... call its Add() method
+print(f"My C# adder.Add(3,4): {adder.Add(3,4)}")
+
+# ... read the member variable className
+print(f"My C# adder.className: {adder.className}")
+
+# ... write and read back the member variable className
+adder.className = "Renamed Adder"
+print(f"My C# adder.className: {adder.className}")
+```
+
+This example is based on <a href="https://stackoverflow.com/questions/7367976/calling-a-c-sharp-library-from-python/" target="_blank" rel="noopener noreferrer">Stack Overflow: "Calling a C# library from python"</a>. 
+
+See [Python.NET documentation](https://pythonnet.github.io/pythonnet/index.html) for more details.
