@@ -416,10 +416,10 @@ context.stage = current_stage
 
 ## Exception handling
 
-With the ZEISS Inspect Add-on API, three different types of exceptions can occur:
+With the ZEISS INSPECT Add-on API, three different types of exceptions can occur:
 * Python built-in exceptions
 * User defined exceptions, e.g. from a Python module
-* ZEISS Inspect Add-on API exceptions
+* ZEISS INSPECT Add-on API exceptions
 
 It is [recommended practice](https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/bare-except.html) to avoid bare except clauses, i.e. to specify an exception type:
 
