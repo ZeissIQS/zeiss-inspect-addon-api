@@ -117,7 +117,7 @@ On success the function must return True, otherwise False.
 ## Scripted actuals - Return values
 
 ```{seealso}
-The section [Python API Examples- scripted_actuals](../python_examples/scripted_actuals.html) provides an example for each element type.
+The section [Python API Examples - scripted_actuals](../python_examples/scripted_actuals.md) provides an example for each element type.
 ```
 
 ### Point
