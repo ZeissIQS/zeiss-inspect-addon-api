@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>data_interfaces &mdash; Add-On Documentation</title>
+  <title>How can I access the coordinates of a selection on a mesh? &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/data_interfaces.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/20240307-mesh-selection.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="check_results_data_array" href="data_interfaces/check_results_data_array.html" />
-    <link rel="prev" title="ZEISS INSPECT Python API Examples Overview" href="index.html" /> 
+    <link rel="next" title="How do I use a C# / .NET library in an Add-on?" href="20240307-csharp_dotnet.html" />
+    <link rel="prev" title="What’s New" href="news.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,7 +47,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../news/news.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">What’s New</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul>
@@ -72,21 +72,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">data_interfaces</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data_interfaces/check_results_data_array.html">check_results_data_array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_interfaces/reference_points_and_mesh_data.html">reference_points_and_mesh_data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_interfaces/volume_section_image_data.html">volume_section_image_data</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="point_pixel_transformations.html">point_pixel_transformations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_checks.html">scripted_checks</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_checks.html">scripted_checks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -109,7 +104,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">data_interfaces</li>
+          <li class="breadcrumb-item"><a href="news.html">What’s New</a></li>
+      <li class="breadcrumb-item active">How can I access the coordinates of a selection on a mesh?</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -118,29 +114,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="data-interfaces">
-<h1>data_interfaces<a class="headerlink" href="#data-interfaces" title="Link to this heading"></a></h1>
-<p>This is a collection of examples to access element properties and data.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Examples of this category</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="data_interfaces/check_results_data_array.html">check_results_data_array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_interfaces/reference_points_and_mesh_data.html">reference_points_and_mesh_data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_interfaces/volume_section_image_data.html">volume_section_image_data</a></li>
-</ul>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>How-to: <a class="reference internal" href="../howtos/python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-ref">Access element properties and data</span></a></p>
-</div>
+  <section id="how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">
+<h1>How can I access the coordinates of a selection on a mesh?<a class="headerlink" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh" title="Link to this heading"></a></h1>
+<p class="feed-meta">Published on <em class="feed-date">2024-03-07 10:00:00</em></p>
+<p>The FAQ article <a href="../howtos/faq/faq.html#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">How can I access the coordinates of a selection on a mesh?</a> explains how you can get the vertices, normals and triangles of parts of a mesh which have been selected interactively.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API Examples Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_interfaces/check_results_data_array.html" class="btn btn-neutral float-right" title="check_results_data_array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="news.html" class="btn btn-neutral float-left" title="What’s New" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="20240307-csharp_dotnet.html" class="btn btn-neutral float-right" title="How do I use a C# / .NET library in an Add-on?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -157,7 +142,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f9ba2501690>
+  <jinja2.runtime.BlockReference object at 0x7f9ba200d7b0>
 
 
 </footer>
