@@ -15,6 +15,8 @@ myst:
    :title: ZEISS INSPECT 2023 Add-on Python API News
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/
 
+   20240307-mesh-selection
+   20240307-csharp_dotnet
    20240209-test-coverage
    20240205-using-gui-libraries
    20240130-working-with-stages
