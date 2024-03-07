@@ -55,7 +55,7 @@ To calculate a preview, the `context.calc()` function can be invoked. It takes t
 | ----------------- | ---------------------------------------------------------------------------------- |
 | <pre>params</pre> | A map of parameters to be used for preview calculation                             |
 | <pre>stages</pre> | Optional: A list of stage indices to calculate a preview in                        |
-| <pre>dialog</pre> | Optional: A script dialog to message when preview calculation was successful.<br>If a calculation result is true, the dialog event handler will receive the event string 'calculated', otherwise it will receive 'error'. |
+| <pre>dialog</pre> | Optional: A script dialog to message when preview calculation was successful.<br>If a calculation result is true, the dialog event handler will receive the event string 'calculated',<br>otherwise it will receive 'error'. |
 
 A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
 
