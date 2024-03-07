@@ -260,11 +260,15 @@
 <td><p>Optional: A list of stage indices to calculate a preview in</p></td>
 </tr>
 <tr class="row-even"><td><p><pre>dialog</pre></p></td>
-<td><p>Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string ‘calculated’</p></td>
+<td><p>Optional: A script dialog to message when preview calculation was successful.<br>If a calculation result is true, the dialog event handler will receive the event string ‘calculated’, otherwise it will receive ‘error’.</p></td>
 </tr>
 </tbody>
 </table>
 <p>A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>A preview calculation is implemented in the example <a class="reference internal" href="../python_examples/scripted_actuals/offset_point_v2.html"><span class="std std-doc">offset_point_v2</span></a>.</p>
+</div>
 </section>
 </section>
 <section id="the-calculation-function">
@@ -358,6 +362,10 @@
 </section>
 <section id="scripted-actuals-return-values">
 <h2>Scripted actuals - Return values<a class="headerlink" href="#scripted-actuals-return-values" title="Link to this heading"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The section <a class="reference internal" href="../python_examples/scripted_actuals.html"><span class="std std-doc">Python API Examples - scripted_actuals</span></a> provides an example for each element type.</p>
+</div>
 <section id="point">
 <h3>Point<a class="headerlink" href="#point" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -718,7 +726,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f762fe67e20>
+  <jinja2.runtime.BlockReference object at 0x7fc6a598c3d0>
 
 
 </footer>

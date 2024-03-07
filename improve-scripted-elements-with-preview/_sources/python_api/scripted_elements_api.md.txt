@@ -55,9 +55,13 @@ To calculate a preview, the `context.calc()` function can be invoked. It takes t
 | ----------------- | ---------------------------------------------------------------------------------- |
 | <pre>params</pre> | A map of parameters to be used for preview calculation                             |
 | <pre>stages</pre> | Optional: A list of stage indices to calculate a preview in                        |
-| <pre>dialog</pre> | Optional: A script dialog to message when preview calculation was successful.<br>The dialog event handler will receive the event string 'calculated' |
+| <pre>dialog</pre> | Optional: A script dialog to message when preview calculation was successful.<br>If a calculation result is true, the dialog event handler will receive the event string 'calculated', otherwise it will receive 'error'. |
 
 A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
+
+```{seealso}
+A preview calculation is implemented in the example [offset_point_v2](../python_examples/scripted_actuals/offset_point_v2.md).
+```
 
 ## The `calculation` function
 
@@ -111,6 +115,10 @@ On success the function must return True, otherwise False.
 % `context`: ...
 
 ## Scripted actuals - Return values
+
+```{seealso}
+The section [Python API Examples - scripted_actuals](../python_examples/scripted_actuals.md) provides an example for each element type.
+```
 
 ### Point
 

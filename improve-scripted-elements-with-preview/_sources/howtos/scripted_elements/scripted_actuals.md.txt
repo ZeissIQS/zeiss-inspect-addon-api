@@ -103,6 +103,9 @@ Now you've grasped the basic concept of scripted actuals. However, there are som
 * Error handling during calculation
 * Letting the user choose an element name in the dialog
 * Handling multiple stages
+* Preview calculation
 * ...
 
-To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` add-on, [documented here](../../python_examples/index.md). 
+To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` add-on, [documented here](../../python_examples/index.md).
+
+See [Scripted elements API](../../python_api/scripted_elements_api.md) for full details. 
