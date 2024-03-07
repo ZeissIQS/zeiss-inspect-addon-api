@@ -195,7 +195,7 @@ else:
     return color('#ff0000')
 ```
 
-See also [ZEISS Quality Tech Guide: Edit Expression (label background color)|https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html]
+See also [ZEISS Quality Tech Guide: Edit Expression (label background color)](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html)
 
 ## How do I check if the sensor warm-up is completed or how long it will take, respectively?
 
