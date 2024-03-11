@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>offset_point_v2 &mdash; Add-On Documentation</title>
+  <title>offset_point_v2 (Includes preview calculation) &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
@@ -95,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ex13_volume_region.html">ex13_volume_region</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ex14_volume_section.html">ex14_volume_section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offset_point_simple.html">offset_point_simple</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">offset_point_v2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">offset_point_v2 (Includes preview calculation)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripted_element_progress.html">scripted_element_progress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trimesh_deform_mesh.html">trimesh_deform_mesh</a></li>
 </ul>
@@ -124,7 +124,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../scripted_actuals.html">scripted_actuals</a></li>
-      <li class="breadcrumb-item active">offset_point_v2</li>
+      <li class="breadcrumb-item active">offset_point_v2 (Includes preview calculation)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -133,8 +133,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="offset-point-v2">
-<h1>offset_point_v2<a class="headerlink" href="#offset-point-v2" title="Link to this heading"></a></h1>
+  <section id="offset-point-v2-includes-preview-calculation">
+<h1>offset_point_v2 (Includes preview calculation)<a class="headerlink" href="#offset-point-v2-includes-preview-calculation" title="Link to this heading"></a></h1>
 <p><img alt="" src="../../_images/offset_point_v2.jpg" /></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
@@ -145,7 +145,7 @@ It shows how to enhance user experience using preview calculation and error hand
 <h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
 <section id="preview-calculation">
 <h3>Preview calculation<a class="headerlink" href="#preview-calculation" title="Link to this heading"></a></h3>
-<p>From many of the built-in commands of the GOM Software, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.</p>
+<p>From many of the built-in commands of ZEISS INSPECT, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.</p>
 <p>To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: <a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">How-to: User-defined dialogs</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
 <span class="linenos"> 2</span>  <span class="c1"># No treatment of system events</span>
@@ -265,7 +265,7 @@ It shows how to enhance user experience using preview calculation and error hand
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f9ba23899f0>
+  <jinja2.runtime.BlockReference object at 0x7f2c434f76a0>
 
 
 </footer>
