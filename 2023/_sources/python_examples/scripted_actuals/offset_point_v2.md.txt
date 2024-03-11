@@ -1,4 +1,4 @@
-# offset_point_v2
+# offset_point_v2 (Includes preview calculation)
 
 ![](offset_point_v2.jpg)
 ## Short description
@@ -10,7 +10,7 @@ It shows how to enhance user experience using preview calculation and error hand
 
 ### Preview calculation
 
-From many of the built-in commands of the GOM Software, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.
+From many of the built-in commands of ZEISS INSPECT, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.
 
 To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: [How-to: User-defined dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)). 
 
