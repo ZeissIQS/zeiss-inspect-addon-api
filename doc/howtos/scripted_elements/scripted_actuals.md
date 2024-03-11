@@ -91,11 +91,6 @@ After clicking "OK", a "My scripted point" element is created and visible in the
 
 ![](assets/scripted_actual_explorer.jpg)
 
-
-```{seealso}
-The code of the example can also be found in the `Python API Examples` add-on, which contains many more examples, along with [Example documentation](../../python_examples/index.md).
-```
-
 ## Further reading
 
 Now you've grasped the basic concept of scripted actuals. However, there are some relevant topics missing to complete a fully-integrated experience of a scripted actual. E.g. you might have noticed that we did not cover:
@@ -103,6 +98,11 @@ Now you've grasped the basic concept of scripted actuals. However, there are som
 * Error handling during calculation
 * Letting the user choose an element name in the dialog
 * Handling multiple stages
+* Preview calculation
 * ...
 
-To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` add-on, [documented here](../../python_examples/index.md). 
+To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` Add-on, [documented here](../../python_examples/scripted_actuals.md).
+
+```{seealso}
+[Scripted elements API](../../python_api/scripted_elements_api.md)
+```
