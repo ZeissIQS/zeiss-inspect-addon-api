@@ -79,7 +79,9 @@ In the example below, all selections are restricted to a specific part (part nam
    
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal_part']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal_part'
+       ]}
    )
    ```
    
@@ -87,15 +89,19 @@ In the example below, all selections are restricted to a specific part (part nam
 
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual_part']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual_part'
+       ]}
    )
    ```
    
-4. Nominal elements
+4. Nominal Elements
 
    ```
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+       ]}
    )
    ```
    
@@ -103,8 +109,10 @@ In the example below, all selections are restricted to a specific part (part nam
    
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
-       'object_family', 'geometrical_element']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
+           'object_family', 'geometrical_element'
+       ]}
    )
    ```
    
@@ -112,8 +120,10 @@ In the example below, all selections are restricted to a specific part (part nam
 
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
-        'object_family', 'geometrical_element', 'type', 'inspection_plane']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
+           'object_family', 'geometrical_element', 'type', 'inspection_plane'
+       ]}
    )
    ```
    
@@ -129,7 +139,9 @@ In the example below, all selections are restricted to a specific part (part nam
 
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'inspection']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'inspection'
+       ]}
    )
    ```
 
@@ -137,7 +149,9 @@ In the example below, all selections are restricted to a specific part (part nam
 
    ```{code-block} Python
    elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']}
+       {'category': [
+           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual'
+       ]}
    )
    ```
    
