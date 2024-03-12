@@ -13,7 +13,11 @@ You record an element selection by marking the desired groups of elements in the
 ![Explorer - Nominal Elements selected](assets/explorer-element_selection-1.png)
 
 ```{code-block} python
-gom.script.cad.show_element (elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}))
+gom.script.cad.show_element (
+    elements=gom.ElementSelection (
+        {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+    )
+)
 ```
 
 ## Accessing elements in a selection
@@ -21,7 +25,9 @@ gom.script.cad.show_element (elements=gom.ElementSelection ({'category': ['key',
 `ElementSelection` is a reference to the selected elements:
 
 ```{code-block} Python
-elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
+elements=gom.ElementSelection (
+    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+)
 print(elements)
 # output: gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
 ```
@@ -29,7 +35,9 @@ print(elements)
 To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an iteration:
 
 ```{code-block} Python
-elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
+elements=gom.ElementSelection (
+    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+)
 
 for element in elements:
     print(element.name)
@@ -41,7 +49,9 @@ for element in elements:
 
 You use the Python list comprehension to get a list of element references:
 ```{code-block} Python
-elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
+elements=gom.ElementSelection (
+    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+)
 
 element_list = [element for element in elements]
 print(element_list)
@@ -60,37 +70,51 @@ In the example below, all selections are restricted to a specific part (part nam
 1. Part
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part']]})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part']]}
+   )
    ```
 
 2. CAD (Nominal part)
    
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal_part']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal_part']}
+   )
    ```
    
 3. Mesh (Actual part)
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual_part']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual_part']}
+   )
    ```
    
 4. Nominal elements
 
    ```
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+   )
    ```
    
 5. Nominal Elements &mdash; Geometries
    
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal', 'object_family', 'geometrical_element']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
+       'object_family', 'geometrical_element']}
+   )
    ```
    
 6. Nominal Elements &mdash; Geometries &mdash; Planes 
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal', 'object_family', 'geometrical_element', 'type', 'inspection_plane']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal',
+        'object_family', 'geometrical_element', 'type', 'inspection_plane']}
+   )
    ```
    
 7. Nominal Elements &mdash; Geometries &mdash; Planes mdash; Plane 1 
@@ -104,19 +128,25 @@ In the example below, all selections are restricted to a specific part (part nam
 8. Inspection
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'inspection']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'inspection']}
+   )
    ```
 
 9. Actual Elements
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']}
+   )
    ```
    
 10. Tags
 
    ```{code-block} Python
-   elements=gom.ElementSelection ({'category': ['key', 'elements', 'explorer_category', 'tags']})
+   elements=gom.ElementSelection (
+       {'category': ['key', 'elements', 'explorer_category', 'tags']}
+   )
    ```
 
 ## Syntax
@@ -160,7 +190,8 @@ ElementSelection(
 You can also use the `ElementSelection` command with multiple selection filters:
 
 ```{code-block} Python
-elements = gom.ElementSelection({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']},
-		                        {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']}
+elements = gom.ElementSelection(
+    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']},
+    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']}
 )
 ```
