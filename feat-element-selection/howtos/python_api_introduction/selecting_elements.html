@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selecting elements in scripts &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/python_api_introduction/selecting_elements.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using the Add-on Editor" href="../using_add_on_editor/using_add_on_editor.html" />
+    <link rel="prev" title="ZEISS INSPECT Python API Introduction" href="python_api_introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Selecting elements in scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recording-element-selections">Recording element selections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-elements-in-a-selection">Accessing elements in a selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Selecting elements in scripts</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="selecting-elements-in-scripts">
+<h1>Selecting elements in scripts<a class="headerlink" href="#selecting-elements-in-scripts" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>Selecting elements using <code class="docutils literal notranslate"><span class="pre">gom.ElementSelection()</span></code> has been mentioned in <a class="reference internal" href="python_api_introduction.html"><span class="std std-doc">ZEISS INSPECT Python API Introduction</span></a> briefly. This section describes how <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> is used in more details.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You are advised to create element selections by script recording, because this is less error-prone than programming the needed command parameters.</p>
+</div>
+<section id="recording-element-selections">
+<h2>Recording element selections<a class="headerlink" href="#recording-element-selections" title="Link to this heading"></a></h2>
+<p>You record an element selection by marking the desired groups of elements in the Explorer and executing a command on this selection. For convenience, you can use the command <code class="docutils literal notranslate"><span class="pre">gom.script.cad.show_element()</span></code> (shortcut: <code class="docutils literal notranslate"><span class="pre">v</span></code>) and replace it by the actual command in the script later. You can also select multiple elements at once.</p>
+<p><img alt="Explorer - Nominal Elements selected" src="../../_images/explorer-element_selection-1.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">cad</span><span class="o">.</span><span class="n">show_element</span> <span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]}))</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-elements-in-a-selection">
+<h2>Accessing elements in a selection<a class="headerlink" href="#accessing-elements-in-a-selection" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> is a reference to the selected elements:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+<span class="c1"># output: gom.ElementSelection ({&#39;category&#39;: [&#39;key&#39;, &#39;elements&#39;, &#39;part&#39;, gom.app.project.parts[&#39;Part&#39;], &#39;explorer_category&#39;, &#39;nominal&#39;]})</span>
+</pre></div>
+</div>
+<p>To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an iteration:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]})</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="c1"># Example output:</span>
+<span class="c1"># Plane 1</span>
+<span class="c1"># Plane 2</span>
+<span class="c1"># Circle 1</span>
+</pre></div>
+</div>
+<p>You use the Python list comprehension to get a list of element references:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]})</span>
+
+<span class="n">element_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">element_list</span><span class="p">)</span>
+<span class="c1"># example output: [gom.app.project.inspection[&#39;Plane 1&#39;], gom.app.project.inspection[&#39;Plane 2&#39;], gom.app.project.inspection[&#39;Circle 1&#39;]]</span>
+</pre></div>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>The following Explorer element tree is used to give some <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> examples:
+<img alt="Explorer - Examples" src="../../_images/explorer-elements_with_labels.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the example below, all selections are restricted to a specific part (part name: <code class="docutils literal notranslate"><span class="pre">Part</span></code>). You can omit the filter <code class="docutils literal notranslate"><span class="pre">'part',</span> <span class="pre">gom.app.project.parts['Part']</span></code> to get a selection across any part or — if the project contains multiple parts ‐ all parts.</p>
+</div>
+<ol class="arabic">
+<li><p>Part</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>CAD (Nominal part)</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal_part&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mesh (Actual part)</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual_part&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Nominal elements</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Nominal Elements — Geometries</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">,</span> <span class="s1">&#39;object_family&#39;</span><span class="p">,</span> <span class="s1">&#39;geometrical_element&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Nominal Elements — Geometries — Planes</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">,</span> <span class="s1">&#39;object_family&#39;</span><span class="p">,</span> <span class="s1">&#39;geometrical_element&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;inspection_plane&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Nominal Elements — Geometries — Planes mdash; Plane 1</p>
+<p>💡 The leaf nodes of the element tree are elements, not element selections!</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Plane 1&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Inspection</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;inspection&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Actual Elements</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</li>
+<li><p>Tags</p></li>
+</ol>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</section>
+<section id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ElementSelection</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span>
+        <span class="p">[,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">part_reference</span><span class="o">&gt;</span><span class="p">],</span>
+        <span class="p">[,</span> <span class="s1">&#39;is_element_in_clipboard&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span> <span class="o">|</span>
+                                      <span class="s1">&#39;False&#39;</span>
+        <span class="p">]</span>
+        <span class="p">[,</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">:</span> <span class="s1">&#39;measurements&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;nominal_part&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;actual_part&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;linked_volumes&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;nominal&#39;</span> <span class="o">|</span> 
+                                <span class="s1">&#39;inspection&#39;</span> <span class="o">|</span> 
+                                <span class="s1">&#39;actual&#39;</span> <span class="o">|</span> 
+                                <span class="s1">&#39;coordinate_systems&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;alignment&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;reports&#39;</span> <span class="o">|</span> 
+                                <span class="s1">&#39;stage_ranges&#39;</span> <span class="o">|</span>
+                                <span class="s1">&#39;tags&#39;</span> <span class="o">|</span> 
+                                <span class="o">...</span> 
+                                  <span class="p">[,</span> <span class="s1">&#39;object_family&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">object_family_name</span><span class="o">&gt;</span> <span class="p">[,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">type_name</span><span class="o">&gt;</span><span class="p">]]</span>
+        <span class="p">]</span>
+    <span class="p">]}</span>
+<span class="p">)</span>
+
+<span class="n">ElementSelection</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;overview_explorer_categories&#39;</span><span class="p">,</span> <span class="s1">&#39;required_for&#39;</span> <span class="o">|</span> 
+                                        <span class="s1">&#39;depends_on&#39;</span>
+    <span class="p">]}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> command with multiple selection filters:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span><span class="p">]},</span>
+		                        <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">]}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_api_introduction.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using_add_on_editor/using_add_on_editor.html" class="btn btn-neutral float-right" title="Using the Add-on Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fe8b34a36a0>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
