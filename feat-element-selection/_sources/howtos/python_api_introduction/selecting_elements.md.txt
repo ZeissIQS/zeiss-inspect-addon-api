@@ -54,7 +54,9 @@ for element in elements:
 You use the Python list comprehension to get a list of element references:
 ```{code-block} Python
 elements=gom.ElementSelection (
-    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+    {'category': [
+        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+    ]}
 )
 
 element_list = [element for element in elements]
