@@ -66,7 +66,7 @@ Using a Python comprehension, you can add another filtering condition:
 ```{code-block} Python
 element_list = [ element for element in elements if element.name.endswith(' 1') ]
 # Example output:
- [gom.app.project.inspection['Plane 1'], gom.app.project.inspection['Circle 1']]
+# [gom.app.project.inspection['Plane 1'], gom.app.project.inspection['Circle 1']]
 ```
 
 ## Examples
