@@ -228,13 +228,6 @@ ElementSelection (
     ]}
 )
 
-ElementSelection (
-    {'category': [
-        'key', 'elements',
-        'overview_explorer_categories', 'required_for' | 
-                                        'depends_on'
-    ]}
-)
 
 ElementSelection (
     {'category': [...]},
@@ -247,6 +240,15 @@ ElementSelection (
              
 )
 ```
+
+% The following also depends on the elements selected in the 3D view
+% ElementSelection (
+%    {'category': [
+%        'key', 'elements',
+%        'overview_explorer_categories', 'required_for' | 
+%                                        'depends_on'
+%    ]}
+%)
 
 You can also use the `ElementSelection` command with multiple selection filters:
 
