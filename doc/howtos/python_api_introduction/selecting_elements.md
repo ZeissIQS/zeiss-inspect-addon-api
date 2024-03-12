@@ -16,7 +16,7 @@ You record an element selection by marking the desired groups of elements in the
 gom.script.cad.show_element (
     elements=gom.ElementSelection (
         {'category': [
-            key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+            'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
         ]}
     )
 )
@@ -40,12 +40,6 @@ print(elements)
 To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an iteration:
 
 ```{code-block} Python
-elements=gom.ElementSelection (
-    {'category': [
-        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
-    ]}
-)
-
 for element in elements:
     print(element.name)
 # Example output:
@@ -56,12 +50,6 @@ for element in elements:
 
 You use the Python list comprehension to get a list of element references:
 ```{code-block} Python
-elements=gom.ElementSelection (
-    {'category': [
-        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
-    ]}
-)
-
 element_list = [element for element in elements]
 print(element_list)
 # example output: 
