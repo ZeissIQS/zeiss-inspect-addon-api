@@ -136,7 +136,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">cad</span><span class="o">.</span><span class="n">show_element</span> <span class="p">(</span>
     <span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
         <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="n">key</span><span class="s1">&#39;, &#39;</span><span class="n">elements</span><span class="s1">&#39;, &#39;</span><span class="n">part</span><span class="s1">&#39;, gom.app.project.parts[&#39;</span><span class="n">Part</span><span class="s1">&#39;], &#39;</span><span class="n">explorer_category</span><span class="s1">&#39;, &#39;</span><span class="n">nominal</span><span class="s1">&#39;</span>
+            <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span>
         <span class="p">]}</span>
     <span class="p">)</span>
 <span class="p">)</span>
@@ -157,13 +157,7 @@
 </pre></div>
 </div>
 <p>To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an iteration:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span>
-    <span class="p">]}</span>
-<span class="p">)</span>
-
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="c1"># Example output:</span>
 <span class="c1"># Plane 1</span>
@@ -172,13 +166,7 @@
 </pre></div>
 </div>
 <p>You use the Python list comprehension to get a list of element references:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span>
-    <span class="p">]}</span>
-<span class="p">)</span>
-
-<span class="n">element_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">element_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">element_list</span><span class="p">)</span>
 <span class="c1"># example output: </span>
 <span class="c1"># [gom.app.project.inspection[&#39;Plane 1&#39;], gom.app.project.inspection[&#39;Plane 2&#39;], gom.app.project.inspection[&#39;Circle 1&#39;]]</span>
@@ -348,7 +336,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fde722809a0>
+  <jinja2.runtime.BlockReference object at 0x7effdcf7dc60>
 
 
 </footer>
