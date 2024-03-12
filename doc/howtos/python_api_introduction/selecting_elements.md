@@ -22,6 +22,10 @@ gom.script.cad.show_element (
 )
 ```
 
+```{note}
+The parameter passed to `ElementSelection` is a dictionary with the key `'category'` and a list as value. The items in this list are essentially key - value pairs.
+```
+
 ## Accessing elements in a selection
 
 `ElementSelection` is a reference to the selected elements:
@@ -48,13 +52,22 @@ for element in elements:
 # Circle 1
 ```
 
-You use the Python list comprehension to get a list of element references:
+To get a list of element references, you use:
+
 ```{code-block} Python
-element_list = [element for element in elements]
+element_list = list(elements)
 print(element_list)
-# example output: 
+# Example output: 
 # [gom.app.project.inspection['Plane 1'], gom.app.project.inspection['Plane 2'], gom.app.project.inspection['Circle 1']]
 ```  
+
+Using a Python comprehension, you can add another filtering condition:
+
+```{code-block} Python
+element_list = [ element for element in elements if element.name.endswith(' 1') ]
+# Example output:
+ [gom.app.project.inspection['Plane 1'], gom.app.project.inspection['Circle 1']]
+```
 
 ## Examples
 
@@ -73,22 +86,22 @@ In the examples below, all selections are restricted to a specific part (part na
    )
    ```
 
-2. CAD (Nominal part)
+2. CAD Elements (Nominal part)
    
    ```{code-block} Python
    elements=gom.ElementSelection (
        {'category': [
-           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal_part'
+           'key', 'elements', 'explorer_category', 'nominal_part'
        ]}
    )
    ```
    
-3. Mesh (Actual part)
+3. Mesh Elements (Actual part)
 
    ```{code-block} Python
    elements=gom.ElementSelection (
        {'category': [
-           'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual_part'
+           'key', 'elements', 'explorer_category', 'actual_part'
        ]}
    )
    ```
