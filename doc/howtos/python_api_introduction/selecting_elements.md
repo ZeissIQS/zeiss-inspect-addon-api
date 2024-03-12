@@ -75,7 +75,7 @@ The following Explorer element tree is used to give some `ElementSelection` exam
 ![Explorer - Examples](assets/explorer-elements_with_labels.png)
 
 ```{note}
-In the examples below, all selections are restricted to a specific part (part name: `Part`). You can omit the filter specification `'part', gom.app.project.parts['Part']` to get a selection across any part or &mdash; if the project contains multiple parts &dash; all parts.
+In the examples below, all selections are restricted to a specific part (part name: `Part`). You can omit the filter specification `'part', gom.app.project.parts['Part']` to get a selection across any part or &mdash; if the project contains multiple parts &mdash; all parts.
 ```
 
 1. Part
