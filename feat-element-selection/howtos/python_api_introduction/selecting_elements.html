@@ -142,6 +142,10 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameter passed to <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> is a dictionary with the key <code class="docutils literal notranslate"><span class="pre">'category'</span></code> and a list as value. The items in this list are essentially key - value pairs.</p>
+</div>
 </section>
 <section id="accessing-elements-in-a-selection">
 <h2>Accessing elements in a selection<a class="headerlink" href="#accessing-elements-in-a-selection" title="Link to this heading"></a></h2>
@@ -165,11 +169,17 @@
 <span class="c1"># Circle 1</span>
 </pre></div>
 </div>
-<p>You use the Python list comprehension to get a list of element references:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">element_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+<p>To get a list of element references, you use:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">element_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">element_list</span><span class="p">)</span>
-<span class="c1"># example output: </span>
+<span class="c1"># Example output: </span>
 <span class="c1"># [gom.app.project.inspection[&#39;Plane 1&#39;], gom.app.project.inspection[&#39;Plane 2&#39;], gom.app.project.inspection[&#39;Circle 1&#39;]]</span>
+</pre></div>
+</div>
+<p>Using a Python comprehension, you can add another filtering condition:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">element_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span> <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39; 1&#39;</span><span class="p">)</span> <span class="p">]</span>
+<span class="c1"># Example output:</span>
+ <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Plane 1&#39;</span><span class="p">],</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Circle 1&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </section>
@@ -189,19 +199,19 @@
 </pre></div>
 </div>
 </li>
-<li><p>CAD (Nominal part)</p>
+<li><p>CAD Elements (Nominal part)</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal_part&#39;</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal_part&#39;</span>
     <span class="p">]}</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </li>
-<li><p>Mesh (Actual part)</p>
+<li><p>Mesh Elements (Actual part)</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual_part&#39;</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;actual_part&#39;</span>
     <span class="p">]}</span>
 <span class="p">)</span>
 </pre></div>
@@ -336,7 +346,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7effdcf7dc60>
+  <jinja2.runtime.BlockReference object at 0x7d707ef354b0>
 
 
 </footer>
