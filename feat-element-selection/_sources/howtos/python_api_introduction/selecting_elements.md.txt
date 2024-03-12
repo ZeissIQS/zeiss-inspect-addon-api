@@ -69,32 +69,6 @@ element_list = [ element for element in elements if element.name.endswith(' 1') 
  [gom.app.project.inspection['Plane 1'], gom.app.project.inspection['Circle 1']]
 ```
 
-## Explorer filter
-
-An Explorer Filter restricts the available elements to a certain criterion:
-
-![Explorer filter](assets/explorer-filter-1.png)
-
-![Explorer filter criteria](assets/explorer-filter-2.png)
-
-You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a subsequent `ElementSelection`:
-
-```{code-block} Python
-# Recorded command, can be deleted after copying the filter parameter to the ElementSelection
-gom.script.sys.create_explorer_filter (
-	filter={'param': 'Circle', 'type': 'by_name'}, 
-	uuid='00000000-0000-0000-0000-000000000000'
-)
-
-# Nominal elements with 'Circle' in name
-elements=gom.ElementSelection (
-    {'category': [
-        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
-    ]},
-    filter={'param': 'Circle', 'type': 'by_name'}
-)
-```
-
 ## Examples
 
 The following Explorer element tree is used to give some `ElementSelection` examples:
@@ -199,6 +173,32 @@ In the examples below, all selections are restricted to a specific part (part na
        {'category': ['key', 'elements', 'explorer_category', 'tags']}
    )
    ```
+
+## Explorer filter
+
+An Explorer Filter restricts the available elements to a certain criterion:
+
+![Explorer filter](assets/explorer-filter-1.png)
+
+![Explorer filter criteria](assets/explorer-filter-2.png)
+
+You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a subsequent `ElementSelection`:
+
+```{code-block} Python
+# Recorded command, can be deleted after copying the filter parameter to the ElementSelection
+gom.script.sys.create_explorer_filter (
+	filter={'param': 'Circle', 'type': 'by_name'}, 
+	uuid='00000000-0000-0000-0000-000000000000'
+)
+
+# Nominal elements with 'Circle' in name
+elements=gom.ElementSelection (
+    {'category': [
+        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+    ]},
+    filter={'param': 'Circle', 'type': 'by_name'}
+)
+```
 
 ## Syntax
 

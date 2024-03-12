@@ -55,8 +55,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Selecting elements in scripts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#recording-element-selections">Recording element selections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-elements-in-a-selection">Accessing elements in a selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#explorer-filter">Explorer filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explorer-filter">Explorer filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a></li>
 </ul>
 </li>
@@ -184,28 +184,6 @@
 </pre></div>
 </div>
 </section>
-<section id="explorer-filter">
-<h2>Explorer filter<a class="headerlink" href="#explorer-filter" title="Link to this heading"></a></h2>
-<p>An Explorer Filter restricts the available elements to a certain criterion:</p>
-<p><img alt="Explorer filter" src="../../_images/explorer-filter-1.png" /></p>
-<p><img alt="Explorer filter criteria" src="../../_images/explorer-filter-2.png" /></p>
-<p>You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a subsequent <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recorded command, can be deleted after copying the filter parameter to the ElementSelection</span>
-<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_explorer_filter</span> <span class="p">(</span>
-	<span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_name&#39;</span><span class="p">},</span> 
-	<span class="n">uuid</span><span class="o">=</span><span class="s1">&#39;00000000-0000-0000-0000-000000000000&#39;</span>
-<span class="p">)</span>
-
-<span class="c1"># Nominal elements with &#39;Circle&#39; in name</span>
-<span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span>
-    <span class="p">]},</span>
-    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_name&#39;</span><span class="p">}</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <p>The following Explorer element tree is used to give some <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code> examples:
@@ -301,6 +279,28 @@
 </pre></div>
 </div>
 </section>
+<section id="explorer-filter">
+<h2>Explorer filter<a class="headerlink" href="#explorer-filter" title="Link to this heading"></a></h2>
+<p>An Explorer Filter restricts the available elements to a certain criterion:</p>
+<p><img alt="Explorer filter" src="../../_images/explorer-filter-1.png" /></p>
+<p><img alt="Explorer filter criteria" src="../../_images/explorer-filter-2.png" /></p>
+<p>You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a subsequent <code class="docutils literal notranslate"><span class="pre">ElementSelection</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recorded command, can be deleted after copying the filter parameter to the ElementSelection</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_explorer_filter</span> <span class="p">(</span>
+	<span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_name&#39;</span><span class="p">},</span> 
+	<span class="n">uuid</span><span class="o">=</span><span class="s1">&#39;00000000-0000-0000-0000-000000000000&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Nominal elements with &#39;Circle&#39; in name</span>
+<span class="n">elements</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">],</span> <span class="s1">&#39;explorer_category&#39;</span><span class="p">,</span> <span class="s1">&#39;nominal&#39;</span>
+    <span class="p">]},</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_name&#39;</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ElementSelection</span> <span class="p">(</span>
@@ -380,7 +380,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f0ed5d92cb0>
+  <jinja2.runtime.BlockReference object at 0x7f58a5901c30>
 
 
 </footer>
