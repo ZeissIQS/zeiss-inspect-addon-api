@@ -26,7 +26,9 @@ gom.script.cad.show_element (
 
 ```{code-block} Python
 elements=gom.ElementSelection (
-    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+    {'category': [
+        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+    ]}
 )
 print(elements)
 # output: gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
@@ -36,7 +38,9 @@ To access the selected elements for reading their properties (e.g. element names
 
 ```{code-block} Python
 elements=gom.ElementSelection (
-    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']}
+    {'category': [
+        'key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal'
+    ]}
 )
 
 for element in elements:
@@ -166,10 +170,10 @@ In the example below, all selections are restricted to a specific part (part nam
 ## Syntax
 
 ```{code-block}
-ElementSelection(
+ElementSelection (
     {'category': [
         'key', 'elements'
-        [, 'part', <part_reference>],
+        [, 'part', <part_reference>]
         [, 'is_element_in_clipboard', 'True' |
                                       'False'
         ]
@@ -191,7 +195,7 @@ ElementSelection(
     ]}
 )
 
-ElementSelection(
+ElementSelection (
     {'category': [
         'key', 'elements',
         'overview_explorer_categories', 'required_for' | 
@@ -204,8 +208,8 @@ ElementSelection(
 You can also use the `ElementSelection` command with multiple selection filters:
 
 ```{code-block} Python
-elements = gom.ElementSelection(
-    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']},
-    {'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'actual']}
+elements = gom.ElementSelection (
+    {'category': ['key', 'elements', 'explorer_category', 'nominal']},
+    {'category': ['key', 'elements', 'explorer_category', 'actual']}
 )
 ```
