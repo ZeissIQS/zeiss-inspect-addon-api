@@ -210,7 +210,7 @@ ElementSelection (
         [, 'is_element_in_clipboard', 'True' |
                                       'False'
         ]
-        [, 'explorer_category': 'measurements' |
+        [, 'explorer_category', 'measurements' |
                                 'nominal_part' |
                                 'actual_part' |
                                 'linked_volumes' |
@@ -223,7 +223,7 @@ ElementSelection (
                                 'stage_ranges' |
                                 'tags' | 
                                 ... 
-                                  [, 'object_family', <object_family_name> [, 'type': <type_name>]]
+                                  [, 'object_family', <object_family_name> [, 'type', <type_name>]]
         ]
     ]}
 )
