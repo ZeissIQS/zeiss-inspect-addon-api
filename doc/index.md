@@ -37,6 +37,7 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240314-internationalization-tool-update
    news/20240307-mesh-selection
    news/20240307-csharp_dotnet
    news/20240209-test-coverage
