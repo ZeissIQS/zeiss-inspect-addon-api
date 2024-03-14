@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripted actuals &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/scripted_elements/scripted_actuals.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Scripted checks" href="scripted_checks.html" />
+    <link rel="prev" title="Introduction to scripted elements" href="scripted_elements_introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="scripted_elements_toc.html">Scripted elements</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="scripted_elements_introduction.html">Introduction to scripted elements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripted actuals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-simple-offset-point">Example: Simple offset point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dialog"><code class="docutils literal notranslate"><span class="pre">dialog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculation"><code class="docutils literal notranslate"><span class="pre">calculation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-example">Running the example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_checks.html">Scripted checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokens_on_scripted_elements.html">Tokens on scripted elements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="scripted_elements_toc.html">Scripted elements</a></li>
+      <li class="breadcrumb-item active">Scripted actuals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripted-actuals">
+<h1>Scripted actuals<a class="headerlink" href="#scripted-actuals" title="Link to this heading"></a></h1>
+<p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
+<p>Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the “Actual Element” category of the ZEISS INSPECT Element Explorer.</p>
+<p>In this how-to, the creation of a very basic point element is presented to show how scripted actuals are developed by example.</p>
+<section id="example-simple-offset-point">
+<h2>Example: Simple offset point<a class="headerlink" href="#example-simple-offset-point" title="Link to this heading"></a></h2>
+<p>Assume we want to create a scripted point. A point, whose position is just offset by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.</p>
+<p>As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose “Actual element” -&gt; “Point”.</p>
+<p><img alt="" src="../../_images/offset_point_creation_type.jpg" /></p>
+<p>Then, we write the code, which needs a <code class="docutils literal notranslate"><span class="pre">dialog</span></code> and a <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function. Let’s begin with the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function.</p>
+<section id="dialog">
+<h3><code class="docutils literal notranslate"><span class="pre">dialog</span></code><a class="headerlink" href="#dialog" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>	<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span> <span class="o">&lt;</span><span class="n">Dialog</span> <span class="n">JSON</span> <span class="n">code</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>	<span class="k">if</span> <span class="s1">&#39;x&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<span class="linenos"> 6</span>		<span class="n">DIALOG</span><span class="o">.</span><span class="n">i_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="linenos"> 7</span>	<span class="k">if</span> <span class="s1">&#39;base&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<span class="linenos"> 8</span>		<span class="n">DIALOG</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>	<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+<span class="linenos">11</span>	
+<span class="linenos">12</span>	<span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_x</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">13</span>	<span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">14</span>	
+<span class="linenos">15</span>	<span class="n">context</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;My scripted point&#39;</span>
+<span class="linenos">16</span>	<span class="k">return</span> <span class="n">params</span>
+</pre></div>
+</div>
+<p>As you can see, the function takes the parameters <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>. Although the <code class="docutils literal notranslate"><span class="pre">context</span></code> object has several members, for now we will only use it to set a name for our scripted element (line 15). The main objective of our dialog function is to fill the second parameter, the <code class="docutils literal notranslate"><span class="pre">params</span></code> map (python type: dictionary).</p>
+<p>In this case, we want to ask the user on which point our offset-point should be based on, and by how much the point should be offset. We <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">create a user dialog</span></a> and in the dialog editor, we add two input widgets:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Decimal</span></code>: a decimal widget for the offset input</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">-&gt;</span> <span class="pre">Selection</span> <span class="pre">element</span></code>: an element widget to select a point-like element</p></li>
+</ul>
+<p><img alt="" src="../../_images/offset_point_dialog.jpg" /></p>
+<p>It’s important to note the widgets’ <em>Object name</em>s, so we can adress them in the code. Second, it’s important to set the “Type” of the selection element widget to <code class="docutils literal notranslate"><span class="pre">Any</span> <span class="pre">point</span></code>, so the user gets only the choice between elements that offer some point information.</p>
+<p>When finished with dialog creation, we have our desired JSON code, which we can use as a parameter for the <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_user_defined_dialog</span></code> command (line 3). This gives as a <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> handle, which we will use further.</p>
+<p>In case the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function is called from “Edit creation parameters”, e.g the user wants to change parameters after the element was already created, the <code class="docutils literal notranslate"><span class="pre">params</span></code> map is not empty. Instead, it holds the <em>command parameters</em> from the last creation. Hence, we should prefill our DIALOG’s widgets with the current values (see line 5 to 8). We can access the values of the widgets using the dialog handle and widgets’ object names: <code class="docutils literal notranslate"><span class="pre">DIALOG.&lt;widget</span> <span class="pre">name&gt;.value</span></code>.</p>
+<p>Then, the dialog is shown to the user (line 10) and afterwards the results are collected (lines 12/13). After setting the element name, the parameters are returned. The framework then continues to call the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function.</p>
+</section>
+<section id="calculation">
+<h3><code class="docutils literal notranslate"><span class="pre">calculation</span></code><a class="headerlink" href="#calculation" title="Link to this heading"></a></h3>
+<p>In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values as necessary.
+However, in this example, things are easy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>  <span class="n">base</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span>
+<span class="linenos">4</span>  <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span>  <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>The parameters of the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function are again <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>. From the <code class="docutils literal notranslate"><span class="pre">params</span></code>, we can access the selected point element using <code class="docutils literal notranslate"><span class="pre">params['base']</span></code>.
+What we get is a <code class="docutils literal notranslate"><span class="pre">gom.Reference</span></code> to the element the user selected. We can now <a class="reference internal" href="../python_api_introduction/python_api_introduction.html#access-element-properties"><span class="std std-ref">access the element’s properties</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">center_coordinate</span></code>.</p>
+<p>Finally, we have to fill the <code class="docutils literal notranslate"><span class="pre">context.result</span></code> member. Depending on the scripted element type we want to create, it takes different formats.
+As described in the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API reference</span></a>, a point element takes a coordinate tuple <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>.
+The result for stage <code class="docutils literal notranslate"><span class="pre">0</span></code> (we ignore other stages for this example) is set in line 4. We return <code class="docutils literal notranslate"><span class="pre">True</span></code> to indicate the computation went fine.</p>
+</section>
+<section id="running-the-example">
+<h3>Running the example<a class="headerlink" href="#running-the-example" title="Link to this heading"></a></h3>
+<p>That’s it! When we now run the example, the dialog appears, we can select base point and offset value.</p>
+<p><img alt="" src="../../_images/offset_point_user_dialog.jpg" /></p>
+<p>After clicking “OK”, a “My scripted point” element is created and visible in the explorer.</p>
+<p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p>Now you’ve grasped the basic concept of scripted actuals. However, there are some relevant topics missing to complete a fully-integrated experience of a scripted actual. E.g. you might have noticed that we did not cover:</p>
+<ul class="simple">
+<li><p>Error handling during calculation</p></li>
+<li><p>Letting the user choose an element name in the dialog</p></li>
+<li><p>Handling multiple stages</p></li>
+<li><p>Preview calculation</p></li>
+<li><p>…</p></li>
+</ul>
+<p>To learn about these mechanisms, you should take a look at the more sophisticated examples of our <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> Add-on, <a class="reference internal" href="../../python_examples/scripted_actuals.html"><span class="std std-doc">documented here</span></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API</span></a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scripted_elements_introduction.html" class="btn btn-neutral float-left" title="Introduction to scripted elements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripted_checks.html" class="btn btn-neutral float-right" title="Scripted checks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x711f2e1cd150>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
