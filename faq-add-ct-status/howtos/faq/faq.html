@@ -321,7 +321,11 @@
 <p>The command <code class="docutils literal notranslate"><span class="pre">gom.script.ct.get_system_status()</span></code> provides the same information as the System Status dialog. The actual content depends on the CT scanner model.</p>
 <p>Example (ZEISS METROTOM 1):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">get_system_status</span><span class="p">())</span>
-<span class="p">{</span><span class="s1">&#39;cathode_operation_time&#39;</span><span class="p">:</span> <span class="mi">1727372</span><span class="p">,</span> <span class="s1">&#39;high_voltage_in_kv&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;is_activatable&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;is_cooling_system_running&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;is_key_switch_ok&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;is_self_adjustment_running&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;is_system_safeguarded&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;is_xray_source_ready&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;max_high_voltage_in_kv&#39;</span><span class="p">:</span> <span class="mf">160.0</span><span class="p">,</span> <span class="s1">&#39;power_in_w&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<span class="c1"># Example output:</span>
+<span class="c1"># {&#39;cathode_operation_time&#39;: 1727372, &#39;high_voltage_in_kv&#39;: 0.0, &#39;is_activatable&#39;: True,</span>
+<span class="c1"># &#39;is_cooling_system_running&#39;: True, &#39;is_key_switch_ok&#39;: True, &#39;is_self_adjustment_running&#39;: False,</span>
+<span class="c1"># &#39;is_system_safeguarded&#39;: True, &#39;is_xray_source_ready&#39;: True, &#39;max_high_voltage_in_kv&#39;: 160.0,</span>
+<span class="c1"># &#39;power_in_w&#39;: 0.0}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cathode_operation_time</span></code> is given in seconds.</p>
@@ -415,7 +419,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x72b510cf2a70>
+  <jinja2.runtime.BlockReference object at 0x7b285f061de0>
 
 
 </footer>
