@@ -4,8 +4,19 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Thu, 14 Mar 2024 13:53:42 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 14 Mar 2024 14:06:57 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Update of Internationalization Tools Add-on</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240314-internationalization-tool-update.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Did you know that you can easily provide you Add-on’s user interface in multiple languages? See &lt;a href="../howtos/localization/localization.html"&gt;Localization of Add-ons&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;An updated version of the Add-on ‘Internationalization Tools’ is now available in the ZQS Store.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240314-internationalization-tool-update.html</guid>
+      <pubDate>Thu, 14 Mar 2024 15:30:00 GMT</pubDate>
+    </item>
     <item>
       <title>How can I access the coordinates of a selection on a mesh?</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240307-mesh-selection.html</link>
