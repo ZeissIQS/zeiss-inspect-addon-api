@@ -215,7 +215,11 @@ Example (ZEISS METROTOM 1):
 
 ```{code-block} python
 print(gom.script.ct.get_system_status())
-{'cathode_operation_time': 1727372, 'high_voltage_in_kv': 0.0, 'is_activatable': True, 'is_cooling_system_running': True, 'is_key_switch_ok': True, 'is_self_adjustment_running': False, 'is_system_safeguarded': True, 'is_xray_source_ready': True, 'max_high_voltage_in_kv': 160.0, 'power_in_w': 0.0}
+# Example output:
+# {'cathode_operation_time': 1727372, 'high_voltage_in_kv': 0.0, 'is_activatable': True,
+# 'is_cooling_system_running': True, 'is_key_switch_ok': True, 'is_self_adjustment_running': False,
+# 'is_system_safeguarded': True, 'is_xray_source_ready': True, 'max_high_voltage_in_kv': 160.0,
+# 'power_in_w': 0.0}
 ```
 
 `cathode_operation_time` is given in seconds.
