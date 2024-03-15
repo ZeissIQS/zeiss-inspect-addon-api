@@ -205,6 +205,27 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
 
+## How can I get the CT scanner's system status &mdash; including cathode operation time?
+
+![CT System Status Dialog](assets/ct_system_status.png)
+
+The command `gom.script.ct.get_system_status()` provides the same information as the System Status dialog. The actual content depends on the CT scanner model.
+
+Example (ZEISS METROTOM 1):
+
+```{code-block} python
+print(gom.script.ct.get_system_status())
+# Example output:
+# {'cathode_operation_time': 1727372, 'high_voltage_in_kv': 0.0, 'is_activatable': True,
+# 'is_cooling_system_running': True, 'is_key_switch_ok': True, 'is_self_adjustment_running': False,
+# 'is_system_safeguarded': True, 'is_xray_source_ready': True, 'max_high_voltage_in_kv': 160.0,
+# 'power_in_w': 0.0}
+```
+
+`cathode_operation_time` is given in seconds.
+
+(Added in SW2023 Service Pack2)
+
 ## How do I use a C# / .NET library in an Add-on?
 
 First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your Add-on.
