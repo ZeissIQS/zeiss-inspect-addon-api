@@ -1,6 +1,6 @@
 # Using an additional Python GUI library
 
-> Abstract: The Add-on Editor and the Dialog Designer provide an easy and convenient way of adding a graphical user interface to your Add-on &mdash; see <a href="../python_api_introduction/user_defined_dialogs.md">User-defined dialogs</a>. GUIs which are created this way seamlessly integrate into the look and feel of ZEISS INSPECT. However, there are reasons why using a separate Python GUI library might be preferred. This article gives a brief overview on use-cases, options and installation.
+> Abstract: The Add-on Editor and the Dialog Designer provide an easy and convenient way of adding a graphical user interface to your Add-on &mdash; see <a href="../python_api_introduction/user_defined_dialogs.html">User-defined dialogs</a>. GUIs which are created this way seamlessly integrate into the look and feel of ZEISS INSPECT. However, there are reasons why using a separate Python GUI library might be preferred. This article gives a brief overview on use-cases, options and installation.
 
 ## Use-cases
 
@@ -28,11 +28,11 @@ Tkinter's look and feel differs significantly from the usual Windows/ZEISS INSPE
 
 ### Installing PyQt
 
-Both PyQt5 and PyQt6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>. Additionally, the Python packages `PyQt5-sip` or `PyQt6-sip`, respectively,  have to be installed with the Add-on Explorer.
+Both PyQt5 and PyQt6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a>. Additionally, the Python packages `PyQt5-sip` or `PyQt6-sip`, respectively,  have to be installed with the Add-on Explorer.
 
 ### Installing PySide
 
-Both PySide2 and PySide6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.md">Using Python wheelhouses</a>.
+Both PySide2 and PySide6 have to be installed as described in <a href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a>.
 
 ### Tkinter
 

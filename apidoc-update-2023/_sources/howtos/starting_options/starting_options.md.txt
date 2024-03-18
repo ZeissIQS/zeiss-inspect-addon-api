@@ -8,7 +8,7 @@ You normally start the ZEISS INSPECT application from the ZEISS Quality Suite. I
 * From the Add-on Editor
 * Via Add-on ► Execute Script
 * Via Add-on ► Execute Script From File... 
-* From a customized entry in the menu bar (Script properties dialog ► Edit menu bar... - see [ZEISS Quality Tech Guide: How to Create an Advanced Add-on](https://test-techguide.zeiss.org/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html) for details)
+* From a customized entry in the menu bar (Script properties dialog ► Edit menu bar... - see [ZEISS Quality Tech Guide: How to Create an Advanced Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html) for details)
 
 ## Starting a script from the Windows command line
 

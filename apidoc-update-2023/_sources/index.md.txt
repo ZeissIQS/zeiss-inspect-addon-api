@@ -37,6 +37,10 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240315-element-selection
+   news/20240314-internationalization-tool-update
+   news/20240307-mesh-selection
+   news/20240307-csharp_dotnet
    news/20240209-test-coverage
    news/20240205-using-gui-libraries
    news/20240130-working-with-stages
@@ -57,6 +61,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    :caption: How-to Guides
 
    howtos/python_api_introduction/python_api_introduction
+   howtos/python_api_introduction/selecting_elements
    howtos/using_add_on_editor/using_add_on_editor
    howtos/add_on_file_format/add_on_file_format
    howtos/add_on_documentation/add_on_documentation
