@@ -106,7 +106,7 @@ Compute 3d point coordinates from pixels in images
 :API version: 1
 :param pixel_and_image_acquisitions: List of (pixel, acquisition) tuples
 :type pixel_and_image_acquisitions: [list]
-:param use_calibration: If set, the information from the calibration is used to compute the point. Project must
+:param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
 :type use_calibration: bool
 :return: List of matching pixels and residuums
 ```
@@ -147,8 +147,6 @@ print (points)
 ```
 [[gom.Vec3d (-702.53, 1690.84, -22.37), 0.121], [gom.Vec3d (-638.25, 1627.62, -27.13), 0.137]]
 ```
-
-provide a calibration for that case.
 
 ## gom.api.project
 
