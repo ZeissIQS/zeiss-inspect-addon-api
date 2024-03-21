@@ -31,6 +31,7 @@ Check out the ZEISS INSPECT Add-On news page!
    :maxdepth: 1
    
    news/news
+   _tags/tagsindex
 ```
 
 ```{eval-rst}
