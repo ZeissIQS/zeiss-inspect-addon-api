@@ -135,6 +135,7 @@ else:
 ```
 
 ```{tags} gui, dialog
+:ref: how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window
 ```
 
 ## How can I retrieve dialog results as a Python dictionary?
@@ -147,6 +148,7 @@ print (RESULT.__dict__['__args__'][0])
 See [User-defined dialogs / Executing dialogs / Dialog results](../python_api_introduction/user_defined_dialogs.md#dialog-results) for more details.
 
 ```{tags} gui, dialog
+:ref: how-can-i-retrieve-dialog-results-as-a-python-dictionary
 ```
 
 ## How can I use an image from a script resource file in a user defined dialog?
