@@ -134,6 +134,9 @@ else:
 	print("'Ok' button was pressed")
 ```
 
+```{tags} gui, dialog
+```
+
 ## How can I retrieve dialog results as a Python dictionary?
 
 ```{code-block} python
@@ -142,6 +145,9 @@ print (RESULT.__dict__['__args__'][0])
 ```
 
 See [User-defined dialogs / Executing dialogs / Dialog results](../python_api_introduction/user_defined_dialogs.md#dialog-results) for more details.
+
+```{tags} gui, dialog
+```
 
 ## How can I use an image from a script resource file in a user defined dialog?
 
@@ -170,6 +176,9 @@ DIALOG.image.data = gom.app.resource[":example.png"]
 
 RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 ``` 
+
+```{tags} gui, dialog
+```
 
 ## How can I get the position of a label and apply it to another label? 
 
