@@ -100,7 +100,7 @@ print (p)
 
 ### gom.api.imaging.compute_point_from_pixels
 
-```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: [list], use_calibration: bool):
+```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: [list], use_calibration: bool): [list]
 
 Compute 3d point coordinates from pixels in images
 :API version: 1
@@ -109,9 +109,8 @@ Compute 3d point coordinates from pixels in images
 :param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
 :type use_calibration: bool
 :return: List of matching pixels and residuums
+:rtype: [list]
 ```
-
-[list]
 
 This function is used to compute 3d points matching to 2d points in a set of images. The input parameter is a list
 containing a list of tuples where each tuple consists of a 2d pixel and the matching acquisition object. The
