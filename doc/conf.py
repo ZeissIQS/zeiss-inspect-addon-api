@@ -20,7 +20,7 @@ templates_path = ['_templates']
 exclude_patterns = ['README.md']
 
 tags_create_tags = True
-tags_extension = 'md'
+tags_extension = ['md']
 
 myst_enable_extensions = [
   'colon_fence',
