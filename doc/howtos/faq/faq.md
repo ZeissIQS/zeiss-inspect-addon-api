@@ -135,7 +135,6 @@ else:
 ```
 
 ```{tags} gui, dialog
-:ref: how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window
 ```
 
 ## How can I retrieve dialog results as a Python dictionary?
