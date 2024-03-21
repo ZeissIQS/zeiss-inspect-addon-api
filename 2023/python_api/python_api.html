@@ -266,7 +266,7 @@ a list containing 0 to n entries of pixel matches.</p>
 <h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[tuple],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span> <span class="pre">[object]</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[list],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span></span></dt>
 <dd><p>Compute 3d point coordinates from pixels in images</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
@@ -274,39 +274,44 @@ a list containing 0 to n entries of pixel matches.</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>pixel_and_image_acquisitions</strong> (<em>[</em><em>tuple</em><em>]</em>) – List of (pixel, acquisition) tuples</p></li>
+<li><p><strong>pixel_and_image_acquisitions</strong> (<em>[</em><em>list</em><em>]</em>) – List of (pixel, acquisition) tuples</p></li>
 <li><p><strong>use_calibration</strong> (<em>bool</em>) – If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of matching pixels and residuums</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>[object]</p>
-</dd>
 </dl>
 </dd></dl>
 
-<p>This function is used to compute the 3d point matching the 2d points in a set of images. This is a photogrammetric
-operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
-of a 2d pixel and the matching acquisition object. The acquisition object is then used to compute the location of the
-3d point from the pixels in the referenced image.</p>
-<p>The returned value is a list of (pixel, residuum) where each entry is the result of projecting the point via the
-associated image acquisition structure into the image. The pixel coordinate system center is located in the upper
-left corner.</p>
+<p>[list]</p>
+<p>This function is used to compute 3d points matching to 2d points in a set of images. The input parameter is a list
+containing a list of tuples where each tuple consists of a 2d pixel and the matching acquisition object. The
+acquisition object is then used to compute the location of the 3d point from the pixels in the referenced images.
+Usually at least two tuples with matching pixels from different images are needed to compute a 3d point. An exception
+are projects with 2d deformation measurement series. Only there it is sufficient to pass one tuple per point to the
+function.</p>
+<p>The user has to make sure that the pixels from different tuples are matching, which means they correspond to the same
+location on the specimen. You can use the function gom.api.imaging.compute_epipolar_line() as a helper.</p>
+<p>The returned value is a list of (point, residuum) where each entry is the result of intersecting rays cast from the
+camera positions through the given pixels. The pixel coordinate system center is located in the upper left corner.</p>
 <p><strong>Example</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
 <span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Start Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
 
-<span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img_left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img_right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_point_from_pixels</span> <span class="p">([[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">left</span><span class="p">)]],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pixel_pair_0</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">1587.74</span><span class="p">,</span> <span class="mf">793.76</span><span class="p">),</span> <span class="n">img_left</span><span class="p">),</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">2040.22</span><span class="p">,</span> <span class="mf">789.53</span><span class="p">),</span> <span class="n">img_right</span><span class="p">)]</span>
+<span class="n">pixel_pair_1</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">1617.47</span><span class="p">,</span> <span class="mf">819.67</span><span class="p">),</span> <span class="n">img_left</span><span class="p">),</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">2069.42</span><span class="p">,</span> <span class="mf">804.69</span><span class="p">),</span> <span class="n">img_right</span><span class="p">)]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">tuples</span> <span class="o">=</span> <span class="p">[</span><span class="n">pixel_pair_0</span><span class="p">,</span> <span class="n">pixel_pair_1</span><span class="p">]</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_point_from_pixels</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">points</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">638.2453100625158</span><span class="p">,</span> <span class="mf">1627.6169782583584</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">]]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">702.53</span><span class="p">,</span> <span class="mf">1690.84</span><span class="p">,</span> <span class="o">-</span><span class="mf">22.37</span><span class="p">),</span> <span class="mf">0.121</span><span class="p">],</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">638.25</span><span class="p">,</span> <span class="mf">1627.62</span><span class="p">,</span> <span class="o">-</span><span class="mf">27.13</span><span class="p">),</span> <span class="mf">0.137</span><span class="p">]]</span>
 </pre></div>
 </div>
 </section>
@@ -1038,7 +1043,7 @@ are integer, double, string and bool.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fb84b49b100>
+  <jinja2.runtime.BlockReference object at 0x7f924ce18df0>
 
 
 </footer>

@@ -100,43 +100,52 @@ print (p)
 
 ### gom.api.imaging.compute_point_from_pixels
 
-```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: [tuple], use_calibration: bool): [object]
+```{py:function} gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions: [list], use_calibration: bool):
 
 Compute 3d point coordinates from pixels in images
 :API version: 1
 :param pixel_and_image_acquisitions: List of (pixel, acquisition) tuples
-:type pixel_and_image_acquisitions: [tuple]
+:type pixel_and_image_acquisitions: [list]
 :param use_calibration: If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.
 :type use_calibration: bool
 :return: List of matching pixels and residuums
-:rtype: [object]
 ```
 
-This function is used to compute the 3d point matching the 2d points in a set of images. This is a photogrammetric
-operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
-of a 2d pixel and the matching acquisition object. The acquisition object is then used to compute the location of the
-3d point from the pixels in the referenced image.
+[list]
 
-The returned value is a list of (pixel, residuum) where each entry is the result of projecting the point via the
-associated image acquisition structure into the image. The pixel coordinate system center is located in the upper
-left corner.
+This function is used to compute 3d points matching to 2d points in a set of images. The input parameter is a list
+containing a list of tuples where each tuple consists of a 2d pixel and the matching acquisition object. The
+acquisition object is then used to compute the location of the 3d point from the pixels in the referenced images.
+Usually at least two tuples with matching pixels from different images are needed to compute a 3d point. An exception
+are projects with 2d deformation measurement series. Only there it is sufficient to pass one tuple per point to the
+function.
+
+The user has to make sure that the pixels from different tuples are matching, which means they correspond to the same
+location on the specimen. You can use the function gom.api.imaging.compute_epipolar_line() as a helper.
+
+The returned value is a list of (point, residuum) where each entry is the result of intersecting rays cast from the
+camera positions through the given pixels. The pixel coordinate system center is located in the upper left corner.
 
 **Example**
 
 ```
 measurement = gom.app.project.measurement_series['Deformation 1'].measurements['D1']
 stage = gom.app.project.stages[0]
-point = gom.app.project.actual_elements['Start Point 1'].coordinate
 
-left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+img_left = gom.api.project.get_image_acquisition (measurement, 'left camera', [stage.index])[0]
+img_right = gom.api.project.get_image_acquisition (measurement, 'right camera', [stage.index])[0]
 
-p = gom.api.imaging.compute_point_from_pixels ([[(gom.Vec2d (10, 10), left)]], False)
+pixel_pair_0 = [(gom.Vec2d(1587.74, 793.76), img_left), (gom.Vec2d(2040.22, 789.53), img_right)]
+pixel_pair_1 = [(gom.Vec2d(1617.47, 819.67), img_left), (gom.Vec2d(2069.42, 804.69), img_right)]
 
-print (p)
+tuples = [pixel_pair_0, pixel_pair_1]
+points = gom.api.imaging.compute_point_from_pixels(tuples, False)
+
+print (points)
 ```
 
 ```
-[[gom.Vec3d (-638.2453100625158, 1627.6169782583584, 0.0), 0.0]]
+[[gom.Vec3d (-702.53, 1690.84, -22.37), 0.121], [gom.Vec3d (-638.25, 1627.62, -27.13), 0.137]]
 ```
 
 ## gom.api.project
