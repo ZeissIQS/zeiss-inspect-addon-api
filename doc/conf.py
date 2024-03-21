@@ -19,6 +19,8 @@ source_suffix = ['.rst', '.md']
 templates_path = ['_templates']
 exclude_patterns = ['README.md']
 
+tags_create_tags = True
+
 myst_enable_extensions = [
   'colon_fence',
   'fieldlist',
