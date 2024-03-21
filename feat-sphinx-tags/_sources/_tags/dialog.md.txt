@@ -1,0 +1,9 @@
+# My tags: dialog
+
+```{toctree}
+---
+maxdepth: 1
+caption: With this tag
+---
+../howtos/faq/faq.md
+```

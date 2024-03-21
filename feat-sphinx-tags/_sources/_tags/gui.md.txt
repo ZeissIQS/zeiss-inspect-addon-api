@@ -1,0 +1,9 @@
+# My tags: gui
+
+```{toctree}
+---
+maxdepth: 1
+caption: With this tag
+---
+../howtos/faq/faq.md
+```
