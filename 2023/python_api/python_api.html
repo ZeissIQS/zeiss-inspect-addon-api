@@ -266,7 +266,7 @@ a list containing 0 to n entries of pixel matches.</p>
 <h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[list],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[list],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span> <span class="pre">[list]</span></span></dt>
 <dd><p>Compute 3d point coordinates from pixels in images</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
@@ -281,10 +281,12 @@ a list containing 0 to n entries of pixel matches.</p>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of matching pixels and residuums</p>
 </dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>[list]</p>
+</dd>
 </dl>
 </dd></dl>
 
-<p>[list]</p>
 <p>This function is used to compute 3d points matching to 2d points in a set of images. The input parameter is a list
 containing a list of tuples where each tuple consists of a 2d pixel and the matching acquisition object. The
 acquisition object is then used to compute the location of the 3d point from the pixels in the referenced images.
@@ -1043,7 +1045,7 @@ are integer, double, string and bool.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f924ce18df0>
+  <jinja2.runtime.BlockReference object at 0x7f474e144490>
 
 
 </footer>
