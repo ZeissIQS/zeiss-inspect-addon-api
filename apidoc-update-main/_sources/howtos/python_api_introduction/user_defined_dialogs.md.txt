@@ -1096,7 +1096,7 @@ f'<tr><td>{var1}</td><td>{var2}</td><td>{var3}</td><td>{var4}</td></tr></table>'
 ![Continuous text widget with HTML table](assets/widget_text_html_table.png)
 
 ```{note}
-In case a character string is not recognizes as HTML code automatically, enclose it in `<html>` tags:
+In case a character string is not recognized as HTML code automatically, enclose it in `<html>` tags:
 
 `DIALOG.label.text = '<html>Diameter &#x2300;</html>'`
 ```
