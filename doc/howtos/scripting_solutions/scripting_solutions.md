@@ -92,9 +92,9 @@
 :Template: PythonApiExamples.addon
 :Description: Read and write project keywords.
 :How-to: <a href="../project_keywords/project_keywords.html">Project keywords handling</a>
+:Keywords: read, write, access, get, set, project keywords
 % Note: This is too complicated:
 % :Example Documentation: <a href="../../python_examples/misc/excel_example.html">Excel import/export example</a>
-:Keywords: read, write, access, get, set, project keywords
 
 ## Element filter
 
