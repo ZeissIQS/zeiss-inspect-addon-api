@@ -23,7 +23,7 @@
 
 :Description: Access a set (ZEISS INSPECT) or sequence (ZEISS INSPECT Correlate) of actual data.
 :How-to: <a href="../stages/stages.html">Working with stages</a>
-:Keywords: set, sequence, correlate
+:Keywords: set, samples, series, sequence, correlate
 
 ## Dialog
 
