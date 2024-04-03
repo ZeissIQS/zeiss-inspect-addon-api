@@ -57,7 +57,7 @@
 ## Shared script environment
 
 :Description: Sharing code and data between Add-ons.
-:How-to: <a href="../using_shared_environments/using_shared_environments.html">Using shared environments"</a>
+:How-to: <a href="../using_shared_environments/using_shared_environments.html">Using shared environments</a>
 :Keywords: addon, add-on, module, modular, package, class, function, method, code, data, import, reuse, re-use, use, call, execute, interaction
 
 ## Workspace
