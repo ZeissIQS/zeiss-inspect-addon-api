@@ -16,7 +16,7 @@
 :Description: Interactive creation of a geometrical element in an application specific way.
 :How-to: <a href="../scripted_elements/scripted_checks.html">Scripted checks</a>
 :Example Documentation: <a href="../../python_examples/scripted_checks.html">scripted_checks</a>
-:API Documentation: <a href="../../python_api/scripted_elements_api.html#scripted-checks---return-values">Scripted Elements API</a>
+:API Documentation: <a href="../../python_api/scripted_elements_api.html#scripted-checks-return-values">Scripted Elements API</a>
 :Keywords: scalar, curve, surface, inspection, check, comparison, tolerance
 
 ## Stages
