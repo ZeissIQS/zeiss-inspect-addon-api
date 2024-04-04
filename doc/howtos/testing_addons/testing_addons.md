@@ -236,8 +236,8 @@ The dialog was canceled
 ### Usage
 
 `AutoDialogContext` provides a context for automatically interacting with dialogs which are shown via `gom.script.sys.show_user_defined_dialog`.
-`AutoDialogContext` is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
-which can be used together with the "with" statement (https://docs.python.org/3/reference/compound_stmts.html#with).
+`AutoDialogContext` is a context manager ([https://docs.python.org/3/reference/datamodel.html#context-managers](https://docs.python.org/3/reference/datamodel.html#context-managers)),
+which can be used together with the "with" statement ([https://docs.python.org/3/reference/compound_stmts.html#with](https://docs.python.org/3/reference/compound_stmts.html#with)).
 
 Its `__init__` method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).
 
@@ -245,7 +245,7 @@ Interaction with the control buttons of the dialog is done via the return value 
 * If the dialog should be closed via the close button, the callback should return 'close'.
 * If the dialog should be closed via the cancel button (BreakError), the callback should return 'cancel'.
 * If the dialog does not need to be closed by automatic control button interaction,
-  but will close itself by some other interaction, the callback should return None.
+  but will close itself by some other interaction, the callback should return `None`.
 
 ## Running Add-on tests with code coverage
 
