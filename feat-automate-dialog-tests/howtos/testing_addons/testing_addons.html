@@ -80,6 +80,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-test-data">Working with test data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-add-ons-with-dialogs">Testing Add-ons with dialogs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#running-add-on-tests-with-code-coverage">Running Add-on tests with code coverage</a></li>
 </ul>
 </li>
@@ -259,6 +264,107 @@ If a relative path is given, like here, a resource inside the add-on is created 
 <p><img alt="" src="../../_images/run_tests_create_data.jpg" /></p>
 <p>In a “normal” test run, data will be compared to the stored resources.</p>
 </section>
+<section id="testing-add-ons-with-dialogs">
+<h2>Testing Add-ons with dialogs<a class="headerlink" href="#testing-add-ons-with-dialogs" title="Link to this heading"></a></h2>
+<p>To automate testing of Add-ons (or parts of it) with <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">user-defined dialogs</span></a>, you can use the Python class <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code>.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p><img alt="Example dialog" src="../../_images/that_dialog.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
+   <span class="n">dialog</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;dialog.gdlg&#39;</span><span class="p">)</span>
+
+   <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="s1">&#39;initialize&#39;</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been initialized.&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been closed via the button&#39;</span><span class="p">)</span>
+         <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">dialog</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">&#39;buttonresult&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The text field has been changed to contain &quot;</span><span class="si">{</span><span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&quot;)</span>
+
+   <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
+
+   <span class="k">try</span><span class="p">:</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">dialog</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The result of the dialog is:</span><span class="se">\n</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+   <span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog was canceled&#39;</span><span class="p">)</span>
+      
+<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Normally, this would require to test this code manually.</p>
+<p>For automated testing, we provide a callback function for each test case with this dialog. We can set input values, trigger the dialog handler with a specified event and emulate the dialog’s control widgets (e.g. ‘Ok’ or ‘Cancel’ button). Note that each callback function checks the <code class="docutils literal notranslate"><span class="pre">dialog.title</span></code>. This allows to set up a function which can handle multiple dialogs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext1&#39;</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext2&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;close&#39;</span>
+
+    <span class="k">def</span> <span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext3&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;cancel&#39;</span>
+</pre></div>
+</div>
+<p>Finally we use <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> to run the function <code class="docutils literal notranslate"><span class="pre">code_that_contains_dialogs()</span></code> while applying the callback functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dialogs.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback1&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback1</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback2&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback2</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback3&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback3</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback1</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext1</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">closed</span> <span class="n">via</span> <span class="n">the</span> <span class="n">button</span>
+<span class="n">The</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dialog</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">buttonresult</span>
+
+<span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback2</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext2</span>
+<span class="n">The</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dialog</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">DialogResult</span> <span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">:</span> <span class="s1">&#39;autotext2&#39;</span><span class="p">)</span>
+
+<span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback3</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext3</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">was</span> <span class="n">canceled</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> provides a context for automatically interacting with dialogs which are shown via <code class="docutils literal notranslate"><span class="pre">gom.script.sys.show_user_defined_dialog</span></code>.
+The AutoDialogContext is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
+which can be used together with the “with” statement (https://docs.python.org/3/reference/compound_stmts.html#with).</p>
+<p>Its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).</p>
+<p>Interaction with the control buttons of the dialog is done via the return value of the callback:</p>
+<ul class="simple">
+<li><p>If the dialog should be closed via the close button, the callback should return ‘close’.</p></li>
+<li><p>If the dialog should be closed via the cancel button (BreakError), the callback should return ‘cancel’.</p></li>
+<li><p>If the dialog does not need to be closed by automatic control button interaction,
+but will close itself by some other interaction, the callback should return None.</p></li>
+</ul>
+</section>
+</section>
 <section id="running-add-on-tests-with-code-coverage">
 <h2>Running Add-on tests with code coverage<a class="headerlink" href="#running-add-on-tests-with-code-coverage" title="Link to this heading"></a></h2>
 <p>Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The Add-on <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage">TemplateUnittestCoverage</a> / <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon">TemplateUnittestCoverage.addon</a> provides a template for running unit tests and generating a code coverage report.</p>
@@ -338,7 +444,7 @@ If a relative path is given, like here, a resource inside the add-on is created 
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7578bb1f30>
+  <jinja2.runtime.BlockReference object at 0x7f88462bf6a0>
 
 
 </footer>
