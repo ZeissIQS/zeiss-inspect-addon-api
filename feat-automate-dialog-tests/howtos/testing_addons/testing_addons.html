@@ -352,7 +352,7 @@ If a relative path is given, like here, a resource inside the add-on is created 
 <section id="usage">
 <h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> provides a context for automatically interacting with dialogs which are shown via <code class="docutils literal notranslate"><span class="pre">gom.script.sys.show_user_defined_dialog</span></code>.
-The AutoDialogContext is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
+<code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
 which can be used together with the “with” statement (https://docs.python.org/3/reference/compound_stmts.html#with).</p>
 <p>Its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).</p>
 <p>Interaction with the control buttons of the dialog is done via the return value of the callback:</p>
@@ -443,7 +443,7 @@ but will close itself by some other interaction, the callback should return None
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7be02e78b0>
+  <jinja2.runtime.BlockReference object at 0x7f4ceae32230>
 
 
 </footer>

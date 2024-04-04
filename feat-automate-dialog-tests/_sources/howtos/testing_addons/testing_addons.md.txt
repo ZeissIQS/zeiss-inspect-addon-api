@@ -236,7 +236,7 @@ The dialog was canceled
 ### Usage
 
 `AutoDialogContext` provides a context for automatically interacting with dialogs which are shown via `gom.script.sys.show_user_defined_dialog`.
-The AutoDialogContext is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
+`AutoDialogContext` is a context manager (https://docs.python.org/3/reference/datamodel.html#context-managers),
 which can be used together with the "with" statement (https://docs.python.org/3/reference/compound_stmts.html#with).
 
 Its `__init__` method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).
