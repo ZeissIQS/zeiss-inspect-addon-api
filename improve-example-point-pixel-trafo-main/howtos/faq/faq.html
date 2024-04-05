@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently asked questions &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/faq/faq.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ZEISS INSPECT Python API Examples Overview" href="../../python_examples/index.html" />
+    <link rel="prev" title="Testing add-ons" href="../testing_addons/testing_addons.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-are-add-ons-located-in-the-file-system">Where are Add-ons located in the file system?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect">How can I update the Add-ons after changes made outside of ZEISS INSPECT?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-actual-or-inspection-elements">How do I filter nominal, actual or inspection elements?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-actual-elements">Examples for filtering actual elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-nominal-elements">Examples for filtering nominal elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-filtering-inspection-elements">Examples for filtering inspection elements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">How can I access the coordinates of a selection on a mesh?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">How can I use an image from a script resource file in a user defined dialog?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">How can I get the CT scanner’s system status — including cathode operation time?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-use-a-c-net-library-in-an-add-on">How do I use a C# / .NET library in an Add-on?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Frequently asked questions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frequently-asked-questions">
+<h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h1>
+<p>If you did not find an answer here, you might want to check <a href="https://forum.gom.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.</p>
+<section id="where-are-add-ons-located-in-the-file-system">
+<h2>Where are Add-ons located in the file system?<a class="headerlink" href="#where-are-add-ons-located-in-the-file-system" title="Link to this heading"></a></h2>
+<p>Add-ons which are edited are located in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code> (or <code class="docutils literal notranslate"><span class="pre">%APPDATA%\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code>, respectively). There is a subfolder for each Add-on named by its UUID.</p>
+<p>When editing is finished, an Add-on file (see <a class="reference internal" href="../add_on_file_format/add_on_file_format.html"><span class="std std-doc">Add-on file format</span></a>) is created and saved in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_addons</span></code>.</p>
+</section>
+<section id="how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect">
+<h2>How can I update the Add-ons after changes made outside of ZEISS INSPECT?<a class="headerlink" href="#how-can-i-update-the-add-ons-after-changes-made-outside-of-zeiss-inspect" title="Link to this heading"></a></h2>
+<p>After creating, modifying or deleting an Add-on outside of ZEISS INSPECT, you can use <code class="docutils literal notranslate"><span class="pre">gom.script.sys.update_addon_database()</span></code> to update the internal Add-on database.</p>
+</section>
+<section id="how-can-i-stop-script-execution">
+<h2>How can I stop script execution?<a class="headerlink" href="#how-can-i-stop-script-execution" title="Link to this heading"></a></h2>
+<p>In a user defined dialog, you can call <code class="docutils literal notranslate"><span class="pre">gom.script.sys.close_user_defined_dialog</span> <span class="pre">(dialog=\&lt;your_dialog\&gt;)</span></code>.</p>
+<p>In general, you can use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># ...</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="how-do-i-filter-nominal-actual-or-inspection-elements">
+<h2>How do I filter nominal, actual or inspection elements?<a class="headerlink" href="#how-do-i-filter-nominal-actual-or-inspection-elements" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(gom.app.project.&lt;element_type&gt;.__doc__)</span></code> where you replace <code class="docutils literal notranslate"><span class="pre">&lt;element_type&gt;</span></code> by <code class="docutils literal notranslate"><span class="pre">actual_elements</span></code>, <code class="docutils literal notranslate"><span class="pre">nominal_elements</span></code> or <code class="docutils literal notranslate"><span class="pre">inspection</span></code> as needed to get the available properties.</p>
+<p>To show all actual elements by name and type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> - type: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can create a loop in Python to iterate over the elements as shown above and apply a comparison to their attributes, but there is a faster solution!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">filter()</span></code> method handles this far more efficiently!</p>
+<section id="examples-for-filtering-actual-elements">
+<h3>Examples for filtering actual elements<a class="headerlink" href="#examples-for-filtering-actual-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_selected&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_selected == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;plane&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == Plane&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="examples-for-filtering-nominal-elements">
+<h3>Examples for filtering nominal elements<a class="headerlink" href="#examples-for-filtering-nominal-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_visible&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_visible == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;cad&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == cad&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="examples-for-filtering-inspection-elements">
+<h3>Examples for filtering inspection elements<a class="headerlink" href="#examples-for-filtering-inspection-elements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;is_element_modified_since_import&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;is_element_modified_since_import == True&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;cad&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># array of elements matching the filter criterion &#39;type == surface_comparison&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-can-i-access-the-coordinates-of-a-selection-on-a-mesh">
+<h2>How can I access the coordinates of a selection on a mesh?<a class="headerlink" href="#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh" title="Link to this heading"></a></h2>
+<p><img alt="Selection on mesh" src="../../_images/mesh_selection.png" /></p>
+<p>The token <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.coordinate</span></code> provides a <code class="docutils literal notranslate"><span class="pre">gom.Array</span></code> of the selected vertices. Likewise, <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.normal</span></code> gives the corresponding normals and <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> the triangles defining the mesh.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+<span class="c1"># Output: gom.Array (element=gom.app.project.parts[&#39;Training Object&#39;].actual.selection.coordinate, shape=(1, 1343, 3))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+<span class="c1"># Output: gom.Array (element=gom.app.project.parts[&#39;Training Object&#39;].actual.selection.normal, shape=(1, 1343, 3))</span>
+
+<span class="c1"># Typically a numpy-array is used for further processing</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Training Object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">coordinate</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># Output: (1, 1343, 3)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># [[[-2.41255735e+01  2.21117734e+01 -1.91864308e+01]</span>
+<span class="c1">#  [-2.45970797e+01  2.21050666e+01 -1.97100373e+01]</span>
+<span class="c1">#  [-2.81128953e+01  2.20834014e+01 -2.04692317e+01]</span>
+<span class="c1">#  ...</span>
+<span class="c1">#  [-3.93854225e+01  2.09585465e+01  8.64908297e-02]</span>
+<span class="c1">#  [-3.96552365e+01  2.10394088e+01  3.26750288e-03]</span>
+<span class="c1">#  [-4.00649288e+01  2.07525728e+01  7.25684079e-02]]]</span>
+</pre></div>
+</div>
+<p>This can be used to create a <a href="../../python_api/scripted_elements_api.html#surface">scripted surface element</a> from a selection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The triangles returned by <code class="docutils literal notranslate"><span class="pre">gom.app.project.parts['&lt;part</span> <span class="pre">name&gt;'].actual.selection.triangle</span></code> are provided as indices to vertices of the global mesh. The helper function <a class="reference download internal" download="" href="../../_downloads/bab594f916667a1393cc743397e08882/localize_triangles.py"><span class="xref download myst">localize_triangles</span></a> remaps these indices to vertices of the local (selected) mesh.</p>
+</div>
+</section>
+<section id="how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">
+<h2>How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)<a class="headerlink" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window" title="Link to this heading"></a></h2>
+<p><img alt="Dialog types" src="../../_images/dialog_types.png" /></p>
+<p><img alt="Window closed" src="../../_images/dialog_close.png" /></p>
+<p>Closing a dialog window or pressing the ‘Cancel’ button raises a <code class="docutils literal notranslate"><span class="pre">gom.BreakError</span></code> exception. To check if any type of dialog was closed via the window close control (see figure) or via the ‘Cancel’ button (in case of the ‘Ok/Cancel’ dialog type), use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+	<span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dialog window was closed or &#39;Cancel&#39; button was pressed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;Ok&#39; button was pressed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="how-can-i-retrieve-dialog-results-as-a-python-dictionary">
+<h2>How can I retrieve dialog results as a Python dictionary?<a class="headerlink" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;__args__&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># example output: {&#39;distance&#39;: 2.0, &#39;label&#39;: None}</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#dialog-results"><span class="std std-ref">User-defined dialogs / Executing dialogs / Dialog results</span></a> for more details.</p>
+</section>
+<section id="how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">
+<h2>How can I use an image from a script resource file in a user defined dialog?<a class="headerlink" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog" title="Link to this heading"></a></h2>
+<p>You add your image file as a resource to the Add-on:</p>
+<p><img alt="Add-on Explorer - PNG file as resource" src="../../_images/resource_file_as_image_data.png" /></p>
+<p>You create a dialog file with an <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#image-widget"><span class="std std-ref">Image widget</span></a>, but without setting the actual image in the dialog editor.</p>
+<p>In the Python script, you assign the resource as data to the image widget object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;dialog.gdlg&#39;</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Event handler function called if anything happens inside of the dialog</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+	<span class="k">pass</span>
+
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
+
+<span class="n">DIALOG</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">resource</span><span class="p">[</span><span class="s2">&quot;:example.png&quot;</span><span class="p">]</span>
+
+<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">
+<h2>How can I get the position of a label and apply it to another label?<a class="headerlink" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label" title="Link to this heading"></a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">gom.script.cad.set_label_position()</span></code> to set the offset of the new label to the offset of the old label:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">label_old</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">deviation_label</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1.1&#39;</span><span class="p">]</span>
+<span class="n">label_new</span> <span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">deviation_label</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1.2&#39;</span><span class="p">]</span>
+
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">cad</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">label_new</span><span class="p">],</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">label_old</span><span class="o">.</span><span class="n">label_offset_in_3d_view</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">offset</span></code> has the type <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code>.</p>
+</section>
+<section id="how-can-i-conditionally-set-the-label-border-color">
+<h2>How can I conditionally set the label (border) color?<a class="headerlink" href="#how-can-i-conditionally-set-the-label-border-color" title="Link to this heading"></a></h2>
+<p>In the label properties, you can create a new label template and change the background color to ‘dynamic’. This allows to add an expression in a Python-like syntax, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">result_dimension</span> <span class="o">&lt;</span> <span class="n">result_dimension</span><span class="o">.</span><span class="n">upper_tolerance_limit</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#00ff5e&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#ff0000&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/dlg_edit_dynamic_label_background_color_expression.html">ZEISS Quality Tech Guide: Edit Expression (label background color)</a>.</p>
+</section>
+<section id="how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">
+<h2>How do I check if the sensor warm-up is completed or how long it will take, respectively?<a class="headerlink" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">remaining_warmup_time_in_seconds</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">atos</span><span class="o">.</span><span class="n">wait_for_sensor_warmup</span> <span class="p">(</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">my_timeout</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function blocks until the sensor is ready or the timeout specified with <code class="docutils literal notranslate"><span class="pre">my_timeout</span></code> occurs.</p>
+</section>
+<section id="how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">
+<h2>How can I get the CT scanner’s system status — including cathode operation time?<a class="headerlink" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time" title="Link to this heading"></a></h2>
+<p><img alt="CT System Status Dialog" src="../../_images/ct_system_status.png" /></p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">gom.script.ct.get_system_status()</span></code> provides the same information as the System Status dialog. The actual content depends on the CT scanner model.</p>
+<p>Example (ZEISS METROTOM 1):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">ct</span><span class="o">.</span><span class="n">get_system_status</span><span class="p">())</span>
+<span class="c1"># Example output:</span>
+<span class="c1"># {&#39;cathode_operation_time&#39;: 1727372, &#39;high_voltage_in_kv&#39;: 0.0, &#39;is_activatable&#39;: True,</span>
+<span class="c1"># &#39;is_cooling_system_running&#39;: True, &#39;is_key_switch_ok&#39;: True, &#39;is_self_adjustment_running&#39;: False,</span>
+<span class="c1"># &#39;is_system_safeguarded&#39;: True, &#39;is_xray_source_ready&#39;: True, &#39;max_high_voltage_in_kv&#39;: 160.0,</span>
+<span class="c1"># &#39;power_in_w&#39;: 0.0}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cathode_operation_time</span></code> is given in seconds.</p>
+<p>(Added in SW2023 Service Pack2)</p>
+</section>
+<section id="how-do-i-use-a-c-net-library-in-an-add-on">
+<h2>How do I use a C# / .NET library in an Add-on?<a class="headerlink" href="#how-do-i-use-a-c-net-library-in-an-add-on" title="Link to this heading"></a></h2>
+<p>First you have to install the <a class="reference external" href="https://pypi.org/project/pythonnet/">Python.NET</a> package in your Add-on.</p>
+<p>Here is a simple C# library source code example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Example: Adder.cs</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">MyDotNetClassLib</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Adder</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Adder&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">StaticAdd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>This code has been compiled into the library <code class="docutils literal notranslate"><span class="pre">MyDotNetClassLib.dll</span></code>.</p>
+<p>The following example Python script uses methods and members of this library:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example: dotnetlibtemplate.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">clr</span> <span class="c1"># .NET Common Language Runtime (provided by Python.NET package)</span>
+<span class="kn">from</span> <span class="nn">System</span> <span class="kn">import</span> <span class="n">Console</span>
+	
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>                   <span class="c1"># append path to the DLL file</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;MyDotNetClassLib&quot;</span><span class="p">)</span>   <span class="c1"># name of the assembly (usually the DLL filename without extension .dll)</span>
+<span class="kn">from</span> <span class="nn">MyDotNetClassLib</span> <span class="kn">import</span> <span class="n">Adder</span>     <span class="c1"># import the module (the C# namespace)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello from python&quot;</span><span class="p">)</span>
+
+<span class="c1"># execute a C# function</span>
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">&quot;hello from C#&quot;</span><span class="p">)</span>
+
+<span class="c1"># call the static method StaticAdd() of class Adder from our MyDotNetClassLib library</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# Adder.StaticAdd(1,2): </span><span class="si">{</span><span class="n">Adder</span><span class="o">.</span><span class="n">StaticAdd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># create an object of the class Adder...</span>
+<span class="n">adder</span> <span class="o">=</span> <span class="n">Adder</span><span class="p">()</span>
+
+<span class="c1"># ... call its Add() method</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.Add(3,4): </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ... read the member variable className</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.className: </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">className</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ... write and read back the member variable className</span>
+<span class="n">adder</span><span class="o">.</span><span class="n">className</span> <span class="o">=</span> <span class="s2">&quot;Renamed Adder&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My C# adder.className: </span><span class="si">{</span><span class="n">adder</span><span class="o">.</span><span class="n">className</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This example is based on <a href="https://stackoverflow.com/questions/7367976/calling-a-c-sharp-library-from-python/" target="_blank" rel="noopener noreferrer">Stack Overflow: “Calling a C# library from python”</a>.</p>
+<p>See <a class="reference external" href="https://pythonnet.github.io/pythonnet/index.html">Python.NET documentation</a> for more details.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../testing_addons/testing_addons.html" class="btn btn-neutral float-left" title="Testing add-ons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../python_examples/index.html" class="btn btn-neutral float-right" title="ZEISS INSPECT Python API Examples Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7f0aa5e41540>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
