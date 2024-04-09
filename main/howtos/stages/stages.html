@@ -141,10 +141,6 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">))</span>
 <span class="c1"># output: 5</span>
 
-<span class="c1"># Reference to last stage</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 5&#39;]</span>
-
 <span class="c1"># Select stage by name</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 2&#39;</span><span class="p">])</span>
 <span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 2&#39;]</span>
@@ -152,6 +148,18 @@
 <span class="c1"># Select stage by index</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 2&#39;]</span>
+
+<span class="c1"># Reference to last stage</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># output: gom.app.project.stages[&#39;ZEISS Training Object Mesh 5&#39;]</span>
+
+<span class="c1"># Index of stage selected by name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;ZEISS Training Object Mesh 2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="c1"># output: 1</span>
+
+<span class="c1"># Name of stage selected by index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="c1"># output: ZEISS Training Object Mesh 2</span>
 
 <span class="c1"># Show the specified stage</span>
 <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_stage</span> <span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -256,7 +264,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f776f6e8f70>
+  <jinja2.runtime.BlockReference object at 0x7f1aa01e66e0>
 
 
 </footer>
