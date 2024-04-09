@@ -142,6 +142,111 @@ These classes will **create the test data** for you, if you run the test executi
 
 In a "normal" test run, data will be compared to the stored resources.
 
+## Testing Add-ons with dialogs
+
+Normally, you would have to test Add-ons (or parts of it) using [user-defined dialogs](../python_api_introduction/user_defined_dialogs.md) manually, but the Python class `AutoDialogContext` allows automated testing.
+
+### Example
+
+![Example dialog](that_dialog.png) 
+
+```{code-block} python
+def code_that_contains_dialogs():
+   dialog=gom.script.sys.create_user_defined_dialog (file='dialog.gdlg')
+
+   def handler(widget):
+      if widget == 'initialize':
+         print('The dialog has been initialized.')
+      elif widget == dialog.button:
+         print('The dialog has been closed via the button')
+         gom.script.sys.close_user_defined_dialog(dialog=dialog, result='buttonresult')
+      elif widget == dialog.input:
+         print(f'The text field has been changed to contain {dialog.input.value}')
+
+   dialog.handler = handler
+
+   try:
+      result = gom.script.sys.show_user_defined_dialog(dialog=dialog)
+      print(f'The result of the dialog is:\n{result}')
+   except gom.BreakError:
+      print('The dialog was canceled')
+      
+code_that_contains_dialogs()
+```
+
+For automated testing, we provide a callback function for each test case covering this dialog. We can set input values, trigger the dialog handler with a specified event and emulate the dialog's [control widgets](../python_api_introduction/user_defined_dialogs.md#control-widget) (i.e. 'Ok' or 'Cancel' button). Note that each callback function evaluates the `dialog.title`. This allows to set up a function which can handle multiple dialogs.
+
+```{code-block} python
+    def callback1(dialog):
+        if 'That Dialog' in dialog.title:
+            dialog.input.value = 'autotext1'
+            dialog.handler(dialog.button)
+
+    def callback2(dialog):
+        if 'That Dialog' in dialog.title:
+            dialog.input.value = 'autotext2'
+            return 'close'
+
+    def callback3(dialog):
+        if 'That Dialog' in dialog.title:
+            dialog.input.value = 'autotext3'
+            return 'cancel'
+```
+
+Finally we use `AutoDialogContext` to run our unit-under-test &mdash; the function `code_that_contains_dialogs()` &mdash; while applying our callback functions.
+
+```{code-block} python
+from dialogs.dialogs.AutoDialogContext import AutoDialogContext
+
+print('Automatically executing the dialog with callback1')
+with AutoDialogContext(callback1):
+	code_that_contains_dialogs()
+
+print('')
+print('Automatically executing the dialog with callback2')
+with AutoDialogContext(callback2):
+	code_that_contains_dialogs()
+
+print('')
+print('Automatically executing the dialog with callback3')
+with AutoDialogContext(callback3):
+	code_that_contains_dialogs()
+```
+
+Output:
+```
+Automatically executing the dialog with callback1
+The dialog has been initialized.
+The text field has been changed to contain autotext1
+The dialog has been closed via the button
+The result of the dialog is:
+buttonresult
+
+Automatically executing the dialog with callback2
+The dialog has been initialized.
+The text field has been changed to contain autotext2
+The result of the dialog is:
+gom.dialog.DialogResult ('button': False, 'input': 'autotext2')
+
+Automatically executing the dialog with callback3
+The dialog has been initialized.
+The text field has been changed to contain autotext3
+The dialog was canceled
+```
+### Usage
+
+`AutoDialogContext` provides a context for automatically interacting with dialogs which are shown via `gom.script.sys.show_user_defined_dialog`.
+`AutoDialogContext` is a context manager ([https://docs.python.org/3/reference/datamodel.html#context-managers](https://docs.python.org/3/reference/datamodel.html#context-managers)),
+which can be used together with the "with" statement ([https://docs.python.org/3/reference/compound_stmts.html#with](https://docs.python.org/3/reference/compound_stmts.html#with)).
+
+Its `__init__` method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).
+
+Interaction with the control buttons of the dialog is done via the return value of the callback:
+* If the dialog should be closed via the close button, the callback should return 'close'.
+* If the dialog should be closed via the cancel button (BreakError), the callback should return 'cancel'.
+* If the dialog does not need to be closed by automatic control button interaction,
+  but will close itself by some other interaction, the callback should return `None`.
+
 ## Running Add-on tests with code coverage
 
 Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The Add-on [TemplateUnittestCoverage](https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage) / [TemplateUnittestCoverage.addon](https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon) provides a template for running unit tests and generating a code coverage report.
