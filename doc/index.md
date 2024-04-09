@@ -79,6 +79,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/localization/localization
    howtos/starting_options/starting_options
    howtos/testing_addons/testing_addons
+   howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
 
