@@ -27,10 +27,6 @@ In the following examples, the current project has five stages named 'ZEISS Trai
 print(len(gom.app.project.stages))
 # output: 5
 
-# Reference to last stage
-print(gom.app.project.stages[-1])
-# output: gom.app.project.stages['ZEISS Training Object Mesh 5']
-
 # Select stage by name
 print(gom.app.project.stages['ZEISS Training Object Mesh 2'])
 # output: gom.app.project.stages['ZEISS Training Object Mesh 2']
@@ -38,6 +34,18 @@ print(gom.app.project.stages['ZEISS Training Object Mesh 2'])
 # Select stage by index
 print(gom.app.project.stages[1])
 # output: gom.app.project.stages['ZEISS Training Object Mesh 2']
+
+# Reference to last stage
+print(gom.app.project.stages[-1])
+# output: gom.app.project.stages['ZEISS Training Object Mesh 5']
+
+# Index of stage selected by name
+print(gom.app.project.stages['ZEISS Training Object Mesh 2'].index)
+# output: 1
+
+# Name of stage selected by index
+print(gom.app.project.stages[1].name)
+# output: ZEISS Training Object Mesh 2
 
 # Show the specified stage
 gom.script.sys.show_stage (stage=gom.app.project.stages[1])
