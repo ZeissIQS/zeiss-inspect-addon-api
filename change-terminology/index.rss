@@ -4,7 +4,7 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/</link>
     <description></description>
-    <lastBuildDate>Wed, 10 Apr 2024 13:58:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 14:06:29 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>Selecting elements in scripts</title>
@@ -81,7 +81,7 @@
       <title>Using Python wheelhouses</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/news/20240130-using-wheelhouses.html</link>
       <description>&lt;div class="compound"&gt;
-&lt;p&gt;In most cases, Python packages — also known as Python wheels — are installed as described in &lt;a href="../howtos/using_add_on_editor/using_add_on_editor.html#installing-python-packages"&gt;Using the App Editor - Installing Python Packages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In most cases, Python packages — also known as Python wheels — are installed as described in &lt;a href="../howtos/using_app_editor/using_app_editor.html#installing-python-packages"&gt;Using the App Editor - Installing Python Packages&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In case this does not work, &lt;a href="../howtos/using_wheelhouses/using_wheelhouses.html"&gt;Using Python wheelhouses&lt;/a&gt; can provide a solution.&lt;/p&gt;
 &lt;/div&gt;
 </description>
