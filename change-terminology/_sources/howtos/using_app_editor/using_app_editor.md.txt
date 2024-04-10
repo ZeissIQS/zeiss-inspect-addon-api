@@ -112,7 +112,7 @@ You add contents from the Available Contents section to Apps (in editing mode) b
 
 * Export
 
-    Click RMB on the installed App ► Export: Save the selected App as a .addon file.
+    Click RMB on the installed App ► Export: Save the selected App as a .zapp file.
 
 * Publish in Software Store
 
