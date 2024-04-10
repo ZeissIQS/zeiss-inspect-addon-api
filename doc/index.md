@@ -62,9 +62,9 @@ Furthermore, we recommend following our how-to guides to get you started.
 
    howtos/python_api_introduction/python_api_introduction
    howtos/python_api_introduction/selecting_elements
-   howtos/using_add_on_editor/using_add_on_editor
-   howtos/add_on_file_format/add_on_file_format
-   howtos/add_on_documentation/add_on_documentation
+   howtos/using_app_editor/using_app_editor
+   howtos/app_file_format/app_file_format
+   howtos/app_documentation/app_documentation
    howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
@@ -75,10 +75,10 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/project_keywords/project_keywords
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
-   howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
+   howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
    howtos/localization/localization
    howtos/starting_options/starting_options
-   howtos/testing_addons/testing_addons
+   howtos/testing_apps/testing_apps
    howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
