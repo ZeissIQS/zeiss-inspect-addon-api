@@ -18,7 +18,7 @@
 
 ### Dialog designer
 
-* User defined **Dialogs** can be inserted into the script using _right mouse button_ → Insert → Dialog... in the <a href="../using_add_on_editor/using_add_on_editor.html">App Editor</a>.
+* User defined **Dialogs** can be inserted into the script using _right mouse button_ → Insert → Dialog... in the <a href="../using_app_editor/using_app_editor.html">App Editor</a>.
 
     ![](assets/insert_dialog.png)
 
