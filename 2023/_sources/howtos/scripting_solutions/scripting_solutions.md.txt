@@ -71,7 +71,7 @@
 
 :Description: Access folders and files from scripts.
 :How-to: <a href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_select_and_filter_files_in_python_scripts.html">How Do I Select and Filter Files in Python Scripts</a>
-:Keywords: file, folder, directory, path, extension, disk, file system, file browser
+:Keywords: file, folder, directory, path, extension, disk, file system, file browser, file access
 
 ## Element data interface
 
