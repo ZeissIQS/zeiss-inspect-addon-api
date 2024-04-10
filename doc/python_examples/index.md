@@ -43,7 +43,7 @@ The same result could be achieved by directly writing the `<example code>` in th
 *However, this has a reason*. The functions `function1` and `function2` can be tested from another test script. 
 You are highly encouraged to use this modular approach as well, to keep your code testable and reusable.
 
-If you are interested in testing Apps (which you should be), learn more in our [Testing Apps How-To](../howtos/testing_addons/testing_addons.md).
+If you are interested in testing Apps (which you should be), learn more in our [Testing Apps How-To](../howtos/testing_apps/testing_apps.md).
 
 ## Example projects
 

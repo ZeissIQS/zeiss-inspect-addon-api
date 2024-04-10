@@ -25,7 +25,7 @@ Exemplary file structure.
 
 
 ```{note}
-In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the "Execute App tests" command (see [Running tests](#running-App-tests)).
+In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the "Execute App tests" command (see [Running tests](#running-app-tests)).
 ```
 
 ## Writing a test script

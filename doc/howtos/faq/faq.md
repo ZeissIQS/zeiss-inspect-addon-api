@@ -6,7 +6,7 @@ If you did not find an answer here, you might want to check <a href="https://for
 
 Apps which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each App named by its UUID.
 
-When editing is finished, an App file (see [App file format](../add_on_file_format/add_on_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
+When editing is finished, an App file (see [App file format](../app_file_format/app_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
 
 ## How can I update the Apps after changes made outside of ZEISS INSPECT?
 

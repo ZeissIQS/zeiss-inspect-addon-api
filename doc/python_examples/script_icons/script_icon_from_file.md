@@ -8,7 +8,7 @@
 This is a small example to show how an icon can be set to a script, whereas the icon itself resides in the App as a resource.
 
 ```{note}
-This example is meant as addition to the information given in how-to: [Adding workspaces to packages - Icon guidelines](../../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.md#icon-guidelines).
+This example is meant as addition to the information given in how-to: [Adding workspaces to packages - Icon guidelines](../../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.md#icon-guidelines).
 ```
 
 ## Highlights
@@ -19,10 +19,10 @@ However, using VS Code or another text editor, the corresponding `.metainfo` fil
 
 ![](script_icon_from_file.jpg)
 
-If you use this approach, and follow our [icon guidelines](../../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.md#icon-guidelines), the icons get inverted in dark themes automatically.
+If you use this approach, and follow our [icon guidelines](../../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.md#icon-guidelines), the icons get inverted in dark themes automatically.
 
 ![](menu_icon_darkbg.jpg)
 
 ## Related
 
-* How-to: [Adding workspaces to packages](../../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.md)
+* How-to: [Adding workspaces to packages](../../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.md)
