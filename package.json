@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/ZeissIQS/zeiss-inspect-addon-api.git"
   },
-  "author": "Matthias Prinke",
+  "author": "Carl Zeiss GOM Metrology GmbH",
   "dependencies": {
     "checkout": "actions/checkout#semver:^4",
     "setup-python": "actions/setup-python#semver:^5",
