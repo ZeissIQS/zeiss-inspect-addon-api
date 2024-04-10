@@ -2,15 +2,15 @@
 
 If you did not find an answer here, you might want to check <a href="https://forum.gom.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
 
-## Where are Add-ons located in the file system?
+## Where are Apps located in the file system?
 
-Add-ons which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each Add-on named by its UUID.
+Apps which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each App named by its UUID.
 
-When editing is finished, an Add-on file (see [Add-on file format](../add_on_file_format/add_on_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
+When editing is finished, an App file (see [App file format](../app_file_format/app_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
 
-## How can I update the Add-ons after changes made outside of ZEISS INSPECT?
+## How can I update the Apps after changes made outside of ZEISS INSPECT?
 
-After creating, modifying or deleting an Add-on outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal Add-on database. 
+After creating, modifying or deleting an App outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal App database. 
 
 ## How can I stop script execution?
 
@@ -145,9 +145,9 @@ See [User-defined dialogs / Executing dialogs / Dialog results](../python_api_in
 
 ## How can I use an image from a script resource file in a user defined dialog?
 
-You add your image file as a resource to the Add-on:
+You add your image file as a resource to the App:
 
-![Add-on Explorer - PNG file as resource](assets/resource_file_as_image_data.png)
+![App Explorer - PNG file as resource](assets/resource_file_as_image_data.png)
 
 You create a dialog file with an [Image widget](../python_api_introduction/user_defined_dialogs.md#image-widget), but without setting the actual image in the dialog editor.
 
@@ -226,9 +226,9 @@ print(gom.script.ct.get_system_status())
 
 (Added in SW2023 Service Pack2)
 
-## How do I use a C# / .NET library in an Add-on?
+## How do I use a C# / .NET library in an App?
 
-First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your Add-on.
+First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your App.
 
 Here is a simple C# library source code example: 
 

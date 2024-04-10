@@ -4,7 +4,7 @@
 
 ## Short description
 
-This example demonstrates how to read and write Excel files from an Add-on. The Excel file access is implemented using [openpyxl](https://pypi.org/project/openpyxl/). 
+This example demonstrates how to read and write Excel files from an App. The Excel file access is implemented using [openpyxl](https://pypi.org/project/openpyxl/). 
 
 For demonstration purposes, project keywords are read from or written to an Excel file, but the example can be used as a template for other items.
 

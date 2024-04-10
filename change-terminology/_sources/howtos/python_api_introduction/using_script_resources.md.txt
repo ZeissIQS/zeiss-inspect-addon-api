@@ -1,6 +1,6 @@
 # Using script resources
 
-The term "resource" is used to describe any files in your scripts directories that are not python scripts (`*.py`). You can use these files to include binary data such as images or other data like config files etc. in your add-ons.
+The term "resource" is used to describe any files in your scripts directories that are not python scripts (`*.py`). You can use these files to include binary data such as images or other data like config files etc. in your Apps.
 
 ## Importing resources
 

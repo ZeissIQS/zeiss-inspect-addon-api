@@ -1,13 +1,13 @@
 ---
 myst:
    html_meta:
-      "description": "Examples for using the ZEISS INSPECT 2023 Add-on Python API"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Examples"
+      "description": "Examples for using the ZEISS INSPECT 2023 App Python API"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples"
 ---
 #  ZEISS INSPECT Python API Examples Overview
 
 Welcome to the ZEISS INSPECT Python API Examples. Here you can find the documentation of the examples which are provided by the
-`Python API Examples` Add-On. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.
+`Python API Examples` App. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.
 
 ## How the examples are structured
 
@@ -43,11 +43,11 @@ The same result could be achieved by directly writing the `<example code>` in th
 *However, this has a reason*. The functions `function1` and `function2` can be tested from another test script. 
 You are highly encouraged to use this modular approach as well, to keep your code testable and reusable.
 
-If you are interested in testing add-ons (which you should be), learn more in our [Testing Add-Ons How-To](../howtos/testing_addons/testing_addons.md).
+If you are interested in testing Apps (which you should be), learn more in our [Testing Apps How-To](../howtos/testing_apps/testing_apps.md).
 
 ## Example projects
 
-Most of the example scripts rely on a certain project file to be loaded. The add-on already contains these projects, and some examples load them automatically when it is possible (E.g. in the `if __name__ == '__main__'` block).
+Most of the example scripts rely on a certain project file to be loaded. The App already contains these projects, and some examples load them automatically when it is possible (E.g. in the `if __name__ == '__main__'` block).
 
 Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script.
 
@@ -67,7 +67,7 @@ The following project files are included:
 | [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
 | [misc](misc.md)                                               | Miscellaneous examples                                                  |
 | [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
-| [script_resources](script_resources.md)                       | How to access binary data of your add-on (resources)                    |
+| [script_resources](script_resources.md)                       | How to access binary data of your App (resources)                       |
 | [scripted_actuals](scripted_actuals.md)                       | Building actual elements with custom python code                        |
 | [scripted_checks](scripted_checks.md)                         | Building custom checks with python code                                 |
 
