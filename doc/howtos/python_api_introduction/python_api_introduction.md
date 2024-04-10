@@ -1,13 +1,13 @@
 ---
 myst:
    html_meta:
-      "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Add-ons"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos"
+      "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Apps"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos"
 ---
 
 # ZEISS INSPECT Python API Introduction
 
-Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into Add-on development for ZEISS INSPECT. Here you find out what you can do with Add-ons, how they work and how you create them.
+Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into App development for ZEISS INSPECT. Here you find out what you can do with Apps, how they work and how you create them.
 
 See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
 
@@ -277,7 +277,7 @@ The "elements" of the GOM Software, i.e. what you see in the element explorer of
 
 First of all, you need a reference to an element, which you can get either by [using a script dialog](user_defined_dialogs.md) or simply by referencing it by name.
 
-If you have installed the `Python API Examples` add-on from the store and loaded the `gom_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
+If you have installed the `Python API Examples` App from the store and loaded the `gom_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
 
 ```python
 mesh_element = gom.app.project.parts['Part'].actual
@@ -416,10 +416,10 @@ context.stage = current_stage
 
 ## Exception handling
 
-With the ZEISS INSPECT Add-on API, three different types of exceptions can occur:
+With the ZEISS INSPECT App API, three different types of exceptions can occur:
 * Python built-in exceptions
 * User defined exceptions, e.g. from a Python module
-* ZEISS INSPECT Add-on API exceptions
+* ZEISS INSPECT App API exceptions
 
 It is [recommended practice](https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/bare-except.html) to avoid bare except clauses, i.e. to specify an exception type:
 

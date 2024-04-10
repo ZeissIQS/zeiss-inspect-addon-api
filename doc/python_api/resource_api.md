@@ -2,7 +2,7 @@
 
 ## Summmary
 
-The `gom.Resource` API can be used to access binary data of files included in an add-on's scripts folder.
+The `gom.Resource` API can be used to access binary data of files included in an App's scripts folder.
 
 ```{seealso}
 For a description of the general concept, see [Using script resources](../howtos/python_api_introduction/using_script_resources.md).
