@@ -64,7 +64,7 @@
 
 :Template: Workspace Editor Tools
 :Description: Create an App specific workspace.
-:How-to: <a href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding worksppaces to Apps</a>
+:How-to: <a href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding worksppaces to Apps</a>
 :Keywords: addon, add-on, app, toolbar, menu, tab, working area, workarea, workspace
 
 ## File system access
@@ -84,7 +84,7 @@
 
 :Template: PythonApiExamples.addon
 :Description: Implement code tests for Apps.
-:How-to: <a href="../testing_addons/testing_addons.html">Testing Apps</a>
+:How-to: <a href="../testing_apps/testing_apps.html">Testing Apps</a>
 :Keywords: test, testing, unit testing, test automation, add-ons, addons, apps
 
 ## Project keywords
