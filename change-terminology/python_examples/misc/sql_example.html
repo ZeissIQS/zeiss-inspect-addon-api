@@ -126,7 +126,7 @@
 <p><img alt="SQL Example Figure" src="../../_images/sql_example.png" /></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
-<p>This example demonstrates how to access an SQL database from an Add-on. For demonstration purposes, project keywords are written to or read from a database, respectively.</p>
+<p>This example demonstrates how to access an SQL database from an App. For demonstration purposes, project keywords are written to or read from a database, respectively.</p>
 <p>The database access is implemented using <a class="reference external" href="https://pypi.org/project/mysql-connector-python/">mysql-connector-python</a>. A test database server is set up using <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a>.</p>
 <p>Besides, <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a> is used to save and restore entries made in a dialog.</p>
 </section>
@@ -141,7 +141,7 @@
   <span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This Add-on handles the project variables <code class="docutils literal notranslate"><span class="pre">user_project</span></code>, <code class="docutils literal notranslate"><span class="pre">user_company</span></code>, <code class="docutils literal notranslate"><span class="pre">user_department</span></code> and <code class="docutils literal notranslate"><span class="pre">user_part</span></code>.
+<p>This App handles the project variables <code class="docutils literal notranslate"><span class="pre">user_project</span></code>, <code class="docutils literal notranslate"><span class="pre">user_company</span></code>, <code class="docutils literal notranslate"><span class="pre">user_department</span></code> and <code class="docutils literal notranslate"><span class="pre">user_part</span></code>.
 For each of these variables, two text widgets are used - one for the value in ZEISS INSPECT (e.g. <code class="docutils literal notranslate"><span class="pre">project_zi</span></code>) and one for the value in the database (e.g. <code class="docutils literal notranslate"><span class="pre">project_db</span></code>).</p>
 <p>If available, the project keywords are written to the text widgets in the column ‘INSPECT’ (<code class="docutils literal notranslate"><span class="pre">*_zi</span></code>):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;user_project&#39;</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">project_keywords</span><span class="p">:</span>
@@ -406,7 +406,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8a8701f8b0>
+  <jinja2.runtime.BlockReference object at 0x7ff14df3ded0>
 
 
 </footer>
