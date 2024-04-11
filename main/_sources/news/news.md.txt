@@ -2,7 +2,7 @@
 myst:
    html_meta:
       "description": "ZEISS INSPECT 2023 Add-on Python API News"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation, News, Newsfeed, RSS"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Examples, Specification, Documentation, News, Newsfeed, RSS"
 --- 
 
 # What's New
@@ -12,8 +12,8 @@ myst:
 ```{eval-rst}
 .. feed::
    :rss: index.rss
-   :title: ZEISS INSPECT 2023 Add-on Python API News
-   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/
+   :title: ZEISS INSPECT 2025 App Python API News
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/
 
    20240315-element-selection
    20240314-internationalization-tool-update

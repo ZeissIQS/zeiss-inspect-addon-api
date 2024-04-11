@@ -1,22 +1,22 @@
-# Testing add-ons
+# Testing Apps
 
 ```{note}
-You can use the `Python API Examples` add-on, which you can find in the store, as an example how to include tests in your add-on.
+You can use the `Python API Examples` App, which you can find in the store, as an example how to include tests in your App.
 ```
 ## Why testing?
 
-Testing your add-on is a crucial step for maintainability, especially when dealing with multiple software versions or updates. As manually testing your add-on is often tedious and time consuming, this how-to focuses on how to include **automated tests** in your add-on.
+Testing your App is a crucial step for maintainability, especially when dealing with multiple software versions or updates. As manually testing your App is often tedious and time consuming, this how-to focuses on how to include **automated tests** in your App.
 
-Automated tests are important when writing add-ons in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the GOM Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the add-on, as well as to ensure it meets the user’s requirements.
+Automated tests are important when writing Apps in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the GOM Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the App, as well as to ensure it meets the user’s requirements.
 
 ## File structure
 
-For test discovery to work, the file and folder structure of add-on tests needs to adhere to the following conventions, which are similar to the *pyTest*s [Conventions for Python test discovery](https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery).
+For test discovery to work, the file and folder structure of App tests needs to adhere to the following conventions, which are similar to the *pyTest*s [Conventions for Python test discovery](https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery).
 
 * test script file names **start with `test_`**
 * test scripts *only* contain **functions with the prefix `test_`**.
    * this means: no code outside of function definitions. 
-* (optional, but recommended) all python test scripts reside in a separate `tests/` directory of your add-ons top-level directory.
+* (optional, but recommended) all python test scripts reside in a separate `tests/` directory of your Apps top-level directory.
 
 ```{figure} file_structure.jpg
 :align: center
@@ -25,12 +25,12 @@ Exemplary file structure.
 
 
 ```{note}
-In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the "Execute add-on tests" command (see [Running tests](#running-add-on-tests)).
+In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the "Execute App tests" command (see [Running tests](#running-app-tests)).
 ```
 
 ## Writing a test script
 
-The following steps are required to write a new test script. The example code is taken from the `Python API Examples` add-on, which you can find in the store.
+The following steps are required to write a new test script. The example code is taken from the `Python API Examples` App, which you can find in the store.
 
 1. Create a test script: Create a Python file with the convention test_*.py. 
    (Example: `PythonApiExamples/tests/test_data_interfaces_check_results`)
@@ -62,16 +62,16 @@ The following steps are required to write a new test script. The example code is
 
 That's all it takes to create a simple test, which can now be run.
 
-## Running add-on tests
+## Running App tests
 
-To run add-on tests, either a single one or multiple/all tests of an add-on, you can use the integrated script editor or VSCode. You can also execute tests from a script.
+To run App tests, either a single one or multiple/all tests of an App, you can use the integrated script editor or VSCode. You can also execute tests from a script.
 ### Using the script editor
 
 To run the tests of a specific test script, use the context menu and select "Run tests...". 
 
 ![](execute_tests_command.jpg)
 
-You can use this context also on higher levels of the file hierarchy, e.g. to execute all tests of a folder or of the complete add-on.
+You can use this context also on higher levels of the file hierarchy, e.g. to execute all tests of a folder or of the complete App.
 
 Results will be shown in the log of the script editor.
 
@@ -79,14 +79,14 @@ Results will be shown in the log of the script editor.
 
 ### Using VSCode
 
-The ZEISS INSPECT add-on extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
+The ZEISS INSPECT App extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
 To use this feature, navigate to the "Testing" workspace of VSCode and select the test items you want to run.
 
 ![](vscode_testing.jpg)
 
 ### From scripts
 
-You can use the `execute_addon_tests` command to run tests of an add-on. It takes the add-on UUID as mandatory argument. If solely given, all tests of the add-on are executed. You can also provide a list of test paths with the argument `test_paths` in form of relative paths inside the add-on. The suffix `#test_<...>` indicates, which test function to run. 
+You can use the `execute_addon_tests` command to run tests of an App. It takes the App UUID as mandatory argument. If solely given, all tests of the App are executed. You can also provide a list of test paths with the argument `test_paths` in form of relative paths inside the App. The suffix `#test_<...>` indicates, which test function to run. 
 
 ```
 results = gom.script.sys.execute_addon_tests_draft(addon_uuid='5f396cc9-7865-44a1-8a85-ed7c1689dd68')
@@ -103,7 +103,7 @@ This will give you `results` as a list of tuples (test name, success, error mess
 
 In the namespace `addon`, there are two new classes: `addon.ArrayDataTest` and `addon.ElementTest`.
 
-These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by `test_data_interfaces_volume_section.py` of the Python API Examples add-on.
+These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by `test_data_interfaces_volume_section.py` of the Python API Examples App.
 
 ```
 from addon import ArrayDataTest, ElementTest
@@ -134,7 +134,7 @@ def test_volume_section():
 
 You can see, that `ElementTest` can be used to access element properties easily. `ArrayDataTest` is used for `numpy` array comparison.
 The path, where test data is stored, is supplied in the constructors (e.g. `ElementTest('test_data/data_interfaces_volume_section_tokens.dat')`).
-If a relative path is given, like here, a resource inside the add-on is created / compared with. You can also use absolute paths to a file on your disk, but this is not recommended since not everyone that installed your add-on has access to this test data.
+If a relative path is given, like here, a resource inside the App is created / compared with. You can also use absolute paths to a file on your disk, but this is not recommended since not everyone that installed your App has access to this test data.
 
 These classes will **create the test data** for you, if you run the test execution via "Run tests (create data)...".
 
@@ -142,9 +142,9 @@ These classes will **create the test data** for you, if you run the test executi
 
 In a "normal" test run, data will be compared to the stored resources.
 
-## Testing Add-ons with dialogs
+## Testing Apps with dialogs
 
-Normally, you would have to test Add-ons (or parts of it) using [user-defined dialogs](../python_api_introduction/user_defined_dialogs.md) manually, but the Python class `AutoDialogContext` allows automated testing.
+Normally, you would have to test Apps (or parts of it) using [user-defined dialogs](../python_api_introduction/user_defined_dialogs.md) manually, but the Python class `AutoDialogContext` allows automated testing.
 
 ### Example
 
@@ -247,11 +247,11 @@ Interaction with the control buttons of the dialog is done via the return value 
 * If the dialog does not need to be closed by automatic control button interaction,
   but will close itself by some other interaction, the callback should return `None`.
 
-## Running Add-on tests with code coverage
+## Running App tests with code coverage
 
-Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The Add-on [TemplateUnittestCoverage](https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage) / [TemplateUnittestCoverage.addon](https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon) provides a template for running unit tests and generating a code coverage report.
+Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The App [TemplateUnittestCoverage](https://github.com/ZeissIQS/AddOnExamples/tree/main/examples/TemplateUnittestCoverage) / [TemplateUnittestCoverage.addon](https://github.com/ZeissIQS/AddOnExamples/blob/main/addons/TemplateUnittestCoverage.addon) provides a template for running unit tests and generating a code coverage report.
 
-The test case structure is the same as described in the preceding sections, but to generate a coverage report, the tests must be run with the script [run_tests.py](https://github.com/ZeissIQS/AddOnExamples/blob/main/examples/TemplateUnittestCoverage/scripts/run_tests.py) while the Add-on is in editing mode.
+The test case structure is the same as described in the preceding sections, but to generate a coverage report, the tests must be run with the script [run_tests.py](https://github.com/ZeissIQS/AddOnExamples/blob/main/examples/TemplateUnittestCoverage/scripts/run_tests.py) while the App is in editing mode.
 
 With the provided example, the test results are shown as follows:
 

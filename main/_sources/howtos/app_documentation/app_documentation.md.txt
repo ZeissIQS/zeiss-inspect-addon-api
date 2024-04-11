@@ -1,6 +1,6 @@
-# Documenting Add-ons
+# Documenting Apps
 
-💡 The add-on documentation is part of the packaged add-on.
+💡 The App documentation is part of the packaged App.
 
 ## Terminology
 
@@ -8,26 +8,26 @@
 
 | Index | Item                           | Description                                                | Origin                                                         |
 | ----- | ------------------------------ | ---------------------------------------------------------- | -------------------------------------------------------------- |
-|     1 | Title                          | Add-on title                                               | 'Title' field in the add-on. Set during add-on creation.       |
-|     2 | Company                        | Company the add-on is maintained by                        | Company the uploading account belongs to.                      |
-|     3 | Add-on description             | Add-on short description                                   | 'Description' field in the add-on. Set during add-on creation. |
-|     4 | Splash description             | Some information about the add-on, e.g. for advertising it | doc/README.md from the add-on. See below how to edit it.       |
-|     5 | Link to complete documentation | Complete add-on documentation | Something referenced from within the doc/README.md. Can be a PDF, a link to some external site, ... | 
+|     1 | Title                          | App title                                                  | 'Title' field in the App. Set during App creation.             |
+|     2 | Company                        | Company which maintains the App                            | Company the uploading account belongs to.                      |
+|     3 | App description                | App short description                                      | 'Description' field in the App. Set during App creation.       |
+|     4 | Splash description             | Some information about the App, e.g. for advertising it    | doc/README.md from the App. See below how to edit it.          |
+|     5 | Link to complete documentation | Complete App documentation | Something referenced from within the doc/README.md. Can be a PDF, a link to some external site, ... | 
 
-## Add-on structure
+## App structure
 
-An add-on file is technically a ZIP file.
+An App file is technically a ZIP file.
 
 * It must at least contain a file `doc\README.md`, which will be rendered as the product's splash description ad.
 * It can contain an arbitrary number of additional files in the `doc` folder referenced from within the `README.md` file. 
 
 ### Example
 
-* Documentation related content of the add-on 'Python API Examples':
+* Documentation related content of the App 'Python API Examples':
 
     ![](assets/7-ZIP_README.png)
 
-* The README.md is the starting point for rendering the add-ons splash description and will reference all other files:
+* The README.md is the starting point for rendering the App's splash description and will reference all other files:
 
     ![](assets/Edit_README.png)
 
@@ -43,7 +43,7 @@ See [markdown guide](https://www.markdownguide.org/basic-syntax/) for a brief de
 See ZEISS Industrial Quality Suite → Store → Python API Examples for example.
 
 ![](assets/markdown_editor_viewer.png)
-A markdown editor/viewer is integrated in the ZEISS INSPECT Add-on editor.
+A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.
 
 ## Portable Document Format (PDF)
 

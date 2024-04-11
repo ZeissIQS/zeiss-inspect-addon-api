@@ -1,37 +1,37 @@
-# Adding workspaces to add-ons
+# Adding workspaces to Apps
 
-> Abstract: An add-on can include a definition for a new workspace. 'Inspection' and 'Reporting' are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.
+> Abstract: An App can include a definition for a new workspace. 'Inspection' and 'Reporting' are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.
 
 ## Workspaces
 
 ![](assets/workspace1.png)
 
 * ZEISS INSPECT has a set of available workspaces on the left side (1).
-* Which workspaces are available depends on the available licenses and the installed add-ons.
+* Which workspaces are available depends on the available licenses and the installed Apps.
 * A workspace bundles commands etc. thematically. If, for example, the 'inspection' workspace is selected, the toolbar (2) and the view menu (3) above will show everything the user needs to inspect parts, while the 'report' workspace provides tool for report page creation.
-* An add-on can add its own workspace. The 'Blade CMM' add-on, for example will provide tools for 'Airfoil CMM Data Preparation' - a feature, which is contained in an add-on and not provided by default because it is rather special.
+* An App can add its own workspace. The 'Blade CMM' App, for example will provide tools for 'Airfoil CMM Data Preparation' - a feature, which is contained in an App and not provided by default because it is rather special.
 
-## Adding workspaces to add-ons
+## Adding workspaces to Apps
 
 > There is no UI based workspace editor yet, but workspace definitions can be added manually.
 
-* An example can be found in the add-on 'Workspace editor tools'
-* An add-on is just a ZIP file with a different extension  (.addon) containing JSON based object definitions.
+* An example can be found in the App 'Workspace editor tools'
+* An App is just a ZIP file with a different extension  (.zapp) containing JSON based object definitions.
 * It can be unpacked, edited and packed again with a new workspace definition.
 
-### Step 1: Unpack the add-on
+### Step 1: Unpack the App
 
-* Use the tool of your choice to unpack the add-on file.
+* Use the tool of your choice to unpack the App file.
 * We recommend 7-zip for that task, but every other zip tool will do the job, too.
-* If you want to perform these tasks often, you can register your ZIP tool in the Windows "Choose default apps by file type" settings. Then, instead of unpacking and packing the add-on again for each edit, you can fiddle with the add-on content directly from the ZIP tool:
+* If you want to perform these tasks often, you can register your ZIP tool in the Windows "Choose default apps by file type" settings. Then, instead of unpacking and packing the App again for each edit, you can fiddle with the App content directly from the ZIP tool:
 
   ![](assets/workspace2.png)
 
-### Step 2: Create a workspace folder inside the add-on
+### Step 2: Create a workspace folder inside the App
 
 The workspace definitions must be placed in a folder named `workspaces`. A separate folder must be created for each workspace. The folder must be named according to the workspace name, i.e.
 
-`My Add-on/workspaces/<workspace>`
+`My App/workspaces/<workspace>`
 
 ### Step 3: Add a workspace definition file
 
@@ -39,9 +39,9 @@ The workspace definitions must be placed in a folder named `workspaces`. A separ
 
 Add a workspace definition file must be added to the new workspace folder, i.e.
 
-`My Add-on/workspaces/<workspace>/<workspace>.json`
+`My App/workspaces/<workspace>/<workspace>.json`
 
-**Example:** From the Add-on 'Airfoil CMM Data Preparation':
+**Example:** From the App 'Airfoil CMM Data Preparation':
 
 ~~~
 {
@@ -106,7 +106,7 @@ The name of an (internal) icon file or an icon definition.
 Since SW2022-0, workspace icon definitions can be added with the following procedure:
 
 * Choose an icon file in one of the widely supported formats (png, jpg, ...). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.
-* Install the add-on 'Workspace editor tools' and use the script in 'Add-ons/Tools/Workspace editor' to create a base64 encoded file of this icons data:
+* Install the App 'Workspace editor tools' and use the script in 'Apps/Tools/Workspace editor' to create a base64 encoded file of this icons data:
 
   ![](assets/convert_base64_dialog.png)
 
@@ -154,7 +154,7 @@ The commands here will become entries in the toolbar from the left to the right.
 
 ![](assets/workspace5.png)
 
-This works for scripts, too, if a script is executed from the 'Add-ons' menu while the script editor is in recording mode.
+This works for scripts, too, if a script is executed from the 'Apps' menu while the script editor is in recording mode.
 
 #### "sensor_commands"
 
@@ -172,8 +172,8 @@ Views that are visible as tabs per default → these are still initially collaps
 
 ### Step 4: Test your workspace
 
-* Save that new content in the add-on.
-* Install the add-on.
+* Save that new content in the App.
+* Install the App.
 * Look for a new workspace in the workspace toolbar on the left side of the application.
 
 ## Guidelines

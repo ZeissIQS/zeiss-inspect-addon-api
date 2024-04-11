@@ -1,10 +1,10 @@
-# Add-on file format
+# App file format
 
 ## Introduction
 
-💡 An Add-on file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
+💡 An ZEISS INSPECT App file (extension: *.zapp) is a ZIP archive with pre-defined folder- and filenames. 
 
-While an Add-on file will be created and modified with the Add-on Manager in most cases, it can also be unzipped/edited/zipped manually if necessary.
+While an App file will be created and modified with the App Editor in most cases, it can also be unzipped/edited/zipped manually if necessary.
 
 ## Structure
 
@@ -12,12 +12,12 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 
 | File              | Description                                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------------ |
-| `<other folder>/` | All other folders are containing Add-on content. The format of this content is discussed below.              |
-| `doc/`            | Add-on documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format. |
-| `icon.png`        | Add-on icon as displayed in the Add-on Manager and the Software Store                                        |
-| `key.enc`         | Add-on protection and licensing information in case the Add-on is protected                                  |
-| `license/`        | Terms-of-use related to this Add-on. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon Add-on installation                                               |
-| `metainfo.json`   | Add-on metainfo data (title, description, version, ...)                                                     |
+| `<other folder>/` | All other folders are containing App content. The format of this content is discussed below.                 |
+| `doc/`            | App documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format.    |
+| `icon.png`        | App icon as displayed in the App Manager and the Software Store                                              |
+| `key.enc`         | App protection and licensing information in case the App is protected                                        |
+| `license/`        | Terms-of-use related to this App. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon App installation                                                                                              |
+| `metainfo.json`   | App metainfo data (title, description, version, ...)                                                         |
 
 ### Content types
 
@@ -50,7 +50,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 | scripted_elements	        | Scripted elements	                              |              |
 | surface_classifications	| Surface defect classifications	              |              |
 | tables	                | Table templates (3D view)	                      |              |
-| terms_of_use	            | Collection of terms-of-use for Add-on creation  |              |
+| terms_of_use	            | Collection of terms-of-use for App creation     |              |
 | tolerance_legends	        | Tolerance legends (3D)	                      |              |
 | user_defined_checks	    | User defined checks	                          |              |
 | user_defined_inspection_principles | User defined inspection principles     |              |
@@ -60,7 +60,7 @@ While an Add-on file will be created and modified with the Add-on Manager in mos
 
 💡 Each "content object" consists of a folder in one of the "content type" (top level) folders.
 
-* A "content object" is a single template/script/element/... distributed via an Add-on.
+* A "content object" is a single template/script/element/... distributed via an App.
 * Each "content object" is represented by the content of a folder in the "content type" folder matching the content type.
 * The exact format of the content representation depends on the "content type".
 * The name of the "content object" is the same as its folder's name.
@@ -119,5 +119,5 @@ scripts/
 ### Structure
 
 #### Why is there a folder for every single element?
-* The Add-on Manager can handle the elements transparently in this way. Just the folder is dragged & dropped, visible etc., while the content is abstracted and can edited (e.g. in a graphical editor)
+* The App Editor can handle the elements transparently in this way. Just the folder is dragged & dropped, visible etc., while the content is abstracted and can edited (e.g. in a graphical editor)
 * The content format specification of an element can easier be changed over time
