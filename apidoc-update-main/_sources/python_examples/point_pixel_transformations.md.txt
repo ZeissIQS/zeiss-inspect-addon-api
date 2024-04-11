@@ -60,15 +60,15 @@ The resulting 2D pixels from the previous step are used as the input parameters 
 ```{code-block} python
 print(f'\tLeft image: {image_coordinates[0]}, Right image: {image_coordinates[1]}')
 use_calibration = False
-computed_point = gom.api.imaging.compute_point_from_pixels ([[(image_coordinates[0], left), (image_coordinates[1], right)]], use_calibration)
-print(f'\tComputation result: P = {computed_point[0][0]}')
+point_and_residuum = gom.api.imaging.compute_point_from_pixels ([[(image_coordinates[0], left), (image_coordinates[1], right)]], use_calibration)[0]
+print(f'\tComputation result: P = {point_and_residuum[0]}, Residuum: {point_and_residuum[1]}')
 ```
 
 Output:
 
 ```
 Left image: gom.Vec2d (1980.7299023612043, 150.31166936961336), Right image: gom.Vec2d (2545.676173697585, 124.49594153283601)
-Computation result: P = gom.Vec3d (31.30768655560711, 201.84682632118486, -174.5779322757101)
+Computation result: P = gom.Vec3d (-144.2165521110654, 168.67899387974234, -172.4471527045714), Residuum: 2.906708252303575e-08
 ```
 
 ### 5. For comparison: Interactive display of reference points and pixel coordinates

@@ -1,4 +1,4 @@
-# Using Visual Studio Code as an add-on editor
+# Using Visual Studio Code as an App editor
 
 ## Setup
 
@@ -30,7 +30,7 @@
 3. Press onto the "Host: Disconnected" status entry to connect to the host application.
 4. After the connection has been established,
     * the connection status will reflect that and
-    * the ZEISS INSPECT Add-on Explorer content is mirrored and displayed in VSCode:
+    * the ZEISS INSPECT App Explorer content is mirrored and displayed in VSCode:
     
       ![](assets/connecting2.png)
 
@@ -47,7 +47,7 @@
 ### Executing scripts
 
 1. Select script to execute in the VSCode explorer.
-    * The script can either reside in the internal edited Add-ons folder or be a local file from any other workspace location.
+    * The script can either reside in the internal edited Apps folder or be a local file from any other workspace location.
 2. Select "Run script in ZEISS INSPECT host" from the editors toolbar
 3. The script outputs will be shown in the "debug console".
 
@@ -55,7 +55,7 @@
 
 ### Recording commands
 
-1. Make sure that your Add-on in is in editing mode
+1. Make sure that your App in is in editing mode
 2. Select the script into which you want to record commands for displaying in the editor.
 3. In that editor, select "Record commands" from the editor toolbar.
 4. Execute commands in the ZEISS INSPECT application
@@ -189,7 +189,7 @@ Due to an unsolved bug, the script editor window might open below the VSCode win
 #### Can I use local workspaces from disk instead of the application script database for my project ?
 
 * Yes. You can add arbitrary folders to the workspace and edit and starts scripts from right there.
-* The edited external folder can be connected to the ZEISS INSPECT Add-on Explorer, so that it can be used from there:
+* The edited external folder can be connected to the ZEISS INSPECT App Explorer, so that it can be used from there:
 
   ![](assets/03-Add-on_External_Folder_v2.png)
 
