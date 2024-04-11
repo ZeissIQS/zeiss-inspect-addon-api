@@ -39,3 +39,4 @@ jobs:
         uses: filiph/linkcheck@3.0.0
         with:
           arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/
+          

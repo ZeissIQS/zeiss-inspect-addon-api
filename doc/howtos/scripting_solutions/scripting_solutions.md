@@ -40,7 +40,7 @@
 ## Settings
 
 :Template: [SettingsAPIExample.addon](https://raw.githubusercontent.com/ZeissIQS/AddOnExamples/main/addons/SettingsAPIExample.addon)
-:Description: Save Add-on settings permanently and restore them after restarting the Add-on. Access Add-on settings from ZEISS INSPECT preferences dialog.
+:Description: Save App settings permanently and restore them after restarting the App. Access App settings from ZEISS INSPECT preferences dialog.
 :API Documentation: <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a>
 :Keywords: settings, configuration, state, save, store, restore, load, retain, persistent
 
@@ -56,16 +56,16 @@
 
 ## Shared script environment
 
-:Description: Sharing code and data between Add-ons.
+:Description: Sharing code and data between Apps.
 :How-to: <a href="../using_shared_environments/using_shared_environments.html">Using shared environments</a>
-:Keywords: addon, add-on, module, modular, package, class, function, method, code, data, import, reuse, re-use, use, call, execute, interaction
+:Keywords: addon, add-on, app, module, modular, package, class, function, method, code, data, import, reuse, re-use, use, call, execute, interaction
 
 ## Workspace
 
 :Template: Workspace Editor Tools
-:Description: Create an Add-on specific workspace.
-:How-to: <a href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding worksppaces to Add-ons</a>
-:Keywords: addon, add-on, toolbar, menu, tab, working area, workarea, workspace
+:Description: Create an App specific workspace.
+:How-to: <a href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding worksppaces to Apps</a>
+:Keywords: addon, add-on, app, toolbar, menu, tab, working area, workarea, workspace
 
 ## File system access
 
@@ -83,9 +83,9 @@
 ## Test framework
 
 :Template: PythonApiExamples.addon
-:Description: Implement code tests for Add-ons.
-:How-to: <a href="../testing_addons/testing_addons.html">Testing add-ons</a>
-:Keywords: test, testing, unit testing, test automation, add-ons, addons
+:Description: Implement code tests for Apps.
+:How-to: <a href="../testing_apps/testing_apps.html">Testing Apps</a>
+:Keywords: test, testing, unit testing, test automation, add-ons, addons, apps
 
 ## Project keywords
 

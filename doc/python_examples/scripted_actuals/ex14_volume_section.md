@@ -27,7 +27,7 @@ def calculation(context, params):
 
     file = params['file']
 
-    # if filename starts with ':', it is an add-on resource used for testing,
+    # if filename starts with ':', it is an app resource used for testing,
     # e.g. ':ScriptedElementsExamples/Grayscale_8bits_palette.png'
     if file and file[0] == ':':
         # read resource
