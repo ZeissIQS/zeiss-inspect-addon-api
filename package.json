@@ -1,7 +1,7 @@
 {
   "name": "zeiss-inspect-addon-api",
   "version": "0.1.0",
-  "description": "ZEISS INSPECT 2023 Add-on Python API Documentation",
+  "description": "ZEISS INSPECT 2025 Add-on Python API Documentation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZeissIQS/zeiss-inspect-addon-api.git"
@@ -10,6 +10,7 @@
   "dependencies": {
     "checkout": "actions/checkout#semver:^4",
     "setup-python": "actions/setup-python#semver:^5",
+    "sphinx": "sphinx-doc/sphinx:^7.2.6",
     "linkcheck": "filiph/linkcheck#semver:^3.0.0",
     "actions-gh-pages": "peaceiris/actions-gh-pages#semver:^4",
     "action-pull-request": "devops-infra/action-pull-request#semver:^0.5.5"
