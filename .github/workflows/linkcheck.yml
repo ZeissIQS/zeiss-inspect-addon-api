@@ -10,11 +10,8 @@ jobs:
   linkcheck:
     runs-on: ubuntu-latest
     steps:
-      #- name: Set branch name
-      #  id: branch
-      #  run: echo "SUBDIR_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: Linkcheck
-              #if: ${{ env.SUBDIR_NAME != 'merge' }}
-              uses: filiph/linkcheck@3.0.0
-              with:
-                arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/
+        #if: ${{ env.SUBDIR_NAME != 'merge' }}
+        uses: filiph/linkcheck@3.0.0
+        with:
+          arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/
