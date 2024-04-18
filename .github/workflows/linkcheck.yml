@@ -1,10 +1,13 @@
 name: Check links after deployment
 
 on:
-  deployment: # Trigger when the deployment is complete
-    types: [deployment_status]
+  deployment_status: # Trigger when the deployment is complete
+    types: [success]
     #branches: [main]
     branches-ignore: [merge]
+#on:
+#  deployment_status:
+#    types: [success]
 
 jobs:
   linkcheck:
