@@ -34,8 +34,3 @@ jobs:
           publish_dir: _build/
           destination_dir: ${{ env.SUBDIR_NAME }}
           full_commit_message: Deploy documentation of '${{ env.SUBDIR_NAME }}' to GitHub Pages
-      #- name: Linkcheck
-      #  if: ${{ env.SUBDIR_NAME != 'merge' }}
-      #  uses: filiph/linkcheck@3.0.0
-      #  with:
-      #    arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/
