@@ -187,3 +187,88 @@ You must use forward slashes in the application file path. The command line is s
 ```
 
 See [Python subprocess documentation](https://docs.python.org/3/library/subprocess.html) for more details.
+
+## Executing a Python script from an Add-on
+
+The command `gom.script.sys.execute_script()` can be used to run another Python script from an Add-on.
+
+```{py:function} gom.script.sys.execute_script(file: string, parameters: dict, collect_stdout: bool, collect_stderr) : string
+
+Execute Script From File
+:param file: Script file path.
+:type source: string
+:param parameters: Parameters passed to the script. The keys/value pairs define global variables provided to the script.
+:type parameters: dict
+:param collect_stdout: If True, provide script's output to stdout as return value (default: False).
+:type collect_stdout: bool
+:param collect_stdout: If True, provide script's output to stderr as return value (default: False).
+:type collect_stderr: bool
+:return: depending on parameters collect_stdout and collect_stderr
+:rtype: string
+```
+```{code-block} python
+:caption: Add-on Script
+
+import gom
+
+FILE = "C:/temp/testscript.py"
+
+# Return None
+res = gom.script.sys.execute_script(file=FILE)
+print(res)
+
+# Return stdout
+res = gom.script.sys.execute_script(file=FILE, collect_stdout=True)
+print(res)
+
+# Return stdout and stderr
+res = gom.script.sys.execute_script(file=FILE, collect_stdout=True, collect_stderr=True)
+print(res)
+
+# Pass parameters
+res = gom.script.sys.execute_script(
+	file=FILE,
+	parameters={"geometry": "circle", "radius": "42"}, 
+	collect_stdout=True)
+print(res)
+```
+
+```{code-block} python
+:caption: External Python Script (testscript.py)
+
+import sys
+
+print(f'sys.argv: {sys.argv}')
+
+# Two possible ways to check for parameters...
+
+# Option 1
+if 'geometry' in globals():
+    print(f'Name: {geometry}')
+
+# Option 2    
+try:
+    print(f'radius: {radius}')
+except NameError:
+    pass
+    
+print("This is a normal message")
+print("This is an error message", file=sys.stderr)
+```
+
+```{code-block}
+:caption: Output to Add-on Editor Console
+
+None
+sys.argv: ['C:/temp/testscript.py']
+This is a normal message
+
+sys.argv: ['C:/temp/testscript.py']
+This is a normal message
+This is an error message
+
+sys.argv: ['C:/temp/testscript.py']
+Name: circle
+radius: 42
+This is a normal message
+```
