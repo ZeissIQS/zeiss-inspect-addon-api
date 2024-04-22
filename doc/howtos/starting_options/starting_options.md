@@ -201,7 +201,7 @@ Execute Script From File
 :type parameters: dict
 :param collect_stdout: If True, provide script's output to stdout as return value (default: False).
 :type collect_stdout: bool
-:param collect_stdout: If True, provide script's output to stderr as return value (default: False).
+:param collect_stderr: If True, provide script's output to stderr as return value (default: False).
 :type collect_stderr: bool
 :return: depending on parameters collect_stdout and collect_stderr
 :rtype: string
