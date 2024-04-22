@@ -192,12 +192,12 @@ See [Python subprocess documentation](https://docs.python.org/3/library/subproce
 
 The command `gom.script.sys.execute_script()` can be used to run another Python script from an Add-on.
 
-```{py:function} gom.script.sys.execute_script(file: string, parameters: dict, collect_stdout: bool, collect_stderr) : string
+```{py:function} gom.script.sys.execute_script(file: string, parameters: dict, collect_stdout: bool, collect_stderr: bool) : string
 
 Execute Script From File
 :param file: Script file path.
 :type source: string
-:param parameters: Parameters passed to the script. The keys/value pairs define global variables provided to the script.
+:param parameters: Parameters passed to the script. The keys/value pairs define global variables and their contents provided to the script (default: None).
 :type parameters: dict
 :param collect_stdout: If True, provide script's output to stdout as return value (default: False).
 :type collect_stdout: bool
