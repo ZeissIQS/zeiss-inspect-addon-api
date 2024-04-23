@@ -280,7 +280,7 @@ print(gom.script.ct.get_system_status())
 
 ## Can I use the Python package `pdfplumber` in an Add-on?
 
-Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_add_on_editor/using_add_on_editor.html#installing-python-packages) and used without any known limitations.
+Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_add_on_editor/using_add_on_editor#installing-python-packages) and used without any known limitations.
 
 ## Can I use the Python package `pywin32` in an Add-on?
 
@@ -293,7 +293,7 @@ Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-add-on)) requir
 
 Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an Add-on?](#can-i-use-the-python-package-pywin32-in-an-add-on).
 
-If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example.html)).
+If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example)).
  
 ## How do I use a C# / .NET library in an Add-on?
 
