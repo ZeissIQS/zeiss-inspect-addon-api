@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-with-a-windows-shortcut">Starting ZEISS INSPECT with a Windows shortcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-from-a-batch-file">Starting ZEISS INSPECT from a batch file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#starting-zeiss-inspect-as-a-subprocess-in-a-python-script">Starting ZEISS INSPECT as a subprocess in a Python script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executing-a-python-script-from-an-app">Executing a Python script from an App</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
@@ -265,6 +266,99 @@
 </div>
 <p>See <a class="reference external" href="https://docs.python.org/3/library/subprocess.html">Python subprocess documentation</a> for more details.</p>
 </section>
+<section id="executing-a-python-script-from-an-app">
+<h2>Executing a Python script from an App<a class="headerlink" href="#executing-a-python-script-from-an-app" title="Link to this heading"></a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.execute_script()</span></code> can be used to run another Python script from an App.</p>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.script.sys.execute_script(file:</span> <span class="pre">string,</span> <span class="pre">parameters:</span> <span class="pre">dict,</span> <span class="pre">collect_stdout:</span> <span class="pre">bool,</span> <span class="pre">collect_stderr:</span> <span class="pre">bool)</span> <span class="pre">:</span> <span class="pre">string</span></span></dt>
+<dd><p>Execute Script From File</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – Script file path.</p></li>
+<li><p><strong>parameters</strong> (<em>dict</em>) – Parameters passed to the script. The keys/value pairs define global variables and their contents provided to the script (default: None).</p></li>
+<li><p><strong>collect_stdout</strong> (<em>bool</em>) – If True, provide script’s output to stdout as return value (default: False).</p></li>
+<li><p><strong>collect_stderr</strong> (<em>bool</em>) – If True, provide script’s output to stderr as return value (default: False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>depending on parameters collect_stdout and collect_stderr</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">App Script</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="n">FILE</span> <span class="o">=</span> <span class="s2">&quot;C:/temp/testscript.py&quot;</span>
+
+<span class="c1"># Return None</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="c1"># Return stdout</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">,</span> <span class="n">collect_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="c1"># Return stdout and stderr</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">,</span> <span class="n">collect_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">collect_stderr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="c1"># Pass parameters</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span>
+	<span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">,</span>
+	<span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span> <span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">},</span> 
+	<span class="n">collect_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">External Python Script (testscript.py)</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;sys.argv: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Two possible ways to check for parameters...</span>
+
+<span class="c1"># Option 1</span>
+<span class="k">if</span> <span class="s1">&#39;geometry&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name: </span><span class="si">{</span><span class="n">geometry</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Option 2    </span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;radius: </span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="k">pass</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a normal message&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is an error message&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Output to App Editor Console</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C:/temp/testscript.py&#39;</span><span class="p">]</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">normal</span> <span class="n">message</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C:/temp/testscript.py&#39;</span><span class="p">]</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">normal</span> <span class="n">message</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">error</span> <span class="n">message</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C:/temp/testscript.py&#39;</span><span class="p">]</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">circle</span>
+<span class="n">radius</span><span class="p">:</span> <span class="mi">42</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">normal</span> <span class="n">message</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -289,7 +383,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f181efb4c40>
+  <jinja2.runtime.BlockReference object at 0x7fc3f5fc8400>
 
 
 </footer>

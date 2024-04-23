@@ -145,27 +145,27 @@
 </div>
 <section id="source-code-excerpt">
 <h2>Source code excerpt<a class="headerlink" href="#source-code-excerpt" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="c1">#[...]</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 5</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="c1"># Calculating all available stages</span>
-<span class="linenos"> 8</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
-<span class="linenos"> 9</span>        <span class="c1"># Access element properties with error handling</span>
-<span class="linenos">10</span>        <span class="k">try</span><span class="p">:</span>
-<span class="linenos">11</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos">12</span>                <span class="s1">&#39;center&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_z&#39;</span><span class="p">]),</span>
-<span class="linenos">13</span>                <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_z&#39;</span><span class="p">]),</span>
-<span class="linenos">14</span>                <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span>
-<span class="linenos">15</span>            <span class="p">}</span>
-<span class="linenos">16</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 2&quot;</span><span class="p">}</span>
-<span class="linenos">17</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-<span class="linenos">18</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<span class="linenos">19</span>        <span class="k">else</span><span class="p">:</span>
-<span class="linenos">20</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">21</span>    <span class="k">return</span> <span class="n">valid_results</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="c1">#[...]</span>
+
+<span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Calculating all available stages</span>
+    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+        <span class="c1"># Access element properties with error handling</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;center&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;center_z&#39;</span><span class="p">]),</span>
+                <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_x&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_y&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dir_z&#39;</span><span class="p">]),</span>
+                <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span>
+            <span class="p">}</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 2&quot;</span><span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
 </section>
@@ -200,7 +200,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f181ef533a0>
+  <jinja2.runtime.BlockReference object at 0x7fc3f60a7eb0>
 
 
 </footer>
