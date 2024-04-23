@@ -280,7 +280,7 @@ print(gom.script.ct.get_system_status())
 
 ## Can I use the Python package `pdfplumber` in an Add-on?
 
-Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_add_on_editor/using_add_on_editor#installing-python-packages) and used without any known limitations.
+Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_add_on_editor/using_add_on_editor.md#installing-python-packages) and used without any known limitations.
 
 ## Can I use the Python package `pywin32` in an Add-on?
 
