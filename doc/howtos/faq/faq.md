@@ -19,6 +19,7 @@ The module search path also includes
 * `C:\Program Files\Zeiss\INSPECT\<VERSION>\lib\python`
 * `%APPDATA%\Python\<PYTHON_VERSION>\site-packages`
 * For each Python wheel used in an Add-on: `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache/<WHEEL>`
+  (see [How are Python wheels handled by ZEISS INSPECT?](#how-are-python-wheels-handled-by-zeiss-inspect) for details)
 * If an Add-on is in editing mode: `%APPDATA%\gom\gom_edited_addons\<ADDON_UUID>\scripts`
 where `%APPDATA` is expanded to `C:\Users\<USERID>\AppData\Roaming`.
 
