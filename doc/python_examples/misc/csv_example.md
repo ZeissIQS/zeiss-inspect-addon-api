@@ -33,7 +33,7 @@ The current project keywords and their values are listed:
 ```{code-block} python
 print("-- Current keywords --")
 for k in gom.app.project.project_keywords:
-	print(f"{k}='{gom.app.project.get(k)}'")
+    print(f"{k}='{gom.app.project.get(k)}'")
 ```
 
 A dialog is used to request the CSV file to be opened:
@@ -46,29 +46,29 @@ The CSV file is opened and a `csv_reader` object for accessing its content is cr
 
 ```{code-block} python
 with open(RESULT.file) as csv_file:
-	csv_reader = csv.reader(csv_file, delimiter=';')
+    csv_reader = csv.reader(csv_file, delimiter=';')
 ```
 
 The class `csv.reader` allows some configurations, such as the column delimiter.
 
-The scripts reads the CSV file line by line. Each line is provided as an array with the columns as the array elements. The first line is expected to contain a specific table header (`Project Keyword;Description;Value`). The remaining lines are used to create or change project keywords:
+The scripts reads the CSV file line by line. Each line is provided as an array with the columns as its array elements. The first line is expected to contain a specific table header (`Project Keyword;Description;Value`). The remaining lines are used to create or change project keywords:
 
 ```{code-block} python
 with open(RESULT.file) as csv_file:
-	csv_reader = csv.reader(csv_file, delimiter=';')
-	line_count = 0
-	for row in csv_reader:
+    csv_reader = csv.reader(csv_file, delimiter=';')
+    line_count = 0
+    for row in csv_reader:
         # [...]
-		key = row[0]
-		desc = row[1]
-		val = row[2]
-		if line_count == 0:
-			print(f'Column names are {", ".join(row)}')
-			if key != "Project Keyword" or desc != "Description" or val != "Value":
-				gom.script.sys.execute_user_defined_dialog (file='wrong_format.gdlg')
-				quit(0)
+        key = row[0]
+        desc = row[1]
+        val = row[2]
+        if line_count == 0:
+            print(f'Column names are {", ".join(row)}')
+            if key != "Project Keyword" or desc != "Description" or val != "Value":
+                gom.script.sys.execute_user_defined_dialog (file='wrong_format.gdlg')
+                quit(0)
 
-		else:
+        else:
             # Add or change project keyword (see below)
             # [...]
 
@@ -114,7 +114,7 @@ for k in gom.app.project.project_keywords:
 
 As in `csv_import.py`, the module `csv` is imported, the presence of an open project is checked and the user is requested to select a file for exporting.
 
-The file is opened and the `keywords_writer` object is created. Some configuration settings are passed to the constructor. First, the header row is written using the method `writerow()` with an array containing the column headings. Next, a loop iterates over all project keywords an writes them to the CSV file using `writerow()`.
+The file is opened and the `keywords_writer` object is created. Some configuration settings are passed to the constructor. First, the header row is written using the method `writerow()` with an array containing the column headings. Next, a loop iterates over all project keywords and writes them to the CSV file using `writerow()`:
 
 ```{code-block} python
 with open(RESULT.file, mode='w', newline='') as keywords_file:
