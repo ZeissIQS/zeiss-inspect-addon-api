@@ -90,7 +90,7 @@
 ## Project keywords and CSV export/import
 
 :Template: PythonApiExamples.addon
-:Description: Read and write project keywords.
+:Description: Read and write project keywords from/to CSV file.
 :How-to: <a href="../project_keywords/project_keywords.html">Project keywords handling</a>
 :Example Documentation: <a href="../../python_examples/misc/csv_example.html">CSV import/export example</a>
 :Keywords: read, write, access, get, set, project keywords, export, import, csv
