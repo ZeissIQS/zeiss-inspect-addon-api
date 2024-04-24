@@ -149,7 +149,7 @@
 <p>The current project keywords and their values are listed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-- Current keywords --&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">project_keywords</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=&#39;</span><span class="si">{</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=&#39;</span><span class="si">{</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A dialog is used to request the CSV file to be opened:</p>
@@ -158,26 +158,26 @@
 </div>
 <p>The CSV file is opened and a <code class="docutils literal notranslate"><span class="pre">csv_reader</span></code> object for accessing its content is created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
-	<span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The class <code class="docutils literal notranslate"><span class="pre">csv.reader</span></code> allows some configurations, such as the column delimiter.</p>
-<p>The scripts reads the CSV file line by line. Each line is provided as an array with the columns as the array elements. The first line is expected to contain a specific table header (<code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Keyword;Description;Value</span></code>). The remaining lines are used to create or change project keywords:</p>
+<p>The scripts reads the CSV file line by line. Each line is provided as an array with the columns as its array elements. The first line is expected to contain a specific table header (<code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Keyword;Description;Value</span></code>). The remaining lines are used to create or change project keywords:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
-	<span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
-	<span class="n">line_count</span> <span class="o">=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
+    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="n">line_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
         <span class="c1"># [...]</span>
-		<span class="n">key</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-		<span class="n">desc</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-		<span class="n">val</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-		<span class="k">if</span> <span class="n">line_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-			<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Column names are </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-			<span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Project Keyword&quot;</span> <span class="ow">or</span> <span class="n">desc</span> <span class="o">!=</span> <span class="s2">&quot;Description&quot;</span> <span class="ow">or</span> <span class="n">val</span> <span class="o">!=</span> <span class="s2">&quot;Value&quot;</span><span class="p">:</span>
-				<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;wrong_format.gdlg&#39;</span><span class="p">)</span>
-				<span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">line_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Column names are </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Project Keyword&quot;</span> <span class="ow">or</span> <span class="n">desc</span> <span class="o">!=</span> <span class="s2">&quot;Description&quot;</span> <span class="ow">or</span> <span class="n">val</span> <span class="o">!=</span> <span class="s2">&quot;Value&quot;</span><span class="p">:</span>
+                <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;wrong_format.gdlg&#39;</span><span class="p">)</span>
+                <span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-		<span class="k">else</span><span class="p">:</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Add or change project keyword (see below)</span>
             <span class="c1"># [...]</span>
 
@@ -220,7 +220,7 @@
 <section id="csv-export-example-csv-export-py">
 <h2>CSV export example: <code class="docutils literal notranslate"><span class="pre">csv_export.py</span></code><a class="headerlink" href="#csv-export-example-csv-export-py" title="Link to this heading"></a></h2>
 <p>As in <code class="docutils literal notranslate"><span class="pre">csv_import.py</span></code>, the module <code class="docutils literal notranslate"><span class="pre">csv</span></code> is imported, the presence of an open project is checked and the user is requested to select a file for exporting.</p>
-<p>The file is opened and the <code class="docutils literal notranslate"><span class="pre">keywords_writer</span></code> object is created. Some configuration settings are passed to the constructor. First, the header row is written using the method <code class="docutils literal notranslate"><span class="pre">writerow()</span></code> with an array containing the column headings. Next, a loop iterates over all project keywords an writes them to the CSV file using <code class="docutils literal notranslate"><span class="pre">writerow()</span></code>.</p>
+<p>The file is opened and the <code class="docutils literal notranslate"><span class="pre">keywords_writer</span></code> object is created. Some configuration settings are passed to the constructor. First, the header row is written using the method <code class="docutils literal notranslate"><span class="pre">writerow()</span></code> with an array containing the column headings. Next, a loop iterates over all project keywords and writes them to the CSV file using <code class="docutils literal notranslate"><span class="pre">writerow()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">keywords_file</span><span class="p">:</span>
     <span class="n">keywords_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">keywords_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
 
@@ -268,7 +268,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8c76ca00d0>
+  <jinja2.runtime.BlockReference object at 0x7fbbb608c190>
 
 
 </footer>
