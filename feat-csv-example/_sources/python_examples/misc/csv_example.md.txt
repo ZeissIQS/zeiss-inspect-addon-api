@@ -118,7 +118,12 @@ The file is opened and the `keywords_writer` object is created. Some configurati
 
 ```{code-block} python
 with open(RESULT.file, mode='w', newline='') as keywords_file:
-    keywords_writer = csv.writer(keywords_file, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    keywords_writer = csv.writer(
+        keywords_file, 
+        elimiter=';', 
+        quotechar='"', 
+        quoting=csv.QUOTE_MINIMAL
+    )
 
     # Header row
     keywords_writer.writerow(['Project Keyword', 'Description', 'Value'])

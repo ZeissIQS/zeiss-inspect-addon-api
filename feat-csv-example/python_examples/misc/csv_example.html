@@ -222,7 +222,12 @@
 <p>As in <code class="docutils literal notranslate"><span class="pre">csv_import.py</span></code>, the module <code class="docutils literal notranslate"><span class="pre">csv</span></code> is imported, the presence of an open project is checked and the user is requested to select a file for exporting.</p>
 <p>The file is opened and the <code class="docutils literal notranslate"><span class="pre">keywords_writer</span></code> object is created. Some configuration settings are passed to the constructor. First, the header row is written using the method <code class="docutils literal notranslate"><span class="pre">writerow()</span></code> with an array containing the column headings. Next, a loop iterates over all project keywords and writes them to the CSV file using <code class="docutils literal notranslate"><span class="pre">writerow()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">RESULT</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">keywords_file</span><span class="p">:</span>
-    <span class="n">keywords_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">keywords_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+    <span class="n">keywords_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
+        <span class="n">keywords_file</span><span class="p">,</span> 
+        <span class="n">elimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> 
+        <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> 
+        <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
+    <span class="p">)</span>
 
     <span class="c1"># Header row</span>
     <span class="n">keywords_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Project Keyword&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">])</span>
@@ -268,7 +273,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fbeffb45de0>
+  <jinja2.runtime.BlockReference object at 0x7f66dc945570>
 
 
 </footer>
