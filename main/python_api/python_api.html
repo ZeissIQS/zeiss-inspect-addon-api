@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-introspection">gom.api.introspection</a><ul>
@@ -830,6 +831,24 @@ camera positions through the given pixels. The pixel coordinate system center is
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">702.53</span><span class="p">,</span> <span class="mf">1690.84</span><span class="p">,</span> <span class="o">-</span><span class="mf">22.37</span><span class="p">),</span> <span class="mf">0.121</span><span class="p">],</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">638.25</span><span class="p">,</span> <span class="mf">1627.62</span><span class="p">,</span> <span class="o">-</span><span class="mf">27.13</span><span class="p">),</span> <span class="mf">0.137</span><span class="p">]]</span>
 </pre></div>
 </div>
+</section>
+<section id="gom-api-interpreter-get-pid">
+<h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.interpreter.get_pid():</span> <span class="pre">int</span></span></dt>
+<dd><p>Return the process id (PID) of the API handling application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Application process id</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the process id of the application the script is connected with.</p>
 </section>
 </section>
 <section id="gom-api-introspection">
@@ -2031,7 +2050,7 @@ randomly when the object is generated.</p>
 <p>This function is used for API testing. It generates a simple test object which can then
 be passed around the API.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">generate_test_object</span><span class="p">(</span><span class="s1">&#39;test1)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">generate_test_object</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -2089,7 +2108,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f95f5d56800>
+  <jinja2.runtime.BlockReference object at 0x7fbe7a176a70>
 
 
 </footer>

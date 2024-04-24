@@ -149,35 +149,35 @@
 </div>
 <section id="source-code-excerpt">
 <h2>Source code excerpt<a class="headerlink" href="#source-code-excerpt" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="c1">#[...]</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-<span class="linenos"> 5</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="n">x0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">]</span>
-<span class="linenos"> 8</span>    <span class="n">y0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y0&#39;</span><span class="p">]</span>
-<span class="linenos"> 9</span>    <span class="n">z0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z0&#39;</span><span class="p">]</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span>    <span class="n">dx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos">12</span>    <span class="n">dy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">13</span>    <span class="n">dz</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span>    <span class="c1"># Calculating all available stages</span>
-<span class="linenos">16</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
-<span class="linenos">17</span>        <span class="c1"># Access element properties with error handling</span>
-<span class="linenos">18</span>        <span class="k">try</span><span class="p">:</span>
-<span class="linenos">19</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos">20</span>                <span class="s1">&#39;volume_element&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">],</span>
-<span class="linenos">21</span>                <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">),</span>
-<span class="linenos">22</span>                <span class="s1">&#39;voxel_data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<span class="linenos">23</span>            <span class="p">}</span>
-<span class="linenos">24</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 13&quot;</span><span class="p">}</span>
-<span class="linenos">25</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-<span class="linenos">26</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-<span class="linenos">27</span>        <span class="k">else</span><span class="p">:</span>
-<span class="linenos">28</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">29</span>    <span class="k">return</span> <span class="n">valid_results</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="c1">#[...]</span>
+
+<span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">]</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y0&#39;</span><span class="p">]</span>
+    <span class="n">z0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z0&#39;</span><span class="p">]</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">dz</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">voxel_size</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+
+    <span class="c1"># Calculating all available stages</span>
+    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+        <span class="c1"># Access element properties with error handling</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;volume_element&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;volume_ele&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">),</span>
+                <span class="s1">&#39;voxel_data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 13&quot;</span><span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
 </section>
@@ -212,7 +212,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f95f6045750>
+  <jinja2.runtime.BlockReference object at 0x7fbe7a91b040>
 
 
 </footer>
