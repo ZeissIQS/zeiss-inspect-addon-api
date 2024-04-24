@@ -454,6 +454,17 @@ print (points)
 [[gom.Vec3d (-702.53, 1690.84, -22.37), 0.121], [gom.Vec3d (-638.25, 1627.62, -27.13), 0.137]]
 ```
 
+### gom.api.interpreter.get_pid
+
+```{py:function} gom.api.interpreter.get_pid(): int
+
+Return the process id (PID) of the API handling application
+:return: Application process id
+:rtype: int
+```
+
+This function returns the process id of the application the script is connected with.
+
 ## gom.api.introspection
 
 Introspection API for accessing the available API modules, functions and classes
@@ -1272,7 +1283,7 @@ be passed around the API.
 **Example:**
 
 ```
-obj = gom.api.testing.generate_test_object('test1)
+obj = gom.api.testing.generate_test_object('test1')
 ```
 
 ### gom.api.testing.reflect
