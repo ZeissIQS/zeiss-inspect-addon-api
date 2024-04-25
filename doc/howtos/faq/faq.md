@@ -280,7 +280,7 @@ print(gom.script.ct.get_system_status())
 
 ## Can I use the Python package `pdfplumber` in an App?
 
-Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_app_editor/using_pp_editor.md#installing-python-packages) and used without any known limitations.
+Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_app_editor/using_app_editor.md#installing-python-packages) and used without any known limitations.
 
 ## Can I use the Python package `pywin32` in an App?
 
