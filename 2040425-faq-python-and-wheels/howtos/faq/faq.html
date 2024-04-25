@@ -73,6 +73,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-apps-located-in-the-file-system">Where are Apps located in the file system?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-is-the-python-installation-used-by-zeiss-inspect-located">Where is the Python installation used by ZEISS INSPECT located?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-are-python-wheels-handled-by-zeiss-inspect">How are Python wheels handled by ZEISS INSPECT?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect">How can I upgrade the pip version used in ZEISS INSPECT?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-fix-a-unicode-error-when-trying-to-access-a-file">How do I fix a <code class="docutils literal notranslate"><span class="pre">unicode</span> <span class="pre">error</span></code> when trying to access a file?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-update-the-apps-after-changes-made-outside-of-zeiss-inspect">How can I update the Apps after changes made outside of ZEISS INSPECT?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-stop-script-execution">How can I stop script execution?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-filter-nominal-actual-or-inspection-elements">How do I filter nominal, actual or inspection elements?</a><ul>
@@ -89,6 +93,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">How can I get the CT scanner’s system status — including cathode operation time?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pdfplumber-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pdfplumber</span></code> in an App?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pywin32-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-use-xlwings-in-an-app">Can I use <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> in an App?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-use-a-c-net-library-in-an-app">How do I use a C# / .NET library in an App?</a></li>
 </ul>
 </li>
@@ -142,6 +149,61 @@
 <h2>Where are Apps located in the file system?<a class="headerlink" href="#where-are-apps-located-in-the-file-system" title="Link to this heading"></a></h2>
 <p>Apps which are edited are located in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code> (or <code class="docutils literal notranslate"><span class="pre">%APPDATA%\GOM\&lt;VERSION&gt;\gom_edited_addons</span></code>, respectively). There is a subfolder for each App named by its UUID.</p>
 <p>When editing is finished, an App file (see <a class="reference internal" href="../app_file_format/app_file_format.html"><span class="std std-doc">App file format</span></a>) is created and saved in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_addons</span></code>.</p>
+<p>The connected folders are saved as Windows shortcuts in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming\GOM\&lt;VERSION&gt;\gom_script_external_folders</span></code>.</p>
+</section>
+<section id="where-is-the-python-installation-used-by-zeiss-inspect-located">
+<h2>Where is the Python installation used by ZEISS INSPECT located?<a class="headerlink" href="#where-is-the-python-installation-used-by-zeiss-inspect-located" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>For GOM Inspect &lt;= 2022: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\GOM\&lt;VERSION&gt;\python</span></code></p></li>
+<li><p>For ZEISS INSPECT &gt; 2032: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\&lt;VERSION&gt;\python</span></code></p></li>
+</ul>
+<p>The module search path also includes</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\&lt;VERSION&gt;\lib\python</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%APPDATA%\Python\&lt;PYTHON_VERSION&gt;\site-packages</span></code></p></li>
+<li><p>For each Python wheel used in an App: <code class="docutils literal notranslate"><span class="pre">%APPDATA%\gom\&lt;VERSION&gt;/gom_python_wheel_cache/&lt;WHEEL&gt;</span></code>
+(see <a class="reference internal" href="#how-are-python-wheels-handled-by-zeiss-inspect">How are Python wheels handled by ZEISS INSPECT?</a> for details)</p></li>
+<li><p>If an App is in editing mode: <code class="docutils literal notranslate"><span class="pre">%APPDATA%\gom\gom_edited_addons\&lt;ADDON_UUID&gt;\scripts</span></code>
+where <code class="docutils literal notranslate"><span class="pre">%APPDATA</span></code> is expanded to <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;USERID&gt;\AppData\Roaming</span></code>.</p></li>
+</ul>
+<p>You can print the module search path in an App using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="how-are-python-wheels-handled-by-zeiss-inspect">
+<h2>How are Python wheels handled by ZEISS INSPECT?<a class="headerlink" href="#how-are-python-wheels-handled-by-zeiss-inspect" title="Link to this heading"></a></h2>
+<p>ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in <code class="docutils literal notranslate"><span class="pre">%APPDATA%\gom\&lt;VERSION&gt;/gom_python_wheel_cache</span></code>.</p>
+<ul class="simple">
+<li><p>When a wheel/wheelhouse is installed in an App, it is copied into the App’s <code class="docutils literal notranslate"><span class="pre">scripts/modules</span></code> folder and installed into the cache folder.</p></li>
+<li><p>When an App containing wheels/wheelhouses is installed, those are installed into the cache folder.</p></li>
+<li><p>When a script from an App is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its <code class="docutils literal notranslate"><span class="pre">scripts/modules</span></code> folder.</p></li>
+</ul>
+</section>
+<section id="how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect">
+<h2>How can I upgrade the pip version used in ZEISS INSPECT?<a class="headerlink" href="#how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect" title="Link to this heading"></a></h2>
+<p>In rare cases, a certain Python package cannot be installed, because it requires a newer version of <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a> than currently installed with ZEISS INSPECT.</p>
+<p>To upgrade pip:</p>
+<ul class="simple">
+<li><p>Go into the <a class="reference internal" href="#where-is-the-python-installation-used-by-zeiss-inspect-located">ZEISS INSPECT Python folder</a></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">.\python.exe</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code></p></li>
+</ul>
+<p>You can query the installed pip version with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pip</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>You are changing the pre-installed Python environment at your own risk!</p>
+</div>
+</section>
+<section id="how-do-i-fix-a-unicode-error-when-trying-to-access-a-file">
+<h2>How do I fix a <code class="docutils literal notranslate"><span class="pre">unicode</span> <span class="pre">error</span></code> when trying to access a file?<a class="headerlink" href="#how-do-i-fix-a-unicode-error-when-trying-to-access-a-file" title="Link to this heading"></a></h2>
+<p>An error message such as <code class="docutils literal notranslate"><span class="pre">SyntaxError:</span> <span class="pre">(unicode</span> <span class="pre">error)</span> <span class="pre">'unicodeescape'</span> <span class="pre">codec</span> <span class="pre">can't</span> <span class="pre">decode</span> <span class="pre">bytes</span> <span class="pre">in</span> <span class="pre">position</span> <span class="pre">xx:</span> <span class="pre">truncated</span> <span class="pre">\UXXXXXXXX</span> <span class="pre">escape</span></code> is cause by backslashes in a file system path. Always use forward slashes instead. See also <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_select_and_filter_files_in_python_scripts.html">ZEISS Quality Tech Guide: How Do I Select and Filter Files in Python Scripts</a>.</p>
 </section>
 <section id="how-can-i-update-the-apps-after-changes-made-outside-of-zeiss-inspect">
 <h2>How can I update the Apps after changes made outside of ZEISS INSPECT?<a class="headerlink" href="#how-can-i-update-the-apps-after-changes-made-outside-of-zeiss-inspect" title="Link to this heading"></a></h2>
@@ -333,6 +395,21 @@
 <p><code class="docutils literal notranslate"><span class="pre">cathode_operation_time</span></code> is given in seconds.</p>
 <p>(Added in SW2023 Service Pack2)</p>
 </section>
+<section id="can-i-use-the-python-package-pdfplumber-in-an-app">
+<h2>Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pdfplumber</span></code> in an App?<a class="headerlink" href="#can-i-use-the-python-package-pdfplumber-in-an-app" title="Link to this heading"></a></h2>
+<p>Yes, <a class="reference external" href="https://pypi.org/project/pdfplumber/">pdfplumber</a> can be installed with the <a class="reference internal" href="../using_app_editor/using_app_editor.html#installing-python-packages"><span class="std std-ref">Python Package Installer</span></a> and used without any known limitations.</p>
+</section>
+<section id="can-i-use-the-python-package-pywin32-in-an-app">
+<h2>Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?<a class="headerlink" href="#can-i-use-the-python-package-pywin32-in-an-app" title="Link to this heading"></a></h2>
+<p>As reported in several <a class="reference external" href="https://github.com/mhammond/pywin32/issues">pywin32 issues</a>, installing <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> fails in many cases. The ZEISS INSPECT Python environment is affected, too.
+<code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError:</span> <span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">'pywintypes'</span></code> is also caused by a missing or failed  <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> installation.</p>
+<p>Some Python packages (such as <a class="reference internal" href="#can-i-use-xlwings-in-an-app">xlwings</a>) require pywin32.</p>
+</section>
+<section id="can-i-use-xlwings-in-an-app">
+<h2>Can I use <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> in an App?<a class="headerlink" href="#can-i-use-xlwings-in-an-app" title="Link to this heading"></a></h2>
+<p>Basically no, because <a class="reference external" href="https://pypi.org/project/xlwings/">xlwings</a> depends on <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> — see <a class="reference internal" href="#can-i-use-the-python-package-pywin32-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?</a>.</p>
+<p>If compatibility to <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> is not required, you might want to use <a class="reference external" href="https://pypi.org/project/openpyxl/">openpyxl</a> instead (see <a class="reference internal" href="../../python_examples/misc/excel_example.html"><span class="doc std std-doc">Excel import/export example</span></a>).</p>
+</section>
 <section id="how-do-i-use-a-c-net-library-in-an-app">
 <h2>How do I use a C# / .NET library in an App?<a class="headerlink" href="#how-do-i-use-a-c-net-library-in-an-app" title="Link to this heading"></a></h2>
 <p>First you have to install the <a class="reference external" href="https://pypi.org/project/pythonnet/">Python.NET</a> package in your App.</p>
@@ -421,7 +498,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7feb632ce890>
+  <jinja2.runtime.BlockReference object at 0x7fd39738d1e0>
 
 
 </footer>
