@@ -87,14 +87,13 @@
 :How-to: <a href="../testing_apps/testing_apps.html">Testing Apps</a>
 :Keywords: test, testing, unit testing, test automation, add-ons, addons, apps
 
-## Project keywords
+## Project keywords and CSV export/import
 
 :Template: PythonApiExamples.addon
-:Description: Read and write project keywords.
+:Description: Read and write project keywords from/to CSV file.
 :How-to: <a href="../project_keywords/project_keywords.html">Project keywords handling</a>
-:Keywords: read, write, access, get, set, project keywords
-% Note: This is too complicated:
-% :Example Documentation: <a href="../../python_examples/misc/excel_example.html">Excel import/export example</a>
+:Example Documentation: <a href="../../python_examples/misc/csv_example.html">CSV import/export example</a>
+:Keywords: read, write, access, get, set, project keywords, export, import, csv
 
 ## Element filter
 
