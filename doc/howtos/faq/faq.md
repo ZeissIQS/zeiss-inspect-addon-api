@@ -8,6 +8,58 @@ Apps which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VER
 
 When editing is finished, an App file (see [App file format](../app_file_format/app_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
 
+The connected folders are saved as Windows shortcuts in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_script_external_folders`.
+## Where is the Python installation used by ZEISS INSPECT located?
+
+* For GOM Inspect <= 2022: `C:\Program Files\GOM\<VERSION>\python`
+* For ZEISS INSPECT > 2032: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
+
+The module search path also includes 
+* `C:\Program Files\Zeiss\INSPECT\<VERSION>\lib\python`
+* `%APPDATA%\Python\<PYTHON_VERSION>\site-packages`
+* For each Python wheel used in an App: `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache/<WHEEL>`
+  (see [How are Python wheels handled by ZEISS INSPECT?](#how-are-python-wheels-handled-by-zeiss-inspect) for details)
+* If an App is in editing mode: `%APPDATA%\gom\gom_edited_addons\<ADDON_UUID>\scripts`
+where `%APPDATA` is expanded to `C:\Users\<USERID>\AppData\Roaming`.
+
+You can print the module search path in an App using:
+```{code-block} python
+import sys
+
+for p in sys.path:
+	print(p)
+```
+
+## How are Python wheels handled by ZEISS INSPECT?
+
+ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache`.
+
+* When a wheel/wheelhouse is installed in an App, it is copied into the App's `scripts/modules` folder and installed into the cache folder.
+* When an App containing wheels/wheelhouses is installed, those are installed into the cache folder.
+* When a script from an App is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its `scripts/modules` folder.
+
+## How can I upgrade the pip version used in ZEISS INSPECT?
+
+In rare cases, a certain Python package cannot be installed, because it requires a newer version of [pip](https://pip.pypa.io/en/stable/) than currently installed with ZEISS INSPECT.
+
+To upgrade pip:
+* Go into the [ZEISS INSPECT Python folder](#where-is-the-python-installation-used-by-zeiss-inspect-located)
+* Run `.\python.exe -m pip install --upgrade pip`
+
+You can query the installed pip version with:
+```{code-block} python
+import pip
+print(pip.__version__)
+```
+
+```{caution}
+You are changing the pre-installed Python environment at your own risk! 
+```
+
+## How do I fix a `unicode error` when trying to access a file?  
+
+An error message such as `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position xx: truncated \UXXXXXXXX escape` is cause by backslashes in a file system path. Always use forward slashes instead. See also [ZEISS Quality Tech Guide: How Do I Select and Filter Files in Python Scripts](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_select_and_filter_files_in_python_scripts.html).
+
 ## How can I update the Apps after changes made outside of ZEISS INSPECT?
 
 After creating, modifying or deleting an App outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal App database. 
@@ -225,6 +277,23 @@ print(gom.script.ct.get_system_status())
 `cathode_operation_time` is given in seconds.
 
 (Added in SW2023 Service Pack2)
+
+## Can I use the Python package `pdfplumber` in an App?
+
+Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_app_editor/using_pp_editor.md#installing-python-packages) and used without any known limitations.
+
+## Can I use the Python package `pywin32` in an App?
+
+As reported in several [pywin32 issues](https://github.com/mhammond/pywin32/issues), installing `pywin32` fails in many cases. The ZEISS INSPECT Python environment is affected, too.
+`ModuleNotFoundError: No module named 'pywintypes'` is also caused by a missing or failed  `pywin32` installation.
+
+Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-app)) require pywin32.
+
+## Can I use `xlwings` in an App?
+
+Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an App?](#can-i-use-the-python-package-pywin32-in-an-app).
+
+If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example)).
 
 ## How do I use a C# / .NET library in an App?
 
