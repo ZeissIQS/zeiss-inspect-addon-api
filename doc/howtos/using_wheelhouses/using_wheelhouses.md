@@ -21,6 +21,10 @@ cd tmp
 "C:\Program Files\7-Zip\7z.exe" a PyQt5-Wheelhouse.zip *
 ```
 
+```{caution}
+ZEISS INSPECT uses a wheel cache, which relies on the file names for proper operation. If you are dealing with different versions of a wheelhouse, make sure that the created files have distinct names.
+```
+
 3. Install the wheelhouse using the Add-on Explorer
 
 ![Install Python Package dialog - install from local file](install_python_package.png)
