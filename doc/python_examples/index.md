@@ -57,7 +57,7 @@ The following project files are included:
 | --------------------------- | ------------------------------------------------------------------------- |
 | zeiss_part_test_project     | Simple optically measured part with a CAD, mesh and some basic inspection |
 | volume_test_part            | A small test volume for CT related inspections                            |
-| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of of ZEISS part          |
+| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part             |
 
 ## Examples by topic
 
