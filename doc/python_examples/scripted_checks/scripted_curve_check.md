@@ -61,7 +61,7 @@ result = { "actual_values" : actual_result, "reference" : element, 'nominal_valu
 
 In this case, the result is just the `y` coordinate of each point to easily see the correctness of the results including a given transformation.
 
-Using the example project `gom_part_test_project` and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system `Cylinder 1|Plane 1|Origin`, you can see the transformation in effect:
+Using the example project `zeiss_part_test_project` and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system `Cylinder 1|Plane 1|Origin`, you can see the transformation in effect:
 
 ![](scripted_curve_check_cs.jpg)
 
