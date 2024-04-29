@@ -14,7 +14,8 @@ element = gom.script.sys.create_element_by_script (
     element_type = 'distance',
     name = 'Distance 1',
     parameters = {
-        'p1_x': 10.0, 'p1_y': 2.0, 'p1_z': 3.0, 'p2_x': -1.0, 'p2_y': -2.0, 'p2_z': -3.0
+        'p1_x': 10.0, 'p1_y':  2.0, 'p1_z':  3.0, 
+        'p2_x': -1.0, 'p2_y': -2.0, 'p2_z': -3.0
     },
     script_uuid = '06a112da-b742-48f0-80b3-3c3893f4cc8a'
 )
@@ -38,7 +39,10 @@ import gom
 # Modify scripted element created with ex01_distance.py
 gom.script.sys.edit_creation_parameters (
     element = gom.app.project.actual_elements['Distance 1'],
-    parameters = {'p1_x': -10.0, 'p1_y': 2.0, 'p1_z': 3.0, 'p2_x': -1.0, 'p2_y': -20.0, 'p2_z': -3.0, 'nodialog': True},
+    parameters = {
+      'p1_x': -10.0, 'p1_y':  2.0, 'p1_z':  3.0,
+      'p2_x':  -1.0, 'p2_y': -2.0, 'p2_z': -3.0, 
+      'nodialog': True},
 )
 ```
 
