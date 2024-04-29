@@ -1,6 +1,6 @@
 # Creating and modifying scripted elements from scripts
 
-## Non-interactive creation of scripted elements
+## Non-interactive creation
 
 You use the command `gom.script.sys.create_element_by_script()` to create a scripted element from a script without opening its dialog. This example uses the scripted element [ex01_distance](../../python_examples/scripted_actuals/ex01_distance.md) from the `Python API Examples` Add-on:
 
@@ -24,7 +24,7 @@ You get the `script_uuid` from the scripted element's script properties.
 
 This functionality is also used in the `Python API Examples` Add-on's script tests.
 
-## Non-interactive modification of scripted elements
+## Non-interactive modification
 
 You modify an element interactively using RMB ► Edit Creation Parameters in the Explorer. You achieve the same from a script with the command `gom.script.sys.edit_creation_parameters()`. To disable invocation of the dialog, the parameter `nodialog` has been added:
 
