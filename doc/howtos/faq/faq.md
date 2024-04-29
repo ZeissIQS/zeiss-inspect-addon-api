@@ -11,6 +11,8 @@ When editing is finished, an App file (see [App file format](../app_file_format/
 The connected folders are saved as Windows shortcuts in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_script_external_folders`.
 ## Where is the Python installation used by ZEISS INSPECT located?
 
+Token: `gom.app.python_directory`
+
 * For GOM Inspect <= 2022: `C:\Program Files\GOM\<VERSION>\python`
 * For ZEISS INSPECT > 2032: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
 
