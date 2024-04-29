@@ -50,9 +50,9 @@ gom.script.sys.edit_creation_parameters (
 :caption: Scripted element Python source code
 
 def dialog(context, params):
-	if 'nodialog' in params and params['nodialog'] == True:
-		params['nodialog'] = False
-		return params
+    if 'nodialog' in params and params['nodialog'] == True:
+        params['nodialog'] = False
+        return params
     
     # ...
 ```
