@@ -61,14 +61,14 @@ gom.script.part.create_new_part (name='Part 1')
  
 # import element into 'Element in clipboard'
 gom.script.sys.import_g3d (
-  files=['D:/gom_part.g3d'],
+  files=['D:/zeiss_part.g3d'],
   import_mode='clipboard'
 )
  
 # Move it to a created part
 gom.script.part.add_elements_to_part (
   delete_invisible_elements=True,
-  elements=[gom.app.project.clipboard.actual_elements['gom_part']],
+  elements=[gom.app.project.clipboard.actual_elements['zeiss_part']],
   import_mode='new_elements',
   part=gom.app.project.parts['Part 1'])
 
@@ -277,7 +277,7 @@ The "elements" of the GOM Software, i.e. what you see in the element explorer of
 
 First of all, you need a reference to an element, which you can get either by [using a script dialog](user_defined_dialogs.md) or simply by referencing it by name.
 
-If you have installed the `Python API Examples` App from the store and loaded the `gom_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
+If you have installed the `Python API Examples` App from the store and loaded the `zeiss_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
 
 ```python
 mesh_element = gom.app.project.parts['Part'].actual
