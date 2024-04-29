@@ -142,7 +142,8 @@
     <span class="n">element_type</span> <span class="o">=</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Distance 1&#39;</span><span class="p">,</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span>
+        <span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span>  <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span>  <span class="mf">3.0</span><span class="p">,</span> 
+        <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span>
     <span class="p">},</span>
     <span class="n">script_uuid</span> <span class="o">=</span> <span class="s1">&#39;06a112da-b742-48f0-80b3-3c3893f4cc8a&#39;</span>
 <span class="p">)</span>
@@ -163,7 +164,10 @@
 <span class="c1"># Modify scripted element created with ex01_distance.py</span>
 <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">edit_creation_parameters</span> <span class="p">(</span>
     <span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Distance 1&#39;</span><span class="p">],</span>
-    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;nodialog&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span>  <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span>  <span class="mf">3.0</span><span class="p">,</span>
+      <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span>  <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> 
+      <span class="s1">&#39;nodialog&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -204,7 +208,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f115972ef20>
+  <jinja2.runtime.BlockReference object at 0x7faa21c6f940>
 
 
 </footer>
