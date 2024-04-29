@@ -64,7 +64,6 @@ The following project files are included:
 | Folder                                                        | Description                                                             |
 | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [data_interfaces](data_interfaces.md)                         | Access to data of GOM "elements"                                        |
-| [point_pixel_transformations](point_pixel_transformations.md) | Computing 2D pixel coordinates from 3D point coordinates and vice versa |
 | [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
 | [misc](misc.md)                                               | Miscellaneous examples                                                  |
 | [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
