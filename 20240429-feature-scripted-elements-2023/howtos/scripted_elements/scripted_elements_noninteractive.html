@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scripted checks &mdash; Add-On Documentation</title>
+  <title>Creating and modifying scripted elements from scripts &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/scripted_elements/scripted_checks.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/scripted_elements/scripted_elements_noninteractive.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Creating and modifying scripted elements from scripts" href="scripted_elements_noninteractive.html" />
-    <link rel="prev" title="Scripted actuals" href="scripted_actuals.html" /> 
+    <link rel="next" title="Tokens on scripted elements" href="tokens_on_scripted_elements.html" />
+    <link rel="prev" title="Scripted checks" href="scripted_checks.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,17 +63,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="scripted_elements_toc.html">Scripted elements</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="scripted_elements_introduction.html">Introduction to scripted elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripted_actuals.html">Scripted actuals</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripted checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#writing-a-scripted-check">Writing a scripted check</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#useful-dialog-widgets">Useful dialog widgets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#special-parameters">“Special” parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_checks.html">Scripted checks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating and modifying scripted elements from scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#non-interactive-creation-of-scripted-elements">Non-interactive creation of scripted elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-interactive-modification-of-scripted-elements">Non-interactive modification of scripted elements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#types-of-scripted-checks">Types of scripted checks</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="scripted_elements_noninteractive.html">Creating and modifying scripted elements from scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tokens_on_scripted_elements.html">Tokens on scripted elements</a></li>
 </ul>
 </li>
@@ -123,7 +118,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="scripted_elements_toc.html">Scripted elements</a></li>
-      <li class="breadcrumb-item active">Scripted checks</li>
+      <li class="breadcrumb-item active">Creating and modifying scripted elements from scripts</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -132,51 +127,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="scripted-checks">
-<h1>Scripted checks<a class="headerlink" href="#scripted-checks" title="Link to this heading"></a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section assumes that you are familiar with the basic concept of Scripted elements. If not, take a look at the <a class="reference internal" href="scripted_elements_introduction.html"><span class="std std-doc">Introduction</span></a> and <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a> sections.</p>
-</div>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p>Scripted checks are a specialization of scripted elements to realize customized inspections in the ZEISS Software. Use checks if you want to display the deviation of certain properties of <em>existing</em> elements.</p>
-</section>
-<section id="writing-a-scripted-check">
-<h2>Writing a scripted check<a class="headerlink" href="#writing-a-scripted-check" title="Link to this heading"></a></h2>
-<p>The script structure to create a scripted check is the same as for <a class="reference internal" href="scripted_actuals.html"><span class="std std-doc">Scripted actuals</span></a>. However, there are some specialities:</p>
-<section id="useful-dialog-widgets">
-<h3>Useful dialog widgets<a class="headerlink" href="#useful-dialog-widgets" title="Link to this heading"></a></h3>
-<p>In most cases, you need to ask the user for the element to check, check naming or tolerance inputs. To this end, you can use the <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">element</span></code>, <code class="docutils literal notranslate"><span class="pre">Element</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">Unit</span></code> and <code class="docutils literal notranslate"><span class="pre">Tolerances</span></code> widgets:</p>
-<p><img alt="" src="../../_images/scripted_check_widgets.jpg" /></p>
-</section>
-<section id="special-parameters">
-<h3>“Special” parameters<a class="headerlink" href="#special-parameters" title="Link to this heading"></a></h3>
-<p>For a successful integration with the native checks, unit and tolerance need to be set to the returned <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;tolerance&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">tolerances</span><span class="o">.</span><span class="n">value</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">value</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;abbreviation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ScrSca&#39;</span>
+  <section id="creating-and-modifying-scripted-elements-from-scripts">
+<h1>Creating and modifying scripted elements from scripts<a class="headerlink" href="#creating-and-modifying-scripted-elements-from-scripts" title="Link to this heading"></a></h1>
+<section id="non-interactive-creation-of-scripted-elements">
+<h2>Non-interactive creation of scripted elements<a class="headerlink" href="#non-interactive-creation-of-scripted-elements" title="Link to this heading"></a></h2>
+<p>You use the command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_element_by_script()</span></code> to create a scripted element from a script without opening its dialog. This example uses the scripted element <a class="reference internal" href="../../python_examples/scripted_actuals/ex01_distance.html"><span class="std std-doc">ex01_distance</span></a> from the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> Add-on:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">create_distance.py</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="c1"># Create scripted distance using ex01_distance.py</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_element_by_script</span> <span class="p">(</span>
+    <span class="n">check_type</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+    <span class="n">element_type</span> <span class="o">=</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Distance 1&#39;</span><span class="p">,</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span>
+    <span class="p">},</span>
+    <span class="n">script_uuid</span> <span class="o">=</span> <span class="s1">&#39;06a112da-b742-48f0-80b3-3c3893f4cc8a&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>Furthermore, checks shall be assigned an <code class="docutils literal notranslate"><span class="pre">abbreviation</span></code>. This is the short form you’ll see in the 3D view labels of the check, or in the result table.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<ul class="simple">
-<li><p>Detailed description of the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted element API</span></a></p></li>
-<li><p>Documentation of the <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#unit-widget"><span class="std std-ref">Unit widget</span></a></p></li>
-<li><p>Documentation of the <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#tolerances-widget"><span class="std std-ref">Tolerances widget</span></a></p></li>
-</ul>
 </div>
+<p>You get the <code class="docutils literal notranslate"><span class="pre">script_uuid</span></code> from the scripted element’s script properties.</p>
+<p>This functionality is also used in the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> Add-on’s script tests.</p>
 </section>
-</section>
-<section id="types-of-scripted-checks">
-<h2>Types of scripted checks<a class="headerlink" href="#types-of-scripted-checks" title="Link to this heading"></a></h2>
-<p>Currently, three types of scripted checks are supported. The <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> add-on provides examples for all three. Click on the respective links to get to the example documentation.</p>
-<ul class="simple">
-<li><p>Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_scalar_check.html"><span class="std std-doc">Example: scripted_scalar_check</span></a>.</p></li>
-<li><p>Scripted curve check: Check an existing <em>curve</em> element and assign actual/nominal values for each point of the curve. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_curve_check.html"><span class="std std-doc">Example: scripted_curve_check</span></a>.</p></li>
-<li><p>Scripted surface check: Check an existing <em>mesh</em> element and assign deviation values for each point in the mesh. See <a class="reference internal" href="../../python_examples/scripted_checks/scripted_surface_check.html"><span class="std std-doc">Example: scripted_surface_check</span></a>.</p></li>
-</ul>
+<section id="non-interactive-modification-of-scripted-elements">
+<h2>Non-interactive modification of scripted elements<a class="headerlink" href="#non-interactive-modification-of-scripted-elements" title="Link to this heading"></a></h2>
+<p>You modify an element interactively using RMB ► Edit Creation Parameters in the Explorer. You achieve the same from a script with the command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.edit_creation_parameters()</span></code>. To disable invocation of the dialog, the parameter <code class="docutils literal notranslate"><span class="pre">nodialog</span></code> has been added:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">modify_distance.py</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+
+<span class="c1"># Modify scripted element created with ex01_distance.py</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">edit_creation_parameters</span> <span class="p">(</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Distance 1&#39;</span><span class="p">],</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p1_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;p1_y&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;p1_z&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;p2_x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;p2_y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="s1">&#39;p2_z&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="s1">&#39;nodialog&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Scripted element Python source code</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+	<span class="k">if</span> <span class="s1">&#39;nodialog&#39;</span> <span class="ow">in</span> <span class="n">params</span> <span class="ow">and</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;nodialog&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+		<span class="n">params</span><span class="p">[</span><span class="s1">&#39;nodialog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="k">return</span> <span class="n">params</span>
+    
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 
@@ -184,8 +185,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="scripted_actuals.html" class="btn btn-neutral float-left" title="Scripted actuals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="scripted_elements_noninteractive.html" class="btn btn-neutral float-right" title="Creating and modifying scripted elements from scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="scripted_checks.html" class="btn btn-neutral float-left" title="Scripted checks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tokens_on_scripted_elements.html" class="btn btn-neutral float-right" title="Tokens on scripted elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -202,7 +203,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f0161d98280>
+  <jinja2.runtime.BlockReference object at 0x7f0162376410>
 
 
 </footer>
