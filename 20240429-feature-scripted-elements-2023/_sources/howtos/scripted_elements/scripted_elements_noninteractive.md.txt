@@ -20,7 +20,9 @@ element = gom.script.sys.create_element_by_script (
 )
 ```
 
-You get the `script_uuid` from the scripted element's script properties.
+You get the `script_uuid` from the scripted element's script properties:
+
+![script_uuid in script properties](assets/ex01_distance_properties.png)
 
 This functionality is also used in the `Python API Examples` Add-on's script tests.
 
