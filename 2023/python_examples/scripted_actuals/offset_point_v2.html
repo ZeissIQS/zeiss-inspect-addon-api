@@ -149,30 +149,30 @@ It shows how to enhance user experience using preview calculation and error hand
 <h3>Preview calculation<a class="headerlink" href="#preview-calculation" title="Link to this heading"></a></h3>
 <p>From many of the built-in commands of ZEISS INSPECT, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.</p>
 <p>To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: <a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">How-to: User-defined dialogs</span></a>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
-  <span class="c1"># No treatment of system events</span>
-  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
-    <span class="k">return</span>
-  <span class="c1"># If preview calculation returned with error</span>
-  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
-    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">error</span>
-    <span class="k">return</span>
-  <span class="c1"># If preview calculation was successful</span>
-  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;calculated&#39;</span><span class="p">:</span>
-    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">return</span>
-    
-  <span class="c1"># All other changes in the dialog --&gt; calculate preview</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_x</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_y</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_z</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
-  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">value</span>
-  <span class="n">context</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span>
-  <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-  <span class="n">context</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
-
-<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="linenos"> 2</span>  <span class="c1"># No treatment of system events</span>
+<span class="linenos"> 3</span>  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
+<span class="linenos"> 4</span>    <span class="k">return</span>
+<span class="linenos"> 5</span>  <span class="c1"># If preview calculation returned with error</span>
+<span class="linenos"> 6</span>  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+<span class="linenos"> 7</span>    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">error</span>
+<span class="linenos"> 8</span>    <span class="k">return</span>
+<span class="linenos"> 9</span>  <span class="c1"># If preview calculation was successful</span>
+<span class="linenos">10</span>  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;calculated&#39;</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="linenos">12</span>    <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">13</span>    <span class="k">return</span>
+<span class="linenos">14</span>    
+<span class="linenos">15</span>  <span class="c1"># All other changes in the dialog --&gt; calculate preview</span>
+<span class="linenos">16</span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_x</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">17</span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_y</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">18</span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">i_z</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">19</span>  <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">20</span>  <span class="n">context</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">21</span>  <span class="n">DIALOG</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">ok</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">22</span>  <span class="n">context</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
 </pre></div>
 </div>
 <p>The event handler function is to be defined taking one argument. This argument will be a handle to the cause (the event) triggering the handler. This can be a string message or a handle to a specific widget of the dialog. We’ll come back to this in a second</p>
@@ -193,20 +193,20 @@ It shows how to enhance user experience using preview calculation and error hand
 <section id="stageful-calculation-and-error-handling">
 <h3>Stageful <code class="docutils literal notranslate"><span class="pre">calculation</span></code> and error handling<a class="headerlink" href="#stageful-calculation-and-error-handling" title="Link to this heading"></a></h3>
 <p>Above, we discussed changes applied to the scripted element’s <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function. Now, let’s take a look at the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-  <span class="n">valid_results</span><span class="o">=</span><span class="kc">False</span>
-  <span class="c1"># Calculating all available stages</span>
-  <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
-    <span class="c1"># Access element properties with error handling</span>
-    <span class="k">try</span><span class="p">:</span>
-      <span class="n">base</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">in_stage</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span>
-      <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
-      <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;ude_mykey&quot;</span> <span class="p">:</span> <span class="mi">123456</span> <span class="p">}</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-      <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-      <span class="n">valid_results</span><span class="o">=</span><span class="kc">True</span>
-  <span class="k">return</span> <span class="n">valid_results</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 2</span>  <span class="n">valid_results</span><span class="o">=</span><span class="kc">False</span>
+<span class="linenos"> 3</span>  <span class="c1"># Calculating all available stages</span>
+<span class="linenos"> 4</span>  <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+<span class="linenos"> 5</span>    <span class="c1"># Access element properties with error handling</span>
+<span class="linenos"> 6</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 7</span>      <span class="n">base</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">in_stage</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span>
+<span class="linenos"> 8</span>      <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="linenos"> 9</span>      <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;ude_mykey&quot;</span> <span class="p">:</span> <span class="mi">123456</span> <span class="p">}</span>
+<span class="linenos">10</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="linenos">11</span>      <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">13</span>      <span class="n">valid_results</span><span class="o">=</span><span class="kc">True</span>
+<span class="linenos">14</span>  <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
 <p>The first noticeable difference to the <em>offset_point_simple</em> example is the calculation over all <em>stages</em> of the project, whose indices can be obtained using <code class="docutils literal notranslate"><span class="pre">context.stages</span></code> (line 4).</p>
@@ -267,7 +267,7 @@ It shows how to enhance user experience using preview calculation and error hand
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fcd30aeb430>
+  <jinja2.runtime.BlockReference object at 0x7f147cadbfd0>
 
 
 </footer>
