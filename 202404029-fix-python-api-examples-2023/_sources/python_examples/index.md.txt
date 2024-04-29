@@ -53,10 +53,11 @@ Sometimes it is necessary to load projects manually. You can do this easily usin
 
 The following project files are included:
 
-| Project name          | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| gom_part_test_project | Simple optically measured part with a CAD, mesh and some basic inspection |
-| volume_test_part      | A small test volume for CT related inspections                            |
+| Project name                | Description                                                               |
+| --------------------------- | ------------------------------------------------------------------------- |
+| zeiss_part_test_project     | Simple optically measured part with a CAD, mesh and some basic inspection |
+| volume_test_part            | A small test volume for CT related inspections                            |
+| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of of ZEISS part          |
 
 ## Examples by topic
 
