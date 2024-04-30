@@ -63,7 +63,7 @@ The following project files are included:
 
 | Folder                                                        | Description                                                             |
 | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [data_interfaces](data_interfaces.md)                         | Access to data of GOM "elements"                                        |
+| [data_interfaces](data_interfaces.md)                         | Access to data of ZEISS INSPECT "elements"                                        |
 | [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
 | [misc](misc.md)                                               | Miscellaneous examples                                                  |
 | [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
