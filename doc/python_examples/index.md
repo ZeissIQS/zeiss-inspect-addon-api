@@ -53,17 +53,17 @@ Sometimes it is necessary to load projects manually. You can do this easily usin
 
 The following project files are included:
 
-| Project name          | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| gom_part_test_project | Simple optically measured part with a CAD, mesh and some basic inspection |
-| volume_test_part      | A small test volume for CT related inspections                            |
+| Project name                | Description                                                               |
+| --------------------------- | ------------------------------------------------------------------------- |
+| zeiss_part_test_project     | Simple optically measured part with a CAD, mesh and some basic inspection |
+| volume_test_part            | A small test volume for CT related inspections                            |
+| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part             |
 
 ## Examples by topic
 
 | Folder                                                        | Description                                                             |
 | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [data_interfaces](data_interfaces.md)                         | Access to data of GOM "elements"                                        |
-| [point_pixel_transformations](point_pixel_transformations.md) | Computing 2D pixel coordinates from 3D point coordinates and vice versa |
 | [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
 | [misc](misc.md)                                               | Miscellaneous examples                                                  |
 | [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
