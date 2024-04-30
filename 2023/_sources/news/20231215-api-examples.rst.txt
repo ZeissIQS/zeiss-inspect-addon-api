@@ -8,6 +8,6 @@ New API Examples
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 This example demonstrates how to access reference points in a measurement and meshes from Python.
 
-`point_pixel_transformations <../python_examples/point_pixel_transformations.html>`_
+`point_pixel_transformations <../python_examples/misc/point_pixel_transformations.html>`_
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 This example addresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.
