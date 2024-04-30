@@ -113,7 +113,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
@@ -199,14 +198,14 @@
  
 <span class="c1"># import element into &#39;Element in clipboard&#39;</span>
 <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">import_g3d</span> <span class="p">(</span>
-  <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;D:/gom_part.g3d&#39;</span><span class="p">],</span>
+  <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;D:/zeiss_part.g3d&#39;</span><span class="p">],</span>
   <span class="n">import_mode</span><span class="o">=</span><span class="s1">&#39;clipboard&#39;</span>
 <span class="p">)</span>
  
 <span class="c1"># Move it to a created part</span>
 <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">add_elements_to_part</span> <span class="p">(</span>
   <span class="n">delete_invisible_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-  <span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">clipboard</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;gom_part&#39;</span><span class="p">]],</span>
+  <span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">clipboard</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;zeiss_part&#39;</span><span class="p">]],</span>
   <span class="n">import_mode</span><span class="o">=</span><span class="s1">&#39;new_elements&#39;</span><span class="p">,</span>
   <span class="n">part</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part 1&#39;</span><span class="p">])</span>
 </pre></div>
@@ -386,7 +385,7 @@ According to this, the stage (i.e. a mesh) would be a sub-element of the part. O
 <h2>Access element properties<a class="headerlink" href="#access-element-properties" title="Link to this heading"></a></h2>
 <p>The “elements” of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.</p>
 <p>First of all, you need a reference to an element, which you can get either by <a class="reference internal" href="user_defined_dialogs.html"><span class="std std-doc">using a script dialog</span></a> or simply by referencing it by name.</p>
-<p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> App from the store and loaded the <code class="docutils literal notranslate"><span class="pre">gom_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
+<p>If you have installed the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> App from the store and loaded the <code class="docutils literal notranslate"><span class="pre">zeiss_part_test_project</span></code> (see the <a class="reference internal" href="../../python_examples/index.html"><span class="std std-doc">Python API Examples Documentation</span></a>), you can reference the mesh like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
 </pre></div>
 </div>
@@ -563,7 +562,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fe94e667190>
+  <jinja2.runtime.BlockReference object at 0x7fb9418d0910>
 
 
 </footer>

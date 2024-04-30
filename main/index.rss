@@ -4,7 +4,7 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/</link>
     <description></description>
-    <lastBuildDate>Tue, 30 Apr 2024 12:31:42 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2024 12:34:12 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>Selecting elements in scripts</title>
@@ -137,7 +137,7 @@
 &lt;p&gt;This example demonstrates how to access reference points in a measurement and meshes from Python.&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id2"&gt;
-&lt;h1&gt;&lt;a class="reference external" href="../python_examples/point_pixel_transformations.html"&gt;point_pixel_transformations&lt;/a&gt;&lt;a class="headerlink" href="#id2" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a class="reference external" href="../python_examples/misc/point_pixel_transformations.html"&gt;point_pixel_transformations&lt;/a&gt;&lt;a class="headerlink" href="#id2" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This example addresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.&lt;/p&gt;
 &lt;/section&gt;
 &lt;/div&gt;

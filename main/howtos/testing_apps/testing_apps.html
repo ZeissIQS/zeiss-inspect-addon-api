@@ -95,7 +95,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/point_pixel_transformations.html">point_pixel_transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
@@ -184,7 +183,7 @@ For more details, see also: <a class="reference internal" href="../../python_exa
 <li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior. For simple checks for expected values, use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement like shown below. For more complex test data (like arrays or Element properties), see <a class="reference internal" href="#working-with-test-data">Working with test data</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
   <span class="c1"># Setup test project</span>
-  <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;gom_part_test_project&#39;</span><span class="p">)</span>
+  <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;zeiss_part_test_project&#39;</span><span class="p">)</span>
   <span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span>
   
   <span class="c1"># Test definition</span>
@@ -444,7 +443,7 @@ but will close itself by some other interaction, the callback should return <cod
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fe94f7626b0>
+  <jinja2.runtime.BlockReference object at 0x7fb9413e9f30>
 
 
 </footer>
