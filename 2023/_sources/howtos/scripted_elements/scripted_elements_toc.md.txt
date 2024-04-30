@@ -10,5 +10,6 @@ The following how-tos will introduce the concept of scripted elements, i.e. elem
    scripted_elements_introduction
    scripted_actuals
    scripted_checks
+   scripted_elements_noninteractive
    tokens_on_scripted_elements
 ```

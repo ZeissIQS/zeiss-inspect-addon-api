@@ -321,7 +321,7 @@ Continuous text widget
 
 A keyword can be inserted into the text with the following procedure:
 
-1. RMB -> 'Insert Expression...'
+1. RMB ► 'Insert Expression...'
 
     ![](assets/widget_text_insert_expression1.png)
 
