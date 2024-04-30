@@ -145,72 +145,72 @@
 </div>
 <section id="source-code-excerpt">
 <h2>Source code excerpt<a class="headerlink" href="#source-code-excerpt" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
-
-<span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-    <span class="c1">#[...]</span>
-
-<span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="n">file</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span>
-
-    <span class="c1"># if filename starts with &#39;:&#39;, it is an app resource used for testing,</span>
-    <span class="c1"># e.g. &#39;:ScriptedElementsExamples/Grayscale_8bits_palette.png&#39;</span>
-    <span class="k">if</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">file</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;:&#39;</span><span class="p">:</span>
-        <span class="c1"># read resource</span>
-        <span class="n">test_image_resource</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-        <span class="n">test_image</span> <span class="o">=</span> <span class="n">test_image_resource</span><span class="o">.</span><span class="n">open</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-        <span class="c1"># convert resource to file object</span>
-        <span class="n">file</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">test_image</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="c1"># convert image to grayscale</span>
-    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
-    <span class="c1"># print (image)</span>
-    <span class="n">img_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="c1"># print(f&quot;img_array: {img_array}&quot;)</span>
-    <span class="c1"># print(f&quot;img_array.shape: {img_array.shape}&quot;)</span>
-
-    <span class="n">rx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rx&#39;</span><span class="p">]</span>
-    <span class="n">ry</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span>
-    <span class="n">rz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rz&#39;</span><span class="p">]</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">]</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span>
-    <span class="n">dz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span>
-
-    <span class="n">transformation</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span><span class="p">([</span>
-        <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
-        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dx</span><span class="p">,</span>
-        <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
-        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dy</span><span class="p">,</span>
-        <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dz</span><span class="p">,</span>
-        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="p">])</span>
-    <span class="c1"># print(transformation)</span>
-
-    <span class="c1"># Calculating all available stages</span>
-    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
-        <span class="c1"># Access element properties with error handling</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;pixel_data&#39;</span><span class="p">:</span> <span class="n">img_array</span><span class="p">,</span>
-                <span class="s1">&#39;transformation&#39;</span><span class="p">:</span> <span class="n">transformation</span>
-            <span class="p">}</span>
-            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 14&quot;</span><span class="p">}</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="n">valid_results</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 7</span>    <span class="c1">#[...]</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="n">file</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="c1"># if filename starts with &#39;:&#39;, it is an app resource used for testing,</span>
+<span class="linenos">15</span>    <span class="c1"># e.g. &#39;:ScriptedElementsExamples/Grayscale_8bits_palette.png&#39;</span>
+<span class="linenos">16</span>    <span class="k">if</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">file</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;:&#39;</span><span class="p">:</span>
+<span class="linenos">17</span>        <span class="c1"># read resource</span>
+<span class="linenos">18</span>        <span class="n">test_image_resource</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="linenos">19</span>        <span class="n">test_image</span> <span class="o">=</span> <span class="n">test_image_resource</span><span class="o">.</span><span class="n">open</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>        <span class="c1"># convert resource to file object</span>
+<span class="linenos">22</span>        <span class="n">file</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">test_image</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">25</span>        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="linenos">27</span>        <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="c1"># convert image to grayscale</span>
+<span class="linenos">30</span>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="c1"># print (image)</span>
+<span class="linenos">32</span>    <span class="n">img_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="linenos">33</span>    <span class="c1"># print(f&quot;img_array: {img_array}&quot;)</span>
+<span class="linenos">34</span>    <span class="c1"># print(f&quot;img_array.shape: {img_array.shape}&quot;)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>    <span class="n">rx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rx&#39;</span><span class="p">]</span>
+<span class="linenos">37</span>    <span class="n">ry</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span>
+<span class="linenos">38</span>    <span class="n">rz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rz&#39;</span><span class="p">]</span>
+<span class="linenos">39</span>    <span class="n">dx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">]</span>
+<span class="linenos">40</span>    <span class="n">dy</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span>
+<span class="linenos">41</span>    <span class="n">dz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>    <span class="n">transformation</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span><span class="p">([</span>
+<span class="linenos">44</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
+<span class="linenos">45</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dx</span><span class="p">,</span>
+<span class="linenos">46</span>        <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
+<span class="linenos">47</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dy</span><span class="p">,</span>
+<span class="linenos">48</span>        <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dz</span><span class="p">,</span>
+<span class="linenos">49</span>        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="linenos">50</span>    <span class="p">])</span>
+<span class="linenos">51</span>    <span class="c1"># print(transformation)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>    <span class="c1"># Calculating all available stages</span>
+<span class="linenos">54</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+<span class="linenos">55</span>        <span class="c1"># Access element properties with error handling</span>
+<span class="linenos">56</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">57</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">58</span>                <span class="s1">&#39;pixel_data&#39;</span><span class="p">:</span> <span class="n">img_array</span><span class="p">,</span>
+<span class="linenos">59</span>                <span class="s1">&#39;transformation&#39;</span><span class="p">:</span> <span class="n">transformation</span>
+<span class="linenos">60</span>            <span class="p">}</span>
+<span class="linenos">61</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 14&quot;</span><span class="p">}</span>
+<span class="linenos">62</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="linenos">63</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="linenos">64</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">65</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">66</span>    <span class="k">return</span> <span class="n">valid_results</span>
 </pre></div>
 </div>
 </section>
@@ -245,7 +245,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f05509000a0>
+  <jinja2.runtime.BlockReference object at 0x7f0496a33040>
 
 
 </footer>
