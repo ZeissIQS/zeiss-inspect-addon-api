@@ -5,7 +5,7 @@
 
 This example demonstrates how to generate a custom surface element using a scripted element. The example script accesses mesh information from an existing mesh in the project and adds a random deformation to each point.
 
-Finally, the result is transfered back to the GOM Software, where an actual surface element is created. 
+Finally, the result is transfered back to the ZEISS INSPECT Software, where an actual surface element is created. 
 
 ## Highlights
 
