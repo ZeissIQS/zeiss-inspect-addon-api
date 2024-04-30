@@ -1,6 +1,6 @@
 # Introduction to scripted elements
 
-This documentation is intended to demonstrate the ability to create parametric elements in the GOM Software using custom python code.
+This documentation is intended to demonstrate the ability to create parametric elements in the ZEISS INSPECT Software using custom Python code.
 
 ## Types
 
