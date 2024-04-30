@@ -1,4 +1,4 @@
-# dropdown_widget_dynamic
+# dropdown_widget
 
 ![](dropdown_widget.jpg)
 

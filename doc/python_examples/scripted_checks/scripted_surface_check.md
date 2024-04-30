@@ -24,7 +24,7 @@ result = { "deviation_values" : deviation_result , "reference" : element }
 
 As in the [scripted_curve_check](scripted_curve_check.md) example, the result for each point is just the respective `y` coordinate to easily see the correctness of the results including a given transformation.
 
-Using the example project `gom_part_test_project` and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system `Cylinder 1|Plane 1|Origin`, you can see the transformation in effect:
+Using the example project `zeiss_part_test_project` and the viewing coordinate system, you get the screenshot shown on top. However, if you select the coordinate system `Cylinder 1|Plane 1|Origin`, you can see the transformation in effect:
 
 ![](scripted_surface_check_cs.jpg)
 

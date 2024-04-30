@@ -95,7 +95,6 @@ If you already know how to create an add-on and now you are interested in Python
 
    python_examples/index
    python_examples/data_interfaces
-   python_examples/point_pixel_transformations
    python_examples/dialog_widgets
    python_examples/misc
    python_examples/script_icons

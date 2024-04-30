@@ -50,7 +50,7 @@ The following steps are required to write a new test script. The example code is
    ```python
    def test_check_results ():
      # Setup test project
-     open_project('gom_part_test_project')
+     open_project('zeiss_part_test_project')
      test_element = gom.app.project.inspection['Surface comparison 1']
      
      # Test definition
