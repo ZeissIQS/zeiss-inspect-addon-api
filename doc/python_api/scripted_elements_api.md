@@ -314,9 +314,15 @@ result = {
 
 ```{code-block} python
 result = {
-  'curves': [ [gom.Vec3d, gom.Vec3d, ...],
-  [gom.Vec3d, gom.Vec3d, ...],
-  ... ] 
+  'curves': [ [gom.Vec3d, gom.Vec3d, ...], [gom.Vec3d, gom.Vec3d, ...], ... ],
+  'outer_contours': [ [gom.Vec3d, gom.Vec3d, ...], [gom.Vec3d, gom.Vec3d, ...], ... ]
+}
+```
+or
+```{code-block} python
+result = {
+  'curves': [ [gom.Vec3d, gom.Vec3d, ...], [gom.Vec3d, gom.Vec3d, ...], ... ],
+  'outer_contours': [ np.array([(x00,y00,z00), (x01,y01,z01), ...], dtype=np.float) ]
 }
 ```
 
