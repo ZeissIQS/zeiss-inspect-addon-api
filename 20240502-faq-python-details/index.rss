@@ -4,8 +4,30 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Thu, 02 May 2024 09:19:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2024 09:23:46 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>ZEISS INSPECT Python Details</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240502-python-details.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;We have added some background information on the ZEISS INSPECT Python and Add-ons installation to Frequently Asked Questions:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#where-are-add-ons-located-in-the-file-system"&gt;Where are Add-ons located in the file system?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#where-is-the-python-installation-used-by-zeiss-inspect-located"&gt;Where is the Python installation used by ZEISS INSPECT located?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#how-are-python-wheels-handled-by-zeiss-inspect"&gt;How are Python wheels handled by ZEISS INSPECT?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.md#how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect"&gt;How can I upgrade the pip version used in ZEISS INSPECT?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We have also added information concerning specific Python packages:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.md#can-i-use-the-python-package-pdfplumber-in-an-add-on"&gt;Can I use the Python package &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pdfplumber&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.md#can-i-use-the-python-package-pywin32-in-an-add-on"&gt;Can I use the Python package &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pywin32&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq-faq.html#can-i-use-xlwings-in-an-add-on"&gt;Can I use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xlwings&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240502-python-details.html</guid>
+      <pubDate>Thu, 02 May 2024 11:30:00 GMT</pubDate>
+    </item>
     <item>
       <title>Scripting solutions</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/news/20240409-scripting-solutions.html</link>
