@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripted elements API &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_api/scripted_elements_api.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gom.Resource API" href="resource_api.html" />
+    <link rel="prev" title="ZEISS INSPECT Python API documentation" href="python_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripted elements API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-dialog-function">The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signature">Signature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-context">Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-params">Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-value">Return value</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calculating-a-preview">Calculating a preview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-calculation-function">The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Signature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Return value</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-return-values">Scripted actuals - Return values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#point">Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distance">Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#value-element">Value Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circle">Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curve">Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#surface-curve">Surface Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#section">Section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point-cloud">Point Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#surface">Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cone">Cone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cylinder">Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-defects">Volume defects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-volume-defects">2D Volume Defects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume">Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-material-map">Volume material map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-section">Volume Section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-region">Volume Region</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-element-types">Supported Element Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar">Scalar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar-surface">Scalar Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar-curve">Scalar Curve</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scripted elements API</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripted-elements-api">
+<h1>Scripted elements API<a class="headerlink" href="#scripted-elements-api" title="Link to this heading"></a></h1>
+<p>This reference describes functions and data structures necessary for the implementation of “scripted elements”.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you don’t know about the concept yet, take a look at the <a class="reference internal" href="../howtos/scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Scripted elements introduction</span></a>.</p>
+</div>
+<section id="the-dialog-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function<a class="headerlink" href="#the-dialog-function" title="Link to this heading"></a></h2>
+<p>💡 <strong>Notes:</strong></p>
+<ul class="simple">
+<li><p>The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.</p></li>
+<li><p>All tokens of other elements can be accessed within this function.</p></li>
+</ul>
+<section id="signature">
+<h3>Signature<a class="headerlink" href="#signature" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</pre></div>
+</div>
+<section id="parameter-context">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#parameter-context" title="Link to this heading"></a></h4>
+<p>The context contains the following members:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><pre>.data</pre></p></td>
+<td><p>UDE data storage access</p></td>
+<td><p>see “calculate” Function</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.stages</pre></p></td>
+<td><p>Current stage</p></td>
+<td><p>List containing stage index of current stage</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.total_stages</pre></p></td>
+<td><p>Number of stages</p></td>
+<td><p>Valid stage indices are 0 to total_stages - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.calc</pre></p></td>
+<td><p>Function to calculate preview</p></td>
+<td><p>See below</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.result</pre></p></td>
+<td><p>Directly set preview</p></td>
+<td><p>see “calculate” Function</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.is_new_element</pre></p></td>
+<td><p>Flag if element creation</p></td>
+<td><p>True on (edit) creation, false on recalc</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.name</pre></p></td>
+<td><p>Name of created element</p></td>
+<td><p>Read/write attribute<br>Ignored on recalc and script execution</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.error</pre></p></td>
+<td><p>Last error text from preview calculation</p></td>
+<td><p>Empty if no error occurred</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.edit_element</pre></p></td>
+<td><p>Reference to edited element</p></td>
+<td><p>Only available during element editing</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.recalc_element</pre></p></td>
+<td><p>Reference to element used in project recalculation</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameter-params">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">params</span></code><a class="headerlink" href="#parameter-params" title="Link to this heading"></a></h4>
+<p>The params contain a map of parameter values. It is only filled on element edit and contains the current parameters of the element.</p>
+</section>
+<section id="return-value">
+<h4>Return value<a class="headerlink" href="#return-value" title="Link to this heading"></a></h4>
+<p>The function must return a map containing the new element parameters.</p>
+<p>If no map is returned the edit/creation is regarded as aborted by the user.</p>
+</section>
+</section>
+<section id="calculating-a-preview">
+<h3>Calculating a preview<a class="headerlink" href="#calculating-a-preview" title="Link to this heading"></a></h3>
+<p>To calculate a preview, the <code class="docutils literal notranslate"><span class="pre">context.calc()</span></code> function can be invoked. It takes the following parameters:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><pre>params</pre></p></td>
+<td><p>A map of parameters to be used for preview calculation</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>stages</pre></p></td>
+<td><p>Optional: A list of stage indices to calculate a preview in</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>dialog</pre></p></td>
+<td><p>Optional: A script dialog to message when preview calculation was successful.<br>If a calculation result is true, the dialog event handler will receive the event string ‘calculated’,<br>otherwise it will receive ‘error’.</p></td>
+</tr>
+</tbody>
+</table>
+<p>A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>A preview calculation is implemented in the example <a class="reference internal" href="../python_examples/scripted_actuals/offset_point_v2.html"><span class="std std-doc">offset_point_v2</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="the-calculation-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function<a class="headerlink" href="#the-calculation-function" title="Link to this heading"></a></h2>
+<p>💡 <strong>Notes:</strong></p>
+<ul class="simple">
+<li><p>It is not possible to call script commands or read tokens from within this function. (Do not call <code class="docutils literal notranslate"><span class="pre">gom.app.project....</span></code>)</p></li>
+<li><p>The function should loop over all stages to be calculated and set a computation result  for each stage.</p></li>
+</ul>
+<section id="id1">
+<h3>Signature<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</pre></div>
+</div>
+<section id="id2">
+<h4>Parameter <code class="docutils literal notranslate"><span class="pre">context</span></code><a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>The context contains the following members:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><pre>.data[stage]</pre></p></td>
+<td><p>UDE data storage access</p></td>
+<td><p>see below</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.stages</pre></p></td>
+<td><p>Current indices</p></td>
+<td><p>List containing stage indices to calculate</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.total_stages</pre></p></td>
+<td><p>Number of stages</p></td>
+<td><p>Valid stage indices are 0 to total_stages - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.result[stage]</pre></p></td>
+<td><p>Directly set preview</p></td>
+<td><p>see below</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.is_new_element</pre></p></td>
+<td><p>Flag if element creation</p></td>
+<td><p>True on (edit) creation, false on recalc</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.name</pre></p></td>
+<td><p>Name of created element</p></td>
+<td><p>Read/write attribute<br>Ignored on recalc and script execution</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.error[stage]</pre></p></td>
+<td><p>Used to assign an error text</p></td>
+<td><p>Will set the element to not computed in the given stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.edit_element</pre></p></td>
+<td><p>Reference to edited element</p></td>
+<td><p>Only available during element editing</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.recalc_element</pre></p></td>
+<td><p>Reference to element being computed</p></td>
+<td><p>Only available during non-interactive calculation</p></td>
+</tr>
+<tr class="row-odd"><td><p><pre>.progress_stages_computing</pre></p></td>
+<td><p>Number of stages which have started to compute</p></td>
+<td><p>Used to display progress information</p></td>
+</tr>
+<tr class="row-even"><td><p><pre>.progress_stages_total</pre></p></td>
+<td><p>Number of stages which have to be computed</p></td>
+<td><p>Used to display progress information</p></td>
+</tr>
+</tbody>
+</table>
+<section id="attribute-context-data">
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code><a class="headerlink" href="#attribute-context-data" title="Link to this heading"></a></h5>
+<p>The context.data is a list allowing to read or write additional data. The list is indexed with a stage index. The additional data is stored within the project, so the gom application must be able to serialize the provided data.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="attribute-context-result">
+<h5>Attribute <code class="docutils literal notranslate"><span class="pre">context.result[]</span></code><a class="headerlink" href="#attribute-context-result" title="Link to this heading"></a></h5>
+<p>This is a write only list used to set computation results. The context.result[] should be set for each stage index listed in context.stages.</p>
+<p>The format to write must match the type of the script element. For available result types, see <a class="reference internal" href="#scripted-actuals-return-values">Scripted actuals - Return values</a> and <a class="reference internal" href="#scripted-checks-return-values">Scripted checks - Return values</a>.</p>
+</section>
+</section>
+<section id="id3">
+<h4>Return value<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>On success the function must return True, otherwise False.</p>
+</section>
+</section>
+</section>
+<section id="scripted-actuals-return-values">
+<h2>Scripted actuals - Return values<a class="headerlink" href="#scripted-actuals-return-values" title="Link to this heading"></a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The section <a class="reference internal" href="../python_examples/scripted_actuals.html"><span class="std std-doc">Python API Examples - scripted_actuals</span></a> provides an example for each element type.</p>
+</div>
+<section id="point">
+<h3>Point<a class="headerlink" href="#point" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plain 3D point</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Point coordinate</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span>
+</pre></div>
+</div>
+</section>
+<section id="distance">
+<h3>Distance<a class="headerlink" href="#distance" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Two point distance</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Start and end point of distance</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="value-element">
+<h3>Value Element<a class="headerlink" href="#value-element" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Plain value (only real values supported)</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>any double value</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</section>
+<section id="circle">
+<h3>Circle<a class="headerlink" href="#circle" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D Circle with direction</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A center point, direction vector and radius (double)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;center&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span> <span class="p">:</span> <span class="n">double</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="curve">
+<h3>Curve<a class="headerlink" href="#curve" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D polyline</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.<br>As an option, a creation plane can be added.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="p">}</span> <span class="p">]</span>
+
+<span class="c1"># Optional: Curve with additional creation plane</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
+  <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="surface-curve">
+<h3>Surface Curve<a class="headerlink" href="#surface-curve" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D polyline with normals</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Like a curve with additional normal data, i.e. each surface curve can be made up by an array of subcurves.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="s1">&#39;normals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">]},</span>
+    <span class="p">{</span><span class="o">...</span><span class="p">},</span> 
+    <span class="o">...</span>
+  <span class="p">]</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+</section>
+<section id="section">
+<h3>Section<a class="headerlink" href="#section" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D polyline with normals</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameters ‘plane’, ‘cylinder’ and ‘cone’ are optional. They denote the creation geometry. You can only use one of them. Argument is a corresponding trait.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span> <span class="s1">&#39;normals&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">]},</span> <span class="o">...</span><span class="p">],</span> 
+  <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">},</span> 
+  <span class="s1">&#39;cylinder&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> 
+  <span class="s1">&#39;cone&#39;</span> <span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="point-cloud">
+<h3>Point Cloud<a class="headerlink" href="#point-cloud" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set of 3D points</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of points. The ‘normals ‘attribute is optional.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;normals&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="surface">
+<h3>Surface<a class="headerlink" href="#surface" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mesh</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Defines a triangulation. The vertices attribute defines all points. The triangle attribute defines triangles between these points using indices into the vertex list.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">],</span> <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../howtos/faq/faq.html#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh"><span class="std std-ref">FAQ: How can I access the coordinates of a selection on a mesh?</span></a></p>
+</div>
+</section>
+<section id="cone">
+<h3>Cone<a class="headerlink" href="#cone" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cone</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts any Cone Trait</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius1&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius2&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Due to the internal represenstation of a Cone Element, the direction of the vector <code class="docutils literal notranslate"><span class="pre">point1</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">point2</span></code> is always from the smaller to the larger circle (<code class="docutils literal notranslate"><span class="pre">radius1</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>).</p>
+<p>If you specify <code class="docutils literal notranslate"><span class="pre">radius1</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">radius2</span></code> in the creation parameters, [<code class="docutils literal notranslate"><span class="pre">point1</span></code>; <code class="docutils literal notranslate"><span class="pre">radius1</span></code>] and [<code class="docutils literal notranslate"><span class="pre">point2</span></code>; <code class="docutils literal notranslate"><span class="pre">radius2</span></code>] are swapped automatically.</p>
+</div>
+</section>
+<section id="cylinder">
+<h3>Cylinder<a class="headerlink" href="#cylinder" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cylinder</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts any Cylinder Trait</p>
+</dd>
+</dl>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">Reference</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;point&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span> <span class="p">:</span> <span class="nb">bool</span><span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-defects">
+<h3>Volume defects<a class="headerlink" href="#volume-defects" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume defects</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of meshes defined by vertices and triangles.<p>The vertices attribute is a [python array] – one entry for each defect –  of numpy arrays (np.array) of Vec3d.<p>The triangle attribute defines triangles between the points of each mesh using indices to the vertex lists.<p>The ‘outer_hull’ parameter can optionally be set to a reference of a mesh element of the project. This mesh will be copied and used as an outer hull for the defect element. <strong>Alternatively</strong>, ‘outer_hull_vertices’ and ‘outer_hull_triangles’ can be given as explicit outer hull mesh definition.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="o">...</span> <span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="o">...</span><span class="p">),</span> <span class="o">...</span> <span class="p">],</span>
+  <span class="s1">&#39;triangles&#39;</span><span class="p">:</span>  <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="o">...</span> <span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span> <span class="o">...</span><span class="p">),</span> <span class="o">...</span> <span class="p">],</span>
+  <span class="s1">&#39;outer_hull&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span>     <span class="c1"># optional OR</span>
+  <span class="s1">&#39;outer_hull_vertices&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span><span class="o">...</span><span class="p">),</span> <span class="s1">&#39;outer_hull_triangles&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">v0</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">),</span><span class="o">...</span><span class="p">)</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="d-volume-defects">
+<h3>2D Volume Defects<a class="headerlink" href="#d-volume-defects" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D volume defects element of curves<p>needed for the P201 package</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requires a list/array of lists/arrays of Vec3ds.<p>A list of points represents the polygon (curve) of one 2d volume defect. The list of lists of points represents all 2d volume defects that shall be included in the element.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="o">...</span> <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume">
+<h3>Volume<a class="headerlink" href="#volume" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New volume data</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array with voxel data and a transformation. <p>The numpy array’s shape denotes the resulting volume shape. The ‘dtype’ can be one of (UINT16, BYTE, INT16, INT16, INT32, UINT32, FLOAT, DOUBLE).<p>The transformation can be a gom.Mat4x4 (affine transformation) or a gom.Vec3d (scaling along x/y/z axis only)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;voxel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="o">|</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-material-map">
+<h3>Volume material map<a class="headerlink" href="#volume-material-map" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Attach material labels to volume element</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Creates a new volume element copy with attached material labels.<p>First parameter is a numpy array of type UINT8 of the size of the volume. The values are the material index per voxel. Background has Index 0.<p>The second parameter is a list of floating point grey values that are the representative grey values of the background and the materials.<p>The third parameter is a reference to the volume element, to which material labels should be attached.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;material_labels_draft&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span>
+  <span class="s1">&#39;material_grey_values_draft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">background</span><span class="p">,</span> <span class="n">material</span> <span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+  <span class="s1">&#39;volume_reference_draft&#39;</span> <span class="p">:</span> <span class="n">Reference</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-section">
+<h3>Volume Section<a class="headerlink" href="#volume-section" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume Section</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array with pixel data and a transformation.<p>The numpy array’s shape denotes the resulting volume section shape. The ‘dtype’ must be <code class="docutils literal notranslate"><span class="pre">numpy.float32</span></code>.<p>The transformation is a gom.Mat4x4 (affine transformation)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;pixel_data&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(),</span> <span class="s1">&#39;transformation&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="volume-region">
+<h3>Volume Region<a class="headerlink" href="#volume-region" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Volume Region</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>Accepts a numpy array of the region data. The ‘dtype’ must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;volume_element&#39;</span><span class="p">:</span> <span class="n">Reference</span><span class="p">,</span>
+  <span class="s1">&#39;offset&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span>
+  <span class="s1">&#39;voxel_data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="scripted-checks-return-values">
+<h2>Scripted checks - Return values<a class="headerlink" href="#scripted-checks-return-values" title="Link to this heading"></a></h2>
+<p>Scripted Checks extend the concept of scripted actual elements to be able to calculate custom inspections based on python scripts.</p>
+<section id="supported-element-types">
+<h3>Supported Element Types<a class="headerlink" href="#supported-element-types" title="Link to this heading"></a></h3>
+<p>The following element types are currently supported:</p>
+</section>
+<section id="scalar">
+<h3>Scalar<a class="headerlink" href="#scalar" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Scalar check:<br>A single scalar value is assigned to an element</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A nominal and actual double value are set, and a reference to element which was checked.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nominal&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;actual&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scalar-surface">
+<h3>Scalar Surface<a class="headerlink" href="#scalar-surface" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Surface check:<br>A scalar deviation value is assigned to each point of a mesh.</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of deviation values for each point of a mesh. The mesh is also set as “reference” parameter.<p>The number of points of the mesh and the “deviation_values” array must match.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;deviation_values&quot;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scalar-curve">
+<h3>Scalar Curve<a class="headerlink" href="#scalar-curve" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Element Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Curve check:<br>A scalar deviation value is assigned to each point on a curve.</p>
+</dd>
+<dt class="field-even">Result<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of nominal and actual values for each point of a curve. The deviation values are calculated automatically as a difference between both.<p>The curve is also set as “reference” parameter.<p>The number of points of the curve and the value arrays must match.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;actual_values&quot;</span> <span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s1">&#39;nominal_values&#39;</span><span class="p">:</span> <span class="n">double</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Reference</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_api.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="resource_api.html" class="btn btn-neutral float-right" title="gom.Resource API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7f72c6f07910>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
