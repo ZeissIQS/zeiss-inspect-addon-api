@@ -838,7 +838,7 @@ print('Selection:', RESULT.colorWidget) # example output (white): 0xffffffff
 ![](assets/widget_unit.png)
 
 Unit widget
-: The Unit widget allows to select a unit. `unitWidget` is the object name of the color widget in the example below.
+: The Unit widget allows to select a unit. `unitWidget` is the object name of the unit widget in the example below.
 
 ``` python
 DIALOG=gom.script.sys.create_user_defined_dialog (content='dialog definition')
