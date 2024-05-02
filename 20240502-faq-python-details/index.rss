@@ -4,7 +4,7 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/</link>
     <description></description>
-    <lastBuildDate>Thu, 02 May 2024 09:28:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2024 10:14:01 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>ZEISS INSPECT Python Details</title>
@@ -21,7 +21,7 @@
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#can-i-use-the-python-package-pdfplumber-in-an-add-on"&gt;Can I use the Python package &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pdfplumber&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#can-i-use-the-python-package-pywin32-in-an-add-on"&gt;Can I use the Python package &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;pywin32&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq-faq.html#can-i-use-xlwings-in-an-add-on"&gt;Can I use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xlwings&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="../howtos/faq/faq.html#can-i-use-xlwings-in-an-add-on"&gt;Can I use &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;xlwings&lt;/span&gt;&lt;/code&gt; in an Add-on?&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>

@@ -16,5 +16,4 @@ We have also added information concerning specific Python packages:
 
 * <a href="../howtos/faq/faq.html#can-i-use-the-python-package-pdfplumber-in-an-add-on">Can I use the Python package `pdfplumber` in an Add-on?</a>
 * <a href="../howtos/faq/faq.html#can-i-use-the-python-package-pywin32-in-an-add-on">Can I use the Python package `pywin32` in an Add-on?</a>
-* <a href="../howtos/faq-faq.html#can-i-use-xlwings-in-an-add-on">Can I use `xlwings` in an Add-on?</a>
-
+* <a href="../howtos/faq/faq.html#can-i-use-xlwings-in-an-add-on">Can I use `xlwings` in an Add-on?</a>
