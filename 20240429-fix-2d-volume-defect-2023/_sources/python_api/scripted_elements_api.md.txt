@@ -309,14 +309,38 @@ result = {
 
 ### 2D Volume Defects
 
+![2D Volume Defects Example](images/2d_volume_defects.png)
+
 :Element Type: 2D volume defects element of curves<p>needed for the P201 package
-:Result: Requires a list/array of lists/arrays of Vec3ds.<p>A list of points represents the polygon (curve) of one 2d volume defect. The list of lists of points represents all 2d volume defects that shall be included in the element.
+:Result: Requires the parameters `curves` and `outer_contours`.<p>`curves`: A list/array of lists/arrays of Vec3ds. A list of points represents the polygon (curve) of one 2d volume defect. The list of lists of points represents all 2d volume defects that shall be included in the element.<p>`outer_contours`: The outer contour of 2d volume defects is the equivalent to the outer hull of 3d volume defects.
 
 ```{code-block} python
 result = {
-  'curves': [ [gom.Vec3d, gom.Vec3d, ...],
-  [gom.Vec3d, gom.Vec3d, ...],
-  ... ] 
+  'curves': [
+    [gom.Vec3d, gom.Vec3d, ...],
+    [gom.Vec3d, gom.Vec3d, ...],
+    ... 
+  ],
+  'outer_contours': [ 
+    [gom.Vec3d, gom.Vec3d, ...],
+    [gom.Vec3d, gom.Vec3d, ...]
+    ... 
+  ]
+}
+```
+or
+```{code-block} python
+result = {
+  'curves': [ 
+    np.array([(x,y,z), (x,y,z), ...]),
+    np.array([(x,y,z), (x,y,z), ...]),
+    ...
+  ],
+  'outer_contours': [
+    np.array([(x,y,z), (x,y,z), ...], dtype=np.float),
+    np.array([(x,y,z), (x,y,z), ...], dtype=np.float),
+    ...
+  ]
 }
 ```
 
