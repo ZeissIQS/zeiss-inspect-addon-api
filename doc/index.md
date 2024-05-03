@@ -37,6 +37,7 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20240502-python-details
    news/20240409-scripting-solutions
    news/20240315-element-selection
    news/20240314-internationalization-tool-update
@@ -95,7 +96,6 @@ If you already know how to create an add-on and now you are interested in Python
 
    python_examples/index
    python_examples/data_interfaces
-   python_examples/point_pixel_transformations
    python_examples/dialog_widgets
    python_examples/misc
    python_examples/script_icons

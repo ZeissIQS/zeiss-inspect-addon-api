@@ -7,7 +7,7 @@ You can use the `Python API Examples` add-on, which you can find in the store, a
 
 Testing your add-on is a crucial step for maintainability, especially when dealing with multiple software versions or updates. As manually testing your add-on is often tedious and time consuming, this how-to focuses on how to include **automated tests** in your add-on.
 
-Automated tests are important when writing add-ons in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the GOM Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the add-on, as well as to ensure it meets the user’s requirements.
+Automated tests are important when writing add-ons in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the ZEISS INSPECT Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the add-on, as well as to ensure it meets the user’s requirements.
 
 ## File structure
 
@@ -50,7 +50,7 @@ The following steps are required to write a new test script. The example code is
    ```python
    def test_check_results ():
      # Setup test project
-     open_project('gom_part_test_project')
+     open_project('zeiss_part_test_project')
      test_element = gom.app.project.inspection['Surface comparison 1']
      
      # Test definition
