@@ -171,7 +171,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -198,41 +198,41 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <span class="c1"># import &lt;module&gt; as &lt;alias&gt; =&gt; [..., [&lt;module&gt;, &lt;alias&gt;], ...]</span>
 <span class="n">required_modules</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;np&#39;</span><span class="p">]]</span>
 
-<span class="k">def</span> <span class="nf">install_modules</span><span class="p">(</span><span class="n">modules</span><span class="p">):</span>	
-	<span class="n">module_installed</span> <span class="o">=</span> <span class="kc">False</span>
-	
-	<span class="c1"># Build Add-on module installation path</span>
-	<span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_current_addon</span><span class="p">()</span>
-	<span class="n">addon_id</span> <span class="o">=</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
-	<span class="n">addon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">user_edited_addon_directory</span><span class="p">,</span> <span class="n">addon_id</span><span class="p">,</span> <span class="s1">&#39;scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">)</span>
-	
-	<span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
-		<span class="k">try</span><span class="p">:</span>
-			<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-				<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-				<span class="n">mname</span> <span class="o">=</span> <span class="n">module</span>
-				<span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
-			<span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-				<span class="n">globals_dict</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>
-				<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> as </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-				<span class="n">mname</span> <span class="o">=</span> <span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-				<span class="n">globals_dict</span><span class="p">[</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-			<span class="k">else</span><span class="p">:</span>
-				<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> has an unknown data type - expecting either &#39;&lt;module_name&gt;&#39; or &#39;[&lt;module_name&gt;, &lt;alias&gt;]&#39;&quot;</span><span class="p">)</span>
-				
-		<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-			<span class="c1"># sys.executable ensures that the ZEISS INSPECT Python installation is used</span>
-			<span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">addon_path</span><span class="p">,</span> <span class="n">mname</span><span class="p">])</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-				<span class="n">module_installed</span> <span class="o">=</span> <span class="kc">True</span>
-				<span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">update_addon_database</span><span class="p">()</span>
-			<span class="k">else</span><span class="p">:</span>
-				<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt to install package </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> automatically failed.&quot;</span><span class="p">)</span>		
-				<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	
-	<span class="k">if</span> <span class="n">module_installed</span><span class="p">:</span>
-		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&gt; Package installation successful, please restart script. &lt;---&quot;</span><span class="p">)</span>
-		<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">install_modules</span><span class="p">(</span><span class="n">modules</span><span class="p">):</span> 
+    <span class="n">module_installed</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="c1"># Build Add-on module installation path</span>
+    <span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_current_addon</span><span class="p">()</span>
+    <span class="n">addon_id</span> <span class="o">=</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
+    <span class="n">addon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">user_edited_addon_directory</span><span class="p">,</span> <span class="n">addon_id</span><span class="p">,</span> <span class="s1">&#39;scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">mname</span> <span class="o">=</span> <span class="n">module</span>
+                <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">globals_dict</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> as </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">mname</span> <span class="o">=</span> <span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">globals_dict</span><span class="p">[</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> has an unknown data type - expecting either &#39;&lt;module_name&gt;&#39; or &#39;[&lt;module_name&gt;, &lt;alias&gt;]&#39;&quot;</span><span class="p">)</span>
+                
+        <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+            <span class="c1"># sys.executable ensures that the ZEISS INSPECT Python installation is used</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">addon_path</span><span class="p">,</span> <span class="n">mname</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">module_installed</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">update_addon_database</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt to install package </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> automatically failed.&quot;</span><span class="p">)</span>        
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">module_installed</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&gt; Package installation successful, please restart script. &lt;---&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">install_modules</span><span class="p">(</span><span class="n">required_modules</span><span class="p">)</span>
 
@@ -367,11 +367,11 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <p><img alt="Window closed" src="../../_images/dialog_close.png" /></p>
 <p>Closing a dialog window or pressing the ‘Cancel’ button raises a <code class="docutils literal notranslate"><span class="pre">gom.BreakError</span></code> exception. To check if any type of dialog was closed via the window close control (see figure) or via the ‘Cancel’ button (in case of the ‘Ok/Cancel’ dialog type), use the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-	<span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+    <span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dialog window was closed or &#39;Cancel&#39; button was pressed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dialog window was closed or &#39;Cancel&#39; button was pressed&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;Ok&#39; button was pressed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;Ok&#39; button was pressed&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -397,7 +397,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <span class="c1"># Event handler function called if anything happens inside of the dialog</span>
 <span class="c1">#</span>
 <span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
-	<span class="k">pass</span>
+    <span class="k">pass</span>
 
 <span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
 
@@ -498,7 +498,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
 <span class="kn">import</span> <span class="nn">clr</span> <span class="c1"># .NET Common Language Runtime (provided by Python.NET package)</span>
 <span class="kn">from</span> <span class="nn">System</span> <span class="kn">import</span> <span class="n">Console</span>
-	
+    
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>                   <span class="c1"># append path to the DLL file</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;MyDotNetClassLib&quot;</span><span class="p">)</span>   <span class="c1"># name of the assembly (usually the DLL filename without extension .dll)</span>
@@ -555,7 +555,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd1a66e4ca0>
+  <jinja2.runtime.BlockReference object at 0x7f46462226b0>
 
 
 </footer>

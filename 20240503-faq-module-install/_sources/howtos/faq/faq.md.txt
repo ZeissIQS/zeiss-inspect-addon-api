@@ -30,7 +30,7 @@ You can print the module search path in an Add-on using:
 import sys
 
 for p in sys.path:
-	print(p)
+    print(p)
 ```
 
 ## How are Python wheels handled by ZEISS INSPECT?
@@ -57,41 +57,41 @@ import importlib
 # import <module> as <alias> => [..., [<module>, <alias>], ...]
 required_modules = ['openpyxl', ['numpy', 'np']]
 
-def install_modules(modules):	
-	module_installed = False
-	
-	# Build Add-on module installation path
-	addon = gom.api.addons.get_current_addon()
-	addon_id = addon.get_id()
-	addon_path = os.path.join(gom.app.user_edited_addon_directory, addon_id, 'scripts', 'modules')
-	
-	for module in modules:
-		try:
-			if isinstance(module, str):
-				print(f'import {module}')
-				mname = module
-				importlib.import_module(module)
-			elif isinstance(module, list):
-				globals_dict = globals()
-				print(f'import {module[0]} as {module[1]}')
-				mname = module[0]
-				globals_dict[module[1]] = importlib.import_module(module[0])
-			else:
-				print(f"{module} has an unknown data type - expecting either '<module_name>' or '[<module_name>, <alias>]'")
-				
-		except ModuleNotFoundError:
-			# sys.executable ensures that the ZEISS INSPECT Python installation is used
-			res = subprocess.check_call([sys.executable, '-m', 'pip', 'download', '--dest', addon_path, mname])
-			if (res == 0):
-				module_installed = True
-				gom.script.sys.update_addon_database()
-			else:
-				print(f"Attempt to install package {module} automatically failed.")		
-				sys.exit(1)
-	
-	if module_installed:
-		print("---> Package installation successful, please restart script. <---")
-		sys.exit(0)
+def install_modules(modules): 
+    module_installed = False
+    
+    # Build Add-on module installation path
+    addon = gom.api.addons.get_current_addon()
+    addon_id = addon.get_id()
+    addon_path = os.path.join(gom.app.user_edited_addon_directory, addon_id, 'scripts', 'modules')
+    
+    for module in modules:
+        try:
+            if isinstance(module, str):
+                print(f'import {module}')
+                mname = module
+                importlib.import_module(module)
+            elif isinstance(module, list):
+                globals_dict = globals()
+                print(f'import {module[0]} as {module[1]}')
+                mname = module[0]
+                globals_dict[module[1]] = importlib.import_module(module[0])
+            else:
+                print(f"{module} has an unknown data type - expecting either '<module_name>' or '[<module_name>, <alias>]'")
+                
+        except ModuleNotFoundError:
+            # sys.executable ensures that the ZEISS INSPECT Python installation is used
+            res = subprocess.check_call([sys.executable, '-m', 'pip', 'download', '--dest', addon_path, mname])
+            if (res == 0):
+                module_installed = True
+                gom.script.sys.update_addon_database()
+            else:
+                print(f"Attempt to install package {module} automatically failed.")        
+                sys.exit(1)
+    
+    if module_installed:
+        print("---> Package installation successful, please restart script. <---")
+        sys.exit(0)
 
 install_modules(required_modules)
 
@@ -239,11 +239,11 @@ Closing a dialog window or pressing the 'Cancel' button raises a `gom.BreakError
 
 ```{code-block} python
 try:
-	RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+    RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 except gom.BreakError as e:
-	print("Dialog window was closed or 'Cancel' button was pressed")
+    print("Dialog window was closed or 'Cancel' button was pressed")
 else:
-	print("'Ok' button was pressed")
+    print("'Ok' button was pressed")
 ```
 
 ## How can I retrieve dialog results as a Python dictionary?
@@ -274,7 +274,7 @@ DIALOG=gom.script.sys.create_user_defined_dialog (file='dialog.gdlg')
 # Event handler function called if anything happens inside of the dialog
 #
 def dialog_event_handler (widget):
-	pass
+    pass
 
 DIALOG.handler = dialog_event_handler
 
@@ -391,7 +391,7 @@ The following example Python script uses methods and members of this library:
 import gom
 import clr # .NET Common Language Runtime (provided by Python.NET package)
 from System import Console
-	
+    
 import sys
 sys.path.append('.')                   # append path to the DLL file
 clr.AddReference("MyDotNetClassLib")   # name of the assembly (usually the DLL filename without extension .dll)
