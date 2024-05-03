@@ -81,7 +81,9 @@ def install_modules(modules):
                 
         except ModuleNotFoundError:
             # sys.executable ensures that the ZEISS INSPECT Python installation is used
-            res = subprocess.check_call([sys.executable, '-m', 'pip', 'download', '--dest', addon_path, mname])
+            res = subprocess.check_call(
+                [sys.executable, '-m', 'pip', 'download', '--dest', addon_path, mname]
+            )
             if (res == 0):
                 module_installed = True
                 gom.script.sys.update_addon_database()
