@@ -222,7 +222,9 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
                 
         <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
             <span class="c1"># sys.executable ensures that the ZEISS INSPECT Python installation is used</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">addon_path</span><span class="p">,</span> <span class="n">mname</span><span class="p">])</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">addon_path</span><span class="p">,</span> <span class="n">mname</span><span class="p">]</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
                 <span class="n">module_installed</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">update_addon_database</span><span class="p">()</span>
@@ -555,7 +557,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f46462226b0>
+  <jinja2.runtime.BlockReference object at 0x7f52a54865c0>
 
 
 </footer>
