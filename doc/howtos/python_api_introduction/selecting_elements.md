@@ -174,6 +174,28 @@ In the examples below, all selections are restricted to a specific part (part na
    )
    ```
 
+## More element selection options
+
+You can get all inspections from an element with:
+```{code-block} Python
+elements = gom.ElementSelection (element, {'attachment_group': [None, 'criterias']})
+```
+
+You can get all elements with:
+```{code-block} Python
+elements = gom.ElementSelection (
+    {'category': [
+        'key', 'elements', 'overview_explorer_categories', 'all_elements'
+    ]}
+)
+```
+
+You can also select elements from various tabs of the Explorer, e.g. "Relates To", "Depends On" and "Required For":
+```{code-block} Python
+# Options: related, depends_on, required_for
+elements = gom.ElementSelection ({'category': ['key', 'related']})
+```
+
 ## Explorer filter
 
 An Explorer Filter restricts the available elements to a certain criterion:
@@ -225,9 +247,17 @@ ElementSelection (
                                 ... 
                                   [, 'object_family', <object_family_name> [, 'type', <type_name>]]
         ]
+        [, 'overview_explorer_categories', 'all_elements']
     ]}
 )
 
+gom.ElementSelection(
+    <element>, {'attachment_group': [None, 'criterias']}
+)
+
+gom.ElementSelection(
+    {'category': ['key', 'related' | 'depends_on' | 'required_for' | ... ]}
+)
 
 ElementSelection (
     {'category': [...]},
