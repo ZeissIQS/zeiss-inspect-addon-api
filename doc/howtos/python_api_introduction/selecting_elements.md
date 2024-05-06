@@ -183,7 +183,11 @@ elements = gom.ElementSelection(element, {'attachment_group': [None, 'criterias'
 
 You can get all elements with:
 ```{code-block} Python
-elements = gom.ElementSelection ({'category': ['key', 'elements', 'overview_explorer_categories', 'all_elements']})
+elements = gom.ElementSelection (
+    {'category': [
+        'key', 'elements', 'overview_explorer_categories', 'all_elements'
+    ]}
+)
 ```
 
 You can also select elements from various tabs of the Explorer, e.g. "Relates To", "Depends On" and "Required For":
