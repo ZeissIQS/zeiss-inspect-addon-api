@@ -178,7 +178,7 @@ In the examples below, all selections are restricted to a specific part (part na
 
 You can get all inspections from an element with:
 ```{code-block} Python
-elements = gom.ElementSelection(element, {'attachment_group': [None, 'criterias']})
+elements = gom.ElementSelection (element, {'attachment_group': [None, 'criterias']})
 ```
 
 You can get all elements with:
@@ -193,7 +193,7 @@ elements = gom.ElementSelection (
 You can also select elements from various tabs of the Explorer, e.g. "Relates To", "Depends On" and "Required For":
 ```{code-block} Python
 # Options: related, depends_on, required_for
-elements = gom.ElementSelection({'category': ['key', 'related']})
+elements = gom.ElementSelection ({'category': ['key', 'related']})
 ```
 
 ## Explorer filter
