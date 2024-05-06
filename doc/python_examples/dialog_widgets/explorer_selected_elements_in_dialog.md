@@ -34,4 +34,4 @@ gom.script.explorer.apply_selection (selection=example_selection)
 
 * How-to: [Python API Introduction](../../howtos/python_api_introduction/python_api_introduction.md)
 * How-to: [User-defined Dialogs](../../howtos/python_api_introduction/user_defined_dialogs.md)
-* How-to: [Selecting elements in scripts](../../howtos/python_api_introduction/selecting_elements.html)
+* How-to: [Selecting elements in scripts](../../howtos/python_api_introduction/selecting_elements.md)
