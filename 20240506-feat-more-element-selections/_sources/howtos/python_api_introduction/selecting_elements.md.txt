@@ -196,6 +196,10 @@ You can also select elements from various tabs of the Explorer, e.g. "Relates To
 elements = gom.ElementSelection ({'category': ['key', 'related']})
 ```
 
+```{hint}
+You select elements in the explorer with the command `gom.script.explorer.apply_selection(selection=<elements>)`
+```
+
 ## Explorer filter
 
 An Explorer Filter restricts the available elements to a certain criterion:
