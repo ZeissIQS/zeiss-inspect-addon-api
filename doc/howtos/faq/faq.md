@@ -40,6 +40,61 @@ ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in `%AP
 * When an App containing wheels/wheelhouses is installed, those are installed into the cache folder.
 * When a script from an App is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its `scripts/modules` folder.
 
+## How can I install missing Python wheels by a script?
+
+The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
+
+```{code-block} python
+import gom
+import sys
+import os
+import subprocess
+import importlib
+# Put your Python modules here
+# import <module> => [..., '<module>', ...]
+# import <module> as <alias> => [..., [<module>, <alias>], ...]
+required_modules = ['openpyxl', ['numpy', 'np']]
+def install_modules(modules): 
+    module_installed = False
+    
+    # Build Add-on module installation path
+    addon = gom.api.addons.get_current_addon()
+    addon_id = addon.get_id()
+    addon_path = os.path.join(gom.app.user_edited_addon_directory, addon_id, 'scripts', 'modules')
+    
+    for module in modules:
+        try:
+            if isinstance(module, str):
+                print(f'import {module}')
+                mname = module
+                importlib.import_module(module)
+            elif isinstance(module, list):
+                globals_dict = globals()
+                print(f'import {module[0]} as {module[1]}')
+                mname = module[0]
+                globals_dict[module[1]] = importlib.import_module(module[0])
+            else:
+                print(f"{module} has an unknown data type - expecting either '<module_name>' or '[<module_name>, <alias>]'")
+                
+        except ModuleNotFoundError:
+            # sys.executable ensures that the ZEISS INSPECT Python installation is used
+            res = subprocess.check_call(
+                [sys.executable, '-m', 'pip', 'download', '--dest', addon_path, mname]
+            )
+            if (res == 0):
+                module_installed = True
+                gom.script.sys.update_addon_database()
+            else:
+                print(f"Attempt to install package {module} automatically failed.")        
+                sys.exit(1)
+    
+    if module_installed:
+        print("---> Package installation successful, please restart script. <---")
+        sys.exit(0)
+install_modules(required_modules)
+# Add your actual script here
+```
+
 ## How can I upgrade the pip version used in ZEISS INSPECT?
 
 In rare cases, a certain Python package cannot be installed, because it requires a newer version of [pip](https://pip.pypa.io/en/stable/) than currently installed with ZEISS INSPECT.
