@@ -4,7 +4,7 @@
 
 ## Short description
 
-This example demonstrates how to access an SQL database from an Add-on. For demonstration purposes, project keywords are written to or read from a database, respectively.
+This example demonstrates how to access an SQL database from an App. For demonstration purposes, project keywords are written to or read from a database, respectively.
 
 The database access is implemented using [mysql-connector-python](https://pypi.org/project/mysql-connector-python/). A test database server is set up using [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
 
@@ -24,7 +24,7 @@ if not hasattr(gom.app, 'project'):
   quit(0)
 ```
 
-This Add-on handles the project variables `user_project`, `user_company`, `user_department` and `user_part`.
+This App handles the project variables `user_project`, `user_company`, `user_department` and `user_part`.
 For each of these variables, two text widgets are used - one for the value in ZEISS INSPECT (e.g. `project_zi`) and one for the value in the database (e.g. `project_db`). 
 
 If available, the project keywords are written to the text widgets in the column 'INSPECT' (`*_zi`):

@@ -1,30 +1,30 @@
 ---
 myst:
    html_meta:
-      "description": "ZEISS INSPECT 2023 Add-on Python API Documentation"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
+      "description": "ZEISS INSPECT 2025 App Python API Documentation"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Examples, Specification, Documentation"
 --- 
 
-# ZEISS INSPECT Add-On Development Documentation 2023
+# ZEISS INSPECT App Development Documentation 2023
 
-Welcome to the ZEISS INSPECT Add-On development documentation. With Add-Ons, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
+Welcome to the ZEISS INSPECT App development documentation. With Apps, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
-Creating add-ons is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:
+Creating Apps is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:
 
 [Access Point: ZEISS INSPECT](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_inspect.html)
 
 Or, depending on your application, you might be interested in the specific articles [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html), [Access Point: ZEISS INSPECT Airfoil](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html) or [Access Point: ZEISS INSPECT Correlate](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_zeiss_inspect_correlate.html).
 
 ```
-If you are new to Add-ons, you find some introductions in the ZEISS Quality Tech Guide:
+If you are new to Apps, you find some introductions in the ZEISS Quality Tech Guide:
 
 * [Introduction to Add-ons](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/introduction_to_add-ons.html)
 * [How to Create a Basic Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_a_basic_add_on.html)
 * [How to Create an Advanced Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html)
 
-Check out the ZEISS INSPECT Add-On news page!
+Check out the ZEISS INSPECT Apps news page!
 
 ```{eval-rst}
 .. toctree::
@@ -37,8 +37,6 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
-   news/20240502-python-details
-   news/20240409-scripting-solutions
    news/20240315-element-selection
    news/20240314-internationalization-tool-update
    news/20240307-mesh-selection
@@ -64,9 +62,9 @@ Furthermore, we recommend following our how-to guides to get you started.
 
    howtos/python_api_introduction/python_api_introduction
    howtos/python_api_introduction/selecting_elements
-   howtos/using_add_on_editor/using_add_on_editor
-   howtos/add_on_file_format/add_on_file_format
-   howtos/add_on_documentation/add_on_documentation
+   howtos/using_app_editor/using_app_editor
+   howtos/app_file_format/app_file_format
+   howtos/app_documentation/app_documentation
    howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
@@ -77,16 +75,16 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/project_keywords/project_keywords
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
-   howtos/adding_workspaces_to_addons/adding_workspaces_to_addons
+   howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
    howtos/localization/localization
    howtos/starting_options/starting_options
-   howtos/testing_addons/testing_addons
+   howtos/testing_apps/testing_apps
    howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
 
 
-If you already know how to create an add-on and now you are interested in Python programming in ZEISS INSPECT, take a look at our collection of Python examples.
+If you already know how to create an App and now you are interested in Python programming in ZEISS INSPECT, take a look at our collection of Python examples.
 
 ```{eval-rst}
 .. toctree::

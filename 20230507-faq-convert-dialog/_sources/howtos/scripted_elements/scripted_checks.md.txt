@@ -37,7 +37,7 @@ Furthermore, checks shall be assigned an `abbreviation`. This is the short form 
 
 ## Types of scripted checks
 
-Currently, three types of scripted checks are supported. The `Python API Examples` add-on provides examples for all three. Click on the respective links to get to the example documentation.
+Currently, three types of scripted checks are supported. The `Python API Examples` App provides examples for all three. Click on the respective links to get to the example documentation.
 
 * Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See [Example: scripted_scalar_check](../../python_examples/scripted_checks/scripted_scalar_check.md).
 * Scripted curve check: Check an existing *curve* element and assign actual/nominal values for each point of the curve. See [Example: scripted_curve_check](../../python_examples/scripted_checks/scripted_curve_check.md).
