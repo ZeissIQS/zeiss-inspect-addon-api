@@ -75,6 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#where-are-apps-located-in-the-file-system">Where are Apps located in the file system?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#where-is-the-python-installation-used-by-zeiss-inspect-located">Where is the Python installation used by ZEISS INSPECT located?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-are-python-wheels-handled-by-zeiss-inspect">How are Python wheels handled by ZEISS INSPECT?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-install-missing-python-wheels-by-a-script">How can I install missing Python wheels by a script?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect">How can I upgrade the pip version used in ZEISS INSPECT?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-fix-a-unicode-error-when-trying-to-access-a-file">How do I fix a <code class="docutils literal notranslate"><span class="pre">unicode</span> <span class="pre">error</span></code> when trying to access a file?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-update-the-apps-after-changes-made-outside-of-zeiss-inspect">How can I update the Apps after changes made outside of ZEISS INSPECT?</a></li>
@@ -182,6 +183,60 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <li><p>When an App containing wheels/wheelhouses is installed, those are installed into the cache folder.</p></li>
 <li><p>When a script from an App is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its <code class="docutils literal notranslate"><span class="pre">scripts/modules</span></code> folder.</p></li>
 </ul>
+</section>
+<section id="how-can-i-install-missing-python-wheels-by-a-script">
+<h2>How can I install missing Python wheels by a script?<a class="headerlink" href="#how-can-i-install-missing-python-wheels-by-a-script" title="Link to this heading"></a></h2>
+<p>The following script tries to import the modules listed in <code class="docutils literal notranslate"><span class="pre">required_modules</span></code>. A <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="c1"># Put your Python modules here</span>
+<span class="c1"># import &lt;module&gt; =&gt; [..., &#39;&lt;module&gt;&#39;, ...]</span>
+<span class="c1"># import &lt;module&gt; as &lt;alias&gt; =&gt; [..., [&lt;module&gt;, &lt;alias&gt;], ...]</span>
+<span class="n">required_modules</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;np&#39;</span><span class="p">]]</span>
+<span class="k">def</span> <span class="nf">install_modules</span><span class="p">(</span><span class="n">modules</span><span class="p">):</span> 
+    <span class="n">module_installed</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="c1"># Build Add-on module installation path</span>
+    <span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_current_addon</span><span class="p">()</span>
+    <span class="n">addon_id</span> <span class="o">=</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
+    <span class="n">addon_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">user_edited_addon_directory</span><span class="p">,</span> <span class="n">addon_id</span><span class="p">,</span> <span class="s1">&#39;scripts&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">mname</span> <span class="o">=</span> <span class="n">module</span>
+                <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">globals_dict</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;import </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> as </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">mname</span> <span class="o">=</span> <span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">globals_dict</span><span class="p">[</span><span class="n">module</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> has an unknown data type - expecting either &#39;&lt;module_name&gt;&#39; or &#39;[&lt;module_name&gt;, &lt;alias&gt;]&#39;&quot;</span><span class="p">)</span>
+                
+        <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+            <span class="c1"># sys.executable ensures that the ZEISS INSPECT Python installation is used</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;--dest&#39;</span><span class="p">,</span> <span class="n">addon_path</span><span class="p">,</span> <span class="n">mname</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">module_installed</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">update_addon_database</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt to install package </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> automatically failed.&quot;</span><span class="p">)</span>        
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">module_installed</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&gt; Package installation successful, please restart script. &lt;---&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">install_modules</span><span class="p">(</span><span class="n">required_modules</span><span class="p">)</span>
+<span class="c1"># Add your actual script here</span>
+</pre></div>
+</div>
 </section>
 <section id="how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect">
 <h2>How can I upgrade the pip version used in ZEISS INSPECT?<a class="headerlink" href="#how-can-i-upgrade-the-pip-version-used-in-zeiss-inspect" title="Link to this heading"></a></h2>
@@ -498,7 +553,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8d00e87610>
+  <jinja2.runtime.BlockReference object at 0x7f7d88b402e0>
 
 
 </footer>
