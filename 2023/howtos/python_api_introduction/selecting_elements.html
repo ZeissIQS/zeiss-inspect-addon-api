@@ -56,6 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#recording-element-selections">Recording element selections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-elements-in-a-selection">Accessing elements in a selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-element-selection-options">More element selection options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#explorer-filter">Explorer filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a></li>
 </ul>
@@ -279,6 +280,30 @@
 </pre></div>
 </div>
 </section>
+<section id="more-element-selection-options">
+<h2>More element selection options<a class="headerlink" href="#more-element-selection-options" title="Link to this heading"></a></h2>
+<p>You can get all inspections from an element with:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;attachment_group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;criterias&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<p>You can get all elements with:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">,</span> <span class="s1">&#39;overview_explorer_categories&#39;</span><span class="p">,</span> <span class="s1">&#39;all_elements&#39;</span>
+    <span class="p">]}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also select elements from various tabs of the Explorer, e.g. “Relates To”, “Depends On” and “Required For”:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Options: related, depends_on, required_for</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">({</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;related&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You select elements in the explorer with the command <code class="docutils literal notranslate"><span class="pre">gom.script.explorer.apply_selection(selection=&lt;elements&gt;)</span></code></p>
+</div>
+</section>
 <section id="explorer-filter">
 <h2>Explorer filter<a class="headerlink" href="#explorer-filter" title="Link to this heading"></a></h2>
 <p>An Explorer Filter restricts the available elements to a certain criterion:</p>
@@ -325,9 +350,17 @@
                                 <span class="o">...</span> 
                                   <span class="p">[,</span> <span class="s1">&#39;object_family&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">object_family_name</span><span class="o">&gt;</span> <span class="p">[,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">type_name</span><span class="o">&gt;</span><span class="p">]]</span>
         <span class="p">]</span>
+        <span class="p">[,</span> <span class="s1">&#39;overview_explorer_categories&#39;</span><span class="p">,</span> <span class="s1">&#39;all_elements&#39;</span><span class="p">]</span>
     <span class="p">]}</span>
 <span class="p">)</span>
 
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">element</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;attachment_group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;criterias&#39;</span><span class="p">]}</span>
+<span class="p">)</span>
+
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;related&#39;</span> <span class="o">|</span> <span class="s1">&#39;depends_on&#39;</span> <span class="o">|</span> <span class="s1">&#39;required_for&#39;</span> <span class="o">|</span> <span class="o">...</span> <span class="p">]}</span>
+<span class="p">)</span>
 
 <span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]},</span>
@@ -373,7 +406,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fdfa5e2c0d0>
+  <jinja2.runtime.BlockReference object at 0x7fd9bf16a200>
 
 
 </footer>
