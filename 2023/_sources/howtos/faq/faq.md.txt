@@ -228,7 +228,7 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 
 ## How can I convert an embedded XML dialog definition into JSON format (optionally as separate file)?
 
-1. Ensure that the dialog command line is identical to how the app editor would create it (even if violating PEP-8), i.e. 
+1. Ensure that the dialog command line is identical to how the app editor would create it, i.e. 
 
    `DIALOG=gom.script.sys.create_user_defined_dialog (content=...`
    
