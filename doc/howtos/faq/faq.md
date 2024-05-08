@@ -287,7 +287,7 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
    `DIALOG=gom.script.sys.create_user_defined_dialog (content=...`
    
 2. Double-click the XML text to open the Dialog Editor (only works if you did 1.)
-3. Close the Dialog Editor with 'Ok' convert the XML to the newer JSON representation embedded in the script
+3. Close the Dialog Editor with 'Ok' to convert the XML to the newer JSON representation embedded in the script
 4. Optional: On the JSON representation: RMB ► Tools ► Convert Dialog To .gdlg File
 
 ## How can I get the position of a label and apply it to another label? 
