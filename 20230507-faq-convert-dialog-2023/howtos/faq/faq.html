@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-a-dialog-was-closed-with-ok-yes-no-or-close-respectively-and-not-with-cancel-or-by-closing-the-dialog-window">How do I check if a dialog was closed with ‘Ok’, ‘Yes’/’No’ or ‘Close’, respectively? (And not with ‘Cancel’ or by closing the dialog window.)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-retrieve-dialog-results-as-a-python-dictionary">How can I retrieve dialog results as a Python dictionary?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-an-image-from-a-script-resource-file-in-a-user-defined-dialog">How can I use an image from a script resource file in a user defined dialog?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-convert-an-embedded-xml-dialog-definition-into-json-format-optionally-as-separate-file">How can I convert an embedded XML dialog definition into JSON format (optionally as separate file)?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
@@ -350,6 +351,17 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 </pre></div>
 </div>
 </section>
+<section id="how-can-i-convert-an-embedded-xml-dialog-definition-into-json-format-optionally-as-separate-file">
+<h2>How can I convert an embedded XML dialog definition into JSON format (optionally as separate file)?<a class="headerlink" href="#how-can-i-convert-an-embedded-xml-dialog-definition-into-json-format-optionally-as-separate-file" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Ensure that the dialog command line is identical to how the app editor would create it (even if violating PEP-8), i.e.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DIALOG=gom.script.sys.create_user_defined_dialog</span> <span class="pre">(content=...</span></code></p>
+</li>
+<li><p>Double-click the XML text to open the Dialog Editor (only works if you did 1.)</p></li>
+<li><p>Close the Dialog Editor with ‘Ok’ convert the XML to the newer JSON representation embedded in the script</p></li>
+<li><p>Optional: On the JSON representation: RMB ► Tools ► Convert Dialog To .gdlg File</p></li>
+</ol>
+</section>
 <section id="how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">
 <h2>How can I get the position of a label and apply it to another label?<a class="headerlink" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label" title="Link to this heading"></a></h2>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">gom.script.cad.set_label_position()</span></code> to set the offset of the new label to the offset of the old label:</p>
@@ -498,7 +510,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fc254a11720>
+  <jinja2.runtime.BlockReference object at 0x7f86bbf3e560>
 
 
 </footer>
