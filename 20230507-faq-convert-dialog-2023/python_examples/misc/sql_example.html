@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sql_example &mdash; Add-On Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/python_examples/misc/sql_example.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="script_icons" href="../script_icons.html" />
+    <link rel="prev" title="point_pixel_transformations" href="point_pixel_transformations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Add-On Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an add-on editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/localization/localization.html">Localization of Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../misc.html">misc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dialog_reopen_example.html">dialog_reopen_example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="excel_example.html">Excel import/export example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sql_example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Add-On Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../misc.html">misc</a></li>
+      <li class="breadcrumb-item active">sql_example</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sql-example">
+<h1>sql_example<a class="headerlink" href="#sql-example" title="Link to this heading"></a></h1>
+<p><img alt="SQL Example Figure" src="../../_images/sql_example.png" /></p>
+<section id="short-description">
+<h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
+<p>This example demonstrates how to access an SQL database from an Add-on. For demonstration purposes, project keywords are written to or read from a database, respectively.</p>
+<p>The database access is implemented using <a class="reference external" href="https://pypi.org/project/mysql-connector-python/">mysql-connector-python</a>. A test database server is set up using <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a>.</p>
+<p>Besides, <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a> is used to save and restore entries made in a dialog.</p>
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
+<p><img alt="SQL Example Dialog" src="../../_images/sql_example_dialog_annotated.png" /></p>
+<section id="accessing-project-keywords">
+<h3>1. Accessing project keywords<a class="headerlink" href="#accessing-project-keywords" title="Link to this heading"></a></h3>
+<p>A project must be loaded to access project keywords. This is checked with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">):</span>
+  <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;no_project.gdlg&#39;</span><span class="p">)</span>
+  <span class="n">quit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This Add-on handles the project variables <code class="docutils literal notranslate"><span class="pre">user_project</span></code>, <code class="docutils literal notranslate"><span class="pre">user_company</span></code>, <code class="docutils literal notranslate"><span class="pre">user_department</span></code> and <code class="docutils literal notranslate"><span class="pre">user_part</span></code>.
+For each of these variables, two text widgets are used - one for the value in ZEISS INSPECT (e.g. <code class="docutils literal notranslate"><span class="pre">project_zi</span></code>) and one for the value in the database (e.g. <code class="docutils literal notranslate"><span class="pre">project_db</span></code>).</p>
+<p>If available, the project keywords are written to the text widgets in the column ‘INSPECT’ (<code class="docutils literal notranslate"><span class="pre">*_zi</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;user_project&#39;</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">project_keywords</span><span class="p">:</span>
+  <span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;user_project&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The text widget entries in the column ‘INSPECT’ can be edited or loaded from the database (the database entry is selected by ‘Project’).</p>
+<p>Finally the project keywords are updated from the text widgets, if the dialog is closed with the ‘Ok’ button:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+  <span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+  <span class="c1"># Dialog window was closed or &#39;Cancel&#39; button was pressed</span>
+  <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="c1"># &#39;Ok&#39; button was pressed</span>
+  <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">set_project_keywords</span> <span class="p">(</span><span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">project_zi</span><span class="p">,</span>
+    <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">company_zi</span><span class="p">,</span>
+    <span class="s1">&#39;department&#39;</span><span class="p">:</span>  <span class="n">RESULT</span><span class="o">.</span><span class="n">department_zi</span><span class="p">,</span>
+    <span class="s1">&#39;part&#39;</span><span class="p">:</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">part_zi</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-a-test-database-server">
+<h3>2. Installing a test database server<a class="headerlink" href="#installing-a-test-database-server" title="Link to this heading"></a></h3>
+<p>Install the <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> as shown in <a class="reference external" href="https://www.youtube.com/watch?v=2HQC94la6go">Install MySQL Community Server on Windows</a>.</p>
+</section>
+<section id="accessing-the-database">
+<h3>3. Accessing the database<a class="headerlink" href="#accessing-the-database" title="Link to this heading"></a></h3>
+<p>After the database server has been installed and started, you can try to connect to it, but the ‘Connection Status’ will show ‘Unknown database “&lt;name&gt;”’, because no database has been created yet.</p>
+<section id="creating-a-database">
+<h4>Creating a database<a class="headerlink" href="#creating-a-database" title="Link to this heading"></a></h4>
+<p>A new database is created using the function <code class="docutils literal notranslate"><span class="pre">create_database()</span></code>, which calls <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html">MySQLConnection.connect()</a>.</p>
+<ol class="arabic simple">
+<li><p>A connection is established without specifying a database</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_database</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+	  <span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+      <span class="n">host</span><span class="o">=</span><span class="n">host_name</span><span class="p">,</span>
+      <span class="n">user</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
+      <span class="n">passwd</span><span class="o">=</span><span class="n">user_password</span>
+  <span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">err</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The database is created</p></li>
+</ol>
+<p>The SQL command <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">{database}</span> <span class="pre">DEFAULT</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">'utf8'</span></code> is passed as a parameter to the <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html">MySQLCursor.execute()</a> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE DATABASE </span><span class="si">{}</span><span class="s2"> DEFAULT CHARACTER SET &#39;utf8&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">database</span><span class="p">))</span>
+<span class="k">except</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed creating database: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="c1">#return err</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created database </span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The database is selected</p></li>
+</ol>
+<p>Again, the method <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html">MySQLCursor.execute()</a> is called — this time with the SQL command <code class="docutils literal notranslate"><span class="pre">USE</span> <span class="pre">{database}</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;USE </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">database</span><span class="p">))</span>
+<span class="k">except</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database </span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2"> does not exists.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using database </span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>A database table is created</p></li>
+</ol>
+<p>Table: <code class="docutils literal notranslate"><span class="pre">projects</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>project_no</p></th>
+<th class="head"><p>project_name (unique)</p></th>
+<th class="head"><p>company_name</p></th>
+<th class="head"><p>department_name</p></th>
+<th class="head"><p>part_name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>int(11) NOT NULL AUTO_INCREMENT</p></td>
+<td><p>varchar(80) NOT NULL UNIQUE</p></td>
+<td><p>varchar(80) NOT NULL</p></td>
+<td><p>varchar(80)</p></td>
+<td><p>varchar(80) NOT NULL</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Database - projects table</span>
+<span class="n">TABLES</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">TABLES</span><span class="p">[</span><span class="s1">&#39;projects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+	<span class="s2">&quot;CREATE TABLE `projects` (&quot;</span>
+	<span class="s2">&quot;  `project_no` int(11) NOT NULL AUTO_INCREMENT,&quot;</span>
+	<span class="s2">&quot;  `project_name` varchar(80) NOT NULL UNIQUE,&quot;</span>
+	<span class="s2">&quot;  `company_name` varchar(80) NOT NULL,&quot;</span>
+	<span class="s2">&quot;  `department_name` varchar(80),&quot;</span>
+	<span class="s2">&quot;  `part_name` varchar(80) NOT NULL,&quot;</span>
+	<span class="s2">&quot;  PRIMARY KEY (`project_no`)&quot;</span>
+	<span class="s2">&quot;) ENGINE=InnoDB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The table data structure is passed as the SQL command to the method <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html">MySQLCursor.execute()</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">TABLES</span><span class="p">:</span>
+  <span class="n">table_description</span> <span class="o">=</span> <span class="n">TABLES</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating table </span><span class="si">{}</span><span class="s2">: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">table_description</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errorcode</span><span class="o">.</span><span class="n">ER_TABLE_EXISTS_ERROR</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;already exists.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">err</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Final steps</p></li>
+</ol>
+<p>The methods <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html">MySQLCursor.close()</a> and <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html">MySQLConnection.close()</a> are called.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="connecting-the-database">
+<h4>Connecting the database<a class="headerlink" href="#connecting-the-database" title="Link to this heading"></a></h4>
+<p>The function <code class="docutils literal notranslate"><span class="pre">create_server_connection()</span></code> creates a connection to the server and selects the database by calling <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html">MySQLConnection.connect()</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_server_connection</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
+  <span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+      <span class="n">host</span><span class="o">=</span><span class="n">host_name</span><span class="p">,</span>
+      <span class="n">user</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
+      <span class="n">passwd</span><span class="o">=</span><span class="n">user_password</span><span class="p">,</span>
+      <span class="n">database</span><span class="o">=</span><span class="n">database</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MySQL Database connection successful&quot;</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">err</span>
+
+  <span class="k">return</span> <span class="n">connection</span><span class="p">,</span> <span class="n">error</span>
+</pre></div>
+</div>
+</section>
+<section id="querying-the-database">
+<h4>Querying the database<a class="headerlink" href="#querying-the-database" title="Link to this heading"></a></h4>
+<p>In this example, whe only use the project name for selecting database entries. The project names must be unique, so we use <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchone.html">MySQLCursor.fetchone()</a> to get a single row from the <code class="docutils literal notranslate"><span class="pre">projects</span></code> table as result.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT company_name, department_name, part_name FROM projects</span>
+<span class="s2">        WHERE project_name=</span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_query</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
+  
+  <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span>
+</pre></div>
+</div>
+<p>As specified in <code class="docutils literal notranslate"><span class="pre">connection.cursor()</span></code> above, the result is a dictionary, e.g. <code class="docutils literal notranslate"><span class="pre">{'company_name':</span> <span class="pre">'Carl</span> <span class="pre">Zeiss</span> <span class="pre">GOM</span> <span class="pre">Metrology</span> <span class="pre">GmbH',</span> <span class="pre">'department_name':</span> <span class="pre">'A2',</span> <span class="pre">'part_name':</span> <span class="pre">'ZEISS</span> <span class="pre">Training</span> <span class="pre">Object'}</span></code>.</p>
+</section>
+<section id="inserting-updating">
+<h4>Inserting / Updating<a class="headerlink" href="#inserting-updating" title="Link to this heading"></a></h4>
+<p>Both inserting a new and updating an existing table row are based on <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html">MySQLCursor.execute()</a> and <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-commit.html">MySQLConnection.commit()</a> —</p>
+<p>Inserting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># New project, insert</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO projects</span>
+<span class="s2">        (project_name, company_name, department_name, part_name)</span>
+<span class="s2">        VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">company_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">department_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">part_zi</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_commit</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Project already exists, update</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;UPDATE projects SET company_name=</span><span class="si">%s</span><span class="s2">, department_name=</span><span class="si">%s</span><span class="s2">, part_name=</span><span class="si">%s</span>
+<span class="s2">        WHERE project_name=</span><span class="si">%s</span><span class="s2">;&quot;&quot;&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">company_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">department_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">part_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_commit</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Both transactions use the function <code class="docutils literal notranslate"><span class="pre">execute_commit()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_commit</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query successful&quot;</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">err</span>
+    
+  <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">err</span>
+</pre></div>
+</div>
+</section>
+<section id="deleting">
+<h4>Deleting<a class="headerlink" href="#deleting" title="Link to this heading"></a></h4>
+<p>Deleting a table row implemented using <code class="docutils literal notranslate"><span class="pre">execute_query()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM projects WHERE project_name=</span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">project_zi</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">execute_query</span><span class="p">(</span><span class="n">CONNECTION</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="related">
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>How-to: <a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">User-defined Dialogs</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="point_pixel_transformations.html" class="btn btn-neutral float-left" title="point_pixel_transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../script_icons.html" class="btn btn-neutral float-right" title="script_icons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fc255ae9d80>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
