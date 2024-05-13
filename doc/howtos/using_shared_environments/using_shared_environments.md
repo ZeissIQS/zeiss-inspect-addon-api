@@ -141,5 +141,3 @@ An App has to be finished (with **Finish Editing**) before its Python files can 
 | protected     | unprotected | &#x274c; curently not supported                                        |
 | unprotected   | protected   | &#x2714; no additional measures required                               |
 | protected     | protected   | &#x1f511; 'shared secret' must be created when applying the protection |
-
-Protecting an App and creating the shared secret is done with a tool by ZEISS IQS, which is currently provided on request.
