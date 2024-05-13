@@ -138,7 +138,7 @@ In the examples below, all selections are restricted to a specific part (part na
    )
    ```
    
-7. Nominal Elements &mdash; Geometries &mdash; Planes mdash; Plane 1 
+7. Nominal Elements &mdash; Geometries &mdash; Planes &mdash; Plane 1 
 
    💡 The leaf nodes of the element tree are elements, not element selections!
 
