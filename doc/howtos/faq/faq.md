@@ -1,6 +1,6 @@
 # Frequently asked questions
 
-If you did not find an answer here, you might want to check <a href="https://forum.gom.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
+If you did not find an answer here, you might want to check <a href="https://qualityforum.zeiss.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
 
 ## Where are Add-ons located in the file system?
 
