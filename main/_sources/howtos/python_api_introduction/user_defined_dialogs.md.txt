@@ -765,7 +765,7 @@ File widget
 | title     | str   | <pre>DIALOG.inputFile.title = 'Select the location for the protocol files'</pre>                     |
 | default   | str   | <pre>DIALOG.inputFile.default = 'D:/data/default.txt'</pre>                                          |
 | file      | str   | <pre>print(DIALOG.inputFile.file)</pre>                                                              |
-| file_types | list | <pre># Show only specified file types; each list item must consist of \[\<filename_extension\>, \<description\>\]<br>DIALOG.inputFile.file_types = \[\['*.g3d', 'Mesh data'\], \['*.stp', 'CAD data'\]\]</pre> ⚠️ ``limited`` must be set to ``True`` in order to apply the filter! |
+| file_types | list | <pre># Show only specified file types; each list item must consist of \[\<filename_extension\>, \<description\>\]<br>DIALOG.inputFile.file_types = \[\['\*.g3d', 'Mesh data'\], \['\*.stp', 'CAD data'\]\]</pre> ⚠️ ``limited`` must be set to ``True`` in order to apply the filter! |
 | limited    | bool | <pre># Limit file selection to 'file_types'<br>DIALOG.inputFile.limited = True</pre>                 |
 
 % Clarify this:
