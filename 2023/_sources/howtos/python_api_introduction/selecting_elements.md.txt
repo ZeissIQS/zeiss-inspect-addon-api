@@ -8,7 +8,9 @@ You are advised to create element selections by script recording, because this i
 
 ## Recording element selections
 
-You record an element selection by marking the desired groups of elements in the Explorer and executing a command on this selection. For convenience, you can use the command `gom.script.cad.show_element()` (shortcut: `v`) and replace it by the actual command in the script later. You can also select multiple elements at once.
+You record an element selection by marking the desired groups of elements in the Explorer and executing a command on
+this selection. For convenience, you can use the command `gom.script.cad.show_element()` (shortcut: `v`) and replace it
+by the actual command in the script later. You can also select multiple elements at once.
 
 ![Explorer - Nominal Elements selected](assets/explorer-element_selection-1.png)
 
@@ -41,7 +43,8 @@ print(elements)
 # gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.project.parts['Part'], 'explorer_category', 'nominal']})
 ```
 
-To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an iteration:
+To access the selected elements for reading their properties (e.g. element names), you use the returned reference in an
+iteration:
 
 ```{code-block} Python
 for element in elements:
@@ -87,7 +90,7 @@ In the examples below, all selections are restricted to a specific part (part na
    ```
 
 2. CAD Elements (Nominal part)
-   
+
    ```{code-block} Python
    elements=gom.ElementSelection (
        {'category': [
@@ -95,7 +98,7 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
+
 3. Mesh Elements (Actual part)
 
    ```{code-block} Python
@@ -105,7 +108,7 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
+
 4. Nominal Elements
 
    ```
@@ -115,9 +118,9 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
+
 5. Nominal Elements &mdash; Geometries
-   
+
    ```{code-block} Python
    elements=gom.ElementSelection (
        {'category': [
@@ -126,8 +129,8 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
-6. Nominal Elements &mdash; Geometries &mdash; Planes 
+
+6. Nominal Elements &mdash; Geometries &mdash; Planes
 
    ```{code-block} Python
    elements=gom.ElementSelection (
@@ -137,15 +140,15 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
-7. Nominal Elements &mdash; Geometries &mdash; Planes &mdash; Plane 1 
+
+7. Nominal Elements &mdash; Geometries &mdash; Planes &mdash; Plane 1
 
    💡 The leaf nodes of the element tree are elements, not element selections!
 
    ```{code-block} Python
    elements=[gom.app.project.inspection['Plane 1']]
    ```
-   
+
 8. Inspection
 
    ```{code-block} Python
@@ -165,23 +168,31 @@ In the examples below, all selections are restricted to a specific part (part na
        ]}
    )
    ```
-   
+
 10. Tags
 
-   ```{code-block} Python
-   elements=gom.ElementSelection (
-       {'category': ['key', 'elements', 'explorer_category', 'tags']}
-   )
-   ```
+    ```{code-block} Python
+    elements=gom.ElementSelection (
+        {'category': ['key', 'elements', 'explorer_category', 'tags']}
+    )
+    ```
 
 ## More element selection options
 
-You can get all inspections from an element with:
+You can get all inspections directly related to an element with:
+
 ```{code-block} Python
 elements = gom.ElementSelection (element, {'attachment_group': [None, 'criterias']})
 ```
 
+You can get an element in the Section View tab with:
+
+```{code-block} Python
+element = gom.ElementSelection (element, {'view': 'section_view'})
+```
+
 You can get all elements with:
+
 ```{code-block} Python
 elements = gom.ElementSelection (
     {'category': [
@@ -190,7 +201,9 @@ elements = gom.ElementSelection (
 )
 ```
 
-You can also select elements from various tabs of the Explorer, e.g. "Relates To", "Depends On" and "Required For":
+For the currently selected element, you can also select related elements from various tabs of the Explorer, e.g. "
+Relates To", "Depends On" and "Required For":
+
 ```{code-block} Python
 # Options: related, depends_on, required_for
 elements = gom.ElementSelection ({'category': ['key', 'related']})
@@ -208,7 +221,8 @@ An Explorer Filter restricts the available elements to a certain criterion:
 
 ![Explorer filter criteria](assets/explorer-filter-2.png)
 
-You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a subsequent `ElementSelection`:
+You can add the Explorer Filter interactively, record the resulting command and use the filter parameter in a
+subsequent `ElementSelection`:
 
 ```{code-block} Python
 # Recorded command, can be deleted after copying the filter parameter to the ElementSelection
@@ -249,8 +263,9 @@ ElementSelection (
                                 'stage_ranges' |
                                 'tags' | 
                                 ... 
-                                  [, 'object_family', <object_family_name> [, 'type', <type_name>]]
         ]
+        [, 'object_family', <object_family_name>]
+        [, 'type', <type_name>]
         [, 'overview_explorer_categories', 'all_elements']
     ]}
 )
@@ -274,7 +289,9 @@ ElementSelection (
              
 )
 ```
-You can also use the `ElementSelection` command with multiple selection filters:
+
+You can also use the `ElementSelection` command with multiple selection filters to get elements
+that match any of the filters (disjunction / OR):
 
 ```{code-block} Python
 elements = gom.ElementSelection (
