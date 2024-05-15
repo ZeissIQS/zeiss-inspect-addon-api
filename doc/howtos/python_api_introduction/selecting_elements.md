@@ -275,6 +275,10 @@ gom.ElementSelection(
 )
 
 gom.ElementSelection(
+    <element>, {'view': 'section_view'}
+)
+
+gom.ElementSelection(
     {'category': ['key', 'related' | 'depends_on' | 'required_for' | ... ]}
 )
 
