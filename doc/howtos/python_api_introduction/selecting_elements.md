@@ -205,7 +205,8 @@ You can get all selected elements in a category with:
 ```{code-block} Python
 selected_elements=gom.ElementSelection (
     {'category': [...]},
-    filter=['selected'])
+    filter=['selected']
+)
 ```
 
 ```{note}
