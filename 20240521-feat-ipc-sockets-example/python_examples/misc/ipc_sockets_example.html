@@ -128,8 +128,8 @@
 <p><img alt="" src="../../_images/TestClient.png" /></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
-<p>This example demonstrates Inter Process Communication between an external client and a server running as ZEISS INSPECT App using Internet sockets (aka BSD or Berkeley sockets).
-The client send requests, which trigger execution of commands in ZEISS INSPECT, such as importing of images or elements from files.</p>
+<p>This example demonstrates Inter Process Communication (IPC) between an external client and a server running as ZEISS INSPECT App using Internet sockets (aka. BSD or Berkeley sockets).
+The client sends requests, which trigger execution of commands in ZEISS INSPECT, such as importing images or elements from files.</p>
 </section>
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
@@ -137,12 +137,12 @@ The client send requests, which trigger execution of commands in ZEISS INSPECT, 
 <h3>1. Request message format<a class="headerlink" href="#request-message-format" title="Link to this heading"></a></h3>
 <p>The requests are encoded as JSON messages and terminated with an EOF (Ctrl-D) character.</p>
 <p><strong>Import image from file</strong></p>
-<p>Syntax: <code class="docutils literal notranslate"><span class="pre">{&quot;image&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">\&lt;image_file</span> <span class="pre">path\&gt;,</span> <span class="pre">&quot;name&quot;:</span> <span class="pre">\&lt;measurement_series\&gt;,</span> <span class="pre">&quot;focal_length&quot;:</span> <span class="pre">\&lt;focal_length_in_mm\&gt;}}</span></code></p>
+<p>Syntax: <code class="docutils literal notranslate"><span class="pre">{&quot;image&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">&lt;image_file</span> <span class="pre">path&gt;,</span> <span class="pre">&quot;name&quot;:</span> <span class="pre">&lt;measurement_series&gt;,</span> <span class="pre">&quot;focal_length&quot;:</span> <span class="pre">&lt;focal_length_in_mm&gt;}}</span></code></p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">{&quot;image&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">&quot;C:/temp/example.jpg&quot;,</span> <span class="pre">&quot;name&quot;:</span> <span class="pre">&quot;other&quot;,</span> <span class="pre">&quot;focal_length&quot;:</span> <span class="pre">&quot;50.0&quot;}}</span></code></p>
 <p>If the requested measurement series does not exist yet, is created with the command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_measurement_series_for_other_images()</span></code>.</p>
 <p>Then, the image is imported with the command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.import_other_images()</span></code>.</p>
 <p><strong>Import elements from file</strong></p>
-<p>Syntax: <code class="docutils literal notranslate"><span class="pre">{&quot;elements&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">\&lt;elements_file_path\&gt;,</span> <span class="pre">&quot;import_mode&quot;:</span> <span class="pre">\&lt;import_mode\&gt;}}</span></code>, where <code class="docutils literal notranslate"><span class="pre">\&lt;import_mode\&gt;</span></code>: “clipboard” or “new_stage”</p>
+<p>Syntax: <code class="docutils literal notranslate"><span class="pre">{&quot;elements&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">&lt;elements_file_path&gt;,</span> <span class="pre">&quot;import_mode&quot;:</span> <span class="pre">&lt;import_mode&gt;}}</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;import_mode&gt;</span></code>: “clipboard” or “new_stage”</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">{&quot;elements&quot;:</span> <span class="pre">{&quot;file&quot;:</span> <span class="pre">&quot;C:/Users/IQMPRINK/Documents/Points.gxml&quot;,</span> <span class="pre">&quot;import_mode&quot;:</span> <span class="pre">&quot;clipboard&quot;}}</span></code></p>
 <p>The elements are imported with the command <code class="docutils literal notranslate"><span class="pre">gom.script.sys.import_gom_inspection_exchange()</span></code>.</p>
 <p><strong>Responses</strong>
@@ -150,52 +150,53 @@ The server responds with “O.k.” if the request was decoded successfully, oth
 </section>
 <section id="socket-server-usage">
 <h3>2. Socket server usage<a class="headerlink" href="#socket-server-usage" title="Link to this heading"></a></h3>
-<p>Start the server script <code class="docutils literal notranslate"><span class="pre">TestServerApp.py</span></code> from the <code class="docutils literal notranslate"><span class="pre">IPCSocketsExample</span></code> App.</p>
-<p><code class="docutils literal notranslate"><span class="pre">TestServerApp.py</span></code> waits for a connection on the interface definded by <code class="docutils literal notranslate"><span class="pre">\&lt;HOST\&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">\&lt;PORT\&gt;</span></code> and expects request messages. After a connection has been set up, the server receives a request, sends a response and starts waiting for a new connection. Press <code class="docutils literal notranslate"><span class="pre">Esc</span></code> in the ZEISS INSPECT main window to stop the server.</p>
+<p>In ZEISS INSPECT, start the server script <code class="docutils literal notranslate"><span class="pre">TestServerApp.py</span></code> from the <code class="docutils literal notranslate"><span class="pre">IPCSocketsExample</span></code> App.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TestServerApp.py</span></code> waits for a connection on the interface definded by <code class="docutils literal notranslate"><span class="pre">&lt;HOST&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;PORT&gt;</span></code> and expects request messages. After a connection has been set up, the server receives a request, sends a response and starts waiting for a new connection. Press <code class="docutils literal notranslate"><span class="pre">Esc</span></code> in the ZEISS INSPECT main window to stop the server.</p>
 </section>
 <section id="socket-server-implementation">
 <h3>3. Socket server implementation<a class="headerlink" href="#socket-server-implementation" title="Link to this heading"></a></h3>
-<p>Socket server communication code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>	<span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Wait for connection from client&quot;&quot;&quot;</span>
-		<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
-		<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
-		<span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-		<span class="k">with</span> <span class="n">conn</span><span class="p">:</span>
-			<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected by </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-			
-			<span class="k">while</span> <span class="n">is_internet_socket_open</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
-<span class="w">				</span><span class="sd">&quot;&quot;&quot;Receive request&quot;&quot;&quot;</span>
-				<span class="n">buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-				<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-					<span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-					<span class="k">if</span> <span class="ow">not</span> <span class="n">data</span> <span class="ow">or</span> <span class="n">data</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">:</span>
-						<span class="k">break</span>
+<p>Socket server communication code (simplified):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wait for connection from client&quot;&quot;&quot;</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
+        <span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">conn</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected by </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">while</span> <span class="n">is_internet_socket_open</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Receive request&quot;&quot;&quot;</span>
+                <span class="n">buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span> <span class="ow">or</span> <span class="n">data</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">:</span>
+                        <span class="k">break</span>
 
-					<span class="n">buffer</span> <span class="o">+=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-					<span class="n">endPos</span> <span class="o">=</span>  <span class="n">buffer</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">EOF</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-					<span class="k">if</span> <span class="n">endPos</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-						<span class="n">buffer</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[:</span><span class="n">endPos</span><span class="p">]</span>
-						<span class="k">break</span>
-				
-				<span class="k">try</span><span class="p">:</span>
-					<span class="n">message</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
-				<span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
-					<span class="n">response</span> <span class="o">=</span> <span class="s2">&quot;Error: Malformed JSON message.</span><span class="se">\r\n</span><span class="s2">&quot;</span>
-				<span class="k">else</span><span class="p">:</span>
-<span class="w">					</span><span class="sd">&quot;&quot;&quot;Decode JSON message&quot;&quot;&quot;</span>
-					<span class="n">response</span> <span class="o">=</span> <span class="n">decodeMessage</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span>
-					
-				<span class="k">try</span><span class="p">:</span>
-<span class="w">					</span><span class="sd">&quot;&quot;&quot;Send response&quot;&quot;&quot;</span>
-					<span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-				<span class="k">except</span><span class="p">:</span>
-					<span class="k">pass</span>
-<span class="w">				</span>
-<span class="w">				</span><span class="sd">&quot;&quot;&quot;Close client connection after sending response.&quot;&quot;&quot;</span>
-				<span class="n">conn</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_WR</span><span class="p">)</span>
-				<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-				<span class="k">break</span>
+                    <span class="n">buffer</span> <span class="o">+=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+                    <span class="n">endPos</span> <span class="o">=</span>  <span class="n">buffer</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">EOF</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">endPos</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                        <span class="n">buffer</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[:</span><span class="n">endPos</span><span class="p">]</span>
+                        <span class="k">break</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="s2">&quot;Error: Malformed JSON message.</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+<span class="w">                    </span><span class="sd">&quot;&quot;&quot;Decode JSON message&quot;&quot;&quot;</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">decodeMessage</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+                    
+                <span class="k">try</span><span class="p">:</span>
+<span class="w">                    </span><span class="sd">&quot;&quot;&quot;Send response&quot;&quot;&quot;</span>
+                    <span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Close client connection after sending response.&quot;&quot;&quot;</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_WR</span><span class="p">)</span>
+                <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">break</span>
 </pre></div>
 </div>
 </section>
@@ -211,25 +212,25 @@ The server responds with “O.k.” if the request was decoded successfully, oth
 <h3>4. Socket client implementation<a class="headerlink" href="#socket-client-implementation" title="Link to this heading"></a></h3>
 <p>Socket client communication code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transmitReceive</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
-<span class="w">	</span><span class="sd">&quot;&quot;&quot;Socket communication</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Socket communication</span>
 
-<span class="sd">	Connect to server, transmit request, receive response and disconnect.</span>
-<span class="sd">	</span>
-<span class="sd">	Args:</span>
-<span class="sd">		payload (bytes): Transmission payload</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
-		<span class="k">try</span><span class="p">:</span>
-			<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
-		<span class="k">except</span> <span class="ne">ConnectionRefusedError</span><span class="p">:</span>
-			<span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Cannot connect to server &#39;</span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&#39; port </span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">EOF</span><span class="p">)</span>
-			<span class="n">s</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_WR</span><span class="p">)</span>
-			<span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Transmission completed.&quot;</span><span class="p">)</span>
-			<span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-			<span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-		<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="sd">    Connect to server, transmit request, receive response and disconnect.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        payload (bytes): Transmission payload</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ConnectionRefusedError</span><span class="p">:</span>
+            <span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Cannot connect to server &#39;</span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&#39; port </span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">EOF</span><span class="p">)</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_WR</span><span class="p">)</span>
+            <span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Transmission completed.&quot;</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+            <span class="n">outputWidget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -258,7 +259,7 @@ The server responds with “O.k.” if the request was decoded successfully, oth
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fcd8059d810>
+  <jinja2.runtime.BlockReference object at 0x7f0e4ee9a3b0>
 
 
 </footer>
