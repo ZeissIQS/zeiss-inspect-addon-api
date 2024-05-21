@@ -88,6 +88,7 @@ Socket server communication code:
 				conn.shutdown(socket.SHUT_WR)
 				conn.close()
 				break
+```
           
 
 ### 4. Socket client usage 
