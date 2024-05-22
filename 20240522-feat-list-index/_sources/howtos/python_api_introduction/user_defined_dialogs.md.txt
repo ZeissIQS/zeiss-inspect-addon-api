@@ -933,7 +933,9 @@ Selection list widget
 
 ``` python
 selectedValue = DIALOG.selectionListWidget.value
+selectedIndex = DIALOG.selectionListWidget.index
 print( selectedValue ) # output: entry2
+print( selectedIndex ) # output: 1
 ```
 
 | Property | Type        | Example                                                                                              |
@@ -944,6 +946,7 @@ print( selectedValue ) # output: entry2
 | focus    | bool        | <pre>DIALOG.selectEntry.focus = True</pre>⚠️ Only works if dialog is open                           |
 | visible  | bool        | <pre>DIALOG.select_mode.visible = False</pre>                                                        |
 | items    | list of str | <pre>DIALOG.selectEntry.items = ['Debug', 'Info', 'Warn', 'Error', 'Fatal']</pre>                    |
+| index    | int         | <pre>print(f'List item with index {DIALOG.selectEntry.index} is selected.')</pre>                    |             
 
 
 #### Button widget
