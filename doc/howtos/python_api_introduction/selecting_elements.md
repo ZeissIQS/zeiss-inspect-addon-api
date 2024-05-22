@@ -182,23 +182,35 @@ In the examples below, all selections are restricted to a specific part (part na
 You can get all inspections directly related to an element with:
 
 ```{code-block} Python
-elements = gom.ElementSelection (element, {'attachment_group': [None, 'criterias']})
+elements=gom.ElementSelection (element, {'attachment_group': [None, 'criterias']})
 ```
 
 You can get an element in the Section View tab with:
 
 ```{code-block} Python
-element = gom.ElementSelection (element, {'view': 'section_view'})
+element=gom.ElementSelection (element, {'view': 'section_view'})
 ```
 
 You can get all elements with:
 
 ```{code-block} Python
-elements = gom.ElementSelection (
+elements=gom.ElementSelection (
     {'category': [
         'key', 'elements', 'overview_explorer_categories', 'all_elements'
     ]}
 )
+```
+
+You can get all selected elements in a category with:
+```{code-block} Python
+selected_elements=gom.ElementSelection (
+    {'category': [...]},
+    filter=['selected']
+)
+```
+
+```{note}
+Unlike the other filter options (see section [Explorer filter](#explorer-filter)), `selected` is only used for script commands and not available in the filter dialog.
 ```
 
 For the currently selected element, you can also select related elements from various tabs of the Explorer, e.g. "
@@ -206,7 +218,7 @@ Relates To", "Depends On" and "Required For":
 
 ```{code-block} Python
 # Options: related, depends_on, required_for
-elements = gom.ElementSelection ({'category': ['key', 'related']})
+elements=gom.ElementSelection ({'category': ['key', 'related']})
 ```
 
 ```{hint}
@@ -289,8 +301,8 @@ ElementSelection (
              'visible' |
              'bodies' |
              'coordinate_systems' |
-             {'inverse': True, 'type': 'visible' | 'bodies' | 'coordinate_systems'}
-             
+             {'inverse': True, 'type': 'visible' | 'bodies' | 'coordinate_systems'} |
+             'selected'
 )
 ```
 
@@ -298,7 +310,7 @@ You can also use the `ElementSelection` command with multiple selection filters 
 that match any of the filters (disjunction / OR):
 
 ```{code-block} Python
-elements = gom.ElementSelection (
+elements=gom.ElementSelection (
     {'category': ['key', 'elements', 'explorer_category', 'nominal']},
     {'category': ['key', 'elements', 'explorer_category', 'actual']}
 )
