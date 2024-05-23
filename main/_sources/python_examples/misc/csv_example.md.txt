@@ -120,7 +120,7 @@ The file is opened and the `keywords_writer` object is created. Some configurati
 with open(RESULT.file, mode='w', newline='') as keywords_file:
     keywords_writer = csv.writer(
         keywords_file, 
-        elimiter=';', 
+        delimiter=';', 
         quotechar='"', 
         quoting=csv.QUOTE_MINIMAL
     )
