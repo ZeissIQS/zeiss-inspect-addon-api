@@ -5,7 +5,7 @@ myst:
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Examples, Specification, Documentation"
 --- 
 
-# ZEISS INSPECT App Development Documentation 2025
+# ZEISS INSPECT 2025 App Development Documentation 
 
 Welcome to the ZEISS INSPECT App development documentation. With Apps, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
