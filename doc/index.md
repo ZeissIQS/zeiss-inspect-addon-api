@@ -7,7 +7,7 @@ myst:
 
 # ZEISS INSPECT 2025 App Development Documentation 
 
-Welcome to the ZEISS INSPECT App development documentation. With Apps, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
+Welcome to the ZEISS INSPECT 2025 App development documentation. With Apps, you will be able to customize and extend the functionality of your ZEISS INSPECT software. 
 You can include several template configurations from the software, as well as completely new workflows programmed in Python.
 
 ```{important}
