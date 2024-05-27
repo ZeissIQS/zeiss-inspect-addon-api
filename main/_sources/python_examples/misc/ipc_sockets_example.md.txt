@@ -131,7 +131,8 @@ def transmitReceive(payload):
         s.close()
 ```
 
-
-
+```{seealso}
+[ZEISS Quality Tech Guide: What Kind of Open Data Formats are Provided by ZEISS INSPECT?](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/what_kind_of_open_data_formats_are_provided_by_gom_software.html)
+```
 
 
