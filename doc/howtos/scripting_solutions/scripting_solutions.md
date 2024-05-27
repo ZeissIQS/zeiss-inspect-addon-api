@@ -39,7 +39,7 @@
 
 ## Settings
 
-:Template: [SettingsAPIExample.addon](https://raw.githubusercontent.com/ZeissIQS/AddOnExamples/main/addons/SettingsAPIExample.addon)
+:Template: [SettingsAPIExample.addon](https://raw.githubusercontent.com/Zeiss/zeiss-inspect-app-examples/main/addons/SettingsAPIExample.addon)
 :Description: Save Add-on settings permanently and restore them after restarting the Add-on. Access Add-on settings from ZEISS INSPECT preferences dialog.
 :API Documentation: <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a>
 :Keywords: settings, configuration, state, save, store, restore, load, retain, persistent
