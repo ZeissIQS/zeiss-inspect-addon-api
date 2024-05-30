@@ -1736,17 +1736,17 @@ the service can be administered (started, stopped, …) via that handle.</p>
 <h4>gom.api.services.Service.get_endpoint<a class="headerlink" href="#gom-api-services-service-get-endpoint" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_endpoint():</span> <span class="pre">UUID</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_endpoint():</span> <span class="pre">str</span></span></dt>
 <dd><p>Return the API endpoint name of this service</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service endpoint</p>
+<dd class="field-even"><p>Service endpoint if the service is initialized</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1774,23 +1774,23 @@ the service can be administered (started, stopped, …) via that handle.</p>
 </dd></dl>
 
 <p>This function returns the uuid associated with service. The id can be used to
-uniquely address the service.</p>
+uniquely address the service and is the same UUID as the app the service originates from.</p>
 </section>
 <section id="gom-api-services-service-get-name">
 <h4>gom.api.services.Service.get_name<a class="headerlink" href="#gom-api-services-service-get-name" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_name():</span> <span class="pre">UUID</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_name():</span> <span class="pre">str</span></span></dt>
 <dd><p>Return the human readable name of this service</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service name</p>
+<dd class="field-even"><p>Service name if the service is initialized</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2200,7 +2200,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa0a70ad270>
+  <jinja2.runtime.BlockReference object at 0x7f4ea753f5e0>
 
 
 </footer>
