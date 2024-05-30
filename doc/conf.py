@@ -59,6 +59,10 @@ html_static_path = ['_static']
 # https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
 html_style = "css/theme_zeiss.css"
 
+html_context = {
+    'js_include': ['generate_app_url.js'],
+}
+
 favicons = [
     {
         "rel": "icon",
