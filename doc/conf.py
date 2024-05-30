@@ -60,7 +60,7 @@ html_static_path = ['_static']
 html_style = "css/theme_zeiss.css"
 
 html_context = {
-    'js_include': ['generate_app_url.js'],
+    'js_include': ['_static/generate_app_url.js'],
 }
 
 favicons = [
