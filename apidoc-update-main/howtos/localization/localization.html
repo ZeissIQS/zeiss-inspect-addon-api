@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Localization of Apps &mdash; App Development Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/howtos/localization/localization.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Software and script starting options" href="../starting_options/starting_options.html" />
+    <link rel="prev" title="Adding workspaces to Apps" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            App Development Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Localization of Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#writing-translatable-scripts">Writing translatable scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-defined-script-dialogs">User-defined script dialogs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-in-scripts">Text in scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#translating-scripts">Translating scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generating-translatable-xliff-files">Generating translatable XLIFF files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-app-internationalization">Install App ‘Internationalization’</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch-app-into-edit-mode">Switch App into ‘Edit’ mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#execute-script-update-xliff-files">Execute script ‘Update XLIFF files’</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#translate-xliff-files">Translate XLIFF files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#switching-app-languages">Switching App languages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enable-language">Enable language</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-an-app-application-language">Selecting an App/application language</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files">Is there a shortcut for exporting/importing the XLIFF files?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-the-app-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences">Why is the App not displaying the translations after changing the application language in the preferences?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT App Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">App Development Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Localization of Apps</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="localization-of-apps">
+<h1>Localization of Apps<a class="headerlink" href="#localization-of-apps" title="Link to this heading"></a></h1>
+<section id="writing-translatable-scripts">
+<h2>Writing translatable scripts<a class="headerlink" href="#writing-translatable-scripts" title="Link to this heading"></a></h2>
+<section id="user-defined-script-dialogs">
+<h3>User-defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Link to this heading"></a></h3>
+<p>When adding a user defined script dialog to a script, since software version 2022 the resulting code is in JSON compatible format and will contain translation entries for all translatable texts automatically. The user does not have to care for these entries manually. They are kept consistently when the dialog is edited again and will lead to translation file entries (see below).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;monospace&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;log&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;save_dialog_title&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Save Log File&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;scroll_automatically&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;show_save&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;tooltip&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;translatable&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="text-in-scripts">
+<h3>Text in scripts<a class="headerlink" href="#text-in-scripts" title="Link to this heading"></a></h3>
+<p>Texts in scripts have to be tagged as translatable via using the <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">()</span></code>  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print (tr (&#39;This text will be translated&#39;))
+</pre></div>
+</div>
+</section>
+</section>
+<section id="translating-scripts">
+<h2>Translating scripts<a class="headerlink" href="#translating-scripts" title="Link to this heading"></a></h2>
+<section id="generating-translatable-xliff-files">
+<h3>Generating translatable XLIFF files<a class="headerlink" href="#generating-translatable-xliff-files" title="Link to this heading"></a></h3>
+<p>💡 Scripts are using standard XLIFF files to access translations in different languages.</p>
+<section id="install-app-internationalization">
+<h4>Install App ‘Internationalization’<a class="headerlink" href="#install-app-internationalization" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Install the App ‘Internationalization’ via ZQS Store or the Install/Uninstall Apps dialog.</p></li>
+</ul>
+</section>
+<section id="switch-app-into-edit-mode">
+<h4>Switch App into ‘Edit’ mode<a class="headerlink" href="#switch-app-into-edit-mode" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Select the App the translations should be added to.</p></li>
+<li><p>Switch it into ‘Edit’ mode:</p>
+<p><img alt="Switch into edit mode" src="../../_images/edit_mode.png" /></p>
+</li>
+</ul>
+</section>
+<section id="execute-script-update-xliff-files">
+<h4>Execute script ‘Update XLIFF files’<a class="headerlink" href="#execute-script-update-xliff-files" title="Link to this heading"></a></h4>
+<p><img alt="Start from menu" src="../../_images/start_from_menu.png" /></p>
+<ul>
+<li><p>Execute script ‘Update XLIFF files’ from App ‘Internationalization’.</p></li>
+<li><p>Select the App with the translations which shall be generated or updated (1)</p></li>
+<li><p>Select the translation file which shall be generated or updated (2)</p></li>
+<li><p>Optional: Select the ID file, which contains the number of the next available message ID. (3)</p></li>
+<li><p>Set language identifier for which translation file will be generated (4)</p></li>
+<li><p>Set the log level - log output will be written to the App Editor console. (5)</p></li>
+<li><p>Check ‘Dry-Run’ if you want to try execution without modifying files. (6)</p></li>
+<li><p>Press ‘Execute’ (7)</p>
+<p><img alt="Update XLIFF" src="../../_images/update_xliff.png" /></p>
+<p><strong>Log output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">Update</span> <span class="n">script</span> <span class="n">translations</span>
+<span class="n">INFO</span><span class="p">:</span><span class="o">--------------------------</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Add</span><span class="o">-</span><span class="n">on</span> <span class="n">source</span> <span class="n">directory</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">XLIFF</span> <span class="n">file</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">InternationalizationTools</span><span class="o">/</span><span class="n">translations_en</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="o">***</span> <span class="n">DRY</span> <span class="n">RUN</span> <span class="o">***</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Loading</span> <span class="n">existing</span> <span class="n">XLIFF</span> <span class="n">file</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">InternationalizationTools</span><span class="o">/</span><span class="n">translations_en</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">icon</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">metainfo</span><span class="o">.</span><span class="n">json</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span>\<span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span>\<span class="n">README</span><span class="o">.</span><span class="n">pdf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">appdata_access</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">edit_mode</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">language_preferences</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">start_from_menu</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">update_xliff</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">doc</span><span class="o">-</span><span class="n">complete</span>\<span class="n">xliff_files</span><span class="o">.</span><span class="n">png</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_cs</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_de</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_en</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_es</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_fr</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_it</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_ja</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_ko</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_pl</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_pt</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_ru</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">languages</span>\<span class="n">InternationalizationTools_zh</span><span class="o">.</span><span class="n">xlf</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">license</span>\<span class="n">license</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">gom</span><span class="o">-</span><span class="n">addon</span><span class="o">-</span><span class="n">translations</span><span class="o">.</span><span class="n">metainfo</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">gom</span><span class="o">-</span><span class="n">addon</span><span class="o">-</span><span class="n">translations</span><span class="o">.</span><span class="n">py</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">update_xliff_files</span><span class="o">.</span><span class="n">gdlg</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">update_xliff_files</span><span class="o">.</span><span class="n">metainfo</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">update_xliff_files</span><span class="o">.</span><span class="n">py</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">Processing</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="mi">5</span><span class="n">b812296</span><span class="o">-</span><span class="mi">45</span><span class="n">f9</span><span class="o">-</span><span class="mi">4831</span><span class="o">-</span><span class="n">a43c</span><span class="o">-</span><span class="mi">3</span><span class="n">eb3e867476c</span>\<span class="n">scripts</span>\<span class="n">update_xliff_files</span><span class="o">.</span><span class="n">py</span><span class="o">.</span><span class="n">lock</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you have selected a separate folder for the XLIFF translation files, copy the files to the App folder:</p>
+<p><img alt="XLIFF files" src="../../_images/xliff_files.png" /></p>
+</li>
+</ul>
+</section>
+<section id="translate-xliff-files">
+<h4>Translate XLIFF files<a class="headerlink" href="#translate-xliff-files" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Export the XLIFF files</p></li>
+</ul>
+<ul class="simple">
+<li><p>Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.</p></li>
+<li><p>Import the XLIFF files back into the App</p></li>
+</ul>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xliff</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;urn:oasis:names:tc:xliff:document:1.1&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">original=</span><span class="s">&quot;metainfo.json&quot;</span><span class="w"> </span><span class="na">datatype=</span><span class="s">&quot;json&quot;</span><span class="w"> </span><span class="na">source-language=</span><span class="s">&quot;en&quot;</span><span class="w"> </span><span class="na">target_language=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="w">	    </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">restype=</span><span class="s">&quot;x-gettext-domain&quot;</span><span class="w"> </span><span class="na">resname=</span><span class="s">&quot;metainfo.json&quot;</span><span class="nt">&gt;</span>
+<span class="w">			</span><span class="nt">&lt;trans-unit</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;msg1&quot;</span><span class="w"> </span><span class="na">resname=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+<span class="w">				</span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Carl<span class="w"> </span>Zeiss<span class="w"> </span>GOM<span class="w"> </span>Metrology<span class="w"> </span>GmbH<span class="nt">&lt;/source&gt;</span>
+<span class="w">				</span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Carl<span class="w"> </span>Zeiss<span class="w"> </span>GOM<span class="w"> </span>Metrology<span class="w"> </span>GmbH<span class="nt">&lt;/target&gt;</span>
+<span class="w">			</span><span class="nt">&lt;/trans-unit&gt;</span>
+<span class="w">			</span><span class="nt">&lt;trans-unit</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;msg2&quot;</span><span class="w"> </span><span class="na">resname=</span><span class="s">&quot;description&quot;</span><span class="nt">&gt;</span>
+<span class="w">				</span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Tools<span class="w"> </span>for<span class="w"> </span>App<span class="w"> </span>internationalization<span class="nt">&lt;/source&gt;</span>
+<span class="w">				</span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Tools<span class="w"> </span>for<span class="w"> </span>App<span class="w"> </span>internationalization<span class="nt">&lt;/target&gt;</span>
+<span class="w">			</span><span class="nt">&lt;/trans-unit&gt;</span>
+<span class="w">			</span><span class="nt">&lt;trans-unit</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;msg3&quot;</span><span class="w"> </span><span class="na">resname=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>
+<span class="w">				</span><span class="nt">&lt;source</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Internationalization<span class="w"> </span>Tools<span class="nt">&lt;/source&gt;</span>
+<span class="w">				</span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>Internationalization<span class="w"> </span>Tools<span class="nt">&lt;/target&gt;</span>
+<span class="w">			</span><span class="nt">&lt;/trans-unit&gt;</span>
+<span class="w">		</span><span class="nt">&lt;/group&gt;</span>
+<span class="w">	</span><span class="nt">&lt;/file&gt;</span>
+<span class="nt">&lt;/xliff&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="switching-app-languages">
+<h2>Switching App languages<a class="headerlink" href="#switching-app-languages" title="Link to this heading"></a></h2>
+<section id="enable-language">
+<h3>Enable language<a class="headerlink" href="#enable-language" title="Link to this heading"></a></h3>
+<p>💡 The App language is the same as the globally set application language.</p>
+<section id="selecting-an-app-application-language">
+<h4>Selecting an App/application language<a class="headerlink" href="#selecting-an-app-application-language" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Select the appropriate language the the applications preferences dialog.</p>
+<p><img alt="Update XLIFF" src="../../_images/language_preferences.png" /></p>
+</li>
+<li><p>If a matching XLIFF file is present in an App, the translations from this file are used automatically.</p></li>
+<li><p>This might require an application restart due to caching issues.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
+<section id="is-there-a-shortcut-for-exporting-importing-the-xliff-files">
+<h3>Is there a shortcut for exporting/importing the XLIFF files?<a class="headerlink" href="#is-there-a-shortcut-for-exporting-importing-the-xliff-files" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>If there are quite many of these files and the process has to be done regularly, the resource files can be accessed right on file system.</p></li>
+<li><p>Each App in ‘Edit’ mode mirrors its content into <code class="docutils literal notranslate"><span class="pre">%APPDATA%/gom/&lt;version&gt;/gom_edited_addons/&lt;app</span> <span class="pre">uuid&gt;</span></code>.</p></li>
+<li><p>The XLIFF files can be edited right there or copied/pasted from there as long as the App remains in ‘Edit’ mode.</p></li>
+<li><p>The Python script <code class="docutils literal notranslate"><span class="pre">gom-addon-translation.py</span></code> used by the Internationalization App can be used on the command line, i.e. without graphical user interface.</p></li>
+</ul>
+</section>
+<section id="are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script">
+<h3>Are the translation entries persistent when updated via the ‘Update XLIFF files’ script?<a class="headerlink" href="#are-the-translation-entries-persistent-when-updated-via-the-update-xliff-files-script" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>As long as the original texts (the texts in the ‘id’ attribute of the ‘trans-unit’ tag of the XLIFF files) are not changing, already translated entries are left untouched and will persist.</p></li>
+<li><p>This is the case when the original text in the script does not change, like the text in a dialog button or the original text in a scripts ‘tr ()’ function.</p></li>
+</ul>
+</section>
+<section id="why-is-the-app-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences">
+<h3>Why is the App not displaying the translations after changing the application language in the preferences?<a class="headerlink" href="#why-is-the-app-not-displaying-the-translations-after-changing-the-application-language-in-the-preferences" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>You might have to restart the application after switching the application language in the preferences.</p></li>
+<li><p>Please double check, if the App supports that specific language at all, too.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html" class="btn btn-neutral float-left" title="Adding workspaces to Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../starting_options/starting_options.html" class="btn btn-neutral float-right" title="Software and script starting options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fa0a6c50dc0>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
