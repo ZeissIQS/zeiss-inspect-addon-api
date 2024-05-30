@@ -113,3 +113,8 @@ Available API functions are documented in the Specification.
    python_api/scripted_elements_api
    python_api/resource_api
 ```
+<script>
+  var url = generateAppUrl('my-parameter');
+  console.info(url); // do something with the generated URL
+</script>
+
