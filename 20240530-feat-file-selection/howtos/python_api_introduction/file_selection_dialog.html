@@ -125,12 +125,12 @@
   <section id="selecting-a-file-or-folder">
 <h1>Selecting a file or folder<a class="headerlink" href="#selecting-a-file-or-folder" title="Link to this heading"></a></h1>
 <blockquote>
-<div><p>Working with ZEISS INSPECT often requires reading or writing files. The command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> provides a simple solution for selecting a file path interactively.</p>
+<div><p>Python scripts for ZEISS INSPECT often require reading or writing files. The command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> provides a simple solution for selecting a file path interactively.</p>
 </div></blockquote>
 <p><img alt="Choose file dialog" src="../../_images/choose_file_dialog.png" /></p>
 <section id="interactive-configuration-of-choose-file">
 <h2>Interactive configuration of <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code><a class="headerlink" href="#interactive-configuration-of-choose-file" title="Link to this heading"></a></h2>
-<p>You insert the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> into you Python script by using RMB ► Insert ► Choose File… in the script editor. A dialog configuration dialog is shown:</p>
+<p>You insert the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> into your script by using RMB ► Insert ► Choose File… in the script editor. A configuration dialog is shown:</p>
 <p><img alt="Choose file configuration" src="../../_images/choose_file_configuration.png" /></p>
 <dl class="simple myst">
 <dt>Selection type</dt><dd><p>Allows to customize the selection. The following options are available:</p>
@@ -142,14 +142,14 @@
 <li><p>Select directory</p></li>
 </ul>
 </dd>
-<dt>Base folder(optional)</dt><dd><p>The folder shown when the file selection is opened</p>
+<dt>Base folder (optional)</dt><dd><p>The folder shown when the file selection is opened</p>
 </dd>
-<dt>Default file (optional)</dt><dd><p>The default file</p>
+<dt>Default file (optional)</dt><dd><p>The default file proposed by the dialog</p>
 </dd>
 <dt>File types</dt><dd><p>Allows to filter files by file extension pattern</p>
 </dd>
 </dl>
-<p>After completing the configuration dialog, <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> is inserted into the source code. You change its configuration by clicking on the command.</p>
+<p>After completing the configuration dialog, <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> is inserted into the source code. You change its configuration by clicking on the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> again.</p>
 </section>
 <section id="scripting-choose-file">
 <h2>Scripting <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code><a class="headerlink" href="#scripting-choose-file" title="Link to this heading"></a></h2>
@@ -188,7 +188,12 @@
 </section>
 <section id="return-value">
 <h2>Return value<a class="headerlink" href="#return-value" title="Link to this heading"></a></h2>
-<p>Depending on the selection type, the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> either returns a single file path, a list of file paths or a folder path.</p>
+<p>Depending on the selection type, the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> returns</p>
+<ul class="simple">
+<li><p>A single file path,</p></li>
+<li><p>A list of file paths,</p></li>
+<li><p>Or a folder path.</p></li>
+</ul>
 <p>If the dialog is cancelled, a <code class="docutils literal notranslate"><span class="pre">RequestError</span></code> exception is thrown.</p>
 </section>
 <section id="example">
@@ -207,7 +212,7 @@
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
-<p>A user-defined dialog is used if the file selection must be combined with other widgets or if additional functionality is needed.</p>
+<p>A user-defined dialog is used if the file selection must be combined with other widgets or if additional functionality is needed:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="user_defined_dialogs.html#file-widget"><span class="std std-ref">User-defined dialogs — File widget`</span></a></p></li>
 <li><p><a class="reference internal" href="user_defined_dialogs.html#file-system-browser-widget"><span class="std std-ref">User-defined dialogs — File system browser widget</span></a></p></li>
@@ -237,7 +242,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f164bcc3040>
+  <jinja2.runtime.BlockReference object at 0x7f7767b4cdf0>
 
 
 </footer>
