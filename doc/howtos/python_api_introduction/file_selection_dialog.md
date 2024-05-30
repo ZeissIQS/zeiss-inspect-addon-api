@@ -1,12 +1,12 @@
 # Selecting a file or folder
 
-> Working with ZEISS INSPECT often requires reading or writing files. The command `choose_file()` provides a simple solution for selecting a file path interactively.
+> Python scripts for ZEISS INSPECT often require reading or writing files. The command `choose_file()` provides a simple solution for selecting a file path interactively.
 
 ![Choose file dialog](assets/choose_file_dialog.png)
 
 ## Interactive configuration of `choose_file()`
 
-You insert the command `choose_file()` into you Python script by using RMB ► Insert ► Choose File... in the script editor. A dialog configuration dialog is shown:
+You insert the command `choose_file()` into your script by using RMB ► Insert ► Choose File... in the script editor. A configuration dialog is shown:
 
 ![Choose file configuration](assets/choose_file_configuration.png)
 
@@ -18,16 +18,16 @@ Selection type
   * Load multiple files
   * Select directory
 
-Base folder(optional)
+Base folder (optional)
 : The folder shown when the file selection is opened
  
 Default file (optional)
-: The default file
+: The default file proposed by the dialog
  
 File types
 : Allows to filter files by file extension pattern
  
-After completing the configuration dialog, `choose_file()` is inserted into the source code. You change its configuration by clicking on the command.
+After completing the configuration dialog, `choose_file()` is inserted into the source code. You change its configuration by clicking on the command `choose_file()` again.
 
 ## Scripting `choose_file()`
  
@@ -45,7 +45,11 @@ Parameters:
 
 ## Return value
 
-Depending on the selection type, the command `choose_file()` either returns a single file path, a list of file paths or a folder path.
+Depending on the selection type, the command `choose_file()` returns
+
+* A single file path,
+* A list of file paths,
+* Or a folder path.
 
 If the dialog is cancelled, a `RequestError` exception is thrown.
 
@@ -65,7 +69,6 @@ print(f'{file=}')
 
 ## See also
 
-A user-defined dialog is used if the file selection must be combined with other widgets or if additional functionality is needed.
-
+A user-defined dialog is used if the file selection must be combined with other widgets or if additional functionality is needed:
 * [User-defined dialogs &mdash; File widget`](user_defined_dialogs.md#file-widget)
 * [User-defined dialogs &mdash; File system browser widget](user_defined_dialogs.md#file-system-browser-widget)
