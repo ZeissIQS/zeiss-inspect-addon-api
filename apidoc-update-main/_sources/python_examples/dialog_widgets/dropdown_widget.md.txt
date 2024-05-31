@@ -4,7 +4,7 @@
 
 ## Short description
 
-This basic example shows how to use the dropdown widget and how define items at script runtime.
+This basic example shows how to use the dropdown widget and how to define items at script runtime.
 
 ## Highlights
 

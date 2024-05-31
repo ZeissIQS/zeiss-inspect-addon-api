@@ -1041,8 +1041,7 @@ Return the API endpoint name of this service
 :rtype: str
 ```
 
-This function returns the endpoint identifier this service is covering, without the
-'gom.api.' prefix. Example: 'services' for 'gom.api.services'.
+This function returns the endpoint identifier this service is covering, like 'gom.api.services'.
 
 #### gom.api.services.Service.get_id
 
