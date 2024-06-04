@@ -46,7 +46,7 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 
 #### Install App 'Internationalization Tools'
 
-* Install the App 'Internationalization Tools' via ZQS Store (([Download](https://software-store.zeiss.com/products/apps/internationalization-tools)) or the Install/Uninstall Apps dialog.
+* Install the App 'Internationalization Tools' via ZQS Store ([Download](https://software-store.zeiss.com/products/apps/internationalization-tools)) or the Install/Uninstall Apps dialog.
 
 #### Switch App into 'Edit' mode
 
