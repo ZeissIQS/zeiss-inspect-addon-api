@@ -191,6 +191,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-services-service">gom.api.services.Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-autostart">gom.api.services.Service.get_autostart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-endpoint">gom.api.services.Service.get_endpoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-id">gom.api.services.Service.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-name">gom.api.services.Service.get_name</a></li>
@@ -1732,6 +1733,26 @@ endpoints to the ZEISS Inspect API.</p>
 <p>Class representing a single API service</p>
 <p>This class represents an API service. The properties of that service can be read and
 the service can be administered (started, stopped, …) via that handle.</p>
+<section id="gom-api-services-service-get-autostart">
+<h4>gom.api.services.Service.get_autostart<a class="headerlink" href="#gom-api-services-service-get-autostart" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_autostart():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return autostart status of the service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the service is started automatically at application startup</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.</p>
+</section>
 <section id="gom-api-services-service-get-endpoint">
 <h4>gom.api.services.Service.get_endpoint<a class="headerlink" href="#gom-api-services-service-get-endpoint" title="Link to this heading"></a></h4>
 <dl class="py function">
@@ -2199,7 +2220,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fed7a05d8a0>
+  <jinja2.runtime.BlockReference object at 0x7fe287fd6f80>
 
 
 </footer>

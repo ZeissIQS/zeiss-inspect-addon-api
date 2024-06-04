@@ -15,8 +15,8 @@
 
 > There is no UI based workspace editor yet, but workspace definitions can be added manually.
 
-* An example can be found in the App 'Workspace editor tools'
-* An App is just a ZIP file with a different extension  (.zapp) containing JSON based object definitions.
+* An example can be found in the App **'Workspace editor tools'** ([Download](https://software-store.zeiss.com/products/apps/workspace-editor-tools))
+* An App is just a ZIP file with a different extension (.addon) containing JSON based object definitions.
 * It can be unpacked, edited and packed again with a new workspace definition.
 
 ### Step 1: Unpack the App

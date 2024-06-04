@@ -1031,6 +1031,19 @@ Class representing a single API service
 This class represents an API service. The properties of that service can be read and
 the service can be administered (started, stopped, ...) via that handle.
 
+#### gom.api.services.Service.get_autostart
+
+```{py:function} gom.api.services.Service.get_autostart(): bool
+
+Return autostart status of the service
+:return: 'true' if the service is started automatically at application startup
+:rtype: bool
+```
+
+This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.
+
 #### gom.api.services.Service.get_endpoint
 
 ```{py:function} gom.api.services.Service.get_endpoint(): str
