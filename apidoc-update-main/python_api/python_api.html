@@ -89,26 +89,17 @@
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Python API documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gom-api-internal-progress">gom.api.__internal__progress</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-internal-progress-internalprogressbar">gom.api.__internal__progress.InternalProgressBar</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-internal-progress-internalprogressbar-deregister-watcher">gom.api.__internal__progress.InternalProgressBar._deregister_watcher</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-internal-progress-internalprogressbar-register-watcher">gom.api.__internal__progress.InternalProgressBar._register_watcher</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-internal-progress-internalprogressbar-set-message">gom.api.__internal__progress.InternalProgressBar._set_message</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-internal-progress-internalprogressbar-set-progress">gom.api.__internal__progress.InternalProgressBar._set_progress</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#gom-api-internal-progress-create-internal-progress-bar">gom.api.__internal__progress._create_internal_progress_bar</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-addons">gom.api.addons</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon">gom.api.addons.AddOn</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-exists">gom.api.addons.AddOn.exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-content-list">gom.api.addons.AddOn.get_content_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file">gom.api.addons.AddOn.get_file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file-list">gom.api.addons.AddOn.get_file_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-id">gom.api.addons.AddOn.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-level">gom.api.addons.AddOn.get_level</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-name">gom.api.addons.AddOn.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-script-list">gom.api.addons.AddOn.get_script_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-tags">gom.api.addons.AddOn.get_tags</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-has-license">gom.api.addons.AddOn.has_license</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-is-edited">gom.api.addons.AddOn.is_edited</a></li>
@@ -168,6 +159,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-classes">gom.api.introspection.classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-modules">gom.api.introspection.modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-finish-progress">gom.api.progress.ProgressBar.finish_progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-progress">gom.api.progress.ProgressBar.set_progress</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-project">gom.api.project</a><ul>
@@ -204,7 +201,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#types">Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#file-selector">File selector</a></li>
 </ul>
@@ -256,88 +253,6 @@
   <section id="zeiss-inspect-app-python-api-documentation">
 <h1>ZEISS INSPECT App Python API documentation<a class="headerlink" href="#zeiss-inspect-app-python-api-documentation" title="Link to this heading"></a></h1>
 <p>Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.</p>
-<section id="gom-api-internal-progress">
-<h2>gom.api.__internal__progress<a class="headerlink" href="#gom-api-internal-progress" title="Link to this heading"></a></h2>
-<p>Internal API for accessing the progress bar in the main window</p>
-<section id="gom-api-internal-progress-internalprogressbar">
-<h3>gom.api.__internal__progress.InternalProgressBar<a class="headerlink" href="#gom-api-internal-progress-internalprogressbar" title="Link to this heading"></a></h3>
-<p>Class representing the internal ProgressBar</p>
-<section id="gom-api-internal-progress-internalprogressbar-deregister-watcher">
-<h4>gom.api.__internal__progress.InternalProgressBar._deregister_watcher<a class="headerlink" href="#gom-api-internal-progress-internalprogressbar-deregister-watcher" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.__internal__progress.InternalProgressBar._deregister_watcher():</span> <span class="pre">None</span></span></dt>
-<dd><p>Only for internal use!</p>
-</dd></dl>
-
-</section>
-<section id="gom-api-internal-progress-internalprogressbar-register-watcher">
-<h4>gom.api.__internal__progress.InternalProgressBar._register_watcher<a class="headerlink" href="#gom-api-internal-progress-internalprogressbar-register-watcher" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.__internal__progress.InternalProgressBar._register_watcher():</span> <span class="pre">None</span></span></dt>
-<dd><p>Only for internal use!</p>
-</dd></dl>
-
-</section>
-<section id="gom-api-internal-progress-internalprogressbar-set-message">
-<h4>gom.api.__internal__progress.InternalProgressBar._set_message<a class="headerlink" href="#gom-api-internal-progress-internalprogressbar-set-message" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.__internal__progress.InternalProgressBar._set_message(message:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
-<dd><p>Sets a message in the main window progress bar</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>message</strong> (<em>str</em>) – the message to display</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>nothing</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="gom-api-internal-progress-internalprogressbar-set-progress">
-<h4>gom.api.__internal__progress.InternalProgressBar._set_progress<a class="headerlink" href="#gom-api-internal-progress-internalprogressbar-set-progress" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.__internal__progress.InternalProgressBar._set_progress(progress:</span> <span class="pre">int):</span> <span class="pre">None</span></span></dt>
-<dd><p>Sets the progress in the main window progress bar</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>progress</strong> (<em>int</em>) – in percent, given as an integer from 0 to 100</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>nothing</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-</section>
-<section id="gom-api-internal-progress-create-internal-progress-bar">
-<h3>gom.api.__internal__progress._create_internal_progress_bar<a class="headerlink" href="#gom-api-internal-progress-create-internal-progress-bar" title="Link to this heading"></a></h3>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.__internal__progress._create_internal_progress_bar(passcode:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
-<dd><p>Only for internal use!</p>
-</dd></dl>
-
-<p>gom.api.__internal__progress.InternalProgressBar</p>
-</section>
-</section>
 <section id="gom-api-addons">
 <h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Link to this heading"></a></h2>
 <p>API for accessing the add-ons currently installed in the running software instance</p>
@@ -373,6 +288,26 @@ update processes.</p>
 
 <p>This function checks if the given file exists in the add-on</p>
 </section>
+<section id="gom-api-addons-addon-get-content-list">
+<h4>gom.api.addons.AddOn.get_content_list<a class="headerlink" href="#gom-api-addons-addon-get-content-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_content_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of contents contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of contents in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="gom-api-addons-addon-get-file">
 <h4>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Link to this heading"></a></h4>
 <dl class="py function">
@@ -401,7 +336,7 @@ this function returns the location the application uses, too, to access add-on c
 <h4>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list():</span> <span class="pre">str</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list():</span> <span class="pre">list</span></span></dt>
 <dd><p>Return the list of files contained in the add-on</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
@@ -411,7 +346,7 @@ this function returns the location the application uses, too, to access add-on c
 <dd class="field-even"><p>List of files in that add-on (full path)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -513,6 +448,26 @@ uniquely address the add-on.</p>
 
 <p>This function returns the displayable name of the add-on. This is the human
 readable name which is displayed in the add-on manager and the add-on store.</p>
+</section>
+<section id="gom-api-addons-addon-get-script-list">
+<h4>gom.api.addons.AddOn.get_script_list<a class="headerlink" href="#gom-api-addons-addon-get-script-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_script_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of scripts contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of scripts in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="gom-api-addons-addon-get-tags">
 <h4>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Link to this heading"></a></h4>
@@ -1401,6 +1356,85 @@ testing purposes.</p>
 </pre></div>
 </div>
 </section>
+<section id="gom-api-progress-progressbar">
+<h3>gom.api.progress.ProgressBar<a class="headerlink" href="#gom-api-progress-progressbar" title="Link to this heading"></a></h3>
+<p>Class representing the ProgressBar</p>
+<p>This class is meant to be used with the Python ‘with’ statement</p>
+<section id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
+
+<span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
+            <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="c1"># Do some calculations</span>
+        <span class="n">foo</span><span class="p">()</span>
+        <span class="c1"># Increase the progress</span>
+                    <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+
+<span class="c1"># Progress bar entry gets removed automatically after leaving the &#39;with&#39; statement</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar-finish-progress">
+<h4>gom.api.progress.ProgressBar.finish_progress<a class="headerlink" href="#gom-api-progress-progressbar-finish-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.finish_progress(self:</span> <span class="pre">any):</span> <span class="pre">None</span></span></dt>
+<dd><p>Finishes the progress and removes this from the progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This object CANNOT be used for further progress reporting after calling this method</p>
+<p>Can be used if the progress bar should disappear but the with statement cannot be left yet</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#### gom.api.progress.ProgressBar.set_message
+
+```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
+
+Sets a message in the main window progress bar
+:API version: 1
+:param message: the message to display
+:type message: str
+:return: nothing
+:rtype: None
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar-set-progress">
+<h4>gom.api.progress.ProgressBar.set_progress<a class="headerlink" href="#gom-api-progress-progressbar-set-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.set_progress(self:</span> <span class="pre">any,</span> <span class="pre">progress:</span> <span class="pre">int):</span> <span class="pre">None</span></span></dt>
+<dd><p>Sets the progress in the main window progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>progress</strong> (<em>int</em>) – in percent, given as an integer from 0 to 100</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nothing</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
 </section>
 <section id="gom-api-project">
 <h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Link to this heading"></a></h2>
@@ -1914,8 +1948,8 @@ via the applications preferences dialog.</p>
 defined the available keys, the entry types and the entry properties. If the entry type can be
 represented by some widget, the setting entry will also be present in the applications ‘preferences’
 dialog and can be adapted interactively there.</p>
-<section id="id1">
-<h3>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Settings API example&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example add-on demonstrating usage of the settings API&quot;</span><span class="p">,</span>
@@ -2220,7 +2254,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa4a10329b0>
+  <jinja2.runtime.BlockReference object at 0x7f1734f49030>
 
 
 </footer>

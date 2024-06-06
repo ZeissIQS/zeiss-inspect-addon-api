@@ -12,67 +12,6 @@ myst:
 
 Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
 
-## gom.api.__internal__progress
-
-Internal API for accessing the progress bar in the main window
-
-
-### gom.api.__internal__progress.InternalProgressBar
-
-Class representing the internal ProgressBar
-
-
-#### gom.api.__internal__progress.InternalProgressBar._deregister_watcher
-
-```{py:function} gom.api.__internal__progress.InternalProgressBar._deregister_watcher(): None
-
-Only for internal use!
-```
-
-
-#### gom.api.__internal__progress.InternalProgressBar._register_watcher
-
-```{py:function} gom.api.__internal__progress.InternalProgressBar._register_watcher(): None
-
-Only for internal use!
-```
-
-
-#### gom.api.__internal__progress.InternalProgressBar._set_message
-
-```{py:function} gom.api.__internal__progress.InternalProgressBar._set_message(message: str): None
-
-Sets a message in the main window progress bar
-:API version: 1
-:param message: the message to display
-:type message: str
-:return: nothing
-:rtype: None
-```
-
-
-#### gom.api.__internal__progress.InternalProgressBar._set_progress
-
-```{py:function} gom.api.__internal__progress.InternalProgressBar._set_progress(progress: int): None
-
-Sets the progress in the main window progress bar
-:API version: 1
-:param progress: in percent, given as an integer from 0 to 100
-:type progress: int
-:return: nothing
-:rtype: None
-```
-
-
-### gom.api.__internal__progress._create_internal_progress_bar
-
-```{py:function} gom.api.__internal__progress._create_internal_progress_bar(passcode: str): None
-
-Only for internal use!
-```
-
-gom.api.__internal__progress.InternalProgressBar
-
 ## gom.api.addons
 
 API for accessing the add-ons currently installed in the running software instance
@@ -102,6 +41,17 @@ Check if the given file exists in an add-on
 
 This function checks if the given file exists in the add-on
 
+#### gom.api.addons.AddOn.get_content_list
+
+```{py:function} gom.api.addons.AddOn.get_content_list(): list
+
+Return the list of contents contained in the add-on
+:API version: 1
+:return: List of contents in that add-on (full path)
+:rtype: list
+```
+
+
 #### gom.api.addons.AddOn.get_file
 
 ```{py:function} gom.api.addons.AddOn.get_file(): str
@@ -119,12 +69,12 @@ this function returns the location the application uses, too, to access add-on c
 
 #### gom.api.addons.AddOn.get_file_list
 
-```{py:function} gom.api.addons.AddOn.get_file_list(): str
+```{py:function} gom.api.addons.AddOn.get_file_list(): list
 
 Return the list of files contained in the add-on
 :API version: 1
 :return: List of files in that add-on (full path)
-:rtype: str
+:rtype: list
 ```
 
 This function returns the list of files in an add-on. These path names can be used to
@@ -196,6 +146,17 @@ Return the displayable name of the add-on
 
 This function returns the displayable name of the add-on. This is the human
 readable name which is displayed in the add-on manager and the add-on store.
+
+#### gom.api.addons.AddOn.get_script_list
+
+```{py:function} gom.api.addons.AddOn.get_script_list(): list
+
+Return the list of scripts contained in the add-on
+:API version: 1
+:return: List of scripts in that add-on (full path)
+:rtype: list
+```
+
 
 #### gom.api.addons.AddOn.get_tags
 
@@ -799,6 +760,70 @@ This function can be used to query the modules of the API
 for m in gom.api.introspection.modules ():
   print (m.name ())
 ```
+
+### gom.api.progress.ProgressBar
+
+Class representing the ProgressBar
+
+This class is meant to be used with the Python 'with' statement
+
+#### Example
+
+```
+import gom.api.progress
+
+with gom.api.progress.ProgressBar() as bar:
+            bar.set_message('Calculation in progress')
+            for i in range(100):
+        # Do some calculations
+        foo()
+        # Increase the progress
+                    bar.set_progress(i)    
+
+# Progress bar entry gets removed automatically after leaving the 'with' statement
+```
+
+#### gom.api.progress.ProgressBar.finish_progress
+
+```{py:function} gom.api.progress.ProgressBar.finish_progress(self: any): None
+
+Finishes the progress and removes this from the progress bar
+:API version: 1
+:return: nothing
+:rtype: None
+```
+
+This object CANNOT be used for further progress reporting after calling this method
+
+Can be used if the progress bar should disappear but the with statement cannot be left yet
+
+```
+
+#### gom.api.progress.ProgressBar.set_message
+
+```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
+
+Sets a message in the main window progress bar
+:API version: 1
+:param message: the message to display
+:type message: str
+:return: nothing
+:rtype: None
+```
+
+
+#### gom.api.progress.ProgressBar.set_progress
+
+```{py:function} gom.api.progress.ProgressBar.set_progress(self: any, progress: int): None
+
+Sets the progress in the main window progress bar
+:API version: 1
+:param progress: in percent, given as an integer from 0 to 100
+:type progress: int
+:return: nothing
+:rtype: None
+```
+
 
 ## gom.api.project
 
