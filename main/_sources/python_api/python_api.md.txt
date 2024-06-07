@@ -41,6 +41,17 @@ Check if the given file exists in an add-on
 
 This function checks if the given file exists in the add-on
 
+#### gom.api.addons.AddOn.get_content_list
+
+```{py:function} gom.api.addons.AddOn.get_content_list(): list
+
+Return the list of contents contained in the add-on
+:API version: 1
+:return: List of contents in that add-on (full path)
+:rtype: list
+```
+
+
 #### gom.api.addons.AddOn.get_file
 
 ```{py:function} gom.api.addons.AddOn.get_file(): str
@@ -58,12 +69,12 @@ this function returns the location the application uses, too, to access add-on c
 
 #### gom.api.addons.AddOn.get_file_list
 
-```{py:function} gom.api.addons.AddOn.get_file_list(): str
+```{py:function} gom.api.addons.AddOn.get_file_list(): list
 
 Return the list of files contained in the add-on
 :API version: 1
 :return: List of files in that add-on (full path)
-:rtype: str
+:rtype: list
 ```
 
 This function returns the list of files in an add-on. These path names can be used to
@@ -135,6 +146,17 @@ Return the displayable name of the add-on
 
 This function returns the displayable name of the add-on. This is the human
 readable name which is displayed in the add-on manager and the add-on store.
+
+#### gom.api.addons.AddOn.get_script_list
+
+```{py:function} gom.api.addons.AddOn.get_script_list(): list
+
+Return the list of scripts contained in the add-on
+:API version: 1
+:return: List of scripts in that add-on (full path)
+:rtype: list
+```
+
 
 #### gom.api.addons.AddOn.get_tags
 
@@ -739,6 +761,70 @@ for m in gom.api.introspection.modules ():
   print (m.name ())
 ```
 
+### gom.api.progress.ProgressBar
+
+Class representing the ProgressBar
+
+This class is meant to be used with the Python 'with' statement
+
+#### Example
+
+```
+import gom.api.progress
+
+with gom.api.progress.ProgressBar() as bar:
+            bar.set_message('Calculation in progress')
+            for i in range(100):
+        # Do some calculations
+        foo()
+        # Increase the progress
+                    bar.set_progress(i)    
+
+# Progress bar entry gets removed automatically after leaving the 'with' statement
+```
+
+#### gom.api.progress.ProgressBar.finish_progress
+
+```{py:function} gom.api.progress.ProgressBar.finish_progress(self: any): None
+
+Finishes the progress and removes this from the progress bar
+:API version: 1
+:return: nothing
+:rtype: None
+```
+
+This object CANNOT be used for further progress reporting after calling this method
+
+Can be used if the progress bar should disappear but the with statement cannot be left yet
+
+```
+
+#### gom.api.progress.ProgressBar.set_message
+
+```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
+
+Sets a message in the main window progress bar
+:API version: 1
+:param message: the message to display
+:type message: str
+:return: nothing
+:rtype: None
+```
+
+
+#### gom.api.progress.ProgressBar.set_progress
+
+```{py:function} gom.api.progress.ProgressBar.set_progress(self: any, progress: int): None
+
+Sets the progress in the main window progress bar
+:API version: 1
+:param progress: in percent, given as an integer from 0 to 100
+:type progress: int
+:return: nothing
+:rtype: None
+```
+
+
 ## gom.api.project
 
 Access to project relevant structures
@@ -970,18 +1056,30 @@ Class representing a single API service
 This class represents an API service. The properties of that service can be read and
 the service can be administered (started, stopped, ...) via that handle.
 
+#### gom.api.services.Service.get_autostart
+
+```{py:function} gom.api.services.Service.get_autostart(): bool
+
+Return autostart status of the service
+:return: 'true' if the service is started automatically at application startup
+:rtype: bool
+```
+
+This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.
+
 #### gom.api.services.Service.get_endpoint
 
-```{py:function} gom.api.services.Service.get_endpoint(): UUID
+```{py:function} gom.api.services.Service.get_endpoint(): str
 
 Return the API endpoint name of this service
 :API version: 1
-:return: Service endpoint
-:rtype: UUID
+:return: Service endpoint if the service is initialized
+:rtype: str
 ```
 
-This function returns the endpoint identifier this service is covering, without the
-'gom.api.' prefix. Example: 'services' for 'gom.api.services'.
+This function returns the endpoint identifier this service is covering, like 'gom.api.services'.
 
 #### gom.api.services.Service.get_id
 
@@ -994,16 +1092,16 @@ Return the unique id (uuid) of this service
 ```
 
 This function returns the uuid associated with service. The id can be used to
-uniquely address the service.
+uniquely address the service and is the same UUID as the app the service originates from.
 
 #### gom.api.services.Service.get_name
 
-```{py:function} gom.api.services.Service.get_name(): UUID
+```{py:function} gom.api.services.Service.get_name(): str
 
 Return the human readable name of this service
 :API version: 1
-:return: Service name
-:rtype: UUID
+:return: Service name if the service is initialized
+:rtype: str
 ```
 
 
