@@ -1,6 +1,6 @@
-# ex13_volume_region
+# scripted_actual_volume_region
 
-![Scripted volume region example](ex13_volume_region.png)
+![Scripted volume region example](scripted_actual_volume_region.png)
 
 This is an example for a scripted 'volume region' element. The dialog allows to select a linked volume element and to set offset (in the global coordinate system) as well as the dimensions (in the voxel coordinate system) of the volume region. In this example, the volume region is shown in light green.
 

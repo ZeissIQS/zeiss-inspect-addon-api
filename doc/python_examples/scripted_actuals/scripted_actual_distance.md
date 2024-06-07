@@ -1,6 +1,6 @@
-# ex01_distance
+# scripted_actual_distance
 
-![Scripted distance element example](ex01_distance.png)
+![Scripted distance element example](scripted_actual_distance.png)
 
 This is an example for a scripted 'distance' element.
 

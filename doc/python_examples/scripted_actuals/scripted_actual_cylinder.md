@@ -1,6 +1,6 @@
-# ex05_cylinder
+# scripted_actual_cylinder
 
-![Scripted cylinder element example](ex05_cylinder.png)
+![Scripted cylinder element example](scripted_actual_cylinder.png)
 
 This is an example for a scripted 'cylinder' element.
 
