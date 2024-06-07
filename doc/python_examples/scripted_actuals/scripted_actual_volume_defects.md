@@ -1,6 +1,6 @@
-# ex12_volume_defects
+# scripted_actual_volume_defects
 
-![Scripted volume defects element example](ex12_volume_defects.png)
+![Scripted volume defects element example](scripted_actual_volume_defects.png)
 
 This is an example for a scripted 'volume defects' element. Each defect is defined by a mesh. In this example, a single defect is created by setting the coordinates of four vertices from a dialog. The mesh triangles are hard-coded in the `calculation()` function. The resulting element has the shape of a tetrahedron.
 

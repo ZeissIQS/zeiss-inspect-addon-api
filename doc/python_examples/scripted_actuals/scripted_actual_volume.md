@@ -1,6 +1,6 @@
-# ex11_volume
+# scripted_actual_volume
 
-![Scripted volume element example](ex11_volume.png)
+![Scripted volume element example](scripted_actual_volume.png)
 
 This is an example for a scripted 'volume' element. The volume data is created as an np.array of shape 70&times;70&times;70. Each element defines a voxel with a default gray value `gv1` (`calculation()`, lines 11&amp;12). The function `set_voxeldata()` changes some of the gray values to `gv2` (line 13). The resulting volume object resembles a die. Finally the volume data is padded in each direction with voxels of the background gray value `gv0`.
 

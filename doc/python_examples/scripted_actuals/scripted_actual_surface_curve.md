@@ -1,6 +1,6 @@
-# ex04_surface_curve
+# scripted_actual_surface_curve
 
-![Scripted surface curve element example](ex04_surface_curve.png)
+![Scripted surface curve element example](scripted_actual_surface_curve.png)
 
 This is an example for a scripted 'surface curve' element. A parametric function is used to create a 3-dimensional surface curve - a section of a circle's parallel - with a fixed number of definition points. These point vectors are used as normals, too. `np.arange()` is used to iterate from `phi_min` to `phi_max` with a non-integer step size.
 

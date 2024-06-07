@@ -1,6 +1,6 @@
-# ex10_section
+# scripted_actual_section
 
-![Scripted section element example](ex10_section.png)
+![Scripted section element example](scripted_actual_section.png)
 
 This is an example for a scripted 'section' element. The dialog allows to select an existing section, which may consist of multiple sub sections. The script creates a new section from the existing one, with the selected filter criterion.
 
