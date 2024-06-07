@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="ZEISS INSPECT 2025 App Python API Specification" name="description" />
+<meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation" name="keywords" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZEISS INSPECT App Python API documentation &mdash; App Development Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/python_api/python_api.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scripted elements API" href="scripted_elements_api.html" />
+    <link rel="prev" title="scripted_surface_check" href="../python_examples/scripted_checks/scripted_surface_check.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            App Development Documentation
+              <img src="../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_app_editor/using_app_editor.html">Using the App Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/app_file_format/app_file_format.html">App file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/app_documentation/app_documentation.html">Documenting Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Python API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-addons">gom.api.addons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon">gom.api.addons.AddOn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-exists">gom.api.addons.AddOn.exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-content-list">gom.api.addons.AddOn.get_content_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file">gom.api.addons.AddOn.get_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file-list">gom.api.addons.AddOn.get_file_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-id">gom.api.addons.AddOn.get_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-level">gom.api.addons.AddOn.get_level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-name">gom.api.addons.AddOn.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-script-list">gom.api.addons.AddOn.get_script_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-tags">gom.api.addons.AddOn.get_tags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-has-license">gom.api.addons.AddOn.has_license</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-is-edited">gom.api.addons.AddOn.is_edited</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-is-protected">gom.api.addons.AddOn.is_protected</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-read">gom.api.addons.AddOn.read</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-write">gom.api.addons.AddOn.write</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-addon">gom.api.addons.get_addon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-current-addon">gom.api.addons.get_current_addon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-addons">gom.api.addons.get_installed_addons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-imaging">gom.api.imaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-acquisition">gom.api.imaging.Acquisition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-imaging-acquisition-get-angle">gom.api.imaging.Acquisition.get_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-imaging-acquisition-get-coordinate">gom.api.imaging.Acquisition.get_coordinate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-introspection">gom.api.introspection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-class">gom.api.introspection.Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-class-description">gom.api.introspection.Class.description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-class-methods">gom.api.introspection.Class.methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-class-name">gom.api.introspection.Class.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-class-type">gom.api.introspection.Class.type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-function">gom.api.introspection.Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-function-arguments">gom.api.introspection.Function.arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-function-descripion">gom.api.introspection.Function.descripion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-function-name">gom.api.introspection.Function.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-function-returns">gom.api.introspection.Function.returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-function-signature">gom.api.introspection.Function.signature</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-method">gom.api.introspection.Method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-method-arguments">gom.api.introspection.Method.arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-method-description">gom.api.introspection.Method.description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-method-name">gom.api.introspection.Method.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-method-returns">gom.api.introspection.Method.returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-method-signature">gom.api.introspection.Method.signature</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-module">gom.api.introspection.Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-module-description">gom.api.introspection.Module.description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-module-functions">gom.api.introspection.Module.functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-module-name">gom.api.introspection.Module.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-module-tags">gom.api.introspection.Module.tags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-introspection-module-version">gom.api.introspection.Module.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-classes">gom.api.introspection.classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-modules">gom.api.introspection.modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-finish-progress">gom.api.progress.ProgressBar.finish_progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-progress">gom.api.progress.ProgressBar.set_progress</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-project">gom.api.project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-progressinformation">gom.api.project.ProgressInformation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-project-progressinformation-set-message">gom.api.project.ProgressInformation.set_message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-project-progressinformation-set-percent">gom.api.project.ProgressInformation.set_percent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-create-progress-information">gom.api.project.create_progress_information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisition">gom.api.project.get_image_acquisition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-create">gom.api.script_resources.create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-exists">gom.api.script_resources.exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-list">gom.api.script_resources.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-load">gom.api.script_resources.load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-mem-size">gom.api.script_resources.mem_size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save">gom.api.script_resources.save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save-as">gom.api.script_resources.save_as</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-unload">gom.api.script_resources.unload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-services-service">gom.api.services.Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-autostart">gom.api.services.Service.get_autostart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-endpoint">gom.api.services.Service.get_endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-id">gom.api.services.Service.get_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-name">gom.api.services.Service.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-status">gom.api.services.Service.get_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-start">gom.api.services.Service.start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-stop">gom.api.services.Service.stop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-services-get-services">gom.api.services.get_services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file-selector">File selector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-get">gom.api.settings.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-list">gom.api.settings.list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-settings-set">gom.api.settings.set</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-testing">gom.api.testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-testing-testobject">gom.api.testing.TestObject</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-testing-testobject-get-id">gom.api.testing.TestObject.get_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-testing-testobject-get-name">gom.api.testing.TestObject.get_name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-testing-generate-test-object">gom.api.testing.generate_test_object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-testing-reflect">gom.api.testing.reflect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">App Development Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ZEISS INSPECT App Python API documentation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zeiss-inspect-app-python-api-documentation">
+<h1>ZEISS INSPECT App Python API documentation<a class="headerlink" href="#zeiss-inspect-app-python-api-documentation" title="Link to this heading"></a></h1>
+<p>Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.</p>
+<section id="gom-api-addons">
+<h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Link to this heading"></a></h2>
+<p>API for accessing the add-ons currently installed in the running software instance</p>
+<p>This API enables access to the installed add-ons. Information about these add-ons can be
+queried, add-on files and resources can be read and if the calling instance is a member of
+one specific add-on, this specific add-on can be modified on-the-fly and during software
+update processes.</p>
+<section id="gom-api-addons-addon">
+<h3>gom.api.addons.AddOn<a class="headerlink" href="#gom-api-addons-addon" title="Link to this heading"></a></h3>
+<p>Class representing a single add-on</p>
+<p>This class represents a single add-on. Properties of that add-on can be queried from here.</p>
+<section id="gom-api-addons-addon-exists">
+<h4>gom.api.addons.AddOn.exists<a class="headerlink" href="#gom-api-addons-addon-exists" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.exists(path:</span> <span class="pre">str):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Check if the given file exists in an add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if a file with that name exists in the add-on</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function checks if the given file exists in the add-on</p>
+</section>
+<section id="gom-api-addons-addon-get-content-list">
+<h4>gom.api.addons.AddOn.get_content_list<a class="headerlink" href="#gom-api-addons-addon-get-content-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_content_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of contents contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of contents in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-addons-addon-get-file">
+<h4>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the installed add-on file</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on file path (path to the add-ons installed ZIP file) or add-on edit directory if the add-on is currently in edit mode.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the installed ZIP file representing the add-on. The file might be
+empty if the add-on has never been ‘completed’. If the add-on is currently in edit mode,
+instead the edit directory containing the unpacked add-on sources is returned. In any way,
+this function returns the location the application uses, too, to access add-on content.</p>
+</section>
+<section id="gom-api-addons-addon-get-file-list">
+<h4>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of files contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of files in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the list of files in an add-on. These path names can be used to
+read or write/modify add-on content. This is subject to the permission system, so the
+content of protected add-ons cannot be read at all and just the add-on a script originates
+from can be modified via this API.</p>
+<p>Please note that the list of files can only be obtained for add-ons which are currently not
+in edit mode ! An add-on in edit mode is unzipped and the <code class="docutils literal notranslate"><span class="pre">get_file</span> <span class="pre">()</span></code> function will return
+the file system path to its directory in that case. That directory can then be browsed with
+the standard file tools instead.</p>
+</section>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">addon</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span><span class="p">():</span>
+  <span class="c1"># Protected add-ins cannot be read at all</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_protected</span><span class="p">():</span>
+
+    <span class="c1"># Edit add-ons are file system based and must be accessed via file system functions</span>
+    <span class="k">if</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_edited</span><span class="p">():</span>
+      <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_file</span> <span class="p">()):</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+
+    <span class="c1"># Finished add-ons can be accessed via this function</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">():</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-addon-get-id">
+<h4>gom.api.addons.AddOn.get_id<a class="headerlink" href="#gom-api-addons-addon-get-id" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_id():</span> <span class="pre">UUID</span></span></dt>
+<dd><p>Return the unique id (uuid) of this add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on uuid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>UUID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the uuid associated with this add-on. The id can be used to
+uniquely address the add-on.</p>
+</section>
+<section id="gom-api-addons-addon-get-level">
+<h4>gom.api.addons.AddOn.get_level<a class="headerlink" href="#gom-api-addons-addon-get-level" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_level():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the level (system/shared/user) of the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Level of the add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the ‘configuration level’ of the add-on. This can be</p>
+<ul class="simple">
+<li><p>‘system’ for pre installed add-on which are distributed together with the application</p></li>
+<li><p>‘shared’ for add-ons in the public or shared folder configured in the application’s preferences or</p></li>
+<li><p>‘user’ for user level add-ons installed for the current user only.</p></li>
+</ul>
+</section>
+<section id="gom-api-addons-addon-get-name">
+<h4>gom.api.addons.AddOn.get_name<a class="headerlink" href="#gom-api-addons-addon-get-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the displayable name of the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the displayable name of the add-on. This is the human
+readable name which is displayed in the add-on manager and the add-on store.</p>
+</section>
+<section id="gom-api-addons-addon-get-script-list">
+<h4>gom.api.addons.AddOn.get_script_list<a class="headerlink" href="#gom-api-addons-addon-get-script-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_script_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of scripts contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of scripts in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-addons-addon-get-tags">
+<h4>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_tags():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the list of tags with which the add-on has been tagged</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of tags</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the list of tags in the addons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+</section>
+<section id="gom-api-addons-addon-has-license">
+<h4>gom.api.addons.AddOn.has_license<a class="headerlink" href="#gom-api-addons-addon-has-license" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.has_license():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return if the necessary licenses to use this add-on are present</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns if the necessary licenses to use the add-on are currently present.
+Add-ons can either be free and commercial. Commercial add-ons require the presence of a
+matching license via a license dongle or a license server.</p>
+</section>
+<section id="gom-api-addons-addon-is-edited">
+<h4>gom.api.addons.AddOn.is_edited<a class="headerlink" href="#gom-api-addons-addon-is-edited" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.is_edited():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return if the add-on is currently edited</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘true’ if the add-on is currently in edit mode</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Usually, an add-on is simply a ZIP file which is included into the applications file system. When
+an add-on is in edit mode, it will be temporarily unzipped and is then present on disk in a directory.</p>
+</section>
+<section id="gom-api-addons-addon-is-protected">
+<h4>gom.api.addons.AddOn.is_protected<a class="headerlink" href="#gom-api-addons-addon-is-protected" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.is_protected():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return if the add-on is protected</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on protection state</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The content of a protected add-on is encrypted. It can be listed, but not read. Protection
+includes both ‘IP protection’ (content cannot be read) and ‘copy protection’ (content cannot be
+copied, as far as possible)</p>
+</section>
+<section id="gom-api-addons-addon-read">
+<h4>gom.api.addons.AddOn.read<a class="headerlink" href="#gom-api-addons-addon-read" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.read(path:</span> <span class="pre">str):</span> <span class="pre">bytes</span></span></dt>
+<dd><p>Read file from add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content of that file as a byte array</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function reads the content of a file from the add-on. If the add-on is protected,
+the file can still be read but will be AES encrypted.</p>
+<p><strong>Example:</strong> Print all add-on ‘metainfo.json’ files</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span> <span class="p">():</span>
+  <span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span> <span class="p">(</span><span class="s1">&#39;metainfo.json&#39;</span><span class="p">))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-addon-write">
+<h4>gom.api.addons.AddOn.write<a class="headerlink" href="#gom-api-addons-addon-write" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.write(path:</span> <span class="pre">str,</span> <span class="pre">data:</span> <span class="pre">bytes):</span> <span class="pre">None</span></span></dt>
+<dd><p>Write data into add-on file</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p></li>
+<li><p><strong>data</strong> (<em>bytes</em>) – Data to be written into that file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function writes data into a file into an add-ons file system. It can be used to update,
+migrate or adapt the one add-on the API call originates from. Protected add-ons cannot be
+modified at all.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>An add-on can modify only its own content ! Access to other add-ons is not permitted. Use this
+function with care, as the result is permanent !</p>
+</div>
+</section>
+</section>
+<section id="gom-api-addons-get-addon">
+<h3>gom.api.addons.get_addon<a class="headerlink" href="#gom-api-addons-get-addon" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_addon(id:</span> <span class="pre">UUID):</span> <span class="pre">gom.api.addons.AddOn</span></span></dt>
+<dd><p>Return the add-on with the given id</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>id</strong> (<em>UUID</em>) – Id of the add-on to get</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Add-on with the given id</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>gom.api.addons.AddOn</p>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Exception if there is no add-on with that id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the add-on with the given id</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_addon</span> <span class="p">(</span><span class="s1">&#39;1127a8be-231f-44bf-b15e-56da4b510bf1&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
+<span class="o">&gt;</span> <span class="s1">&#39;AddOn #1&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-get-current-addon">
+<h3>gom.api.addons.get_current_addon<a class="headerlink" href="#gom-api-addons-get-current-addon" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_current_addon():</span> <span class="pre">gom.api.addons.AddOn</span></span></dt>
+<dd><p>Return the current add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add-on the caller is a member of or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no such add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gom.api.addons.AddOn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the add-on the caller is a member of</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addon</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_current_addon</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_id</span> <span class="p">())</span>
+<span class="o">&gt;</span> <span class="n">d04a082c</span><span class="o">-</span><span class="mf">093e-4</span><span class="n">bb3</span><span class="o">-</span><span class="mi">8714</span><span class="o">-</span><span class="mi">8</span><span class="n">c36c7252fa0</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-addons-get-installed-addons">
+<h3>gom.api.addons.get_installed_addons<a class="headerlink" href="#gom-api-addons-get-installed-addons" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.get_installed_addons():</span> <span class="pre">list[gom.api.addons.AddOn]</span></span></dt>
+<dd><p>Return a list of the installed add-ons</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of ‘AddOn’ objects. Each ‘AddOn’ object represents an add-on and can be used to query information about that specific add-on.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[gom.api.addons.AddOn]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function can be used to query information of the add-ons which are currently
+installed in the running instance.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span> <span class="p">():</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_id</span> <span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gom-api-imaging">
+<h2>gom.api.imaging<a class="headerlink" href="#gom-api-imaging" title="Link to this heading"></a></h2>
+<p>Image point/pixel related functions</p>
+<p>Image related functions can be used to query images from the measurements of a project. This is not done directly,
+but via an ‘image acquisition’ object which acts as a proxy between the image storing data structure and the
+functions which can be used to process the image data.</p>
+<p>Terminology:</p>
+<ul class="simple">
+<li><p>‘point’: 3D coordinate in the project.</p></li>
+<li><p>‘pixel’: 2D coordinate in an image.</p></li>
+</ul>
+<section id="gom-api-imaging-acquisition">
+<h3>gom.api.imaging.Acquisition<a class="headerlink" href="#gom-api-imaging-acquisition" title="Link to this heading"></a></h3>
+<p>Class representing a single acquisition</p>
+<p>An acquisition describes a camera position and viewing direction of a measurement.</p>
+<section id="gom-api-imaging-acquisition-get-angle">
+<h4>gom.api.imaging.Acquisition.get_angle<a class="headerlink" href="#gom-api-imaging-acquisition-get-angle" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.Acquisition.get_angle():</span> <span class="pre">gom.Vec3d</span></span></dt>
+<dd><p>Return viewing angles of the camera during the measurement</p>
+</dd></dl>
+
+</section>
+<section id="gom-api-imaging-acquisition-get-coordinate">
+<h4>gom.api.imaging.Acquisition.get_coordinate<a class="headerlink" href="#gom-api-imaging-acquisition-get-coordinate" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.Acquisition.get_coordinate():</span> <span class="pre">gom.Vec3d</span></span></dt>
+<dd><p>Return 3d coordinate of the camera during the measurement</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-imaging-compute-epipolar-line">
+<h3>gom.api.imaging.compute_epipolar_line<a class="headerlink" href="#gom-api-imaging-compute-epipolar-line" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_epipolar_line(source:</span> <span class="pre">gom.api.imaging.Acquisition,</span> <span class="pre">traces:</span> <span class="pre">list[tuple[gom.Vec2d,</span> <span class="pre">gom.Object]],</span> <span class="pre">max_distance:</span> <span class="pre">float):</span> <span class="pre">list[list[gom.Vec2d]]</span></span></dt>
+<dd><p>Compute epipolar line coordinates</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>source</strong> (<em>gom.api.imaging.Acquisition</em>) – Handle of the image acquisition the epipolar line should be found in.</p></li>
+<li><p><strong>traces</strong> (<em>list</em><em>[</em><em>tuple</em><em>[</em><em>gom.Vec2d</em><em>, </em><em>gom.Object</em><em>]</em><em>]</em>) – List of pairs where each entry describes a pixel image coordinate plus the image acquisition object which should be used to compute the matching point. The image acquisition object here is the “other” acquisition providing the pixels used to find the matching epipolar lines in the <code class="docutils literal notranslate"><span class="pre">sources</span></code> object.</p></li>
+<li><p><strong>max_distance</strong> (<em>float</em>) – Maximum search distance in mm.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of matching points</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[list[gom.Vec2d]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function computes the parametrics of an epipolar line from pixels projected into images.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_epipolar_line</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mi">1617</span><span class="p">,</span> <span class="mi">819</span><span class="p">),</span> <span class="n">right</span><span class="p">)],</span> <span class="mf">10.0</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">4.752311764226988</span><span class="p">,</span> <span class="mf">813.7915394509045</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">10.749371580282741</span><span class="p">,</span> <span class="mf">813.748887458453</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span>
+<span class="p">(</span><span class="mf">16.73347976996274</span><span class="p">,</span> <span class="mf">813.706352662515</span><span class="p">),</span> <span class="o">...</span><span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-imaging-compute-pixels-from-point">
+<h3>gom.api.imaging.compute_pixels_from_point<a class="headerlink" href="#gom-api-imaging-compute-pixels-from-point" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_pixels_from_point(point_and_image_acquisitions:</span> <span class="pre">list[tuple[gom.Vec3d,</span> <span class="pre">gom.Object]]):</span> <span class="pre">list[gom.Vec2d]</span></span></dt>
+<dd><p>Compute pixel coordinates from point coordinates</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>point_and_image_acquisitions</strong> (<em>list</em><em>[</em><em>tuple</em><em>[</em><em>gom.Vec3d</em><em>, </em><em>gom.Object</em><em>]</em><em>]</em>) – List of (point, acquisition) tuples</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of matching points</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[gom.Vec2d]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function is used to compute the location of a 3d point in a 2d image. This is a photogrammetric
+operation which will return a precise result. The input parameter is a list of tupels where each tuple consists
+of a 3d point and and acquisition object. The acquisition object is then used to compute the location of the
+3d point in the referenced image. This might lead to multiple pixels as a result, so the return value is again
+a list containing 0 to n entries of pixel matches.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_pixels_from_point</span> <span class="p">([(</span><span class="n">point</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">right</span><span class="p">)])</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1031.582008690226</span><span class="p">,</span> <span class="mf">1232.4155555222544</span><span class="p">),</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span> <span class="p">(</span><span class="mf">1139.886626169376</span><span class="p">,</span> <span class="mf">1217.975608783256</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-imaging-compute-point-from-pixels">
+<h3>gom.api.imaging.compute_point_from_pixels<a class="headerlink" href="#gom-api-imaging-compute-point-from-pixels" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.imaging.compute_point_from_pixels(pixel_and_image_acquisitions:</span> <span class="pre">[list],</span> <span class="pre">use_calibration:</span> <span class="pre">bool):</span> <span class="pre">[list]</span></span></dt>
+<dd><p>Compute 3d point coordinates from pixels in images</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pixel_and_image_acquisitions</strong> (<em>[</em><em>list</em><em>]</em>) – List of (pixel, acquisition) tuples</p></li>
+<li><p><strong>use_calibration</strong> (<em>bool</em>) – If set, the information from the calibration is used to compute the point. Project must provide a calibration for that case.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of matching pixels and residuums</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>[list]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function is used to compute 3d points matching to 2d points in a set of images. The input parameter is a list
+containing a list of tuples where each tuple consists of a 2d pixel and the matching acquisition object. The
+acquisition object is then used to compute the location of the 3d point from the pixels in the referenced images.
+Usually at least two tuples with matching pixels from different images are needed to compute a 3d point. An exception
+are projects with 2d deformation measurement series. Only there it is sufficient to pass one tuple per point to the
+function.</p>
+<p>The user has to make sure that the pixels from different tuples are matching, which means they correspond to the same
+location on the specimen. You can use the function gom.api.imaging.compute_epipolar_line() as a helper.</p>
+<p>The returned value is a list of (point, residuum) where each entry is the result of intersecting rays cast from the
+camera positions through the given pixels. The pixel coordinate system center is located in the upper left corner.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">img_left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img_right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">pixel_pair_0</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">1587.74</span><span class="p">,</span> <span class="mf">793.76</span><span class="p">),</span> <span class="n">img_left</span><span class="p">),</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">2040.22</span><span class="p">,</span> <span class="mf">789.53</span><span class="p">),</span> <span class="n">img_right</span><span class="p">)]</span>
+<span class="n">pixel_pair_1</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">1617.47</span><span class="p">,</span> <span class="mf">819.67</span><span class="p">),</span> <span class="n">img_left</span><span class="p">),</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec2d</span><span class="p">(</span><span class="mf">2069.42</span><span class="p">,</span> <span class="mf">804.69</span><span class="p">),</span> <span class="n">img_right</span><span class="p">)]</span>
+
+<span class="n">tuples</span> <span class="o">=</span> <span class="p">[</span><span class="n">pixel_pair_0</span><span class="p">,</span> <span class="n">pixel_pair_1</span><span class="p">]</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">imaging</span><span class="o">.</span><span class="n">compute_point_from_pixels</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">702.53</span><span class="p">,</span> <span class="mf">1690.84</span><span class="p">,</span> <span class="o">-</span><span class="mf">22.37</span><span class="p">),</span> <span class="mf">0.121</span><span class="p">],</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">(</span><span class="o">-</span><span class="mf">638.25</span><span class="p">,</span> <span class="mf">1627.62</span><span class="p">,</span> <span class="o">-</span><span class="mf">27.13</span><span class="p">),</span> <span class="mf">0.137</span><span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-interpreter-get-pid">
+<h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.interpreter.get_pid():</span> <span class="pre">int</span></span></dt>
+<dd><p>Return the process id (PID) of the API handling application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Application process id</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the process id of the application the script is connected with.</p>
+</section>
+</section>
+<section id="gom-api-introspection">
+<h2>gom.api.introspection<a class="headerlink" href="#gom-api-introspection" title="Link to this heading"></a></h2>
+<p>Introspection API for accessing the available API modules, functions and classes</p>
+<p>This API enables access to the API structure in general. It is meant to be mainly for debugging and
+testing purposes.</p>
+<section id="gom-api-introspection-class">
+<h3>gom.api.introspection.Class<a class="headerlink" href="#gom-api-introspection-class" title="Link to this heading"></a></h3>
+<p>Introspection interface for a class</p>
+<p>This interface can be used to query various information about a class definition</p>
+<section id="gom-api-introspection-class-description">
+<h4>gom.api.introspection.Class.description<a class="headerlink" href="#gom-api-introspection-class-description" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Class.description():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns and optional class description</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Class description</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-class-methods">
+<h4>gom.api.introspection.Class.methods<a class="headerlink" href="#gom-api-introspection-class-methods" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Class.methods():</span> <span class="pre">list[gom.api.introspection.Method]</span></span></dt>
+<dd><p>Returns all class methods</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of class methods</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[gom.api.introspection.Method]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-class-name">
+<h4>gom.api.introspection.Class.name<a class="headerlink" href="#gom-api-introspection-class-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Class.name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the name of the class</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Class name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-class-type">
+<h4>gom.api.introspection.Class.type<a class="headerlink" href="#gom-api-introspection-class-type" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Class.type():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the unique internal type name of the class</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-introspection-function">
+<h3>gom.api.introspection.Function<a class="headerlink" href="#gom-api-introspection-function" title="Link to this heading"></a></h3>
+<p>Introspection interface for a function</p>
+<p>This interface can be used to query various information about a function</p>
+<section id="gom-api-introspection-function-arguments">
+<h4>gom.api.introspection.Function.arguments<a class="headerlink" href="#gom-api-introspection-function-arguments" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Function.arguments():</span> <span class="pre">list[[str,</span> <span class="pre">str,</span> <span class="pre">str]]</span></span></dt>
+<dd><p>Returns detailed information about the function arguments</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Function arguments information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[[str, str, str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-function-descripion">
+<h4>gom.api.introspection.Function.descripion<a class="headerlink" href="#gom-api-introspection-function-descripion" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Function.descripion():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the optional function description</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Function description</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-function-name">
+<h4>gom.api.introspection.Function.name<a class="headerlink" href="#gom-api-introspection-function-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Function.name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the name of the function</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Function name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-function-returns">
+<h4>gom.api.introspection.Function.returns<a class="headerlink" href="#gom-api-introspection-function-returns" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Function.returns():</span> <span class="pre">[str,</span> <span class="pre">str]</span></span></dt>
+<dd><p>Returns detailed information about the function returned value</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Function returned value information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-function-signature">
+<h4>gom.api.introspection.Function.signature<a class="headerlink" href="#gom-api-introspection-function-signature" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Function.signature():</span> <span class="pre">list[str]</span></span></dt>
+<dd><p>Returns the function signature</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Function signature</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The first type in the returned list is the function return value.</p>
+</section>
+</section>
+<section id="gom-api-introspection-method">
+<h3>gom.api.introspection.Method<a class="headerlink" href="#gom-api-introspection-method" title="Link to this heading"></a></h3>
+<p>Introspection interface for a method</p>
+<p>This interface can be used to query various information about a method</p>
+<section id="gom-api-introspection-method-arguments">
+<h4>gom.api.introspection.Method.arguments<a class="headerlink" href="#gom-api-introspection-method-arguments" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Method.arguments():</span> <span class="pre">list[[str,</span> <span class="pre">str,</span> <span class="pre">str]]</span></span></dt>
+<dd><p>Returns detailed information about the method arguments</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Method argument information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[[str, str, str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-method-description">
+<h4>gom.api.introspection.Method.description<a class="headerlink" href="#gom-api-introspection-method-description" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Method.description():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the optional method description</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Method description</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-method-name">
+<h4>gom.api.introspection.Method.name<a class="headerlink" href="#gom-api-introspection-method-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Method.name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the name of the method</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Method name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-method-returns">
+<h4>gom.api.introspection.Method.returns<a class="headerlink" href="#gom-api-introspection-method-returns" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Method.returns():</span> <span class="pre">[str,</span> <span class="pre">str]</span></span></dt>
+<dd><p>Returns detailed information about the return value</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Return value information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-method-signature">
+<h4>gom.api.introspection.Method.signature<a class="headerlink" href="#gom-api-introspection-method-signature" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Method.signature():</span> <span class="pre">list[str]</span></span></dt>
+<dd><p>Returns the method signature</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Method signature in form of list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the signature. The first type in the list is the expected return value</p>
+</section>
+</section>
+<section id="gom-api-introspection-module">
+<h3>gom.api.introspection.Module<a class="headerlink" href="#gom-api-introspection-module" title="Link to this heading"></a></h3>
+<p>Introspection interface for a module</p>
+<p>This interface can be used to query various information about a module</p>
+<section id="gom-api-introspection-module-description">
+<h4>gom.api.introspection.Module.description<a class="headerlink" href="#gom-api-introspection-module-description" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Module.description():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the optional module description</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Module description</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-module-functions">
+<h4>gom.api.introspection.Module.functions<a class="headerlink" href="#gom-api-introspection-module-functions" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Module.functions():</span> <span class="pre">list[gom.api.introspection.Function]</span></span></dt>
+<dd><p>Returns all available function of the module</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Module functions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[gom.api.introspection.Function]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-module-name">
+<h4>gom.api.introspection.Module.name<a class="headerlink" href="#gom-api-introspection-module-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Module.name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the name of the module</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Module name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-module-tags">
+<h4>gom.api.introspection.Module.tags<a class="headerlink" href="#gom-api-introspection-module-tags" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Module.tags():</span> <span class="pre">list[str]</span></span></dt>
+<dd><p>Returns the tags of the module</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Module tags</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Each module can have a set of tags classifying it or its properties.</p>
+</section>
+<section id="gom-api-introspection-module-version">
+<h4>gom.api.introspection.Module.version<a class="headerlink" href="#gom-api-introspection-module-version" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.Module.version():</span> <span class="pre">int</span></span></dt>
+<dd><p>Returns the version of the module</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Module version</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-introspection-classes">
+<h3>gom.api.introspection.classes<a class="headerlink" href="#gom-api-introspection-classes" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.classes():</span> <span class="pre">gom.api.introspection.Class</span></span></dt>
+<dd><p>Return introspection interface for a class instance</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>instance</strong> – ‘Class’ instance to inspect</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Introspection object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>gom.api.introspection.Class</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-introspection-modules">
+<h3>gom.api.introspection.modules<a class="headerlink" href="#gom-api-introspection-modules" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.introspection.modules():</span> <span class="pre">list[gom.api.introspection.Module]</span></span></dt>
+<dd><p>Return a list of available modules</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of ‘Module’ objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[gom.api.introspection.Module]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function can be used to query the modules of the API</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">introspection</span><span class="o">.</span><span class="n">modules</span> <span class="p">():</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar">
+<h3>gom.api.progress.ProgressBar<a class="headerlink" href="#gom-api-progress-progressbar" title="Link to this heading"></a></h3>
+<p>Class representing the ProgressBar</p>
+<p>This class is meant to be used with the Python ‘with’ statement</p>
+<section id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
+
+<span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
+            <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="c1"># Do some calculations</span>
+        <span class="n">foo</span><span class="p">()</span>
+        <span class="c1"># Increase the progress</span>
+                    <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+
+<span class="c1"># Progress bar entry gets removed automatically after leaving the &#39;with&#39; statement</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar-finish-progress">
+<h4>gom.api.progress.ProgressBar.finish_progress<a class="headerlink" href="#gom-api-progress-progressbar-finish-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.finish_progress(self:</span> <span class="pre">any):</span> <span class="pre">None</span></span></dt>
+<dd><p>Finishes the progress and removes this from the progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This object CANNOT be used for further progress reporting after calling this method</p>
+<p>Can be used if the progress bar should disappear but the with statement cannot be left yet</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#### gom.api.progress.ProgressBar.set_message
+
+```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
+
+Sets a message in the main window progress bar
+:API version: 1
+:param message: the message to display
+:type message: str
+:return: nothing
+:rtype: None
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar-set-progress">
+<h4>gom.api.progress.ProgressBar.set_progress<a class="headerlink" href="#gom-api-progress-progressbar-set-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.set_progress(self:</span> <span class="pre">any,</span> <span class="pre">progress:</span> <span class="pre">int):</span> <span class="pre">None</span></span></dt>
+<dd><p>Sets the progress in the main window progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>progress</strong> (<em>int</em>) – in percent, given as an integer from 0 to 100</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nothing</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+<section id="gom-api-project">
+<h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Link to this heading"></a></h2>
+<p>Access to project relevant structures</p>
+<p>This module contains functions for accessing project relevant data</p>
+<section id="gom-api-project-progressinformation">
+<h3>gom.api.project.ProgressInformation<a class="headerlink" href="#gom-api-project-progressinformation" title="Link to this heading"></a></h3>
+<p>Auxillary class allowing to set progress information</p>
+<p>This class is used to access the progress bar and progress message widgets of the application.</p>
+<section id="gom-api-project-progressinformation-set-message">
+<h4>gom.api.project.ProgressInformation.set_message<a class="headerlink" href="#gom-api-project-progressinformation-set-message" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_message(text:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
+<dd><p>Set progress message</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>text</strong> (<em>str</em>) – Message to be displayed in the progress displaying widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-project-progressinformation-set-percent">
+<h4>gom.api.project.ProgressInformation.set_percent<a class="headerlink" href="#gom-api-project-progressinformation-set-percent" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_percent(percent:</span> <span class="pre">float):</span> <span class="pre">None</span></span></dt>
+<dd><p>Set progress value from 0 to 100 percent</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>percent</strong> (<em>float</em>) – Progress bar value in percent (0…100)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-project-create-progress-information">
+<h3>gom.api.project.create_progress_information<a class="headerlink" href="#gom-api-project-create-progress-information" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information():</span> <span class="pre">gom.api.project.ProgressInformation</span></span></dt>
+<dd><p>Retrieve a progress information object which can be used to query/control progress status information</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Progress information object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gom.api.project.ProgressInformation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns an internal object which can be used to query/control the progress status widget of the
+main application window. It can be used to display progress information of long running processes.</p>
+</section>
+<section id="gom-api-project-get-image-acquisition">
+<h3>gom.api.project.get_image_acquisition<a class="headerlink" href="#gom-api-project-get-image-acquisition" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisition(measurement:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
+<dd><p>Generate an of image acquisition object which can be used to query images from the application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>measurement</strong> (<em>object</em>) – Measurement the image is to be queried from.</p></li>
+<li><p><strong>camera</strong> (<em>str</em>) – Identifier for the camera which contributed to the measurement. See above for valid values.</p></li>
+<li><p><strong>stage</strong> (<em>int</em>) – Id of the stage for which the image acquisition object will access.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Image acquisition object which can be used to fetch the images.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns an image acquisition object, which in turn can then be used to query the application for
+various image variants.</p>
+<p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system or the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurement</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisition</span> <span class="p">(</span><span class="n">measurement</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-project-get-image-acquisitions">
+<h3>gom.api.project.get_image_acquisitions<a class="headerlink" href="#gom-api-project-get-image-acquisitions" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.project.get_image_acquisitions(measurement_list:</span> <span class="pre">object,</span> <span class="pre">camera:</span> <span class="pre">str,</span> <span class="pre">stage:</span> <span class="pre">int):</span> <span class="pre">object</span></span></dt>
+<dd><p>Generate a list of image acquisition objects which can be used to query images from the application</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>measurement</strong> – Measurement the image is to be queried from.</p></li>
+<li><p><strong>camera</strong> (<em>str</em>) – Identifier for the camera which contributed to the measurement. See above for valid values.</p></li>
+<li><p><strong>stage</strong> (<em>int</em>) – Id of the stage for which the image acquisition object will access.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Image acquisition object which can be used to fetch the images.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns a list of  image acquisition objects, which in turn can then be used to query the application
+for various image variants.</p>
+<p>Valid valid for the <code class="docutils literal notranslate"><span class="pre">camera</span></code> parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">camera</span></code>: Left camera in a two camera system or the only existing camera in a single camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">camera</span></code>: Right camera in a two camera system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">photogrammetry</span></code>: Photogrammetry (TRITOP) camera</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Deformation series&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">)</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">stages</span><span class="p">[</span><span class="s1">&#39;Stage 1&#39;</span><span class="p">]</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coordinate</span>
+
+<span class="n">all_left_images</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisitions</span> <span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="s1">&#39;left camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">all_right_images</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get_image_acquisitions</span> <span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="s1">&#39;right camera&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stage</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-script-resources-create">
+<h3>gom.api.script_resources.create<a class="headerlink" href="#gom-api-script-resources-create" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.create(path:</span> <span class="pre">str):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Create a new resource under the root folder of a given script, if not already present.</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Resource path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if a valid resource was found or created.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-exists">
+<h3>gom.api.script_resources.exists<a class="headerlink" href="#gom-api-script-resources-exists" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.exists(path:</span> <span class="pre">str):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Check if the resource with the given path exists</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Resource path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘True’ if a resource with that path exists</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-list">
+<h3>gom.api.script_resources.list<a class="headerlink" href="#gom-api-script-resources-list" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.list():</span> <span class="pre">list[str]</span></span></dt>
+<dd><p>Return the list of existing resources</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of existing resources</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-load">
+<h3>gom.api.script_resources.load<a class="headerlink" href="#gom-api-script-resources-load" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.load(path:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int):</span> <span class="pre">str</span></span></dt>
+<dd><p>Load resource into shared memory</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Resource path</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Buffer size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shared memory key of the loaded resource</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-mem-size">
+<h3>gom.api.script_resources.mem_size<a class="headerlink" href="#gom-api-script-resources-mem-size" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.mem_size(path:</span> <span class="pre">str):</span> <span class="pre">int</span></span></dt>
+<dd><p>Return size of the resource shared memory segment</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Resource path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shared memory segment size</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-save">
+<h3>gom.api.script_resources.save<a class="headerlink" href="#gom-api-script-resources-save" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.save(path:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Save resource changes from shared memory</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Resource path</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Buffer size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘True’ if the data could be written</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-save-as">
+<h3>gom.api.script_resources.save_as<a class="headerlink" href="#gom-api-script-resources-save-as" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.save_as(old_path:</span> <span class="pre">str,</span> <span class="pre">new_path:</span> <span class="pre">str,</span> <span class="pre">overwrite:</span> <span class="pre">bool):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Save resource changes from shared memory at new path</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_path</strong> (<em>str</em>) – Old resource path</p></li>
+<li><p><strong>new_path</strong> (<em>str</em>) – New resource path</p></li>
+<li><p><strong>size</strong> – Buffer size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘True’ if the data could be written</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-script-resources-unload">
+<h3>gom.api.script_resources.unload<a class="headerlink" href="#gom-api-script-resources-unload" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.script_resources.unload(path:</span> <span class="pre">str):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Unload resource from shared memory</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Resource path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘True’ if the unloading succeeded</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-services">
+<h2>gom.api.services<a class="headerlink" href="#gom-api-services" title="Link to this heading"></a></h2>
+<p>API for accessing the script based API extensions (services)</p>
+<p>This API enables access to the script based API endpoint implementations, called ‘services’.
+Each service is a script which is started in a server mode and adds various functions and
+endpoints to the ZEISS Inspect API.</p>
+<section id="gom-api-services-service">
+<h3>gom.api.services.Service<a class="headerlink" href="#gom-api-services-service" title="Link to this heading"></a></h3>
+<p>Class representing a single API service</p>
+<p>This class represents an API service. The properties of that service can be read and
+the service can be administered (started, stopped, …) via that handle.</p>
+<section id="gom-api-services-service-get-autostart">
+<h4>gom.api.services.Service.get_autostart<a class="headerlink" href="#gom-api-services-service-get-autostart" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_autostart():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return autostart status of the service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the service is started automatically at application startup</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.</p>
+</section>
+<section id="gom-api-services-service-get-endpoint">
+<h4>gom.api.services.Service.get_endpoint<a class="headerlink" href="#gom-api-services-service-get-endpoint" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_endpoint():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the API endpoint name of this service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Service endpoint if the service is initialized</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the endpoint identifier this service is covering, like ‘gom.api.services’.</p>
+</section>
+<section id="gom-api-services-service-get-id">
+<h4>gom.api.services.Service.get_id<a class="headerlink" href="#gom-api-services-service-get-id" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_id():</span> <span class="pre">UUID</span></span></dt>
+<dd><p>Return the unique id (uuid) of this service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Service uuid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>UUID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the uuid associated with service. The id can be used to
+uniquely address the service and is the same UUID as the app the service originates from.</p>
+</section>
+<section id="gom-api-services-service-get-name">
+<h4>gom.api.services.Service.get_name<a class="headerlink" href="#gom-api-services-service-get-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the human readable name of this service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Service name if the service is initialized</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-services-service-get-status">
+<h4>gom.api.services.Service.get_status<a class="headerlink" href="#gom-api-services-service-get-status" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_status():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the current service status</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Service status</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the status the service is currently in. The status can be</p>
+<ul class="simple">
+<li><p>1: Service is running and API endpoint is available</p></li>
+<li><p>0: Service is not running, endpoint is not available</p></li>
+</ul>
+</section>
+<section id="gom-api-services-service-start">
+<h4>gom.api.services.Service.start<a class="headerlink" href="#gom-api-services-service-start" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.start():</span> <span class="pre">None</span></span></dt>
+<dd><p>Start service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function will start a script interpreter in service mode. The running script will
+implement the API endpoint.</p>
+</section>
+<section id="gom-api-services-service-stop">
+<h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.stop():</span> <span class="pre">None</span></span></dt>
+<dd><p>Stop service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
+if needed.</p>
+</section>
+</section>
+<section id="gom-api-services-get-services">
+<h3>gom.api.services.get_services<a class="headerlink" href="#gom-api-services-get-services" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.get_services():</span> <span class="pre">[gom.api.services.Service]</span></span></dt>
+<dd><p>Return the list of all running and not running services</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of all registered services</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[gom.api.services.Service]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the list of registered services</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">get_services</span> <span class="p">():</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
+<span class="o">&gt;</span> <span class="s1">&#39;Advanced fitting algorithms&#39;</span>
+<span class="o">&gt;</span> <span class="s1">&#39;Tube inspection diagrams&#39;</span>
+<span class="o">&gt;</span> <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gom-api-settings">
+<h2>gom.api.settings<a class="headerlink" href="#gom-api-settings" title="Link to this heading"></a></h2>
+<p>API for storing add-on related settings persistently</p>
+<p>This API allows reading/writing values into the application configuration permantly. The
+configuration is persistant and will survive application restarts. Also, it can be accessed
+via the applications preferences dialog.</p>
+<p>The configuration entries must be defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file. This configuration
+defined the available keys, the entry types and the entry properties. If the entry type can be
+represented by some widget, the setting entry will also be present in the applications ‘preferences’
+dialog and can be adapted interactively there.</p>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Settings API example&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example add-on demonstrating usage of the settings API&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;3b515488-aa7b-4035-85e1-b9509db8af4f&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog configuration&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Size of the dialog&quot;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size.width&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog width&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span>
+     <span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.size.height&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dialog height&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">480</span><span class="p">,</span>
+     <span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.threshold&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Threshold&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+     <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+     <span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+     <span class="s2">&quot;digits&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+     <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.magic&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Magic Key&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Default text&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">false</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;enable&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Enable size storage&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+     <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog.file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Selected file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;visible&quot;</span><span class="p">:</span> <span class="n">true</span>
+   <span class="p">}</span>
+  <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>This will lead to configuration entries in the applications preferences. Given that the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> is
+part of an add-on called ‘Settings API Example’, the application preferences will contain the following items
+(visible setting entries only):</p>
+<p><img alt="Settings level 1" src="../_images/settings_api_preferences_1.png" /></p>
+<p><img alt="Settings level 2" src="../_images/settings_api_preferences_2.png" /></p>
+</section>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h3>
+<p>See the examples above for how to configure the different settings type. Usually, the <code class="docutils literal notranslate"><span class="pre">value</span></code> field determines the
+type of the setting. For example, a <code class="docutils literal notranslate"><span class="pre">23</span></code> indicates that an integer is requested. A <code class="docutils literal notranslate"><span class="pre">23.0</span></code> with <code class="docutils literal notranslate"><span class="pre">digits</span></code> greater than
+0 will lead to a float settings type.</p>
+<p>Special non basic types are specified via the <code class="docutils literal notranslate"><span class="pre">type</span></code> field explicitly. For example, the file selector is configured
+if the <code class="docutils literal notranslate"><span class="pre">type</span></code> field has been set to <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
+<section id="file-selector">
+<h4>File selector<a class="headerlink" href="#file-selector" title="Link to this heading"></a></h4>
+<p>The file selector provides a <code class="docutils literal notranslate"><span class="pre">mode</span></code> attribute in addition to the standard settings entry attributes. The <code class="docutils literal notranslate"><span class="pre">mode</span></code>
+attribute determines what kind of files or directories can be selected.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">any</span></code>: Any file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new</span></code>: Any file not yet existing in a writable directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_file</span></code>: Existing file with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_files</span></code>: Multi existing files with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_file</span></code>: Existing or new file with writing permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_dir</span></code>: Existing directory with reading permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_dir</span></code>: Existing directory with writing permissions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec</span></code>: Existing executable file</p></li>
+</ul>
+</section>
+</section>
+<section id="gom-api-settings-get">
+<h3>gom.api.settings.get<a class="headerlink" href="#gom-api-settings-get" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.get(key:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Read value from application settings</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration value for that key</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function reads a value from the application settings. The value is referenced by a key. Supported value types
+are integer, double, string and bool.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-settings-list">
+<h3>gom.api.settings.list<a class="headerlink" href="#gom-api-settings-list" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.list():</span> <span class="pre">list[str]</span></span></dt>
+<dd><p>List all available keys for the current add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of all the keys in the settings which belong to the current add-on</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns a list of all available keys in the settings for the current add-on.
+These keys are the same configuration keys are used in the <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file of that add-on.</p>
+</section>
+<section id="gom-api-settings-set">
+<h3>gom.api.settings.set<a class="headerlink" href="#gom-api-settings-set" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.settings.set(key:</span> <span class="pre">str,</span> <span class="pre">value:</span> <span class="pre">Any):</span> <span class="pre">None</span></span></dt>
+<dd><p>Write value into application settings</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Configuration key. Must be a key as defined in the add-ons <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – Value to be written</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function writes a value into the application settings. The value is referenced by a key. Supported value types
+are integer, double, string and bool.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.width&#39;</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set</span> <span class="p">(</span><span class="s1">&#39;dialog.height&#39;</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gom-api-testing">
+<h2>gom.api.testing<a class="headerlink" href="#gom-api-testing" title="Link to this heading"></a></h2>
+<p>API with testing and verification functions</p>
+<p>This API provides various functions which can be of use when testing and developing
+API features.</p>
+<section id="gom-api-testing-testobject">
+<h3>gom.api.testing.TestObject<a class="headerlink" href="#gom-api-testing-testobject" title="Link to this heading"></a></h3>
+<p>Simple object which can be passed around the API for testing purpose</p>
+<p>This object is used by various test setups to test object handling in the API</p>
+<section id="gom-api-testing-testobject-get-id">
+<h4>gom.api.testing.TestObject.get_id<a class="headerlink" href="#gom-api-testing-testobject-get-id" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.testing.TestObject.get_id():</span> <span class="pre">UUID</span></span></dt>
+<dd><p>Return the unique id (uuid) of this object</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Object uuid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>UUID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the uuid associated with this object. The id is generated
+randomly when the object is generated.</p>
+</section>
+<section id="gom-api-testing-testobject-get-name">
+<h4>gom.api.testing.TestObject.get_name<a class="headerlink" href="#gom-api-testing-testobject-get-name" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.testing.TestObject.get_name():</span> <span class="pre">str</span></span></dt>
+<dd><p>Return the name of this object</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Object name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the name of this object.</p>
+</section>
+</section>
+<section id="gom-api-testing-generate-test-object">
+<h3>gom.api.testing.generate_test_object<a class="headerlink" href="#gom-api-testing-generate-test-object" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.testing.generate_test_object(content:</span> <span class="pre">str):</span> <span class="pre">gom.api.testing.TestObject</span></span></dt>
+<dd><p>Generate test object</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>name</strong> – Name of the test object</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Test object instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>gom.api.testing.TestObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function is used for API testing. It generates a simple test object which can then
+be passed around the API.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">generate_test_object</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-testing-reflect">
+<h3>gom.api.testing.reflect<a class="headerlink" href="#gom-api-testing-reflect" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.testing.reflect(content:</span> <span class="pre">Any):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Send value to the API and return an echo</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>content</strong> (<em>Any</em>) – The value to be reflected</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reflected value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function is used for API testing. It just reflects the given value, so some conversions
+back and forth will be performed.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">reflect</span> <span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">)})</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../python_examples/scripted_checks/scripted_surface_check.html" class="btn btn-neutral float-left" title="scripted_surface_check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripted_elements_api.html" class="btn btn-neutral float-right" title="Scripted elements API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fc37f93e770>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
