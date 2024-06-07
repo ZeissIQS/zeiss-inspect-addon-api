@@ -1,6 +1,6 @@
-# ex05_cone
+# scripted_actual_cone
 
-![Scripted cone element example](ex06_cone.png)
+![Scripted cone element example](scripted_actual_cone.png)
 
 This is an example for a scripted 'cone' element. 
 

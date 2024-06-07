@@ -1,6 +1,6 @@
-# ex03_curve
+# scripted_actual_curve
 
-![Scripted curve element example](ex03_curve.png)
+![Scripted curve element example](scripted_actual_curve.png)
 
 This is an example for a scripted 'curve' element. A parametric function is used to create a 3-dimensional curve - a helix - with a fixed number of points. `np.arange()` is used to iterate from `t_min` to `t_max` with a non-integer step size.
 

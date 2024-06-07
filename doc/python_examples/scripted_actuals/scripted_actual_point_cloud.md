@@ -1,6 +1,6 @@
-# ex09_point_cloud
+# scripted_actual_point_cloud
 
-![Scripted point cloud element example](ex09_point_cloud.png)
+![Scripted point cloud element example](scripted_actual_point_cloud.png)
 
 This is an example for a scripted 'point cloud' element. A parametric function is used to define the points, in this case the surface points of a torus. `np.arange()` is used to iterate from `u_min` to `u_max` and from `v_min` to `v_max` with non-integer step sizes. The step sizes `u_steps` and `v_steps` define the point density.
 

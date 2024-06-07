@@ -1,6 +1,6 @@
-# ex08_surface
+# scripted_actual_surface
 
-![Scripted surface element example](ex08_surface.png)
+![Scripted surface element example](scripted_actual_surface.png)
 
 This is an example for a scripted 'surface' element. The dialog allows to specify the coordinates of eight vertices defining a mesh. The triangles for defining the mesh are hard-coded in this example. The resulting body is a cuboid.
 

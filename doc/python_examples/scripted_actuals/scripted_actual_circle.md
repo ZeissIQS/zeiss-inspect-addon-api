@@ -1,6 +1,6 @@
-# ex02_circle
+# scripted_actual_circle
 
-![Scripted circle element example](ex02_circle.png)
+![Scripted circle element example](scripted_actual_circle.png)
 
 This is an example for a scripted 'circle' element.
 
