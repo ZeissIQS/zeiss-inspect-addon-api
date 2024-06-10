@@ -761,6 +761,12 @@ for m in gom.api.introspection.modules ():
   print (m.name ())
 ```
 
+## gom.api.progress
+
+API for accessing the progress bar in the main window
+
+This API provides basic access to the progress bar in the main window
+
 ### gom.api.progress.ProgressBar
 
 Class representing the ProgressBar
@@ -796,8 +802,6 @@ Finishes the progress and removes this from the progress bar
 This object CANNOT be used for further progress reporting after calling this method
 
 Can be used if the progress bar should disappear but the with statement cannot be left yet
-
-```
 
 #### gom.api.progress.ProgressBar.set_message
 
