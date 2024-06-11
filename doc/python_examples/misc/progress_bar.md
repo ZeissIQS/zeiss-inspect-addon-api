@@ -8,7 +8,7 @@
 This example shows how to display a progress bar at the bottom of the ZEISS INSPECT main window.
 
 There are two other variants of a progress bar:
-* A specific API is available for showing [Scripted elements progress](../scripted_actuals/scripted_element_progress.html) in the ZEISS INSPECT main window
+* A specific API is available for showing <a href="../scripted_actuals/scripted_element_progress.html">Scripted elements progress</a> in the ZEISS INSPECT main window
 * The <a href="../../howtos/python_api_introduction/user_defined_dialogs.html#progress-bar-widget">Progress bar widget</a> is used to show progress in a user-defined dialog.
 
 ## Highlights
@@ -40,5 +40,5 @@ with gom.api.progress.ProgressBar() as bar:
 ## Related
 
 * <a href="../../python_api/python_api.html#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a>
-* [Scripted elements progress bar](../scripted_actuals/scripted_element_progress.html)
+* <a href="../scripted_actuals/scripted_element_progress.html">Scripted elements progress bar</a>
 * <a href="../../howtos/python_api_introduction/user_defined_dialogs.html#progress-bar-widget">User-defined dialogs - Progress bar widget</a>
