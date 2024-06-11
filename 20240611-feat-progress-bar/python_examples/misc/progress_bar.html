@@ -4,12 +4,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unit_dialog_event_handler &mdash; App Development Documentation</title>
+  <title>progress_bar &mdash; App Development Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/python_examples/dialog_widgets/unit_dialog_event_handler.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/python_examples/misc/progress_bar.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="widget_visibility" href="widget_visibility.html" />
-    <link rel="prev" title="explorer_selected_elements_in_dialog" href="explorer_selected_elements_in_dialog.html" /> 
+    <link rel="next" title="sql_example" href="sql_example.html" />
+    <link rel="prev" title="point_pixel_transformations" href="point_pixel_transformations.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -77,14 +77,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../dialog_widgets.html">dialog_widgets</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dropdown_widget.html">dropdown_widget</a></li>
-<li class="toctree-l2"><a class="reference internal" href="explorer_selected_elements_in_dialog.html">explorer_selected_elements_in_dialog</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">unit_dialog_event_handler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="widget_visibility.html">widget_visibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../misc.html">misc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csv_example.html">CSV import/export example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dialog_reopen_example.html">dialog_reopen_example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="excel_example.html">Excel import/export example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipc_sockets_example.html">ipc_sockets_example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point_pixel_transformations.html">point_pixel_transformations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">progress_bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_example.html">sql_example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../misc.html">misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../script_icons.html">script_icons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../script_resources.html">script_resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_actuals.html">scripted_actuals</a></li>
@@ -111,8 +114,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../dialog_widgets.html">dialog_widgets</a></li>
-      <li class="breadcrumb-item active">unit_dialog_event_handler</li>
+          <li class="breadcrumb-item"><a href="../misc.html">misc</a></li>
+      <li class="breadcrumb-item active">progress_bar</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -121,39 +124,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="unit-dialog-event-handler">
-<h1>unit_dialog_event_handler<a class="headerlink" href="#unit-dialog-event-handler" title="Link to this heading"></a></h1>
-<p><img alt="" src="../../_images/unit_dialog_event_handler.jpg" /></p>
+  <section id="progress-bar">
+<h1>progress_bar<a class="headerlink" href="#progress-bar" title="Link to this heading"></a></h1>
+<p><img alt="" src="../../_images/progress_bar.png" /></p>
 <section id="short-description">
 <h2>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h2>
-<p>This basic example demonstrates how to use an event handler on a script dialog to set the unit to multiple widgets.</p>
+<p>This example shows how to display a progress bar at the bottom of the ZEISS INSPECT main window.</p>
+<p>There are two other variants of a progress bar:</p>
+<ul class="simple">
+<li><p>A specific API is available for showing <a href="../scripted_actuals/scripted_element_progress.html">Scripted elements progress</a> in the ZEISS INSPECT main window</p></li>
+<li><p>The <a href="../../howtos/python_api_introduction/user_defined_dialogs.html#progress-bar-widget">Progress bar widget</a> is used to show progress in a user-defined dialog.</p></li>
+</ul>
 </section>
 <section id="highlights">
 <h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
-<p>After creating a dialog with <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_user_defined_dialog</span></code>, you can <strong>set an event handler</strong> to this dialog. In this simple case, the <code class="docutils literal notranslate"><span class="pre">unit</span></code> property of a decimal input widget and a tolerance widget are set according to what the user selected in the <code class="docutils literal notranslate"><span class="pre">DIALOG.unit</span></code> widget:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="p">:</span>
-  <span class="n">DIALOG</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">value</span>
-  <span class="n">DIALOG</span><span class="o">.</span><span class="n">tolerances</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">value</span>
-</pre></div>
-</div>
-<p>Another interesting part of this example is the corresponding <strong>test</strong>. In <code class="docutils literal notranslate"><span class="pre">addon_tests/test_dialog_widgets_unit_dialog</span></code> is shown how a very basic testing of the event_handler can be implemented:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG</span><span class="o">=</span><span class="n">example</span><span class="o">.</span><span class="n">setup_dialog</span><span class="p">()</span>
-<span class="c1"># Generating some events to test the event_handler</span>
-<span class="n">unit_widget</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">unit</span>
-<span class="n">unit_widget</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;FORCE&quot;</span>
+<p>The following code example shows a progress bar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="c1"># Test if the event_handler correctly links widget values</span>
-<span class="n">DIALOG</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">unit_widget</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">unit</span> <span class="o">==</span> <span class="s2">&quot;FORCE&quot;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">DIALOG</span><span class="o">.</span><span class="n">tolerances</span><span class="o">.</span><span class="n">unit</span> <span class="o">==</span> <span class="s2">&quot;FORCE&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
+	
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Counting atoms in the universe... &#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+		<span class="c1"># Pretend to be busy...</span>
+		<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+		
+        <span class="c1"># Increase the progress</span>
+		<span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+	<span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s2">&quot;Getting bored - stopping!&quot;</span><span class="p">)</span>
+	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This usage of the <code class="docutils literal notranslate"><span class="pre">DIALOG.handler</span></code> function mimics the user-interaction of changing the value of the <code class="docutils literal notranslate"><span class="pre">unit</span></code> widget manually to <code class="docutils literal notranslate"><span class="pre">&quot;FORCE&quot;</span></code>.</p>
+<ul class="simple">
+<li><p>The progress bar is shown in a <code class="docutils literal notranslate"><span class="pre">with</span></code> context, which means that it will be removed if the <code class="docutils literal notranslate"><span class="pre">with</span></code> block is finished or aborted</p></li>
+<li><p>You define a text for the progress bar with the method <code class="docutils literal notranslate"><span class="pre">set_message()</span></code>. This text can be changed later.</p></li>
+<li><p>You set the stage of completion — which is shown as a number and as a vertical bar graph — with <code class="docutils literal notranslate"><span class="pre">set_progress()</span></code></p></li>
+</ul>
 </section>
 <section id="related">
 <h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>How-to: <a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">User-defined Dialogs</span></a></p></li>
+<li><p><a href="../../python_api/python_api.html#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a></p></li>
+<li><p><a href="../scripted_actuals/scripted_element_progress.html">Scripted elements progress bar</a></p></li>
+<li><p><a href="../../howtos/python_api_introduction/user_defined_dialogs.html#progress-bar-widget">User-defined dialogs - Progress bar widget</a></p></li>
 </ul>
 </section>
 </section>
@@ -162,8 +176,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="explorer_selected_elements_in_dialog.html" class="btn btn-neutral float-left" title="explorer_selected_elements_in_dialog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="widget_visibility.html" class="btn btn-neutral float-right" title="widget_visibility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="point_pixel_transformations.html" class="btn btn-neutral float-left" title="point_pixel_transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sql_example.html" class="btn btn-neutral float-right" title="sql_example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -180,7 +194,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7ff0e801d780>
+  <jinja2.runtime.BlockReference object at 0x7ff0e79c3fa0>
 
 
 </footer>
