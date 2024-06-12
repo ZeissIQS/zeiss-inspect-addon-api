@@ -23,6 +23,11 @@ Basically, if you have obtained an `gom.Reference` element reference, e.g. by se
 
 * gets large datasets of all stages very efficiently
 
+## Links
+
+* <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/add-app-examples/AppExamples/data_interfaces/CheckResultsDataArray" target="_blank">View source code</a>
+* <a href="https://software-store.zeiss.com/products/apps/CheckResultsDataArray" target="_blank">Download App</a>
+
 ## Related
 
 * How-to: [Access element properties and data](../../howtos/python_api_introduction/python_api_introduction.md#access-element-properties)
