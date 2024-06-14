@@ -779,12 +779,12 @@ This class is meant to be used with the Python 'with' statement
 import gom.api.progress
 
 with gom.api.progress.ProgressBar() as bar:
-            bar.set_message('Calculation in progress')
-            for i in range(100):
+    bar.set_message('Calculation in progress')
+    for i in range(100):
         # Do some calculations
         foo()
         # Increase the progress
-                    bar.set_progress(i)    
+        bar.set_progress(i)    
 
 # Progress bar entry gets removed automatically after leaving the 'with' statement
 ```
@@ -837,6 +837,8 @@ This module contains functions for accessing project relevant data
 
 ### gom.api.project.ProgressInformation
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Auxillary class allowing to set progress information
 
 This class is used to access the progress bar and progress message widgets of the application.
@@ -844,6 +846,8 @@ This class is used to access the progress bar and progress message widgets of th
 #### gom.api.project.ProgressInformation.set_message
 
 ```{py:function} gom.api.project.ProgressInformation.set_message(text: str): None
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Set progress message
 :API version: 1
@@ -856,6 +860,8 @@ Set progress message
 
 ```{py:function} gom.api.project.ProgressInformation.set_percent(percent: float): None
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Set progress value from 0 to 100 percent
 :API version: 1
 :param percent: Progress bar value in percent (0...100)
@@ -866,6 +872,8 @@ Set progress value from 0 to 100 percent
 ### gom.api.project.create_progress_information
 
 ```{py:function} gom.api.project.create_progress_information(): gom.api.project.ProgressInformation
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Retrieve a progress information object which can be used to query/control progress status information
 :API version: 1
@@ -943,6 +951,11 @@ point = gom.app.project.actual_elements['Point 1'].coordinate
 all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
 all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
 ```
+
+## gom.api.script_resources
+
+API for the ResourceDataLoader
+
 
 ### gom.api.script_resources.create
 

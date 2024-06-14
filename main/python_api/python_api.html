@@ -180,6 +180,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-create-progress-information">gom.api.project.create_progress_information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisition">gom.api.project.get_image_acquisition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-script-resources">gom.api.script_resources</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-create">gom.api.script_resources.create</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-exists">gom.api.script_resources.exists</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-list">gom.api.script_resources.list</a></li>
@@ -1374,12 +1377,12 @@ testing purposes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
 
 <span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
-            <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
         <span class="c1"># Do some calculations</span>
         <span class="n">foo</span><span class="p">()</span>
         <span class="c1"># Increase the progress</span>
-                    <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+        <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
 
 <span class="c1"># Progress bar entry gets removed automatically after leaving the &#39;with&#39; statement</span>
 </pre></div>
@@ -1461,6 +1464,11 @@ testing purposes.</p>
 <p>This module contains functions for accessing project relevant data</p>
 <section id="gom-api-project-progressinformation">
 <h3>gom.api.project.ProgressInformation<a class="headerlink" href="#gom-api-project-progressinformation" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
 <p>Auxillary class allowing to set progress information</p>
 <p>This class is used to access the progress bar and progress message widgets of the application.</p>
 <section id="gom-api-project-progressinformation-set-message">
@@ -1468,7 +1476,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_message(text:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress message</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress message</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1485,7 +1498,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_percent(percent:</span> <span class="pre">float):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress value from 0 to 100 percent</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress value from 0 to 100 percent</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1503,7 +1521,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information():</span> <span class="pre">gom.api.project.ProgressInformation</span></span></dt>
-<dd><p>Retrieve a progress information object which can be used to query/control progress status information</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Retrieve a progress information object which can be used to query/control progress status information</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1607,6 +1630,10 @@ for various image variants.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-script-resources">
+<h2>gom.api.script_resources<a class="headerlink" href="#gom-api-script-resources" title="Link to this heading"></a></h2>
+<p>API for the ResourceDataLoader</p>
 <section id="gom-api-script-resources-create">
 <h3>gom.api.script_resources.create<a class="headerlink" href="#gom-api-script-resources-create" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -2273,7 +2300,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa694cc15d0>
+  <jinja2.runtime.BlockReference object at 0x7f9d7c5cab90>
 
 
 </footer>
