@@ -159,9 +159,13 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-classes">gom.api.introspection.classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-modules">gom.api.introspection.modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-progress">gom.api.progress</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-finish-progress">gom.api.progress.ProgressBar.finish_progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-message">gom.api.progress.ProgressBar.set_message</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-progress">gom.api.progress.ProgressBar.set_progress</a></li>
 </ul>
 </li>
@@ -176,6 +180,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-create-progress-information">gom.api.project.create_progress_information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisition">gom.api.project.get_image_acquisition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-script-resources">gom.api.script_resources</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-create">gom.api.script_resources.create</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-exists">gom.api.script_resources.exists</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-list">gom.api.script_resources.list</a></li>
@@ -192,6 +199,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-endpoint">gom.api.services.Service.get_endpoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-id">gom.api.services.Service.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-name">gom.api.services.Service.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-number-of-instances">gom.api.services.Service.get_number_of_instances</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-status">gom.api.services.Service.get_status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-start">gom.api.services.Service.start</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-stop">gom.api.services.Service.stop</a></li>
@@ -1356,6 +1364,11 @@ testing purposes.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-progress">
+<h2>gom.api.progress<a class="headerlink" href="#gom-api-progress" title="Link to this heading"></a></h2>
+<p>API for accessing the progress bar in the main window</p>
+<p>This API provides basic access to the progress bar in the main window</p>
 <section id="gom-api-progress-progressbar">
 <h3>gom.api.progress.ProgressBar<a class="headerlink" href="#gom-api-progress-progressbar" title="Link to this heading"></a></h3>
 <p>Class representing the ProgressBar</p>
@@ -1365,12 +1378,12 @@ testing purposes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
 
 <span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
-            <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
         <span class="c1"># Do some calculations</span>
         <span class="n">foo</span><span class="p">()</span>
         <span class="c1"># Increase the progress</span>
-                    <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+        <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
 
 <span class="c1"># Progress bar entry gets removed automatically after leaving the &#39;with&#39; statement</span>
 </pre></div>
@@ -1397,19 +1410,29 @@ testing purposes.</p>
 
 <p>This object CANNOT be used for further progress reporting after calling this method</p>
 <p>Can be used if the progress bar should disappear but the with statement cannot be left yet</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-#### gom.api.progress.ProgressBar.set_message
+</section>
+<section id="gom-api-progress-progressbar-set-message">
+<h4>gom.api.progress.ProgressBar.set_message<a class="headerlink" href="#gom-api-progress-progressbar-set-message" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.set_message(self:</span> <span class="pre">any,</span> <span class="pre">message:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
+<dd><p>Sets a message in the main window progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>message</strong> (<em>str</em>) – the message to display</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nothing</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
 
-```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
-
-Sets a message in the main window progress bar
-:API version: 1
-:param message: the message to display
-:type message: str
-:return: nothing
-:rtype: None
-</pre></div>
-</div>
 </section>
 <section id="gom-api-progress-progressbar-set-progress">
 <h4>gom.api.progress.ProgressBar.set_progress<a class="headerlink" href="#gom-api-progress-progressbar-set-progress" title="Link to this heading"></a></h4>
@@ -1442,6 +1465,11 @@ Sets a message in the main window progress bar
 <p>This module contains functions for accessing project relevant data</p>
 <section id="gom-api-project-progressinformation">
 <h3>gom.api.project.ProgressInformation<a class="headerlink" href="#gom-api-project-progressinformation" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
 <p>Auxillary class allowing to set progress information</p>
 <p>This class is used to access the progress bar and progress message widgets of the application.</p>
 <section id="gom-api-project-progressinformation-set-message">
@@ -1449,7 +1477,12 @@ Sets a message in the main window progress bar
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_message(text:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress message</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress message</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1466,7 +1499,12 @@ Sets a message in the main window progress bar
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_percent(percent:</span> <span class="pre">float):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress value from 0 to 100 percent</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress value from 0 to 100 percent</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1484,7 +1522,12 @@ Sets a message in the main window progress bar
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information():</span> <span class="pre">gom.api.project.ProgressInformation</span></span></dt>
-<dd><p>Retrieve a progress information object which can be used to query/control progress status information</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Retrieve a progress information object which can be used to query/control progress status information</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1588,6 +1631,10 @@ for various image variants.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-script-resources">
+<h2>gom.api.script_resources<a class="headerlink" href="#gom-api-script-resources" title="Link to this heading"></a></h2>
+<p>API for the ResourceDataLoader</p>
 <section id="gom-api-script-resources-create">
 <h3>gom.api.script_resources.create<a class="headerlink" href="#gom-api-script-resources-create" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -1850,6 +1897,26 @@ uniquely address the service and is the same UUID as the app the service origina
 </dd></dl>
 
 </section>
+<section id="gom-api-services-service-get-number-of-instances">
+<h4>gom.api.services.Service.get_number_of_instances<a class="headerlink" href="#gom-api-services-service-get-number-of-instances" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_number_of_instances():</span> <span class="pre">int</span></span></dt>
+<dd><p>Get the number of API instances (processes) the service runs in parallel</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of API instances which are run in parallel when the service is started.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Return the number of API processes instances which are running in parallel. A service can
+be configured to start more than one API process for parallelization. This makes sense only
+if the calling instance is threaded, like the recalculation features in ZEISS Inspect.</p>
+</section>
 <section id="gom-api-services-service-get-status">
 <h4>gom.api.services.Service.get_status<a class="headerlink" href="#gom-api-services-service-get-status" title="Link to this heading"></a></h4>
 <dl class="py function">
@@ -1869,10 +1936,14 @@ uniquely address the service and is the same UUID as the app the service origina
 </dl>
 </dd></dl>
 
-<p>This function returns the status the service is currently in. The status can be</p>
+<p>This function returns the status the service is currently in. Possible values are</p>
 <ul class="simple">
-<li><p>1: Service is running and API endpoint is available</p></li>
-<li><p>0: Service is not running, endpoint is not available</p></li>
+<li><p>STOPPED: Service is not running.</p></li>
+<li><p>STARTED: Service has been started and is currently initializing. This can include both the general
+service process startup or running the global service initialization code (model loading, …).</p></li>
+<li><p>RUNNING: Service is running and ready to process API requests. If there are multiple service instances configured
+per service, the service counts as RUNNING not before all of these instances have been initialized !</p></li>
+<li><p>STOPPING: Service is currently shutting down,</p></li>
 </ul>
 </section>
 <section id="gom-api-services-service-start">
@@ -1888,8 +1959,8 @@ uniquely address the service and is the same UUID as the app the service origina
 </dl>
 </dd></dl>
 
-<p>This function will start a script interpreter in service mode. The running script will
-implement the API endpoint.</p>
+<p>This function will start a script interpreter executing the service script as an API endpoint. The
+function will return immediately, the service instances are starting in the background afterwards.</p>
 </section>
 <section id="gom-api-services-service-stop">
 <h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
@@ -1905,7 +1976,8 @@ implement the API endpoint.</p>
 </dd></dl>
 
 <p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
-if needed.</p>
+if needed. The function will return immediately, the service instances will be stopped
+in their own threads contexts.</p>
 </section>
 </section>
 <section id="gom-api-services-get-services">
@@ -2254,7 +2326,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f9b202d5720>
+  <jinja2.runtime.BlockReference object at 0x7f7f99dda1d0>
 
 
 </footer>
