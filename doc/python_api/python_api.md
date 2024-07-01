@@ -761,6 +761,12 @@ for m in gom.api.introspection.modules ():
   print (m.name ())
 ```
 
+## gom.api.progress
+
+API for accessing the progress bar in the main window
+
+This API provides basic access to the progress bar in the main window
+
 ### gom.api.progress.ProgressBar
 
 Class representing the ProgressBar
@@ -773,12 +779,12 @@ This class is meant to be used with the Python 'with' statement
 import gom.api.progress
 
 with gom.api.progress.ProgressBar() as bar:
-            bar.set_message('Calculation in progress')
-            for i in range(100):
+    bar.set_message('Calculation in progress')
+    for i in range(100):
         # Do some calculations
         foo()
         # Increase the progress
-                    bar.set_progress(i)    
+        bar.set_progress(i)    
 
 # Progress bar entry gets removed automatically after leaving the 'with' statement
 ```
@@ -796,8 +802,6 @@ Finishes the progress and removes this from the progress bar
 This object CANNOT be used for further progress reporting after calling this method
 
 Can be used if the progress bar should disappear but the with statement cannot be left yet
-
-```
 
 #### gom.api.progress.ProgressBar.set_message
 
@@ -833,6 +837,8 @@ This module contains functions for accessing project relevant data
 
 ### gom.api.project.ProgressInformation
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Auxillary class allowing to set progress information
 
 This class is used to access the progress bar and progress message widgets of the application.
@@ -840,6 +846,8 @@ This class is used to access the progress bar and progress message widgets of th
 #### gom.api.project.ProgressInformation.set_message
 
 ```{py:function} gom.api.project.ProgressInformation.set_message(text: str): None
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Set progress message
 :API version: 1
@@ -852,6 +860,8 @@ Set progress message
 
 ```{py:function} gom.api.project.ProgressInformation.set_percent(percent: float): None
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Set progress value from 0 to 100 percent
 :API version: 1
 :param percent: Progress bar value in percent (0...100)
@@ -862,6 +872,8 @@ Set progress value from 0 to 100 percent
 ### gom.api.project.create_progress_information
 
 ```{py:function} gom.api.project.create_progress_information(): gom.api.project.ProgressInformation
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Retrieve a progress information object which can be used to query/control progress status information
 :API version: 1
@@ -939,6 +951,11 @@ point = gom.app.project.actual_elements['Point 1'].coordinate
 all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
 all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
 ```
+
+## gom.api.script_resources
+
+API for the ResourceDataLoader
+
 
 ### gom.api.script_resources.create
 
@@ -1105,6 +1122,19 @@ Return the human readable name of this service
 ```
 
 
+#### gom.api.services.Service.get_number_of_instances
+
+```{py:function} gom.api.services.Service.get_number_of_instances(): int
+
+Get the number of API instances (processes) the service runs in parallel
+:return: Number of API instances which are run in parallel when the service is started.
+:rtype: int
+```
+
+Return the number of API processes instances which are running in parallel. A service can
+be configured to start more than one API process for parallelization. This makes sense only
+if the calling instance is threaded, like the recalculation features in ZEISS Inspect.
+
 #### gom.api.services.Service.get_status
 
 ```{py:function} gom.api.services.Service.get_status(): str
@@ -1115,9 +1145,14 @@ Return the current service status
 :rtype: str
 ```
 
-This function returns the status the service is currently in. The status can be
-- 1: Service is running and API endpoint is available
-- 0: Service is not running, endpoint is not available
+This function returns the status the service is currently in. Possible values are
+
+- STOPPED: Service is not running.
+- STARTED: Service has been started and is currently initializing. This can include both the general
+service process startup or running the global service initialization code (model loading, ...).
+- RUNNING: Service is running and ready to process API requests. If there are multiple service instances configured
+per service, the service counts as RUNNING not before all of these instances have been initialized !
+- STOPPING: Service is currently shutting down,
 
 #### gom.api.services.Service.start
 
@@ -1127,8 +1162,8 @@ Start service
 :API version: 1
 ```
 
-This function will start a script interpreter in service mode. The running script will
-implement the API endpoint.
+This function will start a script interpreter executing the service script as an API endpoint. The
+function will return immediately, the service instances are starting in the background afterwards.
 
 #### gom.api.services.Service.stop
 
@@ -1139,7 +1174,8 @@ Stop service
 ```
 
 Stop service. The service can be restarted afterwards via the 'start ()' function
-if needed.
+if needed. The function will return immediately, the service instances will be stopped
+in their own threads contexts.
 
 ### gom.api.services.get_services
 
