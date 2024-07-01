@@ -1122,6 +1122,19 @@ Return the human readable name of this service
 ```
 
 
+#### gom.api.services.Service.get_number_of_instances
+
+```{py:function} gom.api.services.Service.get_number_of_instances(): int
+
+Get the number of API instances (processes) the service runs in parallel
+:return: Number of API instances which are run in parallel when the service is started.
+:rtype: int
+```
+
+Return the number of API processes instances which are running in parallel. A service can
+be configured to start more than one API process for parallelization. This makes sense only
+if the calling instance is threaded, like the recalculation features in ZEISS Inspect.
+
 #### gom.api.services.Service.get_status
 
 ```{py:function} gom.api.services.Service.get_status(): str
@@ -1132,9 +1145,14 @@ Return the current service status
 :rtype: str
 ```
 
-This function returns the status the service is currently in. The status can be
-- 1: Service is running and API endpoint is available
-- 0: Service is not running, endpoint is not available
+This function returns the status the service is currently in. Possible values are
+
+- STOPPED: Service is not running.
+- STARTED: Service has been started and is currently initializing. This can include both the general
+service process startup or running the global service initialization code (model loading, ...).
+- RUNNING: Service is running and ready to process API requests. If there are multiple service instances configured
+per service, the service counts as RUNNING not before all of these instances have been initialized !
+- STOPPING: Service is currently shutting down,
 
 #### gom.api.services.Service.start
 
@@ -1144,8 +1162,8 @@ Start service
 :API version: 1
 ```
 
-This function will start a script interpreter in service mode. The running script will
-implement the API endpoint.
+This function will start a script interpreter executing the service script as an API endpoint. The
+function will return immediately, the service instances are starting in the background afterwards.
 
 #### gom.api.services.Service.stop
 
@@ -1156,7 +1174,8 @@ Stop service
 ```
 
 Stop service. The service can be restarted afterwards via the 'start ()' function
-if needed.
+if needed. The function will return immediately, the service instances will be stopped
+in their own threads contexts.
 
 ### gom.api.services.get_services
 
