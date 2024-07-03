@@ -1098,19 +1098,6 @@ Return the API endpoint name of this service
 
 This function returns the endpoint identifier this service is covering, like 'gom.api.services'.
 
-#### gom.api.services.Service.get_id
-
-```{py:function} gom.api.services.Service.get_id(): UUID
-
-Return the unique id (uuid) of this service
-:API version: 1
-:return: Service uuid
-:rtype: UUID
-```
-
-This function returns the uuid associated with service. The id can be used to
-uniquely address the service and is the same UUID as the app the service originates from.
-
 #### gom.api.services.Service.get_name
 
 ```{py:function} gom.api.services.Service.get_name(): str
