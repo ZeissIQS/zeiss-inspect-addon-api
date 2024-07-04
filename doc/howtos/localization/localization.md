@@ -119,11 +119,11 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 
 If no external translation tool is used, the XLIFF files can be edited directly in the App Editor.
 
-    ![Edit XLIFF files](assets/edit_xliff.png)
+![Edit XLIFF files](assets/edit_xliff.png)
 
 For using an external translation tool, the App Explorer allows to export and import XLIFF files.
 
-    ![Export/Import XLIFF files](assets/export_import_xliff.png)
+![Export/Import XLIFF files](assets/export_import_xliff.png)
 
 * Export the XLIFF files
 * Translate the XLIFF files, either manually or by importing them into a translation software, possibly via a translation service provider.
