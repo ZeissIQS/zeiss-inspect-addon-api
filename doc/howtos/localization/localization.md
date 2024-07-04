@@ -134,21 +134,21 @@ For using an external translation tool, the App Explorer allows to export and im
 
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
     <file original="metainfo.json" datatype="json" source-language="en" target_language="en">
-	    <group restype="x-gettext-domain" resname="metainfo.json">
-			<trans-unit id="msg1" resname="author">
-				<source xml:space="preserve">Carl Zeiss GOM Metrology GmbH</source>
-				<target xml:space="preserve">Carl Zeiss GOM Metrology GmbH</target>
-			</trans-unit>
-			<trans-unit id="msg2" resname="description">
-				<source xml:space="preserve">Tools for App internationalization</source>
-				<target xml:space="preserve">Tools for App internationalization</target>
-			</trans-unit>
-			<trans-unit id="msg3" resname="title">
-				<source xml:space="preserve">Internationalization Tools</source>
-				<target xml:space="preserve">Internationalization Tools</target>
-			</trans-unit>
-		</group>
-	</file>
+        <group restype="x-gettext-domain" resname="metainfo.json">
+            <trans-unit id="msg1" resname="author">
+                <source xml:space="preserve">Carl Zeiss GOM Metrology GmbH</source>
+                <target xml:space="preserve">Carl Zeiss GOM Metrology GmbH</target>
+            </trans-unit>
+            <trans-unit id="msg2" resname="description">
+                <source xml:space="preserve">Tools for App internationalization</source>
+                <target xml:space="preserve">Tools for App internationalization</target>
+            </trans-unit>
+            <trans-unit id="msg3" resname="title">
+                <source xml:space="preserve">Internationalization Tools</source>
+                <target xml:space="preserve">Internationalization Tools</target>
+            </trans-unit>
+        </group>
+    </file>
 </xliff>
 ```
 
