@@ -113,17 +113,25 @@ Texts in scripts have to be tagged as translatable via using the `tr ()`  funct
 
 * If you have selected a separate folder for the XLIFF translation files, copy the files to the App folder:
 
-    ![XLIFF files](assets/xliff_files.png)
+![XLIFF files](assets/xliff_files.png)
 
 #### Translate XLIFF files
 
-* Export the XLIFF files 
-% via 'Export Resource...' in the right mouse button menu.
-* Translate the XLIFF files. This can be done either manually or by importing them into a translation software, possibly via a translation service provider.
-* Import the XLIFF files back into the App 
-% via 'Import Resource...' on the right mouse button menu.
+If no external translation tool is used, the XLIFF files can be edited directly in the App Editor.
 
-``` XML
+    ![Edit XLIFF files](assets/edit_xliff.png)
+
+For using an external translation tool, the App Explorer allows to export and import XLIFF files.
+
+    ![Export/Import XLIFF files](assets/export_import_xliff.png)
+
+* Export the XLIFF files
+* Translate the XLIFF files, either manually or by importing them into a translation software, possibly via a translation service provider.
+* Import the XLIFF files back into the App 
+
+```{code-block} XML
+:caption: Example XLIFF file
+
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
     <file original="metainfo.json" datatype="json" source-language="en" target_language="en">
 	    <group restype="x-gettext-domain" resname="metainfo.json">
