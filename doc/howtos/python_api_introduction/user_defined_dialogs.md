@@ -886,27 +886,29 @@ selectedElement = DIALOG.elementSelectionWidget
 print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant Surface Points 1']
 ```
 
-| Property | Type      | Example                                                                                              |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| tooltip  | str       | <pre>DIALOG.selectElement.tooltip = 'Select a line for rotation'</pre>                               |
-| enabled  | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                      |
-| value    |(special)  | <pre>if DIALOG.selectElement.value != None:</pre>                                                    |
-| focus    | bool      | <pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open                          |
-| visible  | bool      | <pre>DIALOG.selectElement.visible = False</pre>                                                      |
-| supplier | str       | <pre># Read-only property<br># Possible values: 'any', 'points', 'lines', 'planes', 'directions', 'custom'<br>print(DIALOG.selectElement.supplier)</pre> |
-| filter   | function  | Element filter function for the 'custom' supplier. See example below.                                |
+| Property        | Type      | Example                                                                                                                                                                                         |
+|-----------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tooltip         | str       | <pre>DIALOG.selectElement.tooltip = 'Select a line for rotation'</pre>                                                                                                                          |
+| enabled         | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                                                                                                                 |
+| value           | (special) | <pre>if DIALOG.selectElement.value != None:</pre>_Note:_ May be also be `None` for user-defined `filter` and `use_not_defined` enabled.                                                         |
+| focus           | bool      | <pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open                                                                                                                     |
+| visible         | bool      | <pre>DIALOG.selectElement.visible = False</pre>                                                                                                                                                 |
+| supplier        | str       | <pre># Read-only property<br># Possible values: 'any', 'points', 'lines', 'planes', 'directions', 'custom'<br>print(DIALOG.selectElement.supplier)</pre>                                        |
+| filter          | function  | Element filter function for the 'custom' supplier. See example below.                                                                                                                           |
+| fast_filter     | bool      | Switch expected filter function signature, bulk vs. single element:<br/><ul><li>`True`: List of elements → Iterable of bools</li><li>`False`: Single element → bool</li></ul>_Default:_ `False` |
+| use_not_defined | bool      | Enable to initially show an empty choice for user-defined filter functions, i.e. like the other element types.<br/> _Default:_ `False`                                                          |
 
 The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:
 
 ``` python
-DIALOG4=gom.script.sys.create_user_defined_dialog (content='...')
+DIALOG4 = gom.script.sys.create_user_defined_dialog(content='...')
 
 
-def dialog_event_handler (widget):
+def dialog_event_handler(widget):
     pass
 
 # filter system planes
-def element_filter( element ):
+def element_filter(element) -> bool:
     try:
         if element.type == 'plane':
             return True
@@ -917,9 +919,18 @@ def element_filter( element ):
 DIALOG4.handler = dialog_event_handler
 DIALOG4.input_new.filter = element_filter
 
-RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG4)
+# Alternative: use fast filtering
+# from typing import Iterable
+#
+# def fast_element_filter(*elements) -> Iterable[bool]:
+#     return [element_filter(e) for e in elements]
+#
+# DIALOG4.input_new.fast_filter = True
+# DIALOG4.input_new.filter = fast_element_filter
 
-print("Chosen system plane:", RESULT.input_new.name)
+RESULT = gom.script.sys.show_user_defined_dialog(dialog=DIALOG4)
+
+print('Chosen system plane: ', RESULT.input_new.name)
 ```
 
 Please find the complete example here: [dialog_custom_elem_select.py](assets/dialog_custom_elem_select.py)
