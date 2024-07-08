@@ -10,7 +10,7 @@ You insert the command `choose_file()` into your script by using RMB ► Insert 
 
 ![Configure File Selection](assets/configure_file_selection.png)
 
-Selection type
+Type
 : Allows to customize the selection. The following options are available:
   * Any file
   * New file
