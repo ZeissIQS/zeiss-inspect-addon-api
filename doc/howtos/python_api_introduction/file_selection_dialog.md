@@ -6,19 +6,20 @@
 
 ## Interactive configuration of `choose_file()`
 
-You insert the command `choose_file()` into your script by using RMB ► Insert ► Choose File... in the script editor. A configuration dialog is shown:
+You insert the command `choose_file()` into your script by using RMB ► Insert ► File... in the script editor. A configuration dialog is shown:
 
-![Choose file configuration](assets/choose_file_configuration.png)
+![Configure File Selection](assets/configure_file_selection.png)
 
 Selection type
 : Allows to customize the selection. The following options are available:
-  * Select any file
-  * Create new file
-  * Load existing file
+  * Any file
+  * New file
+  * Existing file
+  * Multiple existing files
   * Load multiple files
-  * Select directory
+  * Existing folder
 
-Base folder (optional)
+Default folder (optional)
 : The folder shown when the file selection is opened
  
 Default file (optional)
@@ -59,7 +60,7 @@ If the dialog is cancelled, a `RequestError` exception is thrown.
 file=gom.script.sys.choose_file_draft (
 	file_types=[['*.zxml', 'ZEISS INSPECT exchange'], ['*.gxml', 'ZEISS INSPECT exchange']], 
 	file_types_default='*.zxml', 
-	file='C:/temp/Test.gxml', 
+	file='C:/temp/Test.zxml', 
 	folder='C:/temp/', 
 	selection_type='load file')
 
