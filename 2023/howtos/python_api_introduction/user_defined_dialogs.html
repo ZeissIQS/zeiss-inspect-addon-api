@@ -1600,7 +1600,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 <tr class="row-even"><td><p>value</p></td>
 <td><p>(special)</p></td>
-<td><p><pre>if DIALOG.selectElement.value != None:</pre></p></td>
+<td><p><pre>if DIALOG.selectElement.value != None:</pre><em>Note:</em> May be also be <code class="docutils literal notranslate"><span class="pre">None</span></code> for user-defined <code class="docutils literal notranslate"><span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">use_not_defined</span></code> enabled.</p></td>
 </tr>
 <tr class="row-odd"><td><p>focus</p></td>
 <td><p>bool</p></td>
@@ -1618,17 +1618,25 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <td><p>function</p></td>
 <td><p>Element filter function for the ‘custom’ supplier. See example below.</p></td>
 </tr>
+<tr class="row-odd"><td><p>fast_filter</p></td>
+<td><p>bool</p></td>
+<td><p>Switch expected filter function signature, bulk vs. single element:<br/><ul><li><code class="docutils literal notranslate"><span class="pre">True</span></code>: List of elements → Iterable of bools</li><li><code class="docutils literal notranslate"><span class="pre">False</span></code>: Single element → bool</li></ul><em>Default:</em> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>use_not_defined</p></td>
+<td><p>bool</p></td>
+<td><p>Enable to initially show an empty choice for user-defined filter functions, i.e. like the other element types.<br/> <em>Default:</em> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
 </tbody>
 </table>
 <p>The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG4</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG4</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dialog_event_handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="c1"># filter system planes</span>
-<span class="k">def</span> <span class="nf">element_filter</span><span class="p">(</span> <span class="n">element</span> <span class="p">):</span>
+<span class="k">def</span> <span class="nf">element_filter</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;plane&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -1639,9 +1647,18 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">element_filter</span>
 
-<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG4</span><span class="p">)</span>
+<span class="c1"># Alternative: use fast filtering</span>
+<span class="c1"># from typing import Iterable</span>
+<span class="c1">#</span>
+<span class="c1"># def fast_element_filter(*elements) -&gt; Iterable[bool]:</span>
+<span class="c1">#     return [element_filter(e) for e in elements]</span>
+<span class="c1">#</span>
+<span class="c1"># DIALOG4.input_new.fast_filter = True</span>
+<span class="c1"># DIALOG4.input_new.filter = fast_element_filter</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chosen system plane:&quot;</span><span class="p">,</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chosen system plane: &#39;</span><span class="p">,</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Please find the complete example here: <a class="reference download internal" download="" href="../../_downloads/103208b9004accadabdd7dfe3eea9371/dialog_custom_elem_select.py"><span class="xref download myst">dialog_custom_elem_select.py</span></a></p>
@@ -2560,7 +2577,7 @@ about its attributes:</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fc498b2cbb0>
+  <jinja2.runtime.BlockReference object at 0x7f5977a5e680>
 
 
 </footer>
