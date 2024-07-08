@@ -16,7 +16,6 @@ Type
   * New file
   * Existing file
   * Multiple existing files
-  * Load multiple files
   * Existing folder
 
 Default folder (optional)
