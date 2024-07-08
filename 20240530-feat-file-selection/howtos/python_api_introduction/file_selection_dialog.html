@@ -130,19 +130,20 @@
 <p><img alt="Choose file dialog" src="../../_images/choose_file_dialog.png" /></p>
 <section id="interactive-configuration-of-choose-file">
 <h2>Interactive configuration of <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code><a class="headerlink" href="#interactive-configuration-of-choose-file" title="Link to this heading"></a></h2>
-<p>You insert the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> into your script by using RMB ► Insert ► Choose File… in the script editor. A configuration dialog is shown:</p>
-<p><img alt="Choose file configuration" src="../../_images/choose_file_configuration.png" /></p>
+<p>You insert the command <code class="docutils literal notranslate"><span class="pre">choose_file()</span></code> into your script by using RMB ► Insert ► File… in the script editor. A configuration dialog is shown:</p>
+<p><img alt="Configure File Selection" src="../../_images/configure_file_selection.png" /></p>
 <dl class="simple myst">
 <dt>Selection type</dt><dd><p>Allows to customize the selection. The following options are available:</p>
 <ul class="simple">
-<li><p>Select any file</p></li>
-<li><p>Create new file</p></li>
-<li><p>Load existing file</p></li>
+<li><p>Any file</p></li>
+<li><p>New file</p></li>
+<li><p>Existing file</p></li>
+<li><p>Multiple existing files</p></li>
 <li><p>Load multiple files</p></li>
-<li><p>Select directory</p></li>
+<li><p>Existing folder</p></li>
 </ul>
 </dd>
-<dt>Base folder (optional)</dt><dd><p>The folder shown when the file selection is opened</p>
+<dt>Default folder (optional)</dt><dd><p>The folder shown when the file selection is opened</p>
 </dd>
 <dt>Default file (optional)</dt><dd><p>The default file proposed by the dialog</p>
 </dd>
@@ -201,7 +202,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">choose_file_draft</span> <span class="p">(</span>
 	<span class="n">file_types</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;*.zxml&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS INSPECT exchange&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;*.gxml&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEISS INSPECT exchange&#39;</span><span class="p">]],</span> 
 	<span class="n">file_types_default</span><span class="o">=</span><span class="s1">&#39;*.zxml&#39;</span><span class="p">,</span> 
-	<span class="n">file</span><span class="o">=</span><span class="s1">&#39;C:/temp/Test.gxml&#39;</span><span class="p">,</span> 
+	<span class="n">file</span><span class="o">=</span><span class="s1">&#39;C:/temp/Test.zxml&#39;</span><span class="p">,</span> 
 	<span class="n">folder</span><span class="o">=</span><span class="s1">&#39;C:/temp/&#39;</span><span class="p">,</span> 
 	<span class="n">selection_type</span><span class="o">=</span><span class="s1">&#39;load file&#39;</span><span class="p">)</span>
 
@@ -242,7 +243,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7767b4cdf0>
+  <jinja2.runtime.BlockReference object at 0x7fa090d68790>
 
 
 </footer>
