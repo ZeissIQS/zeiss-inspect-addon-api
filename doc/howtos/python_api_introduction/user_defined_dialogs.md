@@ -890,13 +890,13 @@ print(selectedElement.value ) # output: gom.app.project.inspection['Equidistant 
 |-----------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | tooltip         | str       | <pre>DIALOG.selectElement.tooltip = 'Select a line for rotation'</pre>                                                                                                                          |
 | enabled         | bool      | <pre>DIALOG.selectElement.enabled = False</pre>                                                                                                                                                 |
-| value           | (special) | <pre>if DIALOG.selectElement.value != None:</pre>_Note:_ May be also be `None` for user-defined `filter` and `use_not_defined` enabled.                                                         |
+| value           | (special) | <pre>if DIALOG.selectElement.value != None:</pre>_Note:_<br>May also be `None` for user-defined `filter` and `use_not_defined` enabled.                                                         |
 | focus           | bool      | <pre>DIALOG.selectElement.focus = True</pre>⚠️ Only works if dialog is open                                                                                                                     |
 | visible         | bool      | <pre>DIALOG.selectElement.visible = False</pre>                                                                                                                                                 |
 | supplier        | str       | <pre># Read-only property<br># Possible values: 'any', 'points', 'lines', 'planes', 'directions', 'custom'<br>print(DIALOG.selectElement.supplier)</pre>                                        |
 | filter          | function  | Element filter function for the 'custom' supplier. See example below.                                                                                                                           |
 | fast_filter     | bool      | Switch expected filter function signature, bulk vs. single element:<br/><ul><li>`True`: List of elements → Iterable of bools</li><li>`False`: Single element → bool</li></ul>_Default:_ `False` |
-| use_not_defined | bool      | Enable to initially show an empty choice for user-defined filter functions, i.e. like the other element types.<br/> _Default:_ `False`                                                          |
+| use_not_defined | bool      | Enable to initially show an empty choice for user-defined filter functions,<br>i.e. like the other element types.<br/> _Default:_ `False`                                                          |
 
 The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:
 
