@@ -122,6 +122,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-interpreter">gom.api.interpreter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
 </ul>
 </li>
@@ -191,6 +194,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save">gom.api.script_resources.save</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save-as">gom.api.script_resources.save_as</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-unload">gom.api.script_resources.unload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-curve-checkable">gom.api.scripted_checks_util.is_curve_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-scalar-checkable">gom.api.scripted_checks_util.is_scalar_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-surface-checkable">gom.api.scripted_checks_util.is_surface_checkable</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
@@ -887,6 +893,12 @@ camera positions through the given pixels. The pixel coordinate system center is
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-interpreter">
+<h2>gom.api.interpreter<a class="headerlink" href="#gom-api-interpreter" title="Link to this heading"></a></h2>
+<p>API for accessing python script interpreter properties</p>
+<p>This API can access properties and states of the python script interpreters. It is used
+mainly for internal debugging and introspection scenarios.</p>
 <section id="gom-api-interpreter-get-pid">
 <h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -1801,6 +1813,66 @@ for various image variants.</p>
 </dd></dl>
 
 </section>
+<section id="gom-api-scripted-checks-util-is-curve-checkable">
+<h3>gom.api.scripted_checks_util.is_curve_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-curve-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_curve_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a curve check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-scalar-checkable">
+<h3>gom.api.scripted_checks_util.is_scalar_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-scalar-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_scalar_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a scalar check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-surface-checkable">
+<h3>gom.api.scripted_checks_util.is_surface_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-surface-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_surface_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a surface check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
 </section>
 <section id="gom-api-services">
 <h2>gom.api.services<a class="headerlink" href="#gom-api-services" title="Link to this heading"></a></h2>
@@ -2303,7 +2375,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7faad3283100>
+  <jinja2.runtime.BlockReference object at 0x7ff7a73a5c00>
 
 
 </footer>
