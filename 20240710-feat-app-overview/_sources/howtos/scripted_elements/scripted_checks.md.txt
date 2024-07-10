@@ -39,9 +39,9 @@ Furthermore, checks shall be assigned an `abbreviation`. This is the short form 
 
 Currently, three types of scripted checks are supported. The `Python API Examples` App provides examples for all three. Click on the respective links to get to the example documentation.
 
-* Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See [Example: scripted_scalar_check](../../python_examples/scripted_checks/scripted_scalar_check.md).
-* Scripted curve check: Check an existing *curve* element and assign actual/nominal values for each point of the curve. See [Example: scripted_curve_check](../../python_examples/scripted_checks/scripted_curve_check.md).
-* Scripted surface check: Check an existing *mesh* element and assign deviation values for each point in the mesh. See [Example: scripted_surface_check](../../python_examples/scripted_checks/scripted_surface_check.md).
+* Scripted scalar check: Check an element and assign a simple scalar value pair (nominal/actual) to it. See [Example: scripted_scalar_check](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedScalarCheck/doc/Documentation.md).
+* Scripted curve check: Check an existing *curve* element and assign actual/nominal values for each point of the curve. See [Example: scripted_curve_check](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md).
+* Scripted surface check: Check an existing *mesh* element and assign deviation values for each point in the mesh. See [Example: scripted_surface_check](https://github.com/ZEISS/zeiss-inspect-app-examples/tree/dev/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md).
 
 % Special API functions used to handle checks.
 % 

@@ -101,7 +101,7 @@ Now you've grasped the basic concept of scripted actuals. However, there are som
 * Preview calculation
 * ...
 
-To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` App, [documented here](../../python_examples/scripted_actuals.md).
+To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` App, <a href="../../python_examples/examples_overview.html#scripted-actuals">documented here</a>.
 
 ```{seealso}
 [Scripted elements API](../../python_api/scripted_elements_api.md)

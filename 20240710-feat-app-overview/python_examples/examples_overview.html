@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="data_interfaces" href="data_interfaces.html" />
+    <link rel="next" title="ZEISS INSPECT App Python API documentation" href="../python_api/python_api.html" />
     <link rel="prev" title="ZEISS INSPECT Python API Examples Overview" href="index.html" /> 
 </head>
 
@@ -78,14 +78,76 @@
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Examples Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-interfaces-how-to-access-data-of-zeiss-inspect-elements">data_interfaces — How to access data of ZEISS INSPECT elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checkresultsdataarray-view-download"><a id="CheckResultsDataArray">CheckResultsDataArray</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referencepointsandmeshdata-view-download"><a id="ReferencePointsAndMeshData">ReferencePointsAndMeshData</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volumesectionimagedata-view-download"><a id="VolumeSectionImageData">VolumeSectionImageData</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events">dialog_widgets — How to use custom dialogs and handle user input events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dropdownwidget-view-download"><a id="DropdownWidget">DropdownWidget</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explorerselectedelementsindialog-view-download"><a id="ExplorerSelectedElementsInDialog">ExplorerSelectedElementsInDialog</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unitdialogeventhandler-view-download"><a id="UnitDialogEventHandler">UnitDialogEventHandler</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#widgetvisibility-view-download"><a id="WidgetVisibility">WidgetVisibility</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-miscellaneous">misc — Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csvexample-view-download"><a id="CSVExample">CSVExample</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dialogreopenexample-view-download"><a id="DialogReopenExample">DialogReopenExample</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pointpixeltransformations-view-download"><a id="PointPixelTransformations">PointPixelTransformations</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#projects-zeiss-inspect-projects">projects — ZEISS INSPECT projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exampleprojects-view-download"><a id="ExampleProjects">ExampleProjects</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-building-custom-actual-elements-with-python-code">scripted_actuals — Building custom actual elements with Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcircle-view-download"><a id="ScriptedActualCircle">ScriptedActualCircle</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcone-view-download"><a id="ScriptedActualCone">ScriptedActualCone</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcurve-view-download"><a id="ScriptedActualCurve">ScriptedActualCurve</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcylinder-view-download"><a id="ScriptedActualCylinder">ScriptedActualCylinder</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualdistance-view-download"><a id="ScriptedActualDistance">ScriptedActualDistance</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpoint-view-download"><a id="ScriptedActualPoint">ScriptedActualPoint</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpointcloud-view-download"><a id="ScriptedActualPointCloud">ScriptedActualPointCloud</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsection-view-download"><a id="ScriptedActualSection">ScriptedActualSection</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurface-view-download"><a id="ScriptedActualSurface">ScriptedActualSurface</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurfacecurve-view-download"><a id="ScriptedActualSurfaceCurve">ScriptedActualSurfaceCurve</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolume-view-download"><a id="ScriptedActualVolume">ScriptedActualVolume</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumedefects-view-download"><a id="ScriptedActualVolumeDefects">ScriptedActualVolumeDefects</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumeregion-view-download"><a id="ScriptedActualVolumeRegion">ScriptedActualVolumeRegion</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumesection-view-download"><a id="ScriptedActualVolumeSection">ScriptedActualVolumeSection</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedelementprogress-view-download"><a id="ScriptedElementProgress">ScriptedElementProgress</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trimeshdeformmesh-view-download"><a id="TrimeshDeformMesh">TrimeshDeformMesh</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-checks-building-custom-checks-with-python-code">scripted_checks — Building custom checks with Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedcurvecheck-view-download"><a id="ScriptedCurveCheck">ScriptedCurveCheck</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedscalarcheck-view-download"><a id="ScriptedScalarCheck">ScriptedScalarCheck</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedsurfacecheck-view-download"><a id="ScriptedSurfaceCheck">ScriptedSurfaceCheck</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#script-icons-how-to-set-icons-for-scripts-or-buttons">script_icons — How to set icons for scripts or buttons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripticon-view-download"><a id="ScriptIcon">ScriptIcon</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#script-resources-how-to-access-binary-data-of-your-app-resources">script_resources — How to access binary data of your App (resources)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scriptresources-view-download"><a id="ScriptResources">ScriptResources</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-projects">Example projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag-index">Tag Index</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><a id="curve"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><a id="scalar"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><a id="scripted-actual"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><a id="scripted-check"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><a id="surface"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><a id="xray"><a></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#related">Related</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -119,8 +181,8 @@
              
   <section id="zeiss-inspect-app-examples-overview">
 <h1>ZEISS INSPECT App Examples Overview<a class="headerlink" href="#zeiss-inspect-app-examples-overview" title="Link to this heading"></a></h1>
-<section id="data-interfaces">
-<h2>data_interfaces<a class="headerlink" href="#data-interfaces" title="Link to this heading"></a></h2>
+<section id="data-interfaces-how-to-access-data-of-zeiss-inspect-elements">
+<h2>data_interfaces — How to access data of ZEISS INSPECT elements<a class="headerlink" href="#data-interfaces-how-to-access-data-of-zeiss-inspect-elements" title="Link to this heading"></a></h2>
 <section id="checkresultsdataarray-view-download">
 <h3><a id="CheckResultsDataArray">CheckResultsDataArray</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CheckResultsDataArray">download</a><a class="headerlink" href="#checkresultsdataarray-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -164,8 +226,8 @@
 </dl>
 </section>
 </section>
-<section id="dialog-widgets">
-<h2>dialog_widgets<a class="headerlink" href="#dialog-widgets" title="Link to this heading"></a></h2>
+<section id="dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events">
+<h2>dialog_widgets — How to use custom dialogs and handle user input events<a class="headerlink" href="#dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events" title="Link to this heading"></a></h2>
 <section id="dropdownwidget-view-download">
 <h3><a id="DropdownWidget">DropdownWidget</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/DropdownWidget">download</a><a class="headerlink" href="#dropdownwidget-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -214,8 +276,8 @@
 </dl>
 </section>
 </section>
-<section id="misc">
-<h2>misc<a class="headerlink" href="#misc" title="Link to this heading"></a></h2>
+<section id="misc-miscellaneous">
+<h2>misc — Miscellaneous<a class="headerlink" href="#misc-miscellaneous" title="Link to this heading"></a></h2>
 <section id="csvexample-view-download">
 <h3><a id="CSVExample">CSVExample</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CSVExample">download</a><a class="headerlink" href="#csvexample-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -253,8 +315,8 @@
 </dl>
 </section>
 </section>
-<section id="projects">
-<h2>projects<a class="headerlink" href="#projects" title="Link to this heading"></a></h2>
+<section id="projects-zeiss-inspect-projects">
+<h2>projects — ZEISS INSPECT projects<a class="headerlink" href="#projects-zeiss-inspect-projects" title="Link to this heading"></a></h2>
 <section id="exampleprojects-view-download">
 <h3><a id="ExampleProjects">ExampleProjects</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExampleProjects">download</a><a class="headerlink" href="#exampleprojects-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -264,8 +326,8 @@
 </dl>
 </section>
 </section>
-<section id="scripted-actuals">
-<h2>scripted_actuals<a class="headerlink" href="#scripted-actuals" title="Link to this heading"></a></h2>
+<section id="scripted-actuals-building-custom-actual-elements-with-python-code">
+<h2>scripted_actuals — Building custom actual elements with Python code<a class="headerlink" href="#scripted-actuals-building-custom-actual-elements-with-python-code" title="Link to this heading"></a></h2>
 <section id="scriptedactualcircle-view-download">
 <h3><a id="ScriptedActualCircle">ScriptedActualCircle</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCircle">download</a><a class="headerlink" href="#scriptedactualcircle-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -473,8 +535,8 @@
 </dl>
 </section>
 </section>
-<section id="scripted-checks">
-<h2>scripted_checks<a class="headerlink" href="#scripted-checks" title="Link to this heading"></a></h2>
+<section id="scripted-checks-building-custom-checks-with-python-code">
+<h2>scripted_checks — Building custom checks with Python code<a class="headerlink" href="#scripted-checks-building-custom-checks-with-python-code" title="Link to this heading"></a></h2>
 <section id="scriptedcurvecheck-view-download">
 <h3><a id="ScriptedCurveCheck">ScriptedCurveCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedCurveCheck">download</a><a class="headerlink" href="#scriptedcurvecheck-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -530,8 +592,8 @@
 </dl>
 </section>
 </section>
-<section id="script-icons">
-<h2>script_icons<a class="headerlink" href="#script-icons" title="Link to this heading"></a></h2>
+<section id="script-icons-how-to-set-icons-for-scripts-or-buttons">
+<h2>script_icons — How to set icons for scripts or buttons<a class="headerlink" href="#script-icons-how-to-set-icons-for-scripts-or-buttons" title="Link to this heading"></a></h2>
 <section id="scripticon-view-download">
 <h3><a id="ScriptIcon">ScriptIcon</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptIcon">download</a><a class="headerlink" href="#scripticon-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -541,8 +603,8 @@
 </dl>
 </section>
 </section>
-<section id="script-resources">
-<h2>script_resources<a class="headerlink" href="#script-resources" title="Link to this heading"></a></h2>
+<section id="script-resources-how-to-access-binary-data-of-your-app-resources">
+<h2>script_resources — How to access binary data of your App (resources)<a class="headerlink" href="#script-resources-how-to-access-binary-data-of-your-app-resources" title="Link to this heading"></a></h2>
 <section id="scriptresources-view-download">
 <h3><a id="ScriptResources">ScriptResources</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptResources">download</a><a class="headerlink" href="#scriptresources-view-download" title="Link to this heading"></a></h3>
 <dl class="myst field-list simple">
@@ -624,7 +686,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API Examples Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_interfaces.html" class="btn btn-neutral float-right" title="data_interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python_api/python_api.html" class="btn btn-neutral float-right" title="ZEISS INSPECT App Python API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -641,7 +703,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f1aac439450>
+  <jinja2.runtime.BlockReference object at 0x7fb74ad217b0>
 
 
 </footer>

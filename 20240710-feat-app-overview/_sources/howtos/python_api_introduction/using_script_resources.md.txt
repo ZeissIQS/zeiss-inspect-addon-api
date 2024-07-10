@@ -27,5 +27,5 @@ if (res.exists()):
 
 ## See also
 
-* [Examples of category `script_resources`](../../python_examples/script_resources.md)
+* <a href="../../python_examples/examples_overview.html#script-resources">Examples of category `script_resources`</a>
 * [`gom.Resource` API Definition](../../python_api/resource_api.md)

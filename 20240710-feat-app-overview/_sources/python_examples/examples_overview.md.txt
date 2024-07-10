@@ -6,7 +6,7 @@ myst:
 ---
 # ZEISS INSPECT App Examples Overview
 
-## data_interfaces
+## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
 
 ### <a id="CheckResultsDataArray">CheckResultsDataArray</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
 
@@ -42,7 +42,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces)
 
 
-## dialog_widgets
+## dialog_widgets &mdash; How to use custom dialogs and handle user input events
 
 ### <a id="DropdownWidget">DropdownWidget</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/DropdownWidget)
 
@@ -80,7 +80,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
 
 
-## misc
+## misc &mdash; Miscellaneous
 
 ### <a id="CSVExample">CSVExample</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CSVExample)
 
@@ -110,7 +110,7 @@ myst:
     [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging)
 
 
-## projects
+## projects &mdash; ZEISS INSPECT projects
 
 ### <a id="ExampleProjects">ExampleProjects</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/projects/ExampleProjects/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ExampleProjects)
 
@@ -118,7 +118,7 @@ myst:
     ZEISS INSPECT Example Projects
 
 
-## scripted_actuals
+## scripted_actuals &mdash; Building custom actual elements with Python code
 
 ### <a id="ScriptedActualCircle">ScriptedActualCircle</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ScriptedActualCircle)
 
@@ -274,7 +274,7 @@ myst:
 :Tags:
     <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a>
 
-## scripted_checks
+## scripted_checks &mdash; Building custom checks with Python code
 
 ### <a id="ScriptedCurveCheck">ScriptedCurveCheck</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ScriptedCurveCheck)
 
@@ -319,7 +319,7 @@ myst:
 :Tags:
     <a href="#scripted-check">![Static Badge](https://img.shields.io/badge/scripted--check-blue)</a> <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a>
 
-## script_icons
+## script_icons &mdash; How to set icons for scripts or buttons
 
 ### <a id="ScriptIcon">ScriptIcon</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_icons/ScriptIcon/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ScriptIcon)
 
@@ -327,7 +327,7 @@ myst:
     This example shows how an icon can be set to a script, whereas the icon itself resides in the App as a resource.
 
 
-## script_resources
+## script_resources &mdash; How to access binary data of your App (resources)
 
 ### <a id="ScriptResources">ScriptResources</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ScriptResources/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ScriptResources)
 
