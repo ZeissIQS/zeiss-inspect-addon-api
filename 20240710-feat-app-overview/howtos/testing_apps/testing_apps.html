@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Apps &mdash; App Development Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/howtos/testing_apps/testing_apps.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Scripting solutions" href="../scripting_solutions/scripting_solutions.html" />
+    <link rel="prev" title="Software and script starting options" href="../starting_options/starting_options.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            App Development Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-testing">Why testing?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-structure">File structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-a-test-script">Writing a test script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-app-tests">Running App tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-script-editor">Using the script editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-vscode">Using VSCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-scripts">From scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-test-data">Working with test data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-apps-with-dialogs">Testing Apps with dialogs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-app-tests-with-code-coverage">Running App tests with code coverage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT App Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">App Development Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Testing Apps</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing-apps">
+<h1>Testing Apps<a class="headerlink" href="#testing-apps" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> App, which you can find in the store, as an example how to include tests in your App.</p>
+</div>
+<section id="why-testing">
+<h2>Why testing?<a class="headerlink" href="#why-testing" title="Link to this heading"></a></h2>
+<p>Testing your App is a crucial step for maintainability, especially when dealing with multiple software versions or updates. As manually testing your App is often tedious and time consuming, this how-to focuses on how to include <strong>automated tests</strong> in your App.</p>
+<p>Automated tests are important when writing Apps in Python because they help to ensure the code is running correctly and efficiently. Furthermore, they can be used to ensure that the code is compatible with different versions of the ZEISS INSPECT Software, as well as on different machines. Finally, automated tests can be used to improve the overall performance of the App, as well as to ensure it meets the user’s requirements.</p>
+</section>
+<section id="file-structure">
+<h2>File structure<a class="headerlink" href="#file-structure" title="Link to this heading"></a></h2>
+<p>For test discovery to work, the file and folder structure of App tests needs to adhere to the following conventions, which are similar to the <em>pyTest</em>s <a class="reference external" href="https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery">Conventions for Python test discovery</a>.</p>
+<ul class="simple">
+<li><p>test script file names <strong>start with <code class="docutils literal notranslate"><span class="pre">test_</span></code></strong></p></li>
+<li><p>test scripts <em>only</em> contain <strong>functions with the prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code></strong>.</p>
+<ul>
+<li><p>this means: no code outside of function definitions.</p></li>
+</ul>
+</li>
+<li><p>(optional, but recommended) all python test scripts reside in a separate <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory of your Apps top-level directory.</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<img alt="../../_images/file_structure.jpg" src="../../_images/file_structure.jpg" />
+<figcaption>
+<p><span class="caption-text">Exemplary file structure.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In ZEISS INSPECT 2023, there is no need for a script at the top-level that executes all of your tests anymore. Instead, use the “Execute App tests” command (see <a class="reference internal" href="#running-app-tests">Running tests</a>).</p>
+</div>
+</section>
+<section id="writing-a-test-script">
+<h2>Writing a test script<a class="headerlink" href="#writing-a-test-script" title="Link to this heading"></a></h2>
+<p>The following steps are required to write a new test script. The example code is taken from the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> App, which you can find in the store.</p>
+<ol class="arabic">
+<li><p>Create a test script: Create a Python file with the convention test_*.py.
+(Example: <code class="docutils literal notranslate"><span class="pre">PythonApiExamples/tests/test_data_interfaces_check_results</span></code>)</p></li>
+<li><p>Import the module or package to be tested: Import the module or package that you want to test.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the example we want to test</span>
+<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span> <span class="k">as</span> <span class="nn">example</span>
+</pre></div>
+</div>
+<p>For this to work properly, the code that you want to test needs to be structured in functions as well. In this case, the functions <code class="docutils literal notranslate"><span class="pre">get_single_result_value()</span></code> of the <code class="docutils literal notranslate"><span class="pre">check_results_data_arrray</span></code> script is imported.
+For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-ref">How the examples are structured</span></a>.</p>
+</li>
+<li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior. For simple checks for expected values, use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement like shown below. For more complex test data (like arrays or Element properties), see <a class="reference internal" href="#working-with-test-data">Working with test data</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
+  <span class="c1"># Setup test project</span>
+  <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;zeiss_part_test_project&#39;</span><span class="p">)</span>
+  <span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span>
+  
+  <span class="c1"># Test definition</span>
+  <span class="n">expected_single_value</span> <span class="o">=</span> <span class="mf">2.0495047569274902</span>
+  <span class="n">actual_result_value</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_single_result_value</span><span class="p">(</span><span class="n">test_element</span><span class="p">)</span>
+  
+  <span class="k">assert</span> <span class="n">actual_result_value</span> <span class="o">==</span> <span class="n">expected_single_value</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>That’s all it takes to create a simple test, which can now be run.</p>
+</section>
+<section id="running-app-tests">
+<h2>Running App tests<a class="headerlink" href="#running-app-tests" title="Link to this heading"></a></h2>
+<p>To run App tests, either a single one or multiple/all tests of an App, you can use the integrated script editor or VSCode. You can also execute tests from a script.</p>
+<section id="using-the-script-editor">
+<h3>Using the script editor<a class="headerlink" href="#using-the-script-editor" title="Link to this heading"></a></h3>
+<p>To run the tests of a specific test script, use the context menu and select “Run tests…”.</p>
+<p><img alt="" src="../../_images/execute_tests_command.jpg" /></p>
+<p>You can use this context also on higher levels of the file hierarchy, e.g. to execute all tests of a folder or of the complete App.</p>
+<p>Results will be shown in the log of the script editor.</p>
+<p><img alt="" src="../../_images/test_log.jpg" /></p>
+</section>
+<section id="using-vscode">
+<h3>Using VSCode<a class="headerlink" href="#using-vscode" title="Link to this heading"></a></h3>
+<p>The ZEISS INSPECT App extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
+To use this feature, navigate to the “Testing” workspace of VSCode and select the test items you want to run.</p>
+<p><img alt="" src="../../_images/vscode_testing.jpg" /></p>
+</section>
+<section id="from-scripts">
+<h3>From scripts<a class="headerlink" href="#from-scripts" title="Link to this heading"></a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">execute_addon_tests</span></code> command to run tests of an App. It takes the App UUID as mandatory argument. If solely given, all tests of the App are executed. You can also provide a list of test paths with the argument <code class="docutils literal notranslate"><span class="pre">test_paths</span></code> in form of relative paths inside the App. The suffix <code class="docutils literal notranslate"><span class="pre">#test_&lt;...&gt;</span></code> indicates, which test function to run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_addon_tests_draft</span><span class="p">(</span><span class="n">addon_uuid</span><span class="o">=</span><span class="s1">&#39;5f396cc9-7865-44a1-8a85-ed7c1689dd68&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">execute_addon_tests_draft</span><span class="p">(</span><span class="n">addon_uuid</span><span class="o">=</span><span class="s1">&#39;5f396cc9-7865-44a1-8a85-ed7c1689dd68&#39;</span><span class="p">,</span> 
+	<span class="n">test_paths</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/PythonApiExamples/tests/test_dialog_widgets_explorer_selection#test_explorer_selection&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This will give you <code class="docutils literal notranslate"><span class="pre">results</span></code> as a list of tuples (test name, success, error message), which you can use for further evaluation.</p>
+</section>
+</section>
+<section id="working-with-test-data">
+<h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Link to this heading"></a></h2>
+<p>In the namespace <code class="docutils literal notranslate"><span class="pre">addon</span></code>, there are two new classes: <code class="docutils literal notranslate"><span class="pre">addon.ArrayDataTest</span></code> and <code class="docutils literal notranslate"><span class="pre">addon.ElementTest</span></code>.</p>
+<p>These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by <code class="docutils literal notranslate"><span class="pre">test_data_interfaces_volume_section.py</span></code> of the Python API Examples App.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addon</span> <span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
+<span class="kn">from</span> <span class="nn">PythonApiExamples.setup_project</span> <span class="kn">import</span> <span class="n">open_project</span>
+
+<span class="c1"># Importing the example we want to test</span>
+<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span> <span class="k">as</span> <span class="nn">example</span>
+
+<span class="k">def</span> <span class="nf">test_volume_section</span><span class="p">():</span>
+	<span class="c1"># Setup test project</span>
+	<span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;volume_test_project&#39;</span><span class="p">)</span>
+	<span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane X +40.00 mm&#39;</span><span class="p">]</span>
+	<span class="c1">#</span>
+	<span class="c1"># TEST</span>
+	<span class="c1">#</span>
+	<span class="n">element_test</span> <span class="o">=</span> <span class="n">ElementTest</span><span class="p">(</span><span class="s1">&#39;test_data/data_interfaces_volume_section_tokens.dat&#39;</span><span class="p">)</span>
+	<span class="n">element_test</span><span class="o">.</span><span class="n">testElementValues</span><span class="p">(</span><span class="n">test_element</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;image_width&#39;</span><span class="p">,</span> <span class="s1">&#39;image_height&#39;</span><span class="p">,</span> <span class="s1">&#39;image_type&#39;</span><span class="p">])</span>
+	<span class="n">element_test</span><span class="o">.</span><span class="n">callTest</span><span class="p">()</span>
+
+	<span class="n">raw_array</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_image_data_raw</span><span class="p">(</span><span class="n">test_element</span><span class="p">)</span>
+	<span class="n">raw_array_test</span> <span class="o">=</span> <span class="n">ArrayDataTest</span><span class="p">(</span><span class="s1">&#39;test_data/data_interfaces_volume_section_raw.dat&#39;</span><span class="p">)</span>
+	<span class="n">raw_array_test</span><span class="o">.</span><span class="n">testArrayValues</span><span class="p">(</span><span class="n">raw_array</span><span class="p">)</span>
+
+	<span class="n">rgb_array</span> <span class="o">=</span> <span class="n">example</span><span class="o">.</span><span class="n">get_image_data_rgb</span><span class="p">(</span><span class="n">test_element</span><span class="p">)</span>
+	<span class="n">rgb_array_test</span> <span class="o">=</span> <span class="n">ArrayDataTest</span><span class="p">(</span><span class="s1">&#39;test_data/data_interfaces_volume_section_rgb.dat&#39;</span><span class="p">)</span>
+	<span class="n">rgb_array_test</span><span class="o">.</span><span class="n">testArrayValues</span><span class="p">(</span><span class="n">rgb_array</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can see, that <code class="docutils literal notranslate"><span class="pre">ElementTest</span></code> can be used to access element properties easily. <code class="docutils literal notranslate"><span class="pre">ArrayDataTest</span></code> is used for <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array comparison.
+The path, where test data is stored, is supplied in the constructors (e.g. <code class="docutils literal notranslate"><span class="pre">ElementTest('test_data/data_interfaces_volume_section_tokens.dat')</span></code>).
+If a relative path is given, like here, a resource inside the App is created / compared with. You can also use absolute paths to a file on your disk, but this is not recommended since not everyone that installed your App has access to this test data.</p>
+<p>These classes will <strong>create the test data</strong> for you, if you run the test execution via “Run tests (create data)…”.</p>
+<p><img alt="" src="../../_images/run_tests_create_data.jpg" /></p>
+<p>In a “normal” test run, data will be compared to the stored resources.</p>
+</section>
+<section id="testing-apps-with-dialogs">
+<h2>Testing Apps with dialogs<a class="headerlink" href="#testing-apps-with-dialogs" title="Link to this heading"></a></h2>
+<p>Normally, you would have to test Apps (or parts of it) using <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">user-defined dialogs</span></a> manually, but the Python class <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> allows automated testing.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p><img alt="Example dialog" src="../../_images/that_dialog.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
+   <span class="n">dialog</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;dialog.gdlg&#39;</span><span class="p">)</span>
+
+   <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="s1">&#39;initialize&#39;</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been initialized.&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been closed via the button&#39;</span><span class="p">)</span>
+         <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">close_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">dialog</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">&#39;buttonresult&#39;</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The text field has been changed to contain </span><span class="si">{</span><span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+   <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">handler</span>
+
+   <span class="k">try</span><span class="p">:</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">dialog</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The result of the dialog is:</span><span class="se">\n</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+   <span class="k">except</span> <span class="n">gom</span><span class="o">.</span><span class="n">BreakError</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog was canceled&#39;</span><span class="p">)</span>
+      
+<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For automated testing, we provide a callback function for each test case covering this dialog. We can set input values, trigger the dialog handler with a specified event and emulate the dialog’s <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#control-widget"><span class="std std-ref">control widgets</span></a> (i.e. ‘Ok’ or ‘Cancel’ button). Note that each callback function evaluates the <code class="docutils literal notranslate"><span class="pre">dialog.title</span></code>. This allows to set up a function which can handle multiple dialogs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext1&#39;</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext2&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;close&#39;</span>
+
+    <span class="k">def</span> <span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+            <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext3&#39;</span>
+            <span class="k">return</span> <span class="s1">&#39;cancel&#39;</span>
+</pre></div>
+</div>
+<p>Finally we use <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> to run our unit-under-test — the function <code class="docutils literal notranslate"><span class="pre">code_that_contains_dialogs()</span></code> — while applying our callback functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dialogs.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback1&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback1</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback2&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback2</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback3&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback3</span><span class="p">):</span>
+	<span class="n">code_that_contains_dialogs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback1</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext1</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">closed</span> <span class="n">via</span> <span class="n">the</span> <span class="n">button</span>
+<span class="n">The</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dialog</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">buttonresult</span>
+
+<span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback2</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext2</span>
+<span class="n">The</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dialog</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">DialogResult</span> <span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">:</span> <span class="s1">&#39;autotext2&#39;</span><span class="p">)</span>
+
+<span class="n">Automatically</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">dialog</span> <span class="k">with</span> <span class="n">callback3</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">has</span> <span class="n">been</span> <span class="n">initialized</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">text</span> <span class="n">field</span> <span class="n">has</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">autotext3</span>
+<span class="n">The</span> <span class="n">dialog</span> <span class="n">was</span> <span class="n">canceled</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> provides a context for automatically interacting with dialogs which are shown via <code class="docutils literal notranslate"><span class="pre">gom.script.sys.show_user_defined_dialog</span></code>.
+<code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> is a context manager (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#context-managers">https://docs.python.org/3/reference/datamodel.html#context-managers</a>),
+which can be used together with the “with” statement (<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with">https://docs.python.org/3/reference/compound_stmts.html#with</a>).</p>
+<p>Its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).</p>
+<p>Interaction with the control buttons of the dialog is done via the return value of the callback:</p>
+<ul class="simple">
+<li><p>If the dialog should be closed via the close button, the callback should return ‘close’.</p></li>
+<li><p>If the dialog should be closed via the cancel button (BreakError), the callback should return ‘cancel’.</p></li>
+<li><p>If the dialog does not need to be closed by automatic control button interaction,
+but will close itself by some other interaction, the callback should return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="running-app-tests-with-code-coverage">
+<h2>Running App tests with code coverage<a class="headerlink" href="#running-app-tests-with-code-coverage" title="Link to this heading"></a></h2>
+<p>Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. The App <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/examples/TemplateUnittestCoverage">TemplateUnittestCoverage</a> / <a class="reference external" href="https://raw.githubusercontent.com/ZEISS/zeiss-inspect-app-examples/main/addons/TemplateUnittestCoverage.addon">TemplateUnittestCoverage.addon</a> provides a template for running unit tests and generating a code coverage report.</p>
+<p>The test case structure is the same as described in the preceding sections, but to generate a coverage report, the tests must be run with the script <a class="reference external" href="https://github.com/ZeissIQS/AddOnExamples/blob/main/examples/TemplateUnittestCoverage/scripts/run_tests.py">run_tests.py</a> while the App is in editing mode.</p>
+<p>With the provided example, the test results are shown as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">case</span> <span class="n">folder</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>
+<span class="o">--</span> <span class="n">Project</span> <span class="n">keywords</span> <span class="o">--</span>
+<span class="n">user_project</span><span class="o">=</span><span class="s1">&#39;Test Project&#39;</span>
+<span class="n">user_inspector</span><span class="o">=</span><span class="s1">&#39;Clouseau&#39;</span>
+<span class="n">F</span>
+<span class="n">F</span><span class="o">.</span>
+<span class="p">{</span><span class="s1">&#39;user_project&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Project Name&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;Test Project&#39;</span><span class="p">},</span> <span class="s1">&#39;user_inspector&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Inspector&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;Clouseau&#39;</span><span class="p">}}</span>
+<span class="o">.</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">unittest</span><span class="o">.</span><span class="n">case</span><span class="o">.</span><span class="n">FunctionTestCase</span> <span class="p">(</span><span class="n">test_blackbox</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\&lt;USERID&gt;\AppData\Roaming\gom</span><span class="se">\202</span><span class="s2">3\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts</span><span class="se">\t</span><span class="s2">ests</span><span class="se">\t</span><span class="s2">est_blackbox.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">28</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_blackbox</span>
+    <span class="k">assert</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_project&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Test Projet&#39;</span> <span class="c1"># intended to fail</span>
+<span class="ne">AssertionError</span>
+
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">unittest</span><span class="o">.</span><span class="n">case</span><span class="o">.</span><span class="n">FunctionTestCase</span> <span class="p">(</span><span class="n">test_fail</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\&lt;USERID&gt;\AppData\Roaming\gom</span><span class="se">\202</span><span class="s2">3\gom_edited_addons\d569d88b-a493-4298-ad4a-0875f5173ce1\scripts</span><span class="se">\t</span><span class="s2">ests</span><span class="se">\t</span><span class="s2">est_fail.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">14</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_fail</span>
+    <span class="k">assert</span> <span class="kc">False</span>
+<span class="ne">AssertionError</span>
+
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.441</span><span class="n">s</span>
+
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The textual test coverage report is shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>                                                                                                                                <span class="n">Stmts</span>   <span class="n">Miss</span>  <span class="n">Cover</span>
+<span class="o">-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_blackbox</span><span class="o">.</span><span class="n">py</span>        <span class="mi">9</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_fail</span><span class="o">.</span><span class="n">py</span>            <span class="mi">3</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_pass</span><span class="o">.</span><span class="n">py</span>            <span class="mi">3</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">test_whitebox</span><span class="o">.</span><span class="n">py</span>        <span class="mi">6</span>      <span class="mi">0</span>   <span class="mi">100</span><span class="o">%</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">USERID</span><span class="o">&gt;</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">GOM</span>\<span class="mi">2023</span>\<span class="n">gom_edited_addons</span>\<span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">uut_project_keywords</span><span class="o">.</span><span class="n">py</span>      <span class="mi">19</span>      <span class="mi">1</span>    <span class="mi">95</span><span class="o">%</span>
+<span class="o">-------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">TOTAL</span>                                                                                                                                  <span class="mi">40</span>      <span class="mi">1</span>    <span class="mi">98</span><span class="o">%</span>
+
+<span class="n">HTML</span> <span class="n">coverage</span> <span class="n">report</span><span class="p">:</span>
+<span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/&lt;</span><span class="n">USERID</span><span class="o">&gt;/</span><span class="n">AppData</span><span class="o">/</span><span class="n">Roaming</span><span class="o">/</span><span class="n">gom</span><span class="o">/</span><span class="mi">2023</span><span class="o">/</span><span class="n">gom_edited_addons</span><span class="o">/</span><span class="n">d569d88b</span><span class="o">-</span><span class="n">a493</span><span class="o">-</span><span class="mi">4298</span><span class="o">-</span><span class="n">ad4a</span><span class="o">-</span><span class="mi">0875</span><span class="n">f5173ce1</span>\<span class="n">scripts</span>\<span class="n">tests</span>\<span class="n">coverage_html</span>\<span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The HTML coverage report summary shows the same information:</p>
+<p><img alt="HTML coverage report, summary" src="../../_images/coverage-1.jpeg" /></p>
+<p>Clicking a module shows a detailed report with code lines marked as run (green), missing (red) or excluded (gray). A code section (single line or begin of block) can be excluded from the coverage report with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code>.</p>
+<p><img alt="HTML coverage report, file based" src="../../_images/coverage-2.jpeg" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../starting_options/starting_options.html" class="btn btn-neutral float-left" title="Software and script starting options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../scripting_solutions/scripting_solutions.html" class="btn btn-neutral float-right" title="Scripting solutions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fdc7b6c2a10>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

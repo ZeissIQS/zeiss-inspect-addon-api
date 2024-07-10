@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripted_actual_volume &mdash; App Development Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+
+  
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/python_examples/scripted_actuals/scripted_actual_volume.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="scripted_actual_volume_defects" href="scripted_actual_volume_defects.html" />
+    <link rel="prev" title="scripted_actual_section" href="scripted_actual_section.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            App Development Documentation
+              <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_app_editor/using_app_editor.html">Using the App Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/app_file_format/app_file_format.html">App file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/app_documentation/app_documentation.html">Documenting Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/python_api_introduction/using_script_resources.html">Using script resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/stages/stages.html">Working with stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howtos/faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script_resources.html">script_resources</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scripted_actuals.html">scripted_actuals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="offset_point_simple.html">offset_point_simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offset_point_v2.html">offset_point_v2 (Includes preview calculation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_distance.html">scripted_actual_distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_circle.html">scripted_actual_circle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_curve.html">scripted_actual_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_surface_curve.html">scripted_actual_surface_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_cylinder.html">scripted_actual_cylinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_cone.html">scripted_actual_cone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_surface.html">scripted_actual_surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_point_cloud.html">scripted_actual_point_cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_section.html">scripted_actual_section</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">scripted_actual_volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_volume_defects.html">scripted_actual_volume_defects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_volume_region.html">scripted_actual_volume_region</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_actual_volume_section.html">scripted_actual_volume_section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh_deform_mesh.html">trimesh_deform_mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripted_element_progress.html">scripted_element_progress</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripted_checks.html">scripted_checks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT App Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">App Development Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../scripted_actuals.html">scripted_actuals</a></li>
+      <li class="breadcrumb-item active">scripted_actual_volume</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripted-actual-volume">
+<h1>scripted_actual_volume<a class="headerlink" href="#scripted-actual-volume" title="Link to this heading"></a></h1>
+<p><img alt="Scripted volume element example" src="../../_images/scripted_actual_volume.png" /></p>
+<p>This is an example for a scripted ‘volume’ element. The volume data is created as an np.array of shape 70×70×70. Each element defines a voxel with a default gray value <code class="docutils literal notranslate"><span class="pre">gv1</span></code> (<code class="docutils literal notranslate"><span class="pre">calculation()</span></code>, lines 11&amp;12). The function <code class="docutils literal notranslate"><span class="pre">set_voxeldata()</span></code> changes some of the gray values to <code class="docutils literal notranslate"><span class="pre">gv2</span></code> (line 13). The resulting volume object resembles a die. Finally the volume data is padded in each direction with voxels of the background gray value <code class="docutils literal notranslate"><span class="pre">gv0</span></code>.</p>
+<p>The dialog allows to set the gray values and to apply a transformation to the volume element.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The voxel (measurement) coordinate system may differ from the CAD coordinate system.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please see <a class="reference internal" href="offset_point_v2.html"><span class="std std-doc">offset_point_v2.md</span></a> for a complete scripted elements example with detailed description.</p>
+</div>
+<section id="function-for-setting-voxel-data">
+<h2>Function for setting voxel data<a class="headerlink" href="#function-for-setting-voxel-data" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">set_voxeldata</span><span class="p">(</span><span class="n">voxels</span><span class="p">,</span> <span class="n">gv</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the gray value of some voxels</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">    :param voxels: np.array() of shape (70, 70, 70)</span>
+<span class="linenos"> 5</span><span class="sd">    :param gv: gray value to set</span>
+<span class="linenos"> 6</span><span class="sd">    :param e: extend around (fixed) nominal voxel coordinate</span>
+<span class="linenos"> 7</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>    <span class="c1"># (1) - front</span>
+<span class="linenos">10</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">11</span>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">12</span>            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">13</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">35</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">35</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="c1"># (6) - back</span>
+<span class="linenos">16</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">17</span>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">18</span>            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">19</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">15</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">15</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">20</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">15</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">35</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">21</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">15</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">55</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">22</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">55</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">15</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">23</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">55</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">35</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">24</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">55</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">55</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>    <span class="c1"># (3) - top</span>
+<span class="linenos">27</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">28</span>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">29</span>            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">30</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">15</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">15</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">31</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">35</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">35</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">32</span>                <span class="n">voxels</span><span class="p">[</span><span class="mi">55</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">55</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">69</span> <span class="o">-</span> <span class="n">e</span> <span class="o">+</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">gv</span>
+<span class="linenos">33</span>    <span class="c1">#[...]</span>
+</pre></div>
+</div>
+</section>
+<section id="dialog-and-calculation-functions">
+<h2>Dialog and calculation functions<a class="headerlink" href="#dialog-and-calculation-functions" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="c1">#[...]</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="n">e</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="linenos"> 8</span>    <span class="n">gv0</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;gv_background&#39;</span><span class="p">]</span>
+<span class="linenos"> 9</span>    <span class="n">gv1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;gv_mat1&#39;</span><span class="p">]</span>
+<span class="linenos">10</span>    <span class="n">gv2</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;gv_mat2&#39;</span><span class="p">]</span>
+<span class="linenos">11</span>    <span class="n">voxels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">voxels</span> <span class="o">=</span> <span class="n">voxels</span> <span class="o">*</span> <span class="n">gv1</span>
+<span class="linenos">13</span>    <span class="n">set_voxeldata</span><span class="p">(</span><span class="n">voxels</span><span class="p">,</span> <span class="n">gv2</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="n">voxels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">voxels</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">gv0</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="n">rx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rx&#39;</span><span class="p">]</span>
+<span class="linenos">17</span>    <span class="n">ry</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;ry&#39;</span><span class="p">]</span>
+<span class="linenos">18</span>    <span class="n">rz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;rz&#39;</span><span class="p">]</span>
+<span class="linenos">19</span>    <span class="n">dx</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">]</span>
+<span class="linenos">20</span>    <span class="n">dy</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span>
+<span class="linenos">21</span>    <span class="n">dz</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="n">transformation</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Mat4x4</span><span class="p">([</span>
+<span class="linenos">24</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
+<span class="linenos">25</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dx</span> <span class="o">-</span> <span class="mi">35</span><span class="p">,</span>
+<span class="linenos">26</span>        <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span>
+<span class="linenos">27</span>        <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dy</span> <span class="o">-</span> <span class="mi">35</span><span class="p">,</span>
+<span class="linenos">28</span>        <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">ry</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rx</span><span class="p">),</span> <span class="n">dz</span> <span class="o">-</span> <span class="mi">35</span><span class="p">,</span>
+<span class="linenos">29</span>        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="linenos">30</span>    <span class="p">])</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>    <span class="c1"># Calculating all available stages</span>
+<span class="linenos">33</span>    <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+<span class="linenos">34</span>        <span class="c1"># Access element properties with error handling</span>
+<span class="linenos">35</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">36</span>            <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;voxel_data&#39;</span><span class="p">:</span> <span class="n">voxels</span><span class="p">,</span> <span class="s1">&#39;transformation&#39;</span><span class="p">:</span> <span class="n">transformation</span><span class="p">}</span>
+<span class="linenos">37</span>            <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ude_mykey&quot;</span><span class="p">:</span> <span class="s2">&quot;Example 11&quot;</span><span class="p">}</span>
+<span class="linenos">38</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="linenos">39</span>            <span class="n">context</span><span class="o">.</span><span class="n">error</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="linenos">40</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">41</span>            <span class="n">valid_results</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">42</span>    <span class="k">return</span> <span class="n">valid_results</span>
+</pre></div>
+</div>
+</section>
+<section id="related">
+<h2>Related<a class="headerlink" href="#related" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../python_api/scripted_elements_api.html#volume"><span class="std std-ref">Scripted actuals - Section</span></a></p></li>
+<li><p><a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">How-to: User-defined dialogs</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scripted_actual_section.html" class="btn btn-neutral float-left" title="scripted_actual_section" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripted_actual_volume_defects.html" class="btn btn-neutral float-right" title="scripted_actual_volume_defects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+  <p></p>
+  <div class="footer">
+    <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
+  </div>
+  <jinja2.runtime.BlockReference object at 0x7fdc7c4ad7b0>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
