@@ -1,3 +1,9 @@
+---
+myst:
+   html_meta:
+      "description": "Examples for using the ZEISS INSPECT 2023 App Python API"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples"
+---
 # ZEISS INSPECT App Examples Overview
 
 ## data_interfaces
@@ -82,35 +88,35 @@
 
 ## Tag Index
 
-### ![Static Badge](https://img.shields.io/badge/curve-blue)
+### <a id="curve">![Static Badge](https://img.shields.io/badge/curve-blue)<a>
 
 * <a href="#ScriptedCurveCheck">ScriptedCurveCheck</a>
 
 
-### ![Static Badge](https://img.shields.io/badge/scalar-blue)
+### <a id="scalar">![Static Badge](https://img.shields.io/badge/scalar-blue)<a>
 
 * <a href="#ScriptedScalarCheck">ScriptedScalarCheck</a>
 
 
-### ![Static Badge](https://img.shields.io/badge/scripted--actual-blue)
+### <a id="scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)<a>
 
 * <a href="#TrimeshDeformMesh">TrimeshDeformMesh</a>
 
 
-### ![Static Badge](https://img.shields.io/badge/scripted--check-blue)
+### <a id="scripted-check">![Static Badge](https://img.shields.io/badge/scripted--check-blue)<a>
 
 * <a href="#ScriptedCurveCheck">ScriptedCurveCheck</a>
 * <a href="#ScriptedScalarCheck">ScriptedScalarCheck</a>
 * <a href="#ScriptedSurfaceCheck">ScriptedSurfaceCheck</a>
 
 
-### ![Static Badge](https://img.shields.io/badge/surface-blue)
+### <a id="surface">![Static Badge](https://img.shields.io/badge/surface-blue)<a>
 
 * <a href="#ScriptedSurfaceCheck">ScriptedSurfaceCheck</a>
 * <a href="#TrimeshDeformMesh">TrimeshDeformMesh</a>
 
 
-### ![Static Badge](https://img.shields.io/badge/xray-blue)
+### <a id="xray">![Static Badge](https://img.shields.io/badge/xray-blue)<a>
 
 * <a href="#ScriptedActualVolume">ScriptedActualVolume</a>
 * <a href="#ScriptedActualVolumeDefects">ScriptedActualVolumeDefects</a>
