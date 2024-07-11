@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Creating wizard dialogs" href="creating_wizard_dialogs.html" />
-    <link rel="prev" title="Using Visual Studio Code as an App editor" href="../using_vscode_editor/using_vscode_editor.html" /> 
+    <link rel="prev" title="Selecting a file or folder" href="file_selection_dialog.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">User-defined Dialogs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#creating-dialogs">Creating dialogs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dialog-designer">Dialog designer</a></li>
@@ -1600,7 +1601,7 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 <tr class="row-even"><td><p>value</p></td>
 <td><p>(special)</p></td>
-<td><p><pre>if DIALOG.selectElement.value != None:</pre></p></td>
+<td><p><pre>if DIALOG.selectElement.value != None:</pre><em>Note:</em><br>May also be <code class="docutils literal notranslate"><span class="pre">None</span></code> for user-defined <code class="docutils literal notranslate"><span class="pre">filter</span></code> and <code class="docutils literal notranslate"><span class="pre">use_not_defined</span></code> enabled.</p></td>
 </tr>
 <tr class="row-odd"><td><p>focus</p></td>
 <td><p>bool</p></td>
@@ -1618,17 +1619,25 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <td><p>function</p></td>
 <td><p>Element filter function for the ‘custom’ supplier. See example below.</p></td>
 </tr>
+<tr class="row-odd"><td><p>fast_filter</p></td>
+<td><p>bool</p></td>
+<td><p>Switch expected filter function signature, bulk vs. single element:<br/><ul><li><code class="docutils literal notranslate"><span class="pre">True</span></code>: List of elements → Iterable of bools</li><li><code class="docutils literal notranslate"><span class="pre">False</span></code>: Single element → bool</li></ul><em>Default:</em> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>use_not_defined</p></td>
+<td><p>bool</p></td>
+<td><p>Enable to initially show an empty choice for user-defined filter functions,<br>i.e. like the other element types.<br/> <em>Default:</em> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
 </tbody>
 </table>
 <p>The following script shows how to use a custom filter for element selection. The example filter allows the user to select a system plane:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG4</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DIALOG4</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dialog_event_handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="c1"># filter system planes</span>
-<span class="k">def</span> <span class="nf">element_filter</span><span class="p">(</span> <span class="n">element</span> <span class="p">):</span>
+<span class="k">def</span> <span class="nf">element_filter</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;plane&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -1639,9 +1648,18 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">handler</span> <span class="o">=</span> <span class="n">dialog_event_handler</span>
 <span class="n">DIALOG4</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">element_filter</span>
 
-<span class="n">RESULT</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG4</span><span class="p">)</span>
+<span class="c1"># Alternative: use fast filtering</span>
+<span class="c1"># from typing import Iterable</span>
+<span class="c1">#</span>
+<span class="c1"># def fast_element_filter(*elements) -&gt; Iterable[bool]:</span>
+<span class="c1">#     return [element_filter(e) for e in elements]</span>
+<span class="c1">#</span>
+<span class="c1"># DIALOG4.input_new.fast_filter = True</span>
+<span class="c1"># DIALOG4.input_new.filter = fast_element_filter</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chosen system plane:&quot;</span><span class="p">,</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">RESULT</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">show_user_defined_dialog</span><span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="n">DIALOG4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chosen system plane: &#39;</span><span class="p">,</span> <span class="n">RESULT</span><span class="o">.</span><span class="n">input_new</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Please find the complete example here: <a class="reference download internal" download="" href="../../_downloads/103208b9004accadabdd7dfe3eea9371/dialog_custom_elem_select.py"><span class="xref download myst">dialog_custom_elem_select.py</span></a></p>
@@ -2548,7 +2566,7 @@ about its attributes:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../using_vscode_editor/using_vscode_editor.html" class="btn btn-neutral float-left" title="Using Visual Studio Code as an App editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="file_selection_dialog.html" class="btn btn-neutral float-left" title="Selecting a file or folder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="creating_wizard_dialogs.html" class="btn btn-neutral float-right" title="Creating wizard dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -2566,7 +2584,7 @@ about its attributes:</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7f9994b880>
+  <jinja2.runtime.BlockReference object at 0x7fd2d4971480>
 
 
 </footer>

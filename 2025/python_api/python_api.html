@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/app_file_format/app_file_format.html">App file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
@@ -122,6 +123,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-interpreter">gom.api.interpreter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
 </ul>
 </li>
@@ -191,13 +195,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save">gom.api.script_resources.save</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save-as">gom.api.script_resources.save_as</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-unload">gom.api.script_resources.unload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-curve-checkable">gom.api.scripted_checks_util.is_curve_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-scalar-checkable">gom.api.scripted_checks_util.is_scalar_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-surface-checkable">gom.api.scripted_checks_util.is_surface_checkable</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-services-service">gom.api.services.Service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-autostart">gom.api.services.Service.get_autostart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-endpoint">gom.api.services.Service.get_endpoint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-id">gom.api.services.Service.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-name">gom.api.services.Service.get_name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-number-of-instances">gom.api.services.Service.get_number_of_instances</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-status">gom.api.services.Service.get_status</a></li>
@@ -888,6 +894,12 @@ camera positions through the given pixels. The pixel coordinate system center is
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-interpreter">
+<h2>gom.api.interpreter<a class="headerlink" href="#gom-api-interpreter" title="Link to this heading"></a></h2>
+<p>API for accessing python script interpreter properties</p>
+<p>This API can access properties and states of the python script interpreters. It is used
+mainly for internal debugging and introspection scenarios.</p>
 <section id="gom-api-interpreter-get-pid">
 <h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -1802,6 +1814,66 @@ for various image variants.</p>
 </dd></dl>
 
 </section>
+<section id="gom-api-scripted-checks-util-is-curve-checkable">
+<h3>gom.api.scripted_checks_util.is_curve_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-curve-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_curve_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a curve check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-scalar-checkable">
+<h3>gom.api.scripted_checks_util.is_scalar_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-scalar-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_scalar_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a scalar check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-surface-checkable">
+<h3>gom.api.scripted_checks_util.is_surface_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-surface-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_surface_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a surface check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
 </section>
 <section id="gom-api-services">
 <h2>gom.api.services<a class="headerlink" href="#gom-api-services" title="Link to this heading"></a></h2>
@@ -1854,28 +1926,6 @@ the service management dialog.</p>
 </dd></dl>
 
 <p>This function returns the endpoint identifier this service is covering, like ‘gom.api.services’.</p>
-</section>
-<section id="gom-api-services-service-get-id">
-<h4>gom.api.services.Service.get_id<a class="headerlink" href="#gom-api-services-service-get-id" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_id():</span> <span class="pre">UUID</span></span></dt>
-<dd><p>Return the unique id (uuid) of this service</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service uuid</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p>This function returns the uuid associated with service. The id can be used to
-uniquely address the service and is the same UUID as the app the service originates from.</p>
 </section>
 <section id="gom-api-services-service-get-name">
 <h4>gom.api.services.Service.get_name<a class="headerlink" href="#gom-api-services-service-get-name" title="Link to this heading"></a></h4>
@@ -2326,7 +2376,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7f99dda1d0>
+  <jinja2.runtime.BlockReference object at 0x7fd2d37199c0>
 
 
 </footer>
