@@ -476,6 +476,13 @@ print (points)
 [[gom.Vec3d (-702.53, 1690.84, -22.37), 0.121], [gom.Vec3d (-638.25, 1627.62, -27.13), 0.137]]
 ```
 
+## gom.api.interpreter
+
+API for accessing python script interpreter properties
+
+This API can access properties and states of the python script interpreters. It is used
+mainly for internal debugging and introspection scenarios.
+
 ### gom.api.interpreter.get_pid
 
 ```{py:function} gom.api.interpreter.get_pid(): int
@@ -1057,6 +1064,42 @@ Unload resource from shared memory
 :rtype: bool
 ```
 
+
+### gom.api.scripted_checks_util.is_curve_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_curve_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a curve check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
+
+### gom.api.scripted_checks_util.is_scalar_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_scalar_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a scalar check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
+
+### gom.api.scripted_checks_util.is_surface_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_surface_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a surface check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
 
 ## gom.api.services
 
