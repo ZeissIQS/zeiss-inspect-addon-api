@@ -66,6 +66,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/app_file_format/app_file_format
    howtos/app_documentation/app_documentation
    howtos/using_vscode_editor/using_vscode_editor
+   howtos/python_api_introduction/file_selection_dialog
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
    howtos/using_gui_libraries/using_gui_libraries
