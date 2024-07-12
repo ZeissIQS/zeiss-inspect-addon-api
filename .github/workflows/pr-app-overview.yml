@@ -33,7 +33,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           #source_branch: overview-update
           target_branch: ${{ format('{0}', steps.target.outputs.target_branch) }}
-          title: ${{ format('Python API documentation update pull request ({0})', steps.target.outputs.target_branch) }}
+          title: ${{ format('App examples overview update pull request ({0})', steps.target.outputs.target_branch) }}
           #template: .github/PULL_REQUEST_TEMPLATE.md
           body: "**Automated pull request**"
           reviewer: ${{ format('{0}', steps.reviewers.outputs.reviewers) }}
