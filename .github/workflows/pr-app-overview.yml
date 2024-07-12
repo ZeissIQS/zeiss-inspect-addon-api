@@ -1,9 +1,10 @@
 # see https://github.com/marketplace/actions/github-action-for-creating-pull-requests
 name: Update App Examples Overview
 on:
-  push:
-    branches:
-      - overview-update
+  workflow_dispatch:
+  #push:
+  #  branches:
+  #    - overview-update
 jobs:
   UpdateAppOverviewPr:
     runs-on: ubuntu-latest
