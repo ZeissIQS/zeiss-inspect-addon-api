@@ -21,7 +21,7 @@ myst:
 # ZEISS INSPECT App Examples Overview
 
 ## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
-
+<hr>
 <section id="referencepointsandmeshdata">
 <div id="referencepointsandmeshdata" class="example-block-odd">
 <h3>ReferencePointsAndMeshData — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md">view</a> / 
@@ -87,7 +87,7 @@ myst:
 
 
 ## dialog_widgets &mdash; How to use custom dialogs and handle user input events
-
+<hr>
 <section id="widgetvisibility">
 <div id="widgetvisibility" class="example-block-odd">
 <h3>WidgetVisibility — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / 
