@@ -21,7 +21,9 @@ myst:
         margin-top: 24px;
         margin-bottom: 4px;
     }
-
+    .rst-content h2 {
+        margin-bottom: 4px;
+    }
     .small-margin {
         margin-top: 4px;
     }
