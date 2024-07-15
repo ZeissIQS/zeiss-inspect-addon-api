@@ -10,7 +10,7 @@ myst:
 
 <div style="background-color: #f3f6f6;">
 
-### <a id="CheckResultsDataArray">CheckResultsDataArray</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
+### <div style="color: #000000;"><a id="CheckResultsDataArray">CheckResultsDataArray</a></style> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
 
 :Description:
     This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.
