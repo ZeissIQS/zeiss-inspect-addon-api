@@ -21,7 +21,7 @@ myst:
 ## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
 
 
-<div class="example-block-odd">
+<section class="example-block-odd">
 
 ### <a id="ReferencePointsAndMeshData" class="link-target">ReferencePointsAndMeshData</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ReferencePointsAndMeshData)
 
@@ -35,10 +35,10 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces)
 
 
-</div>
+</section>
 
 
-<div class="example-block-even">
+<section class="example-block-even">
 
 ### <a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
 
@@ -52,10 +52,10 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#access-element-properties)
 
 
-</div>
+</section>
 
 
-<div class="example-block-odd">
+<section class="example-block-odd">
 
 ### <a id="VolumeSectionImageData" class="link-target">VolumeSectionImageData</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/VolumeSectionImageData)
 
@@ -69,7 +69,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces)
 
 
-</div>
+</section>
 
 
 ## dialog_widgets &mdash; How to use custom dialogs and handle user input events
@@ -86,10 +86,10 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
 
 
-</div>
+</section>
 
 
-<div class="example-block-even">
+<section class="example-block-even">
 
 ### <a id="UnitDialogEventHandler" class="link-target">UnitDialogEventHandler</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/UnitDialogEventHandler)
 
@@ -100,10 +100,10 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget)
 
 
-</div>
+</section>
 
 
-<div class="example-block-odd">
+<section class="example-block-odd">
 
 ### <a id="ExplorerSelectedElementsInDialog" class="link-target">ExplorerSelectedElementsInDialog</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ExplorerSelectedElementsInDialog)
 
@@ -117,10 +117,10 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-element-widget)
 
 
-</div>
+</section>
 
 
-<div class="example-block-even">
+<section class="example-block-even">
 
 ### <a id="DropdownWidget" class="link-target">DropdownWidget</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/DropdownWidget)
 
@@ -137,7 +137,7 @@ myst:
 ## misc &mdash; Miscellaneous
 
 
-<div class="example-block-odd">
+<section class="example-block-odd">
 
 ### <a id="CSVExample" class="link-target">CSVExample</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CSVExample)
 
@@ -148,7 +148,7 @@ myst:
     [zeiss_part_test_project](#example-projects)
 
 
-</div>
+</section>
 
 
 <div class="example-block-even">
@@ -162,10 +162,10 @@ myst:
     [HowTo]( https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#executing-dialogs)
 
 
-</div>
+</section>
 
 
-<div class="example-block-odd">
+<div section="example-block-odd">
 
 ### <a id="PointPixelTransformations" class="link-target">PointPixelTransformations</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/PointPixelTransformations)
 
@@ -179,7 +179,7 @@ myst:
     [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging)
 
 
-</div>
+</section>
 
 
 ## projects &mdash; ZEISS INSPECT projects
