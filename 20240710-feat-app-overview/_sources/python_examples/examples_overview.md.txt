@@ -4,13 +4,18 @@ myst:
       "description": "Examples for using the ZEISS INSPECT 2023 App Python API"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples"
 ---
+<style>
+    .link-target {
+        color: #000000;
+    }
+</style>
 # ZEISS INSPECT App Examples Overview
 
 ## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
 
 <div style="background-color: #f3f6f6;">
 
-### <div style="color: #000000;"><a id="CheckResultsDataArray">CheckResultsDataArray</a></style> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
+### <a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
 
 :Description:
     This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.
