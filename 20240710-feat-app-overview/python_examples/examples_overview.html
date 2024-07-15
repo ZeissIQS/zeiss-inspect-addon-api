@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="Examples for using the ZEISS INSPECT 2023 App Python API" name="description" />
+<meta content="Examples for using the ZEISS INSPECT 2025 App Python API" name="description" />
 <meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -80,59 +80,59 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">ZEISS INSPECT Python API Examples Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Examples Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#data-interfaces-how-to-access-data-of-zeiss-inspect-elements">data_interfaces — How to access data of ZEISS INSPECT elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#referencepointsandmeshdata-view-download"><a id="ReferencePointsAndMeshData" class="link-target">ReferencePointsAndMeshData</a> — view / download</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checkresultsdataarray-view-download"><a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#referencepointsandmeshdata-view-download"><a id="ReferencePointsAndMeshData">ReferencePointsAndMeshData</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#volumesectionimagedata-view-download"><a id="VolumeSectionImageData">VolumeSectionImageData</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volumesectionimagedata-view-download"><a id="VolumeSectionImageData" class="link-target">VolumeSectionImageData</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events">dialog_widgets — How to use custom dialogs and handle user input events</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dropdownwidget-view-download"><a id="DropdownWidget">DropdownWidget</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#explorerselectedelementsindialog-view-download"><a id="ExplorerSelectedElementsInDialog">ExplorerSelectedElementsInDialog</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unitdialogeventhandler-view-download"><a id="UnitDialogEventHandler">UnitDialogEventHandler</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#widgetvisibility-view-download"><a id="WidgetVisibility">WidgetVisibility</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#widgetvisibility-view-download"><a id="WidgetVisibility" class="link-target">WidgetVisibility</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unitdialogeventhandler-view-download"><a id="UnitDialogEventHandler" class="link-target">UnitDialogEventHandler</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explorerselectedelementsindialog-view-download"><a id="ExplorerSelectedElementsInDialog" class="link-target">ExplorerSelectedElementsInDialog</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dropdownwidget-view-download"><a id="DropdownWidget" class="link-target">DropdownWidget</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#misc-miscellaneous">misc — Miscellaneous</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#csvexample-view-download"><a id="CSVExample">CSVExample</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dialogreopenexample-view-download"><a id="DialogReopenExample">DialogReopenExample</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pointpixeltransformations-view-download"><a id="PointPixelTransformations">PointPixelTransformations</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvexample-view-download"><a id="CSVExample" class="link-target">CSVExample</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dialogreopenexample-view-download"><a id="DialogReopenExample" class="link-target">DialogReopenExample</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pointpixeltransformations-view-download"><a id="PointPixelTransformations" class="link-target">PointPixelTransformations</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#projects-zeiss-inspect-projects">projects — ZEISS INSPECT projects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exampleprojects-view-download"><a id="ExampleProjects">ExampleProjects</a> — view / download</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-building-custom-actual-elements-with-python-code">scripted_actuals — Building custom actual elements with Python code</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcircle-view-download"><a id="ScriptedActualCircle">ScriptedActualCircle</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcone-view-download"><a id="ScriptedActualCone">ScriptedActualCone</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcurve-view-download"><a id="ScriptedActualCurve">ScriptedActualCurve</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcylinder-view-download"><a id="ScriptedActualCylinder">ScriptedActualCylinder</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualdistance-view-download"><a id="ScriptedActualDistance">ScriptedActualDistance</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpoint-view-download"><a id="ScriptedActualPoint">ScriptedActualPoint</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpointcloud-view-download"><a id="ScriptedActualPointCloud">ScriptedActualPointCloud</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsection-view-download"><a id="ScriptedActualSection">ScriptedActualSection</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurface-view-download"><a id="ScriptedActualSurface">ScriptedActualSurface</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurfacecurve-view-download"><a id="ScriptedActualSurfaceCurve">ScriptedActualSurfaceCurve</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolume-view-download"><a id="ScriptedActualVolume">ScriptedActualVolume</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumedefects-view-download"><a id="ScriptedActualVolumeDefects">ScriptedActualVolumeDefects</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumeregion-view-download"><a id="ScriptedActualVolumeRegion">ScriptedActualVolumeRegion</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumesection-view-download"><a id="ScriptedActualVolumeSection">ScriptedActualVolumeSection</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedelementprogress-view-download"><a id="ScriptedElementProgress">ScriptedElementProgress</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trimeshdeformmesh-view-download"><a id="TrimeshDeformMesh">TrimeshDeformMesh</a> — view / download</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#scripted-checks-building-custom-checks-with-python-code">scripted_checks — Building custom checks with Python code</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedcurvecheck-view-download"><a id="ScriptedCurveCheck">ScriptedCurveCheck</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedscalarcheck-view-download"><a id="ScriptedScalarCheck">ScriptedScalarCheck</a> — view / download</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scriptedsurfacecheck-view-download"><a id="ScriptedSurfaceCheck">ScriptedSurfaceCheck</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exampleprojects-view-download"><a id="ExampleProjects" class="link-target">ExampleProjects</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#script-icons-how-to-set-icons-for-scripts-or-buttons">script_icons — How to set icons for scripts or buttons</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripticon-view-download"><a id="ScriptIcon">ScriptIcon</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripticon-view-download"><a id="ScriptIcon" class="link-target">ScriptIcon</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#script-resources-how-to-access-binary-data-of-your-app-resources">script_resources — How to access binary data of your App (resources)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scriptresources-view-download"><a id="ScriptResources">ScriptResources</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptresources-view-download"><a id="ScriptResources" class="link-target">ScriptResources</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-building-custom-actual-elements-with-python-code">scripted_actuals — Building custom actual elements with Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolume-view-download"><a id="ScriptedActualVolume" class="link-target">ScriptedActualVolume</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedelementprogress-view-download"><a id="ScriptedElementProgress" class="link-target">ScriptedElementProgress</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcircle-view-download"><a id="ScriptedActualCircle" class="link-target">ScriptedActualCircle</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcone-view-download"><a id="ScriptedActualCone" class="link-target">ScriptedActualCone</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualdistance-view-download"><a id="ScriptedActualDistance" class="link-target">ScriptedActualDistance</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsection-view-download"><a id="ScriptedActualSection" class="link-target">ScriptedActualSection</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpoint-view-download"><a id="ScriptedActualPoint" class="link-target">ScriptedActualPoint</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumedefects-view-download"><a id="ScriptedActualVolumeDefects" class="link-target">ScriptedActualVolumeDefects</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumeregion-view-download"><a id="ScriptedActualVolumeRegion" class="link-target">ScriptedActualVolumeRegion</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcurve-view-download"><a id="ScriptedActualCurve" class="link-target">ScriptedActualCurve</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurface-view-download"><a id="ScriptedActualSurface" class="link-target">ScriptedActualSurface</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualcylinder-view-download"><a id="ScriptedActualCylinder" class="link-target">ScriptedActualCylinder</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualpointcloud-view-download"><a id="ScriptedActualPointCloud" class="link-target">ScriptedActualPointCloud</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualvolumesection-view-download"><a id="ScriptedActualVolumeSection" class="link-target">ScriptedActualVolumeSection</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedactualsurfacecurve-view-download"><a id="ScriptedActualSurfaceCurve" class="link-target">ScriptedActualSurfaceCurve</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trimeshdeformmesh-view-download"><a id="TrimeshDeformMesh" class="link-target">TrimeshDeformMesh</a> — view / download</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-checks-building-custom-checks-with-python-code">scripted_checks — Building custom checks with Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedsurfacecheck-view-download"><a id="ScriptedSurfaceCheck" class="link-target">ScriptedSurfaceCheck</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedscalarcheck-view-download"><a id="ScriptedScalarCheck" class="link-target">ScriptedScalarCheck</a> — view / download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scriptedcurvecheck-view-download"><a id="ScriptedCurveCheck" class="link-target">ScriptedCurveCheck</a> — view / download</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#example-projects">Example projects</a></li>
@@ -183,30 +183,20 @@
     .link-target {
         color: #000000;
     }
+    .example-block-odd {
+        background-color: #f3f6f6;
+    }
+    .example-block-even {
+        background-color: #ffffff;
+    }
 </style>
 <section id="zeiss-inspect-app-examples-overview">
 <h1>ZEISS INSPECT App Examples Overview<a class="headerlink" href="#zeiss-inspect-app-examples-overview" title="Link to this heading"></a></h1>
 <section id="data-interfaces-how-to-access-data-of-zeiss-inspect-elements">
 <h2>data_interfaces — How to access data of ZEISS INSPECT elements<a class="headerlink" href="#data-interfaces-how-to-access-data-of-zeiss-inspect-elements" title="Link to this heading"></a></h2>
-<div style="background-color: #f3f6f6;">
-<section id="checkresultsdataarray-view-download">
-<h3><a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CheckResultsDataArray">download</a><a class="headerlink" href="#checkresultsdataarray-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.</p>
-</dd>
-<dt class="field-even">Example Projects<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
-</dd>
-<dt class="field-odd">References<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#access-element-properties">HowTo</a></p>
-</dd>
-</dl>
-</div>
-<div style="background-color: #ffffff;">
-</section>
 <section id="referencepointsandmeshdata-view-download">
-<h3><a id="ReferencePointsAndMeshData">ReferencePointsAndMeshData</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ReferencePointsAndMeshData">download</a><a class="headerlink" href="#referencepointsandmeshdata-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ReferencePointsAndMeshData" class="link-target">ReferencePointsAndMeshData</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ReferencePointsAndMeshData">download</a><a class="headerlink" href="#referencepointsandmeshdata-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to access the reference points in a measurement and the mesh from Python.</p>
@@ -220,8 +210,25 @@
 </dl>
 </div>
 </section>
+<section id="checkresultsdataarray-view-download">
+<h3><a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CheckResultsDataArray">download</a><a class="headerlink" href="#checkresultsdataarray-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.</p>
+</dd>
+<dt class="field-even">Example Projects<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
+</dd>
+<dt class="field-odd">References<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#access-element-properties">HowTo</a></p>
+</dd>
+</dl>
+</div>
+</section>
 <section id="volumesectionimagedata-view-download">
-<h3><a id="VolumeSectionImageData">VolumeSectionImageData</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/VolumeSectionImageData">download</a><a class="headerlink" href="#volumesectionimagedata-view-download" title="Link to this heading"></a></h3>
+<h3><a id="VolumeSectionImageData" class="link-target">VolumeSectionImageData</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/VolumeSectionImageData">download</a><a class="headerlink" href="#volumesectionimagedata-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to access the image data of a volume section.</p>
@@ -233,23 +240,40 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces">HowTo</a></p>
 </dd>
 </dl>
+</div>
 </section>
 </section>
 <section id="dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events">
 <h2>dialog_widgets — How to use custom dialogs and handle user input events<a class="headerlink" href="#dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events" title="Link to this heading"></a></h2>
-<section id="dropdownwidget-view-download">
-<h3><a id="DropdownWidget">DropdownWidget</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/DropdownWidget">download</a><a class="headerlink" href="#dropdownwidget-view-download" title="Link to this heading"></a></h3>
+<section id="widgetvisibility-view-download">
+<h3><a id="WidgetVisibility" class="link-target">WidgetVisibility</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/WidgetVisibility">download</a><a class="headerlink" href="#widgetvisibility-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This basic example shows how to use the dropdown widget and how to define items at script runtime.</p>
+<dd class="field-odd"><p>This example shows how to use a dialog event handler to turn on/off widget visibilities.</p>
 </dd>
 <dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget">HowTo</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html">HowTo</a></p>
 </dd>
 </dl>
+</div>
+</section>
+<section id="unitdialogeventhandler-view-download">
+<h3><a id="UnitDialogEventHandler" class="link-target">UnitDialogEventHandler</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/UnitDialogEventHandler">download</a><a class="headerlink" href="#unitdialogeventhandler-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This basic example demonstrates how to use an event handler on a script dialog to set the unit to multiple widgets.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget">HowTo</a></p>
+</dd>
+</dl>
+</div>
 </section>
 <section id="explorerselectedelementsindialog-view-download">
-<h3><a id="ExplorerSelectedElementsInDialog">ExplorerSelectedElementsInDialog</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExplorerSelectedElementsInDialog">download</a><a class="headerlink" href="#explorerselectedelementsindialog-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ExplorerSelectedElementsInDialog" class="link-target">ExplorerSelectedElementsInDialog</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExplorerSelectedElementsInDialog">download</a><a class="headerlink" href="#explorerselectedelementsindialog-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example shows how to get a list of elements selected in the element explorer and use it in a script dialog.</p>
@@ -261,34 +285,27 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-element-widget">HowTo</a></p>
 </dd>
 </dl>
+</div>
 </section>
-<section id="unitdialogeventhandler-view-download">
-<h3><a id="UnitDialogEventHandler">UnitDialogEventHandler</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/UnitDialogEventHandler">download</a><a class="headerlink" href="#unitdialogeventhandler-view-download" title="Link to this heading"></a></h3>
+<section id="dropdownwidget-view-download">
+<h3><a id="DropdownWidget" class="link-target">DropdownWidget</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/DropdownWidget">download</a><a class="headerlink" href="#dropdownwidget-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This basic example demonstrates how to use an event handler on a script dialog to set the unit to multiple widgets.</p>
+<dd class="field-odd"><p>This basic example shows how to use the dropdown widget and how to define items at script runtime.</p>
 </dd>
 <dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget">HowTo</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget">HowTo</a></p>
 </dd>
 </dl>
-</section>
-<section id="widgetvisibility-view-download">
-<h3><a id="WidgetVisibility">WidgetVisibility</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/WidgetVisibility">download</a><a class="headerlink" href="#widgetvisibility-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This example shows how to use a dialog event handler to turn on/off widget visibilities.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html">HowTo</a></p>
-</dd>
-</dl>
+</div>
 </section>
 </section>
 <section id="misc-miscellaneous">
 <h2>misc — Miscellaneous<a class="headerlink" href="#misc-miscellaneous" title="Link to this heading"></a></h2>
 <section id="csvexample-view-download">
-<h3><a id="CSVExample">CSVExample</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CSVExample">download</a><a class="headerlink" href="#csvexample-view-download" title="Link to this heading"></a></h3>
+<h3><a id="CSVExample" class="link-target">CSVExample</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/CSVExample">download</a><a class="headerlink" href="#csvexample-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to read and write CSV files (comma separated values) from an App.</p>
@@ -297,9 +314,11 @@
 <dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
 </dd>
 </dl>
+</div>
 </section>
 <section id="dialogreopenexample-view-download">
-<h3><a id="DialogReopenExample">DialogReopenExample</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/DialogReopenExample">download</a><a class="headerlink" href="#dialogreopenexample-view-download" title="Link to this heading"></a></h3>
+<h3><a id="DialogReopenExample" class="link-target">DialogReopenExample</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/DialogReopenExample">download</a><a class="headerlink" href="#dialogreopenexample-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This examples demonstrates, how a dialog can be closed from its own handler, just to be opened again.</p>
@@ -308,9 +327,11 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#executing-dialogs">HowTo</a></p>
 </dd>
 </dl>
+</div>
 </section>
 <section id="pointpixeltransformations-view-download">
-<h3><a id="PointPixelTransformations">PointPixelTransformations</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/PointPixelTransformations">download</a><a class="headerlink" href="#pointpixeltransformations-view-download" title="Link to this heading"></a></h3>
+<h3><a id="PointPixelTransformations" class="link-target">PointPixelTransformations</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/PointPixelTransformations">download</a><a class="headerlink" href="#pointpixeltransformations-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to find the 2D pixel coordinates of a 3D point coordinate and vice versa.</p>
@@ -322,143 +343,57 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging">API</a></p>
 </dd>
 </dl>
+</div>
 </section>
 </section>
 <section id="projects-zeiss-inspect-projects">
 <h2>projects — ZEISS INSPECT projects<a class="headerlink" href="#projects-zeiss-inspect-projects" title="Link to this heading"></a></h2>
 <section id="exampleprojects-view-download">
-<h3><a id="ExampleProjects">ExampleProjects</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExampleProjects">download</a><a class="headerlink" href="#exampleprojects-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ExampleProjects" class="link-target">ExampleProjects</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExampleProjects">download</a><a class="headerlink" href="#exampleprojects-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ZEISS INSPECT Example Projects</p>
 </dd>
 </dl>
+</div>
+</section>
+</section>
+<section id="script-icons-how-to-set-icons-for-scripts-or-buttons">
+<h2>script_icons — How to set icons for scripts or buttons<a class="headerlink" href="#script-icons-how-to-set-icons-for-scripts-or-buttons" title="Link to this heading"></a></h2>
+<section id="scripticon-view-download">
+<h3><a id="ScriptIcon" class="link-target">ScriptIcon</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptIcon">download</a><a class="headerlink" href="#scripticon-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This example shows how an icon can be set to a script, whereas the icon itself resides in the App as a resource.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section id="script-resources-how-to-access-binary-data-of-your-app-resources">
+<h2>script_resources — How to access binary data of your App (resources)<a class="headerlink" href="#script-resources-how-to-access-binary-data-of-your-app-resources" title="Link to this heading"></a></h2>
+<section id="scriptresources-view-download">
+<h3><a id="ScriptResources" class="link-target">ScriptResources</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptResources">download</a><a class="headerlink" href="#scriptresources-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A simple example showing the usage of script resources.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/using_script_resources.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/resource_api.html">API</a></p>
+</dd>
+</dl>
+</div>
 </section>
 </section>
 <section id="scripted-actuals-building-custom-actual-elements-with-python-code">
 <h2>scripted_actuals — Building custom actual elements with Python code<a class="headerlink" href="#scripted-actuals-building-custom-actual-elements-with-python-code" title="Link to this heading"></a></h2>
-<section id="scriptedactualcircle-view-download">
-<h3><a id="ScriptedActualCircle">ScriptedActualCircle</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCircle">download</a><a class="headerlink" href="#scriptedactualcircle-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘circle’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#circle">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualcone-view-download">
-<h3><a id="ScriptedActualCone">ScriptedActualCone</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCone">download</a><a class="headerlink" href="#scriptedactualcone-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘cone’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cone">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualcurve-view-download">
-<h3><a id="ScriptedActualCurve">ScriptedActualCurve</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCurve/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCurve">download</a><a class="headerlink" href="#scriptedactualcurve-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘curve’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#curve">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualcylinder-view-download">
-<h3><a id="ScriptedActualCylinder">ScriptedActualCylinder</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCylinder">download</a><a class="headerlink" href="#scriptedactualcylinder-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘cylinder’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cylinder">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualdistance-view-download">
-<h3><a id="ScriptedActualDistance">ScriptedActualDistance</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualDistance/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualDistance">download</a><a class="headerlink" href="#scriptedactualdistance-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘distance’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#distance">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualpoint-view-download">
-<h3><a id="ScriptedActualPoint">ScriptedActualPoint</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPoint">download</a><a class="headerlink" href="#scriptedactualpoint-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>These are two examples for scripted actual points, which serve as an introduction to the concept of scripted actual elements.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualpointcloud-view-download">
-<h3><a id="ScriptedActualPointCloud">ScriptedActualPointCloud</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPointCloud">download</a><a class="headerlink" href="#scriptedactualpointcloud-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘point cloud’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point-cloud">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualsection-view-download">
-<h3><a id="ScriptedActualSection">ScriptedActualSection</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSection">download</a><a class="headerlink" href="#scriptedactualsection-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘section’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualsurface-view-download">
-<h3><a id="ScriptedActualSurface">ScriptedActualSurface</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurface">download</a><a class="headerlink" href="#scriptedactualsurface-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘surface’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface">API</a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedactualsurfacecurve-view-download">
-<h3><a id="ScriptedActualSurfaceCurve">ScriptedActualSurfaceCurve</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurfaceCurve">download</a><a class="headerlink" href="#scriptedactualsurfacecurve-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This is an example for a scripted actual ‘surface curve’ element.</p>
-</dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve">API</a></p>
-</dd>
-</dl>
-</section>
 <section id="scriptedactualvolume-view-download">
-<h3><a id="ScriptedActualVolume">ScriptedActualVolume</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolume">download</a><a class="headerlink" href="#scriptedactualvolume-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ScriptedActualVolume" class="link-target">ScriptedActualVolume</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolume">download</a><a class="headerlink" href="#scriptedactualvolume-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This is an example for a scripted actual ‘volume’ element.</p>
@@ -471,9 +406,91 @@
 <dd class="field-odd"><p><a href="#xray"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a></p>
 </dd>
 </dl>
+</div>
+</section>
+<section id="scriptedelementprogress-view-download">
+<h3><a id="ScriptedElementProgress" class="link-target">ScriptedElementProgress</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedElementProgress/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedElementProgress">download</a><a class="headerlink" href="#scriptedelementprogress-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This examples demonstrates how to show progress information to the user while calcualting a scripted element.</p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualcircle-view-download">
+<h3><a id="ScriptedActualCircle" class="link-target">ScriptedActualCircle</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCircle">download</a><a class="headerlink" href="#scriptedactualcircle-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘circle’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#circle">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualcone-view-download">
+<h3><a id="ScriptedActualCone" class="link-target">ScriptedActualCone</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCone">download</a><a class="headerlink" href="#scriptedactualcone-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘cone’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cone">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualdistance-view-download">
+<h3><a id="ScriptedActualDistance" class="link-target">ScriptedActualDistance</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualDistance/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualDistance">download</a><a class="headerlink" href="#scriptedactualdistance-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘distance’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#distance">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualsection-view-download">
+<h3><a id="ScriptedActualSection" class="link-target">ScriptedActualSection</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSection">download</a><a class="headerlink" href="#scriptedactualsection-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘section’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualpoint-view-download">
+<h3><a id="ScriptedActualPoint" class="link-target">ScriptedActualPoint</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPoint">download</a><a class="headerlink" href="#scriptedactualpoint-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>These are two examples for scripted actual points, which serve as an introduction to the concept of scripted actual elements.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point">API</a></p>
+</dd>
+</dl>
+</div>
 </section>
 <section id="scriptedactualvolumedefects-view-download">
-<h3><a id="ScriptedActualVolumeDefects">ScriptedActualVolumeDefects</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeDefects">download</a><a class="headerlink" href="#scriptedactualvolumedefects-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ScriptedActualVolumeDefects" class="link-target">ScriptedActualVolumeDefects</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeDefects">download</a><a class="headerlink" href="#scriptedactualvolumedefects-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This is an example for a scripted actual ‘volume defects’ element.</p>
@@ -486,9 +503,11 @@
 <dd class="field-odd"><p><a href="#xray"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
 <section id="scriptedactualvolumeregion-view-download">
-<h3><a id="ScriptedActualVolumeRegion">ScriptedActualVolumeRegion</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeRegion">download</a><a class="headerlink" href="#scriptedactualvolumeregion-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ScriptedActualVolumeRegion" class="link-target">ScriptedActualVolumeRegion</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeRegion">download</a><a class="headerlink" href="#scriptedactualvolumeregion-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This is an example for a scripted actual ‘volume region’ element.</p>
@@ -501,9 +520,67 @@
 <dd class="field-odd"><p><a href="#xray"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a></p>
 </dd>
 </dl>
+</div>
+</section>
+<section id="scriptedactualcurve-view-download">
+<h3><a id="ScriptedActualCurve" class="link-target">ScriptedActualCurve</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCurve/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCurve">download</a><a class="headerlink" href="#scriptedactualcurve-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘curve’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#curve">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualsurface-view-download">
+<h3><a id="ScriptedActualSurface" class="link-target">ScriptedActualSurface</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurface">download</a><a class="headerlink" href="#scriptedactualsurface-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘surface’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualcylinder-view-download">
+<h3><a id="ScriptedActualCylinder" class="link-target">ScriptedActualCylinder</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCylinder">download</a><a class="headerlink" href="#scriptedactualcylinder-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘cylinder’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cylinder">API</a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scriptedactualpointcloud-view-download">
+<h3><a id="ScriptedActualPointCloud" class="link-target">ScriptedActualPointCloud</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPointCloud">download</a><a class="headerlink" href="#scriptedactualpointcloud-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘point cloud’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point-cloud">API</a></p>
+</dd>
+</dl>
+</div>
 </section>
 <section id="scriptedactualvolumesection-view-download">
-<h3><a id="ScriptedActualVolumeSection">ScriptedActualVolumeSection</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeSection">download</a><a class="headerlink" href="#scriptedactualvolumesection-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ScriptedActualVolumeSection" class="link-target">ScriptedActualVolumeSection</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeSection">download</a><a class="headerlink" href="#scriptedactualvolumesection-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This is an example for a scripted actual ‘volume section’ element.</p>
@@ -516,17 +593,25 @@
 <dd class="field-odd"><p><a href="#xray"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
-<section id="scriptedelementprogress-view-download">
-<h3><a id="ScriptedElementProgress">ScriptedElementProgress</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedElementProgress/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedElementProgress">download</a><a class="headerlink" href="#scriptedelementprogress-view-download" title="Link to this heading"></a></h3>
+<section id="scriptedactualsurfacecurve-view-download">
+<h3><a id="ScriptedActualSurfaceCurve" class="link-target">ScriptedActualSurfaceCurve</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurfaceCurve">download</a><a class="headerlink" href="#scriptedactualsurfacecurve-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This examples demonstrates how to show progress information to the user while calcualting a scripted element.</p>
+<dd class="field-odd"><p>This is an example for a scripted actual ‘surface curve’ element.</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve">API</a></p>
 </dd>
 </dl>
+</div>
 </section>
 <section id="trimeshdeformmesh-view-download">
-<h3><a id="TrimeshDeformMesh">TrimeshDeformMesh</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/TrimeshDeformMesh">download</a><a class="headerlink" href="#trimeshdeformmesh-view-download" title="Link to this heading"></a></h3>
+<h3><a id="TrimeshDeformMesh" class="link-target">TrimeshDeformMesh</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/TrimeshDeformMesh">download</a><a class="headerlink" href="#trimeshdeformmesh-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to generate a custom surface element using a scripted element. The example script accesses mesh information from an existing mesh in the project and adds a random deformation to each point.</p>
@@ -542,48 +627,14 @@
 <dd class="field-even"><p><a href="#surface"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a> <a href="#scripted-actual"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
 </section>
 <section id="scripted-checks-building-custom-checks-with-python-code">
 <h2>scripted_checks — Building custom checks with Python code<a class="headerlink" href="#scripted-checks-building-custom-checks-with-python-code" title="Link to this heading"></a></h2>
-<section id="scriptedcurvecheck-view-download">
-<h3><a id="ScriptedCurveCheck">ScriptedCurveCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedCurveCheck">download</a><a class="headerlink" href="#scriptedcurvecheck-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This example demonstrates how to create a scalar curve check by a script. Also, the usage of custom coordinate systems in scripted checks is shown.</p>
-</dd>
-<dt class="field-even">Example Projects<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
-</dd>
-<dt class="field-odd">References<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar-curve">API</a></p>
-</dd>
-<dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#scripted-check"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#curve"><img alt="Static Badge" src="https://img.shields.io/badge/curve-blue" /></a></p>
-</dd>
-</dl>
-</section>
-<section id="scriptedscalarcheck-view-download">
-<h3><a id="ScriptedScalarCheck">ScriptedScalarCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedScalarCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedScalarCheck">download</a><a class="headerlink" href="#scriptedscalarcheck-view-download" title="Link to this heading"></a></h3>
-<dl class="myst field-list simple">
-<dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This example shows how to create a scalar check by script. A scalar check is the most basic check, as it assigns a scalar value to an element. Nearly all elements you can find in the software can be checked like this.</p>
-</dd>
-<dt class="field-even">Example Projects<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
-</dd>
-<dt class="field-odd">References<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar">API</a></p>
-</dd>
-<dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#scripted-check"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#scalar"><img alt="Static Badge" src="https://img.shields.io/badge/scalar-blue" /></a></p>
-</dd>
-</dl>
-</section>
 <section id="scriptedsurfacecheck-view-download">
-<h3><a id="ScriptedSurfaceCheck">ScriptedSurfaceCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedSurfaceCheck">download</a><a class="headerlink" href="#scriptedsurfacecheck-view-download" title="Link to this heading"></a></h3>
+<h3><a id="ScriptedSurfaceCheck" class="link-target">ScriptedSurfaceCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedSurfaceCheck">download</a><a class="headerlink" href="#scriptedsurfacecheck-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This example demonstrates how to create a scalar surface check by a script. Also, the usage of custom coordinate systems and element preview in scripted checks is shown.</p>
@@ -599,32 +650,47 @@
 <dd class="field-even"><p><a href="#scripted-check"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#surface"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
-</section>
-<section id="script-icons-how-to-set-icons-for-scripts-or-buttons">
-<h2>script_icons — How to set icons for scripts or buttons<a class="headerlink" href="#script-icons-how-to-set-icons-for-scripts-or-buttons" title="Link to this heading"></a></h2>
-<section id="scripticon-view-download">
-<h3><a id="ScriptIcon">ScriptIcon</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptIcon">download</a><a class="headerlink" href="#scripticon-view-download" title="Link to this heading"></a></h3>
+<section id="scriptedscalarcheck-view-download">
+<h3><a id="ScriptedScalarCheck" class="link-target">ScriptedScalarCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedScalarCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedScalarCheck">download</a><a class="headerlink" href="#scriptedscalarcheck-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-even">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This example shows how an icon can be set to a script, whereas the icon itself resides in the App as a resource.</p>
+<dd class="field-odd"><p>This example shows how to create a scalar check by script. A scalar check is the most basic check, as it assigns a scalar value to an element. Nearly all elements you can find in the software can be checked like this.</p>
+</dd>
+<dt class="field-even">Example Projects<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
+</dd>
+<dt class="field-odd">References<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar">API</a></p>
+</dd>
+<dt class="field-even">Tags<span class="colon">:</span></dt>
+<dd class="field-even"><p><a href="#scripted-check"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#scalar"><img alt="Static Badge" src="https://img.shields.io/badge/scalar-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
-</section>
-<section id="script-resources-how-to-access-binary-data-of-your-app-resources">
-<h2>script_resources — How to access binary data of your App (resources)<a class="headerlink" href="#script-resources-how-to-access-binary-data-of-your-app-resources" title="Link to this heading"></a></h2>
-<section id="scriptresources-view-download">
-<h3><a id="ScriptResources">ScriptResources</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptResources">download</a><a class="headerlink" href="#scriptresources-view-download" title="Link to this heading"></a></h3>
+<section id="scriptedcurvecheck-view-download">
+<h3><a id="ScriptedCurveCheck" class="link-target">ScriptedCurveCheck</a> — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md">view</a> / <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedCurveCheck">download</a><a class="headerlink" href="#scriptedcurvecheck-view-download" title="Link to this heading"></a></h3>
+<div class="example-block-odd">
 <dl class="myst field-list simple">
 <dt class="field-odd">Description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A simple example showing the usage of script resources.</p>
+<dd class="field-odd"><p>This example demonstrates how to create a scalar curve check by a script. Also, the usage of custom coordinate systems in scripted checks is shown.</p>
 </dd>
-<dt class="field-even">References<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/using_script_resources.html">HowTo</a>
-<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/resource_api.html">API</a></p>
+<dt class="field-even">Example Projects<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#example-projects">zeiss_part_test_project</a></p>
+</dd>
+<dt class="field-odd">References<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html">HowTo</a>
+<a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar-curve">API</a></p>
+</dd>
+<dt class="field-even">Tags<span class="colon">:</span></dt>
+<dd class="field-even"><p><a href="#scripted-check"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#curve"><img alt="Static Badge" src="https://img.shields.io/badge/curve-blue" /></a></p>
 </dd>
 </dl>
+</div>
 </section>
 </section>
 <section id="example-projects">
@@ -712,7 +778,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8f1eb2fd30>
+  <jinja2.runtime.BlockReference object at 0x7f77550e3af0>
 
 
 </footer>
