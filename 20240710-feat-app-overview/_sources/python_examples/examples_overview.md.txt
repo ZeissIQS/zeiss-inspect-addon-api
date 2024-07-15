@@ -6,16 +6,11 @@ myst:
 ---
 
 <style>
-    .link-target {
-        color: #000000;
-    }
     .example-block-odd {
         background-color: #f3f6f6;
-        padding: 10px;
     }
     .example-block-even {
         background-color: #ffffff;
-        padding: 10px;
     }
     h2 {
         margin-top: 24px;
@@ -31,6 +26,7 @@ myst:
 # ZEISS INSPECT App Examples Overview
 
 ## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
+
 <hr class="small-margin">
 <section id="referencepointsandmeshdata">
 <div id="referencepointsandmeshdata" class="example-block-odd">
@@ -97,6 +93,7 @@ myst:
 
 
 ## dialog_widgets &mdash; How to use custom dialogs and handle user input events
+
 <hr class="small-margin">
 <section id="widgetvisibility">
 <div id="widgetvisibility" class="example-block-odd">
@@ -176,6 +173,7 @@ myst:
 
 ## misc &mdash; Miscellaneous
 
+<hr class="small-margin">
 <section id="csvexample">
 <div id="csvexample" class="example-block-odd">
 <h3>CSVExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / 
@@ -236,6 +234,7 @@ myst:
 
 ## projects &mdash; ZEISS INSPECT projects
 
+<hr class="small-margin">
 <section id="exampleprojects">
 <div id="exampleprojects" class="example-block-odd">
 <h3>ExampleProjects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a> / 
@@ -254,6 +253,7 @@ myst:
 
 ## script_icons &mdash; How to set icons for scripts or buttons
 
+<hr class="small-margin">
 <section id="scripticon">
 <div id="scripticon" class="example-block-odd">
 <h3>ScriptIcon — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a> / 
@@ -272,6 +272,7 @@ myst:
 
 ## script_resources &mdash; How to access binary data of your App (resources)
 
+<hr class="small-margin">
 <section id="scriptresources">
 <div id="scriptresources" class="example-block-odd">
 <h3>ScriptResources — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a> / 
@@ -294,6 +295,7 @@ myst:
 
 ## scripted_actuals &mdash; Building custom actual elements with Python code
 
+<hr class="small-margin">
 <section id="scriptedactualvolume">
 <div id="scriptedactualvolume" class="example-block-odd">
 <h3>ScriptedActualVolume — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / 
@@ -610,6 +612,7 @@ myst:
 
 ## scripted_checks &mdash; Building custom checks with Python code
 
+<hr class="small-margin">
 <section id="scriptedsurfacecheck">
 <div id="scriptedsurfacecheck" class="example-block-odd">
 <h3>ScriptedSurfaceCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md">view</a> / 
@@ -695,42 +698,41 @@ myst:
 
 ### <a id="curve">![Static Badge](https://img.shields.io/badge/curve-blue)<a>
 
-* <a href="#ScriptedCurveCheck">ScriptedCurveCheck</a>
+* <a href="#scriptedcurvecheck">ScriptedCurveCheck</a>
 
 
 ### <a id="scalar">![Static Badge](https://img.shields.io/badge/scalar-blue)<a>
 
-* <a href="#ScriptedScalarCheck">ScriptedScalarCheck</a>
+* <a href="#scriptedscalarcheck">ScriptedScalarCheck</a>
 
 
 ### <a id="scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)<a>
 
-* <a href="#TrimeshDeformMesh">TrimeshDeformMesh</a>
+* <a href="#trimeshdeformmesh">TrimeshDeformMesh</a>
 
 
 ### <a id="scripted-check">![Static Badge](https://img.shields.io/badge/scripted--check-blue)<a>
 
-* <a href="#ScriptedCurveCheck">ScriptedCurveCheck</a>
-* <a href="#ScriptedScalarCheck">ScriptedScalarCheck</a>
-* <a href="#ScriptedSurfaceCheck">ScriptedSurfaceCheck</a>
+* <a href="#scriptedcurvecheck">ScriptedCurveCheck</a>
+* <a href="#scriptedscalarcheck">ScriptedScalarCheck</a>
+* <a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a>
 
 
 ### <a id="surface">![Static Badge](https://img.shields.io/badge/surface-blue)<a>
 
-* <a href="#ScriptedSurfaceCheck">ScriptedSurfaceCheck</a>
-* <a href="#TrimeshDeformMesh">TrimeshDeformMesh</a>
+* <a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a>
+* <a href="#trimeshdeformmesh">TrimeshDeformMesh</a>
 
 
 ### <a id="xray">![Static Badge](https://img.shields.io/badge/xray-blue)<a>
 
-* <a href="#ScriptedActualVolume">ScriptedActualVolume</a>
-* <a href="#ScriptedActualVolumeDefects">ScriptedActualVolumeDefects</a>
-* <a href="#ScriptedActualVolumeRegion">ScriptedActualVolumeRegion</a>
-* <a href="#ScriptedActualVolumeSection">ScriptedActualVolumeSection</a>
+* <a href="#scriptedactualvolume">ScriptedActualVolume</a>
+* <a href="#scriptedactualvolumedefects">ScriptedActualVolumeDefects</a>
+* <a href="#scriptedactualvolumeregion">ScriptedActualVolumeRegion</a>
+* <a href="#scriptedactualvolumesection">ScriptedActualVolumeSection</a>
 
 
 ## Related
 
 * [ZEISS IQS GitHub &mdash; App Development Documentation](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/index.html)
 * [ZEISS Quality Software Store](https://software-store.zeiss.com)
-
