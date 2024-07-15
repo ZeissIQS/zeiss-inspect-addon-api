@@ -49,6 +49,7 @@ myst:
 </div>
 
 <div class="example-block-even">
+    
 :Description:
     This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.
 
@@ -69,6 +70,7 @@ myst:
 </div>
 
 <div class="example-block-odd">
+    
 :Description:
     This example demonstrates how to access the image data of a volume section.
 
@@ -92,6 +94,7 @@ myst:
 </div>
 
 <div class="example-block-odd">
+    
 :Description:
     This example shows how to use a dialog event handler to turn on/off widget visibilities.
 
@@ -108,6 +111,7 @@ myst:
 
 </div>
 <div class="example-block-even">
+    
 :Description:
     This basic example demonstrates how to use an event handler on a script dialog to set the unit to multiple widgets.
 
@@ -146,7 +150,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget)
 
 
-</div>
+</section>
 
 
 ## misc &mdash; Miscellaneous
@@ -177,10 +181,10 @@ myst:
     [HowTo]( https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#executing-dialogs)
 
 
-</section>
+</div>
 
 
-<div section="example-block-odd">
+<div class="example-block-odd">
 
 ### <a id="PointPixelTransformations" class="link-target">PointPixelTransformations</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/PointPixelTransformations)
 
@@ -194,7 +198,7 @@ myst:
     [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging)
 
 
-</section>
+</div>
 
 
 ## projects &mdash; ZEISS INSPECT projects
