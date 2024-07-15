@@ -11,9 +11,11 @@ myst:
     }
     .example-block-odd {
         background-color: #f3f6f6;
+        padding: 10px;
     }
     .example-block-even {
         background-color: #ffffff;
+        padding: 10px;
     }
 </style>
 # ZEISS INSPECT App Examples Overview
