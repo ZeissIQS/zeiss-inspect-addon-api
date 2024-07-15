@@ -21,10 +21,14 @@ myst:
 ## data_interfaces &mdash; How to access data of ZEISS INSPECT elements
 
 
-<section class="example-block-odd">
+<div class="example-block-odd">
 
 ### <a id="ReferencePointsAndMeshData" class="link-target">ReferencePointsAndMeshData</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/ReferencePointsAndMeshData)
 
+</div>
+
+<div class="example-block-odd">
+    
 :Description:
     This example demonstrates how to access the reference points in a measurement and the mesh from Python.
 
@@ -35,13 +39,16 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces)
 
 
-</section>
+</div>
 
 
-<section class="example-block-even">
+<div class="example-block-even">
 
 ### <a id="CheckResultsDataArray" class="link-target">CheckResultsDataArray</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/CheckResultsDataArray)
 
+</div>
+
+<div class="example-block-even">
 :Description:
     This example demonstrates two ways of accessing result data from checks using the element properties and data interfaces.
 
@@ -52,13 +59,16 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#access-element-properties)
 
 
-</section>
+</div>
 
 
-<section class="example-block-odd">
+<div class="example-block-odd">
 
 ### <a id="VolumeSectionImageData" class="link-target">VolumeSectionImageData</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/VolumeSectionImageData)
 
+</div>
+
+<div class="example-block-odd">
 :Description:
     This example demonstrates how to access the image data of a volume section.
 
@@ -69,7 +79,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html#element-data-interfaces)
 
 
-</section>
+</div>
 
 
 ## dialog_widgets &mdash; How to use custom dialogs and handle user input events
@@ -79,6 +89,9 @@ myst:
 
 ### <a id="WidgetVisibility" class="link-target">WidgetVisibility</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/WidgetVisibility)
 
+</div>
+
+<div class="example-block-odd">
 :Description:
     This example shows how to use a dialog event handler to turn on/off widget visibilities.
 
@@ -86,13 +99,15 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
 
 
-</section>
+</div>
 
 
-<section class="example-block-even">
+<div class="example-block-even">
 
 ### <a id="UnitDialogEventHandler" class="link-target">UnitDialogEventHandler</a> &mdash; [view](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md) / [download](https://software-store.zeiss.com/products/apps/UnitDialogEventHandler)
 
+</div>
+<div class="example-block-even">
 :Description:
     This basic example demonstrates how to use an event handler on a script dialog to set the unit to multiple widgets.
 
@@ -100,7 +115,7 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget)
 
 
-</section>
+</div>
 
 
 <section class="example-block-odd">
