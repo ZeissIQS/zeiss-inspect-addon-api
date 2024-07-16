@@ -33,7 +33,7 @@ Each service consists of a Python script file in an App. The App's `metainfo.jso
 | -------- | ---------------------------------------------------------------------------------------------- | --------------------------- | 
 | script   | Service script, relative path whithin the services App 	                                    | "folder1/folder2/script.py" |
 | name 	   | Human readable name of the service; will be displayed in<br>the service administration dialog  | "My Useful Service"         |
-| endpoint | Service API endpoint where the service functions will be accessible                            | "gom.api.meshing"           |
+| endpoint | Service API endpoint where the service functions<br>will be accessible                         | "gom.api.meshing"           |
 
 ### Example
 
