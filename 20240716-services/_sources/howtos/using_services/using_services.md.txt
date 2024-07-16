@@ -29,11 +29,11 @@ Each service consists of a Python script file in an App. The App's `metainfo.jso
 
 ### Syntax
 
-| Key      | Description                                                                                 | Example                     |
-| -------- | ------------------------------------------------------------------------------------------- | --------------------------- | 
-| script   | Service script, relative path whithin the services App 	                                 | "folder1/folder2/script.py" |
-| name 	   | Human readable name of the service; will be displayed in the service administration dialog  | "My Useful Service"         |
-| endpoint | Service API endpoint where the service functions will be accessible                         | "gom.api.meshing"           |
+| Key      | Description                                                                                    | Example                     |
+| -------- | ---------------------------------------------------------------------------------------------- | --------------------------- | 
+| script   | Service script, relative path whithin the services App 	                                    | "folder1/folder2/script.py" |
+| name 	   | Human readable name of the service; will be displayed in<br>the service administration dialog  | "My Useful Service"         |
+| endpoint | Service API endpoint where the service functions will be accessible                            | "gom.api.meshing"           |
 
 ### Example
 
