@@ -9,20 +9,22 @@ Each service consists of a Python script file in an App. The App's `metainfo.jso
 ```{code-block} json
 :caption: Services entry in metainfo.json
 
-...,
-"services": [
-    {
-        "endpoint": "gom.api.math",
-        "name": "Multiplicator",
-        "script": "multiplicator/service.py"
-    },
-    {
-        "endpoint": "gom.api.test",
-        "name": "Reflector",
-        "script": "reflector/service.py"
-    }
-],
-...
+{
+    // ...,
+    "services": [
+        {
+            "endpoint": "gom.api.math",
+            "name": "Multiplicator",
+            "script": "multiplicator/service.py"
+        },
+        {
+            "endpoint": "gom.api.test",
+            "name": "Reflector",
+            "script": "reflector/service.py"
+        }
+    ],
+    // ...
+}
 ```
 
 ### Syntax
