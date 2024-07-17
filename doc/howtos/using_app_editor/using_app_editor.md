@@ -1,6 +1,6 @@
 # Using the App Editor
 
-Script Editor and Package Manager have been integrated as the App Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Apps.
+With the App Editor, you write Python scripts, add/remove contents, create/edit, export and publish Apps.
 
 See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/cmd_sys_manage_add_ons.html) for more details.
 
@@ -13,6 +13,7 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
   * [Running Python Scripts](#running-python-scripts)
   * [Recording Commands](#recording-commands)
   * [Inserting Element Values](#inserting-element-values)
+  * [Inserting a File Selection Dialog](#inserting-a-file-selection-dialog)
 - [Adding and Removing Contents](#adding-moving-and-copying-contents)
 - [Searching and Filtering](#searching-and-filtering)
 - [Exporting or Publishing an App](#exporting-or-publishing-an-app)
@@ -101,7 +102,11 @@ You start or stop recording of commands executed in ZEISS INSPECT by using the R
 
 ### Inserting Element Values
 
-You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ►  Element Value in the script editor.
+You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ► Element Value in the script editor.
+
+### Inserting a File Selection Dialog
+
+You insert a file selection dialog in your Python script by using RMB ► Insert ► File... in the script editor. See [Selecting a file or folder](../python_api_introduction/file_selection_dialog.md) for details.
 
 ## Adding, Moving and Copying Contents
 
