@@ -13,7 +13,8 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
   * [Running Python Scripts](#running-python-scripts)
   * [Recording Commands](#recording-commands)
   * [Inserting Element Values](#inserting-element-values)
-- [Adding and Removing Contents](#adding-and-removing-contents)
+- [Adding and Removing Contents](#adding-moving-and-copying-contents)
+- [Searching and Filtering](#searching-and-filtering)
 - [Exporting or Publishing an App](#exporting-or-publishing-an-app)
 - [Apps from External Folders](#apps-from-external-folders)
   * [Connecting and Disconnecting External Folders](#connecting-and-disconnecting-external-folders)
@@ -21,15 +22,15 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
 
 ## App Editor Layout
 
-![App Editor Layout](assets/01-Add-on_Editor_Intro_v2.png)
+![App Editor Layout](assets/01-App_Editor_Intro.png)
 
 1. App Explorer
 
-    The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps in the "Installed Apps" section of the App Explorer. You cannot delete or modify these pre-installed Apps. To install additional Apps, use the integrated "Install/Uninstall Apps" dialog or the ZEISS Quality Software Store.
+    The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps which you cannot delete or modify. To install additional Apps, use the integrated "Install/Uninstall Apps" dialog, drag&amp;drop the file into the App Explorer or use the ZEISS Quality Software Store. Apps can be installed in the User folder or in the Public folder. Additionally, external folders can be connected.
     
-2. Available Contents
+2. Project Contents
 
-    The Available Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. If you add an item to an App, it is removed from Available Contents.
+    The Project Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. You can copy or move contents between the Project Contents section and your App.
 
 3. Preview / Editor
 
@@ -39,16 +40,16 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
 
 Create a new App in the following ways:
 * By using the "Create App" button in the top-right corner of the App Explorer 
-* By using RMB ► Create App on Installed Apps 
+* By using RMB ► Create App on the Public folder or the User folder
 * By using RMB ► Create App on a connected external folder
-        
+
 A newly created App has the default title "My App". Rename your App in the properties dialog on the right. A blue dot next to the App title indicates that the App is in editing mode.
 
 An new App has a set of default folders and files.
 
 **Default Folders and Files of an App**
 
-![](assets/07-New_Add-on_v2.png)
+![Default App properties](assets/07-New_App.png)
 
 ## Entering and Leaving Editing Mode
 
@@ -56,13 +57,13 @@ Before you can modify an installed App, you must set it to editing mode first. A
 
 Set an App to editing mode
 * By using RMB ► Edit on the App root node in the App Explorer or
-* By clicking the Edit button in the App properties window.
+* By clicking the Edit App button in the App properties window.
 
 A blue dot next to the App title indicates that the App is in editing mode.
 
 When you have finished editing the App, you can leave the editing mode
-* By using RMB ► Finish Editing on the App root node in the App Explorer or
-* By clicking the Finish Editing button in the App properties window.
+* By using RMB ► Finalize on the App root node in the App Explorer or
+* By clicking the Finalize App button in the App properties window.
 
 ```{note}
 Editing is only finished after all mandatory information has been entered in the App properties dialog.
@@ -81,16 +82,16 @@ Python packages can be installed to the App and the installed python packages ar
 * From network
     The package list from network must be separated with a comma. To install the packages of a specific version, write the version after “==”, e.g. `numpy==1.22.0`
 
-    ![](assets/install_network.png)
+    ![Install Python package from network](assets/install_network.png)
 
 * From local file system
     Python wheel files (*.whl) can be added or removed.
 
-    ![](assets/install_local.png)
+    ![Install Python package from local file system](assets/install_local.png)
 
 ### Running Python Scripts
 
-![](assets/Script_Run.png)
+![Start Python script](assets/Script_Run.png)
 
 You start or stop script execution with the buttons in the top right corner of the Script Editor.
 
@@ -102,17 +103,23 @@ You start or stop recording of commands executed in ZEISS INSPECT by using the R
 
 You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ►  Element Value in the script editor.
 
-## Adding and Removing Contents
+## Adding, Moving and Copying Contents
 
-You add contents from the Available Contents section to Apps (in editing mode) by drag and drop. You remove contents from an App by drag and drop to Available Contents. Moving contents between Apps (in editing mode) is also supported.
+A project must be opened to provide items in the Project Contents section. An App must be in editing mode to allow adding or removing contents. You copy or move contents between the Project Contents section and an App or between two Apps by drag&amp;drop. You remove content from an App with RMB ► Delete... . Based on the content types, the App folder structure is maintained automatically.
 
-![](assets/add_on_editor_dnd.gif)
+![Copying and Moving Contents](assets/add_on_editor_dnd.gif)
+
+## Searching and Filtering
+
+![App Explorer Filter](assets/app_explorer_filters.png)
+
+To ease working with a large number of installed Apps, searching and filtering can be used. The search function allows to enter parts of a file name. The search keyword can then be applied as a filter. An additional function allows to filter by storage location and content type.
 
 ## Exporting or Publishing an App
 
 * Export
 
-    Click RMB on the installed App ► Export: Save the selected App as a .zapp file.
+    Click RMB on the installed App ► Export: Save the selected App as a .addon file.
 
 * Publish in Software Store
 
@@ -126,7 +133,7 @@ You add contents from the Available Contents section to Apps (in editing mode) b
 
 ### Connecting and Disconnecting External Folders
 
-![](assets/03-Add-on_External_Folder_v2.png)
+![Connecting an external folder](assets/03-App_External_Folder.png)
 
 External Folder enables the user to run scripts from a selected path. More than one external folders can be added.
 
