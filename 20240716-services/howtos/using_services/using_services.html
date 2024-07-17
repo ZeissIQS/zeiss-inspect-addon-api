@@ -177,11 +177,11 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>script</p></td>
-<td><p>Service script, relative path whithin the services App</p></td>
+<td><p>Service script, relative path whithin the App</p></td>
 <td><p>“folder1/folder2/script.py”</p></td>
 </tr>
 <tr class="row-odd"><td><p>name</p></td>
-<td><p>Human readable name of the service; will be displayed in<br>the service administration dialog</p></td>
+<td><p>Human readable name of the service; will be displayed in<br>the Manage Services dialog</p></td>
 <td><p>“My Useful Service”</p></td>
 </tr>
 <tr class="row-even"><td><p>endpoint</p></td>
@@ -197,7 +197,7 @@
 <ul class="simple">
 <li><p>An App called ‘Service Test’ defines two services in its <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file (1):</p>
 <ul>
-<li><p>A muliplicator service which will be accessible via the API endpoint <code class="docutils literal notranslate"><span class="pre">gom.api.math</span></code> (2) and</p></li>
+<li><p>A multiplicator service accessible via the API endpoint <code class="docutils literal notranslate"><span class="pre">gom.api.math</span></code> (2) and</p></li>
 <li><p>A reflector service available at <code class="docutils literal notranslate"><span class="pre">gom.api.test</span></code> (3)</p></li>
 </ul>
 </li>
@@ -230,7 +230,7 @@
 </div>
 <p>For using a service, the following steps are required:</p>
 <ul class="simple">
-<li><p>Import the service</p></li>
+<li><p>Import the service by using its API endpoint name</p></li>
 <li><p>Call the service function</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id3">
@@ -250,7 +250,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Each service is running in a separate Python process. The communication works via a socket based protocol.
-Currently the service has run on the same machine as the application and can only be administered from there. In the future, this concept might be extended.</p>
+Currently the service has to run on the same machine as the application and can only be managed from there. In the future, this concept might be extended.</p>
 </div>
 </section>
 <section id="managing-services">
@@ -265,7 +265,7 @@ Currently the service has run on the same machine as the application and can onl
 <ul>
 <li><p>Restart Service,</p></li>
 <li><p>Stop Service and</p></li>
-<li><p>Update Services (rescan the App and script database installed services).</p></li>
+<li><p>Update Services (rescan the App and script database for installed services).</p></li>
 </ul>
 </li>
 </ul>
@@ -345,7 +345,7 @@ Currently the service has run on the same machine as the application and can onl
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fb53c04e350>
+  <jinja2.runtime.BlockReference object at 0x7f66a0d6bf10>
 
 
 </footer>
