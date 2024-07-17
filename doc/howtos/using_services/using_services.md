@@ -154,3 +154,7 @@ gom.log.info ('Informational message')
 ```{seealso}
 See [Python Logging HOWTO](https://docs.python.org/3/howto/logging.html) to learn more about logging in Python.
 ```
+
+## Service API documentation
+
+See [gom.api.settings](../python_api/python_api#gom-api-settings)
