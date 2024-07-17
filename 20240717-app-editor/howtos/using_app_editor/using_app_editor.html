@@ -170,13 +170,21 @@
 <p><img alt="App Editor Layout" src="../../_images/01-App_Editor_Intro.png" /></p>
 <ol class="arabic">
 <li><p>App Explorer</p>
-<p>The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps which you cannot delete or modify. To install additional Apps, use the integrated “Install/Uninstall Apps” dialog, drag&amp;drop the file into the App Explorer or use the ZEISS Quality Software Store. Apps can be installed in the User folder or in the Public folder. Additionally, external folders can be connected.</p>
+<p>The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps which you cannot delete or modify.</p>
+<p>Install additional Apps with one of the following methods:</p>
+<ul class="simple">
+<li><p>Open the “Install/Uninstall Apps” dialog from the main menu</p></li>
+<li><p>By drag&amp;drop into the App Explorer</p></li>
+<li><p>By RMB ► Import App… in the App Explorer</p></li>
+<li><p>By using the ZEISS Quality Software Store</p></li>
+</ul>
+<p>Apps can be installed in the User folder or in the Public folder. Additionally, external folders can be connected.</p>
 </li>
 <li><p>Project Contents</p>
-<p>The Project Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. You can copy or move contents between the Project Contents section and your App.</p>
+<p>The Project Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. You can copy or move contents between the Project Contents section and your App or between Apps.</p>
 </li>
 <li><p>Preview / Editor</p>
-<p>The Preview / Editor section shows the contents of a file depending its file type. If the selected App is in editing mode, App properties or script contents can be edited here.</p>
+<p>The Preview / Editor section shows the contents of a file depending on its file type. If the selected App is in editing mode, App properties or script contents can be edited here.</p>
 </li>
 </ol>
 </section>
@@ -204,12 +212,12 @@
 <p>A blue dot next to the App title indicates that the App is in editing mode.</p>
 <p>When you have finished editing the App, you can leave the editing mode</p>
 <ul class="simple">
-<li><p>By using RMB ► Finalize on the App root node in the App Explorer or</p></li>
+<li><p>By using RMB ► Finalize App on the App’s root node in the App Explorer or</p></li>
 <li><p>By clicking the Finalize App button in the App properties window.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Editing is only finished after all mandatory information has been entered in the App properties dialog.</p>
+<p>An App can only be finalized after all mandatory information has been entered in the App properties dialog.</p>
 </div>
 </section>
 <section id="writing-python-scripts">
@@ -220,7 +228,7 @@
 </section>
 <section id="installing-python-packages">
 <h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading"></a></h3>
-<p>Python packages can be installed to the App and the installed python packages are only valid for scripts in the same App. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation is shown.</p>
+<p>Python packages can be installed into an App. The installed Python packages are only available to scripts in this specific App. This concept is like in <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> or <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a>. If you click RMB on the ‘scripts’ folder or ‘modules’ folder and select ► Install Python Packages…, the dialog for the installation is shown.</p>
 <ul>
 <li><p>From network
 The package list from network must be separated with a comma. To install the packages of a specific version, write the version after “==”, e.g. <code class="docutils literal notranslate"><span class="pre">numpy==1.22.0</span></code></p>
@@ -252,7 +260,7 @@ Python wheel files (*.whl) can be added or removed.</p>
 </section>
 <section id="adding-moving-and-copying-contents">
 <h2>Adding, Moving and Copying Contents<a class="headerlink" href="#adding-moving-and-copying-contents" title="Link to this heading"></a></h2>
-<p>A project must be opened to provide items in the Project Contents section. An App must be in editing mode to allow adding or removing contents. You copy or move contents between the Project Contents section and an App or between two Apps by drag&amp;drop. You remove content from an App with RMB ► Delete… . Based on the content types, the App folder structure is maintained automatically.</p>
+<p>A project must be opened to provide items in the Project Contents section. An App must be in editing mode to allow adding or removing contents. You copy or move contents between the Project Contents section and an App or between two Apps by drag&amp;drop. You remove content from an App with RMB ► Delete… Based on the content types, the App folder structure is maintained automatically.</p>
 <p><img alt="Copying and Moving Contents" src="../../_images/add_on_editor_dnd.gif" /></p>
 </section>
 <section id="searching-and-filtering">
@@ -298,7 +306,7 @@ Python wheel files (*.whl) can be added or removed.</p>
 <p>Click RMB on the External Folder ► New App</p>
 </li>
 </ul>
-<p>“Finish Editing” is not available for Apps from external folders, however they can be published, although they are considered still to be work in progress.</p>
+<p>“Finalize App” is not available for Apps from external folders, however they can be published, although they are considered still to be work in progress.</p>
 </section>
 </section>
 </section>
@@ -325,7 +333,7 @@ Python wheel files (*.whl) can be added or removed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f4b74fab7f0>
+  <jinja2.runtime.BlockReference object at 0x7f365b6a83a0>
 
 
 </footer>
