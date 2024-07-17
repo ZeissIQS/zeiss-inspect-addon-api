@@ -31,8 +31,8 @@ Each service consists of a Python script file in an App. The App's `metainfo.jso
 
 | Key      | Description                                                                                    | Example                     |
 | -------- | ---------------------------------------------------------------------------------------------- | --------------------------- | 
-| script   | Service script, relative path whithin the services App 	                                    | "folder1/folder2/script.py" |
-| name 	   | Human readable name of the service; will be displayed in<br>the service administration dialog  | "My Useful Service"         |
+| script   | Service script, relative path whithin the App 	                                                | "folder1/folder2/script.py" |
+| name 	   | Human readable name of the service; will be displayed in<br>the Manage Services dialog         | "My Useful Service"         |
 | endpoint | Service API endpoint where the service functions<br>will be accessible                         | "gom.api.meshing"           |
 
 ### Example
@@ -40,7 +40,7 @@ Each service consists of a Python script file in an App. The App's `metainfo.jso
 ![Services metainfo.json example](assets/services_metainfo.png)
 
 * An App called 'Service Test' defines two services in its `metainfo.json` file (1):
-  * A muliplicator service which will be accessible via the API endpoint `gom.api.math` (2) and
+  * A multiplicator service accessible via the API endpoint `gom.api.math` (2) and
   * A reflector service available at `gom.api.test` (3)
 * Each service is associated with a script (4), (5).
 
@@ -67,7 +67,7 @@ A registered service can be used like any regular Python module.
 ```
 
 For using a service, the following steps are required:
-* Import the service
+* Import the service by using its API endpoint name
 * Call the service function
 
 ```{code-block} python
@@ -86,7 +86,7 @@ result = gom.api.test.reflect({'test': 123})
 
 ```{note}
 Each service is running in a separate Python process. The communication works via a socket based protocol.
-Currently the service has run on the same machine as the application and can only be administered from there. In the future, this concept might be extended.
+Currently the service has to run on the same machine as the application and can only be managed from there. In the future, this concept might be extended.
 ```
 
 ## Managing services
@@ -102,7 +102,7 @@ You open the Manage Services dialog with Apps ► Manage Services... from the ZE
 * The right mouse menu offers the options
     * Restart Service,
     * Stop Service and
-    * Update Services (rescan the App and script database installed services).
+    * Update Services (rescan the App and script database for installed services).
 
 ### Service registration
 
