@@ -132,6 +132,10 @@ Each service has a persistent log.
 
 The current content can be displayed in the Manage Services dialog by selecting the desired service. The log can be cleared via RMB ► Delete Log File in the log output widget. By default, basic service events like startup/exit are logged.
 
+```{hint}
+The service log files stored as `C:\ProgramData\gom\log\service-<endpoint>.log`, e.g. `service-gom-api-test.log`.
+```
+
 ### Adding log output to a service
 
 ```{hint}
