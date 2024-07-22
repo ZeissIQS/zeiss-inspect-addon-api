@@ -2,7 +2,7 @@
 
 ## Introduction
 
-💡 An ZEISS INSPECT App file (extension: *.zapp) is a ZIP archive with pre-defined folder- and filenames. 
+💡 An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
 
 While an App file will be created and modified with the App Editor in most cases, it can also be unzipped/edited/zipped manually if necessary.
 
