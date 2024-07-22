@@ -15,7 +15,7 @@ The connected folders are saved as Windows shortcuts in `C:\Users\<USERID>\AppDa
 Token: `gom.app.python_directory`
 
 * For GOM Inspect <= 2022: `C:\Program Files\GOM\<VERSION>\python`
-* For ZEISS INSPECT > 2032: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
+* For ZEISS INSPECT >= 2023: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
 
 The module search path also includes 
 * `C:\Program Files\Zeiss\INSPECT\<VERSION>\lib\python`
