@@ -35,7 +35,7 @@ suppress_warnings  = ['myst.header']
 
 # -- Options for sitemap -----------------------------------------------------
 # https://sphinx-sitemap.readthedocs.io/en/latest/getting-started.html
-html_baseurl = 'https://zeissiqs.github.io/zeiss-inspect-addon-api/main/'
+html_baseurl = 'https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/'
 sitemap_url_scheme = "{link}"
 
 # -- Options for HTML output -------------------------------------------------
