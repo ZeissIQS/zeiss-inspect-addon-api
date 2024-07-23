@@ -21,7 +21,7 @@ gom.script.sys.create_project ()
 ```
 
 ```{note}
-💡 This way, a project in the default workflow (part-based) is created. For the legacy workflow (part-less), please refer to [Scripting with legacy projects \(part-less\)](../scripting_legacy_projects/scripting_legacy_projects.md)
+This way, a project in the default workflow (part-based) is created. For the legacy workflow (part-less), please refer to [Scripting with legacy projects \(part-less\)](../scripting_legacy_projects/scripting_legacy_projects.md)
 ```
 
 ## Creating parts
