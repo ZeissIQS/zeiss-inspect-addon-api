@@ -195,7 +195,7 @@ You can only add commands to the toolbar. The commands will bring their own icon
 
 ### How can I group scripts in the workspace toolbar?
 
-Scripts in a common folder can be added to the workspace toolbar as a group .
+Scripts in a common folder can be added to the workspace toolbar as a group.
 
 Example:
 
