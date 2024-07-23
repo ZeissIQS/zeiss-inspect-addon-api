@@ -4,7 +4,7 @@
 
 ## Workspaces
 
-![](assets/workspace1.png)
+![Workspace, toolbar and view menu](assets/workspace1.png)
 
 * ZEISS INSPECT has a set of available workspaces on the left side (1).
 * Which workspaces are available depends on the available licenses and the installed Apps.
@@ -25,7 +25,7 @@
 * We recommend 7-zip for that task, but every other zip tool will do the job, too.
 * If you want to perform these tasks often, you can register your ZIP tool in the Windows "Choose default apps by file type" settings. Then, instead of unpacking and packing the App again for each edit, you can fiddle with the App content directly from the ZIP tool:
 
-  ![](assets/workspace2.png)
+  ![Handling App contents with ZIP tool](assets/workspace2.png)
 
 ### Step 2: Create a workspace folder inside the App
 
@@ -99,16 +99,14 @@ Position of this workspace in the list of workspaces. If the element `sort_index
 
 #### "icon"
 
-The name of an (internal) icon file or an icon definition.
+The name of an icon file (for ZEISS internal use only) or an icon definition.
 
-> It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.
-
-Since SW2022-0, workspace icon definitions can be added with the following procedure:
+Workspace icon definitions can be added with the following procedure:
 
 * Choose an icon file in one of the widely supported formats (png, jpg, ...). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.
 * Install the App 'Workspace editor tools' and use the script in 'Apps/Tools/Workspace editor' to create a base64 encoded file of this icons data:
 
-  ![](assets/convert_base64_dialog.png)
+  ![Base64 conversion tool](assets/convert_base64_dialog.png)
 
 * Insert the resulting file content as a text item into the icon property:
 
@@ -138,7 +136,7 @@ Some icon guidelines
     2. You let the software automatically invert the icon to white color. The icons will get autobrightened, if the icon contains ONLY the standard black color (see above), and no bright colors (Lightness > 127)
 * Example
 
-  ![](assets/icon_guideline.png)
+  ![Icon guideline](assets/icon_guideline.png)
 
   * (1) = Icon with padding, stays the same in all modes
   * (2) = Icon in pure #333333 black, gets auto-brightened in dark modes
@@ -152,7 +150,7 @@ Commands on the left side of the workspace toolbar. These command can either be
 
 The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and omit the 'gom.script' prefix:
 
-![](assets/workspace5.png)
+![Command recording](assets/workspace5.png)
 
 This works for scripts, too, if a script is executed from the 'Apps' menu while the script editor is in recording mode.
 
@@ -164,7 +162,7 @@ Commands on the right side of the workspace toolbar. Same principle as above.
 
 Views that are visible per default, e.g.  adding "right_docking_area" shows the properties/toolbox window(star) on right side, which is collapsed by default. ( (star) as long as the default_view_layout_right_ isn't changed). To investigate the name of the view to enter here, start script recording again and switch to that view in the applications UI. This will record a command containing that name:
 
-![](assets/workspace6.png)
+![Visible views configuration](assets/workspace6.png)
 
 #### "default_visible_tabs" 
 
@@ -193,4 +191,41 @@ Views that are visible as tabs per default → these are still initially collaps
 
 You can only add commands to the toolbar. The commands will bring their own icons. For scripts, which can be added like commands, a custom script icon can be set in the script editor via the 'edit properties' feature in the right mouse menu of the script:
 
-![](assets/workspace7.png)
+![Script icon configuration](assets/workspace7.png)
+
+### How can I group scripts in the workspace toolbar?
+
+Scripts in a common folder can be added to the workspace toolbar as a group .
+
+Example:
+
+```
+:caption: App folder structure
+
+Workspace editor tools
+  |
+  |-- Scripts
+  |    |-- my_script.py
+  |    |-- myworkflow
+  |          |-- step1.py
+  |          |-- step2.py
+  ...  
+```
+
+```
+:caption: Sample Workspace.json
+
+{
+    ...
+    "workflow_commands": [
+        "sys.import_file",
+        "userscript.group_myworkflow",
+        "userscript.my_script"
+    ],
+    ...
+}
+```
+
+![Scripts as a group](assets/workspace8.png)
+
+The scripts `step1.py` and `step2.py` from the folder `myworkflow` are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script which was executed last is shown.
