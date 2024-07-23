@@ -228,4 +228,4 @@ Workspace editor tools
 
 ![Scripts as a group](assets/workspace8.png)
 
-The scripts `step1.py` and `step2.py` from the folder `myworkflow` are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script which was executed last is shown.
+The scripts `step1.py` and `step2.py` in the folder `myworkflow` are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script which was executed last is shown.
