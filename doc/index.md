@@ -80,6 +80,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/localization/localization
    howtos/starting_options/starting_options
    howtos/testing_apps/testing_apps
+   howtos/scripting_legacy_projects/scripting_legacy_projects
    howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
