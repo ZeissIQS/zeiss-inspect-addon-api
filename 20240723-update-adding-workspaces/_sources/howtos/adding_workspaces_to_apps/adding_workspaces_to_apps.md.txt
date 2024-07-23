@@ -193,6 +193,8 @@ You can only add commands to the toolbar. The commands will bring their own icon
 
 ![Script icon configuration](assets/workspace7.png)
 
+As an alternative, script icons can be included as files as shown in the example App [ScriptIcon](https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_icons/ScriptIcon/doc/Documentation.md).
+
 ### How can I group scripts in the workspace toolbar?
 
 Scripts in a common folder can be added to the workspace toolbar as a group.
