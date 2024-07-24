@@ -1089,7 +1089,7 @@ Example: Continuous text widget (`cont_text`) with formatted text
 
 ```{code-block} python
 # Continuous text - font size: 18 pt, font weight: 600, color: red, 
-DIALOG.text.text = '<span style="font-size:18pt; font-weight:600; color:red;">Attention!</span>'
+DIALOG.text.text = '<span style="font-size:18pt; font-weight:800; color:red;">Attention!</span>'
 ```
 
 ![Continuous text widget with HTML formatted text](assets/widget_text_html_formatting.png)
