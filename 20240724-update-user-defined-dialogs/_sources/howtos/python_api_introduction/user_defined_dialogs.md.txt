@@ -18,7 +18,7 @@
 
 ### Dialog designer
 
-* User defined **Dialogs** can be inserted into the script using _right mouse button_ → Insert → Dialog... in the <a href="../using_app_editor/using_app_editor.html">App Editor</a>.
+* User defined **Dialogs** can be inserted into the script using RMB ► Insert ► Dialog... in the <a href="../using_app_editor/using_app_editor.html">App Editor</a>.
 
     ![](assets/insert_dialog.png)
 
@@ -96,7 +96,9 @@ The Dialog Editor is opened from the <a href="../using_app_editor/using_app_edit
 
 #### Editing the grid
 
-💡 Editing the layout means changing the underlying grid.
+```{note}
+Editing the layout means changing the underlying grid.
+```
 
 * Because the underlying layout is a grid, the following actions are possible:
     * Adding and removing rows and columns.
@@ -114,7 +116,9 @@ The Dialog Editor is opened from the <a href="../using_app_editor/using_app_edit
 
 #### Spacers
 
-💡 **Spacers** are empty spaces extending in either horizontal or vertical direction.
+```{note}
+**Spacers** are empty spaces extending in either horizontal or vertical direction.
+```
 
 * If a spacer is inserted into a cell, the cell claims the maximum available space in spacer direction.
 * All other cells share the remaining space.
@@ -133,7 +137,9 @@ The Dialog Editor is opened from the <a href="../using_app_editor/using_app_edit
     * Another widget can be dragged and dropped onto the existing widget or
     * The widget cell can be merged with another cell.
 
-💡 Removing widgets from the grid is not possible. Instead, they can be overwritten by other widgets.
+```{note}
+Removing widgets from the grid is not possible. Instead, they can be overwritten by other widgets.
+```
 
 ![](assets/separator_line.png)
 
@@ -197,7 +203,9 @@ print( DIALOG.objName.__doc__ )
 
 ### Control widget
 
-💡 The **Control** widget contains the **ok** / **cancel** or similar buttons of the dialog.
+```{note}
+The **Control** widget contains the **ok** / **cancel** or similar buttons of the dialog.
+```
 
 * The control elements of a dialog cannot be configured like other dialog widgets.
 * Therefore, their name is fixed and they are grouped together inside of the control widget named **control**.
@@ -211,7 +219,9 @@ print( DIALOG.objName.__doc__ )
 
 #### Control widget elements
 
-💡 The names of the **Control** widget elements are fixed
+```{note}
+The names of the **Control** widget elements are fixed.
+```
 
 * Usually, the names are corresponding with the elements' semantics. For example, the name of the **ok** button is 'ok'. The names can also be obtained from the `__doc__` string as shown in the code example below.
 * The control elements are accessed like all other widget attributes.
@@ -240,7 +250,9 @@ Control buttons only have the following two properties which can be set programm
 
 #### Status label
 
-⚠️ The **Status label** of the control widget is invisible until a status text is set.
+```{hint}
+The **Status label** of the control widget is invisible until a status text is set.
+```
 
 * If a status text is set, a small warning icon appears, like in regular applications' dialogs.
 * The status label can be configured using its properties like all other widgets.
@@ -564,7 +576,9 @@ Partially controlled system progress bar
   gom.script.sys.recalculate_all_elements ()
   ```
 
-💡 It is possible to switch  between automatic and manual mode for each part.
+```{note}
+It is possible to switch  between automatic and manual mode for each part.
+```
 
 | Property | Type  | Example                                                                                 |
 | -------- | ----- | --------------------------------------------------------------------------------------- |
@@ -988,7 +1002,9 @@ The buttons size and icon can be changed in the Dialog Editor.
 | icon_system_size | str  | <pre># Possible values: 'default', 'large', 'extra_large'<br>DIALOG.button.icon_system_size = 'extra_large'</pre>     |
 | visible          | bool | <pre>DIALOG.button.visible = False
 
-💡 There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.
+```{note}
+There are also values for file icons. These only work straightforward using the dialog designer but not from a script. You can only change between no icon and system icons in a straightforward way.
+```
 
 #### Radio button widget
 
@@ -1236,7 +1252,9 @@ RESULT = gom.script.sys.show_user_defined_dialog( dialog = DIALOG )
     * the `open` command is issued to display the dialog. The script executing continues. At last
     * the `close` command closes the dialog again, if no closed manually by the user yet.
 
-💡 At script termination all open dialogs are closed automatically.
+```{note}
+At script termination all open dialogs are closed automatically.
+```
 
 ```{code-block} python
 :caption: Non blocking configurable dialogs
@@ -1263,7 +1281,9 @@ gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
 
 ### Dialog results
 
-💡 The return value is an object with one property per interactive dialog widget containing its current value.
+```{note}
+The return value is an object with one property per interactive dialog widget containing its current value.
+```
 
 * The return value is an object containing all current values.
 * Each dialog widget which can be changed by the script user writes its resulting value into this result object.
@@ -1317,7 +1337,9 @@ MCAD_ELEMENT=gom.script.primitive.create_line_by_2_points (
     point2 = RESULT.point2)
 ```
 
-💡 The type of the result depends on the specific widget.
+```{note}
+The type of the result depends on the specific widget.
+```
 
 #### Custom results
 
@@ -1455,7 +1477,9 @@ def handler_function (widget):
 
 #### Closing dialogs from within the event handler
 
-💡 Dialogs can be closed from within event handlers.
+```{note}
+Dialogs can be closed from within event handlers.
+```
 
 ![](assets/event_handler_script_launcher.png)
 
@@ -1474,7 +1498,9 @@ def dialog_event_handler (widget):
         gom.script.sys.close_user_defined_dialog (dialog=DIALOG)
 ```
 
-⚠️ Right after the dialog has been closed its handle becomes invalid.
+```{warning}
+Right after the dialog has been closed, its handle becomes invalid.
+```
 
 This implies, that the event handler function must be written in a way that no dialog dependent code is executed after the dialog has been closed.
 
@@ -1494,11 +1520,13 @@ print(DIALOG.timer.__doc__)
 # interval (integer) - timer interval [ms]
 ```
 
-💡 Please note that the timer is disabled by default.
+```{note}
+The timer is disabled by default.
+```
 
 Example:
 
-![](assets/event_handler_timer_edit.png)
+![](assets/event_handler_timer.png)
 
 ```{code-block} python
 :caption: Button/Timer event handler
@@ -1548,7 +1576,9 @@ The complete code of the example can be found here: [timer.py](assets/timer.py).
 * Instead, it is possible to query the variable dynamically during runtime.
 * The more commonly used widget attributes are documented in the section [Specific widgets](#specific-widgets) above.
 
-💡 Most objects support the attribute `__doc__` which prints the available object documentation to the console.
+```{note}
+Most objects support the attribute `__doc__` which prints the available object documentation to the console.
+```
 
 ```{code-block} python
 :caption: Print object documentation
@@ -1585,7 +1615,9 @@ print (DIALOG.my_button.__doc__)
 * The script programmer is responsible for adding functionality to this layout.
 * Wizards are not very versatile, but modifying the displayed texts and images is easily possible.
 
-⚠️ It is not possible to exchange widgets from within a dialog after the dialog has been created!
+```{warning}
+It is not possible to exchange widgets from within a dialog after the dialog has been created!
+```
 
 Therefore Wizards only have simple options like exchange of images and texts in those containing elements.
 
