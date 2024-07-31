@@ -349,6 +349,10 @@ A keyword can be inserted into the text with the following procedure:
 
     ![](assets/widget_text_insert_expression4.png)
 
+    ```{hint}
+    The comment '#@ Not yet named' should be deleted, otherwise the selected keyword 'Date' will not be shown in the editor.
+    ```
+
 5. The final rendering of the text widget
 
     ![](assets/widget_text_insert_expression6.png)
