@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="data_interfaces" href="data_interfaces.html" />
+    <link rel="next" title="ZEISS INSPECT App Python API documentation" href="../python_api/python_api.html" />
     <link rel="prev" title="ZEISS INSPECT Python API Examples Overview" href="index.html" /> 
 </head>
 
@@ -81,14 +81,66 @@
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT App Examples Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-interfaces-how-to-access-data-of-zeiss-inspect-elements">data_interfaces — How to access data of ZEISS INSPECT elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialog-widgets-how-to-use-custom-dialogs-and-handle-user-input-events">dialog_widgets — How to use custom dialogs and handle user input events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-miscellaneous">misc — Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects-zeiss-inspect-projects">projects — ZEISS INSPECT projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-icons-how-to-set-icons-for-scripts-or-buttons">script_icons — How to set icons for scripts or buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-resources-how-to-access-binary-data-of-your-app-resources">script_resources — How to access binary data of your App (resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-building-custom-actual-elements-with-python-code">scripted_actuals — Building custom actual elements with Python code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-checks-building-custom-checks-with-python-code">scripted_checks — Building custom checks with Python code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-projects">Example projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag-index">Tag Index</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><a id="circle"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><a id="computation-progress"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><a id="cone"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><a id="curve"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><a id="cylinder"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><a id="dialog"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><a id="directory"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><a id="distance"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9"><a id="element-data"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10"><a id="element-properties"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11"><a id="export"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><a id="file"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13"><a id="folder"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14"><a id="image-widget"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15"><a id="import"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16"><a id="measurement"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17"><a id="menu"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18"><a id="mesh"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19"><a id="path"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20"><a id="point"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21"><a id="point-cloud"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22"><a id="project"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23"><a id="project-keywords"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24"><a id="reference-points"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25"><a id="resources"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26"><a id="scalar"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27"><a id="scripted-actual"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28"><a id="scripted-check"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29"><a id="section"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30"><a id="selection-element-widget"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31"><a id="selection-list-widget"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32"><a id="service"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33"><a id="settings"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34"><a id="sql-database"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35"><a id="surface"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36"><a id="surface-curve"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37"><a id="testing"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38"><a id="unit-widget"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39"><a id="volume"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40"><a id="volume-defects"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41"><a id="volume-region"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42"><a id="volume-section"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43"><a id="widget-properties"><a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44"><a id="xray"><a></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#related">Related</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -1287,7 +1339,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="ZEISS INSPECT Python API Examples Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_interfaces.html" class="btn btn-neutral float-right" title="data_interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python_api/python_api.html" class="btn btn-neutral float-right" title="ZEISS INSPECT App Python API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -1304,7 +1356,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fae7813d900>
+  <jinja2.runtime.BlockReference object at 0x7f542f541ba0>
 
 
 </footer>

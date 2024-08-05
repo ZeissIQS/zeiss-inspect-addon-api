@@ -59,16 +59,5 @@ The following project files are included:
 | volume_test_part            | A small test volume for CT related inspections                            |
 | zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part             |
 
-## Examples by topic
-
-| Folder                                                        | Description                                                             |
-| ------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [data_interfaces](data_interfaces.md)                         | Access to data of ZEISS INSPECT "elements"                                        |
-| [dialog_widgets](dialog_widgets.md)                           | Examples how use custom dialogs and handle user input events            |
-| [misc](misc.md)                                               | Miscellaneous examples                                                  |
-| [script_icons](script_icons.md)                               | Set icons for scripts or buttons                                        |
-| [script_resources](script_resources.md)                       | How to access binary data of your App (resources)                       |
-| [scripted_actuals](scripted_actuals.md)                       | Building actual elements with custom python code                        |
-| [scripted_checks](scripted_checks.md)                         | Building custom checks with python code                                 |
 
  
