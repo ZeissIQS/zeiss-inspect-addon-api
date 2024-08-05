@@ -93,7 +93,6 @@ If you already know how to create an App and now you are interested in Python pr
 .. toctree::
    :maxdepth: 1
    :caption: Python API Examples
-   :titlesonly:
 
    python_examples/index
    python_examples/examples_overview
