@@ -1,7 +1,7 @@
 ---
 myst:
    html_meta:
-      "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Apps"
+      "description": "Introduction to the Python API for extending ZEISS INSPECT 2025 with Apps"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos"
 ---
 
@@ -290,7 +290,7 @@ Once you have a reference to the element, you can access its properties using se
 One way to inspect the available keys is by using the 'Script Object' explorer, which is available from the context menu `-> Insert -> Element Value` or by shortcut `F2`.
 
 
-```{image} assets/script_object_explorer.jpg
+```{image} assets/script_object_explorer.png
 :alt: Script Object Explorer
 :width: 350px
 ```

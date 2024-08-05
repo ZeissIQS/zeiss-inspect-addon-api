@@ -88,6 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
@@ -139,7 +140,7 @@
 <h1>App file format<a class="headerlink" href="#app-file-format" title="Link to this heading"></a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p>💡 An ZEISS INSPECT App file (extension: *.zapp) is a ZIP archive with pre-defined folder- and filenames.</p>
+<p>💡 An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames.</p>
 <p>While an App file will be created and modified with the App Editor in most cases, it can also be unzipped/edited/zipped manually if necessary.</p>
 </section>
 <section id="structure">
@@ -301,7 +302,11 @@
 <td><p>User defined inspection principles</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>workspaces</p></td>
+<tr class="row-odd"><td><p>workflow_assistant</p></td>
+<td><p>Workflow assistant configuration</p></td>
+<td><p>INTERNAL</p></td>
+</tr>
+<tr class="row-even"><td><p>workspaces</p></td>
 <td><p>Workspace definitions</p></td>
 <td><p></p></td>
 </tr>
@@ -403,7 +408,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f365a2f01c0>
+  <jinja2.runtime.BlockReference object at 0x7f164c54df00>
 
 
 </footer>

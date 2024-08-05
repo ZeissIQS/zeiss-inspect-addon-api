@@ -6,7 +6,7 @@ The term "resource" is used to describe any files in your scripts directories th
 
 The resources files in your scripts directory are automatically recognized as such. You can as well add (import) resources using the context menu of the script editor.
 
-![](assets/import_script_resource.jpg) 
+![RMB ► Import ► Resource](assets/import_script_resource.png) 
 
 ## Usage in scripts
 
