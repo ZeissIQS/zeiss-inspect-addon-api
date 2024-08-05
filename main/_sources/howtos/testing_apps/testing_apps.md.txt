@@ -18,7 +18,7 @@ For test discovery to work, the file and folder structure of App tests needs to 
    * this means: no code outside of function definitions. 
 * (optional, but recommended) all python test scripts reside in a separate `tests/` directory of your Apps top-level directory.
 
-```{figure} file_structure.jpg
+```{figure} file_structure.png
 :align: center
 Exemplary file structure.
 ```
@@ -69,7 +69,7 @@ To run App tests, either a single one or multiple/all tests of an App, you can u
 
 To run the tests of a specific test script, use the context menu and select "Run tests...". 
 
-![](execute_tests_command.jpg)
+![Executimg tests from App Explorer](execute_tests_command.png)
 
 You can use this context also on higher levels of the file hierarchy, e.g. to execute all tests of a folder or of the complete App.
 
@@ -82,7 +82,7 @@ Results will be shown in the log of the script editor.
 The ZEISS INSPECT App extension for VSCode was also extended to be able to run the test functions separately, or a collection of tests.
 To use this feature, navigate to the "Testing" workspace of VSCode and select the test items you want to run.
 
-![](vscode_testing.jpg)
+![Executing tests from VSCode](vscode_testing.jpg)
 
 ### From scripts
 
@@ -138,7 +138,7 @@ If a relative path is given, like here, a resource inside the App is created / c
 
 These classes will **create the test data** for you, if you run the test execution via "Run tests (create data)...".
 
-![](run_tests_create_data.jpg)
+![Run test with creation of test data](run_tests_create_data.png)
 
 In a "normal" test run, data will be compared to the stored resources.
 
