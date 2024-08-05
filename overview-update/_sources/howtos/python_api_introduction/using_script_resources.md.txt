@@ -27,5 +27,5 @@ if (res.exists()):
 
 ## See also
 
-* [Examples of category `script_resources`](../../python_examples/script_resources.md)
+* <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/script_resources">Examples of category `script_resources`</a>
 * [`gom.Resource` API Definition](../../python_api/resource_api.md)
