@@ -2,7 +2,7 @@
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="Introduction to the Python API for extending ZEISS INSPECT 2023 with Apps" name="description" />
+<meta content="Introduction to the Python API for extending ZEISS INSPECT 2025 with Apps" name="description" />
 <meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -394,7 +394,7 @@ According to this, the stage (i.e. a mesh) would be a sub-element of the part. O
 <h3>Explore available properties<a class="headerlink" href="#explore-available-properties" title="Link to this heading"></a></h3>
 <p>Once you have a reference to the element, you can access its properties using several keywords in the form <code class="docutils literal notranslate"><span class="pre">element.&lt;keyword&gt;</span></code>.</p>
 <p>One way to inspect the available keys is by using the ‘Script Object’ explorer, which is available from the context menu <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">Insert</span> <span class="pre">-&gt;</span> <span class="pre">Element</span> <span class="pre">Value</span></code> or by shortcut <code class="docutils literal notranslate"><span class="pre">F2</span></code>.</p>
-<a class="reference internal image-reference" href="../../_images/script_object_explorer.jpg"><img alt="Script Object Explorer" src="../../_images/script_object_explorer.jpg" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../../_images/script_object_explorer.png"><img alt="Script Object Explorer" src="../../_images/script_object_explorer.png" style="width: 350px;" /></a>
 <p>You will find several keywords there, with a preview of the current value.
 If you click <code class="docutils literal notranslate"><span class="pre">OK</span></code>, the complete call, including element reference by name, will be copied to your current script. If you already have a name reference, you can of course use this reference.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
@@ -563,7 +563,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fcb95efdfc0>
+  <jinja2.runtime.BlockReference object at 0x7f010f7b4d90>
 
 
 </footer>
