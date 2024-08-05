@@ -1,6 +1,6 @@
 # Using the App Editor
 
-Script Editor and Package Manager have been integrated as the App Editor. Here you can write Python scripts, add/remove contents, create/edit, export and publish Apps.
+With the App Editor, you write Python scripts, add/remove contents, create/edit, export and publish Apps.
 
 See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/cmd_sys_manage_add_ons.html) for more details.
 
@@ -13,6 +13,7 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
   * [Running Python Scripts](#running-python-scripts)
   * [Recording Commands](#recording-commands)
   * [Inserting Element Values](#inserting-element-values)
+  * [Inserting a File Selection Dialog](#inserting-a-file-selection-dialog)
 - [Adding and Removing Contents](#adding-moving-and-copying-contents)
 - [Searching and Filtering](#searching-and-filtering)
 - [Exporting or Publishing an App](#exporting-or-publishing-an-app)
@@ -26,15 +27,23 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
 
 1. App Explorer
 
-    The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps which you cannot delete or modify. To install additional Apps, use the integrated "Install/Uninstall Apps" dialog, drag&amp;drop the file into the App Explorer or use the ZEISS Quality Software Store. Apps can be installed in the User folder or in the Public folder. Additionally, external folders can be connected.
+    The App Explorer shows all installed Apps. The professional version of ZEISS INSPECT already provides some system Apps which you cannot delete or modify.
+    
+    Install additional Apps with one of the following methods:
+    * Open the "Install/Uninstall Apps" dialog from the main menu
+    * By drag&amp;drop into the App Explorer
+    * By RMB ► Import App... in the App Explorer  
+    * By using the ZEISS Quality Software Store
+    
+    Apps can be installed in the User folder or in the Public folder. Additionally, external folders can be connected.
     
 2. Project Contents
 
-    The Project Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. You can copy or move contents between the Project Contents section and your App.
+    The Project Contents section contains all items in your active project, e.g. templates, report styles etc. Add these items by dragging and dropping them to your App in the App Explorer. You can copy or move contents between the Project Contents section and your App or between Apps.
 
 3. Preview / Editor
 
-    The Preview / Editor section shows the contents of a file depending its file type. If the selected App is in editing mode, App properties or script contents can be edited here.  
+    The Preview / Editor section shows the contents of a file depending on its file type. If the selected App is in editing mode, App properties or script contents can be edited here.  
 
 ## Creating a new App
 
@@ -62,11 +71,11 @@ Set an App to editing mode
 A blue dot next to the App title indicates that the App is in editing mode.
 
 When you have finished editing the App, you can leave the editing mode
-* By using RMB ► Finalize on the App root node in the App Explorer or
+* By using RMB ► Finalize App on the App's root node in the App Explorer or
 * By clicking the Finalize App button in the App properties window.
 
 ```{note}
-Editing is only finished after all mandatory information has been entered in the App properties dialog.
+An App can only be finalized after all mandatory information has been entered in the App properties dialog.
 ```
 
 ## Writing Python Scripts
@@ -77,7 +86,7 @@ Click RMB on the 'scripts' folder of an App (in editing mode) ► New Folder/Scr
 
 ### Installing Python Packages
 
-Python packages can be installed to the App and the installed python packages are only valid for scripts in the same App. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select ► Install Python Packages..., the dialog for the installation is shown.
+Python packages can be installed into an App. The installed Python packages are only available to scripts in this specific App. This concept is like in [Conda](https://docs.conda.io/en/latest/) or [VirtualEnv](https://virtualenv.pypa.io/en/latest/). If you click RMB on the 'scripts' folder or 'modules' folder and select ► Install Python Packages..., the dialog for the installation is shown.
 
 * From network
     The package list from network must be separated with a comma. To install the packages of a specific version, write the version after “==”, e.g. `numpy==1.22.0`
@@ -101,11 +110,15 @@ You start or stop recording of commands executed in ZEISS INSPECT by using the R
 
 ### Inserting Element Values
 
-You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ►  Element Value in the script editor.
+You insert objects from ZEISS INSPECT into your Python script by using RMB ► Insert ► Element Value in the script editor.
+
+### Inserting a File Selection Dialog
+
+You insert a file selection dialog in your Python script by using RMB ► Insert ► File... in the script editor. See [Selecting a file or folder](../python_api_introduction/file_selection_dialog.md) for details.
 
 ## Adding, Moving and Copying Contents
 
-A project must be opened to provide items in the Project Contents section. An App must be in editing mode to allow adding or removing contents. You copy or move contents between the Project Contents section and an App or between two Apps by drag&amp;drop. You remove content from an App with RMB ► Delete... . Based on the content types, the App folder structure is maintained automatically.
+A project must be opened to provide items in the Project Contents section. An App must be in editing mode to allow adding or removing contents. You copy or move contents between the Project Contents section and an App or between two Apps by drag&amp;drop. You remove content from an App with RMB ► Delete... Based on the content types, the App folder structure is maintained automatically.
 
 ![Copying and Moving Contents](assets/add_on_editor_dnd.gif)
 
@@ -153,4 +166,4 @@ External Folder enables the user to run scripts from a selected path. More than 
     
     Click RMB on the External Folder ► New App
 
-"Finish Editing" is not available for Apps from external folders, however they can be published, although they are considered still to be work in progress.
+"Finalize App" is not available for Apps from external folders, however they can be published, although they are considered still to be work in progress.
