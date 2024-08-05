@@ -77,6 +77,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
    howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
+   howtos/using_services/using_services
    howtos/localization/localization
    howtos/starting_options/starting_options
    howtos/testing_apps/testing_apps
