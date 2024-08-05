@@ -101,7 +101,7 @@ Now you've grasped the basic concept of scripted actuals. However, there are som
 * Preview calculation
 * ...
 
-To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` App, [documented here](../../python_examples/scripted_actuals.md).
+To learn about these mechanisms, you should take a look at the more sophisticated App examples in the section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a>.
 
 ```{seealso}
 [Scripted elements API](../../python_api/scripted_elements_api.md)
