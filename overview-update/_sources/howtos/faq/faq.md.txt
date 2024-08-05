@@ -360,7 +360,7 @@ Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-app)) require p
 
 Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an App?](#can-i-use-the-python-package-pywin32-in-an-app).
 
-If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example)).
+If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">Excel import/export example</a>).
 
 ## How do I use a C# / .NET library in an App?
 
