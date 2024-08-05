@@ -96,6 +96,7 @@ If you already know how to create an App and now you are interested in Python pr
    :titlesonly:
 
    python_examples/index
+   python_examples/examples_overview
    python_examples/data_interfaces
    python_examples/dialog_widgets
    python_examples/misc
