@@ -2,7 +2,7 @@
 
 ## Non-interactive creation
 
-You use the command `gom.script.sys.create_element_by_script()` to create a scripted element from a script without opening its dialog. This example uses the scripted element [scripted_actual_distance](../../python_examples/scripted_actuals/scripted_actual_distance.md) from the `Python API Examples` App:
+You use the command `gom.script.sys.create_element_by_script()` to create a scripted element from a script without opening its dialog. This example uses a <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualDistance/doc/Documentation.md">scripted actual distance</a>:
 
 ```{code-block} python
 :caption: create_distance.py
