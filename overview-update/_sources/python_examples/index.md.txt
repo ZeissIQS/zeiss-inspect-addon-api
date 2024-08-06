@@ -1,7 +1,7 @@
 ---
 myst:
    html_meta:
-      "description": "Examples for using the ZEISS INSPECT 2023 App Python API"
+      "description": "Examples for using the ZEISS INSPECT 2025 App Python API"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples"
 ---
 #  ZEISS INSPECT Python API Examples Overview
