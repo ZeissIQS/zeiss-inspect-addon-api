@@ -1,7 +1,7 @@
 ---
 myst:
    html_meta:
-      "description": "ZEISS INSPECT 2023 Add-on Python API News"
+      "description": "ZEISS INSPECT 2025 Add-on Python API News"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Examples, Specification, Documentation, News, Newsfeed, RSS"
 --- 
 
