@@ -4,7 +4,7 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/</link>
     <description></description>
-    <lastBuildDate>Tue, 06 Aug 2024 06:32:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 06:45:16 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>Selecting elements in scripts</title>
@@ -92,7 +92,7 @@
       <title>Scripted elements examples</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/news/20240119-scripted-elements-examples.html</link>
       <description>&lt;div class="compound"&gt;
-&lt;p&gt;Examples for all types of scripted actual elements have been added to &lt;a href="../python_examples/scripted_actuals.html"&gt;Python API Examples - scripted actuals&lt;/a&gt;. You might also want to review the basics in &lt;a href="../howtos/scripted_elements/scripted_elements_toc.html"&gt;Scripted elements&lt;/a&gt; or to read details in &lt;a href="../python_api/scripted_elements_api.html"&gt;Scripted elements API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Examples for all types of scripted actual elements have been added to &lt;a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples#scripted_actuals--building-custom-actual-elements-with-python-code"&gt;App Examples - scripted actuals&lt;/a&gt;. You might also want to review the basics in &lt;a href="../howtos/scripted_elements/scripted_elements_toc.html"&gt;Scripted elements&lt;/a&gt; or to read details in &lt;a href="../python_api/scripted_elements_api.html"&gt;Scripted elements API&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </description>
       <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/news/20240119-scripted-elements-examples.html</guid>
@@ -133,11 +133,11 @@
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/news/20231215-api-examples.html</link>
       <description>&lt;div class="compound"&gt;
 &lt;section id="id1"&gt;
-&lt;h1&gt;&lt;a class="reference external" href="../python_examples/data_interfaces/reference_points_and_mesh_data.html"&gt;reference_points_and_mesh_data&lt;/a&gt;&lt;a class="headerlink" href="#id1" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md"&gt;reference_points_and_mesh_data&lt;/a&gt;&lt;a class="headerlink" href="#id1" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This example demonstrates how to access reference points in a measurement and meshes from Python.&lt;/p&gt;
 &lt;/section&gt;
 &lt;section id="id2"&gt;
-&lt;h1&gt;&lt;a class="reference external" href="../python_examples/misc/point_pixel_transformations.html"&gt;point_pixel_transformations&lt;/a&gt;&lt;a class="headerlink" href="#id2" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/PointPixelTransformations/doc/Documentation.md"&gt;point_pixel_transformations&lt;/a&gt;&lt;a class="headerlink" href="#id2" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This example addresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.&lt;/p&gt;
 &lt;/section&gt;
 &lt;/div&gt;
