@@ -93,16 +93,9 @@ If you already know how to create an App and now you are interested in Python pr
 .. toctree::
    :maxdepth: 1
    :caption: Python API Examples
-   :titlesonly:
 
    python_examples/index
-   python_examples/data_interfaces
-   python_examples/dialog_widgets
-   python_examples/misc
-   python_examples/script_icons
-   python_examples/script_resources
-   python_examples/scripted_actuals
-   python_examples/scripted_checks
+   python_examples/examples_overview
 ```
 
 Available API functions are documented in the Specification.
