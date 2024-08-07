@@ -901,9 +901,11 @@ myst:
 
 ## Example projects
 
-* zeiss_part_test_project
-* zeiss_part_test_measurement
-* volume_test_project
+| Project name | Description |
+| ------------ | ----------- |
+| zeiss_part_test_project | Simple optically measured part with a CAD, mesh and some basic inspections |
+| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part |
+| volume_test_project | A small test volume for CT related inspections |
 
 [Download Example Projects App](https://software-store.zeiss.com/products/apps/ExampleProjects)
 
