@@ -47,4 +47,4 @@ Most of the example scripts rely on a certain project file to be loaded. The App
 
 Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script.
 
-See [App Examples Overview &mdash; Example projects](examples_overview#example-projects)
+See <a href="examples_overview.html#example-projects">App Examples Overview &mdash; Example projects</a>
