@@ -43,8 +43,8 @@ If you are interested in testing Apps (which you should be), learn more in our [
 
 ## Example projects
 
-Most of the example scripts rely on a certain project file to be loaded. The App already contains these projects, and some examples load them automatically when it is possible (E.g. in the `if __name__ == '__main__'` block).
+Most of the example scripts rely on a certain project file to be loaded. The project files are provided in the App <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>. Some of the App examples load the required project file automatically if this is possible (E.g. in the `if __name__ == '__main__'` block).
 
-Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script.
+Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script provided in <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>.
 
 See <a href="examples_overview.html#example-projects">App Examples Overview &mdash; Example projects</a>
