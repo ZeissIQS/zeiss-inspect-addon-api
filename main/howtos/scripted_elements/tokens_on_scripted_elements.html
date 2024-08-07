@@ -145,7 +145,7 @@
 <p>In the calculation function that generated the results, the <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code> field can be read and written.</p>
 <p>In the following example, a volume defects element was created with following snippet inside the <code class="docutils literal notranslate"><span class="pre">calculation()</span></code> function:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Simulating user-defined token data</span>
-<span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">([</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">166</span><span class="p">])</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">([</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">166</span><span class="p">)</span> <span class="p">])</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
     <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;ude_defect_ids&quot;</span> <span class="p">:</span> <span class="n">ids</span><span class="p">,</span> <span class="s2">&quot;ude_test_string&quot;</span> <span class="p">:</span> <span class="s2">&quot;hello world&quot;</span> <span class="p">}</span>
 </pre></div>
@@ -206,7 +206,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f633e9acd30>
+  <jinja2.runtime.BlockReference object at 0x7f3ea93e5a50>
 
 
 </footer>
