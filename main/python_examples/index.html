@@ -6,7 +6,7 @@
 <meta content="Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples" name="keywords" />
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZEISS INSPECT Python API Examples Overview &mdash; App Development Documentation</title>
+  <title>Introduction to the Python API Examples &mdash; App Development Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
@@ -80,7 +80,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT Python API Examples Overview</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to the Python API Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-the-examples-are-structured">How the examples are structured</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-projects">Example projects</a></li>
 </ul>
@@ -108,7 +108,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">ZEISS INSPECT Python API Examples Overview</li>
+      <li class="breadcrumb-item active">Introduction to the Python API Examples</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -117,15 +117,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="zeiss-inspect-python-api-examples-overview">
-<h1>ZEISS INSPECT Python API Examples Overview<a class="headerlink" href="#zeiss-inspect-python-api-examples-overview" title="Link to this heading"></a></h1>
-<p>Welcome to the ZEISS INSPECT Python API Examples. Here you can find the documentation of the examples which are provided by the
-<code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">API</span> <span class="pre">Examples</span></code> App. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.</p>
+  <section id="introduction-to-the-python-api-examples">
+<h1>Introduction to the Python API Examples<a class="headerlink" href="#introduction-to-the-python-api-examples" title="Link to this heading"></a></h1>
+<p>Welcome to the ZEISS INSPECT Python API Examples. Here you find the <a class="reference internal" href="examples_overview.html"><span class="doc std std-doc">App Examples Overview</span></a> with a list ordered by topics and tagged with keywords. You can view the source code and download the Apps for importing into ZEISS INSPECT. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.</p>
 <section id="how-the-examples-are-structured">
 <h2>How the examples are structured<a class="headerlink" href="#how-the-examples-are-structured" title="Link to this heading"></a></h2>
-<p>You will find example scripts in a corresponding category folder, e.g. <code class="docutils literal notranslate"><span class="pre">data_interfaces</span></code>, <code class="docutils literal notranslate"><span class="pre">dialog_widgets</span></code>, etc.</p>
-<p>The folders of the example scripts correspond to the chapters of this documentation.
-Many of the examples have the following structure:</p>
+<p>Many of the examples have the following structure:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="k">def</span> <span class="nf">function1</span> <span class="p">():</span>
   <span class="o">&lt;</span><span class="n">example</span> <span class="n">code1</span><span class="o">&gt;</span>
@@ -154,27 +151,9 @@ You are highly encouraged to use this modular approach as well, to keep your cod
 </section>
 <section id="example-projects">
 <h2>Example projects<a class="headerlink" href="#example-projects" title="Link to this heading"></a></h2>
-<p>Most of the example scripts rely on a certain project file to be loaded. The App already contains these projects, and some examples load them automatically when it is possible (E.g. in the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> block).</p>
-<p>Sometimes it is necessary to load projects manually. You can do this easily using the <code class="docutils literal notranslate"><span class="pre">setup_project.py</span></code> script.</p>
-<p>The following project files are included:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Project name</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>zeiss_part_test_project</p></td>
-<td><p>Simple optically measured part with a CAD, mesh and some basic inspection</p></td>
-</tr>
-<tr class="row-odd"><td><p>volume_test_part</p></td>
-<td><p>A small test volume for CT related inspections</p></td>
-</tr>
-<tr class="row-even"><td><p>zeiss_part_test_measurement</p></td>
-<td><p>Optical measurement series and preliminary mesh of ZEISS part</p></td>
-</tr>
-</tbody>
-</table>
+<p>Most of the example scripts rely on a certain project file to be loaded. The project files are provided in the App <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>. Some of the App examples load the required project file automatically if this is possible (E.g. in the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> block).</p>
+<p>Sometimes it is necessary to load projects manually. You can do this easily using the <code class="docutils literal notranslate"><span class="pre">setup_project.py</span></code> script provided in <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>.</p>
+<p>See <a href="examples_overview.html#example-projects">App Examples Overview — Example projects</a></p>
 </section>
 </section>
 
@@ -200,7 +179,7 @@ You are highly encouraged to use this modular approach as well, to keep your cod
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd36b49c5e0>
+  <jinja2.runtime.BlockReference object at 0x7f8ac65d2f80>
 
 
 </footer>
