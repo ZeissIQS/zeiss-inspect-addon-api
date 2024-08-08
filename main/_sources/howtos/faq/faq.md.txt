@@ -42,7 +42,7 @@ ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in `%AP
 
 ## How can I install missing Python wheels by a script?
 
-The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
+The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the App yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
 
 ```{code-block} python
 import gom
