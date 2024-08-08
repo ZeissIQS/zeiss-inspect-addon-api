@@ -70,5 +70,5 @@ print(f'{file=}')
 ## See also
 
 A user-defined dialog is used if the file selection must be combined with other widgets or if additional functionality is needed:
-* [User-defined dialogs &mdash; File widget`](user_defined_dialogs.md#file-widget)
+* [User-defined dialogs &mdash; File widget](user_defined_dialogs.md#file-widget)
 * [User-defined dialogs &mdash; File system browser widget](user_defined_dialogs.md#file-system-browser-widget)
