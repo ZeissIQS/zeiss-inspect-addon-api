@@ -4,16 +4,12 @@ myst:
       "description": "Examples for using the ZEISS INSPECT 2025 App Python API"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Examples"
 ---
-#  ZEISS INSPECT Python API Examples Overview
+#  Introduction to the Python API Examples
 
-Welcome to the ZEISS INSPECT Python API Examples. Here you can find the documentation of the examples which are provided by the
-`Python API Examples` App. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.
+Welcome to the ZEISS INSPECT Python API Examples. Here you find the [App Examples Overview](examples_overview) with a list ordered by topics and tagged with keywords. You can view the source code and download the Apps for importing into ZEISS INSPECT. You can reuse and adapt these code examples to your specific use case and learn the best-practices we recommend.
 
 ## How the examples are structured
 
-You will find example scripts in a corresponding category folder, e.g. `data_interfaces`, `dialog_widgets`, etc.
-
-The folders of the example scripts correspond to the chapters of this documentation.
 Many of the examples have the following structure:
 
 ```python
@@ -47,17 +43,8 @@ If you are interested in testing Apps (which you should be), learn more in our [
 
 ## Example projects
 
-Most of the example scripts rely on a certain project file to be loaded. The App already contains these projects, and some examples load them automatically when it is possible (E.g. in the `if __name__ == '__main__'` block).
+Most of the example scripts rely on a certain project file to be loaded. The project files are provided in the App <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>. Some of the App examples load the required project file automatically if this is possible (E.g. in the `if __name__ == '__main__'` block).
 
-Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script.
+Sometimes it is necessary to load projects manually. You can do this easily using the `setup_project.py` script provided in <a href="examples_overview.html#projects-zeiss-inspect-projects">ExampleProjects</a>.
 
-The following project files are included:
-
-| Project name                | Description                                                               |
-| --------------------------- | ------------------------------------------------------------------------- |
-| zeiss_part_test_project     | Simple optically measured part with a CAD, mesh and some basic inspection |
-| volume_test_part            | A small test volume for CT related inspections                            |
-| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part             |
-
-
- 
+See <a href="examples_overview.html#example-projects">App Examples Overview &mdash; Example projects</a>
