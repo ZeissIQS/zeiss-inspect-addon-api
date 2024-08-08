@@ -222,11 +222,11 @@ myst:
 
 </section>
 
-<section id="display image">
-<div id="display image" class="example-block-odd">
-<h3>Display Image — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Display Image">download</a>
-<a class="headerlink" href="#display image" title="Link to this heading"></a></h3>
+<section id="displayimage">
+<div id="displayimage" class="example-block-odd">
+<h3>DisplayImage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/DisplayImage">download</a>
+<a class="headerlink" href="#displayimage" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -247,7 +247,7 @@ myst:
 
 
 :Description:
-    
+    Example for reading and writing Excel files from an App
 
 :Tags:
     <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> <a href="#export">![Static Badge](https://img.shields.io/badge/export-blue)</a> <a href="#project-keywords">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
@@ -290,11 +290,11 @@ myst:
 
 </section>
 
-<section id="measurement system analysis">
-<div id="measurement system analysis" class="example-block-odd">
-<h3>Measurement System Analysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Measurement System Analysis">download</a>
-<a class="headerlink" href="#measurement system analysis" title="Link to this heading"></a></h3>
+<section id="measurementsystemanalysis">
+<div id="measurementsystemanalysis" class="example-block-odd">
+<h3>MeasurementSystemAnalysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/MeasurementSystemAnalysis">download</a>
+<a class="headerlink" href="#measurementsystemanalysis" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -361,11 +361,11 @@ myst:
 
 </section>
 
-<section id="service test">
-<div id="service test" class="example-block-odd">
-<h3>Service Test — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/ServiceExample/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Service Test">download</a>
-<a class="headerlink" href="#service test" title="Link to this heading"></a></h3>
+<section id="serviceexample">
+<div id="serviceexample" class="example-block-odd">
+<h3>ServiceExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/ServiceExample/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ServiceExample">download</a>
+<a class="headerlink" href="#serviceexample" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -380,11 +380,11 @@ myst:
 
 </section>
 
-<section id="settings api example">
-<div id="settings api example" class="example-block-even">
-<h3>Settings API example — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/SettingsAPI/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Settings API example">download</a>
-<a class="headerlink" href="#settings api example" title="Link to this heading"></a></h3>
+<section id="settingsapi">
+<div id="settingsapi" class="example-block-even">
+<h3>SettingsAPI — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/SettingsAPI/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/SettingsAPI">download</a>
+<a class="headerlink" href="#settingsapi" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -416,15 +416,15 @@ myst:
 
 </section>
 
-<section id="text detection">
-<div id="text detection" class="example-block-even">
-<h3>Text Detection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/TextDetection/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Text Detection">download</a>
-<a class="headerlink" href="#text detection" title="Link to this heading"></a></h3>
+<section id="textdetection">
+<div id="textdetection" class="example-block-even">
+<h3>TextDetection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/TextDetection/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/TextDetection">download</a>
+<a class="headerlink" href="#textdetection" title="Link to this heading"></a></h3>
 
 
 :Description:
-    Text detection examples
+    Text detection example
 
 :Tags:
     <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> <a href="#image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)</a> 
@@ -479,11 +479,11 @@ myst:
 ## script_resources &mdash; How to access binary data of your App (resources)
 
 <hr class="small-margin">
-<section id="resource access example">
-<div id="resource access example" class="example-block-odd">
-<h3>Resource access example — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Resource access example">download</a>
-<a class="headerlink" href="#resource access example" title="Link to this heading"></a></h3>
+<section id="resourceaccessexample">
+<div id="resourceaccessexample" class="example-block-odd">
+<h3>ResourceAccessExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ResourceAccessExample">download</a>
+<a class="headerlink" href="#resourceaccessexample" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -985,9 +985,9 @@ myst:
 
 ### <a id="image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)<a>
 
-* <a href="#display image">Display Image</a>
-* <a href="#resource access example">Resource access example</a>
-* <a href="#text detection">Text Detection</a>
+* <a href="#displayimage">DisplayImage</a>
+* <a href="#resourceaccessexample">ResourceAccessExample</a>
+* <a href="#textdetection">TextDetection</a>
 
 
 ### <a id="import">![Static Badge](https://img.shields.io/badge/import-blue)<a>
@@ -999,11 +999,11 @@ myst:
 
 ### <a id="measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)<a>
 
-* <a href="#display image">Display Image</a>
-* <a href="#measurement system analysis">Measurement System Analysis</a>
+* <a href="#displayimage">DisplayImage</a>
+* <a href="#measurementsystemanalysis">MeasurementSystemAnalysis</a>
 * <a href="#pointpixeltransformations">PointPixelTransformations</a>
 * <a href="#referencepointsandmeshdata">ReferencePointsAndMeshData</a>
-* <a href="#text detection">Text Detection</a>
+* <a href="#textdetection">TextDetection</a>
 
 
 ### <a id="menu">![Static Badge](https://img.shields.io/badge/menu-blue)<a>
@@ -1052,7 +1052,7 @@ myst:
 
 ### <a id="resources">![Static Badge](https://img.shields.io/badge/resources-blue)<a>
 
-* <a href="#resource access example">Resource access example</a>
+* <a href="#resourceaccessexample">ResourceAccessExample</a>
 * <a href="#scriptresources">ScriptResources</a>
 
 
@@ -1104,12 +1104,12 @@ myst:
 
 ### <a id="service">![Static Badge](https://img.shields.io/badge/service-blue)<a>
 
-* <a href="#service test">Service Test</a>
+* <a href="#serviceexample">ServiceExample</a>
 
 
 ### <a id="settings">![Static Badge](https://img.shields.io/badge/settings-blue)<a>
 
-* <a href="#settings api example">Settings API example</a>
+* <a href="#settingsapi">SettingsAPI</a>
 
 
 ### <a id="sql-database">![Static Badge](https://img.shields.io/badge/sql--database-blue)<a>
