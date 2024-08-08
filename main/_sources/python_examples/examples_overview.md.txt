@@ -100,8 +100,27 @@ myst:
 ## dialog_widgets &mdash; How to use custom dialogs and handle user input events
 
 <hr class="small-margin">
+<section id="dropdownwidget">
+<div id="dropdownwidget" class="example-block-odd">
+<h3>DropdownWidget — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/DropdownWidget">download</a>
+<a class="headerlink" href="#dropdownwidget" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This basic example shows how to use the dropdown widget and how to define items at script runtime.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget)
+:Tags:
+    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#selection-list-widget">![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)</a> 
+
+</div>
+
+</section>
+
 <section id="explorerselectedelementsindialog">
-<div id="explorerselectedelementsindialog" class="example-block-odd">
+<div id="explorerselectedelementsindialog" class="example-block-even">
 <h3>ExplorerSelectedElementsInDialog — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md">view</a> / 
 <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExplorerSelectedElementsInDialog">download</a>
 <a class="headerlink" href="#explorerselectedelementsindialog" title="Link to this heading"></a></h3>
@@ -117,25 +136,6 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-element-widget)
 :Tags:
     <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#selection-element-widget">![Static Badge](https://img.shields.io/badge/selection--element--widget-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="widgetvisibility">
-<div id="widgetvisibility" class="example-block-even">
-<h3>WidgetVisibility — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/WidgetVisibility">download</a>
-<a class="headerlink" href="#widgetvisibility" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This example shows how to use a dialog event handler to turn on/off widget visibilities.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
-:Tags:
-    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#widget-properties">![Static Badge](https://img.shields.io/badge/widget--properties-blue)</a> 
 
 </div>
 
@@ -160,20 +160,20 @@ myst:
 
 </section>
 
-<section id="dropdownwidget">
-<div id="dropdownwidget" class="example-block-even">
-<h3>DropdownWidget — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/DropdownWidget">download</a>
-<a class="headerlink" href="#dropdownwidget" title="Link to this heading"></a></h3>
+<section id="widgetvisibility">
+<div id="widgetvisibility" class="example-block-even">
+<h3>WidgetVisibility — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/WidgetVisibility">download</a>
+<a class="headerlink" href="#widgetvisibility" title="Link to this heading"></a></h3>
 
 
 :Description:
-    This basic example shows how to use the dropdown widget and how to define items at script runtime.
+    This example shows how to use a dialog event handler to turn on/off widget visibilities.
 
 :References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget)
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
 :Tags:
-    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#selection-list-widget">![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)</a> 
+    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#widget-properties">![Static Badge](https://img.shields.io/badge/widget--properties-blue)</a> 
 
 </div>
 
@@ -183,8 +183,64 @@ myst:
 ## misc &mdash; Miscellaneous
 
 <hr class="small-margin">
+<section id="csvexample">
+<div id="csvexample" class="example-block-odd">
+<h3>CSVExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/CSVExample">download</a>
+<a class="headerlink" href="#csvexample" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This example demonstrates how to read and write CSV files (comma separated values) from an App.
+
+:Example Projects:
+    [zeiss_part_test_project](#example-projects)
+
+:Tags:
+    <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> <a href="#export">![Static Badge](https://img.shields.io/badge/export-blue)</a> <a href="#project-keywords">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="dialogreopenexample">
+<div id="dialogreopenexample" class="example-block-even">
+<h3>DialogReopenExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/DialogReopenExample">download</a>
+<a class="headerlink" href="#dialogreopenexample" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This examples demonstrates, how a dialog can be closed from its own handler, just to be opened again.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#executing-dialogs)
+:Tags:
+    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="display image">
+<div id="display image" class="example-block-odd">
+<h3>Display Image — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/Display Image">download</a>
+<a class="headerlink" href="#display image" title="Link to this heading"></a></h3>
+
+
+:Description:
+    Display measurement as a single image
+
+:Tags:
+    <a href="#image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)</a> <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> 
+
+</div>
+
+</section>
+
 <section id="excelexample">
-<div id="excelexample" class="example-block-odd">
+<div id="excelexample" class="example-block-even">
 <h3>ExcelExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/ExcelExample/doc/Documentation.md">view</a> / 
 <a class="reference external" href="https://software-store.zeiss.com/products/apps/ExcelExample">download</a>
 <a class="headerlink" href="#excelexample" title="Link to this heading"></a></h3>
@@ -195,6 +251,94 @@ myst:
 
 :Tags:
     <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> <a href="#export">![Static Badge](https://img.shields.io/badge/export-blue)</a> <a href="#project-keywords">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="fileselectionandfiltering">
+<div id="fileselectionandfiltering" class="example-block-odd">
+<h3>FileSelectionAndFiltering — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/FileSelectionAndFiltering/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/FileSelectionAndFiltering">download</a>
+<a class="headerlink" href="#fileselectionandfiltering" title="Link to this heading"></a></h3>
+
+
+:Description:
+    File Selection and Filtering Examples
+
+:Tags:
+    <a href="#file">![Static Badge](https://img.shields.io/badge/file-blue)</a> <a href="#directory">![Static Badge](https://img.shields.io/badge/directory-blue)</a> <a href="#folder">![Static Badge](https://img.shields.io/badge/folder-blue)</a> <a href="#path">![Static Badge](https://img.shields.io/badge/path-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="ipcsocketsexample">
+<div id="ipcsocketsexample" class="example-block-even">
+<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/IPCSocketsExample">download</a>
+<a class="headerlink" href="#ipcsocketsexample" title="Link to this heading"></a></h3>
+
+
+:Description:
+    Example for triggering command execution via Internet (aka BSD) sockets
+
+:Tags:
+    <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="measurement system analysis">
+<div id="measurement system analysis" class="example-block-odd">
+<h3>Measurement System Analysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/Measurement System Analysis">download</a>
+<a class="headerlink" href="#measurement system analysis" title="Link to this heading"></a></h3>
+
+
+:Description:
+    MSA conformal measurement system analysis (ANOVA, ARM)
+
+:Tags:
+    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="pointpixeltransformations">
+<div id="pointpixeltransformations" class="example-block-even">
+<h3>PointPixelTransformations — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/PointPixelTransformations">download</a>
+<a class="headerlink" href="#pointpixeltransformations" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This example demonstrates how to find the 2D pixel coordinates of a 3D point coordinate and vice versa.
+
+:Example Projects:
+    [zeiss_part_test_measurement](#example-projects)
+
+:References:
+    [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging)
+:Tags:
+    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> <a href="#reference-points">![Static Badge](https://img.shields.io/badge/reference--points-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="progressbar">
+<div id="progressbar" class="example-block-odd">
+<h3>ProgressBar — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/ProgressBar/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ProgressBar">download</a>
+<a class="headerlink" href="#progressbar" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This example shows how to display a progress bar at the bottom of the ZEISS INSPECT main window
+
 
 </div>
 
@@ -255,82 +399,6 @@ myst:
 
 </section>
 
-<section id="csvexample">
-<div id="csvexample" class="example-block-odd">
-<h3>CSVExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/CSVExample">download</a>
-<a class="headerlink" href="#csvexample" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This example demonstrates how to read and write CSV files (comma separated values) from an App.
-
-:Example Projects:
-    [zeiss_part_test_project](#example-projects)
-
-:Tags:
-    <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> <a href="#export">![Static Badge](https://img.shields.io/badge/export-blue)</a> <a href="#project-keywords">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="text detection">
-<div id="text detection" class="example-block-even">
-<h3>Text Detection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/TextDetection/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Text Detection">download</a>
-<a class="headerlink" href="#text detection" title="Link to this heading"></a></h3>
-
-
-:Description:
-    Text detection examples
-
-:Tags:
-    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> <a href="#image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="ipcsocketsexample">
-<div id="ipcsocketsexample" class="example-block-odd">
-<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/IPCSocketsExample">download</a>
-<a class="headerlink" href="#ipcsocketsexample" title="Link to this heading"></a></h3>
-
-
-:Description:
-    Example for triggering command execution via Internet (aka BSD) sockets
-
-:Tags:
-    <a href="#import">![Static Badge](https://img.shields.io/badge/import-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="pointpixeltransformations">
-<div id="pointpixeltransformations" class="example-block-even">
-<h3>PointPixelTransformations — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/PointPixelTransformations">download</a>
-<a class="headerlink" href="#pointpixeltransformations" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This example demonstrates how to find the 2D pixel coordinates of a 3D point coordinate and vice versa.
-
-:Example Projects:
-    [zeiss_part_test_measurement](#example-projects)
-
-:References:
-    [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-imaging)
-:Tags:
-    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> <a href="#reference-points">![Static Badge](https://img.shields.io/badge/reference--points-blue)</a> 
-
-</div>
-
-</section>
-
 <section id="templateunittestcoverage">
 <div id="templateunittestcoverage" class="example-block-odd">
 <h3>TemplateUnittestCoverage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/TemplateUnittestCoverage/doc/Documentation.md">view</a> / 
@@ -348,86 +416,18 @@ myst:
 
 </section>
 
-<section id="dialogreopenexample">
-<div id="dialogreopenexample" class="example-block-even">
-<h3>DialogReopenExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/DialogReopenExample">download</a>
-<a class="headerlink" href="#dialogreopenexample" title="Link to this heading"></a></h3>
+<section id="text detection">
+<div id="text detection" class="example-block-even">
+<h3>Text Detection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/TextDetection/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/Text Detection">download</a>
+<a class="headerlink" href="#text detection" title="Link to this heading"></a></h3>
 
 
 :Description:
-    This examples demonstrates, how a dialog can be closed from its own handler, just to be opened again.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#executing-dialogs)
-:Tags:
-    <a href="#dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="fileselectionandfiltering">
-<div id="fileselectionandfiltering" class="example-block-odd">
-<h3>FileSelectionAndFiltering — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/FileSelectionAndFiltering/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/FileSelectionAndFiltering">download</a>
-<a class="headerlink" href="#fileselectionandfiltering" title="Link to this heading"></a></h3>
-
-
-:Description:
-    File Selection and Filtering Examples
+    Text detection examples
 
 :Tags:
-    <a href="#file">![Static Badge](https://img.shields.io/badge/file-blue)</a> <a href="#directory">![Static Badge](https://img.shields.io/badge/directory-blue)</a> <a href="#folder">![Static Badge](https://img.shields.io/badge/folder-blue)</a> <a href="#path">![Static Badge](https://img.shields.io/badge/path-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="display image">
-<div id="display image" class="example-block-even">
-<h3>Display Image — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Display Image">download</a>
-<a class="headerlink" href="#display image" title="Link to this heading"></a></h3>
-
-
-:Description:
-    Display measurement as a single image
-
-:Tags:
-    <a href="#image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)</a> <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="progressbar">
-<div id="progressbar" class="example-block-odd">
-<h3>ProgressBar — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/ProgressBar/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ProgressBar">download</a>
-<a class="headerlink" href="#progressbar" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This example shows how to display a progress bar at the bottom of the ZEISS INSPECT main window
-
-
-</div>
-
-</section>
-
-<section id="measurement system analysis">
-<div id="measurement system analysis" class="example-block-even">
-<h3>Measurement System Analysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/Measurement System Analysis">download</a>
-<a class="headerlink" href="#measurement system analysis" title="Link to this heading"></a></h3>
-
-
-:Description:
-    MSA conformal measurement system analysis (ANOVA, ARM)
-
-:Tags:
-    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> 
+    <a href="#measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)</a> <a href="#image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)</a> 
 
 </div>
 
@@ -521,44 +521,6 @@ myst:
 ## scripted_actuals &mdash; Building custom actual elements with Python code
 
 <hr class="small-margin">
-<section id="scriptedactualcone">
-<div id="scriptedactualcone" class="example-block-odd">
-<h3>ScriptedActualCone — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCone">download</a>
-<a class="headerlink" href="#scriptedactualcone" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘cone’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cone)
-:Tags:
-    <a href="#cone">![Static Badge](https://img.shields.io/badge/cone-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualsection">
-<div id="scriptedactualsection" class="example-block-even">
-<h3>ScriptedActualSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSection">download</a>
-<a class="headerlink" href="#scriptedactualsection" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘section’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section)
-:Tags:
-    <a href="#section">![Static Badge](https://img.shields.io/badge/section-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
 <section id="scriptedactualcircle">
 <div id="scriptedactualcircle" class="example-block-odd">
 <h3>ScriptedActualCircle — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a> / 
@@ -578,201 +540,27 @@ myst:
 
 </section>
 
-<section id="scriptedactualvolumedefects">
-<div id="scriptedactualvolumedefects" class="example-block-even">
-<h3>ScriptedActualVolumeDefects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeDefects">download</a>
-<a class="headerlink" href="#scriptedactualvolumedefects" title="Link to this heading"></a></h3>
+<section id="scriptedactualcone">
+<div id="scriptedactualcone" class="example-block-even">
+<h3>ScriptedActualCone — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCone">download</a>
+<a class="headerlink" href="#scriptedactualcone" title="Link to this heading"></a></h3>
 
 
 :Description:
-    This is an example for a scripted actual ‘volume defects’ element.
+    This is an example for a scripted actual ‘cone’ element.
 
 :References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-defects)
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cone)
 :Tags:
-    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-defects">![Static Badge](https://img.shields.io/badge/volume--defects-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualvolume">
-<div id="scriptedactualvolume" class="example-block-odd">
-<h3>ScriptedActualVolume — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolume">download</a>
-<a class="headerlink" href="#scriptedactualvolume" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘volume’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume)
-:Tags:
-    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume">![Static Badge](https://img.shields.io/badge/volume-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="trimeshdeformmesh">
-<div id="trimeshdeformmesh" class="example-block-even">
-<h3>TrimeshDeformMesh — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/TrimeshDeformMesh">download</a>
-<a class="headerlink" href="#trimeshdeformmesh" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This example demonstrates how to generate a custom surface element using a scripted element. The example script accesses mesh information from an existing mesh in the project and adds a random deformation to each point.
-
-:Example Projects:
-    [zeiss_part_test_project](#example-projects)
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
-:Tags:
-    <a href="#mesh">![Static Badge](https://img.shields.io/badge/mesh-blue)</a> <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualsurface">
-<div id="scriptedactualsurface" class="example-block-odd">
-<h3>ScriptedActualSurface — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurface">download</a>
-<a class="headerlink" href="#scriptedactualsurface" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘surface’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
-:Tags:
-    <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualpointcloud">
-<div id="scriptedactualpointcloud" class="example-block-even">
-<h3>ScriptedActualPointCloud — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPointCloud">download</a>
-<a class="headerlink" href="#scriptedactualpointcloud" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘point cloud’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point-cloud)
-:Tags:
-    <a href="#point-cloud">![Static Badge](https://img.shields.io/badge/point--cloud-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualvolumeregion">
-<div id="scriptedactualvolumeregion" class="example-block-odd">
-<h3>ScriptedActualVolumeRegion — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeRegion">download</a>
-<a class="headerlink" href="#scriptedactualvolumeregion" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘volume region’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-region)
-:Tags:
-    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-region">![Static Badge](https://img.shields.io/badge/volume--region-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualpoint">
-<div id="scriptedactualpoint" class="example-block-even">
-<h3>ScriptedActualPoint — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPoint">download</a>
-<a class="headerlink" href="#scriptedactualpoint" title="Link to this heading"></a></h3>
-
-
-:Description:
-    These are two examples for scripted actual points, which serve as an introduction to the concept of scripted actual elements.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point)
-:Tags:
-    <a href="#point">![Static Badge](https://img.shields.io/badge/point-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualsurfacecurve">
-<div id="scriptedactualsurfacecurve" class="example-block-odd">
-<h3>ScriptedActualSurfaceCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurfaceCurve">download</a>
-<a class="headerlink" href="#scriptedactualsurfacecurve" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘surface curve’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve)
-:Tags:
-    <a href="#surface-curve">![Static Badge](https://img.shields.io/badge/surface--curve-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualvolumesection">
-<div id="scriptedactualvolumesection" class="example-block-even">
-<h3>ScriptedActualVolumeSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeSection">download</a>
-<a class="headerlink" href="#scriptedactualvolumesection" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘volume section’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-section)
-:Tags:
-    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-section">![Static Badge](https://img.shields.io/badge/volume--section-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
-
-</div>
-
-</section>
-
-<section id="scriptedactualcylinder">
-<div id="scriptedactualcylinder" class="example-block-odd">
-<h3>ScriptedActualCylinder — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCylinder">download</a>
-<a class="headerlink" href="#scriptedactualcylinder" title="Link to this heading"></a></h3>
-
-
-:Description:
-    This is an example for a scripted actual ‘cylinder’ element.
-
-:References:
-    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cylinder)
-:Tags:
-    <a href="#cylinder">![Static Badge](https://img.shields.io/badge/cylinder-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#cone">![Static Badge](https://img.shields.io/badge/cone-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
 </section>
 
 <section id="scriptedactualcurve">
-<div id="scriptedactualcurve" class="example-block-even">
+<div id="scriptedactualcurve" class="example-block-odd">
 <h3>ScriptedActualCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCurve/doc/Documentation.md">view</a> / 
 <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCurve">download</a>
 <a class="headerlink" href="#scriptedactualcurve" title="Link to this heading"></a></h3>
@@ -785,6 +573,25 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#curve)
 :Tags:
     <a href="#curve">![Static Badge](https://img.shields.io/badge/curve-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualcylinder">
+<div id="scriptedactualcylinder" class="example-block-even">
+<h3>ScriptedActualCylinder — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualCylinder">download</a>
+<a class="headerlink" href="#scriptedactualcylinder" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘cylinder’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#cylinder)
+:Tags:
+    <a href="#cylinder">![Static Badge](https://img.shields.io/badge/cylinder-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -809,8 +616,179 @@ myst:
 
 </section>
 
+<section id="scriptedactualpoint">
+<div id="scriptedactualpoint" class="example-block-even">
+<h3>ScriptedActualPoint — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPoint">download</a>
+<a class="headerlink" href="#scriptedactualpoint" title="Link to this heading"></a></h3>
+
+
+:Description:
+    These are two examples for scripted actual points, which serve as an introduction to the concept of scripted actual elements.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point)
+:Tags:
+    <a href="#point">![Static Badge](https://img.shields.io/badge/point-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualpointcloud">
+<div id="scriptedactualpointcloud" class="example-block-odd">
+<h3>ScriptedActualPointCloud — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualPointCloud">download</a>
+<a class="headerlink" href="#scriptedactualpointcloud" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘point cloud’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#point-cloud)
+:Tags:
+    <a href="#point-cloud">![Static Badge](https://img.shields.io/badge/point--cloud-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualsection">
+<div id="scriptedactualsection" class="example-block-even">
+<h3>ScriptedActualSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSection">download</a>
+<a class="headerlink" href="#scriptedactualsection" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘section’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section)
+:Tags:
+    <a href="#section">![Static Badge](https://img.shields.io/badge/section-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualsurface">
+<div id="scriptedactualsurface" class="example-block-odd">
+<h3>ScriptedActualSurface — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurface">download</a>
+<a class="headerlink" href="#scriptedactualsurface" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘surface’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
+:Tags:
+    <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualsurfacecurve">
+<div id="scriptedactualsurfacecurve" class="example-block-even">
+<h3>ScriptedActualSurfaceCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualSurfaceCurve">download</a>
+<a class="headerlink" href="#scriptedactualsurfacecurve" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘surface curve’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve)
+:Tags:
+    <a href="#surface-curve">![Static Badge](https://img.shields.io/badge/surface--curve-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualvolume">
+<div id="scriptedactualvolume" class="example-block-odd">
+<h3>ScriptedActualVolume — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolume">download</a>
+<a class="headerlink" href="#scriptedactualvolume" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘volume’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume)
+:Tags:
+    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume">![Static Badge](https://img.shields.io/badge/volume-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualvolumedefects">
+<div id="scriptedactualvolumedefects" class="example-block-even">
+<h3>ScriptedActualVolumeDefects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeDefects">download</a>
+<a class="headerlink" href="#scriptedactualvolumedefects" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘volume defects’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-defects)
+:Tags:
+    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-defects">![Static Badge](https://img.shields.io/badge/volume--defects-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualvolumeregion">
+<div id="scriptedactualvolumeregion" class="example-block-odd">
+<h3>ScriptedActualVolumeRegion — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeRegion">download</a>
+<a class="headerlink" href="#scriptedactualvolumeregion" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘volume region’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-region)
+:Tags:
+    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-region">![Static Badge](https://img.shields.io/badge/volume--region-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="scriptedactualvolumesection">
+<div id="scriptedactualvolumesection" class="example-block-even">
+<h3>ScriptedActualVolumeSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedActualVolumeSection">download</a>
+<a class="headerlink" href="#scriptedactualvolumesection" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This is an example for a scripted actual ‘volume section’ element.
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-section)
+:Tags:
+    <a href="#xray">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#volume-section">![Static Badge](https://img.shields.io/badge/volume--section-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+
+</div>
+
+</section>
+
 <section id="scriptedelementprogress">
-<div id="scriptedelementprogress" class="example-block-even">
+<div id="scriptedelementprogress" class="example-block-odd">
 <h3>ScriptedElementProgress — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/ScriptedElementProgress/doc/Documentation.md">view</a> / 
 <a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedElementProgress">download</a>
 <a class="headerlink" href="#scriptedelementprogress" title="Link to this heading"></a></h3>
@@ -823,6 +801,28 @@ myst:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html)
 :Tags:
     <a href="#computation-progress">![Static Badge](https://img.shields.io/badge/computation--progress-blue)</a> 
+
+</div>
+
+</section>
+
+<section id="trimeshdeformmesh">
+<div id="trimeshdeformmesh" class="example-block-even">
+<h3>TrimeshDeformMesh — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/dev/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/TrimeshDeformMesh">download</a>
+<a class="headerlink" href="#trimeshdeformmesh" title="Link to this heading"></a></h3>
+
+
+:Description:
+    This example demonstrates how to generate a custom surface element using a scripted element. The example script accesses mesh information from an existing mesh in the project and adds a random deformation to each point.
+
+:Example Projects:
+    [zeiss_part_test_project](#example-projects)
+
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
+:Tags:
+    <a href="#mesh">![Static Badge](https://img.shields.io/badge/mesh-blue)</a> <a href="#surface">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -901,9 +901,11 @@ myst:
 
 ## Example projects
 
-* zeiss_part_test_project
-* zeiss_part_test_measurement
-* volume_test_project
+| Project name | Description |
+| ------------ | ----------- |
+| zeiss_part_test_project | Simple optically measured part with a CAD, mesh and some basic inspections |
+| zeiss_part_test_measurement | Optical measurement series and preliminary mesh of ZEISS part |
+| volume_test_project | A small test volume for CT related inspections |
 
 [Download Example Projects App](https://software-store.zeiss.com/products/apps/ExampleProjects)
 
