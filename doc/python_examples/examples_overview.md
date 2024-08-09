@@ -911,33 +911,33 @@ myst:
 
 ## Tag Index
 
-### <a id="circle">![Static Badge](https://img.shields.io/badge/circle-blue)<a>
+### <a name="circle"></a>![Static Badge](https://img.shields.io/badge/circle-blue)
 
 * <a href="#scriptedactualcircle">ScriptedActualCircle</a>
 
 
-### <a id="computation-progress">![Static Badge](https://img.shields.io/badge/computation--progress-blue)<a>
+### <a name="computation-progress"></a>![Static Badge](https://img.shields.io/badge/computation--progress-blue)
 
 * <a href="#scriptedelementprogress">ScriptedElementProgress</a>
 
 
-### <a id="cone">![Static Badge](https://img.shields.io/badge/cone-blue)<a>
+### <a name="cone"></a>![Static Badge](https://img.shields.io/badge/cone-blue)
 
 * <a href="#scriptedactualcone">ScriptedActualCone</a>
 
 
-### <a id="curve">![Static Badge](https://img.shields.io/badge/curve-blue)<a>
+### <a name="curve"></a>![Static Badge](https://img.shields.io/badge/curve-blue)
 
 * <a href="#scriptedactualcurve">ScriptedActualCurve</a>
 * <a href="#scriptedcurvecheck">ScriptedCurveCheck</a>
 
 
-### <a id="cylinder">![Static Badge](https://img.shields.io/badge/cylinder-blue)<a>
+### <a name="cylinder"></a>![Static Badge](https://img.shields.io/badge/cylinder-blue)
 
 * <a href="#scriptedactualcylinder">ScriptedActualCylinder</a>
 
 
-### <a id="dialog">![Static Badge](https://img.shields.io/badge/dialog-blue)<a>
+### <a name="dialog"></a>![Static Badge](https://img.shields.io/badge/dialog-blue)
 
 * <a href="#dialogreopenexample">DialogReopenExample</a>
 * <a href="#dropdownwidget">DropdownWidget</a>
@@ -946,58 +946,58 @@ myst:
 * <a href="#widgetvisibility">WidgetVisibility</a>
 
 
-### <a id="directory">![Static Badge](https://img.shields.io/badge/directory-blue)<a>
+### <a name="directory"></a>![Static Badge](https://img.shields.io/badge/directory-blue)
 
 * <a href="#fileselectionandfiltering">FileSelectionAndFiltering</a>
 
 
-### <a id="distance">![Static Badge](https://img.shields.io/badge/distance-blue)<a>
+### <a name="distance"></a>![Static Badge](https://img.shields.io/badge/distance-blue)
 
 * <a href="#scriptedactualdistance">ScriptedActualDistance</a>
 
 
-### <a id="element-data">![Static Badge](https://img.shields.io/badge/element--data-blue)<a>
+### <a name="element-data"></a>![Static Badge](https://img.shields.io/badge/element--data-blue)
 
 * <a href="#checkresultsdataarray">CheckResultsDataArray</a>
 * <a href="#volumesectionimagedata">VolumeSectionImageData</a>
 
 
-### <a id="element-properties">![Static Badge](https://img.shields.io/badge/element--properties-blue)<a>
+### <a name="element-properties"></a>![Static Badge](https://img.shields.io/badge/element--properties-blue)
 
 * <a href="#checkresultsdataarray">CheckResultsDataArray</a>
 
 
-### <a id="export">![Static Badge](https://img.shields.io/badge/export-blue)<a>
+### <a name="export"></a>![Static Badge](https://img.shields.io/badge/export-blue)
 
 * <a href="#csvexample">CSVExample</a>
 * <a href="#excelexample">ExcelExample</a>
 
 
-### <a id="file">![Static Badge](https://img.shields.io/badge/file-blue)<a>
+### <a name="file"></a>![Static Badge](https://img.shields.io/badge/file-blue)
 
 * <a href="#fileselectionandfiltering">FileSelectionAndFiltering</a>
 
 
-### <a id="folder">![Static Badge](https://img.shields.io/badge/folder-blue)<a>
+### <a name="folder"></a>![Static Badge](https://img.shields.io/badge/folder-blue)
 
 * <a href="#fileselectionandfiltering">FileSelectionAndFiltering</a>
 
 
-### <a id="image-widget">![Static Badge](https://img.shields.io/badge/image--widget-blue)<a>
+### <a name="image-widget"></a>![Static Badge](https://img.shields.io/badge/image--widget-blue)
 
 * <a href="#displayimage">DisplayImage</a>
 * <a href="#resourceaccessexample">ResourceAccessExample</a>
 * <a href="#textdetection">TextDetection</a>
 
 
-### <a id="import">![Static Badge](https://img.shields.io/badge/import-blue)<a>
+### <a name="import"></a>![Static Badge](https://img.shields.io/badge/import-blue)
 
 * <a href="#csvexample">CSVExample</a>
 * <a href="#excelexample">ExcelExample</a>
 * <a href="#ipcsocketsexample">IPCSocketsExample</a>
 
 
-### <a id="measurement">![Static Badge](https://img.shields.io/badge/measurement-blue)<a>
+### <a name="measurement"></a>![Static Badge](https://img.shields.io/badge/measurement-blue)
 
 * <a href="#displayimage">DisplayImage</a>
 * <a href="#measurementsystemanalysis">MeasurementSystemAnalysis</a>
@@ -1006,62 +1006,62 @@ myst:
 * <a href="#textdetection">TextDetection</a>
 
 
-### <a id="menu">![Static Badge](https://img.shields.io/badge/menu-blue)<a>
+### <a name="menu"></a>![Static Badge](https://img.shields.io/badge/menu-blue)
 
 * <a href="#scripticon">ScriptIcon</a>
 
 
-### <a id="mesh">![Static Badge](https://img.shields.io/badge/mesh-blue)<a>
+### <a name="mesh"></a>![Static Badge](https://img.shields.io/badge/mesh-blue)
 
 * <a href="#referencepointsandmeshdata">ReferencePointsAndMeshData</a>
 * <a href="#trimeshdeformmesh">TrimeshDeformMesh</a>
 
 
-### <a id="path">![Static Badge](https://img.shields.io/badge/path-blue)<a>
+### <a name="path"></a>![Static Badge](https://img.shields.io/badge/path-blue)
 
 * <a href="#fileselectionandfiltering">FileSelectionAndFiltering</a>
 
 
-### <a id="point">![Static Badge](https://img.shields.io/badge/point-blue)<a>
+### <a name="point"></a>![Static Badge](https://img.shields.io/badge/point-blue)
 
 * <a href="#scriptedactualpoint">ScriptedActualPoint</a>
 
 
-### <a id="point-cloud">![Static Badge](https://img.shields.io/badge/point--cloud-blue)<a>
+### <a name="point-cloud"></a>![Static Badge](https://img.shields.io/badge/point--cloud-blue)
 
 * <a href="#scriptedactualpointcloud">ScriptedActualPointCloud</a>
 
 
-### <a id="project">![Static Badge](https://img.shields.io/badge/project-blue)<a>
+### <a name="project"></a>![Static Badge](https://img.shields.io/badge/project-blue)
 
 * <a href="#exampleprojects">ExampleProjects</a>
 
 
-### <a id="project-keywords">![Static Badge](https://img.shields.io/badge/project--keywords-blue)<a>
+### <a name="project-keywords"></a>![Static Badge](https://img.shields.io/badge/project--keywords-blue)
 
 * <a href="#csvexample">CSVExample</a>
 * <a href="#excelexample">ExcelExample</a>
 * <a href="#sqlexample">SQLExample</a>
 
 
-### <a id="reference-points">![Static Badge](https://img.shields.io/badge/reference--points-blue)<a>
+### <a name="reference-points"></a>![Static Badge](https://img.shields.io/badge/reference--points-blue)
 
 * <a href="#pointpixeltransformations">PointPixelTransformations</a>
 * <a href="#referencepointsandmeshdata">ReferencePointsAndMeshData</a>
 
 
-### <a id="resources">![Static Badge](https://img.shields.io/badge/resources-blue)<a>
+### <a name="resources"></a>![Static Badge](https://img.shields.io/badge/resources-blue)
 
 * <a href="#resourceaccessexample">ResourceAccessExample</a>
 * <a href="#scriptresources">ScriptResources</a>
 
 
-### <a id="scalar">![Static Badge](https://img.shields.io/badge/scalar-blue)<a>
+### <a name="scalar"></a>![Static Badge](https://img.shields.io/badge/scalar-blue)
 
 * <a href="#scriptedscalarcheck">ScriptedScalarCheck</a>
 
 
-### <a id="scripted-actual">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)<a>
+### <a name="scripted-actual"></a>![Static Badge](https://img.shields.io/badge/scripted--actual-blue)
 
 * <a href="#scriptedactualcircle">ScriptedActualCircle</a>
 * <a href="#scriptedactualcone">ScriptedActualCone</a>
@@ -1080,91 +1080,91 @@ myst:
 * <a href="#trimeshdeformmesh">TrimeshDeformMesh</a>
 
 
-### <a id="scripted-check">![Static Badge](https://img.shields.io/badge/scripted--check-blue)<a>
+### <a name="scripted-check"></a>![Static Badge](https://img.shields.io/badge/scripted--check-blue)
 
 * <a href="#scriptedcurvecheck">ScriptedCurveCheck</a>
 * <a href="#scriptedscalarcheck">ScriptedScalarCheck</a>
 * <a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a>
 
 
-### <a id="section">![Static Badge](https://img.shields.io/badge/section-blue)<a>
+### <a name="section"></a>![Static Badge](https://img.shields.io/badge/section-blue)
 
 * <a href="#scriptedactualsection">ScriptedActualSection</a>
 
 
-### <a id="selection-element-widget">![Static Badge](https://img.shields.io/badge/selection--element--widget-blue)<a>
+### <a name="selection-element-widget"></a>![Static Badge](https://img.shields.io/badge/selection--element--widget-blue)
 
 * <a href="#explorerselectedelementsindialog">ExplorerSelectedElementsInDialog</a>
 
 
-### <a id="selection-list-widget">![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)<a>
+### <a name="selection-list-widget"></a>![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)
 
 * <a href="#dropdownwidget">DropdownWidget</a>
 
 
-### <a id="service">![Static Badge](https://img.shields.io/badge/service-blue)<a>
+### <a name="service"></a>![Static Badge](https://img.shields.io/badge/service-blue)
 
 * <a href="#serviceexample">ServiceExample</a>
 
 
-### <a id="settings">![Static Badge](https://img.shields.io/badge/settings-blue)<a>
+### <a name="settings"></a>![Static Badge](https://img.shields.io/badge/settings-blue)
 
 * <a href="#settingsapi">SettingsAPI</a>
 
 
-### <a id="sql-database">![Static Badge](https://img.shields.io/badge/sql--database-blue)<a>
+### <a name="sql-database"></a>![Static Badge](https://img.shields.io/badge/sql--database-blue)
 
 * <a href="#sqlexample">SQLExample</a>
 
 
-### <a id="surface">![Static Badge](https://img.shields.io/badge/surface-blue)<a>
+### <a name="surface"></a>![Static Badge](https://img.shields.io/badge/surface-blue)
 
 * <a href="#scriptedactualsurface">ScriptedActualSurface</a>
 * <a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a>
 * <a href="#trimeshdeformmesh">TrimeshDeformMesh</a>
 
 
-### <a id="surface-curve">![Static Badge](https://img.shields.io/badge/surface--curve-blue)<a>
+### <a name="surface-curve"></a>![Static Badge](https://img.shields.io/badge/surface--curve-blue)
 
 * <a href="#scriptedactualsurfacecurve">ScriptedActualSurfaceCurve</a>
 
 
-### <a id="testing">![Static Badge](https://img.shields.io/badge/testing-blue)<a>
+### <a name="testing"></a>![Static Badge](https://img.shields.io/badge/testing-blue)
 
 * <a href="#templateunittestcoverage">TemplateUnittestCoverage</a>
 
 
-### <a id="unit-widget">![Static Badge](https://img.shields.io/badge/unit--widget-blue)<a>
+### <a name="unit-widget"></a>![Static Badge](https://img.shields.io/badge/unit--widget-blue)
 
 * <a href="#unitdialogeventhandler">UnitDialogEventHandler</a>
 
 
-### <a id="volume">![Static Badge](https://img.shields.io/badge/volume-blue)<a>
+### <a name="volume"></a>![Static Badge](https://img.shields.io/badge/volume-blue)
 
 * <a href="#scriptedactualvolume">ScriptedActualVolume</a>
 
 
-### <a id="volume-defects">![Static Badge](https://img.shields.io/badge/volume--defects-blue)<a>
+### <a name="volume-defects"></a>![Static Badge](https://img.shields.io/badge/volume--defects-blue)
 
 * <a href="#scriptedactualvolumedefects">ScriptedActualVolumeDefects</a>
 
 
-### <a id="volume-region">![Static Badge](https://img.shields.io/badge/volume--region-blue)<a>
+### <a name="volume-region"></a>![Static Badge](https://img.shields.io/badge/volume--region-blue)
 
 * <a href="#scriptedactualvolumeregion">ScriptedActualVolumeRegion</a>
 
 
-### <a id="volume-section">![Static Badge](https://img.shields.io/badge/volume--section-blue)<a>
+### <a name="volume-section"></a>![Static Badge](https://img.shields.io/badge/volume--section-blue)
 
 * <a href="#scriptedactualvolumesection">ScriptedActualVolumeSection</a>
 
 
-### <a id="widget-properties">![Static Badge](https://img.shields.io/badge/widget--properties-blue)<a>
+### <a name="widget-properties"></a>![Static Badge](https://img.shields.io/badge/widget--properties-blue)
 
 * <a href="#widgetvisibility">WidgetVisibility</a>
 
 
-### <a id="xray">![Static Badge](https://img.shields.io/badge/xray-blue)<a>
+### <a name="xray"></a>![Static Badge](https://img.shields.io/badge/xray-blue)
 
 * <a href="#scriptedactualvolume">ScriptedActualVolume</a>
 * <a href="#scriptedactualvolumedefects">ScriptedActualVolumeDefects</a>
