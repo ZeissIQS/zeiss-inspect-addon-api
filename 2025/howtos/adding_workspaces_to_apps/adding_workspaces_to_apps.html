@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -22,7 +22,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Localization of Apps" href="../localization/localization.html" />
+    <link rel="next" title="Using services" href="../using_services/using_services.html" />
     <link rel="prev" title="Using Python wheelhouses" href="../using_wheelhouses/using_wheelhouses.html" /> 
 </head>
 
@@ -94,26 +94,23 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#how-can-i-add-icons-to-the-workspace-toolbar">How can I add icons to the workspace toolbar ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-group-scripts-in-the-workspace-toolbar">How can I group scripts in the workspace toolbar?</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Introduction to the Python API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -152,7 +149,7 @@
 </div></blockquote>
 <section id="workspaces">
 <h2>Workspaces<a class="headerlink" href="#workspaces" title="Link to this heading"></a></h2>
-<p><img alt="" src="../../_images/workspace1.png" /></p>
+<p><img alt="Workspace, toolbar and view menu" src="../../_images/workspace1.png" /></p>
 <ul class="simple">
 <li><p>ZEISS INSPECT has a set of available workspaces on the left side (1).</p></li>
 <li><p>Which workspaces are available depends on the available licenses and the installed Apps.</p></li>
@@ -176,7 +173,7 @@
 <li><p>Use the tool of your choice to unpack the App file.</p></li>
 <li><p>We recommend 7-zip for that task, but every other zip tool will do the job, too.</p></li>
 <li><p>If you want to perform these tasks often, you can register your ZIP tool in the Windows “Choose default apps by file type” settings. Then, instead of unpacking and packing the App again for each edit, you can fiddle with the App content directly from the ZIP tool:</p>
-<p><img alt="" src="../../_images/workspace2.png" /></p>
+<p><img alt="Handling App contents with ZIP tool" src="../../_images/workspace2.png" /></p>
 </li>
 </ul>
 </section>
@@ -249,15 +246,12 @@
 </section>
 <section id="icon">
 <h4>“icon”<a class="headerlink" href="#icon" title="Link to this heading"></a></h4>
-<p>The name of an (internal) icon file or an icon definition.</p>
-<blockquote>
-<div><p>It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.</p>
-</div></blockquote>
-<p>Since SW2022-0, workspace icon definitions can be added with the following procedure:</p>
+<p>The name of an icon file (for ZEISS internal use only) or an icon definition.</p>
+<p>Workspace icon definitions can be added with the following procedure:</p>
 <ul>
 <li><p>Choose an icon file in one of the widely supported formats (png, jpg, …). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.</p></li>
 <li><p>Install the App ‘Workspace editor tools’ and use the script in ‘Apps/Tools/Workspace editor’ to create a base64 encoded file of this icons data:</p>
-<p><img alt="" src="../../_images/convert_base64_dialog.png" /></p>
+<p><img alt="Base64 conversion tool" src="../../_images/convert_base64_dialog.png" /></p>
 </li>
 <li><p>Insert the resulting file content as a text item into the icon property:</p></li>
 </ul>
@@ -297,7 +291,7 @@
 </ul>
 </li>
 <li><p>Example</p>
-<p><img alt="" src="../../_images/icon_guideline.png" /></p>
+<p><img alt="Icon guideline" src="../../_images/icon_guideline.png" /></p>
 <ul class="simple">
 <li><p>(1) = Icon with padding, stays the same in all modes</p></li>
 <li><p>(2) = Icon in pure #333333 black, gets auto-brightened in dark modes</p></li>
@@ -314,7 +308,7 @@
 <li><p>a special tag like ‘[separator]’ for a separator in the command toolbar.</p></li>
 </ul>
 <p>The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and omit the ‘gom.script’ prefix:</p>
-<p><img alt="" src="../../_images/workspace5.png" /></p>
+<p><img alt="Command recording" src="../../_images/workspace5.png" /></p>
 <p>This works for scripts, too, if a script is executed from the ‘Apps’ menu while the script editor is in recording mode.</p>
 </section>
 <section id="sensor-commands">
@@ -324,7 +318,7 @@
 <section id="default-visible-views">
 <h4>“default_visible_views”<a class="headerlink" href="#default-visible-views" title="Link to this heading"></a></h4>
 <p>Views that are visible per default, e.g.  adding “right_docking_area” shows the properties/toolbox window(star) on right side, which is collapsed by default. ( (star) as long as the default_view_layout_right_ isn’t changed). To investigate the name of the view to enter here, start script recording again and switch to that view in the applications UI. This will record a command containing that name:</p>
-<p><img alt="" src="../../_images/workspace6.png" /></p>
+<p><img alt="Visible views configuration" src="../../_images/workspace6.png" /></p>
 </section>
 <section id="default-visible-tabs">
 <h4>“default_visible_tabs”<a class="headerlink" href="#default-visible-tabs" title="Link to this heading"></a></h4>
@@ -369,7 +363,42 @@
 <section id="how-can-i-add-icons-to-the-workspace-toolbar">
 <h3>How can I add icons to the workspace toolbar ?<a class="headerlink" href="#how-can-i-add-icons-to-the-workspace-toolbar" title="Link to this heading"></a></h3>
 <p>You can only add commands to the toolbar. The commands will bring their own icons. For scripts, which can be added like commands, a custom script icon can be set in the script editor via the ‘edit properties’ feature in the right mouse menu of the script:</p>
-<p><img alt="" src="../../_images/workspace7.png" /></p>
+<p><img alt="Script icon configuration" src="../../_images/workspace7.png" /></p>
+<p>As an alternative, script icons can be included as files as shown in the example App <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">ScriptIcon</a>.</p>
+</section>
+<section id="how-can-i-group-scripts-in-the-workspace-toolbar">
+<h3>How can I group scripts in the workspace toolbar?<a class="headerlink" href="#how-can-i-group-scripts-in-the-workspace-toolbar" title="Link to this heading"></a></h3>
+<p>Scripts in a common folder can be added to the workspace toolbar as a group.</p>
+<p>Example:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">App folder structure</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Workspace</span> <span class="n">editor</span> <span class="n">tools</span>
+  <span class="o">|</span>
+  <span class="o">|--</span> <span class="n">Scripts</span>
+  <span class="o">|</span>    <span class="o">|--</span> <span class="n">my_script</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">|</span>    <span class="o">|--</span> <span class="n">myworkflow</span>
+  <span class="o">|</span>          <span class="o">|--</span> <span class="n">step1</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">|</span>          <span class="o">|--</span> <span class="n">step2</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">...</span>  
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Sample Workspace.json</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;workflow_commands&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;sys.import_file&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;userscript.group_myworkflow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;userscript.my_script&quot;</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><img alt="Scripts as a group" src="../../_images/workspace8.png" /></p>
+<p>The scripts <code class="docutils literal notranslate"><span class="pre">step1.py</span></code> and <code class="docutils literal notranslate"><span class="pre">step2.py</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">myworkflow</span></code> are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script last executed is shown.</p>
 </section>
 </section>
 </section>
@@ -379,7 +408,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../using_wheelhouses/using_wheelhouses.html" class="btn btn-neutral float-left" title="Using Python wheelhouses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../localization/localization.html" class="btn btn-neutral float-right" title="Localization of Apps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../using_services/using_services.html" class="btn btn-neutral float-right" title="Using services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -396,7 +425,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd07a81d8d0>
+  <jinja2.runtime.BlockReference object at 0x7f54febad510>
 
 
 </footer>

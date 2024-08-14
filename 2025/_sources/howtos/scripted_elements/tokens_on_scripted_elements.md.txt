@@ -17,7 +17,7 @@ In the following example, a volume defects element was created with following sn
 
 ``` Python
 #  Simulating user-defined token data
-ids = np.array ([ i for i in range (166])
+ids = np.array ([ i for i in range (166) ])
 for s in context.stages:
     context.data[s] = { "ude_defect_ids" : ids, "ude_test_string" : "hello world" }
 ```
