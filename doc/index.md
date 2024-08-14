@@ -77,9 +77,11 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
    howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
+   howtos/using_services/using_services
    howtos/localization/localization
    howtos/starting_options/starting_options
    howtos/testing_apps/testing_apps
+   howtos/scripting_legacy_projects/scripting_legacy_projects
    howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
@@ -91,16 +93,9 @@ If you already know how to create an App and now you are interested in Python pr
 .. toctree::
    :maxdepth: 1
    :caption: Python API Examples
-   :titlesonly:
 
    python_examples/index
-   python_examples/data_interfaces
-   python_examples/dialog_widgets
-   python_examples/misc
-   python_examples/script_icons
-   python_examples/script_resources
-   python_examples/scripted_actuals
-   python_examples/scripted_checks
+   python_examples/examples_overview
 ```
 
 Available API functions are documented in the Specification.

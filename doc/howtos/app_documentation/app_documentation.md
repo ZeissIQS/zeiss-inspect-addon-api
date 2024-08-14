@@ -19,7 +19,8 @@
 An App file is technically a ZIP file.
 
 * It must at least contain a file `doc\README.md`, which will be rendered as the product's splash description ad.
-* It can contain an arbitrary number of additional files in the `doc` folder referenced from within the `README.md` file. 
+* It can contain an arbitrary number of additional files in the `doc` folder referenced from within the `README.md` file.
+* The full documentation can be provided in a file `Documentation.md`.
 
 ### Example
 

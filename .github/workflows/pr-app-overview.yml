@@ -1,0 +1,48 @@
+# see https://github.com/marketplace/actions/github-action-for-creating-pull-requests
+name: Update App Examples Overview
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - overview-update
+jobs:
+  UpdateAppOverviewPr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set target branch
+        id: target
+        run:
+          |
+          TARGET_BRANCH="main"
+          echo "Target branch: ${TARGET_BRANCH}"
+          echo "target_branch=${TARGET_BRANCH}" >> $GITHUB_OUTPUT
+      - name: Set reviewers
+        id: reviewers
+        run:
+          |
+          REVIEWERS="fblankenburgzeiss,mprinkezs"
+          echo "Reviewers: ${REVIEWERS}"
+          echo "reviewers=${REVIEWERS}" >> $GITHUB_OUTPUT
+      - name: Create Pull Request
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          #source_branch: overview-update
+          target_branch: ${{ format('{0}', steps.target.outputs.target_branch) }}
+          title: ${{ format('App examples overview update pull request ({0})', steps.target.outputs.target_branch) }}
+          #template: .github/PULL_REQUEST_TEMPLATE.md
+          body: "**Automated pull request**"
+          reviewer: ${{ format('{0}', steps.reviewers.outputs.reviewers) }}
+          #assignee: octocat
+          label: documentation
+          #milestone: My milestone
+          #draft: true
+          #old_string: "<!-- Add your description here -->"
+          #new_string: "** Automatic pull request**"
+          get_diff: true
+          ignore_users: "dependabot"
+          allow_no_diff: false
