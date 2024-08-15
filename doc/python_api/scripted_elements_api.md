@@ -117,7 +117,7 @@ On success the function must return True, otherwise False.
 ## Scripted actuals - Return values
 
 ```{seealso}
-The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">App Examples - scripted_actuals</a> provides an example for each element type.
+The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">App Examples - scripted_actuals</a> provides an example for each element type.
 ```
 
 ### Point
