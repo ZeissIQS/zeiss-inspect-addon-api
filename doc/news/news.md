@@ -11,7 +11,7 @@ myst:
 
 ```{eval-rst}
 .. feed::
-   :rss: 2025/index.rss
+   :rss: index.rss
    :title: ZEISS INSPECT 2025 App Python API News
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/
 
