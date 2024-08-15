@@ -60,7 +60,7 @@ To calculate a preview, the `context.calc()` function can be invoked. It takes t
 A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
 
 ```{seealso}
-A preview calculation is implemented in the example <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md#offset_point_v2-includes-preview-calculation">offset_point_v2</a>.
+A preview calculation is implemented in the example <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.html#offset_point_v2-includes-preview-calculation">offset_point_v2</a>.
 ```
 
 ## The `calculation` function
@@ -117,7 +117,7 @@ On success the function must return True, otherwise False.
 ## Scripted actuals - Return values
 
 ```{seealso}
-The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples#scripted_actuals--building-custom-actual-elements-with-python-code">App Examples - scripted_actuals</a> provides an example for each element type.
+The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.html#scripted_actuals--building-custom-actual-elements-with-python-code">App Examples - scripted_actuals</a> provides an example for each element type.
 ```
 
 ### Point
