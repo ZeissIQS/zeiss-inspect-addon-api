@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "Python API for extending ZEISS INSPECT 2025 with Apps - Startinng Software and Scripts"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos"
+---
+
 # Software and script starting options
 
 > Abstract: This chapter deals with various ways to start ZEISS INSPECT and optionally execute a script. The most common way is to start ZEISS INSPECT and execute a script from the ZEISS INSPECT GUI. You can also start the application from the Windows command line, a Windows shortcut or a batch file. And finally you can start the application from another Python script running in an external Python interpreter.
