@@ -1,3 +1,13 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Localization/Translation"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+    
+   suppress_warnings:
+      ['myst.header']
+---
+
 # Localization of Apps
 
 ## Writing translatable scripts
