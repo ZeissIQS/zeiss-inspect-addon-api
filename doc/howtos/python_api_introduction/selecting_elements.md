@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Selecting Elements"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+---
+
 # Selecting elements in scripts
 
 > Selecting elements using `gom.ElementSelection()` has been mentioned in [ZEISS INSPECT Python API Introduction](python_api_introduction.md) briefly. This section describes how `ElementSelection` is used in more details.
