@@ -7,7 +7,7 @@
 :Template: PythonApiExamples.addon
 :Description: Interactive creation of a geometrical element in an application specific way.
 :How-to: <a href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a>
-:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.html#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a>
+:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a>
 :API Documentation: <a href="../../python_api/scripted_elements_api.html">Scripted Elements API</a>
 :Keywords: element, interactive, dialog, input, point, function, parameters, calculation
  
@@ -15,7 +15,7 @@
 :Template: PythonApiExamples.addon
 :Description: Interactive creation of a geometrical element in an application specific way.
 :How-to: <a href="../scripted_elements/scripted_checks.html">Scripted checks</a>
-:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.html#scripted_checks--building-custom-checks-with-python-code">scripted_checks</a>
+:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.md#scripted_checks--building-custom-checks-with-python-code">scripted_checks</a>
 :API Documentation: <a href="../../python_api/scripted_elements_api.html#scripted-checks-return-values">Scripted Elements API</a>
 :Keywords: scalar, curve, surface, inspection, check, comparison, tolerance
 
