@@ -1,3 +1,13 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Frequently Asked Questions"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+    
+   suppress_warnings:
+      ['myst.header']
+---
+
 # Frequently asked questions
 
 If you did not find an answer here, you might want to check <a href="https://qualityforum.zeiss.com/forum/8-customizations/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
