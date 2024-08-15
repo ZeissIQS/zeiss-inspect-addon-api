@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Script Resources"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+---
+
 # Using script resources
 
 The term "resource" is used to describe any files in your scripts directories that are not python scripts (`*.py`). You can use these files to include binary data such as images or other data like config files etc. in your Apps.
