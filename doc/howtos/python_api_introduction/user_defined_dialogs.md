@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - User-defined Dialogs"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+---
+
 # User-defined Dialogs
 
 - [Creating dialogs](#creating-dialogs)
