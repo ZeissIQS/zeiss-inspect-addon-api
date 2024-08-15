@@ -27,5 +27,5 @@ if (res.exists()):
 
 ## See also
 
-* <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources">Examples of category `script_resources`</a>
+* <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources">Examples of category `script_resources`</a>
 * [`gom.Resource` API Definition](../../python_api/resource_api.md)
