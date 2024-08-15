@@ -1,0 +1,2 @@
+# Skip Software Store links until all Apps have been uploaded
+software-store.zeiss.com/products/apps/
