@@ -7,13 +7,13 @@ myst:
 
 # What's New
 
-<a href="index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
+<a href="../index.rss">&#x200B;<i class="fa fa-rss-square"></i> Subscribe to RSS News Feed</a>
 
 ```{eval-rst}
 .. feed::
    :rss: index.rss
    :title: ZEISS INSPECT 2025 App Python API News
-   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/main/news/
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025
 
    20240315-element-selection
    20240314-internationalization-tool-update
