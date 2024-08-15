@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Wizard Dialogs"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+---
+
 # Creating wizard dialogs
 
 - [What is a wizard dialog](#what-is-a-wizard-dialog)
