@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "Python API for extending ZEISS INSPECT 2025 with Apps - Stages"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Stages"
+---
+
 # Working with stages
 
 > Abstract: Stages are used in ZEISS INSPECT for comparing inspection results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. This section provides some basic information about using stages in Apps and shows typical applications of Python scripts for working with stages.
