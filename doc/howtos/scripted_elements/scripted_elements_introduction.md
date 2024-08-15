@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Scripted Elements"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+---
+
 # Introduction to scripted elements
 
 This documentation is intended to demonstrate the ability to create parametric elements in the ZEISS INSPECT Software using custom Python code.
