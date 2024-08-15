@@ -1,3 +1,13 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - App File Format"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+    
+   suppress_warnings:
+      ['myst.header']
+---
+
 # App file format
 
 ## Introduction
