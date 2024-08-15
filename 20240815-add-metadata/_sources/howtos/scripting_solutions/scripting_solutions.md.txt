@@ -1,3 +1,10 @@
+---
+myst:
+   html_meta:
+      "description": "Python API for extending ZEISS INSPECT 2025 with Apps - Scripting Solutions"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos, Solutions"
+---
+
 # Scripting solutions
 
 > Abstract: Starting with a blank editor window is always hard. Therefore we have collected a set of solutions for common scripting tasks.
