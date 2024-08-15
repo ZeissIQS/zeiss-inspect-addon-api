@@ -1,3 +1,13 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Project Keywords"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation"
+    
+   suppress_warnings:
+      ['myst.header']
+---
+
 # Project keywords handling
 
 > Abstract: Project keywords can be used for storing meta information. In a project with stages, project keywords can be applied to all stages or to specific stages.
