@@ -11,9 +11,9 @@ myst:
 
 ```{eval-rst}
 .. feed::
-   :rss: index.rss
+   :rss: 2025/index.rss
    :title: ZEISS INSPECT 2025 App Python API News
-   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/
 
    20240315-element-selection
    20240314-internationalization-tool-update
