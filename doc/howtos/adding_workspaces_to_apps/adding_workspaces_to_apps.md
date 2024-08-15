@@ -1,3 +1,13 @@
+---
+myst:
+   html_meta:
+      "description": "ZEISS INSPECT 2025 App Python API Specification - Workspaces"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, Specification, Documentation, Workspaces"
+    
+   suppress_warnings:
+      ['myst.header']
+---
+
 # Adding workspaces to Apps
 
 > Abstract: An App can include a definition for a new workspace. 'Inspection' and 'Reporting' are examples for these workspaces. Although there is no UI based workspace editor yet, it is possible to create one nevertheless with some manual work.
