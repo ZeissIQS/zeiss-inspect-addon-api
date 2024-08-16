@@ -1,0 +1,12 @@
+# Skip Software Store links until all Apps have been uploaded
+software-store.zeiss.com/products/apps/
+
+# Sites require login
+techguide.zeiss.com
+training.gom.com
+
+# False positives from filiph/linkcheck: "(HTTP 200 but missing anchor)"
+github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources
+github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code
+github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_checks--building-custom-checks-with-python-code
+github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md#offset_point_v2-includes-preview-calculation
