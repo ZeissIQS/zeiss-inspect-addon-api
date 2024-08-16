@@ -7,7 +7,7 @@ The `gom.Resource` API can be used to access binary data of files included in an
 ```{seealso}
 For a description of the general concept, see [Using script resources](../howtos/python_api_introduction/using_script_resources.md).
 
-For examples, see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/tree/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources">Examples of category `script_resources`</a>.
+For examples, see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources">Examples of category `script_resources`</a>.
 ```
 
 ## Class definition
