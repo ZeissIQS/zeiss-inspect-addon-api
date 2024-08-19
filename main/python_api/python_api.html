@@ -191,6 +191,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save">gom.api.script_resources.save</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-save-as">gom.api.script_resources.save_as</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-unload">gom.api.script_resources.unload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-scripted-checks-util">gom.api.scripted_checks_util</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-curve-checkable">gom.api.scripted_checks_util.is_curve_checkable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-scalar-checkable">gom.api.scripted_checks_util.is_scalar_checkable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-surface-checkable">gom.api.scripted_checks_util.is_surface_checkable</a></li>
@@ -1810,6 +1813,10 @@ for various image variants.</p>
 </dd></dl>
 
 </section>
+</section>
+<section id="gom-api-scripted-checks-util">
+<h2>gom.api.scripted_checks_util<a class="headerlink" href="#gom-api-scripted-checks-util" title="Link to this heading"></a></h2>
+<p>Tool functions for scripted checks</p>
 <section id="gom-api-scripted-checks-util-is-curve-checkable">
 <h3>gom.api.scripted_checks_util.is_curve_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-curve-checkable" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -2005,8 +2012,9 @@ per service, the service counts as RUNNING not before all of these instances hav
 </dl>
 </dd></dl>
 
-<p>This function will start a script interpreter executing the service script as an API endpoint. The
-function will return immediately, the service instances are starting in the background afterwards.</p>
+<p>This function will start a script interpreter executing the service script as an API endpoint.</p>
+<p>\attention The function will return immediately, the service instances are starting in the background afterwards.
+The <code class="docutils literal notranslate"><span class="pre">get_status</span> <span class="pre">()</span></code> function can be used to poll the status until the service has been started.</p>
 </section>
 <section id="gom-api-services-service-stop">
 <h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
@@ -2022,8 +2030,10 @@ function will return immediately, the service instances are starting in the back
 </dd></dl>
 
 <p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
-if needed. The function will return immediately, the service instances will be stopped
-in their own threads contexts.</p>
+if needed.</p>
+<p>\attention The function will return immediately, the service instances will be stopped
+in their own threads contexts. The ‘get_status ()’ function can be used to poll
+the service status until all service instances have been stopped.</p>
 </section>
 </section>
 <section id="gom-api-services-get-services">
@@ -2372,7 +2382,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f5c5ee25a50>
+  <jinja2.runtime.BlockReference object at 0x7f88524dda20>
 
 
 </footer>
