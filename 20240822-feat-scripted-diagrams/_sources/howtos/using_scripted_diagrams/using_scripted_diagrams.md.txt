@@ -25,7 +25,9 @@ context.data[stage] = {
     "ude_diagram_custom": 1, # mandatory, fixed
     "ude_diagram_type": "SVGDiagram", # mandatory, fixed
     "ude_diagram_service" : "gom.api.diagram.radius_plot", # <service_endpoint>.<service_function_name>
-    "ude_diagram_radius": params['radius'] # prefix ude_diagram_ required; can be any number/type of parameters 
+    # add any number/type of parameters for use in a diagram
+    # prefix must be ude_diagram_
+    "ude_diagram_radius": params['radius'] 
 }
 ```
 
@@ -59,26 +61,26 @@ import io
 @apifunction
 def diagram_service_template(*data, **params)->str:
     gom.log.info('Diagram Service Template')
-	gom.log.info(f'{params=}')
-		
-	for element_uuid in params.keys():
-		# Read all parameters received from mapped scripted elements
+    gom.log.info(f'{params=}')
+        
+    for uuid, values in params.items():
+        # Read all parameters received from mapped scripted elements
         # Example:
-        # radius = params[element_uuid]['ude_diagram_radius']
+        # radius = values['ude_diagram_radius']
 
     # Create an empty file-like object
-	svg_output = io.StringIO()
-	
-	# Create your diagram, which is typically written to a file (here: svg_output)
-	# (...)
-	
-	# Get the SVG string from the file-like object
-	svg_string = svg_output.getvalue()
-	
-	# Close the file-like object
-	svg_output.close()
+    svg_output = io.StringIO()
+    
+    # Create your diagram, which is typically written to a file (here: svg_output)
+    # (...)
+    
+    # Get the SVG string from the file-like object
+    svg_string = svg_output.getvalue()
+    
+    # Close the file-like object
+    svg_output.close()
 
-	return svg_string
+    return svg_string
 
 gom.run_api()
 ```
@@ -99,46 +101,46 @@ SVG_PATH = None
 SVG_DPI = 'figure'
 
 def filter_all(k, v):
-	"""Filter all elements by key, value"""
-	r = []
-	for g in [gom.app.project.nominal_elements, gom.app.project.inspection, gom.app.project.actual_elements]:
-		r += g.filter(k, v)
-	return r
+    """Filter all elements by key, value"""
+    r = []
+    for g in [gom.app.project.nominal_elements, gom.app.project.inspection, gom.app.project.actual_elements]:
+        r += g.filter(k, v)
+    return r
 
 @apifunction
 def radius_plot(*data, **params)->str:
-	gom.log.info('Radius Plot Service')
-	gom.log.info(f'{params=}')
+    gom.log.info('Radius Plot Service')
+    gom.log.info(f'{params=}')
 
-	radius = []
-	elementnames = []	
-	for element_uuid in params.keys():
-		element = filter_all('uuid_draft', element_uuid)[0]
-		elementnames.append(element.name)
-		radius.append(params[element_uuid]['ude_diagram_radius'])
-	
-	# create x/y plot
-	fig = plt.figure(figsize = (10, 5))
-	plt.plot(elementnames, radius, 'bx')
-	plt.xticks(rotation = 90)
-	plt.subplots_adjust(bottom=0.2)
+    radius = []
+    elementnames = []    
+    for uuid, values in params.items():
+        element = filter_all('uuid_draft', uuid)[0]
+        elementnames.append(element.name)
+        radius.append(values['ude_diagram_radius'])
+    
+    # create x/y plot
+    fig = plt.figure(figsize = (10, 5))
+    plt.plot(elementnames, radius, 'bx')
+    plt.xticks(rotation = 90)
+    plt.subplots_adjust(bottom=0.2)
 
-	if SVG_PATH:
-		plt.savefig(SVG_PATH, format='svg', dpi=SVG_DPI)
-	
-	# Create an empty file-like object
-	svg_output = io.StringIO()
-	
-	# Save the plot to the file-like object
-	plt.savefig(svg_output, format='svg', dpi=SVG_DPI)
-	
-	# Get the SVG string from the file-like object
-	svg_string = svg_output.getvalue()
-	
-	# Close the file-like object
-	svg_output.close()
+    if SVG_PATH:
+        plt.savefig(SVG_PATH, format='svg', dpi=SVG_DPI)
+    
+    # Create an empty file-like object
+    svg_output = io.StringIO()
+    
+    # Save the plot to the file-like object
+    plt.savefig(svg_output, format='svg', dpi=SVG_DPI)
+    
+    # Get the SVG string from the file-like object
+    svg_string = svg_output.getvalue()
+    
+    # Close the file-like object
+    svg_output.close()
 
-	return svg_string
-	
+    return svg_string
+    
 gom.run_api()
 ```
