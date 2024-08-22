@@ -14,7 +14,7 @@ The concept of scripted diagrams builds upon [scripted elements](../scripted_ele
 
 ## Usage
 
-1. Create or modify scripted elements to contribute data to a scripted diagram
+### 1. Create or modify scripted elements to contribute data to a scripted diagram
 
 Any kind of [scripted element](../scripted_elements/scripted_elements_introduction.md) can provide data to a scripted diagram.
 
@@ -35,11 +35,11 @@ context.data[stage] = {
 * `"ude_diagram_service"` maps the scripted element to a diagram service, which is defined in the App's `metainfo.json` file.
 * Any number and type of parameters to be passed to the diagram service can be added. The prefix `ude_diagram_` is mandatory.
 
-2. Define the diagram service in `metainfo.json`
+### 2. Define the diagram service in `metainfo.json`
 
 See <a href="../using_services/using_services.html#service-definition">Using services &mdash; Service definition</a>
 
-3. Create the diagram service function
+### 3. Create the diagram service function
 
 ```{warning}
 Currently only one diagram service may be used at a time, otherwise no diagram will be rendered. If there are elements using different diagram services, leave only one service running.
