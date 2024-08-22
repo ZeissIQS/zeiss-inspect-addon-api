@@ -71,7 +71,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using scripted diagrams</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-or-modify-scripted-elements-to-contribute-data-to-a-scripted-diagram">1. Create or modify scripted elements to contribute data to a scripted diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-the-diagram-service-in-metainfo-json">2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
@@ -132,9 +137,8 @@
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>Create or modify scripted elements to contribute data to a scripted diagram</p></li>
-</ol>
+<section id="create-or-modify-scripted-elements-to-contribute-data-to-a-scripted-diagram">
+<h3>1. Create or modify scripted elements to contribute data to a scripted diagram<a class="headerlink" href="#create-or-modify-scripted-elements-to-contribute-data-to-a-scripted-diagram" title="Link to this heading"></a></h3>
 <p>Any kind of <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted element</span></a> can provide data to a scripted diagram.</p>
 <p>In the scripted element’s <code class="docutils literal notranslate"><span class="pre">calculation()</span></code> function, apply <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code> as in this example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
@@ -152,13 +156,13 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_service&quot;</span></code> maps the scripted element to a diagram service, which is defined in the App’s <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
 <li><p>Any number and type of parameters to be passed to the diagram service can be added. The prefix <code class="docutils literal notranslate"><span class="pre">ude_diagram_</span></code> is mandatory.</p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><p>Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></p></li>
-</ol>
+</section>
+<section id="define-the-diagram-service-in-metainfo-json">
+<h3>2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code><a class="headerlink" href="#define-the-diagram-service-in-metainfo-json" title="Link to this heading"></a></h3>
 <p>See <a href="../using_services/using_services.html#service-definition">Using services — Service definition</a></p>
-<ol class="arabic simple" start="3">
-<li><p>Create the diagram service function</p></li>
-</ol>
+</section>
+<section id="create-the-diagram-service-function">
+<h3>3. Create the diagram service function<a class="headerlink" href="#create-the-diagram-service-function" title="Link to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Currently only one diagram service may be used at a time, otherwise no diagram will be rendered. If there are elements using different diagram services, leave only one service running.</p>
@@ -268,6 +272,7 @@
 </div>
 </section>
 </section>
+</section>
 
 
            </div>
@@ -291,7 +296,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3a3ac70dc0>
+  <jinja2.runtime.BlockReference object at 0x7f7f360e6050>
 
 
 </footer>
