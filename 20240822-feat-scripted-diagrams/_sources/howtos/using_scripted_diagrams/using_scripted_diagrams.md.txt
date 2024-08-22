@@ -10,7 +10,7 @@ Scripted diagrams are updated automatically if any contributing scripted element
 
 ## Prerequisites
 
-The concept of scripted diagrams builds upon [scripted elements](../scripted_elements/scripted_elements_introduction.md) and [services](../using_services/using_services.md). [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements) are used to convey data to the diagram service.
+The concept of scripted diagrams builds upon [scripted elements](../scripted_elements/scripted_elements_introduction.md) and [services](../using_services/using_services.md). [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements.md) are used to convey data to the diagram service.
 
 ## Usage
 
@@ -145,4 +145,10 @@ def radius_plot(*data, **params)->str:
     return svg_string
     
 gom.run_api()
+```
+
+```{seealso}
+* [Scripted elements](../scripted_elements/scripted_elements_introduction.md)
+* [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements.md)
+* [Using services](../using_services/using_services.md)
 ```
