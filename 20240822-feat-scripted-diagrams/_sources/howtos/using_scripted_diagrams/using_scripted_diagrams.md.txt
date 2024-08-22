@@ -51,7 +51,7 @@ Currently only one diagram service may be used at a time, otherwise no diagram w
 ```
 
 The following script serves as a minimum template for a scripted diagram service:
-```
+```{code-block} python
 :caption: Scripted diagram service template
 
 import gom
@@ -88,6 +88,8 @@ gom.run_api()
 This script uses Matplotlib to render a diagram with an xy-plot:
 
 ```{code-block} python
+:caption: Scripted diagram service using Matplotlib
+
 import gom
 from gom import apifunction
 import matplotlib.pyplot as plt
