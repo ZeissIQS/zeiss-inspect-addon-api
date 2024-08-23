@@ -113,7 +113,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget)
 :Tags:
-    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id31">![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)</a> 
+    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id32">![Static Badge](https://img.shields.io/badge/selection--list--widget-blue)</a> 
 
 </div>
 
@@ -135,7 +135,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-element-widget)
 :Tags:
-    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id30">![Static Badge](https://img.shields.io/badge/selection--element--widget-blue)</a> 
+    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id31">![Static Badge](https://img.shields.io/badge/selection--element--widget-blue)</a> 
 
 </div>
 
@@ -154,7 +154,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget)
 :Tags:
-    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id38">![Static Badge](https://img.shields.io/badge/unit--widget-blue)</a> 
+    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id39">![Static Badge](https://img.shields.io/badge/unit--widget-blue)</a> 
 
 </div>
 
@@ -173,7 +173,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html)
 :Tags:
-    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id43">![Static Badge](https://img.shields.io/badge/widget--properties-blue)</a> 
+    <a href="#id6">![Static Badge](https://img.shields.io/badge/dialog-blue)</a> <a href="#id44">![Static Badge](https://img.shields.io/badge/widget--properties-blue)</a> 
 
 </div>
 
@@ -355,7 +355,7 @@ myst:
     Example for SQL Database Access
 
 :Tags:
-    <a href="#id34">![Static Badge](https://img.shields.io/badge/sql--database-blue)</a> <a href="#id23">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
+    <a href="#id35">![Static Badge](https://img.shields.io/badge/sql--database-blue)</a> <a href="#id23">![Static Badge](https://img.shields.io/badge/project--keywords-blue)</a> 
 
 </div>
 
@@ -374,7 +374,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_services/using_services.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-services)
 :Tags:
-    <a href="#id32">![Static Badge](https://img.shields.io/badge/service-blue)</a> 
+    <a href="#id33">![Static Badge](https://img.shields.io/badge/service-blue)</a> 
 
 </div>
 
@@ -393,7 +393,7 @@ myst:
 :References:
     [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-settings)
 :Tags:
-    <a href="#id33">![Static Badge](https://img.shields.io/badge/settings-blue)</a> 
+    <a href="#id34">![Static Badge](https://img.shields.io/badge/settings-blue)</a> 
 
 </div>
 
@@ -410,7 +410,7 @@ myst:
     App template for running unit testing and generating a test coverage report
 
 :Tags:
-    <a href="#id37">![Static Badge](https://img.shields.io/badge/testing-blue)</a> 
+    <a href="#id38">![Static Badge](https://img.shields.io/badge/testing-blue)</a> 
 
 </div>
 
@@ -667,7 +667,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section)
 :Tags:
-    <a href="#id29">![Static Badge](https://img.shields.io/badge/section-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id30">![Static Badge](https://img.shields.io/badge/section-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -686,7 +686,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
 :Tags:
-    <a href="#id35">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id36">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -705,7 +705,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve)
 :Tags:
-    <a href="#id36">![Static Badge](https://img.shields.io/badge/surface--curve-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id37">![Static Badge](https://img.shields.io/badge/surface--curve-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -724,7 +724,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume)
 :Tags:
-    <a href="#id44">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id39">![Static Badge](https://img.shields.io/badge/volume-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id45">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id40">![Static Badge](https://img.shields.io/badge/volume-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -743,7 +743,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-defects)
 :Tags:
-    <a href="#id44">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id40">![Static Badge](https://img.shields.io/badge/volume--defects-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id45">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id41">![Static Badge](https://img.shields.io/badge/volume--defects-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -762,7 +762,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-region)
 :Tags:
-    <a href="#id44">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id41">![Static Badge](https://img.shields.io/badge/volume--region-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id45">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id42">![Static Badge](https://img.shields.io/badge/volume--region-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -781,7 +781,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-section)
 :Tags:
-    <a href="#id44">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id42">![Static Badge](https://img.shields.io/badge/volume--section-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id45">![Static Badge](https://img.shields.io/badge/xray-blue)</a> <a href="#id43">![Static Badge](https://img.shields.io/badge/volume--section-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -822,7 +822,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface)
 :Tags:
-    <a href="#id18">![Static Badge](https://img.shields.io/badge/mesh-blue)</a> <a href="#id35">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
+    <a href="#id18">![Static Badge](https://img.shields.io/badge/mesh-blue)</a> <a href="#id36">![Static Badge](https://img.shields.io/badge/surface-blue)</a> <a href="#id27">![Static Badge](https://img.shields.io/badge/scripted--actual-blue)</a> 
 
 </div>
 
@@ -892,7 +892,7 @@ myst:
 :References:
     [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html), [API](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar-surface)
 :Tags:
-    <a href="#id28">![Static Badge](https://img.shields.io/badge/scripted--check-blue)</a> <a href="#id35">![Static Badge](https://img.shields.io/badge/surface-blue)</a> 
+    <a href="#id28">![Static Badge](https://img.shields.io/badge/scripted--check-blue)</a> <a href="#id36">![Static Badge](https://img.shields.io/badge/surface-blue)</a> 
 
 </div>
 
@@ -912,6 +912,10 @@ myst:
 :Description:
     Scripted diagram basics
 
+:References:
+    [HowTo](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_scripted_diagrams/using_scripted_diagrams.html)
+:Tags:
+    <a href="#id34">![Static Badge](https://img.shields.io/badge/settings-blue)</a> <a href="#id29">![Static Badge](https://img.shields.io/badge/scripted--diagrams-blue)</a> 
 
 </div>
 
@@ -1106,6 +1110,11 @@ myst:
 * <a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a>
 
 
+### <a name="scripted-diagrams"></a>![Static Badge](https://img.shields.io/badge/scripted--diagrams-blue)
+
+* <a href="#scripteddiagrambasics">ScriptedDiagramBasics</a>
+
+
 ### <a name="section"></a>![Static Badge](https://img.shields.io/badge/section-blue)
 
 * <a href="#scriptedactualsection">ScriptedActualSection</a>
@@ -1128,6 +1137,7 @@ myst:
 
 ### <a name="settings"></a>![Static Badge](https://img.shields.io/badge/settings-blue)
 
+* <a href="#scripteddiagrambasics">ScriptedDiagramBasics</a>
 * <a href="#settingsapi">SettingsAPI</a>
 
 
