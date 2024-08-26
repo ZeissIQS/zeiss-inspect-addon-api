@@ -1065,6 +1065,11 @@ Unload resource from shared memory
 ```
 
 
+## gom.api.scripted_checks_util
+
+Tool functions for scripted checks
+
+
 ### gom.api.scripted_checks_util.is_curve_checkable
 
 ```{py:function} gom.api.scripted_checks_util.is_curve_checkable(element: gom.Object): bool
@@ -1192,8 +1197,10 @@ Start service
 :API version: 1
 ```
 
-This function will start a script interpreter executing the service script as an API endpoint. The
-function will return immediately, the service instances are starting in the background afterwards.
+This function will start a script interpreter executing the service script as an API endpoint.
+
+\attention The function will return immediately, the service instances are starting in the background afterwards.
+The `get_status ()` function can be used to poll the status until the service has been started.
 
 #### gom.api.services.Service.stop
 
@@ -1204,8 +1211,11 @@ Stop service
 ```
 
 Stop service. The service can be restarted afterwards via the 'start ()' function
-if needed. The function will return immediately, the service instances will be stopped
-in their own threads contexts.
+if needed.
+
+\attention The function will return immediately, the service instances will be stopped
+in their own threads contexts. The 'get_status ()' function can be used to poll
+the service status until all service instances have been stopped.
 
 ### gom.api.services.get_services
 
