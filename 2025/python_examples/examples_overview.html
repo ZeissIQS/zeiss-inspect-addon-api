@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_services/using_services.html">Using services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/testing_apps/testing_apps.html">Testing Apps</a></li>
@@ -90,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#script-resources-how-to-access-binary-data-of-your-app-resources">script_resources — How to access binary data of your App (resources)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-actuals-building-custom-actual-elements-with-python-code">scripted_actuals — Building custom actual elements with Python code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-checks-building-custom-checks-with-python-code">scripted_checks — Building custom checks with Python code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripted-diagrams-creating-custom-diagrams">scripted_diagrams — Creating custom diagrams</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-projects">Example projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tag-index">Tag Index</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1"><a name="circle"></a></a></li>
@@ -120,22 +122,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#id26"><a name="scalar"></a></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id27"><a name="scripted-actual"></a></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id28"><a name="scripted-check"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id29"><a name="section"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id30"><a name="selection-element-widget"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id31"><a name="selection-list-widget"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id32"><a name="service"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id33"><a name="settings"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id34"><a name="sql-database"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id35"><a name="surface"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id36"><a name="surface-curve"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id37"><a name="testing"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id38"><a name="unit-widget"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id39"><a name="volume"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id40"><a name="volume-defects"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id41"><a name="volume-region"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id42"><a name="volume-section"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id43"><a name="widget-properties"></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id44"><a name="xray"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29"><a name="scripted-diagrams"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30"><a name="section"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31"><a name="selection-element-widget"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32"><a name="selection-list-widget"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33"><a name="service"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34"><a name="settings"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35"><a name="sql-database"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36"><a name="surface"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37"><a name="surface-curve"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38"><a name="testing"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39"><a name="unit-widget"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40"><a name="volume"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41"><a name="volume-defects"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42"><a name="volume-region"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43"><a name="volume-section"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44"><a name="widget-properties"></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45"><a name="xray"></a></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#related">Related</a></li>
@@ -277,7 +280,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-list-widget">HowTo</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id31"><img alt="Static Badge" src="https://img.shields.io/badge/selection--list--widget-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id32"><img alt="Static Badge" src="https://img.shields.io/badge/selection--list--widget-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -298,7 +301,7 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#selection-element-widget">HowTo</a></p>
 </dd>
 <dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id30"><img alt="Static Badge" src="https://img.shields.io/badge/selection--element--widget-blue" /></a></p>
+<dd class="field-even"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id31"><img alt="Static Badge" src="https://img.shields.io/badge/selection--element--widget-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -316,7 +319,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html#unit-widget">HowTo</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id38"><img alt="Static Badge" src="https://img.shields.io/badge/unit--widget-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id39"><img alt="Static Badge" src="https://img.shields.io/badge/unit--widget-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -334,7 +337,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/user_defined_dialogs.html">HowTo</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id43"><img alt="Static Badge" src="https://img.shields.io/badge/widget--properties-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id6"><img alt="Static Badge" src="https://img.shields.io/badge/dialog-blue" /></a> <a href="#id44"><img alt="Static Badge" src="https://img.shields.io/badge/widget--properties-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -497,7 +500,7 @@
 <dd class="field-odd"><p>Example for SQL Database Access</p>
 </dd>
 <dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id34"><img alt="Static Badge" src="https://img.shields.io/badge/sql--database-blue" /></a> <a href="#id23"><img alt="Static Badge" src="https://img.shields.io/badge/project--keywords-blue" /></a></p>
+<dd class="field-even"><p><a href="#id35"><img alt="Static Badge" src="https://img.shields.io/badge/sql--database-blue" /></a> <a href="#id23"><img alt="Static Badge" src="https://img.shields.io/badge/project--keywords-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -515,7 +518,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_services/using_services.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-services">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id32"><img alt="Static Badge" src="https://img.shields.io/badge/service-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id33"><img alt="Static Badge" src="https://img.shields.io/badge/service-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -533,7 +536,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html#gom-api-settings">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id33"><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id34"><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -548,7 +551,7 @@
 <dd class="field-odd"><p>App template for running unit testing and generating a test coverage report</p>
 </dd>
 <dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id37"><img alt="Static Badge" src="https://img.shields.io/badge/testing-blue" /></a></p>
+<dd class="field-even"><p><a href="#id38"><img alt="Static Badge" src="https://img.shields.io/badge/testing-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -789,7 +792,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#section">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id29"><img alt="Static Badge" src="https://img.shields.io/badge/section-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id30"><img alt="Static Badge" src="https://img.shields.io/badge/section-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -807,7 +810,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id35"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id36"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -825,7 +828,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface-curve">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id36"><img alt="Static Badge" src="https://img.shields.io/badge/surface--curve-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id37"><img alt="Static Badge" src="https://img.shields.io/badge/surface--curve-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -843,7 +846,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id44"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id39"><img alt="Static Badge" src="https://img.shields.io/badge/volume-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id45"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id40"><img alt="Static Badge" src="https://img.shields.io/badge/volume-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -861,7 +864,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-defects">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id44"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id40"><img alt="Static Badge" src="https://img.shields.io/badge/volume--defects-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id45"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id41"><img alt="Static Badge" src="https://img.shields.io/badge/volume--defects-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -879,7 +882,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-region">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id44"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id41"><img alt="Static Badge" src="https://img.shields.io/badge/volume--region-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id45"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id42"><img alt="Static Badge" src="https://img.shields.io/badge/volume--region-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -897,7 +900,7 @@
 <dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#volume-section">API</a></p>
 </dd>
 <dt class="field-odd">Tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a href="#id44"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id42"><img alt="Static Badge" src="https://img.shields.io/badge/volume--section-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-odd"><p><a href="#id45"><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /></a> <a href="#id43"><img alt="Static Badge" src="https://img.shields.io/badge/volume--section-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -936,7 +939,7 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_actuals.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#surface">API</a></p>
 </dd>
 <dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id18"><img alt="Static Badge" src="https://img.shields.io/badge/mesh-blue" /></a> <a href="#id35"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
+<dd class="field-even"><p><a href="#id18"><img alt="Static Badge" src="https://img.shields.io/badge/mesh-blue" /></a> <a href="#id36"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a> <a href="#id27"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--actual-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -1003,7 +1006,47 @@
 <dd class="field-odd"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/scripted_elements/scripted_checks.html">HowTo</a>, <a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/scripted_elements_api.html#scalar-surface">API</a></p>
 </dd>
 <dt class="field-even">Tags<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id28"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#id35"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a></p>
+<dd class="field-even"><p><a href="#id28"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--check-blue" /></a> <a href="#id36"><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /></a></p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section id="scripted-diagrams-creating-custom-diagrams">
+<h2>scripted_diagrams — Creating custom diagrams<a class="headerlink" href="#scripted-diagrams-creating-custom-diagrams" title="Link to this heading"></a></h2>
+<hr class="small-margin">
+<section id="osmmapdiagram">
+<div id="osmmapdiagram" class="example-block-odd">
+<h3>OSMMapDiagram — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/OSMMapDiagram/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/OSMMapDiagram">download</a>
+<a class="headerlink" href="#osmmapdiagram" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Display geolocation using a scripted diagram</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_scripted_diagrams/using_scripted_diagrams.html">HowTo</a></p>
+</dd>
+<dt class="field-odd">Tags<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a href="#id34"><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /></a> <a href="#id29"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--diagrams-blue" /></a></p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="scripteddiagrambasics">
+<div id="scripteddiagrambasics" class="example-block-even">
+<h3>ScriptedDiagramBasics — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/ScriptedDiagramBasics/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ScriptedDiagramBasics">download</a>
+<a class="headerlink" href="#scripteddiagrambasics" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Scripted diagram basics</p>
+</dd>
+<dt class="field-even">References<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_scripted_diagrams/using_scripted_diagrams.html">HowTo</a></p>
+</dd>
+<dt class="field-odd">Tags<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a href="#id34"><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /></a> <a href="#id29"><img alt="Static Badge" src="https://img.shields.io/badge/scripted--diagrams-blue" /></a></p>
 </dd>
 </dl>
 </div>
@@ -1238,99 +1281,108 @@
 </ul>
 </section>
 <section id="id29">
-<h3><a name="section"></a><img alt="Static Badge" src="https://img.shields.io/badge/section-blue" /><a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<h3><a name="scripted-diagrams"></a><img alt="Static Badge" src="https://img.shields.io/badge/scripted--diagrams-blue" /><a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a href="#osmmapdiagram">OSMMapDiagram</a></p></li>
+<li><p><a href="#scripteddiagrambasics">ScriptedDiagramBasics</a></p></li>
+</ul>
+</section>
+<section id="id30">
+<h3><a name="section"></a><img alt="Static Badge" src="https://img.shields.io/badge/section-blue" /><a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualsection">ScriptedActualSection</a></p></li>
 </ul>
 </section>
-<section id="id30">
-<h3><a name="selection-element-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/selection--element--widget-blue" /><a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<section id="id31">
+<h3><a name="selection-element-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/selection--element--widget-blue" /><a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#explorerselectedelementsindialog">ExplorerSelectedElementsInDialog</a></p></li>
 </ul>
 </section>
-<section id="id31">
-<h3><a name="selection-list-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/selection--list--widget-blue" /><a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id32">
+<h3><a name="selection-list-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/selection--list--widget-blue" /><a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#dropdownwidget">DropdownWidget</a></p></li>
 </ul>
 </section>
-<section id="id32">
-<h3><a name="service"></a><img alt="Static Badge" src="https://img.shields.io/badge/service-blue" /><a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<section id="id33">
+<h3><a name="service"></a><img alt="Static Badge" src="https://img.shields.io/badge/service-blue" /><a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#serviceexample">ServiceExample</a></p></li>
 </ul>
 </section>
-<section id="id33">
-<h3><a name="settings"></a><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /><a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<section id="id34">
+<h3><a name="settings"></a><img alt="Static Badge" src="https://img.shields.io/badge/settings-blue" /><a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
 <ul class="simple">
+<li><p><a href="#osmmapdiagram">OSMMapDiagram</a></p></li>
+<li><p><a href="#scripteddiagrambasics">ScriptedDiagramBasics</a></p></li>
 <li><p><a href="#settingsapi">SettingsAPI</a></p></li>
 </ul>
 </section>
-<section id="id34">
-<h3><a name="sql-database"></a><img alt="Static Badge" src="https://img.shields.io/badge/sql--database-blue" /><a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<section id="id35">
+<h3><a name="sql-database"></a><img alt="Static Badge" src="https://img.shields.io/badge/sql--database-blue" /><a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#sqlexample">SQLExample</a></p></li>
 </ul>
 </section>
-<section id="id35">
-<h3><a name="surface"></a><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /><a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<section id="id36">
+<h3><a name="surface"></a><img alt="Static Badge" src="https://img.shields.io/badge/surface-blue" /><a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualsurface">ScriptedActualSurface</a></p></li>
 <li><p><a href="#scriptedsurfacecheck">ScriptedSurfaceCheck</a></p></li>
 <li><p><a href="#trimeshdeformmesh">TrimeshDeformMesh</a></p></li>
 </ul>
 </section>
-<section id="id36">
-<h3><a name="surface-curve"></a><img alt="Static Badge" src="https://img.shields.io/badge/surface--curve-blue" /><a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<section id="id37">
+<h3><a name="surface-curve"></a><img alt="Static Badge" src="https://img.shields.io/badge/surface--curve-blue" /><a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualsurfacecurve">ScriptedActualSurfaceCurve</a></p></li>
 </ul>
 </section>
-<section id="id37">
-<h3><a name="testing"></a><img alt="Static Badge" src="https://img.shields.io/badge/testing-blue" /><a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<section id="id38">
+<h3><a name="testing"></a><img alt="Static Badge" src="https://img.shields.io/badge/testing-blue" /><a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#templateunittestcoverage">TemplateUnittestCoverage</a></p></li>
 </ul>
 </section>
-<section id="id38">
-<h3><a name="unit-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/unit--widget-blue" /><a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<section id="id39">
+<h3><a name="unit-widget"></a><img alt="Static Badge" src="https://img.shields.io/badge/unit--widget-blue" /><a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#unitdialogeventhandler">UnitDialogEventHandler</a></p></li>
 </ul>
 </section>
-<section id="id39">
-<h3><a name="volume"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume-blue" /><a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<section id="id40">
+<h3><a name="volume"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume-blue" /><a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualvolume">ScriptedActualVolume</a></p></li>
 </ul>
 </section>
-<section id="id40">
-<h3><a name="volume-defects"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--defects-blue" /><a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<section id="id41">
+<h3><a name="volume-defects"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--defects-blue" /><a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualvolumedefects">ScriptedActualVolumeDefects</a></p></li>
 </ul>
 </section>
-<section id="id41">
-<h3><a name="volume-region"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--region-blue" /><a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<section id="id42">
+<h3><a name="volume-region"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--region-blue" /><a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualvolumeregion">ScriptedActualVolumeRegion</a></p></li>
 </ul>
 </section>
-<section id="id42">
-<h3><a name="volume-section"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--section-blue" /><a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<section id="id43">
+<h3><a name="volume-section"></a><img alt="Static Badge" src="https://img.shields.io/badge/volume--section-blue" /><a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualvolumesection">ScriptedActualVolumeSection</a></p></li>
 </ul>
 </section>
-<section id="id43">
-<h3><a name="widget-properties"></a><img alt="Static Badge" src="https://img.shields.io/badge/widget--properties-blue" /><a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
+<section id="id44">
+<h3><a name="widget-properties"></a><img alt="Static Badge" src="https://img.shields.io/badge/widget--properties-blue" /><a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#widgetvisibility">WidgetVisibility</a></p></li>
 </ul>
 </section>
-<section id="id44">
-<h3><a name="xray"></a><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /><a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<section id="id45">
+<h3><a name="xray"></a><img alt="Static Badge" src="https://img.shields.io/badge/xray-blue" /><a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a href="#scriptedactualvolume">ScriptedActualVolume</a></p></li>
 <li><p><a href="#scriptedactualvolumedefects">ScriptedActualVolumeDefects</a></p></li>
@@ -1370,7 +1422,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f937b5287f0>
+  <jinja2.runtime.BlockReference object at 0x7fd115d0add0>
 
 
 </footer>
