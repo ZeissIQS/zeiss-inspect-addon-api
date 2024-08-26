@@ -5,7 +5,7 @@
 ![](scripted_element_progress_computation.jpg)
 ## Short description
 
-This examples demonstrates how to show progress information to the user while calcualting a scripted element.
+This examples demonstrates how to show progress information to the user while calculating a scripted element.
 ## Highlights
 
 The scripted element itself is not of interest here, as it is rather meaningless: a point that will always be created at *(1,0,0)*.
