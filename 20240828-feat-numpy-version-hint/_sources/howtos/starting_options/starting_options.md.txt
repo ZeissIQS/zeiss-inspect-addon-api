@@ -2,12 +2,12 @@
 
 > Abstract: This chapter deals with various ways to start ZEISS INSPECT and optionally execute a script. The most common way is to start ZEISS INSPECT and execute a script from the ZEISS INSPECT GUI. You can also start the application from the Windows command line, a Windows shortcut or a batch file. And finally you can start the application from another Python script running in an external Python interpreter.
 
-## Starting Add-ons from the GUI
+## Starting Apps from the GUI
 
 You normally start the ZEISS INSPECT application from the ZEISS Quality Suite. In ZEISS INSPECT, you start a script
-* From the Add-on Editor
-* Via Add-on ► Execute Script
-* Via Add-on ► Execute Script From File... 
+* From the App Editor
+* Via App ► Execute Script
+* Via App ► Execute Script From File... 
 * From a customized entry in the menu bar (Script properties dialog ► Edit menu bar... - see [ZEISS Quality Tech Guide: How to Create an Advanced Add-on](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_create_an_advanced_add_on.html) for details)
 
 ## Starting a script from the Windows command line
@@ -29,13 +29,13 @@ This will start the application with all available licenses. You can specify the
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -license volume
 ```
 
-By default, all licensed Add-ons with a valid license and all license-free Add-ons are visible in the application. This can be changed with the parameter `-packages`, which restricts the visible Add-ons to those listed by UUID:
+By default, all licensed Apps with a valid license and all license-free Apps are visible in the application. This can be changed with the parameter `-packages`, which restricts the visible Apps to those listed by UUID:
 
 ```
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -packages 36687b47-6ee0-448c-886a-eba02c9d0329,a8c6baec-c6ed-409d-a2dc-dd3d032db8bd
 ```
 
-You find the UUID in the Add-on's `metainfo.json` file.
+You find the UUID in the App's `metainfo.json` file.
 
 You can reduce the software startup time by skipping the splash screen with the parameter `-nosplash`.
 
@@ -55,13 +55,13 @@ The configuration file contains user- and language-specific entries which limit 
 
 You start ZEISS INSPECT and execute a script with `-eval "gom.script.userscript.<scriptfolder>__<script>()"`
 
-Example: `<Add-on_Folder>/scripts/tools/convert_mesh.py`
+Example: `<App_Folder>/scripts/tools/convert_mesh.py`
 
 ```
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -eval "gom.script.userscript.tools__convert_mesh()"
 ```
 
-`<scriptfolder>` can be omitted if the script is located in an Add-on `scripts/` folder:
+`<scriptfolder>` can be omitted if the script is located in an App `scripts/` folder:
 
 ```
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -eval "gom.script.userscript.convert_mesh()"
@@ -69,7 +69,7 @@ Example: `<Add-on_Folder>/scripts/tools/convert_mesh.py`
 
 % https://iqs-jira.zeiss.org/browse/SW2023-12585 -> -script <path>
 
-If the script's name is not unique within all installed Add-ons and connected Add-on folders, you can also execute the script by specifying its file path with the parameter `-script`:
+If the script's name is not unique within all installed Apps and connected App folders, you can also execute the script by specifying its file path with the parameter `-script`:
 
 ```
 "C:\Program Files\Zeiss\INSPECT\2023\bin\ZEISS_INSPECT.exe" -script "C:\temp\convert.py"
@@ -96,7 +96,7 @@ var2 = variable_2
 
 You can assign values of any Python data type to those parameters.
 
-To allow simple testing in the Add-on editor during script development, you add the following code to define the variables which are set as script parameters otherwise :
+To allow simple testing in the App editor during script development, you add the following code to define the variables which are set as script parameters otherwise :
 
 ```{code-block} python
 # Default parameters for testing
@@ -188,9 +188,9 @@ You must use forward slashes in the application file path. The command line is s
 
 See [Python subprocess documentation](https://docs.python.org/3/library/subprocess.html) for more details.
 
-## Executing a Python script from an Add-on
+## Executing a Python script from an App
 
-The command `gom.script.sys.execute_script()` can be used to run another Python script from an Add-on.
+The command `gom.script.sys.execute_script()` can be used to run another Python script from an App.
 
 ```{py:function} gom.script.sys.execute_script(file: string, parameters: dict, collect_stdout: bool, collect_stderr: bool) : string
 
@@ -207,7 +207,7 @@ Execute Script From File
 :rtype: string
 ```
 ```{code-block} python
-:caption: Add-on Script
+:caption: App Script
 
 import gom
 
@@ -257,7 +257,7 @@ print("This is an error message", file=sys.stderr)
 ```
 
 ```{code-block}
-:caption: Output to Add-on Editor Console
+:caption: Output to App Editor Console
 
 None
 sys.argv: ['C:/temp/testscript.py']
