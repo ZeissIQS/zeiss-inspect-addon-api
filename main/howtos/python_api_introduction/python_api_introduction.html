@@ -313,6 +313,11 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
 <section id="element-data-interfaces">
 <h2>Element data interfaces<a class="headerlink" href="#element-data-interfaces" title="Link to this heading"></a></h2>
 <p>In a script, each element present in the application (project, inspection elements, reports, …) can be referenced by a named identifier. Each identifier consists of a type and some index, which can be a name or an integer number.</p>
+<p>In most cases, the data interfaces are based on the Python package <a class="reference external" href="https://numpy.org/">NumPy</a>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Due to breaking changes in NumPy 2.0.0 (see <a class="reference external" href="https://github.com/numpy/numpy/releases/tag/v2.0.0">NumPy 2.0.0 Release Notes</a>), the latest NumPy 1.x version must be used with ZEISS INSPECT 2025.</p>
+</div>
 <section id="concept">
 <h3>Concept<a class="headerlink" href="#concept" title="Link to this heading"></a></h3>
 <p>This is already the case for access via the data interface instead of the token interface: The returned value has the format <code class="docutils literal notranslate"><span class="pre">(stages,</span> <span class="pre">&lt;index</span> <span class="pre">dimensions&gt;)</span></code>.</p>
@@ -446,7 +451,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f9629852e30>
+  <jinja2.runtime.BlockReference object at 0x7fd9f740d000>
 
 
 </footer>
