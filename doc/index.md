@@ -37,6 +37,7 @@ Check out the ZEISS INSPECT Apps news page!
 .. toctree::
    :hidden:
    
+   news/202410xx-insert-file
    news/20240315-element-selection
    news/20240314-internationalization-tool-update
    news/20240307-mesh-selection
