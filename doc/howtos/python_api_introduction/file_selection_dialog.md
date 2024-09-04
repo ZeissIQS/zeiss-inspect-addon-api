@@ -1,3 +1,5 @@
+![New in Version 2025](https://img.shields.io/badge/New-Version_2025-orange)
+
 # Selecting a file or folder
 
 > Python scripts for ZEISS INSPECT often require reading or writing files. The command `choose_file()` provides a simple solution for selecting a file path interactively.

@@ -1,3 +1,5 @@
+![New in Version 2025](https://img.shields.io/badge/New-Version_2025-orange)
+
 # Using services
 
 > Abstract: A ZEISS INSPECT service is a Python script running continuously in the background, which exposes API functions to other scripts. Services can be distributed via Apps and can be used as computation kernels or callback targets. Services have been introduced in ZEISS INSPECT 2025.
