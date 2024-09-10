@@ -1,4 +1,4 @@
-```{markdown}
+```{code-block} markdown
 :caption: doc\/Releasenotes.md
 
 # Release Notes \<ThisApp\>
