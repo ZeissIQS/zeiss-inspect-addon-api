@@ -1,4 +1,6 @@
 ```{markdown}
+:caption: doc\/Releasenotes.md
+
 # Release Notes \<ThisApp\>
 
 ## Released at \<yyyy-mm-dd\> (v\<major\>.\<minor\>.\<bugfix\>)
