@@ -17,11 +17,11 @@ The App documentation is part of the packaged App.
 
 | Index | Item                           | Description                                                | Origin                                                              |
 | ----- | ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
-|     1 | Title                          | App title                                                  | 'Title' field in the App. Set during App creation.                  |
-|     2 | Company                        | Company which maintains the App                            | Company the uploading account belongs to. Set during App creation.  |
-|     3 | App description                | App short description                                      | 'Description' field in the App. Set during App creation.            |
-|     4 | Splash description             | Some information about the App,<br>e.g. for advertising it | doc/README.md from the App. See below how to edit it.               |
-|     5 | Link to complete<br>documentation | Complete App documentation | Something referenced from within the doc/README.md. Can be a PDF, a link to some external site, ... | 
+|     1 | Title                          | App title                                                  | 'Title' field in the App.<br>Set during App creation.                  |
+|     2 | Company                        | Company which maintains the App                            | Company the uploading account belongs to.<br>Set during App creation.  |
+|     3 | App description                | App short description                                      | 'Description' field in the App.<br>Set during App creation.            |
+|     4 | Splash description             | Some information about the App,<br>e.g. for advertising it | doc/README.md from the App.<br>See below how to edit it.               |
+|     5 | Link to complete<br>documentation | Complete App documentation | Something referenced from within the doc/README.md.<br>Can be a PDF, a link to some external site, ... | 
 
 ## App documentation structure
 
