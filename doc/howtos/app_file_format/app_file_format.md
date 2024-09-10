@@ -2,7 +2,9 @@
 
 ## Introduction
 
-💡 An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
+```{note}
+An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames. 
+```
 
 While an App file will be created and modified with the App Editor in most cases, it can also be unzipped/edited/zipped manually if necessary.
 
@@ -21,7 +23,9 @@ While an App file will be created and modified with the App Editor in most cases
 
 ### Content types
 
-💡 The top level folders determine the "content type". Inside these top level folders, a separate sub folder must be provided for each item.
+```{note}
+The top level folders determine the "content type". Inside these top level folders, a separate sub folder must be provided for each item.
+```
 
 | Folder / Provider name    | Content type                                    | Notes        |
 | ------------------------- | ----------------------------------------------- | ------------ |
@@ -59,7 +63,9 @@ While an App file will be created and modified with the App Editor in most cases
 
 ### Content data
 
-💡 Each "content object" consists of a folder in one of the "content type" (top level) folders.
+```{note}
+Each "content object" consists of a folder in one of the "content type" (top level) folders.
+```
 
 * A "content object" is a single template/script/element/... distributed via an App.
 * Each "content object" is represented by the content of a folder in the "content type" folder matching the content type.

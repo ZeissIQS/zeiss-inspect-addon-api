@@ -1,6 +1,8 @@
 # Documenting Apps
 
-💡 The App documentation is part of the packaged App.
+```{note}
+The App documentation is part of the packaged App.
+```
 
 ```{eval-rst}
 .. toctree::
@@ -23,8 +25,9 @@
 
 ## App documentation structure
 
-> [!NOTE]
-> An App (`.addon` file) is technically a ZIP file. See [App file format](../app_file_format/app_file_format.md) for details.
+```{note}
+An App (`.addon` file) is technically a ZIP file. See [App file format](../app_file_format/app_file_format.md) for details.
+```
 
 * Mandatory contents:
   * `doc/README.md` &mdash; this will be rendered as the product's splash description ad.
