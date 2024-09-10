@@ -13,7 +13,7 @@ While an App file will be created and modified with the App Editor in most cases
 | File              | Description                                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------------ |
 | `<other folder>/` | All other folders are containing App content. The format of this content is discussed below.                 |
-| `doc/`            | App documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format.    |
+| `doc/`            | App documentation as displayed in the Software Store. Must contain a `README.md` file in markdown format and release notes in markdown format and PDF. |
 | `icon.png`        | App icon as displayed in the App Manager and the Software Store                                              |
 | `key.enc`         | App protection and licensing information in case the App is protected                                        |
 | `license/`        | Terms-of-use related to this App. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon App installation                                                                                              |
