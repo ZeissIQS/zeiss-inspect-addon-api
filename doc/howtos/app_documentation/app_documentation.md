@@ -2,6 +2,13 @@
 
 💡 The App documentation is part of the packaged App.
 
+```{eval-rst}
+.. toctree::
+   :hidden:
+
+   assets/Releasenotes.md
+```
+
 ## Terminology
 
 ![](assets/add-on_terminology.png)
