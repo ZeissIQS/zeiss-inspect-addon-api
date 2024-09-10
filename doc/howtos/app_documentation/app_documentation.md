@@ -30,7 +30,7 @@
   * `doc/README.md` &mdash; this will be rendered as the product's splash description ad.
   * `Releasenotes.md` and `Releasenotes.pdf` &mdash; The Markdown file allows viewing in the App Editor while the PDF file is used in the ZEISS Quality Software Store. 
 * Recommended contents:
-  * `Documentation.md` (and optional `Documattation.pdf`) &mdash; full App documentation
+  * `Documentation.md` (and optional `Documentation.pdf`) &mdash; full App documentation
 
 The App can contain an arbitrary number of additional files in the `doc` folder referenced from within the files `README.md` or `Documentation.md`.
 
