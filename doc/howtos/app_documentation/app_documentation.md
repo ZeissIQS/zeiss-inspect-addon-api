@@ -57,7 +57,7 @@ The App can contain an arbitrary number of additional files in the `doc` folder 
 See [markdown guide](https://www.markdownguide.org/basic-syntax/) for a brief description of the markdown format.
 ```
 
-See [ZEISS Quality Software Store &mdash; DisplayImage](https://software-store.zeiss.com/products/apps/DisplayImage) for example.
+See [ZEISS Quality Software Store &mdash; FileSelectionAndFiltering](https://software-store.zeiss.com/products/apps/FileSelectionAndFiltering) for example.
 
 ![](assets/markdown_editor_viewer.png)
 A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.
