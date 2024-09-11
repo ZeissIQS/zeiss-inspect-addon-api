@@ -983,7 +983,6 @@ myst:
 
 * <a href="#displayimage">DisplayImage</a>
 * <a href="#resourceaccess">ResourceAccess</a>
-* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#textdetection">TextDetection</a>
 
 
@@ -1049,7 +1048,6 @@ myst:
 
 ### <a name="resources"></a>![Static Badge](https://img.shields.io/badge/resources-blue)
 
-* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#scriptresources">ScriptResources</a>
 
