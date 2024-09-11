@@ -98,6 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-obtain-the-measurement-quality">How can I obtain the measurement quality?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">How can I get the CT scanner’s system status — including cathode operation time?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pdfplumber-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pdfplumber</span></code> in an App?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pywin32-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?</a></li>
@@ -444,6 +445,15 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 </div>
 <p>The function blocks until the sensor is ready or the timeout specified with <code class="docutils literal notranslate"><span class="pre">my_timeout</span></code> occurs.</p>
 </section>
+<section id="how-can-i-obtain-the-measurement-quality">
+<h2>How can I obtain the measurement quality?<a class="headerlink" href="#how-can-i-obtain-the-measurement-quality" title="Link to this heading"></a></h2>
+<p>The measurement quality is shown in the Explorer tab ‘Measurements’:</p>
+<p><img alt="Tab 'Measurements' with column 'Measurement Quality'" src="../../_images/measurement_quality.png" /></p>
+<p>Use the token <code class="docutils literal notranslate"><span class="pre">explorer_measurement_quality</span></code> to obtain the same information via script, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurement_quality</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Scan 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;M1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explorer_measurement_quality</span>
+</pre></div>
+</div>
+</section>
 <section id="how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">
 <h2>How can I get the CT scanner’s system status — including cathode operation time?<a class="headerlink" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time" title="Link to this heading"></a></h2>
 <p><img alt="CT System Status Dialog" src="../../_images/ct_system_status.png" /></p>
@@ -563,7 +573,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd0c36f6a10>
+  <jinja2.runtime.BlockReference object at 0x7fb4a23af910>
 
 
 </footer>
