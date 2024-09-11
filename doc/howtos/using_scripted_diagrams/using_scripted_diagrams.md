@@ -1,5 +1,7 @@
 ![New in Version 2025](https://img.shields.io/badge/New-Version_2025-orange)
 
+![New in Version 2025](https://img.shields.io/badge/New-Version_2025-orange)
+
 
 # Using scripted diagrams
 
