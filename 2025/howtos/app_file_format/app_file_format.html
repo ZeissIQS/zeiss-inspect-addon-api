@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/main/howtos/app_file_format/app_file_format.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/app_file_format/app_file_format.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -136,7 +136,10 @@
 <h1>App file format<a class="headerlink" href="#app-file-format" title="Link to this heading"></a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p>💡 An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An ZEISS INSPECT App file (extension: *.addon) is a ZIP archive with pre-defined folder- and filenames.</p>
+</div>
 <p>While an App file will be created and modified with the App Editor in most cases, it can also be unzipped/edited/zipped manually if necessary.</p>
 </section>
 <section id="structure">
@@ -154,7 +157,7 @@
 <td><p>All other folders are containing App content. The format of this content is discussed below.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">doc/</span></code></p></td>
-<td><p>App documentation as displayed in the Software Store. Must contain a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file in markdown format.</p></td>
+<td><p>App documentation as displayed in the Software Store. Must contain a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file in markdown format and release notes in markdown format and PDF.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">icon.png</span></code></p></td>
 <td><p>App icon as displayed in the App Manager and the Software Store</p></td>
@@ -173,7 +176,10 @@
 </section>
 <section id="content-types">
 <h3>Content types<a class="headerlink" href="#content-types" title="Link to this heading"></a></h3>
-<p>💡 The top level folders determine the “content type”. Inside these top level folders, a separate sub folder must be provided for each item.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The top level folders determine the “content type”. Inside these top level folders, a separate sub folder must be provided for each item.</p>
+</div>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Folder / Provider name</p></th>
@@ -311,7 +317,10 @@
 </section>
 <section id="content-data">
 <h3>Content data<a class="headerlink" href="#content-data" title="Link to this heading"></a></h3>
-<p>💡 Each “content object” consists of a folder in one of the “content type” (top level) folders.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each “content object” consists of a folder in one of the “content type” (top level) folders.</p>
+</div>
 <ul class="simple">
 <li><p>A “content object” is a single template/script/element/… distributed via an App.</p></li>
 <li><p>Each “content object” is represented by the content of a folder in the “content type” folder matching the content type.</p></li>
@@ -404,7 +413,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd1154a9510>
+  <jinja2.runtime.BlockReference object at 0x7fa63ee92170>
 
 
 </footer>

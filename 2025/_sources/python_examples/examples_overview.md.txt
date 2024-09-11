@@ -479,11 +479,11 @@ myst:
 ## script_resources &mdash; How to access binary data of your App (resources)
 
 <hr class="small-margin">
-<section id="resourceaccessexample">
-<div id="resourceaccessexample" class="example-block-odd">
-<h3>ResourceAccessExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ResourceAccessExample">download</a>
-<a class="headerlink" href="#resourceaccessexample" title="Link to this heading"></a></h3>
+<section id="resourceaccess">
+<div id="resourceaccess" class="example-block-odd">
+<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
+<a class="reference external" href="https://software-store.zeiss.com/products/apps/ResourceAccess">download</a>
+<a class="headerlink" href="#resourceaccess" title="Link to this heading"></a></h3>
 
 
 :Description:
@@ -1028,7 +1028,7 @@ myst:
 ### <a name="image-widget"></a>![Static Badge](https://img.shields.io/badge/image--widget-blue)
 
 * <a href="#displayimage">DisplayImage</a>
-* <a href="#resourceaccessexample">ResourceAccessExample</a>
+* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#textdetection">TextDetection</a>
 
 
@@ -1094,7 +1094,7 @@ myst:
 
 ### <a name="resources"></a>![Static Badge](https://img.shields.io/badge/resources-blue)
 
-* <a href="#resourceaccessexample">ResourceAccessExample</a>
+* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#scriptresources">ScriptResources</a>
 
 
