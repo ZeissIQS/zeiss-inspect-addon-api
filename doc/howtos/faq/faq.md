@@ -324,6 +324,18 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
 
+## How can I obtain the measurement quality?
+
+The measurement quality is shown in the Explorer tab 'Measurements':
+
+![Tab 'Measurements' with column 'Measurement Quality'](assets/measurement_quality.png)
+
+Use the token `explorer_measurement_quality` to obtain the same information via script, e.g.
+
+```{code-block} python
+measurement_quality = gom.app.project.measurement_series['Scan 1'].measurements['M1'].explorer_measurement_quality
+```
+
 ## How can I get the CT scanner's system status &mdash; including cathode operation time?
 
 ![CT System Status Dialog](assets/ct_system_status.png)
