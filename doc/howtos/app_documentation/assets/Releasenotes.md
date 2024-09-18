@@ -1,14 +1,14 @@
 ```{code-block} markdown
 :caption: doc\/Releasenotes.md
 
-# Release Notes \<ThisApp\>
+# Release Notes <ThisApp>
 
-## Released at \<yyyy-mm-dd\> (v\<major\>.\<minor\>.\<bugfix\>)
+## Released at <yyyy-mm-dd> (v<major>.<minor>.<bugfix>)
 
-* <Desciption of user-relevant changes (Fixed / Added / Updated ...)>
+* <Description of user-relevant changes (Fixed / Added / Updated ...)>
 * ...
 
-## Released at \<yyyy-mm-dd\> (v1.0.0)
+## Released at <yyyy-mm-dd> (v1.0.0)
 
 * Initial release
 ```
@@ -17,7 +17,7 @@
 
 ## Released at \<yyyy-mm-dd\> (v\<major\>.\<minor\>.\<bugfix\>)
 
-* <Desciption of user-relevant changes (Fixed / Added / Updated ...)>
+* <Description of user-relevant changes (Fixed / Added / Updated ...)>
 * ...
 
 ## Released at \<yyyy-mm-dd\> (v1.0.0)
