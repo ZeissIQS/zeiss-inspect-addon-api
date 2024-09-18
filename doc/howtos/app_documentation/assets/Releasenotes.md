@@ -36,7 +36,7 @@
 
 ## Released at \<yyyy-mm-dd\> (v\<major\>.\<minor\>.\<bugfix\>)
 
-* <Desciption of user-relevant changes (Fixed / Added / Updated ...)>
+* <Description of user-relevant changes (Fixed / Added / Updated ...)>
 * ...
 
 ## Released at \<yyyy-mm-dd\> (v1.0.0)
