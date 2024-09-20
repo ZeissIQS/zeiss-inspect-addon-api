@@ -11,6 +11,10 @@
 Scripted diagrams are updated automatically if any contributing scripted element changes.
 ```
 
+```{note}
+You can use multiple scripted diagrams at the same time, which will be stacked vertically in the **Inspection Details** tab.
+```
+
 ## Prerequisites
 
 The concept of scripted diagrams builds upon [scripted elements](../scripted_elements/scripted_elements_introduction.md) and [services](../using_services/using_services.md). [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements.md) are used to convey data to the diagram service.
@@ -44,10 +48,6 @@ See <a href="../using_services/using_services.html#service-definition">Using ser
 
 ### 3. Create the diagram service function
 
-```{warning}
-Currently only one diagram service may be used at a time, otherwise no diagram will be rendered. If there are elements using different diagram services, leave only one service running.
-```
-
 ```{important}
 * The service script name must be the same as defined in `metainfo.json`
 * The service function name must be the same as set in the scripted elements' `"ude_diagram_service"` parameter.
@@ -59,96 +59,62 @@ The following script serves as a minimum template for a scripted diagram service
 
 import gom
 from gom import apifunction
-import io
+import gom.api.extensions.diagrams.matplotlib_tools as mpltools
 
 @apifunction
-def diagram_service_template(*data, **params)->str:
+def diagram_service_template(view, element_data)->str:
     gom.log.info('Diagram Service Template')
-    gom.log.info(f'{params=}')
+    gom.log.info(f'{view=}, {element_data=}')
+    
+    # Prepare plotting
+    mpltools.setup_plot(plt, view)
+
+    for e in element_data:
+        # Read the the current element 
+        element = e['element']
         
-    for uuid, values in params.items():
-        # Read all parameters received from mapped scripted elements
-        # Example:
-        # radius = values['ude_diagram_radius']
+        # Read all parameters received from mapped scripted element
+        data = e['data']
 
-    # Create an empty file-like object
-    svg_output = io.StringIO()
+        # Create your diagram
+        # Example: 
+        # plt.plot ([element.name], [data['ude_diagram_radius']], 'bx')
     
-    # Create your diagram, which is typically written to a file (here: svg_output)
-    # (...)
-    
-    # Get the SVG string from the file-like object
-    svg_string = svg_output.getvalue()
-    
-    # Close the file-like object
-    svg_output.close()
-
-    return svg_string
+    return mpltools.create_svg(plt, view)
 
 gom.run_api()
 ```
 
-This script uses Matplotlib to render a diagram with an xy-plot:
+To export the diagram as SVG file (e.g. for debugging):
 
 ```{code-block} python
 :caption: Scripted diagram service using Matplotlib
 
-import gom
-from gom import apifunction
-import matplotlib.pyplot as plt
-import io
-
 # Set path for debugging
-SVG_PATH = None
-#SVG_PATH = 'C:/temp/ScriptedDiagram.svg'
-
-# Set SVG resolution in dpi
-SVG_DPI = 'figure'
-
-def filter_all(k, v):
-    """Filter all elements by key, value"""
-    r = []
-    for g in [gom.app.project.nominal_elements, gom.app.project.inspection, gom.app.project.actual_elements]:
-        r += g.filter(k, v)
-    return r
+#SVG_PATH = None
+SVG_PATH = 'C:/temp/ScriptedDiagram.svg'
 
 @apifunction
-def radius_plot(*data, **params)->str:
-    gom.log.info('Radius Plot Service')
-    gom.log.info(f'{params=}')
+def diagram_service_template(view, element_data)->str:
+    # ...
 
-    radius = []
-    elementnames = []    
-    for uuid, values in params.items():
-        element = filter_all('uuid_draft', uuid)[0]
-        elementnames.append(element.name)
-        radius.append(values['ude_diagram_radius'])
-    
-    # create x/y plot
-    fig = plt.figure(figsize = (10, 5))
-    plt.plot(elementnames, radius, 'bx')
-    plt.xticks(rotation = 90)
-    plt.subplots_adjust(bottom=0.2)
+    svg = mpltools.create_svg(plt, view)
 
     if SVG_PATH:
-        plt.savefig(SVG_PATH, format='svg', dpi=SVG_DPI)
+        with open(SVG_PATH, "w") as f:
+            f.write(svg)
     
-    # Create an empty file-like object
-    svg_output = io.StringIO()
-    
-    # Save the plot to the file-like object
-    plt.savefig(svg_output, format='svg', dpi=SVG_DPI)
-    
-    # Get the SVG string from the file-like object
-    svg_string = svg_output.getvalue()
-    
-    # Close the file-like object
-    svg_output.close()
-
-    return svg_string
+    return svg
     
 gom.run_api()
 ```
+
+## Error handling
+
+* Errors in a scripted diagram service function are reported into the service's log, see [Using services](../using_services/using_services.md).
+* Errors related to the connection between scripted elements and a diagram service are shown in the **Inspection Details** tab instead of an actual diagram:
+
+![Error diagram](assets/error_diagram.png)
 
 ```{seealso}
 * [Scripted elements](../scripted_elements/scripted_elements_introduction.md)
