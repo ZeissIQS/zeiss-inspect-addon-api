@@ -88,7 +88,7 @@ gom.run_api()
 To export the diagram as SVG file (e.g. for debugging):
 
 ```{code-block} python
-:caption: Scripted diagram service using Matplotlib
+:caption: Export diagram as SVG file
 
 # Set path for debugging
 #SVG_PATH = None
