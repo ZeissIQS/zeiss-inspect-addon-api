@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
@@ -10,15 +12,11 @@
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -93,6 +91,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#how-can-i-add-icons-to-the-workspace-toolbar">How can I add icons to the workspace toolbar ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-group-scripts-in-the-workspace-toolbar">How can I group scripts in the workspace toolbar?</a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +150,7 @@
 </div></blockquote>
 <section id="workspaces">
 <h2>Workspaces<a class="headerlink" href="#workspaces" title="Link to this heading"></a></h2>
-<p><img alt="" src="../../_images/workspace1.png" /></p>
+<p><img alt="Workspace, toolbar and view menu" src="../../_images/workspace1.png" /></p>
 <ul class="simple">
 <li><p>ZEISS INSPECT has a set of available workspaces on the left side (1).</p></li>
 <li><p>Which workspaces are available depends on the available licenses and the installed Apps.</p></li>
@@ -165,8 +164,8 @@
 <div><p>There is no UI based workspace editor yet, but workspace definitions can be added manually.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>An example can be found in the App ‘Workspace editor tools’</p></li>
-<li><p>An App is just a ZIP file with a different extension  (.zapp) containing JSON based object definitions.</p></li>
+<li><p>An example can be found in the App <strong>‘Workspace editor tools’</strong> (<a class="reference external" href="https://software-store.zeiss.com/products/apps/workspace-editor-tools">Download</a>)</p></li>
+<li><p>An App is just a ZIP file with a different extension (.addon) containing JSON based object definitions.</p></li>
 <li><p>It can be unpacked, edited and packed again with a new workspace definition.</p></li>
 </ul>
 <section id="step-1-unpack-the-app">
@@ -175,7 +174,7 @@
 <li><p>Use the tool of your choice to unpack the App file.</p></li>
 <li><p>We recommend 7-zip for that task, but every other zip tool will do the job, too.</p></li>
 <li><p>If you want to perform these tasks often, you can register your ZIP tool in the Windows “Choose default apps by file type” settings. Then, instead of unpacking and packing the App again for each edit, you can fiddle with the App content directly from the ZIP tool:</p>
-<p><img alt="" src="../../_images/workspace2.png" /></p>
+<p><img alt="Handling App contents with ZIP tool" src="../../_images/workspace2.png" /></p>
 </li>
 </ul>
 </section>
@@ -192,34 +191,34 @@
 <p>Add a workspace definition file must be added to the new workspace folder, i.e.</p>
 <p><code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">App/workspaces/&lt;workspace&gt;/&lt;workspace&gt;.json</span></code></p>
 <p><strong>Example:</strong> From the App ‘Airfoil CMM Data Preparation’:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;alignment_section&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="s2">&quot;classification&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;AIRFOIL&quot;</span><span class="p">,</span> <span class="s2">&quot;CMM&quot;</span> <span class="p">],</span>
-    <span class="s2">&quot;main_intention&quot;</span><span class="p">:</span> <span class="s2">&quot;ACQUISITION&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">30</span> <span class="p">],</span>
-  <span class="s2">&quot;default_visible_tabs&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;diagram&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;section_view&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;table&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;pip&quot;</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd_mode_eval_blade_cmm&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;recalc_section&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="s2">&quot;sort_index&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;airfoil_cmm_data_preparation&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;workflow_commands&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;sys.import_file&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;userscript.Blade_CMM__ProjectSetup__Project_Setup&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;inspect.tb_create_blade_stylus_correction_cmd_group&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;primitive.create_fitting_plane_mp_none&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;inspect.tb_create_profile_section_by_projection_cmd_group&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;userscript.Blade_CMM__AutoPilot__AutoPilot&quot;</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;711632f6-7444-4e66-bf21-00cdd153d535&quot;</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;alignment_section&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;AIRFOIL&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CMM&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;main_intention&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACQUISITION&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span><span class="w"> </span><span class="mi">93</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;default_visible_tabs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;diagram&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;section_view&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pip&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd_mode_eval_blade_cmm&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;recalc_section&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sort_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;19&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;airfoil_cmm_data_preparation&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;workflow_commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;sys.import_file&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;userscript.Blade_CMM__ProjectSetup__Project_Setup&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;inspect.tb_create_blade_stylus_correction_cmd_group&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;primitive.create_fitting_plane_mp_none&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;inspect.tb_create_profile_section_by_projection_cmd_group&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;[separator]&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;userscript.Blade_CMM__AutoPilot__AutoPilot&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;711632f6-7444-4e66-bf21-00cdd153d535&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -248,15 +247,12 @@
 </section>
 <section id="icon">
 <h4>“icon”<a class="headerlink" href="#icon" title="Link to this heading"></a></h4>
-<p>The name of an (internal) icon file or an icon definition.</p>
-<blockquote>
-<div><p>It is currently only possible to select icons files which are part of the ZEISS INSPECT software distribution and which are not listed anywhere for the outside world. So using icon files is currently restricted to internal usage.</p>
-</div></blockquote>
-<p>Since SW2022-0, workspace icon definitions can be added with the following procedure:</p>
+<p>The name of an icon file (for ZEISS internal use only) or an icon definition.</p>
+<p>Workspace icon definitions can be added with the following procedure:</p>
 <ul>
 <li><p>Choose an icon file in one of the widely supported formats (png, jpg, …). The Qt library functions are used to read image data, so you can have a look at the related Qt documentation to see the list of supported image formats.</p></li>
 <li><p>Install the App ‘Workspace editor tools’ and use the script in ‘Apps/Tools/Workspace editor’ to create a base64 encoded file of this icons data:</p>
-<p><img alt="" src="../../_images/convert_base64_dialog.png" /></p>
+<p><img alt="Base64 conversion tool" src="../../_images/convert_base64_dialog.png" /></p>
 </li>
 <li><p>Insert the resulting file content as a text item into the icon property:</p></li>
 </ul>
@@ -296,7 +292,7 @@
 </ul>
 </li>
 <li><p>Example</p>
-<p><img alt="" src="../../_images/icon_guideline.png" /></p>
+<p><img alt="Icon guideline" src="../../_images/icon_guideline.png" /></p>
 <ul class="simple">
 <li><p>(1) = Icon with padding, stays the same in all modes</p></li>
 <li><p>(2) = Icon in pure #333333 black, gets auto-brightened in dark modes</p></li>
@@ -313,7 +309,7 @@
 <li><p>a special tag like ‘[separator]’ for a separator in the command toolbar.</p></li>
 </ul>
 <p>The commands here will become entries in the toolbar from the left to the right. To get the name of the command, you can record it in the script editor and omit the ‘gom.script’ prefix:</p>
-<p><img alt="" src="../../_images/workspace5.png" /></p>
+<p><img alt="Command recording" src="../../_images/workspace5.png" /></p>
 <p>This works for scripts, too, if a script is executed from the ‘Apps’ menu while the script editor is in recording mode.</p>
 </section>
 <section id="sensor-commands">
@@ -323,7 +319,7 @@
 <section id="default-visible-views">
 <h4>“default_visible_views”<a class="headerlink" href="#default-visible-views" title="Link to this heading"></a></h4>
 <p>Views that are visible per default, e.g.  adding “right_docking_area” shows the properties/toolbox window(star) on right side, which is collapsed by default. ( (star) as long as the default_view_layout_right_ isn’t changed). To investigate the name of the view to enter here, start script recording again and switch to that view in the applications UI. This will record a command containing that name:</p>
-<p><img alt="" src="../../_images/workspace6.png" /></p>
+<p><img alt="Visible views configuration" src="../../_images/workspace6.png" /></p>
 </section>
 <section id="default-visible-tabs">
 <h4>“default_visible_tabs”<a class="headerlink" href="#default-visible-tabs" title="Link to this heading"></a></h4>
@@ -368,7 +364,41 @@
 <section id="how-can-i-add-icons-to-the-workspace-toolbar">
 <h3>How can I add icons to the workspace toolbar ?<a class="headerlink" href="#how-can-i-add-icons-to-the-workspace-toolbar" title="Link to this heading"></a></h3>
 <p>You can only add commands to the toolbar. The commands will bring their own icons. For scripts, which can be added like commands, a custom script icon can be set in the script editor via the ‘edit properties’ feature in the right mouse menu of the script:</p>
-<p><img alt="" src="../../_images/workspace7.png" /></p>
+<p><img alt="Script icon configuration" src="../../_images/workspace7.png" /></p>
+<p>As an alternative, script icons can be included as files as shown in the example App <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">ScriptIcon</a>.</p>
+</section>
+<section id="how-can-i-group-scripts-in-the-workspace-toolbar">
+<h3>How can I group scripts in the workspace toolbar?<a class="headerlink" href="#how-can-i-group-scripts-in-the-workspace-toolbar" title="Link to this heading"></a></h3>
+<p>Scripts in a common folder can be added to the workspace toolbar as a group.</p>
+<p>Example:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">App folder structure</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Workspace</span> <span class="n">editor</span> <span class="n">tools</span>
+  <span class="o">|</span>
+  <span class="o">|--</span> <span class="n">Scripts</span>
+  <span class="o">|</span>    <span class="o">|--</span> <span class="n">my_script</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">|</span>    <span class="o">|--</span> <span class="n">myworkflow</span>
+  <span class="o">|</span>          <span class="o">|--</span> <span class="n">step1</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">|</span>          <span class="o">|--</span> <span class="n">step2</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">...</span>  
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Sample Workspace.json</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;workflow_commands&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;sys.import_file&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;userscript.group_myworkflow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;userscript.my_script&quot;</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The scripts <code class="docutils literal notranslate"><span class="pre">step1.py</span></code> and <code class="docutils literal notranslate"><span class="pre">step2.py</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">myworkflow</span></code> are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script last executed is shown.</p>
 </section>
 </section>
 </section>
@@ -395,7 +425,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f859c631d50>
+  <jinja2.runtime.BlockReference object at 0x7f8fd35b85e0>
 
 
 </footer>

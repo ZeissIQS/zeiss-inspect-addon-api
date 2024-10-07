@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
@@ -12,15 +14,11 @@
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/python_api_introduction/python_api_introduction.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -393,7 +391,8 @@ According to this, the stage (i.e. a mesh) would be a sub-element of the part. O
 <h3>Explore available properties<a class="headerlink" href="#explore-available-properties" title="Link to this heading"></a></h3>
 <p>Once you have a reference to the element, you can access its properties using several keywords in the form <code class="docutils literal notranslate"><span class="pre">element.&lt;keyword&gt;</span></code>.</p>
 <p>One way to inspect the available keys is by using the ‘Script Object’ explorer, which is available from the context menu <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">Insert</span> <span class="pre">-&gt;</span> <span class="pre">Element</span> <span class="pre">Value</span></code> or by shortcut <code class="docutils literal notranslate"><span class="pre">F2</span></code>.</p>
-<a class="reference internal image-reference" href="../../_images/script_object_explorer.jpg"><img alt="Script Object Explorer" src="../../_images/script_object_explorer.jpg" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../../_images/script_object_explorer.jpg"><img alt="Script Object Explorer" src="../../_images/script_object_explorer.jpg" style="width: 350px;" />
+</a>
 <p>You will find several keywords there, with a preview of the current value.
 If you click <code class="docutils literal notranslate"><span class="pre">OK</span></code>, the complete call, including element reference by name, will be copied to your current script. If you already have a name reference, you can of course use this reference.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;Part&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">actual</span>
@@ -562,7 +561,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f859b463670>
+  <jinja2.runtime.BlockReference object at 0x7f8fd37f9690>
 
 
 </footer>
