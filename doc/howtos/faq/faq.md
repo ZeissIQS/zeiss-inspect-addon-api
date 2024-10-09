@@ -100,7 +100,7 @@ install_modules(required_modules)
 In rare cases, a certain Python package cannot be installed, because it requires a newer version of [pip](https://pip.pypa.io/en/stable/) than currently installed with ZEISS INSPECT.
 
 To upgrade pip:
-* Go into the [ZEISS INSPECT Python folder](#where-is-the-python-installation-used-by-zeiss-inspect-located)
+* Go into the [ZEISS INSPECT Python folder](#where-is-the-python-installation-used-by-zeiss-inspect)
 * Run `.\python.exe -m pip install --upgrade pip`
 
 You can query the installed pip version with:
