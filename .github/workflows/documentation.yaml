@@ -37,13 +37,17 @@ jobs:
           publish_dir: _build/
           destination_dir: ${{ env.SUBDIR_NAME }}
           full_commit_message: Deploy documentation of '${{ env.SUBDIR_NAME }}' to GitHub Pages
-      - name: Delay
-        run: |
-          echo "Allowing 'pages build and deployment' to finish"
-          # This usually takes less than a minute...
-          sleep 90s
-      - name: Linkcheck
-        if: ${{ env.SUBDIR_NAME != 'merge' }}
-        uses: filiph/linkcheck@3.0.0
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
         with:
-          arguments: https://zeissiqs.github.io/zeiss-inspect-addon-api/${{ env.SUBDIR_NAME }}/ -e --skip-file .github/workflows/skip_links.txt
+          ref: gh-pages
+      # NOTE:
+      # Targets behind login page cannot be checked!!!
+      # * software-store.zeiss.com/products/apps/
+      # * techguide.zeiss.com
+      # * training.gom.com
+      - name: Linkcheck
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --base ${{ env.SUBDIR_NAME }} --verbose --no-progress './**/*.html'
