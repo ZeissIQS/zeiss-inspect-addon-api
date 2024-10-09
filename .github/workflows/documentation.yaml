@@ -48,6 +48,7 @@ jobs:
       # * training.gom.com
       - name: Linkcheck
         id: lychee
+        if: ${{ env.SUBDIR_NAME != 'merge' }}
         uses: lycheeverse/lychee-action@v2
         with:
           args: --base . --verbose --no-progress '${{ env.SUBDIR_NAME }}/**/*.html'
