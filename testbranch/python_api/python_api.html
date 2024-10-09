@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scripted elements API" href="scripted_elements_api.html" />
-    <link rel="prev" title="scripted_surface_check" href="../python_examples/scripted_checks/scripted_surface_check.html" /> 
+    <link rel="prev" title="ZEISS INSPECT App Examples Overview" href="../python_examples/examples_overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/app_file_format/app_file_format.html">App file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
@@ -67,22 +68,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_services/using_services.html">Using services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howtos/faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_examples/scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/index.html">Introduction to the Python API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul class="current">
@@ -90,12 +88,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-addons">gom.api.addons</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-addon">gom.api.addons.AddOn</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-exists">gom.api.addons.AddOn.exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-content-list">gom.api.addons.AddOn.get_content_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file">gom.api.addons.AddOn.get_file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-file-list">gom.api.addons.AddOn.get_file_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-id">gom.api.addons.AddOn.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-level">gom.api.addons.AddOn.get_level</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-name">gom.api.addons.AddOn.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-script-list">gom.api.addons.AddOn.get_script_list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-get-tags">gom.api.addons.AddOn.get_tags</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-has-license">gom.api.addons.AddOn.has_license</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-addons-addon-is-edited">gom.api.addons.AddOn.is_edited</a></li>
@@ -118,6 +118,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-epipolar-line">gom.api.imaging.compute_epipolar_line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-pixels-from-point">gom.api.imaging.compute_pixels_from_point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-compute-point-from-pixels">gom.api.imaging.compute_point_from_pixels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-interpreter">gom.api.interpreter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
 </ul>
 </li>
@@ -157,6 +160,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-introspection-modules">gom.api.introspection.modules</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-progress">gom.api.progress</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-progress-progressbar">gom.api.progress.ProgressBar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-finish-progress">gom.api.progress.ProgressBar.finish_progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-message">gom.api.progress.ProgressBar.set_message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-progress-progressbar-set-progress">gom.api.progress.ProgressBar.set_progress</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-project">gom.api.project</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-progressinformation">gom.api.project.ProgressInformation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-project-progressinformation-set-message">gom.api.project.ProgressInformation.set_message</a></li>
@@ -166,6 +179,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-create-progress-information">gom.api.project.create_progress_information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisition">gom.api.project.get_image_acquisition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-project-get-image-acquisitions">gom.api.project.get_image_acquisitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-script-resources">gom.api.script_resources</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-create">gom.api.script_resources.create</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-exists">gom.api.script_resources.exists</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-list">gom.api.script_resources.list</a></li>
@@ -176,11 +192,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-script-resources-unload">gom.api.script_resources.unload</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-scripted-checks-util">gom.api.scripted_checks_util</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-curve-checkable">gom.api.scripted_checks_util.is_curve_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-scalar-checkable">gom.api.scripted_checks_util.is_scalar_checkable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-surface-checkable">gom.api.scripted_checks_util.is_surface_checkable</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-services-service">gom.api.services.Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-autostart">gom.api.services.Service.get_autostart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-endpoint">gom.api.services.Service.get_endpoint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-id">gom.api.services.Service.get_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-name">gom.api.services.Service.get_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-number-of-instances">gom.api.services.Service.get_number_of_instances</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-status">gom.api.services.Service.get_status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-start">gom.api.services.Service.start</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-stop">gom.api.services.Service.stop</a></li>
@@ -190,7 +213,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-settings">gom.api.settings</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#types">Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#file-selector">File selector</a></li>
 </ul>
@@ -277,6 +300,26 @@ update processes.</p>
 
 <p>This function checks if the given file exists in the add-on</p>
 </section>
+<section id="gom-api-addons-addon-get-content-list">
+<h4>gom.api.addons.AddOn.get_content_list<a class="headerlink" href="#gom-api-addons-addon-get-content-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_content_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of contents contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of contents in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="gom-api-addons-addon-get-file">
 <h4>gom.api.addons.AddOn.get_file<a class="headerlink" href="#gom-api-addons-addon-get-file" title="Link to this heading"></a></h4>
 <dl class="py function">
@@ -305,7 +348,7 @@ this function returns the location the application uses, too, to access add-on c
 <h4>gom.api.addons.AddOn.get_file_list<a class="headerlink" href="#gom-api-addons-addon-get-file-list" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list():</span> <span class="pre">str</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_file_list():</span> <span class="pre">list</span></span></dt>
 <dd><p>Return the list of files contained in the add-on</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
@@ -315,7 +358,7 @@ this function returns the location the application uses, too, to access add-on c
 <dd class="field-even"><p>List of files in that add-on (full path)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -417,6 +460,26 @@ uniquely address the add-on.</p>
 
 <p>This function returns the displayable name of the add-on. This is the human
 readable name which is displayed in the add-on manager and the add-on store.</p>
+</section>
+<section id="gom-api-addons-addon-get-script-list">
+<h4>gom.api.addons.AddOn.get_script_list<a class="headerlink" href="#gom-api-addons-addon-get-script-list" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.get_script_list():</span> <span class="pre">list</span></span></dt>
+<dd><p>Return the list of scripts contained in the add-on</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of scripts in that add-on (full path)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="gom-api-addons-addon-get-tags">
 <h4>gom.api.addons.AddOn.get_tags<a class="headerlink" href="#gom-api-addons-addon-get-tags" title="Link to this heading"></a></h4>
@@ -829,6 +892,12 @@ camera positions through the given pixels. The pixel coordinate system center is
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-interpreter">
+<h2>gom.api.interpreter<a class="headerlink" href="#gom-api-interpreter" title="Link to this heading"></a></h2>
+<p>API for accessing python script interpreter properties</p>
+<p>This API can access properties and states of the python script interpreters. It is used
+mainly for internal debugging and introspection scenarios.</p>
 <section id="gom-api-interpreter-get-pid">
 <h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -1306,12 +1375,111 @@ testing purposes.</p>
 </div>
 </section>
 </section>
+<section id="gom-api-progress">
+<h2>gom.api.progress<a class="headerlink" href="#gom-api-progress" title="Link to this heading"></a></h2>
+<p>API for accessing the progress bar in the main window</p>
+<p>This API provides basic access to the progress bar in the main window</p>
+<section id="gom-api-progress-progressbar">
+<h3>gom.api.progress.ProgressBar<a class="headerlink" href="#gom-api-progress-progressbar" title="Link to this heading"></a></h3>
+<p>Class representing the ProgressBar</p>
+<p>This class is meant to be used with the Python ‘with’ statement</p>
+<section id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
+
+<span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="c1"># Do some calculations</span>
+        <span class="n">foo</span><span class="p">()</span>
+        <span class="c1"># Increase the progress</span>
+        <span class="n">bar</span><span class="o">.</span><span class="n">set_progress</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+
+<span class="c1"># Progress bar entry gets removed automatically after leaving the &#39;with&#39; statement</span>
+</pre></div>
+</div>
+</section>
+<section id="gom-api-progress-progressbar-finish-progress">
+<h4>gom.api.progress.ProgressBar.finish_progress<a class="headerlink" href="#gom-api-progress-progressbar-finish-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.finish_progress(self:</span> <span class="pre">any):</span> <span class="pre">None</span></span></dt>
+<dd><p>Finishes the progress and removes this from the progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This object CANNOT be used for further progress reporting after calling this method</p>
+<p>Can be used if the progress bar should disappear but the with statement cannot be left yet</p>
+</section>
+<section id="gom-api-progress-progressbar-set-message">
+<h4>gom.api.progress.ProgressBar.set_message<a class="headerlink" href="#gom-api-progress-progressbar-set-message" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.set_message(self:</span> <span class="pre">any,</span> <span class="pre">message:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
+<dd><p>Sets a message in the main window progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>message</strong> (<em>str</em>) – the message to display</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nothing</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="gom-api-progress-progressbar-set-progress">
+<h4>gom.api.progress.ProgressBar.set_progress<a class="headerlink" href="#gom-api-progress-progressbar-set-progress" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.progress.ProgressBar.set_progress(self:</span> <span class="pre">any,</span> <span class="pre">progress:</span> <span class="pre">int):</span> <span class="pre">None</span></span></dt>
+<dd><p>Sets the progress in the main window progress bar</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>progress</strong> (<em>int</em>) – in percent, given as an integer from 0 to 100</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nothing</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
 <section id="gom-api-project">
 <h2>gom.api.project<a class="headerlink" href="#gom-api-project" title="Link to this heading"></a></h2>
 <p>Access to project relevant structures</p>
 <p>This module contains functions for accessing project relevant data</p>
 <section id="gom-api-project-progressinformation">
 <h3>gom.api.project.ProgressInformation<a class="headerlink" href="#gom-api-project-progressinformation" title="Link to this heading"></a></h3>
+<dl class="myst field-list simple">
+<dt class="field-odd">deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
 <p>Auxillary class allowing to set progress information</p>
 <p>This class is used to access the progress bar and progress message widgets of the application.</p>
 <section id="gom-api-project-progressinformation-set-message">
@@ -1319,7 +1487,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_message(text:</span> <span class="pre">str):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress message</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress message</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1336,7 +1509,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.ProgressInformation.set_percent(percent:</span> <span class="pre">float):</span> <span class="pre">None</span></span></dt>
-<dd><p>Set progress value from 0 to 100 percent</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Set progress value from 0 to 100 percent</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1354,7 +1532,12 @@ testing purposes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.project.create_progress_information():</span> <span class="pre">gom.api.project.ProgressInformation</span></span></dt>
-<dd><p>Retrieve a progress information object which can be used to query/control progress status information</p>
+<dd><dl class="myst field-list simple">
+<dt class="field-odd">Deprecated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Please use gom.api.progress.ProgressBar instead</p>
+</dd>
+</dl>
+<p>Retrieve a progress information object which can be used to query/control progress status information</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -1458,6 +1641,10 @@ for various image variants.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="gom-api-script-resources">
+<h2>gom.api.script_resources<a class="headerlink" href="#gom-api-script-resources" title="Link to this heading"></a></h2>
+<p>API for the ResourceDataLoader</p>
 <section id="gom-api-script-resources-create">
 <h3>gom.api.script_resources.create<a class="headerlink" href="#gom-api-script-resources-create" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -1626,6 +1813,70 @@ for various image variants.</p>
 
 </section>
 </section>
+<section id="gom-api-scripted-checks-util">
+<h2>gom.api.scripted_checks_util<a class="headerlink" href="#gom-api-scripted-checks-util" title="Link to this heading"></a></h2>
+<p>Tool functions for scripted checks</p>
+<section id="gom-api-scripted-checks-util-is-curve-checkable">
+<h3>gom.api.scripted_checks_util.is_curve_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-curve-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_curve_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a curve check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-scalar-checkable">
+<h3>gom.api.scripted_checks_util.is_scalar_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-scalar-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_scalar_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a scalar check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="gom-api-scripted-checks-util-is-surface-checkable">
+<h3>gom.api.scripted_checks_util.is_surface_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-surface-checkable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scripted_checks_util.is_surface_checkable(element:</span> <span class="pre">gom.Object):</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the referenced element is suitable for inspection with a surface check</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">API version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+</section>
 <section id="gom-api-services">
 <h2>gom.api.services<a class="headerlink" href="#gom-api-services" title="Link to this heading"></a></h2>
 <p>API for accessing the script based API extensions (services)</p>
@@ -1637,69 +1888,86 @@ endpoints to the ZEISS Inspect API.</p>
 <p>Class representing a single API service</p>
 <p>This class represents an API service. The properties of that service can be read and
 the service can be administered (started, stopped, …) via that handle.</p>
+<section id="gom-api-services-service-get-autostart">
+<h4>gom.api.services.Service.get_autostart<a class="headerlink" href="#gom-api-services-service-get-autostart" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_autostart():</span> <span class="pre">bool</span></span></dt>
+<dd><p>Return autostart status of the service</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the service is started automatically at application startup</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.</p>
+</section>
 <section id="gom-api-services-service-get-endpoint">
 <h4>gom.api.services.Service.get_endpoint<a class="headerlink" href="#gom-api-services-service-get-endpoint" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_endpoint():</span> <span class="pre">UUID</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_endpoint():</span> <span class="pre">str</span></span></dt>
 <dd><p>Return the API endpoint name of this service</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service endpoint</p>
+<dd class="field-even"><p>Service endpoint if the service is initialized</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
-<p>This function returns the endpoint identifier this service is covering, without the
-‘gom.api.’ prefix. Example: ‘services’ for ‘gom.api.services’.</p>
-</section>
-<section id="gom-api-services-service-get-id">
-<h4>gom.api.services.Service.get_id<a class="headerlink" href="#gom-api-services-service-get-id" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_id():</span> <span class="pre">UUID</span></span></dt>
-<dd><p>Return the unique id (uuid) of this service</p>
-<dl class="myst field-list simple">
-<dt class="field-odd">API version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service uuid</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p>This function returns the uuid associated with service. The id can be used to
-uniquely address the service.</p>
+<p>This function returns the endpoint identifier this service is covering, like ‘gom.api.services’.</p>
 </section>
 <section id="gom-api-services-service-get-name">
 <h4>gom.api.services.Service.get_name<a class="headerlink" href="#gom-api-services-service-get-name" title="Link to this heading"></a></h4>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_name():</span> <span class="pre">UUID</span></span></dt>
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_name():</span> <span class="pre">str</span></span></dt>
 <dd><p>Return the human readable name of this service</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Service name</p>
+<dd class="field-even"><p>Service name if the service is initialized</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>UUID</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="gom-api-services-service-get-number-of-instances">
+<h4>gom.api.services.Service.get_number_of_instances<a class="headerlink" href="#gom-api-services-service-get-number-of-instances" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.services.Service.get_number_of_instances():</span> <span class="pre">int</span></span></dt>
+<dd><p>Get the number of API instances (processes) the service runs in parallel</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of API instances which are run in parallel when the service is started.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Return the number of API processes instances which are running in parallel. A service can
+be configured to start more than one API process for parallelization. This makes sense only
+if the calling instance is threaded, like the recalculation features in ZEISS Inspect.</p>
 </section>
 <section id="gom-api-services-service-get-status">
 <h4>gom.api.services.Service.get_status<a class="headerlink" href="#gom-api-services-service-get-status" title="Link to this heading"></a></h4>
@@ -1720,10 +1988,14 @@ uniquely address the service.</p>
 </dl>
 </dd></dl>
 
-<p>This function returns the status the service is currently in. The status can be</p>
+<p>This function returns the status the service is currently in. Possible values are</p>
 <ul class="simple">
-<li><p>1: Service is running and API endpoint is available</p></li>
-<li><p>0: Service is not running, endpoint is not available</p></li>
+<li><p>STOPPED: Service is not running.</p></li>
+<li><p>STARTED: Service has been started and is currently initializing. This can include both the general
+service process startup or running the global service initialization code (model loading, …).</p></li>
+<li><p>RUNNING: Service is running and ready to process API requests. If there are multiple service instances configured
+per service, the service counts as RUNNING not before all of these instances have been initialized !</p></li>
+<li><p>STOPPING: Service is currently shutting down,</p></li>
 </ul>
 </section>
 <section id="gom-api-services-service-start">
@@ -1739,8 +2011,9 @@ uniquely address the service.</p>
 </dl>
 </dd></dl>
 
-<p>This function will start a script interpreter in service mode. The running script will
-implement the API endpoint.</p>
+<p>This function will start a script interpreter executing the service script as an API endpoint.</p>
+<p>\attention The function will return immediately, the service instances are starting in the background afterwards.
+The <code class="docutils literal notranslate"><span class="pre">get_status</span> <span class="pre">()</span></code> function can be used to poll the status until the service has been started.</p>
 </section>
 <section id="gom-api-services-service-stop">
 <h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
@@ -1757,6 +2030,9 @@ implement the API endpoint.</p>
 
 <p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
 if needed.</p>
+<p>\attention The function will return immediately, the service instances will be stopped
+in their own threads contexts. The ‘get_status ()’ function can be used to poll
+the service status until all service instances have been stopped.</p>
 </section>
 </section>
 <section id="gom-api-services-get-services">
@@ -1799,8 +2075,8 @@ via the applications preferences dialog.</p>
 defined the available keys, the entry types and the entry properties. If the entry type can be
 represented by some widget, the setting entry will also be present in the applications ‘preferences’
 dialog and can be adapted interactively there.</p>
-<section id="id1">
-<h3>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Settings API example&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example add-on demonstrating usage of the settings API&quot;</span><span class="p">,</span>
@@ -2087,7 +2363,7 @@ back and forth will be performed.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../python_examples/scripted_checks/scripted_surface_check.html" class="btn btn-neutral float-left" title="scripted_surface_check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python_examples/examples_overview.html" class="btn btn-neutral float-left" title="ZEISS INSPECT App Examples Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="scripted_elements_api.html" class="btn btn-neutral float-right" title="Scripted elements API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -2105,7 +2381,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f2a99e954e0>
+  <jinja2.runtime.BlockReference object at 0x7f91ca9a6770>
 
 
 </footer>

@@ -7,7 +7,7 @@
 :Template: PythonApiExamples.addon
 :Description: Interactive creation of a geometrical element in an application specific way.
 :How-to: <a href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a>
-:Example Documentation: <a href="../../python_examples/scripted_actuals.html">scripted_actuals</a>
+:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a>
 :API Documentation: <a href="../../python_api/scripted_elements_api.html">Scripted Elements API</a>
 :Keywords: element, interactive, dialog, input, point, function, parameters, calculation
  
@@ -15,7 +15,7 @@
 :Template: PythonApiExamples.addon
 :Description: Interactive creation of a geometrical element in an application specific way.
 :How-to: <a href="../scripted_elements/scripted_checks.html">Scripted checks</a>
-:Example Documentation: <a href="../../python_examples/scripted_checks.html">scripted_checks</a>
+:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_checks--building-custom-checks-with-python-code">scripted_checks</a>
 :API Documentation: <a href="../../python_api/scripted_elements_api.html#scripted-checks-return-values">Scripted Elements API</a>
 :Keywords: scalar, curve, surface, inspection, check, comparison, tolerance
 
@@ -92,7 +92,7 @@
 :Template: PythonApiExamples.addon
 :Description: Read and write project keywords from/to CSV file.
 :How-to: <a href="../project_keywords/project_keywords.html">Project keywords handling</a>
-:Example Documentation: <a href="../../python_examples/misc/csv_example.html">CSV import/export example</a>
+:Example Documentation: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/CSVExample/doc/Documentation.md">CSV import/export example</a>
 :Keywords: read, write, access, get, set, project keywords, export, import, csv
 
 ## Element filter

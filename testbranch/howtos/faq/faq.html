@@ -20,7 +20,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ZEISS INSPECT Python API Examples Overview" href="../../python_examples/index.html" />
+    <link rel="next" title="Introduction to the Python API Examples" href="../../python_examples/index.html" />
     <link rel="prev" title="Scripting solutions" href="../scripting_solutions/scripting_solutions.html" /> 
 </head>
 
@@ -55,6 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
@@ -65,9 +66,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-apps-located-in-the-file-system">Where are Apps located in the file system?</a></li>
@@ -92,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-position-of-a-label-and-apply-it-to-another-label">How can I get the position of a label and apply it to another label?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-conditionally-set-the-label-border-color">How can I conditionally set the label (border) color?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-check-if-the-sensor-warm-up-is-completed-or-how-long-it-will-take-respectively">How do I check if the sensor warm-up is completed or how long it will take, respectively?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-obtain-the-measurement-quality">How can I obtain the measurement quality?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">How can I get the CT scanner’s system status — including cathode operation time?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pdfplumber-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pdfplumber</span></code> in an App?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#can-i-use-the-python-package-pywin32-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?</a></li>
@@ -102,14 +107,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Introduction to the Python API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -155,7 +154,7 @@
 <p>Token: <code class="docutils literal notranslate"><span class="pre">gom.app.python_directory</span></code></p>
 <ul class="simple">
 <li><p>For GOM Inspect &lt;= 2022: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\GOM\&lt;VERSION&gt;\python</span></code></p></li>
-<li><p>For ZEISS INSPECT &gt; 2032: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\&lt;VERSION&gt;\python</span></code></p></li>
+<li><p>For ZEISS INSPECT &gt;= 2023: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\&lt;VERSION&gt;\python</span></code></p></li>
 </ul>
 <p>The module search path also includes</p>
 <ul class="simple">
@@ -185,7 +184,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 </section>
 <section id="how-can-i-install-missing-python-wheels-by-a-script">
 <h2>How can I install missing Python wheels by a script?<a class="headerlink" href="#how-can-i-install-missing-python-wheels-by-a-script" title="Link to this heading"></a></h2>
-<p>The following script tries to import the modules listed in <code class="docutils literal notranslate"><span class="pre">required_modules</span></code>. A <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.</p>
+<p>The following script tries to import the modules listed in <code class="docutils literal notranslate"><span class="pre">required_modules</span></code>. A <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> exception is thrown if a module has not been installed into the App yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -444,6 +443,15 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 </div>
 <p>The function blocks until the sensor is ready or the timeout specified with <code class="docutils literal notranslate"><span class="pre">my_timeout</span></code> occurs.</p>
 </section>
+<section id="how-can-i-obtain-the-measurement-quality">
+<h2>How can I obtain the measurement quality?<a class="headerlink" href="#how-can-i-obtain-the-measurement-quality" title="Link to this heading"></a></h2>
+<p>The measurement quality is shown in the Explorer tab ‘Measurements’:</p>
+<p><img alt="Tab 'Measurements' with column 'Measurement Quality'" src="../../_images/measurement_quality.png" /></p>
+<p>Use the token <code class="docutils literal notranslate"><span class="pre">explorer_measurement_quality</span></code> to obtain the same information via script, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurement_quality</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">measurement_series</span><span class="p">[</span><span class="s1">&#39;Scan 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;M1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">explorer_measurement_quality</span>
+</pre></div>
+</div>
+</section>
 <section id="how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time">
 <h2>How can I get the CT scanner’s system status — including cathode operation time?<a class="headerlink" href="#how-can-i-get-the-ct-scanner-s-system-status-including-cathode-operation-time" title="Link to this heading"></a></h2>
 <p><img alt="CT System Status Dialog" src="../../_images/ct_system_status.png" /></p>
@@ -473,7 +481,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
 <section id="can-i-use-xlwings-in-an-app">
 <h2>Can I use <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> in an App?<a class="headerlink" href="#can-i-use-xlwings-in-an-app" title="Link to this heading"></a></h2>
 <p>Basically no, because <a class="reference external" href="https://pypi.org/project/xlwings/">xlwings</a> depends on <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> — see <a class="reference internal" href="#can-i-use-the-python-package-pywin32-in-an-app">Can I use the Python package <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> in an App?</a>.</p>
-<p>If compatibility to <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> is not required, you might want to use <a class="reference external" href="https://pypi.org/project/openpyxl/">openpyxl</a> instead (see <a class="reference internal" href="../../python_examples/misc/excel_example.html"><span class="doc std std-doc">Excel import/export example</span></a>).</p>
+<p>If compatibility to <code class="docutils literal notranslate"><span class="pre">xlwings</span></code> is not required, you might want to use <a class="reference external" href="https://pypi.org/project/openpyxl/">openpyxl</a> instead (see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">Excel import/export example</a>).</p>
 </section>
 <section id="how-do-i-use-a-c-net-library-in-an-app">
 <h2>How do I use a C# / .NET library in an App?<a class="headerlink" href="#how-do-i-use-a-c-net-library-in-an-app" title="Link to this heading"></a></h2>
@@ -546,7 +554,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../scripting_solutions/scripting_solutions.html" class="btn btn-neutral float-left" title="Scripting solutions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../python_examples/index.html" class="btn btn-neutral float-right" title="ZEISS INSPECT Python API Examples Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../python_examples/index.html" class="btn btn-neutral float-right" title="Introduction to the Python API Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -563,7 +571,7 @@ where <code class="docutils literal notranslate"><span class="pre">%APPDATA</spa
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f2a990cc9a0>
+  <jinja2.runtime.BlockReference object at 0x7f91c97bc7f0>
 
 
 </footer>

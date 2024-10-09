@@ -41,6 +41,17 @@ Check if the given file exists in an add-on
 
 This function checks if the given file exists in the add-on
 
+#### gom.api.addons.AddOn.get_content_list
+
+```{py:function} gom.api.addons.AddOn.get_content_list(): list
+
+Return the list of contents contained in the add-on
+:API version: 1
+:return: List of contents in that add-on (full path)
+:rtype: list
+```
+
+
 #### gom.api.addons.AddOn.get_file
 
 ```{py:function} gom.api.addons.AddOn.get_file(): str
@@ -58,12 +69,12 @@ this function returns the location the application uses, too, to access add-on c
 
 #### gom.api.addons.AddOn.get_file_list
 
-```{py:function} gom.api.addons.AddOn.get_file_list(): str
+```{py:function} gom.api.addons.AddOn.get_file_list(): list
 
 Return the list of files contained in the add-on
 :API version: 1
 :return: List of files in that add-on (full path)
-:rtype: str
+:rtype: list
 ```
 
 This function returns the list of files in an add-on. These path names can be used to
@@ -135,6 +146,17 @@ Return the displayable name of the add-on
 
 This function returns the displayable name of the add-on. This is the human
 readable name which is displayed in the add-on manager and the add-on store.
+
+#### gom.api.addons.AddOn.get_script_list
+
+```{py:function} gom.api.addons.AddOn.get_script_list(): list
+
+Return the list of scripts contained in the add-on
+:API version: 1
+:return: List of scripts in that add-on (full path)
+:rtype: list
+```
+
 
 #### gom.api.addons.AddOn.get_tags
 
@@ -454,6 +476,13 @@ print (points)
 [[gom.Vec3d (-702.53, 1690.84, -22.37), 0.121], [gom.Vec3d (-638.25, 1627.62, -27.13), 0.137]]
 ```
 
+## gom.api.interpreter
+
+API for accessing python script interpreter properties
+
+This API can access properties and states of the python script interpreters. It is used
+mainly for internal debugging and introspection scenarios.
+
 ### gom.api.interpreter.get_pid
 
 ```{py:function} gom.api.interpreter.get_pid(): int
@@ -739,6 +768,74 @@ for m in gom.api.introspection.modules ():
   print (m.name ())
 ```
 
+## gom.api.progress
+
+API for accessing the progress bar in the main window
+
+This API provides basic access to the progress bar in the main window
+
+### gom.api.progress.ProgressBar
+
+Class representing the ProgressBar
+
+This class is meant to be used with the Python 'with' statement
+
+#### Example
+
+```
+import gom.api.progress
+
+with gom.api.progress.ProgressBar() as bar:
+    bar.set_message('Calculation in progress')
+    for i in range(100):
+        # Do some calculations
+        foo()
+        # Increase the progress
+        bar.set_progress(i)    
+
+# Progress bar entry gets removed automatically after leaving the 'with' statement
+```
+
+#### gom.api.progress.ProgressBar.finish_progress
+
+```{py:function} gom.api.progress.ProgressBar.finish_progress(self: any): None
+
+Finishes the progress and removes this from the progress bar
+:API version: 1
+:return: nothing
+:rtype: None
+```
+
+This object CANNOT be used for further progress reporting after calling this method
+
+Can be used if the progress bar should disappear but the with statement cannot be left yet
+
+#### gom.api.progress.ProgressBar.set_message
+
+```{py:function} gom.api.progress.ProgressBar.set_message(self: any, message: str): None
+
+Sets a message in the main window progress bar
+:API version: 1
+:param message: the message to display
+:type message: str
+:return: nothing
+:rtype: None
+```
+
+
+#### gom.api.progress.ProgressBar.set_progress
+
+```{py:function} gom.api.progress.ProgressBar.set_progress(self: any, progress: int): None
+
+Sets the progress in the main window progress bar
+:API version: 1
+:param progress: in percent, given as an integer from 0 to 100
+:type progress: int
+:return: nothing
+:rtype: None
+```
+
+
 ## gom.api.project
 
 Access to project relevant structures
@@ -747,6 +844,8 @@ This module contains functions for accessing project relevant data
 
 ### gom.api.project.ProgressInformation
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Auxillary class allowing to set progress information
 
 This class is used to access the progress bar and progress message widgets of the application.
@@ -754,6 +853,8 @@ This class is used to access the progress bar and progress message widgets of th
 #### gom.api.project.ProgressInformation.set_message
 
 ```{py:function} gom.api.project.ProgressInformation.set_message(text: str): None
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Set progress message
 :API version: 1
@@ -766,6 +867,8 @@ Set progress message
 
 ```{py:function} gom.api.project.ProgressInformation.set_percent(percent: float): None
 
+:deprecated: Please use gom.api.progress.ProgressBar instead
+
 Set progress value from 0 to 100 percent
 :API version: 1
 :param percent: Progress bar value in percent (0...100)
@@ -776,6 +879,8 @@ Set progress value from 0 to 100 percent
 ### gom.api.project.create_progress_information
 
 ```{py:function} gom.api.project.create_progress_information(): gom.api.project.ProgressInformation
+
+:deprecated: Please use gom.api.progress.ProgressBar instead
 
 Retrieve a progress information object which can be used to query/control progress status information
 :API version: 1
@@ -853,6 +958,11 @@ point = gom.app.project.actual_elements['Point 1'].coordinate
 all_left_images = gom.api.project.get_image_acquisitions (measurements, 'left camera', [stage.index])
 all_right_images = gom.api.project.get_image_acquisitions (measurements, 'right camera', [stage.index])
 ```
+
+## gom.api.script_resources
+
+API for the ResourceDataLoader
+
 
 ### gom.api.script_resources.create
 
@@ -955,6 +1065,47 @@ Unload resource from shared memory
 ```
 
 
+## gom.api.scripted_checks_util
+
+Tool functions for scripted checks
+
+
+### gom.api.scripted_checks_util.is_curve_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_curve_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a curve check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
+
+### gom.api.scripted_checks_util.is_scalar_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_scalar_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a scalar check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
+
+### gom.api.scripted_checks_util.is_surface_checkable
+
+```{py:function} gom.api.scripted_checks_util.is_surface_checkable(element: gom.Object): bool
+
+Checks if the referenced element is suitable for inspection with a surface check
+:API version: 1
+:param element: Element reference to check
+:type element: gom.Object
+```
+
+*
+
 ## gom.api.services
 
 API for accessing the script based API extensions (services)
@@ -970,42 +1121,54 @@ Class representing a single API service
 This class represents an API service. The properties of that service can be read and
 the service can be administered (started, stopped, ...) via that handle.
 
+#### gom.api.services.Service.get_autostart
+
+```{py:function} gom.api.services.Service.get_autostart(): bool
+
+Return autostart status of the service
+:return: 'true' if the service is started automatically at application startup
+:rtype: bool
+```
+
+This function returns if the service is started automatically at application startup. This
+status can only be set manually by the user either during service installation or afterwards in
+the service management dialog.
+
 #### gom.api.services.Service.get_endpoint
 
-```{py:function} gom.api.services.Service.get_endpoint(): UUID
+```{py:function} gom.api.services.Service.get_endpoint(): str
 
 Return the API endpoint name of this service
 :API version: 1
-:return: Service endpoint
-:rtype: UUID
+:return: Service endpoint if the service is initialized
+:rtype: str
 ```
 
-This function returns the endpoint identifier this service is covering, without the
-'gom.api.' prefix. Example: 'services' for 'gom.api.services'.
-
-#### gom.api.services.Service.get_id
-
-```{py:function} gom.api.services.Service.get_id(): UUID
-
-Return the unique id (uuid) of this service
-:API version: 1
-:return: Service uuid
-:rtype: UUID
-```
-
-This function returns the uuid associated with service. The id can be used to
-uniquely address the service.
+This function returns the endpoint identifier this service is covering, like 'gom.api.services'.
 
 #### gom.api.services.Service.get_name
 
-```{py:function} gom.api.services.Service.get_name(): UUID
+```{py:function} gom.api.services.Service.get_name(): str
 
 Return the human readable name of this service
 :API version: 1
-:return: Service name
-:rtype: UUID
+:return: Service name if the service is initialized
+:rtype: str
 ```
 
+
+#### gom.api.services.Service.get_number_of_instances
+
+```{py:function} gom.api.services.Service.get_number_of_instances(): int
+
+Get the number of API instances (processes) the service runs in parallel
+:return: Number of API instances which are run in parallel when the service is started.
+:rtype: int
+```
+
+Return the number of API processes instances which are running in parallel. A service can
+be configured to start more than one API process for parallelization. This makes sense only
+if the calling instance is threaded, like the recalculation features in ZEISS Inspect.
 
 #### gom.api.services.Service.get_status
 
@@ -1017,9 +1180,14 @@ Return the current service status
 :rtype: str
 ```
 
-This function returns the status the service is currently in. The status can be
-- 1: Service is running and API endpoint is available
-- 0: Service is not running, endpoint is not available
+This function returns the status the service is currently in. Possible values are
+
+- STOPPED: Service is not running.
+- STARTED: Service has been started and is currently initializing. This can include both the general
+service process startup or running the global service initialization code (model loading, ...).
+- RUNNING: Service is running and ready to process API requests. If there are multiple service instances configured
+per service, the service counts as RUNNING not before all of these instances have been initialized !
+- STOPPING: Service is currently shutting down,
 
 #### gom.api.services.Service.start
 
@@ -1029,8 +1197,10 @@ Start service
 :API version: 1
 ```
 
-This function will start a script interpreter in service mode. The running script will
-implement the API endpoint.
+This function will start a script interpreter executing the service script as an API endpoint.
+
+\attention The function will return immediately, the service instances are starting in the background afterwards.
+The `get_status ()` function can be used to poll the status until the service has been started.
 
 #### gom.api.services.Service.stop
 
@@ -1042,6 +1212,10 @@ Stop service
 
 Stop service. The service can be restarted afterwards via the 'start ()' function
 if needed.
+
+\attention The function will return immediately, the service instances will be stopped
+in their own threads contexts. The 'get_status ()' function can be used to poll
+the service status until all service instances have been stopped.
 
 ### gom.api.services.get_services
 

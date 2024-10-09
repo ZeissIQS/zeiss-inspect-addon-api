@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Frequently asked questions" href="../faq/faq.html" />
-    <link rel="prev" title="Testing Apps" href="../testing_apps/testing_apps.html" /> 
+    <link rel="prev" title="Scripting with legacy projects (part-less)" href="../scripting_legacy_projects/scripting_legacy_projects.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,6 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
@@ -65,9 +66,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Scripting solutions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-elements">Scripted elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scripted-checks">Scripted checks</a></li>
@@ -88,14 +92,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Introduction to the Python API Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
@@ -145,7 +143,7 @@
 <dd class="field-odd"><p><a href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></p>
 </dd>
 <dt class="field-even">Example Documentation<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="../../python_examples/scripted_actuals.html">scripted_actuals</a></p>
+<dd class="field-even"><p><a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a></p>
 </dd>
 <dt class="field-odd">API Documentation<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a href="../../python_api/scripted_elements_api.html">Scripted Elements API</a></p>
@@ -168,7 +166,7 @@
 <dd class="field-odd"><p><a href="../scripted_elements/scripted_checks.html">Scripted checks</a></p>
 </dd>
 <dt class="field-even">Example Documentation<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="../../python_examples/scripted_checks.html">scripted_checks</a></p>
+<dd class="field-even"><p><a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_checks--building-custom-checks-with-python-code">scripted_checks</a></p>
 </dd>
 <dt class="field-odd">API Documentation<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a href="../../python_api/scripted_elements_api.html#scripted-checks-return-values">Scripted Elements API</a></p>
@@ -338,7 +336,7 @@
 <dd class="field-odd"><p><a href="../project_keywords/project_keywords.html">Project keywords handling</a></p>
 </dd>
 <dt class="field-even">Example Documentation<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="../../python_examples/misc/csv_example.html">CSV import/export example</a></p>
+<dd class="field-even"><p><a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/CSVExample/doc/Documentation.md">CSV import/export example</a></p>
 </dd>
 <dt class="field-odd">Keywords<span class="colon">:</span></dt>
 <dd class="field-odd"><p>read, write, access, get, set, project keywords, export, import, csv</p>
@@ -365,7 +363,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../testing_apps/testing_apps.html" class="btn btn-neutral float-left" title="Testing Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../scripting_legacy_projects/scripting_legacy_projects.html" class="btn btn-neutral float-left" title="Scripting with legacy projects (part-less)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../faq/faq.html" class="btn btn-neutral float-right" title="Frequently asked questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -383,7 +381,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f2a99f43040>
+  <jinja2.runtime.BlockReference object at 0x7f91ca025810>
 
 
 </footer>

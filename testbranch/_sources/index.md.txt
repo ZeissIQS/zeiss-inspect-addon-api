@@ -66,6 +66,7 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/app_file_format/app_file_format
    howtos/app_documentation/app_documentation
    howtos/using_vscode_editor/using_vscode_editor
+   howtos/python_api_introduction/file_selection_dialog
    howtos/python_api_introduction/user_defined_dialogs
    howtos/python_api_introduction/creating_wizard_dialogs
    howtos/using_gui_libraries/using_gui_libraries
@@ -76,9 +77,12 @@ Furthermore, we recommend following our how-to guides to get you started.
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
    howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
+   howtos/using_services/using_services
+   howtos/using_scripted_diagrams/using_scripted_diagrams
    howtos/localization/localization
    howtos/starting_options/starting_options
    howtos/testing_apps/testing_apps
+   howtos/scripting_legacy_projects/scripting_legacy_projects
    howtos/scripting_solutions/scripting_solutions
    howtos/faq/faq
 ```
@@ -90,16 +94,9 @@ If you already know how to create an App and now you are interested in Python pr
 .. toctree::
    :maxdepth: 1
    :caption: Python API Examples
-   :titlesonly:
 
    python_examples/index
-   python_examples/data_interfaces
-   python_examples/dialog_widgets
-   python_examples/misc
-   python_examples/script_icons
-   python_examples/script_resources
-   python_examples/scripted_actuals
-   python_examples/scripted_checks
+   python_examples/examples_overview
 ```
 
 Available API functions are documented in the Specification.
@@ -113,8 +110,3 @@ Available API functions are documented in the Specification.
    python_api/scripted_elements_api
    python_api/resource_api
 ```
-<script>
-  var url = generateAppUrl('my-parameter');
-  console.info(url); // do something with the generated URL
-</script>
-

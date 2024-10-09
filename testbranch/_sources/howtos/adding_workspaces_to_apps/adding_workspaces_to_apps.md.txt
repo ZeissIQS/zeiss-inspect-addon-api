@@ -43,7 +43,7 @@ Add a workspace definition file must be added to the new workspace folder, i.e.
 
 **Example:** From the App 'Airfoil CMM Data Preparation':
 
-```{code-block} json
+~~~
 {
   "alignment_section": true,
   "classification": {
@@ -73,7 +73,7 @@ Add a workspace definition file must be added to the new workspace folder, i.e.
   ],
   "uuid": "711632f6-7444-4e66-bf21-00cdd153d535"
 }
-```
+~~~
 
 #### "uuid"
 
@@ -110,7 +110,7 @@ Workspace icon definitions can be added with the following procedure:
 
 * Insert the resulting file content as a text item into the icon property:
 
-```{code-block}
+~~~
 {
   "uuid": "711632f6-7444-4e66-bf21-00cdd153d535",
   ...
@@ -118,7 +118,7 @@ Workspace icon definitions can be added with the following procedure:
   "icon": "x8Royf4mIiJq8v3YBiIj6IRvW1yr6DhnwUw45R0RErxcr+kREALZDBZvXLgYREdGZHBx1h4iIiIiI...",
   ...
 }
-```
+~~~
 
 Some icon guidelines
 
@@ -228,6 +228,6 @@ Workspace editor tools
 }
 ```
 
-% ![Scripts as a group](assets/workspace8.png)
+![Scripts as a group](assets/workspace8.png)
 
 The scripts `step1.py` and `step2.py` in the folder `myworkflow` are added as a dropdown menu to the toolbar. If the dropdown menu is closed, the script last executed is shown.

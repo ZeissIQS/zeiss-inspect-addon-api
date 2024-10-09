@@ -14,7 +14,7 @@ The connected folders are saved as Windows shortcuts in `C:\Users\<USERID>\AppDa
 Token: `gom.app.python_directory`
 
 * For GOM Inspect <= 2022: `C:\Program Files\GOM\<VERSION>\python`
-* For ZEISS INSPECT > 2032: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
+* For ZEISS INSPECT >= 2023: `C:\Program Files\Zeiss\INSPECT\<VERSION>\python`
 
 The module search path also includes 
 * `C:\Program Files\Zeiss\INSPECT\<VERSION>\lib\python`
@@ -42,7 +42,7 @@ ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in `%AP
 
 ## How can I install missing Python wheels by a script?
 
-The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
+The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the App yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
 
 ```{code-block} python
 import gom
@@ -324,6 +324,18 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
 
+## How can I obtain the measurement quality?
+
+The measurement quality is shown in the Explorer tab 'Measurements':
+
+![Tab 'Measurements' with column 'Measurement Quality'](assets/measurement_quality.png)
+
+Use the token `explorer_measurement_quality` to obtain the same information via script, e.g.
+
+```{code-block} python
+measurement_quality = gom.app.project.measurement_series['Scan 1'].measurements['M1'].explorer_measurement_quality
+```
+
 ## How can I get the CT scanner's system status &mdash; including cathode operation time?
 
 ![CT System Status Dialog](assets/ct_system_status.png)
@@ -360,7 +372,7 @@ Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-app)) require p
 
 Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an App?](#can-i-use-the-python-package-pywin32-in-an-app).
 
-If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example)).
+If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">Excel import/export example</a>).
 
 ## How do I use a C# / .NET library in an App?
 
