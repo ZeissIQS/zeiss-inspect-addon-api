@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ZEISS INSPECT 2025 App Python API News</title>
+    <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/</link>
+    <description></description>
+    <lastBuildDate>Fri, 11 Oct 2024 13:11:26 GMT</lastBuildDate>
+    <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Selecting elements in scripts</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240315-element-selection.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;You have recorded script commands operating on groups of elements selected in the Explorer? The resulting &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom.ElementSelection()&lt;/span&gt;&lt;/code&gt; seemed cryptic? You wonder how to access the selection? &lt;a href="../howtos/python_api_introduction/selecting_elements.html"&gt;Selecting elements in scripts&lt;/a&gt; provides an insight.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240315-element-selection.html</guid>
+      <pubDate>Fri, 15 Mar 2024 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Update of Internationalization Tools App</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240314-internationalization-tool-update.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Did you know that you can easily provide your App’s user interface in multiple languages? See &lt;a href="../howtos/localization/localization.html"&gt;Localization of Apps&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;An updated version of the App ‘Internationalization Tools’ is now available in the ZQS Store.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240314-internationalization-tool-update.html</guid>
+      <pubDate>Thu, 14 Mar 2024 15:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How can I access the coordinates of a selection on a mesh?</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240307-mesh-selection.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;The FAQ article &lt;a href="../howtos/faq/faq.html#how-can-i-access-the-coordinates-of-a-selection-on-a-mesh"&gt;How can I access the coordinates of a selection on a mesh?&lt;/a&gt; explains how you can get the vertices, normals and triangles of parts of a mesh which have been selected interactively.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240307-mesh-selection.html</guid>
+      <pubDate>Thu, 07 Mar 2024 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How do I use a C# / .NET library in an App?</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240307-csharp_dotnet.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Please find the new article &lt;a href="../howtos/faq/faq.html#how-do-i-use-a-c-net-library-in-an-app"&gt;How do I use a C# / .NET library in an App?&lt;/a&gt; in the Frequently Asked Questions.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240307-csharp_dotnet.html</guid>
+      <pubDate>Thu, 07 Mar 2024 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Running App tests with code coverage</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240209-test-coverage.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;The quality of Apps can be enhanced by thorough testing. Sometimes not only the test results, but also the amount of code covered by the test suite is of interest. This is addressed by the new section &lt;a href="../howtos/testing_apps/testing_apps.html#running-app-tests-with-code-coverage"&gt;Running App tests with code coverage&lt;/a&gt; of the chapter &lt;a href="../howtos/testing_apps/testing_apps.html"&gt;Testing Apps&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240209-test-coverage.html</guid>
+      <pubDate>Fri, 09 Feb 2024 16:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Using an additional Python GUI library</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240205-using-gui-libraries.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;The App Editor and the Dialog Designer provide an easy and convenient way of adding a graphical user interface to your App — see &lt;a href="../howtos/python_api_introduction/user_defined_dialogs.html"&gt;User-defined dialogs&lt;/a&gt;. GUIs which are created this way seamlessly integrate into the look and feel of ZEISS INSPECT. However, there are reasons why using a separate Python GUI library might be preferred. &lt;a href="../howtos/using_gui_libraries/using_gui_libraries.html"&gt;Using an additional Python GUI library&lt;/a&gt; gives a brief overview on use-cases, options and installation.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240205-using-gui-libraries.html</guid>
+      <pubDate>Mon, 05 Feb 2024 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Working with stages</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240130-working-with-stages.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Stages are used in ZEISS INSPECT for comparing inspection results of the same nominal part but different actual meshes. In ZEISS INSPECT Correlate, stages are used for 3D image series. &lt;a href="../howtos/stages/stages.html"&gt;Working with stages&lt;/a&gt; provides some basic information about using stages in Apps and shows typical applications of Python scripts for working with stages.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240130-working-with-stages.html</guid>
+      <pubDate>Tue, 30 Jan 2024 11:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Using Python wheelhouses</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240130-using-wheelhouses.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;In most cases, Python packages — also known as Python wheels — are installed as described in &lt;a href="../howtos/using_app_editor/using_app_editor.html#installing-python-packages"&gt;Using the App Editor - Installing Python Packages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In case this does not work, &lt;a href="../howtos/using_wheelhouses/using_wheelhouses.html"&gt;Using Python wheelhouses&lt;/a&gt; can provide a solution.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240130-using-wheelhouses.html</guid>
+      <pubDate>Tue, 30 Jan 2024 11:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Scripted elements examples</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240119-scripted-elements-examples.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Examples for all types of scripted actual elements have been added to &lt;a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code"&gt;App Examples - scripted actuals&lt;/a&gt;. You might also want to review the basics in &lt;a href="../howtos/scripted_elements/scripted_elements_toc.html"&gt;Scripted elements&lt;/a&gt; or to read details in &lt;a href="../python_api/scripted_elements_api.html"&gt;Scripted elements API&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240119-scripted-elements-examples.html</guid>
+      <pubDate>Fri, 19 Jan 2024 15:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Software and script starting options</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240115-software-starting-options.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;There is a new page &lt;a href="../howtos/starting_options/starting_options.html"&gt;HOW-TO GUIDES - Software and script starting options&lt;/a&gt;, which deals with various ways to start ZEISS INSPECT and optionally execute a script.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240115-software-starting-options.html</guid>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Project Keywords</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240115-project-keywords.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;There is a new section &lt;a href="../howtos/project_keywords/project_keywords.html"&gt;HOW-TO GUIDES - Project keywords handling&lt;/a&gt;. Project keywords can be used for storing meta information.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20240115-project-keywords.html</guid>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Frequently Asked Questions</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20231221-faq.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;There is a new section &lt;a href="../howtos/faq/faq.html"&gt;HOW-TO GUIDES - Frequently asked questions&lt;/a&gt; with contents from the &lt;a class="reference external" href="https://qualityforum.zeiss.com/"&gt;ZEISS Quality Forum&lt;/a&gt;, Tech Support and Development department.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20231221-faq.html</guid>
+      <pubDate>Thu, 21 Dec 2023 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>New API Examples</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20231215-api-examples.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;section id="id1"&gt;
+&lt;h1&gt;&lt;a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md"&gt;reference_points_and_mesh_data&lt;/a&gt;&lt;a class="headerlink" href="#id1" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This example demonstrates how to access reference points in a measurement and meshes from Python.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="id2"&gt;
+&lt;h1&gt;&lt;a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/PointPixelTransformations/doc/Documentation.md"&gt;point_pixel_transformations&lt;/a&gt;&lt;a class="headerlink" href="#id2" title="Link to this heading"&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This example addresses a fundamental topic of photogrammetry - transformation between 2D pixel coordinates in a measurement and a 3D point coordinate and vice versa.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20231215-api-examples.html</guid>
+      <pubDate>Fri, 15 Dec 2023 13:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Welcome!!!</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/welcome.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Welcome to the ZEISS INSPECT 2023 App Python API News Feed.  Here we will post notifications on website updates and other project news.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/welcome.html</guid>
+      <pubDate>Tue, 12 Dec 2023 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
