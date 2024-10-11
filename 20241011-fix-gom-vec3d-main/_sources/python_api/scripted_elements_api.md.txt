@@ -127,7 +127,7 @@ The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/ma
 
 ```{code-block} python
 result = (x,y,z)
-result = gom.Vec3D
+result = gom.Vec3d
 ```
 
 ### Distance
@@ -137,7 +137,7 @@ result = gom.Vec3D
 
 ```{code-block} python
 result = { 'point1': (x,y,z), 'point2': (x,y,z) }
-result = { 'point1': gom.Vec3D, 'point2': gom.Vec3D }
+result = { 'point1': gom.Vec3d, 'point2': gom.Vec3d }
 ```
 
 ### Value Element
@@ -155,7 +155,7 @@ result = x
 :Result: A center point, direction vector and radius (double)
 
 ```{code-block} python
-result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }
+result = { 'center' : gom.Vec3d, 'direction' : gom.Vec3d, 'radius' : double }
 ```
 
 ### Curve
@@ -164,12 +164,12 @@ result = { 'center' : gom.Vec3D, 'direction' : gom.Vec3D, 'radius' : double }
 :Result: A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.<br>As an option, a creation plane can be added. 
 
 ```{code-block} python
-result = [ { 'points': [gom.Vec3D, gom.Vec3D, ...] } ]
+result = [ { 'points': [gom.Vec3d, gom.Vec3d, ...] } ]
 
 # Optional: Curve with additional creation plane
 result = {
-  'curves': [{'points': [gom.Vec3D, ...]}],
-  'plane' : {'normal' : gom.Vec3D, 'distance' : float}
+  'curves': [{'points': [gom.Vec3d, ...]}],
+  'plane' : {'normal' : gom.Vec3d, 'distance' : float}
 }
 ```
 
@@ -180,7 +180,7 @@ result = {
 
 % ```{code-block} python
 % # This does not work!
-% result = [ { 'points': [ gom.Vec3D, gom.Vec3D, ... ], 'normals': [(x,y,z)] } ]
+% result = [ { 'points': [ gom.Vec3d, gom.Vec3d, ... ], 'normals': [(x,y,z)] } ]
 % ```
 
 % :::{caution}
@@ -216,7 +216,7 @@ result = {
 :Result: A set of points. The 'normals 'attribute is optional.
 
 ```{code-block} python
-result = { 'points' :  [ gom.Vec3D, gom.Vec3D, ... ] , 'normals' : [ gom.Vec3D, gom.Vec3D, ... ] }
+result = { 'points' :  [ gom.Vec3d, gom.Vec3d, ... ] , 'normals' : [ gom.Vec3d, gom.Vec3d, ... ] }
 ```
 
 ### Surface
