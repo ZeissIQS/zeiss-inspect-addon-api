@@ -10,7 +10,7 @@ jobs:
           python-version: '3.10' 
       - name: Install dependencies
         run: |
-          pip install sphinx==8.1.0 sphinx_rtd_theme==3.0.0 sphinx-favicon myst_parser==4.0.0 sphinx_sitemap sphinxcontrib.newsfeed
+          pip install sphinx==8.1.3 sphinx_rtd_theme==3.0.0 sphinx-favicon myst_parser==4.0.0 sphinx_sitemap sphinxcontrib.newsfeed
       - name: Sphinx build
         run: |
           sphinx-build -W --keep-going doc _build
