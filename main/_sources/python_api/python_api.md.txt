@@ -483,6 +483,17 @@ API for accessing python script interpreter properties
 This API can access properties and states of the python script interpreters. It is used
 mainly for internal debugging and introspection scenarios.
 
+### gom.api.interpreter.get_info
+
+```{py:function} gom.api.interpreter.get_info(): dict
+
+Query internal interpreter state for debugging purposed
+:return: JSON formatted string containing various information about the running interpreters
+:rtype: dict
+```
+
+\attention This function is for debugging purposes only ! Its content format may change arbitrarily !
+
 ### gom.api.interpreter.get_pid
 
 ```{py:function} gom.api.interpreter.get_pid(): int
