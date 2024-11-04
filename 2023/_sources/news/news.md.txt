@@ -13,7 +13,7 @@ myst:
 .. feed::
    :rss: index.rss
    :title: ZEISS INSPECT 2023 Add-on Python API News
-   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/
+   :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/
 
    20240502-python-details
    20240409-scripting-solutions
