@@ -8,10 +8,9 @@ If you don't know about the concept yet, take a look at the [Scripted elements i
 
 ## The `dialog` function
 
-💡 **Notes:**
-
-* The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.
-* All tokens of other elements can be accessed within this function.
+```{note}
+The main purpose of this function is to use display a script dialog and allow the user to enter element parameters. All tokens of other elements can be accessed within this function.
+```
 
 ### Signature
 
@@ -65,9 +64,9 @@ A preview calculation is implemented in the example <a href="https://github.com/
 
 ## The `calculation` function
 
-💡 **Notes:**
-* It is not possible to call script commands or read tokens from within this function. (Do not call `gom.app.project....`)
-* The function should loop over all stages to be calculated and set a computation result  for each stage.
+```{note}
+It is not possible to call script commands or read tokens from within this function. (Do not call `gom.app.project....`) The function should loop over all stages to be calculated and set a computation result  for each stage.
+```
 
 ### Signature
 
@@ -378,7 +377,7 @@ result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }
 ### Volume Region
 
 :Element Type: Volume Region
-:Result: Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.
+:Result: Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a linked volume element.
 
 ```{code-block} python
 result = {
