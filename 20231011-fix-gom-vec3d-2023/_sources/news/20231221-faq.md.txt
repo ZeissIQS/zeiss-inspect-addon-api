@@ -1,8 +1,0 @@
-# Frequently Asked Questions
-
-```{eval-rst}
-.. feed-entry::
-   :date: 2023-12-21 10:00
-```
-
-There is a new section <a href="../howtos/faq/faq.html">HOW-TO GUIDES - Frequently asked questions</a> with contents from the [ZEISS Quality Forum](https://qualityforum.zeiss.com/), Tech Support and Development department.
