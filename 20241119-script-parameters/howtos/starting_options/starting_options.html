@@ -191,7 +191,8 @@
 </div>
 <p>In the script, you can access the variables directly by name:</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">read_parameters</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">gom</span><span class="p">,</span> <span class="s1">&#39;read_parameters&#39;</span><span class="p">):</span>
+    <span class="n">gom</span><span class="o">.</span><span class="n">read_parameters</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
 
 <span class="n">var1</span> <span class="o">=</span> <span class="n">variable_1</span>
 <span class="n">var2</span> <span class="o">=</span> <span class="n">variable_2</span>
@@ -384,7 +385,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fb1f7a51780>
+  <jinja2.runtime.BlockReference object at 0x7fd3185ce1d0>
 
 
 </footer>
