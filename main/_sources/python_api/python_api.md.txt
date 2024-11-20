@@ -492,7 +492,9 @@ Query internal interpreter state for debugging purposed
 :rtype: dict
 ```
 
-\attention This function is for debugging purposes only ! Its content format may change arbitrarily !
+```{caution}
+This function is for debugging purposes only ! Its content format may change arbitrarily !
+```
 
 ### gom.api.interpreter.get_pid
 
