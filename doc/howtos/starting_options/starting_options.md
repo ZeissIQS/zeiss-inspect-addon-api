@@ -90,7 +90,8 @@ In the script, you can access the variables directly by name:
 Example: `myscript.py`
 
 ```{code-block} python
-gom.read_parameters(globals())
+if hasattr(gom, 'read_parameters'):
+    gom.read_parameters(globals())
 
 var1 = variable_1
 var2 = variable_2
