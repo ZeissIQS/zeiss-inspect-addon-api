@@ -32,7 +32,7 @@ myst:
 <hr class="small-margin">
 <section id="checkresultsdataarray">
 <div id="checkresultsdataarray" class="example-block-odd">
-<h3>CheckResultsDataArray — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md">view</a> / 
+<h3>CheckResultsDataArray — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/CheckResultsDataArray/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#checkresultsdataarray" title="Link to this heading"></a></h3>
 
 
@@ -53,7 +53,7 @@ myst:
 
 <section id="referencepointsandmeshdata">
 <div id="referencepointsandmeshdata" class="example-block-even">
-<h3>ReferencePointsAndMeshData — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md">view</a> / 
+<h3>ReferencePointsAndMeshData — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/ReferencePointsAndMeshData/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#referencepointsandmeshdata" title="Link to this heading"></a></h3>
 
 
@@ -74,7 +74,7 @@ myst:
 
 <section id="volumesectionimagedata">
 <div id="volumesectionimagedata" class="example-block-odd">
-<h3>VolumeSectionImageData — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md">view</a> / 
+<h3>VolumeSectionImageData — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/VolumeSectionImageData/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#volumesectionimagedata" title="Link to this heading"></a></h3>
 
 
@@ -99,7 +99,7 @@ myst:
 <hr class="small-margin">
 <section id="dropdownwidget">
 <div id="dropdownwidget" class="example-block-odd">
-<h3>DropdownWidget — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a> / 
+<h3>DropdownWidget — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/DropdownWidget/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#dropdownwidget" title="Link to this heading"></a></h3>
 
 
@@ -117,7 +117,7 @@ myst:
 
 <section id="explorerselectedelementsindialog">
 <div id="explorerselectedelementsindialog" class="example-block-even">
-<h3>ExplorerSelectedElementsInDialog — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md">view</a> / 
+<h3>ExplorerSelectedElementsInDialog — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/ExplorerSelectedElementsInDialog/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#explorerselectedelementsindialog" title="Link to this heading"></a></h3>
 
 
@@ -138,7 +138,7 @@ myst:
 
 <section id="unitdialogeventhandler">
 <div id="unitdialogeventhandler" class="example-block-odd">
-<h3>UnitDialogEventHandler — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md">view</a> / 
+<h3>UnitDialogEventHandler — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/UnitDialogEventHandler/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#unitdialogeventhandler" title="Link to this heading"></a></h3>
 
 
@@ -156,7 +156,7 @@ myst:
 
 <section id="widgetvisibility">
 <div id="widgetvisibility" class="example-block-even">
-<h3>WidgetVisibility — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a> / 
+<h3>WidgetVisibility — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/dialog_widgets/WidgetVisibility/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#widgetvisibility" title="Link to this heading"></a></h3>
 
 
@@ -178,7 +178,7 @@ myst:
 <hr class="small-margin">
 <section id="csvexample">
 <div id="csvexample" class="example-block-odd">
-<h3>CSVExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/CSVExample/doc/Documentation.md">view</a> / 
+<h3>CSVExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/CSVExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#csvexample" title="Link to this heading"></a></h3>
 
 
@@ -197,7 +197,7 @@ myst:
 
 <section id="dialogreopenexample">
 <div id="dialogreopenexample" class="example-block-even">
-<h3>DialogReopenExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a> / 
+<h3>DialogReopenExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/DialogReopenExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#dialogreopenexample" title="Link to this heading"></a></h3>
 
 
@@ -215,7 +215,7 @@ myst:
 
 <section id="displayimage">
 <div id="displayimage" class="example-block-odd">
-<h3>DisplayImage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a> / 
+<h3>DisplayImage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/DisplayImage/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#displayimage" title="Link to this heading"></a></h3>
 
 
@@ -231,7 +231,7 @@ myst:
 
 <section id="excelexample">
 <div id="excelexample" class="example-block-even">
-<h3>ExcelExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">view</a> / 
+<h3>ExcelExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#excelexample" title="Link to this heading"></a></h3>
 
 
@@ -247,7 +247,7 @@ myst:
 
 <section id="fileselectionandfiltering">
 <div id="fileselectionandfiltering" class="example-block-odd">
-<h3>FileSelectionAndFiltering — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/FileSelectionAndFiltering/doc/Documentation.md">view</a> / 
+<h3>FileSelectionAndFiltering — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/FileSelectionAndFiltering/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#fileselectionandfiltering" title="Link to this heading"></a></h3>
 
 
@@ -263,7 +263,7 @@ myst:
 
 <section id="ipcsocketsexample">
 <div id="ipcsocketsexample" class="example-block-even">
-<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a> / 
+<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#ipcsocketsexample" title="Link to this heading"></a></h3>
 
 
@@ -279,7 +279,7 @@ myst:
 
 <section id="measurementsystemanalysis">
 <div id="measurementsystemanalysis" class="example-block-odd">
-<h3>MeasurementSystemAnalysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a> / 
+<h3>MeasurementSystemAnalysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#measurementsystemanalysis" title="Link to this heading"></a></h3>
 
 
@@ -295,7 +295,7 @@ myst:
 
 <section id="pointpixeltransformations">
 <div id="pointpixeltransformations" class="example-block-even">
-<h3>PointPixelTransformations — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a> / 
+<h3>PointPixelTransformations — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#pointpixeltransformations" title="Link to this heading"></a></h3>
 
 
@@ -316,7 +316,7 @@ myst:
 
 <section id="progressbar">
 <div id="progressbar" class="example-block-odd">
-<h3>ProgressBar — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ProgressBar/doc/Documentation.md">view</a> / 
+<h3>ProgressBar — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ProgressBar/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#progressbar" title="Link to this heading"></a></h3>
 
 
@@ -330,7 +330,7 @@ myst:
 
 <section id="sqlexample">
 <div id="sqlexample" class="example-block-even">
-<h3>SQLExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SQLExample/doc/Documentation.md">view</a> / 
+<h3>SQLExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SQLExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#sqlexample" title="Link to this heading"></a></h3>
 
 
@@ -346,7 +346,7 @@ myst:
 
 <section id="serviceexample">
 <div id="serviceexample" class="example-block-odd">
-<h3>ServiceExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ServiceExample/doc/Documentation.md">view</a> / 
+<h3>ServiceExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ServiceExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#serviceexample" title="Link to this heading"></a></h3>
 
 
@@ -364,7 +364,7 @@ myst:
 
 <section id="settingsapi">
 <div id="settingsapi" class="example-block-even">
-<h3>SettingsAPI — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SettingsAPI/doc/Documentation.md">view</a> / 
+<h3>SettingsAPI — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SettingsAPI/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#settingsapi" title="Link to this heading"></a></h3>
 
 
@@ -382,7 +382,7 @@ myst:
 
 <section id="templateunittestcoverage">
 <div id="templateunittestcoverage" class="example-block-odd">
-<h3>TemplateUnittestCoverage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TemplateUnittestCoverage/doc/Documentation.md">view</a> / 
+<h3>TemplateUnittestCoverage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TemplateUnittestCoverage/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#templateunittestcoverage" title="Link to this heading"></a></h3>
 
 
@@ -398,7 +398,7 @@ myst:
 
 <section id="textdetection">
 <div id="textdetection" class="example-block-even">
-<h3>TextDetection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TextDetection/doc/Documentation.md">view</a> / 
+<h3>TextDetection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TextDetection/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#textdetection" title="Link to this heading"></a></h3>
 
 
@@ -418,7 +418,7 @@ myst:
 <hr class="small-margin">
 <section id="exampleprojects">
 <div id="exampleprojects" class="example-block-odd">
-<h3>ExampleProjects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a> / 
+<h3>ExampleProjects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/projects/ExampleProjects/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#exampleprojects" title="Link to this heading"></a></h3>
 
 
@@ -438,7 +438,7 @@ myst:
 <hr class="small-margin">
 <section id="scripticon">
 <div id="scripticon" class="example-block-odd">
-<h3>ScriptIcon — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a> / 
+<h3>ScriptIcon — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_icons/ScriptIcon/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scripticon" title="Link to this heading"></a></h3>
 
 
@@ -458,7 +458,7 @@ myst:
 <hr class="small-margin">
 <section id="resourceaccess">
 <div id="resourceaccess" class="example-block-odd">
-<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
+<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#resourceaccess" title="Link to this heading"></a></h3>
 
 
@@ -476,7 +476,7 @@ myst:
 
 <section id="scriptresources">
 <div id="scriptresources" class="example-block-even">
-<h3>ScriptResources — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a> / 
+<h3>ScriptResources — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ScriptResources/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptresources" title="Link to this heading"></a></h3>
 
 
@@ -498,7 +498,7 @@ myst:
 <hr class="small-margin">
 <section id="scriptedactualcircle">
 <div id="scriptedactualcircle" class="example-block-odd">
-<h3>ScriptedActualCircle — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualCircle — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCircle/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualcircle" title="Link to this heading"></a></h3>
 
 
@@ -516,7 +516,7 @@ myst:
 
 <section id="scriptedactualcone">
 <div id="scriptedactualcone" class="example-block-even">
-<h3>ScriptedActualCone — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualCone — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCone/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualcone" title="Link to this heading"></a></h3>
 
 
@@ -534,7 +534,7 @@ myst:
 
 <section id="scriptedactualcurve">
 <div id="scriptedactualcurve" class="example-block-odd">
-<h3>ScriptedActualCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCurve/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCurve/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualcurve" title="Link to this heading"></a></h3>
 
 
@@ -552,7 +552,7 @@ myst:
 
 <section id="scriptedactualcylinder">
 <div id="scriptedactualcylinder" class="example-block-even">
-<h3>ScriptedActualCylinder — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualCylinder — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualCylinder/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualcylinder" title="Link to this heading"></a></h3>
 
 
@@ -570,7 +570,7 @@ myst:
 
 <section id="scriptedactualdistance">
 <div id="scriptedactualdistance" class="example-block-odd">
-<h3>ScriptedActualDistance — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualDistance/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualDistance — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualDistance/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualdistance" title="Link to this heading"></a></h3>
 
 
@@ -588,7 +588,7 @@ myst:
 
 <section id="scriptedactualpoint">
 <div id="scriptedactualpoint" class="example-block-even">
-<h3>ScriptedActualPoint — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualPoint — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualpoint" title="Link to this heading"></a></h3>
 
 
@@ -606,7 +606,7 @@ myst:
 
 <section id="scriptedactualpointcloud">
 <div id="scriptedactualpointcloud" class="example-block-odd">
-<h3>ScriptedActualPointCloud — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualPointCloud — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPointCloud/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualpointcloud" title="Link to this heading"></a></h3>
 
 
@@ -624,7 +624,7 @@ myst:
 
 <section id="scriptedactualsection">
 <div id="scriptedactualsection" class="example-block-even">
-<h3>ScriptedActualSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSection/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualsection" title="Link to this heading"></a></h3>
 
 
@@ -642,7 +642,7 @@ myst:
 
 <section id="scriptedactualsurface">
 <div id="scriptedactualsurface" class="example-block-odd">
-<h3>ScriptedActualSurface — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualSurface — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSurface/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualsurface" title="Link to this heading"></a></h3>
 
 
@@ -660,7 +660,7 @@ myst:
 
 <section id="scriptedactualsurfacecurve">
 <div id="scriptedactualsurfacecurve" class="example-block-even">
-<h3>ScriptedActualSurfaceCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualSurfaceCurve — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualSurfaceCurve/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualsurfacecurve" title="Link to this heading"></a></h3>
 
 
@@ -678,7 +678,7 @@ myst:
 
 <section id="scriptedactualvolume">
 <div id="scriptedactualvolume" class="example-block-odd">
-<h3>ScriptedActualVolume — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualVolume — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolume/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualvolume" title="Link to this heading"></a></h3>
 
 
@@ -696,7 +696,7 @@ myst:
 
 <section id="scriptedactualvolumedefects">
 <div id="scriptedactualvolumedefects" class="example-block-even">
-<h3>ScriptedActualVolumeDefects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualVolumeDefects — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeDefects/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualvolumedefects" title="Link to this heading"></a></h3>
 
 
@@ -714,7 +714,7 @@ myst:
 
 <section id="scriptedactualvolumeregion">
 <div id="scriptedactualvolumeregion" class="example-block-odd">
-<h3>ScriptedActualVolumeRegion — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualVolumeRegion — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeRegion/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualvolumeregion" title="Link to this heading"></a></h3>
 
 
@@ -732,7 +732,7 @@ myst:
 
 <section id="scriptedactualvolumesection">
 <div id="scriptedactualvolumesection" class="example-block-even">
-<h3>ScriptedActualVolumeSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a> / 
+<h3>ScriptedActualVolumeSection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualVolumeSection/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedactualvolumesection" title="Link to this heading"></a></h3>
 
 
@@ -750,7 +750,7 @@ myst:
 
 <section id="scriptedelementprogress">
 <div id="scriptedelementprogress" class="example-block-odd">
-<h3>ScriptedElementProgress — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedElementProgress/doc/Documentation.md">view</a> / 
+<h3>ScriptedElementProgress — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedElementProgress/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedelementprogress" title="Link to this heading"></a></h3>
 
 
@@ -768,7 +768,7 @@ myst:
 
 <section id="trimeshdeformmesh">
 <div id="trimeshdeformmesh" class="example-block-even">
-<h3>TrimeshDeformMesh — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a> / 
+<h3>TrimeshDeformMesh — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/TrimeshDeformMesh/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#trimeshdeformmesh" title="Link to this heading"></a></h3>
 
 
@@ -793,7 +793,7 @@ myst:
 <hr class="small-margin">
 <section id="scriptedcurvecheck">
 <div id="scriptedcurvecheck" class="example-block-odd">
-<h3>ScriptedCurveCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md">view</a> / 
+<h3>ScriptedCurveCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedCurveCheck/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedcurvecheck" title="Link to this heading"></a></h3>
 
 
@@ -814,7 +814,7 @@ myst:
 
 <section id="scriptedscalarcheck">
 <div id="scriptedscalarcheck" class="example-block-even">
-<h3>ScriptedScalarCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedScalarCheck/doc/Documentation.md">view</a> / 
+<h3>ScriptedScalarCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedScalarCheck/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedscalarcheck" title="Link to this heading"></a></h3>
 
 
@@ -835,7 +835,7 @@ myst:
 
 <section id="scriptedsurfacecheck">
 <div id="scriptedsurfacecheck" class="example-block-odd">
-<h3>ScriptedSurfaceCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md">view</a> / 
+<h3>ScriptedSurfaceCheck — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_checks/ScriptedSurfaceCheck/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scriptedsurfacecheck" title="Link to this heading"></a></h3>
 
 
@@ -860,7 +860,7 @@ myst:
 <hr class="small-margin">
 <section id="osmmapdiagram">
 <div id="osmmapdiagram" class="example-block-odd">
-<h3>OSMMapDiagram — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/OSMMapDiagram/doc/Documentation.md">view</a> / 
+<h3>OSMMapDiagram — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/OSMMapDiagram/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#osmmapdiagram" title="Link to this heading"></a></h3>
 
 
@@ -878,7 +878,7 @@ myst:
 
 <section id="scripteddiagrambasics">
 <div id="scripteddiagrambasics" class="example-block-even">
-<h3>ScriptedDiagramBasics — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/ScriptedDiagramBasics/doc/Documentation.md">view</a> / 
+<h3>ScriptedDiagramBasics — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_diagrams/ScriptedDiagramBasics/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#scripteddiagrambasics" title="Link to this heading"></a></h3>
 
 
