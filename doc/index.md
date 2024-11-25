@@ -13,9 +13,12 @@ You can include several template configurations from the software, as well as co
 ```{important}
 Creating Apps is a rather advanced topic, so you should be familiar with the basic inspection concept of ZEISS INSPECT beforehand. New to ZEISS INSPECT? You find an introduction in the ZEISS Quality Tech Guide:
 
-[Access Point: ZEISS INSPECT](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_inspect.html)
+[Access Point: ZEISS INSPECT](https://techguide.zeiss.com/en/zeiss-inspect-2025/article/access_point_gom_inspect.html)
 
-Or, depending on your application, you might be interested in the specific articles [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_volume_inspect.html), [Access Point: ZEISS INSPECT Airfoil](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_gom_blade_inspect.html) or [Access Point: ZEISS INSPECT Correlate](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/access_point_zeiss_inspect_correlate.html).
+Or, depending on your application, you might be interested in the specific articles:
+* [Access Point: ZEISS INSPECT X-Ray](https://techguide.zeiss.com/en/zeiss-inspect-2025/article/access_point_volume_inspect.html)
+* [Access Point: Airfoil Inspection](https://techguide.zeiss.com/en/zeiss-inspect-2025/article/access_point_gom_blade_inspect.html),
+* or [Access Point: ZEISS CORRELATE](https://techguide.zeiss.com/en/zeiss-inspect-2025/article/access_point_zeiss_inspect_correlate.html).
 
 ```
 If you are new to Apps, you find some introductions in the ZEISS Quality Tech Guide:
