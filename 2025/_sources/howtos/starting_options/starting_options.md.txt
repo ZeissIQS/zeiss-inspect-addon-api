@@ -90,11 +90,18 @@ In the script, you can access the variables directly by name:
 Example: `myscript.py`
 
 ```{code-block} python
+if hasattr(gom, 'read_parameters'):
+    gom.read_parameters(globals())
+
 var1 = variable_1
 var2 = variable_2
 ```
 
 You can assign values of any Python data type to those parameters.
+
+```{important}
+In ZEISS INSPECT 2025 and later versions, the command `gom.read_parameters(globals())` is required to make the parameters available in the App.
+```
 
 To allow simple testing in the App editor during script development, you add the following code to define the variables which are set as script parameters otherwise :
 

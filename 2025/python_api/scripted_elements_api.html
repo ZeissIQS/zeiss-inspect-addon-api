@@ -166,11 +166,10 @@
 </div>
 <section id="the-dialog-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function<a class="headerlink" href="#the-dialog-function" title="Link to this heading"></a></h2>
-<p>💡 <strong>Notes:</strong></p>
-<ul class="simple">
-<li><p>The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.</p></li>
-<li><p>All tokens of other elements can be accessed within this function.</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The main purpose of this function is to use display a script dialog and allow the user to enter element parameters. All tokens of other elements can be accessed within this function.</p>
+</div>
 <section id="signature">
 <h3>Signature<a class="headerlink" href="#signature" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -270,11 +269,10 @@
 </section>
 <section id="the-calculation-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function<a class="headerlink" href="#the-calculation-function" title="Link to this heading"></a></h2>
-<p>💡 <strong>Notes:</strong></p>
-<ul class="simple">
-<li><p>It is not possible to call script commands or read tokens from within this function. (Do not call <code class="docutils literal notranslate"><span class="pre">gom.app.project....</span></code>)</p></li>
-<li><p>The function should loop over all stages to be calculated and set a computation result  for each stage.</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not possible to call script commands or read tokens from within this function. (Do not call <code class="docutils literal notranslate"><span class="pre">gom.app.project....</span></code>) The function should loop over all stages to be calculated and set a computation result  for each stage.</p>
+</div>
 <section id="id1">
 <h3>Signature<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -374,7 +372,7 @@
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span>
 </pre></div>
 </div>
 </section>
@@ -389,7 +387,7 @@
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">}</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span> <span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;point1&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span> <span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -417,7 +415,7 @@
 <dd class="field-even"><p>A center point, direction vector and radius (double)</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;center&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span> <span class="p">:</span> <span class="n">double</span> <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;center&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;radius&#39;</span> <span class="p">:</span> <span class="n">double</span> <span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -431,12 +429,12 @@
 <dd class="field-even"><p>A curve can be made up by an array of subcurves. Each subcurve is a polyline. A closed curve will be created, if first point = last point.<br>As an option, a creation plane can be added.</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="p">}</span> <span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="p">}</span> <span class="p">]</span>
 
 <span class="c1"># Optional: Curve with additional creation plane</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span><span class="p">]}],</span>
-  <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">}</span>
+  <span class="s1">&#39;curves&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;points&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span><span class="p">]}],</span>
+  <span class="s1">&#39;plane&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;normal&#39;</span> <span class="p">:</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span> <span class="p">:</span> <span class="nb">float</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -490,7 +488,7 @@
 <dd class="field-even"><p>A set of points. The ‘normals ‘attribute is optional.</p>
 </dd>
 </dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;normals&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3D</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;points&#39;</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;normals&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">,</span> <span class="o">...</span> <span class="p">]</span> <span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -660,7 +658,7 @@
 <dd class="field-odd"><p>Volume Region</p>
 </dd>
 <dt class="field-even">Result<span class="colon">:</span></dt>
-<dd class="field-even"><p>Accepts a numpy array of the region data. The ‘dtype’ must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.</p>
+<dd class="field-even"><p>Accepts a numpy array of the region data. The ‘dtype’ must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a linked volume element.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
@@ -746,7 +744,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7ae5f61720>
+  <jinja2.runtime.BlockReference object at 0x7f4fd3a58cd0>
 
 
 </footer>

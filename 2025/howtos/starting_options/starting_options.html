@@ -191,11 +191,18 @@
 </div>
 <p>In the script, you can access the variables directly by name:</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="n">variable_1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">gom</span><span class="p">,</span> <span class="s1">&#39;read_parameters&#39;</span><span class="p">):</span>
+    <span class="n">gom</span><span class="o">.</span><span class="n">read_parameters</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
+
+<span class="n">var1</span> <span class="o">=</span> <span class="n">variable_1</span>
 <span class="n">var2</span> <span class="o">=</span> <span class="n">variable_2</span>
 </pre></div>
 </div>
 <p>You can assign values of any Python data type to those parameters.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In ZEISS INSPECT 2025 and later versions, the command <code class="docutils literal notranslate"><span class="pre">gom.read_parameters(globals())</span></code> is required to make the parameters available in the App.</p>
+</div>
 <p>To allow simple testing in the App editor during script development, you add the following code to define the variables which are set as script parameters otherwise :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Default parameters for testing</span>
 <span class="k">if</span> <span class="s1">&#39;variable_1&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;variable_2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
@@ -378,7 +385,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7ae61469e0>
+  <jinja2.runtime.BlockReference object at 0x7f4fd3217040>
 
 
 </footer>

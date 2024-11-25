@@ -121,6 +121,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-interpreter">gom.api.interpreter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-info">gom.api.interpreter.get_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-interpreter-get-pid">gom.api.interpreter.get_pid</a></li>
 </ul>
 </li>
@@ -898,6 +899,27 @@ camera positions through the given pixels. The pixel coordinate system center is
 <p>API for accessing python script interpreter properties</p>
 <p>This API can access properties and states of the python script interpreters. It is used
 mainly for internal debugging and introspection scenarios.</p>
+<section id="gom-api-interpreter-get-info">
+<h3>gom.api.interpreter.get_info<a class="headerlink" href="#gom-api-interpreter-get-info" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.interpreter.get_info():</span> <span class="pre">dict</span></span></dt>
+<dd><p>Query internal interpreter state for debugging purposed</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON formatted string containing various information about the running interpreters</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This function is for debugging purposes only ! Its content format may change arbitrarily !</p>
+</div>
+</section>
 <section id="gom-api-interpreter-get-pid">
 <h3>gom.api.interpreter.get_pid<a class="headerlink" href="#gom-api-interpreter-get-pid" title="Link to this heading"></a></h3>
 <dl class="py function">
@@ -2381,7 +2403,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f7ae64b7070>
+  <jinja2.runtime.BlockReference object at 0x7f4fd312ed70>
 
 
 </footer>
