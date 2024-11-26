@@ -1211,8 +1211,10 @@ Start service
 
 This function will start a script interpreter executing the service script as an API endpoint.
 
-\attention The function will return immediately, the service instances are starting in the background afterwards.
+```{caution}
+The function will return immediately, the service instances are starting in the background afterwards.
 The `get_status ()` function can be used to poll the status until the service has been started.
+```
 
 #### gom.api.services.Service.stop
 

@@ -2033,8 +2033,11 @@ per service, the service counts as RUNNING not before all of these instances hav
 </dd></dl>
 
 <p>This function will start a script interpreter executing the service script as an API endpoint.</p>
-<p>\attention The function will return immediately, the service instances are starting in the background afterwards.
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The function will return immediately, the service instances are starting in the background afterwards.
 The <code class="docutils literal notranslate"><span class="pre">get_status</span> <span class="pre">()</span></code> function can be used to poll the status until the service has been started.</p>
+</div>
 </section>
 <section id="gom-api-services-service-stop">
 <h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
@@ -2402,7 +2405,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa2ecc38d90>
+  <jinja2.runtime.BlockReference object at 0x7fd7dac31d80>
 
 
 </footer>
