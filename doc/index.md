@@ -37,6 +37,7 @@ Check out the ZEISS INSPECT Add-On news page!
 .. toctree::
    :hidden:
    
+   news/20241127-release-2025
    news/20240502-python-details
    news/20240409-scripting-solutions
    news/20240315-element-selection
