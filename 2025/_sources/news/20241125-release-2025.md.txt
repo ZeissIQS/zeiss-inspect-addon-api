@@ -1,0 +1,3 @@
+# ZEISS INSPECT 2025 Released
+
+We are happy to announce that [ZEISS INSPECT](https://www.zeiss.com/metrology/en/software/zeiss-inspect.html) has been released. As always, you will find a multitude of new features and improvements. New App development related features will be presented here shortly.
