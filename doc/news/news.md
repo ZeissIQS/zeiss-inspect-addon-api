@@ -15,7 +15,8 @@ myst:
    :title: ZEISS INSPECT 2025 App Python API News
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/
 
-   202410xx-insert-file
+   20241028-insert-file
+   20241125-release-2025
    20240315-element-selection
    20240314-internationalization-tool-update
    20240307-mesh-selection
