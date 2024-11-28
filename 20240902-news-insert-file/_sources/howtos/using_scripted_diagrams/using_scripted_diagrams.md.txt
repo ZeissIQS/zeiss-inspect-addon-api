@@ -10,7 +10,6 @@
 Scripted diagrams are updated automatically if any contributing scripted element changes.
 ```
 
-=======
 ```{note}
 You can use multiple scripted diagrams at the same time, which will be stacked vertically in the **Inspection Details** tab.
 ```
@@ -59,7 +58,6 @@ The following script serves as a minimum template for a scripted diagram service
 
 import gom
 from gom import apifunction
-
 import gom.api.extensions.diagrams.matplotlib_tools as mpltools
 
 @apifunction
