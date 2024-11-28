@@ -1180,8 +1180,7 @@ Get the number of API instances (processes) the service runs in parallel
 ```
 
 Return the number of API processes instances which are running in parallel. A service can
-be configured to start more than one API process for parallelization. This makes sense only
-if the calling instance is threaded, like the recalculation features in ZEISS Inspect.
+be configured to start more than one API process for parallelization.
 
 #### gom.api.services.Service.get_status
 
@@ -1212,8 +1211,10 @@ Start service
 
 This function will start a script interpreter executing the service script as an API endpoint.
 
-\attention The function will return immediately, the service instances are starting in the background afterwards.
+```{caution}
+The function will return immediately, the service instances are starting in the background afterwards.
 The `get_status ()` function can be used to poll the status until the service has been started.
+```
 
 #### gom.api.services.Service.stop
 
@@ -1226,9 +1227,11 @@ Stop service
 Stop service. The service can be restarted afterwards via the 'start ()' function
 if needed.
 
-\attention The function will return immediately, the service instances will be stopped
-in their own threads contexts. The 'get_status ()' function can be used to poll
-the service status until all service instances have been stopped.
+```{caution}
+The function will return immediately, the service instances will be stopped asynchronously.
+The 'get_status ()' function can be used to poll the service status until all service instances
+have been stopped.
+```
 
 ### gom.api.services.get_services
 
