@@ -1227,9 +1227,11 @@ Stop service
 Stop service. The service can be restarted afterwards via the 'start ()' function
 if needed.
 
-\attention The function will return immediately, the service instances will be stopped
-asynchronously. The 'get_status ()' function can be used to poll
-the service status until all service instances have been stopped.
+```{caution}
+The function will return immediately, the service instances will be stopped asynchronously.
+The 'get_status ()' function can be used to poll the service status until all service instances
+have been stopped.
+```
 
 ### gom.api.services.get_services
 

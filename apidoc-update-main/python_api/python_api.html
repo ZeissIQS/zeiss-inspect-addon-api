@@ -2054,9 +2054,12 @@ The <code class="docutils literal notranslate"><span class="pre">get_status</spa
 
 <p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
 if needed.</p>
-<p>\attention The function will return immediately, the service instances will be stopped
-asynchronously. The ‘get_status ()’ function can be used to poll
-the service status until all service instances have been stopped.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The function will return immediately, the service instances will be stopped asynchronously.
+The ‘get_status ()’ function can be used to poll the service status until all service instances
+have been stopped.</p>
+</div>
 </section>
 </section>
 <section id="gom-api-services-get-services">
@@ -2405,7 +2408,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fbf957259f0>
+  <jinja2.runtime.BlockReference object at 0x7fa82446d090>
 
 
 </footer>
