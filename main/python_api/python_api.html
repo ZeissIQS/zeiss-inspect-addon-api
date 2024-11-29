@@ -1988,8 +1988,7 @@ the service management dialog.</p>
 </dd></dl>
 
 <p>Return the number of API processes instances which are running in parallel. A service can
-be configured to start more than one API process for parallelization. This makes sense only
-if the calling instance is threaded, like the recalculation features in ZEISS Inspect.</p>
+be configured to start more than one API process for parallelization.</p>
 </section>
 <section id="gom-api-services-service-get-status">
 <h4>gom.api.services.Service.get_status<a class="headerlink" href="#gom-api-services-service-get-status" title="Link to this heading"></a></h4>
@@ -2034,8 +2033,11 @@ per service, the service counts as RUNNING not before all of these instances hav
 </dd></dl>
 
 <p>This function will start a script interpreter executing the service script as an API endpoint.</p>
-<p>\attention The function will return immediately, the service instances are starting in the background afterwards.
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The function will return immediately, the service instances are starting in the background afterwards.
 The <code class="docutils literal notranslate"><span class="pre">get_status</span> <span class="pre">()</span></code> function can be used to poll the status until the service has been started.</p>
+</div>
 </section>
 <section id="gom-api-services-service-stop">
 <h4>gom.api.services.Service.stop<a class="headerlink" href="#gom-api-services-service-stop" title="Link to this heading"></a></h4>
@@ -2052,9 +2054,12 @@ The <code class="docutils literal notranslate"><span class="pre">get_status</spa
 
 <p>Stop service. The service can be restarted afterwards via the ‘start ()’ function
 if needed.</p>
-<p>\attention The function will return immediately, the service instances will be stopped
-in their own threads contexts. The ‘get_status ()’ function can be used to poll
-the service status until all service instances have been stopped.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The function will return immediately, the service instances will be stopped asynchronously.
+The ‘get_status ()’ function can be used to poll the service status until all service instances
+have been stopped.</p>
+</div>
 </section>
 </section>
 <section id="gom-api-services-get-services">
@@ -2403,7 +2408,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f5822bb1270>
+  <jinja2.runtime.BlockReference object at 0x7f062b4bc130>
 
 
 </footer>
