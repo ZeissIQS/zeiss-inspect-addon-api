@@ -40,6 +40,7 @@ Check out the ZEISS INSPECT Apps news page!
 .. toctree::
    :hidden:
    
+   news/20241028-insert-file
    news/20241125-release-2025
    news/20240315-element-selection
    news/20240314-internationalization-tool-update
