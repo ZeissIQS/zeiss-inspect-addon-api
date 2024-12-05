@@ -7,4 +7,4 @@
 
 Did you know that you can test Apps with <a href="../howtos/python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a> non-interactively?
 
-See <a href="../howtos/python_api_introduction/selecting_elements.html">How-to: Testing Apps &mdash; Testing Apps with Dialogs</a> for a detailed explanation.
+See <a href="../howtos/testing_apps/testing_apps.html#testing-apps-with-dialogs">How-to: Testing Apps &mdash; Testing Apps with Dialogs</a> for a detailed explanation.
