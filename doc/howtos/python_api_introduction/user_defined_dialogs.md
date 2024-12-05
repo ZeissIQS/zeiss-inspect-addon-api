@@ -1070,7 +1070,7 @@ Tolerances widget
 | link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
 | unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
 
-```{note}
+```{important}
 The Tolerances widget's result data type depends on the input:
 
 * Symmetric upper/lower tolerance values: A single floating point value is returned.
