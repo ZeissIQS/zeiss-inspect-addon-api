@@ -243,7 +243,7 @@ Its `__init__` method expects a callback function. This callback function should
 
 Interaction with the control buttons of the dialog is done via the return value of the callback:
 * If the dialog should be closed via the close button, the callback should return 'close'.
-* If the dialog should be closed via the cancel button (BreakError), the callback should return 'cancel'.
+* If the dialog should be closed via the cancel button (`BreakError`), the callback should return 'cancel'.
 * If the dialog does not need to be closed by automatic control button interaction,
   but will close itself by some other interaction, the callback should return `None`.
 
