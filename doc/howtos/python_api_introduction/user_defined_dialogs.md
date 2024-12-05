@@ -1070,6 +1070,33 @@ Tolerances widget
 | link_limits      | bool                  | <pre># Allow setting of upper / lower limits separately<br>DIALOG.tolerancesWidget.link_limits = False </pre> |
 | unit             | str                   | <pre># Set unit ID<br>DIALOG.tolerancesWidget.unit = 'LENGTH'                            |
 
+```{warning}
+The Tolerances widget's result data type depends on the input:
+
+* Symmetric upper/lower tolerance values: A single floating point value is returned.
+* Asymmetric upper/lower lolerance value or one-sided tolerance: A dictionary is returned.
+
+##### Examples
+
+1. Symmetric Tolerances
+
+   ![Symmetric tolerances](assets/tolerance-1.png)
+
+   `gom.dialog.DialogResult ('tolerances': 1.0)`
+
+2. Asymmetric Tolerances
+
+   ![Asymmetric tolerances](assets/tolerance-2.png)
+
+   `gom.dialog.DialogResult ('tolerances': {'lower': float ('nan'), 'tolerance_type': 'one_sided_under', 'upper': 1.0})`
+
+3. One-sided Tolerance
+
+   ![One-sided tolerance](assets/tolerance-3.png)
+
+   `gom.dialog.DialogResult ('tolerances': {'lower': -1.0, 'tolerance_type': 'two_sided_center', 'upper': 1.1})`
+```
+
 #### File system browser widget
 
 ![](assets/widget_fsbrowser.png)
