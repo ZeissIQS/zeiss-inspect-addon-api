@@ -31,11 +31,11 @@ This class represents a single add-on. Properties of that add-on can be queried 
 
 ```{py:function} gom.api.addons.AddOn.exists(path: str): bool
 
-Check if the given file exists in an add-on
+Check if the given file or directory exists in an add-on
 :API version: 1
 :param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
 :type path: str
-:return: 'true' if a file with that name exists in the add-on
+:return: 'true' if a file or directory with that name exists in the add-on
 :rtype: bool
 ```
 
@@ -77,10 +77,10 @@ Return the list of files contained in the add-on
 :rtype: list
 ```
 
-This function returns the list of files in an add-on. These path names can be used to
-read or write/modify add-on content. This is subject to the permission system, so the
-content of protected add-ons cannot be read at all and just the add-on a script originates
-from can be modified via this API.
+This function returns the list of files and directories in an add-on. These path names can
+be used to read or write/modify add-on content. This is subject to the permission system,
+so the content of protected add-ons cannot be read at all and just the add-on a script
+originates from can be modified via this API.
 
 Please note that the list of files can only be obtained for add-ons which are currently not
 in edit mode ! An add-on in edit mode is unzipped and the `get_file ()` function will return
