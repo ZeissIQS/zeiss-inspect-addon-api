@@ -16,7 +16,7 @@ See the ZEISS Quality Tech Guide article [App Editor](https://techguide.zeiss.co
   * [Inserting a File Selection Dialog](#inserting-a-file-selection-dialog)
 - [Adding and Removing Contents](#adding-moving-and-copying-contents)
 - [Searching and Filtering](#searching-and-filtering)
-- [Exporting or Publishing an App](#exporting-or-publishing-an-app)
+- [Exporting an App](#exporting-an-app)
 - [Apps from External Folders](#apps-from-external-folders)
   * [Connecting and Disconnecting External Folders](#connecting-and-disconnecting-external-folders)
   * [Creating Apps in External Folders](#creating-apps-in-external-folders)
@@ -128,19 +128,11 @@ A project must be opened to provide items in the Project Contents section. An Ap
 
 To ease working with a large number of installed Apps, searching and filtering can be used. The search function allows to enter parts of a file name. The search keyword can then be applied as a filter. An additional function allows to filter by storage location and content type.
 
-## Exporting or Publishing an App
+## Exporting an App
 
 * Export
 
     Click RMB on the installed App ► Export: Save the selected App as a .addon file.
-
-* Publish in Software Store
-
-    Click RMB on the installed App ► Publish in Software Store: Upload the selected App into the Zeiss Quality Software Store. The uploaded App will be queued into the staging area and will be release after approval.
-    
-    ```{note}
-    Publishing an App requires special permission that ZEISS grants upon request.
-    ```
 
 ## Apps from External Folders
 
