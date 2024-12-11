@@ -261,24 +261,8 @@ myst:
 
 </section>
 
-<section id="ipcsocketsexample">
-<div id="ipcsocketsexample" class="example-block-even">
-<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a>  
-<a class="headerlink" href="#ipcsocketsexample" title="Link to this heading"></a></h3>
-
-
-:Description:
-    Example for triggering command execution via Internet (aka BSD) sockets
-
-:Tags:
-    <a href="#id15">![Static Badge](https://img.shields.io/badge/import-blue)</a> 
-
-</div>
-
-</section>
-
 <section id="ipcwebsocketexample">
-<div id="ipcwebsocketexample" class="example-block-odd">
+<div id="ipcwebsocketexample" class="example-block-even">
 <h3>IPCWebsocketExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCWebsocketExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#ipcwebsocketexample" title="Link to this heading"></a></h3>
 
@@ -294,7 +278,7 @@ myst:
 </section>
 
 <section id="measurementsystemanalysis">
-<div id="measurementsystemanalysis" class="example-block-even">
+<div id="measurementsystemanalysis" class="example-block-odd">
 <h3>MeasurementSystemAnalysis — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/MeasurementSystemAnalysis/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#measurementsystemanalysis" title="Link to this heading"></a></h3>
 
@@ -310,7 +294,7 @@ myst:
 </section>
 
 <section id="pointpixeltransformations">
-<div id="pointpixeltransformations" class="example-block-odd">
+<div id="pointpixeltransformations" class="example-block-even">
 <h3>PointPixelTransformations — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/PointPixelTransformations/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#pointpixeltransformations" title="Link to this heading"></a></h3>
 
@@ -331,7 +315,7 @@ myst:
 </section>
 
 <section id="progressbar">
-<div id="progressbar" class="example-block-even">
+<div id="progressbar" class="example-block-odd">
 <h3>ProgressBar — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ProgressBar/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#progressbar" title="Link to this heading"></a></h3>
 
@@ -345,7 +329,7 @@ myst:
 </section>
 
 <section id="sqlexample">
-<div id="sqlexample" class="example-block-odd">
+<div id="sqlexample" class="example-block-even">
 <h3>SQLExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SQLExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#sqlexample" title="Link to this heading"></a></h3>
 
@@ -361,7 +345,7 @@ myst:
 </section>
 
 <section id="serviceexample">
-<div id="serviceexample" class="example-block-even">
+<div id="serviceexample" class="example-block-odd">
 <h3>ServiceExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ServiceExample/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#serviceexample" title="Link to this heading"></a></h3>
 
@@ -379,7 +363,7 @@ myst:
 </section>
 
 <section id="settingsapi">
-<div id="settingsapi" class="example-block-odd">
+<div id="settingsapi" class="example-block-even">
 <h3>SettingsAPI — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/SettingsAPI/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#settingsapi" title="Link to this heading"></a></h3>
 
@@ -397,7 +381,7 @@ myst:
 </section>
 
 <section id="templateunittestcoverage">
-<div id="templateunittestcoverage" class="example-block-even">
+<div id="templateunittestcoverage" class="example-block-odd">
 <h3>TemplateUnittestCoverage — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TemplateUnittestCoverage/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#templateunittestcoverage" title="Link to this heading"></a></h3>
 
@@ -413,7 +397,7 @@ myst:
 </section>
 
 <section id="textdetection">
-<div id="textdetection" class="example-block-odd">
+<div id="textdetection" class="example-block-even">
 <h3>TextDetection — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/TextDetection/doc/Documentation.md">view</a>  
 <a class="headerlink" href="#textdetection" title="Link to this heading"></a></h3>
 
@@ -1006,7 +990,6 @@ myst:
 
 * <a href="#csvexample">CSVExample</a>
 * <a href="#excelexample">ExcelExample</a>
-* <a href="#ipcsocketsexample">IPCSocketsExample</a>
 * <a href="#ipcwebsocketexample">IPCWebsocketExample</a>
 
 
