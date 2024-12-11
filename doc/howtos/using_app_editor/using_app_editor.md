@@ -130,9 +130,7 @@ To ease working with a large number of installed Apps, searching and filtering c
 
 ## Exporting an App
 
-* Export
-
-    Click RMB on the installed App ► Export: Save the selected App as a .addon file.
+Click RMB on the installed App ► Export: Save the selected App as a .addon file.
 
 ## Apps from External Folders
 
