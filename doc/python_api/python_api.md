@@ -78,9 +78,7 @@ Return the list of files contained in the add-on
 ```
 
 This function returns the list of files and directories in an add-on. These path names can
-be used to read or write/modify add-on content. This is subject to the permission system,
-so the content of protected add-ons cannot be read at all and just the add-on a script
-originates from can be modified via this API.
+be used to read or write/modify add-on content.
 
 Please note that the list of files can only be obtained for add-ons which are currently not
 in edit mode ! An add-on in edit mode is unzipped and the `get_file ()` function will return
@@ -91,19 +89,16 @@ the standard file tools instead.
 
 ```
 for addon in gom.api.addons.get_installed_addons():
-  # Protected add-ins cannot be read at all
-  if not addon.is_protected():
+  # Edit add-ons are file system based and must be accessed via file system functions
+  if addon.is_edited():
+    for root, dirs, files in os.walk(addon.get_file ()):
+      for file in files:
+        print(os.path.join(root, file))
 
-    # Edit add-ons are file system based and must be accessed via file system functions
-    if addon.is_edited():
-      for root, dirs, files in os.walk(addon.get_file ()):
-        for file in files:
-          print(os.path.join(root, file))
-
-    # Finished add-ons can be accessed via this function
-    else:
-      for file in addon.get_file_list():
-        print (file)
+  # Finished add-ons can be accessed via this function
+  else:
+    for file in addon.get_file_list():
+      print (file)
 ```
 
 #### gom.api.addons.AddOn.get_id
