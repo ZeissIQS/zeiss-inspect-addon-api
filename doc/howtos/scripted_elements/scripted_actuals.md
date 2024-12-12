@@ -1,6 +1,6 @@
 # Scripted actuals
 
-![](assets/scripted_actual_explorer.jpg)
+![Scripted actual point in Explorer](assets/scripted_actual_explorer.png)
 
 Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the ZEISS INSPECT Element Explorer.
 
@@ -12,7 +12,7 @@ Assume we want to create a scripted point. A point, whose position is just offse
 
 As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose "Actual element" -> "Point".
 
-![](assets/offset_point_creation_type.jpg)
+![Scripted element type selection](assets/offset_point_creation_type.png)
 
 Then, we write the code, which needs a `dialog` and a `calculation` function. Let's begin with the `dialog` function.
 
@@ -47,7 +47,7 @@ In this case, we want to ask the user on which point our offset-point should be 
 * `Input -> Decimal`: a decimal widget for the offset input
 * `Selection -> Selection element`: an element widget to select a point-like element
 
-![](assets/offset_point_dialog.jpg)
+![Offset point dialog (editor)](assets/offset_point_dialog.png)
 
 It's important to note the widgets' *Object name*s, so we can adress them in the code. Second, it's important to set the "Type" of the selection element widget to `Any point`, so the user gets only the choice between elements that offer some point information.
 
@@ -85,11 +85,11 @@ The result for stage `0` (we ignore other stages for this example) is set in lin
 
 That's it! When we now run the example, the dialog appears, we can select base point and offset value. 
 
-![](assets/offset_point_user_dialog.jpg)
+![Scripted point creation dialog](assets/offset_point_user_dialog.png)
 
 After clicking "OK", a "My scripted point" element is created and visible in the explorer.
 
-![](assets/scripted_actual_explorer.jpg)
+![](assets/scripted_actual_explorer.png)
 
 ## Further reading
 
