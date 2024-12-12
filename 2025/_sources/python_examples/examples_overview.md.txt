@@ -261,14 +261,14 @@ myst:
 
 </section>
 
-<section id="ipcsocketsexample">
-<div id="ipcsocketsexample" class="example-block-even">
-<h3>IPCSocketsExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCSocketsExample/doc/Documentation.md">view</a>  
-<a class="headerlink" href="#ipcsocketsexample" title="Link to this heading"></a></h3>
+<section id="ipcwebsocketexample">
+<div id="ipcwebsocketexample" class="example-block-even">
+<h3>IPCWebsocketExample — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/IPCWebsocketExample/doc/Documentation.md">view</a>  
+<a class="headerlink" href="#ipcwebsocketexample" title="Link to this heading"></a></h3>
 
 
 :Description:
-    Example for triggering command execution via Internet (aka BSD) sockets
+    Example for triggering command execution via WebSocket protocol
 
 :Tags:
     <a href="#id15">![Static Badge](https://img.shields.io/badge/import-blue)</a> 
@@ -458,8 +458,7 @@ myst:
 <hr class="small-margin">
 <section id="resourceaccess">
 <div id="resourceaccess" class="example-block-odd">
-<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ResourceAccess">download</a>
+<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a>
 <a class="headerlink" href="#resourceaccess" title="Link to this heading"></a></h3>
 
 
@@ -984,7 +983,6 @@ myst:
 
 * <a href="#displayimage">DisplayImage</a>
 * <a href="#resourceaccess">ResourceAccess</a>
-* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#textdetection">TextDetection</a>
 
 
@@ -992,7 +990,7 @@ myst:
 
 * <a href="#csvexample">CSVExample</a>
 * <a href="#excelexample">ExcelExample</a>
-* <a href="#ipcsocketsexample">IPCSocketsExample</a>
+* <a href="#ipcwebsocketexample">IPCWebsocketExample</a>
 
 
 ### <a name="measurement"></a>![Static Badge](https://img.shields.io/badge/measurement-blue)

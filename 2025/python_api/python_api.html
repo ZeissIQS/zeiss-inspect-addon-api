@@ -283,7 +283,7 @@ update processes.</p>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">gom.api.addons.AddOn.exists(path:</span> <span class="pre">str):</span> <span class="pre">bool</span></span></dt>
-<dd><p>Check if the given file exists in an add-on</p>
+<dd><p>Check if the given file or directory exists in an add-on</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">API version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>1</p>
@@ -292,7 +292,7 @@ update processes.</p>
 <dd class="field-even"><p><strong>path</strong> (<em>str</em>) – File path as retrieved by ‘gom.api.addons.AddOn.get_file_list ()’</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>‘true’ if a file with that name exists in the add-on</p>
+<dd class="field-odd"><p>‘true’ if a file or directory with that name exists in the add-on</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -365,10 +365,10 @@ this function returns the location the application uses, too, to access add-on c
 </dl>
 </dd></dl>
 
-<p>This function returns the list of files in an add-on. These path names can be used to
-read or write/modify add-on content. This is subject to the permission system, so the
-content of protected add-ons cannot be read at all and just the add-on a script originates
-from can be modified via this API.</p>
+<p>This function returns the list of files and directories in an add-on. These path names can
+be used to read or write/modify add-on content. This is subject to the permission system,
+so the content of protected add-ons cannot be read at all and just the add-on a script
+originates from can be modified via this API.</p>
 <p>Please note that the list of files can only be obtained for add-ons which are currently not
 in edit mode ! An add-on in edit mode is unzipped and the <code class="docutils literal notranslate"><span class="pre">get_file</span> <span class="pre">()</span></code> function will return
 the file system path to its directory in that case. That directory can then be browsed with
@@ -2409,7 +2409,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7efe8e3e4700>
+  <jinja2.runtime.BlockReference object at 0x7f888ab1c670>
 
 
 </footer>

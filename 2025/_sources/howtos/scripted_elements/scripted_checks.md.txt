@@ -15,7 +15,7 @@ The script structure to create a scripted check is the same as for [Scripted act
 
 In most cases, you need to ask the user for the element to check, check naming or tolerance inputs. To this end, you can use the `Selection element`, `Element name`, `Unit` and `Tolerances` widgets:
 
-![](assets/scripted_check_widgets.jpg)
+![Widgets for scripted checks](assets/scripted_check_widgets.png)
 
 ### "Special" parameters
 
