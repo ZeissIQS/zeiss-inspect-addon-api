@@ -458,8 +458,7 @@ myst:
 <hr class="small-margin">
 <section id="resourceaccess">
 <div id="resourceaccess" class="example-block-odd">
-<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a> / 
-<a class="reference external" href="https://software-store.zeiss.com/products/apps/ResourceAccess">download</a>
+<h3>ResourceAccess — <a class="reference external" href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/script_resources/ResourceAccess/doc/Documentation.md">view</a>
 <a class="headerlink" href="#resourceaccess" title="Link to this heading"></a></h3>
 
 
@@ -983,7 +982,6 @@ myst:
 ### <a name="image-widget"></a>![Static Badge](https://img.shields.io/badge/image--widget-blue)
 
 * <a href="#displayimage">DisplayImage</a>
-* <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#resourceaccess">ResourceAccess</a>
 * <a href="#textdetection">TextDetection</a>
 
