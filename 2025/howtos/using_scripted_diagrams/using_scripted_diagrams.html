@@ -75,16 +75,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id1">Using scripted diagrams</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">1. Create or modify scripted elements to contribute data to a scripted diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">3. Create the diagram service function</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error handling</a></li>
 </ul>
 </li>
@@ -141,6 +131,10 @@
 <p class="admonition-title">Note</p>
 <p>Scripted diagrams are updated automatically if any contributing scripted element changes.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use multiple scripted diagrams at the same time, which will be stacked vertically in the <strong>Inspection Details</strong> tab.</p>
+</div>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>The concept of scripted diagrams builds upon <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted elements</span></a> and <a class="reference internal" href="../using_services/using_services.html"><span class="std std-doc">services</span></a>. <a class="reference internal" href="../scripted_elements/tokens_on_scripted_elements.html"><span class="std std-doc">Tokens on scripted elements</span></a> are used to convey data to the diagram service.</p>
@@ -173,10 +167,6 @@
 </section>
 <section id="create-the-diagram-service-function">
 <h3>3. Create the diagram service function<a class="headerlink" href="#create-the-diagram-service-function" title="Link to this heading"></a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Currently only one diagram service may be used at a time, otherwise no diagram will be rendered. If there are elements using different diagram services, leave only one service running.</p>
-</div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
@@ -185,169 +175,8 @@
 </ul>
 </div>
 <p>The following script serves as a minimum template for a scripted diagram service:</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
-<span class="kn">from</span> <span class="nn">gom</span> <span class="kn">import</span> <span class="n">apifunction</span>
-<span class="kn">import</span> <span class="nn">io</span>
-
-<span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">diagram_service_template</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
-    <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Diagram Service Template&#39;</span><span class="p">)</span>
-    <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">params</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
-        
-    <span class="k">for</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="c1"># Read all parameters received from mapped scripted elements</span>
-        <span class="c1"># Example:</span>
-        <span class="c1"># radius = values[&#39;ude_diagram_radius&#39;]</span>
-
-    <span class="c1"># Create an empty file-like object</span>
-    <span class="n">svg_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-    
-    <span class="c1"># Create your diagram, which is typically written to a file (here: svg_output)</span>
-    <span class="c1"># (...)</span>
-    
-    <span class="c1"># Get the SVG string from the file-like object</span>
-    <span class="n">svg_string</span> <span class="o">=</span> <span class="n">svg_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-    
-    <span class="c1"># Close the file-like object</span>
-    <span class="n">svg_output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">svg_string</span>
-
-<span class="n">gom</span><span class="o">.</span><span class="n">run_api</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<p>This script uses Matplotlib to render a diagram with an xy-plot:</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Scripted diagram service using Matplotlib</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
-<span class="kn">from</span> <span class="nn">gom</span> <span class="kn">import</span> <span class="n">apifunction</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">io</span>
-
-<span class="c1"># Set path for debugging</span>
-<span class="n">SVG_PATH</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="c1">#SVG_PATH = &#39;C:/temp/ScriptedDiagram.svg&#39;</span>
-
-<span class="c1"># Set SVG resolution in dpi</span>
-<span class="n">SVG_DPI</span> <span class="o">=</span> <span class="s1">&#39;figure&#39;</span>
-
-<span class="k">def</span> <span class="nf">filter_all</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter all elements by key, value&quot;&quot;&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="p">[</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">,</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">]:</span>
-        <span class="n">r</span> <span class="o">+=</span> <span class="n">g</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">r</span>
-
-<span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">radius_plot</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
-    <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Radius Plot Service&#39;</span><span class="p">)</span>
-    <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">params</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-    <span class="n">radius</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">elementnames</span> <span class="o">=</span> <span class="p">[]</span>    
-    <span class="k">for</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">element</span> <span class="o">=</span> <span class="n">filter_all</span><span class="p">(</span><span class="s1">&#39;uuid_draft&#39;</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">elementnames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">radius</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;ude_diagram_radius&#39;</span><span class="p">])</span>
-    
-    <span class="c1"># create x/y plot</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">elementnames</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">SVG_PATH</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">SVG_PATH</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">SVG_DPI</span><span class="p">)</span>
-    
-    <span class="c1"># Create an empty file-like object</span>
-    <span class="n">svg_output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-    
-    <span class="c1"># Save the plot to the file-like object</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">svg_output</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">SVG_DPI</span><span class="p">)</span>
-    
-    <span class="c1"># Get the SVG string from the file-like object</span>
-    <span class="n">svg_string</span> <span class="o">=</span> <span class="n">svg_output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-    
-    <span class="c1"># Close the file-like object</span>
-    <span class="n">svg_output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">svg_string</span>
-    
-<span class="n">gom</span><span class="o">.</span><span class="n">run_api</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">Scripted elements</span></a></p></li>
-<li><p><a class="reference internal" href="../scripted_elements/tokens_on_scripted_elements.html"><span class="std std-doc">Tokens on scripted elements</span></a></p></li>
-<li><p><a class="reference internal" href="../using_services/using_services.html"><span class="std std-doc">Using services</span></a></p></li>
-</ul>
-</div>
-<p><img alt="New in Version 2025" src="https://img.shields.io/badge/New-Version_2025-orange" /></p>
-</section>
-</section>
-</section>
-<section id="id1">
-<h1>Using scripted diagrams<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<p><img alt="Scripted diagram" src="../../_images/scripted_diagrams.png" /></p>
-<blockquote>
-<div><p>Abstract: Scripted diagrams allow visualization of any kind of data available within ZEISS INSPECT in any diagram style provided by Python packages like <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> or user-defined code. Scripted diagrams are a complement to the ZEISS INSPECT built-in <a class="reference external" href="https://techguide.zeiss.com/en/zeiss-inspect-2023/article/general_view_diagram.html">diagrams</a>. They receive data from specific <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted elements</span></a> and provide an SVG (Scalable Vector Graphics) image which is displayed on the tab <strong>Inspection Details</strong> in the 3D view. Scripted diagrams have been introduced in ZEISS INSPECT 2025.</p>
-</div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Scripted diagrams are updated automatically if any contributing scripted element changes.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can use multiple scripted diagrams at the same time, which will be stacked vertically in the <strong>Inspection Details</strong> tab.</p>
-</div>
-<section id="id2">
-<h2>Prerequisites<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<p>The concept of scripted diagrams builds upon <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted elements</span></a> and <a class="reference internal" href="../using_services/using_services.html"><span class="std std-doc">services</span></a>. <a class="reference internal" href="../scripted_elements/tokens_on_scripted_elements.html"><span class="std std-doc">Tokens on scripted elements</span></a> are used to convey data to the diagram service.</p>
-</section>
-<section id="id3">
-<h2>Usage<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<section id="id4">
-<h3>1. Create or modify scripted elements to contribute data to a scripted diagram<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-<p>Any kind of <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted element</span></a> can provide data to a scripted diagram.</p>
-<p>In the scripted element’s <code class="docutils literal notranslate"><span class="pre">calculation()</span></code> function, apply <code class="docutils literal notranslate"><span class="pre">context.data[]</span></code> as in this example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;ude_diagram_custom&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># mandatory, fixed</span>
-    <span class="s2">&quot;ude_diagram_type&quot;</span><span class="p">:</span> <span class="s2">&quot;SVGDiagram&quot;</span><span class="p">,</span> <span class="c1"># mandatory, fixed</span>
-    <span class="s2">&quot;ude_diagram_service&quot;</span> <span class="p">:</span> <span class="s2">&quot;gom.api.diagram.radius_plot&quot;</span><span class="p">,</span> <span class="c1"># &lt;service_endpoint&gt;.&lt;service_function_name&gt;</span>
-    <span class="c1"># add any number/type of parameters for use in a diagram</span>
-    <span class="c1"># prefix must be ude_diagram_</span>
-    <span class="s2">&quot;ude_diagram_radius&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span> 
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>The dictionary elements <code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_custom&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_type&quot;</span></code> are currently fixed. Additional diagram types might be added later.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_service&quot;</span></code> maps the scripted element to a diagram service, which is defined in the App’s <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file.</p></li>
-<li><p>Any number and type of parameters to be passed to the diagram service can be added. The prefix <code class="docutils literal notranslate"><span class="pre">ude_diagram_</span></code> is mandatory.</p></li>
-</ul>
-</section>
-<section id="id5">
-<h3>2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code><a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<p>See <a href="../using_services/using_services.html#service-definition">Using services — Service definition</a></p>
-</section>
-<section id="id6">
-<h3>3. Create the diagram service function<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<ul class="simple">
-<li><p>The service script name must be the same as defined in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></p></li>
-<li><p>The service function name must be the same as set in the scripted elements’ <code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_service&quot;</span></code> parameter.</p></li>
-</ul>
-</div>
-<p>The following script serves as a minimum template for a scripted diagram service:</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
 <span class="kn">from</span> <span class="nn">gom</span> <span class="kn">import</span> <span class="n">apifunction</span>
 <span class="kn">import</span> <span class="nn">gom.api.extensions.diagrams.matplotlib_tools</span> <span class="k">as</span> <span class="nn">mpltools</span>
@@ -378,8 +207,8 @@
 </div>
 </div>
 <p>To export the diagram as SVG file (e.g. for debugging):</p>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Export diagram as SVG file</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Export diagram as SVG file</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set path for debugging</span>
 <span class="c1">#SVG_PATH = None</span>
 <span class="n">SVG_PATH</span> <span class="o">=</span> <span class="s1">&#39;C:/temp/ScriptedDiagram.svg&#39;</span>
@@ -442,7 +271,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f2137ad2200>
+  <jinja2.runtime.BlockReference object at 0x7fae4a642500>
 
 
 </footer>
