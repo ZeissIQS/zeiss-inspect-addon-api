@@ -307,7 +307,7 @@ If a relative path is given, like here, a resource inside the App is created / c
 </pre></div>
 </div>
 <p>Finally we use <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> to run our unit-under-test — the function <code class="docutils literal notranslate"><span class="pre">code_that_contains_dialogs()</span></code> — while applying our callback functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dialogs.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gom_test_helpers.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback1&#39;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback1</span><span class="p">):</span>
@@ -439,7 +439,7 @@ but will close itself by some other interaction, the callback should return <cod
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fae4a1199c0>
+  <jinja2.runtime.BlockReference object at 0x7f32c1b2a380>
 
 
 </footer>
