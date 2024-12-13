@@ -196,7 +196,7 @@ For automated testing, we provide a callback function for each test case coverin
 Finally we use `AutoDialogContext` to run our unit-under-test &mdash; the function `code_that_contains_dialogs()` &mdash; while applying our callback functions.
 
 ```{code-block} python
-from dialogs.dialogs.AutoDialogContext import AutoDialogContext
+from gom_test_helpers.dialogs.AutoDialogContext import AutoDialogContext
 
 print('Automatically executing the dialog with callback1')
 with AutoDialogContext(callback1):
