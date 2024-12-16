@@ -1931,6 +1931,29 @@ into <a class="reference internal" href="#executing-dialogs">Executing dialogs</
 </tr>
 </tbody>
 </table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Tolerances widget’s result data type depends on the input:</p>
+<ul class="simple">
+<li><p>Symmetric upper/lower tolerance values: A single floating point value is returned.</p></li>
+<li><p>Asymmetric upper/lower lolerance value or one-sided tolerance: A dictionary is returned.</p></li>
+</ul>
+<p class="rubric" id="examples">Examples</p>
+<ol class="arabic">
+<li><p>Symmetric Tolerances</p>
+<p><img alt="Symmetric tolerances" src="../../_images/tolerance-1.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">gom.dialog.DialogResult</span> <span class="pre">('tolerances':</span> <span class="pre">1.0)</span></code></p>
+</li>
+<li><p>Asymmetric Tolerances</p>
+<p><img alt="Asymmetric tolerances" src="../../_images/tolerance-2.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">gom.dialog.DialogResult</span> <span class="pre">('tolerances':</span> <span class="pre">{'lower':</span> <span class="pre">float</span> <span class="pre">('nan'),</span> <span class="pre">'tolerance_type':</span> <span class="pre">'one_sided_under',</span> <span class="pre">'upper':</span> <span class="pre">1.0})</span></code></p>
+</li>
+<li><p>One-sided Tolerance</p>
+<p><img alt="One-sided tolerance" src="../../_images/tolerance-3.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">gom.dialog.DialogResult</span> <span class="pre">('tolerances':</span> <span class="pre">{'lower':</span> <span class="pre">-1.0,</span> <span class="pre">'tolerance_type':</span> <span class="pre">'two_sided_center',</span> <span class="pre">'upper':</span> <span class="pre">1.1})</span></code></p>
+</li>
+</ol>
+</div>
 </section>
 <section id="file-system-browser-widget">
 <h4>File system browser widget<a class="headerlink" href="#file-system-browser-widget" title="Link to this heading"></a></h4>
@@ -2631,7 +2654,7 @@ about its attributes:</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f01215328f0>
+  <jinja2.runtime.BlockReference object at 0x7fcfff04bbb0>
 
 
 </footer>

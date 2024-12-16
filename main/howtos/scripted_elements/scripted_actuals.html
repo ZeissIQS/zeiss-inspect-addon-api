@@ -129,14 +129,14 @@
              
   <section id="scripted-actuals">
 <h1>Scripted actuals<a class="headerlink" href="#scripted-actuals" title="Link to this heading"></a></h1>
-<p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
+<p><img alt="Scripted actual point in Explorer" src="../../_images/scripted_actual_explorer.png" /></p>
 <p>Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the “Actual Element” category of the ZEISS INSPECT Element Explorer.</p>
 <p>In this how-to, the creation of a very basic point element is presented to show how scripted actuals are developed by example.</p>
 <section id="example-simple-offset-point">
 <h2>Example: Simple offset point<a class="headerlink" href="#example-simple-offset-point" title="Link to this heading"></a></h2>
 <p>Assume we want to create a scripted point. A point, whose position is just offset by a couple of millimeters from another point. Though the use of such element is clearly limited, it serves as an easy example on the general approach.</p>
 <p>As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose “Actual element” -&gt; “Point”.</p>
-<p><img alt="" src="../../_images/offset_point_creation_type.jpg" /></p>
+<p><img alt="Scripted element type selection" src="../../_images/offset_point_creation_type.png" /></p>
 <p>Then, we write the code, which needs a <code class="docutils literal notranslate"><span class="pre">dialog</span></code> and a <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function. Let’s begin with the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function.</p>
 <section id="dialog">
 <h3><code class="docutils literal notranslate"><span class="pre">dialog</span></code><a class="headerlink" href="#dialog" title="Link to this heading"></a></h3>
@@ -164,7 +164,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Decimal</span></code>: a decimal widget for the offset input</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">-&gt;</span> <span class="pre">Selection</span> <span class="pre">element</span></code>: an element widget to select a point-like element</p></li>
 </ul>
-<p><img alt="" src="../../_images/offset_point_dialog.jpg" /></p>
+<p><img alt="Offset point dialog (editor)" src="../../_images/offset_point_dialog.png" /></p>
 <p>It’s important to note the widgets’ <em>Object name</em>s, so we can adress them in the code. Second, it’s important to set the “Type” of the selection element widget to <code class="docutils literal notranslate"><span class="pre">Any</span> <span class="pre">point</span></code>, so the user gets only the choice between elements that offer some point information.</p>
 <p>When finished with dialog creation, we have our desired JSON code, which we can use as a parameter for the <code class="docutils literal notranslate"><span class="pre">gom.script.sys.create_user_defined_dialog</span></code> command (line 3). This gives as a <code class="docutils literal notranslate"><span class="pre">DIALOG</span></code> handle, which we will use further.</p>
 <p>In case the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function is called from “Edit creation parameters”, e.g the user wants to change parameters after the element was already created, the <code class="docutils literal notranslate"><span class="pre">params</span></code> map is not empty. Instead, it holds the <em>command parameters</em> from the last creation. Hence, we should prefill our DIALOG’s widgets with the current values (see line 5 to 8). We can access the values of the widgets using the dialog handle and widgets’ object names: <code class="docutils literal notranslate"><span class="pre">DIALOG.&lt;widget</span> <span class="pre">name&gt;.value</span></code>.</p>
@@ -191,9 +191,9 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
 <section id="running-the-example">
 <h3>Running the example<a class="headerlink" href="#running-the-example" title="Link to this heading"></a></h3>
 <p>That’s it! When we now run the example, the dialog appears, we can select base point and offset value.</p>
-<p><img alt="" src="../../_images/offset_point_user_dialog.jpg" /></p>
+<p><img alt="Scripted point creation dialog" src="../../_images/offset_point_user_dialog.png" /></p>
 <p>After clicking “OK”, a “My scripted point” element is created and visible in the explorer.</p>
-<p><img alt="" src="../../_images/scripted_actual_explorer.jpg" /></p>
+<p><img alt="" src="../../_images/scripted_actual_explorer.png" /></p>
 </section>
 </section>
 <section id="further-reading">
@@ -236,7 +236,7 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f01222ef9d0>
+  <jinja2.runtime.BlockReference object at 0x7fcfff070e80>
 
 
 </footer>

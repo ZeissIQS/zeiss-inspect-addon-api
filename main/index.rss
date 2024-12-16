@@ -4,8 +4,30 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/</link>
     <description></description>
-    <lastBuildDate>Mon, 02 Dec 2024 08:14:16 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2024 16:17:35 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Services</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20241211-services.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;&lt;img alt="Manage services dialog" src="../_images/manage_services_dialog_small.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In ZEISS INSPECT 2025, services have been introduced. A ZEISS INSPECT service is a Python script running continuously in the background, which exposes API functions to other scripts. Services can be distributed via Apps and can be used as computation kernels or callback targets. See &lt;a href="../howtos/using_services/using_services.html"&gt;Using services&lt;/a&gt; and &lt;a href="../python_api/python_api.html#gom-api-services"&gt;Service API&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20241211-services.html</guid>
+      <pubDate>Thu, 12 Dec 2024 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Testing Apps with dialogs</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20241205-autodialogcontext.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Did you know that you can test Apps with &lt;a href="../howtos/python_api_introduction/user_defined_dialogs.html"&gt;User-defined Dialogs&lt;/a&gt; non-interactively?&lt;/p&gt;
+&lt;p&gt;See &lt;a href="../howtos/testing_apps/testing_apps.html#testing-apps-with-dialogs"&gt;How-to: Testing Apps — Testing Apps with Dialogs&lt;/a&gt; for a detailed explanation.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20241205-autodialogcontext.html</guid>
+      <pubDate>Thu, 05 Dec 2024 12:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Inserting a file selection dialog into a script</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20241028-insert-file.html</link>
