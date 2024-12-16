@@ -20,7 +20,7 @@ The concept of scripted diagrams builds upon [scripted elements](../scripted_ele
 
 ![Scripted diagrams relations](assets/scripted_diagrams_relations.png)
 
-Each diagram service combines data from multiple elements to create a single scripted diagram.
+Each diagram service combines data from one or more scripted elements to create a single scripted diagram.
 
 ## Usage
 
