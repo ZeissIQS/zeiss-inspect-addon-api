@@ -66,7 +66,7 @@ Create an SVG diagram based on scripted elements' context data
 :param dict view: ZEISS INSPECT 'Inspection Details' canvas properties
                   - 'width': (int) Canvas width in pixels 
                   - 'height': (int) Canvas height in pixels
-                  - 'dpi': (float) Canvas dpi
+                  - 'dpi': (float) Canvas resolution in dpi
                   - 'font': (int) Default font size in pt
 :param list[dict] element_data: List of scripted element references and context data 
                                 - 'element': (object) Element reference
