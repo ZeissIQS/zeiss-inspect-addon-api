@@ -95,7 +95,7 @@ def diagram_service_template(view, element_data)->str:
     mpltools.setup_plot(plt, view)
 
     for e in element_data:
-        # Read the the current element reference 
+        # Read element reference 
         element = e['element']
         
         # Read scripted element's context data
