@@ -18,7 +18,7 @@ You can use multiple scripted diagrams at the same time, which will be stacked v
 
 The concept of scripted diagrams builds upon [scripted elements](../scripted_elements/scripted_elements_introduction.md) and [services](../using_services/using_services.md). [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements.md) are used to convey data to the diagram service.
 
-![Scripted diagrams relations](assets/scripted_digrams_relations.png)
+![Scripted diagrams relations](assets/scripted_diagrams_relations.png)
 
 The diagram service combines data from multiple elements to create a scripted diagram.
 
@@ -57,6 +57,8 @@ See <a href="../using_services/using_services.html#service-definition">Using ser
 ```
 
 #### Diagram service function description
+
+The scripted diagram's service function implementation must adhere to the following interface description:
 
 ```{py:function} <function name>(view, element_data): str
 
