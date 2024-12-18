@@ -198,7 +198,7 @@
 <li><p>’font’: (int) Default font size in pt</p></li>
 </ul>
 </p></li>
-<li><p><strong>element_data</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – <p>List of scripted element references and context data</p>
+<li><p><strong>element_data</strong> (<em>list</em><em>[</em><em>dict1</em><em>, </em><em>dict2</em><em>, </em><em>…</em><em>, </em><em>dictN</em><em>]</em>) – <p>List of dictionaries containing scripted element references and context data</p>
 <ul>
 <li><p>’element’: (object) Element reference</p></li>
 <li><p>’data’: (dict) Context data of the scripted element</p></li>
@@ -243,7 +243,7 @@
 
         <span class="c1"># Create your diagram</span>
         <span class="c1"># Example: </span>
-        <span class="c1"># plt.plot ([element.name], [data[&#39;ude_diagram_radius&#39;]], &#39;bx&#39;)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ude_diagram_radius&#39;</span><span class="p">]],</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">mpltools</span><span class="o">.</span><span class="n">create_svg</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
 
@@ -317,7 +317,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f6be89b5bd0>
+  <jinja2.runtime.BlockReference object at 0x7f7ee5315510>
 
 
 </footer>

@@ -68,7 +68,7 @@ Create an SVG diagram based on scripted elements' context data
                   - 'height': (int) Canvas height in pixels
                   - 'dpi': (float) Canvas resolution in dpi
                   - 'font': (int) Default font size in pt
-:param list[dict] element_data: List of scripted element references and context data 
+:param list[dict1, dict2, ..., dictN] element_data: List of dictionaries containing scripted element references and context data 
                                 - 'element': (object) Element reference
                                 - 'data': (dict) Context data of the scripted element
                                 - 'type': (str) Element type (always 'SVGDiagram')
@@ -103,7 +103,7 @@ def diagram_service_template(view, element_data)->str:
 
         # Create your diagram
         # Example: 
-        # plt.plot ([element.name], [data['ude_diagram_radius']], 'bx')
+        plt.plot ([element.name], [data['ude_diagram_radius']], 'bx')
     
     return mpltools.create_svg(plt, view)
 
