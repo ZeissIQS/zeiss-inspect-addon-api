@@ -72,7 +72,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-or-modify-scripted-elements-to-contribute-data-to-a-scripted-diagram">1. Create or modify scripted elements to contribute data to a scripted diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#define-the-diagram-service-in-metainfo-json">2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#diagram-service-function-description">Diagram service function description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template">Template</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error handling</a></li>
@@ -138,6 +142,8 @@
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>The concept of scripted diagrams builds upon <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted elements</span></a> and <a class="reference internal" href="../using_services/using_services.html"><span class="std std-doc">services</span></a>. <a class="reference internal" href="../scripted_elements/tokens_on_scripted_elements.html"><span class="std std-doc">Tokens on scripted elements</span></a> are used to convey data to the diagram service.</p>
+<p><img alt="Scripted diagrams relations" src="../../_images/scripted_diagrams_relations.png" /></p>
+<p>Each diagram service combines data from one or more scripted elements to create a single scripted diagram.</p>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
@@ -174,6 +180,45 @@
 <li><p>The service function name must be the same as set in the scripted elements’ <code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_service&quot;</span></code> parameter.</p></li>
 </ul>
 </div>
+<section id="diagram-service-function-description">
+<h4>Diagram service function description<a class="headerlink" href="#diagram-service-function-description" title="Link to this heading"></a></h4>
+<p>The scripted diagram’s service function implementation must adhere to the following interface description:</p>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&lt;function</span> <span class="pre">name&gt;(view,</span> <span class="pre">element_data):</span> <span class="pre">str</span></span></dt>
+<dd><p>Create an SVG diagram based on scripted elements’ context data</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>view</strong> (<em>dict</em>) – <p>ZEISS INSPECT ‘Inspection Details’ canvas properties</p>
+<ul>
+<li><p>’width’: (int) Canvas width in pixels</p></li>
+<li><p>’height’: (int) Canvas height in pixels</p></li>
+<li><p>’dpi’: (float) Canvas resolution in dpi</p></li>
+<li><p>’font’: (int) Default font size in pt</p></li>
+</ul>
+</p></li>
+<li><p><strong>element_data</strong> (<em>list</em><em>[</em><em>dict1</em><em>, </em><em>dict2</em><em>, </em><em>…</em><em>, </em><em>dictN</em><em>]</em>) – <p>List of dictionaries containing scripted element references and context data</p>
+<ul>
+<li><p>’element’: (object) Element reference</p></li>
+<li><p>’data’: (dict) Context data of the scripted element</p></li>
+<li><p>’type’: (str) Element type (always ‘SVGDiagram’)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SVG diagram</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="template">
+<h4>Template<a class="headerlink" href="#template" title="Link to this heading"></a></h4>
 <p>The following script serves as a minimum template for a scripted diagram service:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
@@ -190,15 +235,15 @@
     <span class="n">mpltools</span><span class="o">.</span><span class="n">setup_plot</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">element_data</span><span class="p">:</span>
-        <span class="c1"># Read the the current element </span>
+        <span class="c1"># Read element reference </span>
         <span class="n">element</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;element&#39;</span><span class="p">]</span>
         
-        <span class="c1"># Read all parameters received from mapped scripted element</span>
+        <span class="c1"># Read scripted element&#39;s context data</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 
         <span class="c1"># Create your diagram</span>
         <span class="c1"># Example: </span>
-        <span class="c1"># plt.plot ([element.name], [data[&#39;ude_diagram_radius&#39;]], &#39;bx&#39;)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ude_diagram_radius&#39;</span><span class="p">]],</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">mpltools</span><span class="o">.</span><span class="n">create_svg</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
 
@@ -229,6 +274,7 @@
 </pre></div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="error-handling">
@@ -271,7 +317,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f2e8b5e1a50>
+  <jinja2.runtime.BlockReference object at 0x7f74217acd00>
 
 
 </footer>
