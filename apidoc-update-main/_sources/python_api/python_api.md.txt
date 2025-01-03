@@ -1238,7 +1238,7 @@ Return the list of all running and not running services
 :rtype: [gom.api.services.Service]
 ```
 
-This function returns the list of registered services
+This function returns the listof registered services
 
 **Example:**
 
