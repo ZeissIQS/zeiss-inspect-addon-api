@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Software and script starting options &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -257,7 +257,7 @@
 <p>ZEISS INSPECT comes with its own Python interpreter (<code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\2023\python</span></code>) for executing scripts. You can use this Python installation - or an external Python installation - to start ZEISS INSPECT.</p>
 <p><img alt="ZEISS INSPECT Python file" src="../../_images/ZEISS_INSPECT_python.png" /></p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">ZEISS_INSPECT_myscript.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
 <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;C:/Program Files/Zeiss/INSPECT/2023/bin/ZEISS_INSPECT.exe&quot;</span><span class="p">,</span> <span class="s2">&quot;-eval&quot;</span><span class="p">,</span> <span class="s2">&quot;gom.script.userscript.myscript(parameters={&#39;variable_1&#39;:&#39;value_1&#39;,&#39;variable_2&#39;:&#39;value_2&#39;})&quot;</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -295,7 +295,7 @@
 
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">App Script</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
 
 <span class="n">FILE</span> <span class="o">=</span> <span class="s2">&quot;C:/temp/testscript.py&quot;</span>
 
@@ -322,7 +322,7 @@
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">External Python Script (testscript.py)</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;sys.argv: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -385,7 +385,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f32c204bdf0>
+  <jinja2.runtime.BlockReference object at 0x7f3fff349030>
 
 
 </footer>

@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating wizard dialogs &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -177,7 +177,7 @@
 <span class="c1">#</span>
 <span class="c1"># handler function for step transition</span>
 <span class="c1">#</span>
-<span class="k">def</span> <span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">count</span>
  
     <span class="c1"># save input to dummy dialog:</span>
@@ -242,7 +242,7 @@ First of all we have to define appropriate dialogs:</p>
 <span class="n">current_step</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">new_step</span> <span class="o">=</span> <span class="mi">0</span>
  
-<span class="k">def</span> <span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">current_step</span><span class="p">,</span> <span class="n">new_step</span>
     <span class="k">global</span> <span class="n">current_dialog</span>
  
@@ -282,7 +282,7 @@ First of all we have to define appropriate dialogs:</p>
 
 <span class="c1"># Script: SingleLayoutWizard.py</span>
  
-<span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
  
 <span class="c1">#</span>
 <span class="c1"># create main wizard dialog:</span>
@@ -310,7 +310,7 @@ First of all we have to define appropriate dialogs:</p>
 <span class="c1">#</span>
 <span class="c1"># Registered handler function</span>
 <span class="c1">#</span>
-<span class="k">def</span> <span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">count</span>
  
     <span class="c1"># save input to dummy dialog:</span>
@@ -361,7 +361,7 @@ First of all we have to define appropriate dialogs:</p>
 
 <span class="c1"># Script: MultiLayoutWizard</span>
  
-<span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
  
 <span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="n">Boring</span> <span class="n">dialog</span> <span class="n">definition</span><span class="o">...</span><span class="p">})</span>
 
@@ -376,7 +376,7 @@ First of all we have to define appropriate dialogs:</p>
 <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="n">DIALOG</span><span class="p">,</span> <span class="n">STEP_2</span><span class="p">,</span> <span class="n">STEP_3</span><span class="p">,</span> <span class="n">STEP_4</span><span class="p">]</span>
 <span class="n">inputStrings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handler_func</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">current_step</span><span class="p">,</span> <span class="n">new_step</span>
     <span class="k">global</span> <span class="n">current_dialog</span>
  
@@ -436,7 +436,7 @@ First of all we have to define appropriate dialogs:</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f32c1b48dc0>
+  <jinja2.runtime.BlockReference object at 0x7f3ffecad1b0>
 
 
 </footer>

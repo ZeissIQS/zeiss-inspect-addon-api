@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing Apps &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -170,14 +170,14 @@
 (Example: <code class="docutils literal notranslate"><span class="pre">PythonApiExamples/tests/test_data_interfaces_check_results</span></code>)</p></li>
 <li><p>Import the module or package to be tested: Import the module or package that you want to test.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 </pre></div>
 </div>
 <p>For this to work properly, the code that you want to test needs to be structured in functions as well. In this case, the functions <code class="docutils literal notranslate"><span class="pre">get_single_result_value()</span></code> of the <code class="docutils literal notranslate"><span class="pre">check_results_data_arrray</span></code> script is imported.
 For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-ref">How the examples are structured</span></a>.</p>
 </li>
 <li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior. For simple checks for expected values, use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement like shown below. For more complex test data (like arrays or Element properties), see <a class="reference internal" href="#working-with-test-data">Working with test data</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_check_results</span> <span class="p">():</span>
   <span class="c1"># Setup test project</span>
   <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;zeiss_part_test_project&#39;</span><span class="p">)</span>
   <span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span>
@@ -227,13 +227,13 @@ To use this feature, navigate to the “Testing” workspace of VSCode and selec
 <h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Link to this heading"></a></h2>
 <p>In the namespace <code class="docutils literal notranslate"><span class="pre">addon</span></code>, there are two new classes: <code class="docutils literal notranslate"><span class="pre">addon.ArrayDataTest</span></code> and <code class="docutils literal notranslate"><span class="pre">addon.ElementTest</span></code>.</p>
 <p>These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by <code class="docutils literal notranslate"><span class="pre">test_data_interfaces_volume_section.py</span></code> of the Python API Examples App.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addon</span> <span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
-<span class="kn">from</span> <span class="nn">PythonApiExamples.setup_project</span> <span class="kn">import</span> <span class="n">open_project</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">addon</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PythonApiExamples.setup_project</span><span class="w"> </span><span class="kn">import</span> <span class="n">open_project</span>
 
 <span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 
-<span class="k">def</span> <span class="nf">test_volume_section</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_volume_section</span><span class="p">():</span>
 	<span class="c1"># Setup test project</span>
 	<span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;volume_test_project&#39;</span><span class="p">)</span>
 	<span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane X +40.00 mm&#39;</span><span class="p">]</span>
@@ -266,10 +266,10 @@ If a relative path is given, like here, a resource inside the App is created / c
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <p><img alt="Example dialog" src="../../_images/that_dialog.png" /></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
    <span class="n">dialog</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;dialog.gdlg&#39;</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
       <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="s1">&#39;initialize&#39;</span><span class="p">:</span>
          <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been initialized.&#39;</span><span class="p">)</span>
       <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">:</span>
@@ -290,24 +290,24 @@ If a relative path is given, like here, a resource inside the App is created / c
 </pre></div>
 </div>
 <p>For automated testing, we provide a callback function for each test case covering this dialog. We can set input values, trigger the dialog handler with a specified event and emulate the dialog’s <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#control-widget"><span class="std std-ref">control widgets</span></a> (i.e. ‘Ok’ or ‘Cancel’ button). Note that each callback function evaluates the <code class="docutils literal notranslate"><span class="pre">dialog.title</span></code>. This allows to set up a function which can handle multiple dialogs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext1&#39;</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext2&#39;</span>
             <span class="k">return</span> <span class="s1">&#39;close&#39;</span>
 
-    <span class="k">def</span> <span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext3&#39;</span>
             <span class="k">return</span> <span class="s1">&#39;cancel&#39;</span>
 </pre></div>
 </div>
 <p>Finally we use <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> to run our unit-under-test — the function <code class="docutils literal notranslate"><span class="pre">code_that_contains_dialogs()</span></code> — while applying our callback functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gom_test_helpers.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gom_test_helpers.dialogs.AutoDialogContext</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoDialogContext</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback1&#39;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback1</span><span class="p">):</span>
@@ -439,7 +439,7 @@ but will close itself by some other interaction, the callback should return <cod
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f32c1b2a380>
+  <jinja2.runtime.BlockReference object at 0x7f3fff4eb550>
 
 
 </footer>

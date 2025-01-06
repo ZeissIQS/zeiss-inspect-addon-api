@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scripted actuals &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -140,7 +140,7 @@
 <p>Then, we write the code, which needs a <code class="docutils literal notranslate"><span class="pre">dialog</span></code> and a <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function. Let’s begin with the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function.</p>
 <section id="dialog">
 <h3><code class="docutils literal notranslate"><span class="pre">dialog</span></code><a class="headerlink" href="#dialog" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span>	<span class="n">DIALOG</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">dialog</span><span class="o">=</span><span class="p">{</span> <span class="o">&lt;</span><span class="n">Dialog</span> <span class="n">JSON</span> <span class="n">code</span><span class="o">&gt;</span><span class="p">})</span>
 <span class="linenos"> 4</span>
@@ -174,7 +174,7 @@
 <h3><code class="docutils literal notranslate"><span class="pre">calculation</span></code><a class="headerlink" href="#calculation" title="Link to this heading"></a></h3>
 <p>In most applications, the tricky part probably comes now, where you could solve complex mathematical problems to compute your final element values as necessary.
 However, in this example, things are easy.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span>  <span class="n">base</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span>
 <span class="linenos">4</span>  <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">base</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
@@ -236,7 +236,7 @@ The result for stage <code class="docutils literal notranslate"><span class="pre
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f32c1f48ee0>
+  <jinja2.runtime.BlockReference object at 0x7f3fff4eb040>
 
 
 </footer>

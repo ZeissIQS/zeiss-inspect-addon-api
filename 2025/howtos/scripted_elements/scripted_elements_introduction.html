@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction to scripted elements &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -170,15 +170,15 @@ Each element type requires the script to provide for certain values of specific 
 <h3>Code structure<a class="headerlink" href="#code-structure" title="Link to this heading"></a></h3>
 <p>The script must contain two special functions as entry points for the gom application. One is responsible for creating a user interface, the other one for computing the element data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">import</span> <span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
 
-<span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
   <span class="c1"># [...]</span>
   <span class="c1"># show dialog, fill param map, ...</span>
   <span class="c1"># [...]</span>
   <span class="k">return</span> <span class="n">params</span>
   
-<span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
   <span class="c1"># [...]</span>
   <span class="c1"># read params, perform calculation, set results</span>
   <span class="c1"># [...]</span>
@@ -232,7 +232,7 @@ This approach is called <em>parametric element creation</em>.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f32c1bd79d0>
+  <jinja2.runtime.BlockReference object at 0x7f3fff8b7430>
 
 
 </footer>
