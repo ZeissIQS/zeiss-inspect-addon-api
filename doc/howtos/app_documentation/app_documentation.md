@@ -77,3 +77,27 @@ See [Documentation](Documentation.pdf) for detailed description.
 ## Converting Markdown files to PDF
 
 The [Visual Studio Code](https://code.visualstudio.com/) extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) allows to convert a Markdown file to PDF.
+
+## Link to external documentation
+
+![New in Version 2025](https://img.shields.io/badge/New-Version_2025-orange)
+
+You can create a link to a website providing App documentation by adding a JSON object `"documentation": "<url>"` to the App's `metainfo.json` file:
+
+```{code-block}
+:caption: Example documentation link in `metainfo.json`
+
+{
+    ...
+    "documentation": "https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/index.html",
+    ...
+}
+```
+
+If a documentation link is defined in an App, each dialog window will provide a help button in its title bar.
+
+![App dialog window with help button](assets/dialog_help_button.png)
+
+When the help button is clicked, the user must confirm that the linked documentation pages is openened in the system's web browser.
+
+![Open documentation page confirmation dialog](assets/open_documentation_confirmation.png)
