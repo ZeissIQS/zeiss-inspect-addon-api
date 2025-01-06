@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using scripted diagrams &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -222,12 +222,12 @@
 <p>The following script serves as a minimum template for a scripted diagram service:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
-<span class="kn">from</span> <span class="nn">gom</span> <span class="kn">import</span> <span class="n">apifunction</span>
-<span class="kn">import</span> <span class="nn">gom.api.extensions.diagrams.matplotlib_tools</span> <span class="k">as</span> <span class="nn">mpltools</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gom</span><span class="w"> </span><span class="kn">import</span> <span class="n">apifunction</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom.api.extensions.diagrams.matplotlib_tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpltools</span>
 
 <span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
     <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Diagram Service Template&#39;</span><span class="p">)</span>
     <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">view</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">element_data</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
     
@@ -259,7 +259,7 @@
 <span class="n">SVG_PATH</span> <span class="o">=</span> <span class="s1">&#39;C:/temp/ScriptedDiagram.svg&#39;</span>
 
 <span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
     <span class="c1"># ...</span>
 
     <span class="n">svg</span> <span class="o">=</span> <span class="n">mpltools</span><span class="o">.</span><span class="n">create_svg</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
@@ -317,7 +317,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3e1f071db0>
+  <jinja2.runtime.BlockReference object at 0x7f20f6773fa0>
 
 
 </footer>

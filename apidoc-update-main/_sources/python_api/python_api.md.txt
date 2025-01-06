@@ -12,6 +12,10 @@ myst:
 
 Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
 
+```{note}
+The module importing behavior changed with ZEISS INSPECT 2025. Previously, the API modules could be used without proper `import` statements due to their internal handling. Beginning with ZEISS INSPECT 2025, each module is a full featured native Python module and
+must be properly imported before use!
+```
 ## gom.api.addons
 
 API for accessing the add-ons currently installed in the running software instance
@@ -89,7 +93,7 @@ the standard file tools instead.
 
 ```
 for addon in gom.api.addons.get_installed_addons():
-  # Edit add-ons are file system based and must be accessed via file system functions
+  # Edited add-ons are file system based and must be accessed via file system functions
   if addon.is_edited():
     for root, dirs, files in os.walk(addon.get_file ()):
       for file in files:
@@ -1086,9 +1090,12 @@ Checks if the referenced element is suitable for inspection with a curve check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a curve
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a curve in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ### gom.api.scripted_checks_util.is_scalar_checkable
 
@@ -1098,9 +1105,12 @@ Checks if the referenced element is suitable for inspection with a scalar check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a scalar value
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a scalar value in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ### gom.api.scripted_checks_util.is_surface_checkable
 
@@ -1110,9 +1120,12 @@ Checks if the referenced element is suitable for inspection with a surface check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a surface
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a surface in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ## gom.api.services
 

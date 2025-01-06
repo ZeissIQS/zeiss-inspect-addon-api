@@ -9,7 +9,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZEISS INSPECT App Python API documentation &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -266,6 +266,11 @@
   <section id="zeiss-inspect-app-python-api-documentation">
 <h1>ZEISS INSPECT App Python API documentation<a class="headerlink" href="#zeiss-inspect-app-python-api-documentation" title="Link to this heading"></a></h1>
 <p>Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The module importing behavior changed with ZEISS INSPECT 2025. Previously, the API modules could be used without proper <code class="docutils literal notranslate"><span class="pre">import</span></code> statements due to their internal handling. Beginning with ZEISS INSPECT 2025, each module is a full featured native Python module and
+must be properly imported before use!</p>
+</div>
 <section id="gom-api-addons">
 <h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Link to this heading"></a></h2>
 <p>API for accessing the add-ons currently installed in the running software instance</p>
@@ -374,7 +379,7 @@ the standard file tools instead.</p>
 <section id="example">
 <h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">addon</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span><span class="p">():</span>
-  <span class="c1"># Edit add-ons are file system based and must be accessed via file system functions</span>
+  <span class="c1"># Edited add-ons are file system based and must be accessed via file system functions</span>
   <span class="k">if</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_edited</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_file</span> <span class="p">()):</span>
       <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -585,8 +590,8 @@ copied, as far as possible)</p>
 <p>This function reads the content of a file from the add-on. If the add-on is protected,
 the file can still be read but will be AES encrypted.</p>
 <p><strong>Example:</strong> Print all add-on ‘metainfo.json’ files</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span> <span class="p">():</span>
   <span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span> <span class="p">(</span><span class="s1">&#39;metainfo.json&#39;</span><span class="p">))</span>
@@ -1402,7 +1407,7 @@ testing purposes.</p>
 <p>This class is meant to be used with the Python ‘with’ statement</p>
 <section id="id1">
 <h4>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom.api.progress</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom.api.progress</span>
 
 <span class="k">with</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">()</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
     <span class="n">bar</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s1">&#39;Calculation in progress&#39;</span><span class="p">)</span>
@@ -1846,12 +1851,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a curve</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a curve in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 <section id="gom-api-scripted-checks-util-is-scalar-checkable">
 <h3>gom.api.scripted_checks_util.is_scalar_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-scalar-checkable" title="Link to this heading"></a></h3>
@@ -1866,12 +1876,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a scalar value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a scalar value in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 <section id="gom-api-scripted-checks-util-is-surface-checkable">
 <h3>gom.api.scripted_checks_util.is_surface_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-surface-checkable" title="Link to this heading"></a></h3>
@@ -1886,12 +1901,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a surface</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a surface in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 </section>
 <section id="gom-api-services">
@@ -2403,7 +2423,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3e1e6432e0>
+  <jinja2.runtime.BlockReference object at 0x7f20f6770460>
 
 
 </footer>
