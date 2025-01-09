@@ -318,6 +318,33 @@ for a in gom.api.addons.get_installed_addons ():
   print (a.get_id (), a.get_name ())
 ```
 
+## gom.api.dialog
+
+API for handling dialogs
+
+This API is used to create and execute script based dialogs. The dialogs are defined in a
+JSON based description format and can be executed server side in the native UI style.
+
+### gom.api.dialog.execute
+
+```{py:function} gom.api.dialog.execute(context: Any, data: str): Any
+
+Create and execute a modal dialog
+:param context: Script execution context
+:type context: Any
+:param url: URL of the dialog definition (*.gdlg file)
+:return: Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.
+:rtype: Any
+```
+
+This function creates and executes a dialog. The dialog is passed in an abstract JSON
+description and will be executed modal. The script will pause until the dialog is either
+confirmed or cancelled.
+
+This function is part of the scripted contribution framework. It can be used in the scripts
+'dialog' functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.
+
 ## gom.api.imaging
 
 Image point/pixel related functions

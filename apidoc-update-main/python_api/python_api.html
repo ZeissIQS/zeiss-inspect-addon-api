@@ -109,6 +109,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-addons">gom.api.addons.get_installed_addons</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-dialog">gom.api.dialog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-dialog-execute">gom.api.dialog.execute</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-imaging">gom.api.imaging</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-acquisition">gom.api.imaging.Acquisition</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-imaging-acquisition-get-angle">gom.api.imaging.Acquisition.get_angle</a></li>
@@ -714,6 +718,41 @@ installed in the running instance.</p>
   <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_id</span> <span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="gom-api-dialog">
+<h2>gom.api.dialog<a class="headerlink" href="#gom-api-dialog" title="Link to this heading"></a></h2>
+<p>API for handling dialogs</p>
+<p>This API is used to create and execute script based dialogs. The dialogs are defined in a
+JSON based description format and can be executed server side in the native UI style.</p>
+<section id="gom-api-dialog-execute">
+<h3>gom.api.dialog.execute<a class="headerlink" href="#gom-api-dialog-execute" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.dialog.execute(context:</span> <span class="pre">Any,</span> <span class="pre">data:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Create and execute a modal dialog</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<em>Any</em>) – Script execution context</p></li>
+<li><p><strong>url</strong> – URL of the dialog definition (*.gdlg file)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function creates and executes a dialog. The dialog is passed in an abstract JSON
+description and will be executed modal. The script will pause until the dialog is either
+confirmed or cancelled.</p>
+<p>This function is part of the scripted contribution framework. It can be used in the scripts
+‘dialog’ functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.</p>
 </section>
 </section>
 <section id="gom-api-imaging">
@@ -2423,7 +2462,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f00bfd55240>
+  <jinja2.runtime.BlockReference object at 0x7f4327b59420>
 
 
 </footer>
