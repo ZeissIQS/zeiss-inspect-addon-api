@@ -35,8 +35,12 @@ DIALOG=gom.script.sys.create_user_defined_dialog (dialog={
 
 Texts in scripts have to be tagged as translatable via using the `tr ()`  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.
 
-    print (tr ('This text will be translated'))
+``` Python
+import gom
+from gom import tr
 
+print (tr ('This text will be translated'))
+```
 
 ## Translating scripts
 
