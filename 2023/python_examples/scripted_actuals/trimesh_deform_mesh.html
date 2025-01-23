@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>trimesh_deform_mesh &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -148,7 +148,7 @@
 <p>In the script, a filter function is implemented to populate the “Element selection” widget only with elements of a certain type. To this end, the widget’s type property is first set to “User-defined script function”.</p>
 <p><img alt="" src="../../_images/trimesh_deform_mesh_dialog.jpg" /></p>
 <p>Then, in the script, the filter property is set to the following function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">element_filter</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>	
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">element_filter</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>	
     <span class="k">try</span><span class="p">:</span>
       <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="s1">&#39;cad_body&#39;</span><span class="p">]:</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -216,7 +216,7 @@ To deform the mesh, we then apply some noise to the data using <a class="referen
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd40f1cc0>
+  <jinja2.runtime.BlockReference object at 0x7f24c1bc4d00>
 
 
 </footer>

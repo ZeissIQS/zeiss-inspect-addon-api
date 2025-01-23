@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>dialog_reopen_example &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -141,7 +141,7 @@
 </div>
 <p>The example dialog contains a button to close/reopen the dialog (see top image). One of the few use cases could be, that you need to adapt the <code class="docutils literal notranslate"><span class="pre">filter</span></code> property of an <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">element</span></code> widget after some dialog interaction, which can only be done when the dialog is closed.</p>
 <p>To achieve this, the dialog event handler is used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
   <span class="k">global</span> <span class="n">reopen</span>
   <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;initialize&quot;</span><span class="p">:</span>
     <span class="n">reopen</span> <span class="o">=</span> <span class="kc">False</span>
@@ -186,7 +186,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd44b7a30>
+  <jinja2.runtime.BlockReference object at 0x7f24c25b6440>
 
 
 </footer>

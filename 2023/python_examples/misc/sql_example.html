@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sql_example &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -177,7 +177,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <ol class="arabic simple">
 <li><p>A connection is established without specifying a database</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_database</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_database</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
   <span class="k">try</span><span class="p">:</span>
 	  <span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
       <span class="n">host</span><span class="o">=</span><span class="n">host_name</span><span class="p">,</span>
@@ -280,7 +280,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
 <section id="connecting-the-database">
 <h4>Connecting the database<a class="headerlink" href="#connecting-the-database" title="Link to this heading"></a></h4>
 <p>The function <code class="docutils literal notranslate"><span class="pre">create_server_connection()</span></code> creates a connection to the server and selects the database by calling <a class="reference external" href="https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-connect.html">MySQLConnection.connect()</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_server_connection</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_server_connection</span><span class="p">(</span><span class="n">host_name</span><span class="p">,</span> <span class="n">user_name</span><span class="p">,</span> <span class="n">user_password</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
   <span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="k">try</span><span class="p">:</span>
@@ -309,7 +309,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
 </pre></div>
 </div>
 <p>With:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">execute_query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
   <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="k">try</span><span class="p">:</span>
@@ -347,7 +347,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
 </pre></div>
 </div>
 <p>Both transactions use the function <code class="docutils literal notranslate"><span class="pre">execute_commit()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">execute_commit</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">execute_commit</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
   <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="k">try</span><span class="p">:</span>
@@ -404,7 +404,7 @@ For each of these variables, two text widgets are used - one for the value in ZE
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd4265ed0>
+  <jinja2.runtime.BlockReference object at 0x7f24c23fe140>
 
 
 </footer>

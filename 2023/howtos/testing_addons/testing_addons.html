@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing add-ons &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -167,14 +167,14 @@
 (Example: <code class="docutils literal notranslate"><span class="pre">PythonApiExamples/tests/test_data_interfaces_check_results</span></code>)</p></li>
 <li><p>Import the module or package to be tested: Import the module or package that you want to test.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 </pre></div>
 </div>
 <p>For this to work properly, the code that you want to test needs to be structured in functions as well. In this case, the functions <code class="docutils literal notranslate"><span class="pre">get_single_result_value()</span></code> of the <code class="docutils literal notranslate"><span class="pre">check_results_data_arrray</span></code> script is imported.
 For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-ref">How the examples are structured</span></a>.</p>
 </li>
 <li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior. For simple checks for expected values, use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement like shown below. For more complex test data (like arrays or Element properties), see <a class="reference internal" href="#working-with-test-data">Working with test data</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_check_results</span> <span class="p">():</span>
   <span class="c1"># Setup test project</span>
   <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;zeiss_part_test_project&#39;</span><span class="p">)</span>
   <span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span>
@@ -224,13 +224,13 @@ To use this feature, navigate to the “Testing” workspace of VSCode and selec
 <h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Link to this heading"></a></h2>
 <p>In the namespace <code class="docutils literal notranslate"><span class="pre">addon</span></code>, there are two new classes: <code class="docutils literal notranslate"><span class="pre">addon.ArrayDataTest</span></code> and <code class="docutils literal notranslate"><span class="pre">addon.ElementTest</span></code>.</p>
 <p>These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by <code class="docutils literal notranslate"><span class="pre">test_data_interfaces_volume_section.py</span></code> of the Python API Examples add-on.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addon</span> <span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
-<span class="kn">from</span> <span class="nn">PythonApiExamples.setup_project</span> <span class="kn">import</span> <span class="n">open_project</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">addon</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PythonApiExamples.setup_project</span><span class="w"> </span><span class="kn">import</span> <span class="n">open_project</span>
 
 <span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 
-<span class="k">def</span> <span class="nf">test_volume_section</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_volume_section</span><span class="p">():</span>
 	<span class="c1"># Setup test project</span>
 	<span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;volume_test_project&#39;</span><span class="p">)</span>
 	<span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane X +40.00 mm&#39;</span><span class="p">]</span>
@@ -336,7 +336,7 @@ If a relative path is given, like here, a resource inside the add-on is created 
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd3fd2f50>
+  <jinja2.runtime.BlockReference object at 0x7f24c22d0d60>
 
 
 </footer>

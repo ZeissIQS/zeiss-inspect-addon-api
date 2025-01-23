@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>scripted_curve_check &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -132,7 +132,7 @@
 </pre></div>
 </div>
 <p>To allow calculation in a custom coordinate system (one that exists in the project), a second <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">element</span></code> widget is inserted in the dialog, here named <code class="docutils literal notranslate"><span class="pre">cs</span></code>. In the <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function, its value is saved to the element parameters. In case of no selected coordinate system, the viewing coordinate system is used.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dialog</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dialog</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
   <span class="c1"># [...]</span>
   <span class="n">params</span><span class="p">[</span><span class="s1">&#39;coordinate_system&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DIALOG</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">value</span>
   <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;coordinate_system&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -141,7 +141,7 @@
 </div>
 <p>Having this <em>reference</em> to a coordinate system, we can use the API function <code class="docutils literal notranslate"><span class="pre">scripted_checks_util.get_cs_transformation_4x4</span></code> to get a 4x4 matrix for computation.</p>
 <p>During the computation for all stages, we then apply this (affine) transformation using the dot product.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculation</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculation</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
   <span class="c1"># [...]</span>
   <span class="n">trafo_matrices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">scripted_checks_util</span><span class="o">.</span><span class="n">get_cs_transformation_4x4</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;coordinate_system&quot;</span><span class="p">]))</span>
   <span class="c1"># [...]</span>
@@ -204,7 +204,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd3ea03a0>
+  <jinja2.runtime.BlockReference object at 0x7f24c25b7790>
 
 
 </footer>

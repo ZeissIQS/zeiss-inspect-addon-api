@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>offset_point_v2 (Includes preview calculation) &mdash; Add-On Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -146,7 +146,7 @@ It shows how to enhance user experience using preview calculation and error hand
 <h3>Preview calculation<a class="headerlink" href="#preview-calculation" title="Link to this heading"></a></h3>
 <p>From many of the built-in commands of ZEISS INSPECT, you know the calculation of a preview element during the creation dialog. This means, you can already see the calculation result in the 3D view, while tweaking some parameters in the dialog.</p>
 <p>To achieve this behaviour in a scripted element, you need to set up an event handler for the dialog (see also: <a class="reference internal" href="../../howtos/python_api_introduction/user_defined_dialogs.html"><span class="std std-doc">How-to: User-defined dialogs</span></a>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">dialog_event_handler</span> <span class="p">(</span><span class="n">widget</span><span class="p">):</span>
 <span class="linenos"> 2</span>  <span class="c1"># No treatment of system events</span>
 <span class="linenos"> 3</span>  <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;system&#39;</span><span class="p">:</span>
 <span class="linenos"> 4</span>    <span class="k">return</span>
@@ -190,7 +190,7 @@ It shows how to enhance user experience using preview calculation and error hand
 <section id="stageful-calculation-and-error-handling">
 <h3>Stageful <code class="docutils literal notranslate"><span class="pre">calculation</span></code> and error handling<a class="headerlink" href="#stageful-calculation-and-error-handling" title="Link to this heading"></a></h3>
 <p>Above, we discussed changes applied to the scripted element’s <code class="docutils literal notranslate"><span class="pre">dialog</span></code> function. Now, let’s take a look at the <code class="docutils literal notranslate"><span class="pre">calculation</span></code> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">calculation</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 <span class="linenos"> 2</span>  <span class="n">valid_results</span><span class="o">=</span><span class="kc">False</span>
 <span class="linenos"> 3</span>  <span class="c1"># Calculating all available stages</span>
 <span class="linenos"> 4</span>  <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">context</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
@@ -222,7 +222,7 @@ It shows how to enhance user experience using preview calculation and error hand
 <p>Keys of <em>user-defined tokens</em> need to start with <code class="docutils literal notranslate"><span class="pre">ude_</span></code>. For more information, see the <a class="reference internal" href="../../python_api/scripted_elements_api.html"><span class="std std-doc">Scripted elements API documentation</span></a>.</p>
 </div>
 <p>After element creation of such an offset point with name “Offset point 1”, you could access this data again like:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Offset point 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ude_mykey</span><span class="p">)</span>
 </pre></div>
@@ -264,7 +264,7 @@ It shows how to enhance user experience using preview calculation and error hand
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f3dd3ea02b0>
+  <jinja2.runtime.BlockReference object at 0x7f24c2057d90>
 
 
 </footer>
