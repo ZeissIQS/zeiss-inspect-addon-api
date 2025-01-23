@@ -11,6 +11,10 @@
 Scripted diagrams are updated automatically if any contributing scripted element changes.
 ```
 
+```{note}
+You can use multiple scripted diagrams at the same time, which will be stacked vertically in the **Inspection Details** tab.
+```
+
 ## Prerequisites
 
 The concept of scripted diagrams builds upon [scripted elements](../scripted_elements/scripted_elements_introduction.md) and [services](../using_services/using_services.md). [Tokens on scripted elements](../scripted_elements/tokens_on_scripted_elements.md) are used to convey data to the diagram service.
