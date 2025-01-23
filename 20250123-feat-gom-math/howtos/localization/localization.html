@@ -175,7 +175,10 @@
 <section id="text-in-scripts">
 <h3>Text in scripts<a class="headerlink" href="#text-in-scripts" title="Link to this heading"></a></h3>
 <p>Texts in scripts have to be tagged as translatable via using the <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">()</span></code>  function. During translation file generation, these texts will be processed and later replaced at runtime with the available translations.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print (tr (&#39;This text will be translated&#39;))
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gom</span><span class="w"> </span><span class="kn">import</span> <span class="n">tr</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">tr</span> <span class="p">(</span><span class="s1">&#39;This text will be translated&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
@@ -361,7 +364,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd3cdd13310>
+  <jinja2.runtime.BlockReference object at 0x7f2c6fe6b5b0>
 
 
 </footer>

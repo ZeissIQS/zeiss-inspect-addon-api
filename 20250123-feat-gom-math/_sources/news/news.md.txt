@@ -16,6 +16,7 @@ myst:
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/
 
    20250123-gom-math
+   20250106-app-doc-link
    20241217-scripted-diagrams
    20241211-services
    20241205-autodialogcontext

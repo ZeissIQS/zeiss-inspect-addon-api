@@ -109,6 +109,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-addons-get-installed-addons">gom.api.addons.get_installed_addons</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-dialog">gom.api.dialog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-dialog-execute">gom.api.dialog.execute</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-imaging">gom.api.imaging</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-imaging-acquisition">gom.api.imaging.Acquisition</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-imaging-acquisition-get-angle">gom.api.imaging.Acquisition.get_angle</a></li>
@@ -266,6 +270,11 @@
   <section id="zeiss-inspect-app-python-api-documentation">
 <h1>ZEISS INSPECT App Python API documentation<a class="headerlink" href="#zeiss-inspect-app-python-api-documentation" title="Link to this heading"></a></h1>
 <p>Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The module importing behavior changed with ZEISS INSPECT 2025. Previously, the API modules could be used without proper <code class="docutils literal notranslate"><span class="pre">import</span></code> statements due to their internal handling. Beginning with ZEISS INSPECT 2025, each module is a full featured native Python module and
+must be properly imported before use!</p>
+</div>
 <section id="gom-api-addons">
 <h2>gom.api.addons<a class="headerlink" href="#gom-api-addons" title="Link to this heading"></a></h2>
 <p>API for accessing the add-ons currently installed in the running software instance</p>
@@ -365,9 +374,7 @@ this function returns the location the application uses, too, to access add-on c
 </dd></dl>
 
 <p>This function returns the list of files and directories in an add-on. These path names can
-be used to read or write/modify add-on content. This is subject to the permission system,
-so the content of protected add-ons cannot be read at all and just the add-on a script
-originates from can be modified via this API.</p>
+be used to read or write/modify add-on content.</p>
 <p>Please note that the list of files can only be obtained for add-ons which are currently not
 in edit mode ! An add-on in edit mode is unzipped and the <code class="docutils literal notranslate"><span class="pre">get_file</span> <span class="pre">()</span></code> function will return
 the file system path to its directory in that case. That directory can then be browsed with
@@ -376,19 +383,16 @@ the standard file tools instead.</p>
 <section id="example">
 <h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">addon</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_installed_addons</span><span class="p">():</span>
-  <span class="c1"># Protected add-ins cannot be read at all</span>
-  <span class="k">if</span> <span class="ow">not</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_protected</span><span class="p">():</span>
+  <span class="c1"># Edited add-ons are file system based and must be accessed via file system functions</span>
+  <span class="k">if</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_edited</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_file</span> <span class="p">()):</span>
+      <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
 
-    <span class="c1"># Edit add-ons are file system based and must be accessed via file system functions</span>
-    <span class="k">if</span> <span class="n">addon</span><span class="o">.</span><span class="n">is_edited</span><span class="p">():</span>
-      <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">get_file</span> <span class="p">()):</span>
-        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-          <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
-
-    <span class="c1"># Finished add-ons can be accessed via this function</span>
-    <span class="k">else</span><span class="p">:</span>
-      <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">():</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">file</span><span class="p">)</span>
+  <span class="c1"># Finished add-ons can be accessed via this function</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">addon</span><span class="o">.</span><span class="n">get_file_list</span><span class="p">():</span>
+      <span class="nb">print</span> <span class="p">(</span><span class="n">file</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -714,6 +718,41 @@ installed in the running instance.</p>
   <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_id</span> <span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="gom-api-dialog">
+<h2>gom.api.dialog<a class="headerlink" href="#gom-api-dialog" title="Link to this heading"></a></h2>
+<p>API for handling dialogs</p>
+<p>This API is used to create and execute script based dialogs. The dialogs are defined in a
+JSON based description format and can be executed server side in the native UI style.</p>
+<section id="gom-api-dialog-execute">
+<h3>gom.api.dialog.execute<a class="headerlink" href="#gom-api-dialog-execute" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.dialog.execute(context:</span> <span class="pre">Any,</span> <span class="pre">data:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Create and execute a modal dialog</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<em>Any</em>) – Script execution context</p></li>
+<li><p><strong>url</strong> – URL of the dialog definition (*.gdlg file)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function creates and executes a dialog. The dialog is passed in an abstract JSON
+description and will be executed modal. The script will pause until the dialog is either
+confirmed or cancelled.</p>
+<p>This function is part of the scripted contribution framework. It can be used in the scripts
+‘dialog’ functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.</p>
 </section>
 </section>
 <section id="gom-api-imaging">
@@ -1851,12 +1890,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a curve</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a curve in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 <section id="gom-api-scripted-checks-util-is-scalar-checkable">
 <h3>gom.api.scripted_checks_util.is_scalar_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-scalar-checkable" title="Link to this heading"></a></h3>
@@ -1871,12 +1915,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a scalar value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a scalar value in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 <section id="gom-api-scripted-checks-util-is-surface-checkable">
 <h3>gom.api.scripted_checks_util.is_surface_checkable<a class="headerlink" href="#gom-api-scripted-checks-util-is-surface-checkable" title="Link to this heading"></a></h3>
@@ -1891,12 +1940,17 @@ for various image variants.</p>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>element</strong> (<em>gom.Object</em>) – Element reference to check</p>
 </dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘true’ if the element is checkable like a surface</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 </dd></dl>
 
-<ul class="simple">
-<li></li>
-</ul>
+<p>This function checks if the given element can be inspected like a surface in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 </section>
 <section id="gom-api-services">
@@ -2081,7 +2135,7 @@ have been stopped.</p>
 </dl>
 </dd></dl>
 
-<p>This function returns the list of registered services</p>
+<p>This function returns the listof registered services</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">gom</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">get_services</span> <span class="p">():</span>
   <span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get_name</span> <span class="p">())</span>
@@ -2408,7 +2462,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fd3cdb03880>
+  <jinja2.runtime.BlockReference object at 0x7f2c70ea25f0>
 
 
 </footer>
