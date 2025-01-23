@@ -1,0 +1,10 @@
+# Using the `gom_vec3d` and `gom_math` modules
+
+```{eval-rst}
+.. feed-entry::
+   :date: 2025-01-23 11:00
+```
+
+Did you know? Coordinates are often represented in ZEISS INSPECT Apps as `gom.Vec3d` objects. The `gom_math` module provides some functions for computations on `gom.Vec3d` objects.
+
+See <a href="../howtospython_api_introduction/python_api_introduction.html#gom_vec3d-and-gom_math">ZEISS INSPECT Python API Introduction &mdash; `gom_vec3d` and `gom_math`</a> for details.
