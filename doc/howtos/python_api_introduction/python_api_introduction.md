@@ -192,6 +192,75 @@ Output:
 >>> 207422.1875
 ```
 
+### `gom_vec3d` and `gom_math`
+
+The Python module `gom_vec3d` defines the classes `gom.Vec3d` and `Point3d`. `gom.Vec3d` objects are used to represent single coordinates, such as a circle's center or a point, e.g.
+
+```python
+print(gom.app.project.nominal_elements['Circle 1'].center_coordinate)
+# Output:
+# gom.Vec3d (10.0, -10.0, 0.0)
+```
+
+The Python module `gom_math` provides some utility functions for geometrical computations on `gom.Vec3d` objects.
+
+To list the contents of `gom_vec3d`:
+
+```python
+import gom
+import gom_math
+
+items = dir(gom_math)
+
+print ("gom_math contents:")
+for item in items:
+    print (item)
+
+# Output:
+# Plane3d_distance_to_point
+# Plane3d_getDirection1
+# Plane3d_intersectWithLine
+# Plane3d_intersectWithPlane
+# Plane3d_perpendPoint
+# Vec3d_cross
+# Vec3d_div
+# ...
+```
+
+To get a function's documentation, e.g. for `gom_math.Vec3d_mult_scalar`:
+
+```python
+print(gom_math.Vec3d_mult_scalar.__doc__)
+
+# Output:
+#    Multiplies each component of a Gom.Vec3d vector by a scalar.
+# 
+#    Args:
+#        vec (Gom.Vec3d): The input Gom.Vec3d vector.
+#        scalar (float): The scalar value to multiply with.
+# 
+#    Returns:
+#        Gom.Vec3d: The result of scalar multiplication of the vector.
+```
+
+Example:
+```python
+x = 1
+y = 2
+z = 3
+multiplier = 1.5
+
+vector = gom.Vec3d(x, y, z)
+print(gom_math.Vec3d_mult_scalar(vector, multiplier))
+
+# Output:
+# gom.Vec3d (1.5, 3.0, 4.5)
+```
+
+The Python files `gom_vec3d.py` and `gom_math.py` are located in `C:\Program Files\Zeiss\INSPECT\2025\lib\python\gom-python`.
+
+For more complex operations or efficient handling of large sets of data, the [NumPy](https://numpy.org/) package is recommended.
+
 ### Element properties in VSCode
 
 Using Visual Studio Code, you can get auto-completion for the usable keywords directly in a pop-up. 
