@@ -4,8 +4,19 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/</link>
     <description></description>
-    <lastBuildDate>Thu, 23 Jan 2025 07:28:36 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 08:10:21 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>Using the </title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20250123-gom-math.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;Did you know? Coordinates are often represented as &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom.Vec3d&lt;/span&gt;&lt;/code&gt; objects in ZEISS INSPECT Apps. The &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom_math&lt;/span&gt;&lt;/code&gt; module provides some functions for computations on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom.Vec3d&lt;/span&gt;&lt;/code&gt; objects.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="../howtos/python_api_introduction/python_api_introduction.html#gom-vec3d-and-gom-math"&gt;ZEISS INSPECT Python API Introduction — &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom_vec3d&lt;/span&gt;&lt;/code&gt; and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom_math&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20250123-gom-math.html</guid>
+      <pubDate>Thu, 23 Jan 2025 11:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Link from App to external documentation</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20250106-app-doc-link.html</link>

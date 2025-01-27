@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#alignments">Alignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#access-element-properties">Access element properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#explore-available-properties">Explore available properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-vec3d-and-gom-math"><code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#element-properties-in-vscode">Element properties in VSCode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#properties-of-different-stages">Properties of different stages</a></li>
 </ul>
@@ -286,6 +287,66 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
 </pre></div>
 </div>
 </section>
+<section id="gom-vec3d-and-gom-math">
+<h3><code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math</span></code><a class="headerlink" href="#gom-vec3d-and-gom-math" title="Link to this heading"></a></h3>
+<p>The Python module <code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> defines the classes <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">Point3d</span></code>. <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> objects are used to represent single coordinates, such as a circle’s center or a point, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span><span class="p">[</span><span class="s1">&#39;Circle 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># gom.Vec3d (10.0, -10.0, 0.0)</span>
+</pre></div>
+</div>
+<p>The Python module <code class="docutils literal notranslate"><span class="pre">gom_math</span></code> provides some utility functions for geometrical computations on <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> objects.</p>
+<p>To list the contents of <code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom_math</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">gom_math</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;gom_math contents:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># Plane3d_distance_to_point</span>
+<span class="c1"># Plane3d_getDirection1</span>
+<span class="c1"># Plane3d_intersectWithLine</span>
+<span class="c1"># Plane3d_intersectWithPlane</span>
+<span class="c1"># Plane3d_perpendPoint</span>
+<span class="c1"># Vec3d_cross</span>
+<span class="c1"># Vec3d_div</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>To get a function’s documentation, e.g. for <code class="docutils literal notranslate"><span class="pre">gom_math.Vec3d_mult_scalar</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom_math</span><span class="o">.</span><span class="n">Vec3d_mult_scalar</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1">#    Multiplies each component of a Gom.Vec3d vector by a scalar.</span>
+<span class="c1"># </span>
+<span class="c1">#    Args:</span>
+<span class="c1">#        vec (Gom.Vec3d): The input Gom.Vec3d vector.</span>
+<span class="c1">#        scalar (float): The scalar value to multiply with.</span>
+<span class="c1"># </span>
+<span class="c1">#    Returns:</span>
+<span class="c1">#        Gom.Vec3d: The result of scalar multiplication of the vector.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">multiplier</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">vector</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom_math</span><span class="o">.</span><span class="n">Vec3d_mult_scalar</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">))</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># gom.Vec3d (1.5, 3.0, 4.5)</span>
+</pre></div>
+</div>
+<p>The Python files <code class="docutils literal notranslate"><span class="pre">gom_vec3d.py</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math.py</span></code> are located in <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\2025\lib\python\gom-python</span></code>.</p>
+<p>For more complex operations or efficient handling of large sets of data, the <a class="reference external" href="https://numpy.org/">NumPy</a> package is recommended.</p>
+</section>
 <section id="element-properties-in-vscode">
 <h3>Element properties in VSCode<a class="headerlink" href="#element-properties-in-vscode" title="Link to this heading"></a></h3>
 <p>Using Visual Studio Code, you can get auto-completion for the usable keywords directly in a pop-up.</p>
@@ -451,7 +512,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f4eb46b0760>
+  <jinja2.runtime.BlockReference object at 0x7fbb39d9f7f0>
 
 
 </footer>
