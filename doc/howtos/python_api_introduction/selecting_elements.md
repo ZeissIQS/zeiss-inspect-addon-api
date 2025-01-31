@@ -255,7 +255,7 @@ elements=gom.ElementSelection (
 ## Syntax
 
 ```{code-block}
-ElementSelection (
+gom.ElementSelection (
     {'category': [
         'key', 'elements'
         [, 'part', <part_reference>]
@@ -282,19 +282,19 @@ ElementSelection (
     ]}
 )
 
-gom.ElementSelection(
+gom.ElementSelection (
     <element>, {'attachment_group': [None, 'criterias']}
 )
 
-gom.ElementSelection(
+gom.ElementSelection (
     <element>, {'view': 'section_view'}
 )
 
-gom.ElementSelection(
+gom.ElementSelection (
     {'category': ['key', 'related' | 'depends_on' | 'required_for' | ... ]}
 )
 
-ElementSelection (
+gom.ElementSelection (
     {'category': [...]},
     filter = {['inverse': True,] 'param': <name>, 'type': 'by_name' } |
              {['inverse': True,] 'param': <keyword>, 'type': 'by_keyword' } |
