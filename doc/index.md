@@ -68,7 +68,7 @@ Furthermore, we recommend following our How-to Guides to get you started.
 ```{eval-rst}
 .. toctree::
    :maxdepth: 1
-   :caption: How-to Guides &mdash; Basic
+   :caption: How-to Guides — Basic
 
    howtos/python_api_introduction/python_api_introduction
    howtos/python_api_introduction/selecting_elements
@@ -83,7 +83,7 @@ Furthermore, we recommend following our How-to Guides to get you started.
 ```{eval-rst}
 .. toctree::
    :maxdepth: 1
-   :caption: How-to Guides &mdash; Intermediate
+   :caption: How-to Guides — Intermediate
 
    howtos/using_vscode_editor/using_vscode_editor
    howtos/app_documentation/app_documentation
@@ -98,7 +98,7 @@ Furthermore, we recommend following our How-to Guides to get you started.
 ```{eval-rst}
 .. toctree::
    :maxdepth: 1
-   :caption: How-to Guides &mdash; Expert
+   :caption: How-to Guides – Expert
 
    howtos/python_api_introduction/creating_wizard_dialogs
    howtos/using_gui_libraries/using_gui_libraries
