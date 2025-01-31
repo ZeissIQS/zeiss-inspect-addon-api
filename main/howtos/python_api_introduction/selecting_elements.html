@@ -345,7 +345,7 @@ subsequent <code class="docutils literal notranslate"><span class="pre">ElementS
 </section>
 <section id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ElementSelection</span> <span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span>
         <span class="p">[,</span> <span class="s1">&#39;part&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">part_reference</span><span class="o">&gt;</span><span class="p">]</span>
@@ -372,19 +372,19 @@ subsequent <code class="docutils literal notranslate"><span class="pre">ElementS
     <span class="p">]}</span>
 <span class="p">)</span>
 
-<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">(</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="o">&lt;</span><span class="n">element</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;attachment_group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;criterias&#39;</span><span class="p">]}</span>
 <span class="p">)</span>
 
-<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">(</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="o">&lt;</span><span class="n">element</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;view&#39;</span><span class="p">:</span> <span class="s1">&#39;section_view&#39;</span><span class="p">}</span>
 <span class="p">)</span>
 
-<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span><span class="p">(</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;related&#39;</span> <span class="o">|</span> <span class="s1">&#39;depends_on&#39;</span> <span class="o">|</span> <span class="s1">&#39;required_for&#39;</span> <span class="o">|</span> <span class="o">...</span> <span class="p">]}</span>
 <span class="p">)</span>
 
-<span class="n">ElementSelection</span> <span class="p">(</span>
+<span class="n">gom</span><span class="o">.</span><span class="n">ElementSelection</span> <span class="p">(</span>
     <span class="p">{</span><span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]},</span>
     <span class="nb">filter</span> <span class="o">=</span> <span class="p">{[</span><span class="s1">&#39;inverse&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,]</span> <span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_name&#39;</span> <span class="p">}</span> <span class="o">|</span>
              <span class="p">{[</span><span class="s1">&#39;inverse&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,]</span> <span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">keyword</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;by_keyword&#39;</span> <span class="p">}</span> <span class="o">|</span>
@@ -429,7 +429,7 @@ that match any of the filters (disjunction / OR):</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f33fadaa5f0>
+  <jinja2.runtime.BlockReference object at 0x7f575ffb2d40>
 
 
 </footer>
