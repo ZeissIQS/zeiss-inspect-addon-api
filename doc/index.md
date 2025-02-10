@@ -63,40 +63,53 @@ Check out the ZEISS INSPECT Apps news page!
    news/welcome
 ```
 
-Furthermore, we recommend following our how-to guides to get you started.
+Furthermore, we recommend following our How-to Guides to get you started.
 
 ```{eval-rst}
 .. toctree::
    :maxdepth: 1
-   :caption: How-to Guides
+   :caption: How-to Guides – Basic
 
    howtos/python_api_introduction/python_api_introduction
    howtos/python_api_introduction/selecting_elements
    howtos/using_app_editor/using_app_editor
    howtos/app_file_format/app_file_format
-   howtos/app_documentation/app_documentation
-   howtos/using_vscode_editor/using_vscode_editor
    howtos/python_api_introduction/file_selection_dialog
    howtos/python_api_introduction/user_defined_dialogs
-   howtos/python_api_introduction/creating_wizard_dialogs
-   howtos/using_gui_libraries/using_gui_libraries
+   howtos/scripting_solutions/scripting_solutions
+   howtos/faq/faq
+```
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   :caption: How-to Guides – Intermediate
+
+   howtos/using_vscode_editor/using_vscode_editor
+   howtos/app_documentation/app_documentation
    howtos/scripted_elements/scripted_elements_toc
    howtos/python_api_introduction/using_script_resources
    howtos/stages/stages
    howtos/project_keywords/project_keywords
+   howtos/localization/localization
+   howtos/testing_apps/testing_apps
+```
+
+```{eval-rst}
+.. toctree::
+   :maxdepth: 1
+   :caption: How-to Guides – Expert
+
+   howtos/python_api_introduction/creating_wizard_dialogs
+   howtos/using_gui_libraries/using_gui_libraries
    howtos/using_shared_environments/using_shared_environments
    howtos/using_wheelhouses/using_wheelhouses
    howtos/adding_workspaces_to_apps/adding_workspaces_to_apps
    howtos/using_services/using_services
    howtos/using_scripted_diagrams/using_scripted_diagrams
-   howtos/localization/localization
    howtos/starting_options/starting_options
-   howtos/testing_apps/testing_apps
    howtos/scripting_legacy_projects/scripting_legacy_projects
-   howtos/scripting_solutions/scripting_solutions
-   howtos/faq/faq
 ```
-
 
 If you already know how to create an App and now you are interested in Python programming in ZEISS INSPECT, take a look at our collection of Python examples.
 
