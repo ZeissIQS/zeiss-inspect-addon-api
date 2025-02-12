@@ -66,7 +66,9 @@ Check out the ZEISS INSPECT Apps news page!
 Furthermore, we recommend following our How-to Guides to get you started.
 
 ```{eval-rst}
-.. toctree::
+.. _how-to-guides-basic:
+
+.. toctree:: 
    :maxdepth: 1
    :caption: How-to Guides – Basic
 
@@ -81,6 +83,8 @@ Furthermore, we recommend following our How-to Guides to get you started.
 ```
 
 ```{eval-rst}
+.. _how-to-guides-intermediate:
+
 .. toctree::
    :maxdepth: 1
    :caption: How-to Guides – Intermediate
@@ -96,6 +100,8 @@ Furthermore, we recommend following our How-to Guides to get you started.
 ```
 
 ```{eval-rst}
+.. _how-to-guides-expert:
+
 .. toctree::
    :maxdepth: 1
    :caption: How-to Guides – Expert
