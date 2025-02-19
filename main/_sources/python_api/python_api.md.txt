@@ -325,14 +325,36 @@ API for handling dialogs
 This API is used to create and execute script based dialogs. The dialogs are defined in a
 JSON based description format and can be executed server side in the native UI style.
 
+### gom.api.dialog.create
+
+```{py:function} gom.api.dialog.create(context: Any, url: str): Any
+
+Create modal dialog, but do not execute it yet
+:param context: Script execution context
+:type context: Any
+:param url: URL of the dialog definition (*.gdlg file)
+:type url: str
+:return: Dialog handle which can be used to set up the dialog before executing it
+:rtype: Any
+```
+
+This function creates a dialog. The dialog is passed in an abstract JSON description defining its layout.
+The dialog is created but not executed yet. The dialog can be executed later by calling the 'gom.api.dialog.show'
+function. The purpose of this function is to create a dialog in advance and allow the user setting it up before
+
+This function is part of the scripted contribution framework. It can be used in the scripts
+'dialog' functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.
+
 ### gom.api.dialog.execute
 
-```{py:function} gom.api.dialog.execute(context: Any, data: str): Any
+```{py:function} gom.api.dialog.execute(context: Any, url: str): Any
 
 Create and execute a modal dialog
 :param context: Script execution context
 :type context: Any
 :param url: URL of the dialog definition (*.gdlg file)
+:type url: str
 :return: Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.
 :rtype: Any
 ```
@@ -344,6 +366,22 @@ confirmed or cancelled.
 This function is part of the scripted contribution framework. It can be used in the scripts
 'dialog' functions to pop up user input dialogs, e.g. for creation commands. Passing of the
 contributions script context is mandatory for the function to work.
+
+### gom.api.dialog.show
+
+```{py:function} gom.api.dialog.show(context: Any, dialog: Any): Any
+
+Show previously created and configured dialog
+:param context: Script execution context
+:type context: Any
+:param dialog: Handle of the previously created dialog
+:type dialog: Any
+:return: Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.
+:rtype: Any
+```
+
+This function shows and executes previously created an configured dialog. The combination of
+'create' and 'show' in effect is the same as calling 'execute' directly.
 
 ## gom.api.imaging
 
