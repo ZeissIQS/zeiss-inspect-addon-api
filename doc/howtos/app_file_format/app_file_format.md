@@ -19,7 +19,7 @@ While an App file will be created and modified with the App Editor in most cases
 | `icon.png`        | App icon as displayed in the App Manager and the Software Store                                              |
 | `key.enc`         | App protection and licensing information in case the App is protected                                        |
 | `license/`        | Terms-of-use related to this App. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon App installation                                                                                              |
-| `metainfo.json`   | App metainfo data (title, description, version, ...); see [`metainfo.json` Specification](metainfo_format.md)                             |
+| `metainfo.json`   | App metainfo data (title, description, version, ...); see [`metainfo.json` documentation](#metainfojson-documentation)                             |
 
 ### Content types
 
@@ -120,6 +120,68 @@ scripts/
 |-- ...
 ...
 ```
+
+## `metainfo.json` documentation
+
+Example: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/CheckResultsDataArray/metainfo.json">AppExamples/data_interfaces/CheckResultsDataArray/metainfo.json</a>
+
+### Mandatory elements
+
+- **title**: `String` &ndash; App title
+- **uuid**: `String` &ndash; App UUID
+- **version**: `String` &ndash; App version
+- **author**: `String` &ndash; App author
+- **description**: `String` &ndash; App short description 
+- **software-version**: `String` &ndash; ZEISS INSPECT version
+- **software-revision**: `String` &ndash; ZEISS INSPECT revision
+- **licensing**: `Object` &ndash; Which license is required to run the App
+    - **licenses**: `[[String]]`
+    - **product-codes**: `[[String|int, String]]`
+
+### Optional elements
+
+- **documentation**: `String` &ndash; Link (URL) to external App documentation, see <a href="../app_documentation/app_documentation.html#link-to-external-documentation">Documenting Apps – Link to external documentation</a>
+- **environment**: `String` &ndash; Shared App environment, see <a href="../using_shared_environments/using_shared_environments.html">Using shared environments</a>
+- **services**: `Object` &ndash; Service definitions, see <a href="../using_services/using_services.html">Using services</a>
+    - **endpoint**: `String`
+    - **name**: `String`
+    - **script**: `String`
+- **settings**: `Object` &ndash; App settings, see <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a>
+
+### ZEISS Quality Software Store
+
+- **technical-category**: `String` &ndash; One of the following options
+    - `Element Transformation`
+    - `Import and Export`
+    - `Norm-Based Evaluation`
+    - `Surface Inspection`
+    - `Curve Inspection`
+    - `Airfoil Inspection`
+    - `Multipart`
+    - `Section-Based Inspection`
+    - `Geometries`
+    - `Testing`
+    - `Collections`
+    - `Measuring Accuracy`
+    - `Miscellaneous`
+    - `App Examples`
+- **business-category**: `String` &ndash; One of the following options
+    - `major`
+    - `basic`
+    - `minor`
+- **compatible-software**: `[String]`  &ndash; Combination of the following options
+    - `ZEISS INSPECT Optical 3D`
+    - `ZEISS INSPECT X-Ray`
+    - `ZEISS INSPECT CMM`
+    - `ZEISS INSPECT VMM`
+    - `ZEISS CORRELATE`
+
+### Additional information
+
+- **build**: `String` &ndash; App build number
+- **labels**: `[String]`
+- **references**: `[String]` &ndash; Reference links used for <a href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a>
+- **tags**: `[String]` &ndash; Tags used for <a href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a>
 
 ## FAQ
 
