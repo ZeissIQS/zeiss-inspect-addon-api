@@ -1,4 +1,4 @@
-# `metainfo.json` Specification
+# `metainfo.json` specification
 
 <sup>*</sup>: Mandatory<br>
 <sup>+</sup>: Mandatory for ZEISS internal release<br>
