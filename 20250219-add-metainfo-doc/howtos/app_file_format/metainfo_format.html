@@ -119,8 +119,8 @@
              
   <section id="metainfo-json-specification">
 <h1><code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> Specification<a class="headerlink" href="#metainfo-json-specification" title="Link to this heading"></a></h1>
-<p><b>bold</b>: Mandatory<br>
-<b><i>bold italic</i></b>: Mandatory for ZEISS internal release<br>
+<p><sup>*</sup>: Mandatory<br>
+<sup>+</sup>: Mandatory for ZEISS internal release<br>
 <code class="docutils literal notranslate"><span class="pre">^</span></code>: Select one of the given options</p>
 <table class="docutils align-default">
 <thead>
@@ -130,35 +130,35 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>title</strong></p></td>
+<tr class="row-even"><td><p>title<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>App title</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>uuid</strong></p></td>
+<tr class="row-odd"><td><p>uuid<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>App UUID</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>version</strong></p></td>
+<tr class="row-even"><td><p>version<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>App version</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>author</strong></p></td>
+<tr class="row-odd"><td><p>author<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>Author</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>description</strong></p></td>
+<tr class="row-even"><td><p>description<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>software-revision</strong></p></td>
+<tr class="row-odd"><td><p>software-revision<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>ZEISS software revision</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>software-version</strong></p></td>
+<tr class="row-even"><td><p>software-version<sup>*</sup></p></td>
 <td><p>String</p></td>
 <td><p>ZEISS software version</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>licensing</strong></p></td>
+<tr class="row-odd"><td><p>licensing<sup>*</sup></p></td>
 <td><p>Object</p></td>
 <td><p></p></td>
 </tr>
@@ -166,11 +166,11 @@
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>        <strong>licenses</strong></p></td>
+<tr class="row-odd"><td><p>        licenses<sup>*</sup></p></td>
 <td><p>Array</p></td>
 <td><p>ZEISS internal</p></td>
 </tr>
-<tr class="row-even"><td><p>        <strong>product-codes</strong></p></td>
+<tr class="row-even"><td><p>        product-codes<sup>*</sup></p></td>
 <td><p>Array</p></td>
 <td><p>ZEISS internal</p></td>
 </tr>
@@ -266,7 +266,7 @@
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><b><i>technical-category</i></b></p></td>
+<tr class="row-even"><td><p>technical-category<sup>+</sup></p></td>
 <td><p>String</p></td>
 <td><p>Technical category, used for ZEISS Quality Software Store</p></td>
 </tr>
@@ -274,7 +274,7 @@
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><b><i>business-category</i></b></p></td>
+<tr class="row-even"><td><p>business-category<sup>+</sup></p></td>
 <td><p>String</p></td>
 <td><p>ZEISS internal</p></td>
 </tr>
@@ -282,7 +282,7 @@
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><b><i>compatible-software</i></b></p></td>
+<tr class="row-even"><td><p>compatible-software<sup>+</sup></p></td>
 <td><p>Array</p></td>
 <td><p>Compatible ZEISS software product(s),<br>any combination of the following</p></td>
 </tr>
@@ -316,7 +316,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f646bcd7490>
+  <jinja2.runtime.BlockReference object at 0x7f98a63cb310>
 
 
 </footer>
