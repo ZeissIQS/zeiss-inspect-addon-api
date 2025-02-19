@@ -19,7 +19,7 @@ While an App file will be created and modified with the App Editor in most cases
 | `icon.png`        | App icon as displayed in the App Manager and the Software Store                                              |
 | `key.enc`         | App protection and licensing information in case the App is protected                                        |
 | `license/`        | Terms-of-use related to this App. Can contain a set of text files like `license.txt` , `license_numpy.txt` , ... which will be displayed and must be acknowledged upon App installation                                                                                              |
-| `metainfo.json`   | App metainfo data (title, description, version, ...)                                                         |
+| `metainfo.json`   | App metainfo data (title, description, version, ...); see [`metainfo.json` Specification](metainfo_format.md)                             |
 
 ### Content types
 
