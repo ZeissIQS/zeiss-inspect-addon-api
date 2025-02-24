@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'App Development Documentation'
-copyright = '2024, Carl Zeiss GOM Metrology GmbH'
+copyright = '2025, Carl Zeiss GOM Metrology GmbH'
 author = 'Carl Zeiss GOM Metrology GmbH'
 
 # -- General configuration ---------------------------------------------------
