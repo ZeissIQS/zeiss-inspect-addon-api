@@ -1,14 +1,15 @@
 # Frequently asked questions
 
-If you did not find an answer here, you might want to check <a href="https://qualityforum.zeiss.com/forum/30-customizations-app-development/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations & App Development</a>.
+If you did not find an answer here, you might want to check <a href="https://qualityforum.zeiss.com/forum/30-customizations-app-development/" target="_blank" rel="noopener noreferrer">ZEISS Quality Forum - Customizations</a>.
 
-## Where are Apps located in the file system?
+## Where are Add-ons located in the file system?
 
-Apps which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each App named by its UUID.
+Add-ons which are edited are located in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_edited_addons` (or `%APPDATA%\GOM\<VERSION>\gom_edited_addons`, respectively). There is a subfolder for each Add-on named by its UUID.
 
-When editing is finished, an App file (see [App file format](../app_file_format/app_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
+When editing is finished, an Add-on file (see [Add-on file format](../add_on_file_format/add_on_file_format.md)) is created and saved in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_addons`.
 
 The connected folders are saved as Windows shortcuts in `C:\Users\<USERID>\AppData\Roaming\GOM\<VERSION>\gom_script_external_folders`.
+
 ## Where is the Python installation used by ZEISS INSPECT located?
 
 Token: `gom.app.python_directory`
@@ -19,30 +20,30 @@ Token: `gom.app.python_directory`
 The module search path also includes 
 * `C:\Program Files\Zeiss\INSPECT\<VERSION>\lib\python`
 * `%APPDATA%\Python\<PYTHON_VERSION>\site-packages`
-* For each Python wheel used in an App: `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache/<WHEEL>`
+* For each Python wheel used in an Add-on: `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache/<WHEEL>`
   (see [How are Python wheels handled by ZEISS INSPECT?](#how-are-python-wheels-handled-by-zeiss-inspect) for details)
-* If an App is in editing mode: `%APPDATA%\gom\gom_edited_addons\<ADDON_UUID>\scripts`
+* If an Add-on is in editing mode: `%APPDATA%\gom\gom_edited_addons\<ADDON_UUID>\scripts`
 where `%APPDATA` is expanded to `C:\Users\<USERID>\AppData\Roaming`.
 
-You can print the module search path in an App using:
+You can print the module search path in an Add-on using:
 ```{code-block} python
 import sys
 
 for p in sys.path:
-	print(p)
+    print(p)
 ```
 
 ## How are Python wheels handled by ZEISS INSPECT?
 
 ZEISS INSPECT maintains a cache folder for Python wheels and wheelhouses in `%APPDATA%\gom\<VERSION>/gom_python_wheel_cache`.
 
-* When a wheel/wheelhouse is installed in an App, it is copied into the App's `scripts/modules` folder and installed into the cache folder.
-* When an App containing wheels/wheelhouses is installed, those are installed into the cache folder.
-* When a script from an App is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its `scripts/modules` folder.
+* When a wheel/wheelhouse is installed in an Add-on, it is copied into the Add-on's `scripts/modules` folder and installed into the cache folder.
+* When an Add-on containing wheels/wheelhouses is installed, those are installed into the cache folder.
+* When a script from an Add-on is started, its wheels/wheelhouses are installed into the cache folder. The script uses the cache folder named according to the wheel/wheelhouse filename in its `scripts/modules` folder.
 
 ## How can I install missing Python wheels by a script?
 
-The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the App yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
+The following script tries to import the modules listed in `required_modules`. A `ModuleNotFoundError` exception is thrown if a module has not been installed into the Add-on yet. In this case, the script will try to install it. The script has to be restarted in order to make any newly installed modules available.
 
 ```{code-block} python
 import gom
@@ -50,10 +51,12 @@ import sys
 import os
 import subprocess
 import importlib
+
 # Put your Python modules here
 # import <module> => [..., '<module>', ...]
 # import <module> as <alias> => [..., [<module>, <alias>], ...]
 required_modules = ['openpyxl', ['numpy', 'np']]
+
 def install_modules(modules): 
     module_installed = False
     
@@ -91,7 +94,9 @@ def install_modules(modules):
     if module_installed:
         print("---> Package installation successful, please restart script. <---")
         sys.exit(0)
+
 install_modules(required_modules)
+
 # Add your actual script here
 ```
 
@@ -117,9 +122,9 @@ You are changing the pre-installed Python environment at your own risk!
 
 An error message such as `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position xx: truncated \UXXXXXXXX escape` is cause by backslashes in a file system path. Always use forward slashes instead. See also [ZEISS Quality Tech Guide: How Do I Select and Filter Files in Python Scripts](https://techguide.zeiss.com/en/zeiss-inspect-2023/article/how_to_select_and_filter_files_in_python_scripts.html).
 
-## How can I update the Apps after changes made outside of ZEISS INSPECT?
+## How can I update the Add-ons after changes made outside of ZEISS INSPECT?
 
-After creating, modifying or deleting an App outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal App database. 
+After creating, modifying or deleting an Add-on outside of ZEISS INSPECT, you can use `gom.script.sys.update_addon_database()` to update the internal Add-on database. 
 
 ## How can I stop script execution?
 
@@ -236,11 +241,11 @@ Closing a dialog window or pressing the 'Cancel' button raises a `gom.BreakError
 
 ```{code-block} python
 try:
-	RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
+    RESULT = gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 except gom.BreakError as e:
-	print("Dialog window was closed or 'Cancel' button was pressed")
+    print("Dialog window was closed or 'Cancel' button was pressed")
 else:
-	print("'Ok' button was pressed")
+    print("'Ok' button was pressed")
 ```
 
 ## How can I retrieve dialog results as a Python dictionary?
@@ -254,9 +259,9 @@ See [User-defined dialogs / Executing dialogs / Dialog results](../python_api_in
 
 ## How can I use an image from a script resource file in a user defined dialog?
 
-You add your image file as a resource to the App:
+You add your image file as a resource to the Add-on:
 
-![App Explorer - PNG file as resource](assets/resource_file_as_image_data.png)
+![Add-on Explorer - PNG file as resource](assets/resource_file_as_image_data.png)
 
 You create a dialog file with an [Image widget](../python_api_introduction/user_defined_dialogs.md#image-widget), but without setting the actual image in the dialog editor.
 
@@ -271,7 +276,7 @@ DIALOG=gom.script.sys.create_user_defined_dialog (file='dialog.gdlg')
 # Event handler function called if anything happens inside of the dialog
 #
 def dialog_event_handler (widget):
-	pass
+    pass
 
 DIALOG.handler = dialog_event_handler
 
@@ -289,8 +294,8 @@ RESULT=gom.script.sys.show_user_defined_dialog (dialog=DIALOG)
 2. Double-click the XML text to open the Dialog Editor (only works if you did 1.)
 3. Close the Dialog Editor with 'Ok' to convert the XML to the newer JSON representation embedded in the script
 4. Optional: On the JSON representation: RMB ► Tools ► Convert Dialog To .gdlg File
-
-## How can I get the position of a label and apply it to another label? 
+ 
+## How can I get the position of a label and apply it to another label?
 
 You can use `gom.script.cad.set_label_position()` to set the offset of the new label to the offset of the old label:
 
@@ -324,18 +329,6 @@ remaining_warmup_time_in_seconds = gom.script.atos.wait_for_sensor_warmup (timeo
 
 The function blocks until the sensor is ready or the timeout specified with `my_timeout` occurs.
 
-## How can I obtain the measurement quality?
-
-The measurement quality is shown in the Explorer tab 'Measurements':
-
-![Tab 'Measurements' with column 'Measurement Quality'](assets/measurement_quality.png)
-
-Use the token `explorer_measurement_quality` to obtain the same information via script, e.g.
-
-```{code-block} python
-measurement_quality = gom.app.project.measurement_series['Scan 1'].measurements['M1'].explorer_measurement_quality
-```
-
 ## How can I get the CT scanner's system status &mdash; including cathode operation time?
 
 ![CT System Status Dialog](assets/ct_system_status.png)
@@ -357,26 +350,26 @@ print(gom.script.ct.get_system_status())
 
 (Added in SW2023 Service Pack2)
 
-## Can I use the Python package `pdfplumber` in an App?
+## Can I use the Python package `pdfplumber` in an Add-on?
 
-Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_app_editor/using_app_editor.md#installing-python-packages) and used without any known limitations.
+Yes, [pdfplumber](https://pypi.org/project/pdfplumber/) can be installed with the [Python Package Installer](../using_add_on_editor/using_add_on_editor.md#installing-python-packages) and used without any known limitations.
 
-## Can I use the Python package `pywin32` in an App?
+## Can I use the Python package `pywin32` in an Add-on?
 
 As reported in several [pywin32 issues](https://github.com/mhammond/pywin32/issues), installing `pywin32` fails in many cases. The ZEISS INSPECT Python environment is affected, too.
 `ModuleNotFoundError: No module named 'pywintypes'` is also caused by a missing or failed  `pywin32` installation.
 
-Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-app)) require pywin32.
+Some Python packages (such as [xlwings](#can-i-use-xlwings-in-an-add-on)) require pywin32.
 
-## Can I use `xlwings` in an App?
+## Can I use `xlwings` in an Add-on?
 
-Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an App?](#can-i-use-the-python-package-pywin32-in-an-app).
+Basically no, because [xlwings](https://pypi.org/project/xlwings/) depends on `pywin32` &mdash; see [Can I use the Python package `pywin32` in an Add-on?](#can-i-use-the-python-package-pywin32-in-an-add-on).
 
-If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/misc/ExcelExample/doc/Documentation.md">Excel import/export example</a>).
+If compatibility to `xlwings` is not required, you might want to use [openpyxl](https://pypi.org/project/openpyxl/) instead (see [Excel import/export example](../../python_examples/misc/excel_example)).
+ 
+## How do I use a C# / .NET library in an Add-on?
 
-## How do I use a C# / .NET library in an App?
-
-First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your App.
+First you have to install the [Python.NET](https://pypi.org/project/pythonnet/) package in your Add-on.
 
 Here is a simple C# library source code example: 
 
@@ -410,7 +403,7 @@ The following example Python script uses methods and members of this library:
 import gom
 import clr # .NET Common Language Runtime (provided by Python.NET package)
 from System import Console
-	
+    
 import sys
 sys.path.append('.')                   # append path to the DLL file
 clr.AddReference("MyDotNetClassLib")   # name of the assembly (usually the DLL filename without extension .dll)

@@ -1,6 +1,6 @@
 # Scripted actuals
 
-![Scripted actual point in Explorer](assets/scripted_actual_explorer.png)
+![](assets/scripted_actual_explorer.jpg)
 
 Scripted actual elements (short: scripted actuals), are scripted elements that refer to the actual, e.g. measured state of a geometrical object. Therefore, they appear in the "Actual Element" category of the ZEISS INSPECT Element Explorer.
 
@@ -12,7 +12,7 @@ Assume we want to create a scripted point. A point, whose position is just offse
 
 As explained in the previous chapter, at first we select the element type in the script properties. For our offset-point, we naturally choose "Actual element" -> "Point".
 
-![Scripted element type selection](assets/offset_point_creation_type.png)
+![](assets/offset_point_creation_type.jpg)
 
 Then, we write the code, which needs a `dialog` and a `calculation` function. Let's begin with the `dialog` function.
 
@@ -47,7 +47,7 @@ In this case, we want to ask the user on which point our offset-point should be 
 * `Input -> Decimal`: a decimal widget for the offset input
 * `Selection -> Selection element`: an element widget to select a point-like element
 
-![Offset point dialog (editor)](assets/offset_point_dialog.png)
+![](assets/offset_point_dialog.jpg)
 
 It's important to note the widgets' *Object name*s, so we can adress them in the code. Second, it's important to set the "Type" of the selection element widget to `Any point`, so the user gets only the choice between elements that offer some point information.
 
@@ -85,11 +85,11 @@ The result for stage `0` (we ignore other stages for this example) is set in lin
 
 That's it! When we now run the example, the dialog appears, we can select base point and offset value. 
 
-![Scripted point creation dialog](assets/offset_point_user_dialog.png)
+![](assets/offset_point_user_dialog.jpg)
 
 After clicking "OK", a "My scripted point" element is created and visible in the explorer.
 
-![](assets/scripted_actual_explorer.png)
+![](assets/scripted_actual_explorer.jpg)
 
 ## Further reading
 
@@ -101,7 +101,7 @@ Now you've grasped the basic concept of scripted actuals. However, there are som
 * Preview calculation
 * ...
 
-To learn about these mechanisms, you should take a look at the more sophisticated App examples in the section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">scripted_actuals</a>.
+To learn about these mechanisms, you should take a look at the more sophisticated examples of our `Python API Examples` Add-on, [documented here](../../python_examples/scripted_actuals.md).
 
 ```{seealso}
 [Scripted elements API](../../python_api/scripted_elements_api.md)

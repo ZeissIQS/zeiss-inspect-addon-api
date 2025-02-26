@@ -1,12 +1,12 @@
 # Using script resources
 
-The term "resource" is used to describe any files in your scripts directories that are not python scripts (`*.py`). You can use these files to include binary data such as images or other data like config files etc. in your Apps.
+The term "resource" is used to describe any files in your scripts directories that are not python scripts (`*.py`). You can use these files to include binary data such as images or other data like config files etc. in your add-ons.
 
 ## Importing resources
 
 The resources files in your scripts directory are automatically recognized as such. You can as well add (import) resources using the context menu of the script editor.
 
-![RMB ► Import ► Resource](assets/import_script_resource.png) 
+![](assets/import_script_resource.jpg) 
 
 ## Usage in scripts
 
@@ -27,5 +27,5 @@ if (res.exists()):
 
 ## See also
 
-* <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#script_resources--how-to-access-binary-data-of-your-app-resources">Examples of category `script_resources`</a>
+* [Examples of category `script_resources`](../../python_examples/script_resources.md)
 * [`gom.Resource` API Definition](../../python_api/resource_api.md)

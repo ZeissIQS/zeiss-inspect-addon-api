@@ -1,13 +1,13 @@
 ---
 myst:
    html_meta:
-      "description": "Introduction to the Python API for extending ZEISS INSPECT 2025 with Apps"
-      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, Apps, How-tos"
+      "description": "Introduction to the Python API for extending ZEISS INSPECT 2023 with Add-ons"
+      "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos"
 ---
 
 # ZEISS INSPECT Python API Introduction
 
-Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into App development for ZEISS INSPECT. Here you find out what you can do with Apps, how they work and how you create them.
+Welcome to the ZEISS INSPECT Python API introduction. This is your starting point into Add-on development for ZEISS INSPECT. Here you find out what you can do with Add-ons, how they work and how you create them.
 
 See [Introduction to Python Scripting](https://techguide.gom.com/en/zeiss-inspect-2023/article/introduction_to_python_scripting.html) if you are new to Python or the ZEISS INSPECT Python interface.
 
@@ -21,7 +21,7 @@ gom.script.sys.create_project ()
 ```
 
 ```{note}
-This way, a project in the default workflow (part-based) is created. For the legacy workflow (part-less), please refer to [Scripting with legacy projects \(part-less\)](../scripting_legacy_projects/scripting_legacy_projects.md)
+💡 This way, a project in the default workflow  (part-based) is created. For the legacy workflow (part-less), please refer to [Legacy projects \(part-less\)](#legacy-projects-part-less)
 ```
 
 ## Creating parts
@@ -126,8 +126,6 @@ for x in gom.ElementSelection ({'category': ['key', 'elements', 'part', gom.app.
     print (x)
 ```
 
-See [Selecting elements in scripts](selecting_elements.md) for more details.
-
 ## Accessing elements and alignments of *Element in clipboard*
 
 Also, these elements can be easily accessed via an `ElementSelection`:
@@ -152,13 +150,134 @@ There is one special handling for multiple parts and scripting with the *Origina
 gom.app.project.alignments['<Name of the part>::Original alignment']
 ```
 
+## Legacy projects (part-less)
+
+```{note}
+⚠️ You can skip this section unless you are dealing with legacy projects!
+```
+
+As shown above, the following code creates a project in the part-based workflow, which allows to analyze multiple parts:
+
+``` Python
+# Create a project (default; part-based workflow)
+gom.script.sys.create_project ()
+
+# For compatibility, the kind of project can be stated explicitely:
+# Create a project (part-based workflow)
+gom.script.sys.create_project (type=2018)
+```
+
+You can still create a project in the legacy workflow, which is restricted to a single part:
+
+``` Python
+# Create a project (part-less workflow)
+# Note: This allows to analyze a single part only!
+gom.script.sys.create_project (type=2016)
+```
+
+Use the following code to determine the type of an existing project:
+
+``` Python
+if gom.app.project.is_part_project:
+    print ('Is part project: True')
+else:
+    print ('Is part project: False')
+```
+
+In former projects, the CAD or the actual mesh have been accessed via their proxies:
+
+*All CADGroup proxy*
+
+*Actual Master*
+
+### Measurement series and Measuring environment
+
+The access and information about the VMR, measuring setups and measurement series  are much more separated in the part-based workflow as compared to the part-less workflow. New categories and `ElementSelection` categories were introduced. If you have further questions regarding scripting purposes, please contact the ZEISS support.
+
+Here just the most important information follows. The measurements have their own category in the part-based workflow. A measurement can be accessed via the attribute `measurement_series` and no longer via `actual_elements`.
+
+``` Python
+MEASUREMENT = gom.app.project.measurement_series['Scan 1']
+ 
+MEASUREMENTS = gom.ElementSelection ({'category': ['key', 'elements', 'explorer_category', 'measurements', 'object_family', 'measurement_series']})
+```
+
+### Reports
+
+Reports did not change so much in the part-based workflow. Reports are not assigned to a part, they show the situation of measurement series, VMR or multiple parts at the same time. Some slight changes must be taken into account: The keyword `alignment` could now return names of more than one alignment (comma separated, i.e. a Python list) due to the fact that multiple parts (if visible in the report page) with their own alignment must be respected.
+
+### CAD structure and contents
+
+For scripting with CADs in part-based projects, some additional information are necessary. Most importantly:
+
+Only one CAD Group per part is supported. <!-- The same also applies to the actual content of a part - only one mesh per part is supported. -->
+<!-- 
+How about stages?
+
+The following code prints the surface area of each stage:
+
+for s in gom.app.project.stages:
+	print (gom.app.project.parts['Part'].actual.in_stage[s.index].area)
+
+According to this, the stage (i.e. a mesh) would be a sub-element of the part. Or does this have anything to do with a proxy?
+-->
+
+The *CAD Group* (in a part-based workflow) supports now the access via an internal file structure to represent structures stored in CAD files like *CATProduct*. These entities are imported in the part-less workflow as separated *CAD Groups*.
+
+The following simple code examples show how to access bodies or files of a CAD Group.
+
+⚠️ **Keep in mind:** This access gives you information about the bodies or files. You can use this also for the deletion of bodies. Visibility operations are suppressed by intention. Usage for construction purposes is not recommended due to the fact that exchanging CAD structures would **not** work as expected.
+
+``` Python
+# this example code list all bodies of all CADs for all parts
+cad = filter (lambda c: c.type == "cad", gom.app.project.nominal_elements)
+for c in cad:
+    print (c.name, c.type)
+    for b in c.bodies:
+        print (b.name)
+```
+
+This is an example to list files by `cat_part`:
+
+``` Python
+cad = filter (lambda c: c.type == "cad", gom.app.project.nominal_elements)
+ 
+# for all cads in all parts list the file structure of each CAD of one part and furthermore all bodies of each file
+for c in cad:
+    print (c.name)
+    print ('Number of files: ' + str (len (c.file)))
+    for file in c.file:
+        print (file)
+        for b in file.bodies:
+            print (' {}'.format (b.name))
+```
+
+### CAD assembly structure in the *Elements in clipboard*
+
+These information are usually not necessary for scripting. The most important fact is that the assembly structure does not represent our CAD structure. The assembly structure shows much more internal details.
+
+### Script compatibility
+
+#### Actual master and All CAD Group proxy
+For the single part workflow old scripts using *Actual Master* and the *All CAD Group proxy* in creation commands should usually work.
+
+⚠️ **Keep in mind:** The functionality of these proxies is no longer present in the part-based workflow. Therefore functionalities like *Define Actual Master* will not work anymore. If the scripting tries to resolve the elements for the *Actual Master* a mapping takes place and the *ActualValues-Reference* of the unique part is returned. The same happens for the *All CAD Group proxy* and the *NominalValues-Reference*.
+
+#### Measurement series
+The script compatibility for the current measurement list is given in most cases. Normal information is usually accessible via the same attributes as before.
+
+#### Tesselate Geometrical Element
+The obsolete command `gom.script.mesh.tesselate_geometrical_element` creates an element of type mesh.
+
+In the part-based workflow this command has been replaced with the command `gom.script.primitive.tesselate_geometrical_element`, which creates elements of type surface.
+
 ## Access element properties
 
 The "elements" of the GOM Software, i.e. what you see in the element explorer of your project, hold several properties and data which you can access using the Python API.
 
 First of all, you need a reference to an element, which you can get either by [using a script dialog](user_defined_dialogs.md) or simply by referencing it by name.
 
-If you have installed the `Python API Examples` App from the store and loaded the `zeiss_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
+If you have installed the `Python API Examples` add-on from the store and loaded the `zeiss_part_test_project` (see the [Python API Examples Documentation](../../python_examples/index.md)), you can reference the mesh like this:
 
 ```python
 mesh_element = gom.app.project.parts['Part'].actual
@@ -166,21 +285,17 @@ mesh_element = gom.app.project.parts['Part'].actual
 
 ### Explore available properties
 
-Once you have a reference to an element, you can access its properties using several keywords in the form `element.<keyword>`.
+Once you have a reference to the element, you can access its properties using several keywords in the form `element.<keyword>`.
 
-One way to inspect the available keys is by using the 'Script Object' explorer, which is available from the Script Editor's context menu: RMB ► Insert ► Element Value (shortcut `F2`).
+One way to inspect the available keys is by using the 'Script Object' explorer, which is available from the context menu `-> Insert -> Element Value` or by shortcut `F2`.
 
-```{image} assets/insert_element_value.png
-:alt: Insert Element Value
-:width: 350px
-```
 
-```{image} assets/script_object_explorer.png
+```{image} assets/script_object_explorer.jpg
 :alt: Script Object Explorer
 :width: 350px
 ```
 
-You will find several keywords in the Object Explorer, with a preview of the current value.
+You will find several keywords there, with a preview of the current value.
 If you click `OK`, the complete call, including element reference by name, will be copied to your current script. If you already have a name reference, you can of course use this reference.
 
 ```python
@@ -191,75 +306,6 @@ Output:
 ```
 >>> 207422.1875
 ```
-
-### `gom_vec3d` and `gom_math`
-
-The Python module `gom_vec3d` defines the classes `gom.Vec3d` and `Point3d`. `gom.Vec3d` objects are used to represent single coordinates, such as a circle's center or a point, e.g.
-
-```python
-print(gom.app.project.nominal_elements['Circle 1'].center_coordinate)
-# Output:
-# gom.Vec3d (10.0, -10.0, 0.0)
-```
-
-The Python module `gom_math` provides some utility functions for geometrical computations on `gom.Vec3d` objects.
-
-To list the contents of `gom_vec3d`:
-
-```python
-import gom
-import gom_math
-
-items = dir(gom_math)
-
-print ("gom_math contents:")
-for item in items:
-    print (item)
-
-# Output:
-# Plane3d_distance_to_point
-# Plane3d_getDirection1
-# Plane3d_intersectWithLine
-# Plane3d_intersectWithPlane
-# Plane3d_perpendPoint
-# Vec3d_cross
-# Vec3d_div
-# ...
-```
-
-To get a function's documentation, e.g. for `gom_math.Vec3d_mult_scalar`:
-
-```python
-print(gom_math.Vec3d_mult_scalar.__doc__)
-
-# Output:
-#    Multiplies each component of a Gom.Vec3d vector by a scalar.
-# 
-#    Args:
-#        vec (Gom.Vec3d): The input Gom.Vec3d vector.
-#        scalar (float): The scalar value to multiply with.
-# 
-#    Returns:
-#        Gom.Vec3d: The result of scalar multiplication of the vector.
-```
-
-Example:
-```python
-x = 1
-y = 2
-z = 3
-multiplier = 1.5
-
-vector = gom.Vec3d(x, y, z)
-print(gom_math.Vec3d_mult_scalar(vector, multiplier))
-
-# Output:
-# gom.Vec3d (1.5, 3.0, 4.5)
-```
-
-The Python files `gom_vec3d.py` and `gom_math.py` are located in `C:\Program Files\Zeiss\INSPECT\2025\lib\python\gom-python`.
-
-For more complex operations or efficient handling of large sets of data, the [NumPy](https://numpy.org/) package is recommended.
 
 ### Element properties in VSCode
 
@@ -297,11 +343,10 @@ In a script, each element present in the application (project, inspection elemen
 In most cases, the data interfaces are based on the Python package [NumPy](https://numpy.org/).
 
 ```{caution}
-Due to breaking changes in NumPy 2.0.0 (see [NumPy 2.0.0 Release Notes](https://github.com/numpy/numpy/releases/tag/v2.0.0)), the latest NumPy 1.x version must be used with ZEISS INSPECT 2025.
+Due to breaking changes in NumPy 2.0.0 (see [NumPy 2.0.0 Release Notes](https://github.com/numpy/numpy/releases/tag/v2.0.0)), the latest NumPy 1.x version must be used with ZEISS INSPECT 2023.
 ```
 
 ### Concept
-
 This is already the case for access via the data interface instead of the token interface: The returned value has the format `(stages, <index dimensions>)`.
 
 ```{code-block} python
@@ -328,9 +373,7 @@ This is already the case for access via the data interface instead of the token 
 (8, 3000, 4000, 4)
 ```
 
-```{note}
-When accessing the image, the complete data set is *not* transferred immediately from C++ to Python! Instead this happens just in the moment when it is converted into a numpy array!
-```
+⚠️ When accessing the image, the complete data set is *not* transferred immediately from C++ to Python! Instead this happens just in the moment when it is converted into a numpy array!
 
 ```{code-block} python
 :caption: Example 4 - Transferring image data
@@ -379,10 +422,10 @@ context.stage = current_stage
 
 ## Exception handling
 
-With the ZEISS INSPECT App API, three different types of exceptions can occur:
+With the ZEISS INSPECT Add-on API, three different types of exceptions can occur:
 * Python built-in exceptions
 * User defined exceptions, e.g. from a Python module
-* ZEISS INSPECT App API exceptions
+* ZEISS INSPECT Add-on API exceptions
 
 It is [recommended practice](https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/bare-except.html) to avoid bare except clauses, i.e. to specify an exception type:
 

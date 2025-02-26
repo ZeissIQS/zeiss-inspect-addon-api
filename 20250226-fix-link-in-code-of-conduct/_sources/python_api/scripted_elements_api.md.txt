@@ -8,9 +8,10 @@ If you don't know about the concept yet, take a look at the [Scripted elements i
 
 ## The `dialog` function
 
-```{note}
-The main purpose of this function is to use display a script dialog and allow the user to enter element parameters. All tokens of other elements can be accessed within this function.
-```
+💡 **Notes:**
+
+* The main purpose of this function is to use display a script dialog and allow the user to enter element parameters.
+* All tokens of other elements can be accessed within this function.
 
 ### Signature
 
@@ -59,14 +60,14 @@ To calculate a preview, the `context.calc()` function can be invoked. It takes t
 A call to this function will return immediately. The calculation is invoked asynchronously in a separate python instance.
 
 ```{seealso}
-A preview calculation is implemented in the example <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/scripted_actuals/ScriptedActualPoint/doc/Documentation.md#offset_point_v2-includes-preview-calculation">offset_point_v2</a>.
+A preview calculation is implemented in the example [offset_point_v2](../python_examples/scripted_actuals/offset_point_v2.md).
 ```
 
 ## The `calculation` function
 
-```{note}
-It is not possible to call script commands or read tokens from within this function. (Do not call `gom.app.project....`) The function should loop over all stages to be calculated and set a computation result  for each stage.
-```
+💡 **Notes:**
+* It is not possible to call script commands or read tokens from within this function. (Do not call `gom.app.project....`)
+* The function should loop over all stages to be calculated and set a computation result  for each stage.
 
 ### Signature
 
@@ -116,7 +117,7 @@ On success the function must return True, otherwise False.
 ## Scripted actuals - Return values
 
 ```{seealso}
-The section <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/README.md#scripted_actuals--building-custom-actual-elements-with-python-code">App Examples - scripted_actuals</a> provides an example for each element type.
+The section [Python API Examples - scripted_actuals](../python_examples/scripted_actuals.md) provides an example for each element type.
 ```
 
 ### Point
@@ -167,7 +168,7 @@ result = [ { 'points': [gom.Vec3d, gom.Vec3d, ...] } ]
 
 # Optional: Curve with additional creation plane
 result = {
-  'curves': [{'points': [gom.Vec3d, ...]}],
+  'curves': [{'points': [gom.Vec3d, ...]],
   'plane' : {'normal' : gom.Vec3d, 'distance' : float}
 }
 ```
@@ -377,7 +378,7 @@ result = { 'pixel_data' : np.array (), 'transformation' : gom.Mat4x4 }
 ### Volume Region
 
 :Element Type: Volume Region
-:Result: Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a linked volume element.
+:Result: Accepts a numpy array of the region data. The 'dtype' must be UINT_8. This array can be smaller than the volume grid.<p>The offset parameter defines the location of the first voxel in the numpy array of the volume region.<p>This scripted element requires specifying a reference to a volume element. This can be a volume or linked volume element.
 
 ```{code-block} python
 result = {

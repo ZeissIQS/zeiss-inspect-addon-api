@@ -1,6 +1,6 @@
 # Scripted elements
 
-The following how-tos will introduce the concept of scripted elements, i.e. elements of the ZEISS INSPECT software that are created by calculation logic written in Python.
+The following how-tos will introduce the concept of scripted elements, i.e. elements of the GOM Software that are created by calculation logic written in Python.
 
 ```{eval-rst}
 .. toctree::

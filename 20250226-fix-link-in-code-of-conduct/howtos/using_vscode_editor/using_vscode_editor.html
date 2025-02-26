@@ -6,12 +6,12 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using Visual Studio Code as an App editor &mdash; App Development Documentation</title>
+  <title>Using Visual Studio Code as an add-on editor &mdash; Add-On Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/using_vscode_editor/using_vscode_editor.html" />
+    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/howtos/using_vscode_editor/using_vscode_editor.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -20,8 +20,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Documenting Apps" href="../app_documentation/app_documentation.html" />
-    <link rel="prev" title="Frequently asked questions" href="../faq/faq.html" /> 
+    <link rel="next" title="User-defined Dialogs" href="../python_api_introduction/user_defined_dialogs.html" />
+    <link rel="prev" title="Documenting Add-ons" href="../add_on_documentation/add_on_documentation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -33,7 +33,7 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            App Development Documentation
+            Add-On Documentation
               <img src="../../_static/zeiss-logo-rgb.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -47,48 +47,85 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
-<ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_add_on_editor/using_add_on_editor.html">Using the Add-on Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_file_format/add_on_file_format.html">Add-on file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add_on_documentation/add_on_documentation.html">Documenting Add-ons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Visual Studio Code as an add-on editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting">Connecting</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Visual Studio Code as an App editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#editing">Editing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-scripts">Creating scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executing-scripts">Executing scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-commands">Recording commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-elements">Inserting elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-keywords">Inserting keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-debugging">Start debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-defined-script-dialogs">User defined script dialogs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-new-user-defined-script-dialog">Create new user defined script dialog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-user-defined-script-dialog">Edit user defined script dialog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-do-i-set-a-shortcut-to-toggle-the-recording-mode">How do I set a shortcut to toggle the recording mode ?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host">How do I set shortcuts for starting the current script in the ZEISS INSPECT host ?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#script-editing">Script editing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project">Can I use local workspaces from disk instead of the application script database for my project ?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-using-intellisense-completion-the-keyword-list-stalls">When using IntelliSense completion, the keyword list stalls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen">When starting both the application and a script from within Visual Studio Code, crashes can happen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_addons/adding_workspaces_to_addons.html">Adding workspaces to add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Add-ons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_addons/testing_addons.html">Testing add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">Introduction to the Python API Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/index.html">ZEISS INSPECT Python API Examples Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/data_interfaces.html">data_interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/dialog_widgets.html">dialog_widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_icons.html">script_icons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/script_resources.html">script_resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_actuals.html">scripted_actuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_examples/scripted_checks.html">scripted_checks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Specification</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT App Python API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_api/python_api.html">ZEISS INSPECT Python API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/scripted_elements_api.html">Scripted elements API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python_api/resource_api.html">gom.Resource API</a></li>
 </ul>
@@ -99,7 +136,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">App Development Documentation</a>
+          <a href="../../index.html">Add-On Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -107,7 +144,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Using Visual Studio Code as an App editor</li>
+      <li class="breadcrumb-item active">Using Visual Studio Code as an add-on editor</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -116,20 +153,277 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="using-visual-studio-code-as-an-app-editor">
-<h1>Using Visual Studio Code as an App editor<a class="headerlink" href="#using-visual-studio-code-as-an-app-editor" title="Link to this heading"></a></h1>
+  <section id="using-visual-studio-code-as-an-add-on-editor">
+<h1>Using Visual Studio Code as an add-on editor<a class="headerlink" href="#using-visual-studio-code-as-an-add-on-editor" title="Link to this heading"></a></h1>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Installation</p>
+<ul>
+<li><p>Install the extension directly from the Visual Studio Code extension tab or from the marketplace.</p></li>
+<li><p>VSCode version 1.64 or higher is needed for this to work properly.</p>
+<p><img alt="" src="../../_images/extension.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Configure connection</p>
+<ul>
+<li><p>Ensure that the python API preferences in ZEISS INSPECT are set up properly</p>
+<p><img alt="" src="../../_images/setup2.png" /></p>
+</li>
+<li><p>Ensure that the python API settings are correct in VSCode and are matching these in ZEISS INSPECT:</p>
+<p><img alt="" src="../../_images/setup4.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="connecting">
+<h3>Connecting<a class="headerlink" href="#connecting" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Have ZEISS INSPECT running as a host</p></li>
+<li><p>In the VSCode status bar, the connection status is displayed:</p>
+<p><img alt="" src="../../_images/connecting1.png" /></p>
+</li>
+<li><p>Press onto the “Host: Disconnected” status entry to connect to the host application.</p></li>
+<li><p>After the connection has been established,</p>
+<ul>
+<li><p>the connection status will reflect that and</p></li>
+<li><p>the ZEISS INSPECT Add-on Explorer content is mirrored and displayed in VSCode:</p>
+<p><img alt="" src="../../_images/connecting2.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="editing">
+<h2>Editing<a class="headerlink" href="#editing" title="Link to this heading"></a></h2>
+<section id="creating-scripts">
+<h3>Creating scripts<a class="headerlink" href="#creating-scripts" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select ‘New GOM script’ from the file explorers right mouse menu.</p></li>
+<li><p>Enter unique name for that script.</p></li>
+</ol>
+<p><img alt="" src="../../_images/editing1.png" /></p>
+</section>
+<section id="executing-scripts">
+<h3>Executing scripts<a class="headerlink" href="#executing-scripts" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Select script to execute in the VSCode explorer.</p>
+<ul class="simple">
+<li><p>The script can either reside in the internal edited Add-ons folder or be a local file from any other workspace location.</p></li>
+</ul>
+</li>
+<li><p>Select “Run script in ZEISS INSPECT host” from the editors toolbar</p></li>
+<li><p>The script outputs will be shown in the “debug console”.</p>
+<p><img alt="" src="../../_images/editing2.png" /></p>
+</li>
+</ol>
+</section>
+<section id="recording-commands">
+<h3>Recording commands<a class="headerlink" href="#recording-commands" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Make sure that your Add-on in is in editing mode</p></li>
+<li><p>Select the script into which you want to record commands for displaying in the editor.</p></li>
+<li><p>In that editor, select “Record commands” from the editor toolbar.</p></li>
+<li><p>Execute commands in the ZEISS INSPECT application</p>
+<ul>
+<li><p>The executed commands will be recorded in the currently edited VSCode script.</p></li>
+<li><p>In addition, the “ZEISS INSPECT script commands” subsection of the output tab shows a log of the executed commands.</p>
+<p><img alt="" src="../../_images/recording1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>For recording into a different position of the script, set the cursor to that line first or while recording.</p></li>
+<li><p>Press “Record commands” again to stop command recording.</p></li>
+</ol>
+</section>
+<section id="inserting-elements">
+<h3>Inserting elements<a class="headerlink" href="#inserting-elements" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Elements in ZEISS INSPECT are represented by ‘element references’ in the script. These are python expressions which, when executed, return a reference to that element.</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>When connected to a ZEISS INSPECT application host, select the ‘Elements’ in the explorer view.</p>
+<ul class="simple">
+<li><p>There, all elements in the project are listed.</p></li>
+</ul>
+</li>
+<li><p>Set editor cursor to the place the element should be into inserted into.</p></li>
+<li><p>Select “Insert element into editor” from the top toolbar of the ‘Elements’ tab</p>
+<ul>
+<li><p>You will get an ‘element reference’, an expression which, when, executed, returns the element referenced.</p>
+<p><img alt="" src="../../_images/inserting_elements.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="inserting-keywords">
+<h3>Inserting keywords<a class="headerlink" href="#inserting-keywords" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>A keyword is an attribute used to query an element property. Various element attributes are existing depending on the element type.</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Insert an element reference in the script as mentioned above.</p></li>
+<li><p>After the element reference, press ‘.’ to insert a dot</p>
+<ul>
+<li><p>A selection menu opens presenting the available keywords for that element</p>
+<p><img alt="" src="../../_images/inserting_keywords.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
+<section id="start-debugging">
+<h3>Start debugging<a class="headerlink" href="#start-debugging" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Prepare debugged script as usual by setting breakpoints etc.</p>
+<p><img alt="" src="../../_images/debugging1.png" /></p>
+</li>
+<li><p>Start debugger by selecting “Debug script in ZEISS INSPECT host” from the editor toolbar</p>
+<p><img alt="" src="../../_images/debugging2.png" /></p>
+</li>
+<li><p>Full VSCode debugging functionality can be used now, including</p>
+<p><img alt="" src="../../_images/debugging3.png" /></p>
+<ul class="simple">
+<li><p>breakpoints and triggered breaks,</p></li>
+<li><p>step over/in/out,</p></li>
+<li><p>tracebacks,</p></li>
+<li><p>variable inspection etc.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="user-defined-script-dialogs">
+<h2>User defined script dialogs<a class="headerlink" href="#user-defined-script-dialogs" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>An update of the ZEISS INSPECT VSCode interface is currently in progress. This section will be updated with the release of ZEISS INSPECT 2025 Service Pack 1.</p>
+<p>User defined script dialogs cannot be edited graphically in VSCode at the moment. Instead, an application based script dialog can be opened. A connection to a running application must be present for that purpose.</p>
 </div>
+<section id="create-new-user-defined-script-dialog">
+<h3>Create new user defined script dialog<a class="headerlink" href="#create-new-user-defined-script-dialog" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Select “Python API: Insert new user defined script dialog” from the command selector or from the right mouse menu while editing the script into which the dialog should be inserted.</p>
+<p><img alt="" src="../../_images/userdialog1.png" /></p>
+</li>
+<li><p>Choose a name for the dialog file which will then be created.</p>
+<p><img alt="" src="../../_images/userdialog2.png" /></p>
+</li>
+<li><p>The edited script will contain the necessary dialog commands then and a separate dialog definition file (*.gdlg) has been created.</p>
+<p><img alt="" src="../../_images/userdialog3.png" /></p>
+</li>
+<li><p>Select the dialog definition file to open the</p>
+<p><img alt="" src="../../_images/userdialog4.png" /></p>
+</li>
+<li><p>When the script is executed, the user defined script dialog is displayed.</p>
+<p><img alt="" src="../../_images/userdialog5.png" /></p>
+</li>
+</ol>
+</section>
+<section id="edit-user-defined-script-dialog">
+<h3>Edit user defined script dialog<a class="headerlink" href="#edit-user-defined-script-dialog" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Edit script dialog file (*.gdlg) can be edited either in JSON format directly (possible, but not recommended) or by opening the script dialog editor in the connected application:</p>
+<p><img alt="" src="../../_images/userdialog6.png" /></p>
+</li>
+<li><p>The application will then open the script dialog editor. After closing it again, the edited *.gdlg file will be adapted accordingly.</p>
+<p><img alt="" src="../../_images/userdialog7.png" /></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to an unsolved bug, the script editor window might open below the VSCode window or on another display in some multi display settings. There is a hint box as indicator that the script editor windows has been opened at all.</p>
+<p><img alt="" src="../../_images/userdialog8.png" /></p>
+</div>
+</section>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<section id="how-do-i-set-a-shortcut-to-toggle-the-recording-mode">
+<h4>How do I set a shortcut to toggle the recording mode ?<a class="headerlink" href="#how-do-i-set-a-shortcut-to-toggle-the-recording-mode" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Select the “Keyboard Shortcuts” properties from the configurations menu:</p>
+<p><img alt="" src="../../_images/toggle_recording_1.png" /></p>
+</li>
+<li><p>Assign the command “Python API: Toggle command recording” to a key:</p>
+<p><img alt="" src="../../_images/toggle_recording_2.png" /></p>
+</li>
+<li><p>The ‘when’ clause determines when the command is available. The correct ‘when’ clause here ist:</p>
+<p>resourceLangId == python &amp;&amp; scriptingHostConnected</p>
+</li>
+<li><p>If necessary, existing command bindings to that key can be removed here, too:</p>
+<p><img alt="" src="../../_images/toggle_recording_3.png" /></p>
+</li>
+</ul>
+</section>
+<section id="how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host">
+<h4>How do I set shortcuts for starting the current script in the ZEISS INSPECT host ?<a class="headerlink" href="#how-do-i-set-shortcuts-for-starting-the-current-script-in-the-zeiss-inspect-host" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>See above for the general process.</p></li>
+<li><p>The relevant commands here are:</p>
+<ul>
+<li><p>‘Python API: Run script in ZEISS INSPECT host’: Start the script.</p></li>
+<li><p>‘Python API: Debug script in ZEISS INSPECT host’: Start the script with debugger attached.</p></li>
+</ul>
+</li>
+<li><p>F9 / CTRL + F9 might be valid keys for that.</p></li>
+</ul>
+</section>
+</section>
+<section id="script-editing">
+<h3>Script editing<a class="headerlink" href="#script-editing" title="Link to this heading"></a></h3>
+<section id="can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project">
+<h4>Can I use local workspaces from disk instead of the application script database for my project ?<a class="headerlink" href="#can-i-use-local-workspaces-from-disk-instead-of-the-application-script-database-for-my-project" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Yes. You can add arbitrary folders to the workspace and edit and starts scripts from right there.</p></li>
+<li><p>The edited external folder can be connected to the ZEISS INSPECT Add-on Explorer, so that it can be used from there:</p>
+<p><img alt="" src="../../_images/03-Add-on_External_Folder_v21.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<section id="when-using-intellisense-completion-the-keyword-list-stalls">
+<h4>When using IntelliSense completion, the keyword list stalls<a class="headerlink" href="#when-using-intellisense-completion-the-keyword-list-stalls" title="Link to this heading"></a></h4>
+<ul>
+<li><p>When using the ‘.’ or a hotkey to access the list of possible completions, a tooltip displays ‘Loading…’ but nothing happens:</p>
+<p><img alt="" src="../../_images/keyword_list_1.png" /></p>
+</li>
+<li><p>This bug is caused by the ‘Microsoft Python’ extension in connection with the script database filesystem.</p></li>
+<li><p>There is currently no fix, so disabling this extension is the only way here. This does not affect most python editor features:</p>
+<p><img alt="" src="../../_images/keyword_list_2.png" /></p>
+</li>
+</ul>
+</section>
+<section id="when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen">
+<h4>When starting both the application and a script from within Visual Studio Code, crashes can happen<a class="headerlink" href="#when-starting-both-the-application-and-a-script-from-within-visual-studio-code-crashes-can-happen" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>This is more a ZEISS internal issue. When developing application code and script code at the same time from the same VSCode instance, this can happen.</p></li>
+<li><p>The parallel debugging session (application and scripting) seem to be the problem.</p></li>
+<li><p>Workaround: Do not start ZEISS INSPECT application via the VSCode launcher, but e.g. from a command prompt.</p></li>
+</ul>
+</section>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../faq/faq.html" class="btn btn-neutral float-left" title="Frequently asked questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../app_documentation/app_documentation.html" class="btn btn-neutral float-right" title="Documenting Apps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../add_on_documentation/add_on_documentation.html" class="btn btn-neutral float-left" title="Documenting Add-ons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python_api_introduction/user_defined_dialogs.html" class="btn btn-neutral float-right" title="User-defined Dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -146,7 +440,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f8018ede580>
+  <jinja2.runtime.BlockReference object at 0x7f5089b46ba0>
 
 
 </footer>
