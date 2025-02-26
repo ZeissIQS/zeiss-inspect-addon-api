@@ -9,7 +9,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZEISS INSPECT Python API Introduction &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -49,7 +49,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ZEISS INSPECT Python API Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#creating-projects">Creating projects</a></li>
@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#alignments">Alignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#access-element-properties">Access element properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#explore-available-properties">Explore available properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-vec3d-and-gom-math"><code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#element-properties-in-vscode">Element properties in VSCode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#properties-of-different-stages">Properties of different stages</a></li>
 </ul>
@@ -76,27 +77,33 @@
 <li class="toctree-l1"><a class="reference internal" href="selecting_elements.html">Selecting elements in scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -286,6 +293,66 @@ If you click <code class="docutils literal notranslate"><span class="pre">OK</sp
 </pre></div>
 </div>
 </section>
+<section id="gom-vec3d-and-gom-math">
+<h3><code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math</span></code><a class="headerlink" href="#gom-vec3d-and-gom-math" title="Link to this heading"></a></h3>
+<p>The Python module <code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code> defines the classes <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> and <code class="docutils literal notranslate"><span class="pre">Point3d</span></code>. <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> objects are used to represent single coordinates, such as a circle’s center or a point, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">nominal_elements</span><span class="p">[</span><span class="s1">&#39;Circle 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">center_coordinate</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># gom.Vec3d (10.0, -10.0, 0.0)</span>
+</pre></div>
+</div>
+<p>The Python module <code class="docutils literal notranslate"><span class="pre">gom_math</span></code> provides some utility functions for geometrical computations on <code class="docutils literal notranslate"><span class="pre">gom.Vec3d</span></code> objects.</p>
+<p>To list the contents of <code class="docutils literal notranslate"><span class="pre">gom_vec3d</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom_math</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">gom_math</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;gom_math contents:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># Plane3d_distance_to_point</span>
+<span class="c1"># Plane3d_getDirection1</span>
+<span class="c1"># Plane3d_intersectWithLine</span>
+<span class="c1"># Plane3d_intersectWithPlane</span>
+<span class="c1"># Plane3d_perpendPoint</span>
+<span class="c1"># Vec3d_cross</span>
+<span class="c1"># Vec3d_div</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>To get a function’s documentation, e.g. for <code class="docutils literal notranslate"><span class="pre">gom_math.Vec3d_mult_scalar</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gom_math</span><span class="o">.</span><span class="n">Vec3d_mult_scalar</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1">#    Multiplies each component of a Gom.Vec3d vector by a scalar.</span>
+<span class="c1"># </span>
+<span class="c1">#    Args:</span>
+<span class="c1">#        vec (Gom.Vec3d): The input Gom.Vec3d vector.</span>
+<span class="c1">#        scalar (float): The scalar value to multiply with.</span>
+<span class="c1"># </span>
+<span class="c1">#    Returns:</span>
+<span class="c1">#        Gom.Vec3d: The result of scalar multiplication of the vector.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">multiplier</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">vector</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gom_math</span><span class="o">.</span><span class="n">Vec3d_mult_scalar</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">))</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># gom.Vec3d (1.5, 3.0, 4.5)</span>
+</pre></div>
+</div>
+<p>The Python files <code class="docutils literal notranslate"><span class="pre">gom_vec3d.py</span></code> and <code class="docutils literal notranslate"><span class="pre">gom_math.py</span></code> are located in <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zeiss\INSPECT\2025\lib\python\gom-python</span></code>.</p>
+<p>For more complex operations or efficient handling of large sets of data, the <a class="reference external" href="https://numpy.org/">NumPy</a> package is recommended.</p>
+</section>
 <section id="element-properties-in-vscode">
 <h3>Element properties in VSCode<a class="headerlink" href="#element-properties-in-vscode" title="Link to this heading"></a></h3>
 <p>Using Visual Studio Code, you can get auto-completion for the usable keywords directly in a pop-up.</p>
@@ -418,7 +485,7 @@ context.stage = current_stage
 </pre></div>
 </div>
 <p>Now you can specify the expected exception type correctly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gomlib</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gomlib</span>
 <span class="o">...</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">calling_for_trouble</span><span class="p">()</span> <span class="c1"># could raise a GomApiError exception</span>
@@ -440,7 +507,7 @@ context.stage = current_stage
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -451,7 +518,7 @@ context.stage = current_stage
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f076f453a90>
+  <jinja2.runtime.BlockReference object at 0x7f4e244298b0>
 
 
 </footer>

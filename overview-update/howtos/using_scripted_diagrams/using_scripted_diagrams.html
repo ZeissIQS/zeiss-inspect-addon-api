@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using scripted diagrams &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -20,7 +20,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Localization of Apps" href="../localization/localization.html" />
+    <link rel="next" title="Software and script starting options" href="../starting_options/starting_options.html" />
     <link rel="prev" title="Using services" href="../using_services/using_services.html" /> 
 </head>
 
@@ -47,22 +47,32 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="current">
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
@@ -72,18 +82,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-or-modify-scripted-elements-to-contribute-data-to-a-scripted-diagram">1. Create or modify scripted elements to contribute data to a scripted diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#define-the-diagram-service-in-metainfo-json">2. Define the diagram service in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-diagram-service-function">3. Create the diagram service function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#diagram-service-function-description">Diagram service function description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template">Template</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error handling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -138,6 +148,8 @@
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>The concept of scripted diagrams builds upon <a class="reference internal" href="../scripted_elements/scripted_elements_introduction.html"><span class="std std-doc">scripted elements</span></a> and <a class="reference internal" href="../using_services/using_services.html"><span class="std std-doc">services</span></a>. <a class="reference internal" href="../scripted_elements/tokens_on_scripted_elements.html"><span class="std std-doc">Tokens on scripted elements</span></a> are used to convey data to the diagram service.</p>
+<p><img alt="Scripted diagrams relations" src="../../_images/scripted_diagrams_relations.png" /></p>
+<p>Each diagram service combines data from one or more scripted elements to create a single scripted diagram.</p>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
@@ -174,15 +186,54 @@
 <li><p>The service function name must be the same as set in the scripted elements’ <code class="docutils literal notranslate"><span class="pre">&quot;ude_diagram_service&quot;</span></code> parameter.</p></li>
 </ul>
 </div>
+<section id="diagram-service-function-description">
+<h4>Diagram service function description<a class="headerlink" href="#diagram-service-function-description" title="Link to this heading"></a></h4>
+<p>The scripted diagram’s service function implementation must adhere to the following interface description:</p>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&lt;function</span> <span class="pre">name&gt;(view,</span> <span class="pre">element_data):</span> <span class="pre">str</span></span></dt>
+<dd><p>Create an SVG diagram based on scripted elements’ context data</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>view</strong> (<em>dict</em>) – <p>ZEISS INSPECT ‘Inspection Details’ canvas properties</p>
+<ul>
+<li><p>’width’: (int) Canvas width in pixels</p></li>
+<li><p>’height’: (int) Canvas height in pixels</p></li>
+<li><p>’dpi’: (float) Canvas resolution in dpi</p></li>
+<li><p>’font’: (int) Default font size in pt</p></li>
+</ul>
+</p></li>
+<li><p><strong>element_data</strong> (<em>list</em><em>[</em><em>dict1</em><em>, </em><em>dict2</em><em>, </em><em>…</em><em>, </em><em>dictN</em><em>]</em>) – <p>List of dictionaries containing scripted element references and context data</p>
+<ul>
+<li><p>’element’: (object) Element reference</p></li>
+<li><p>’data’: (dict) Context data of the scripted element</p></li>
+<li><p>’type’: (str) Element type (always ‘SVGDiagram’)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SVG diagram</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="template">
+<h4>Template<a class="headerlink" href="#template" title="Link to this heading"></a></h4>
 <p>The following script serves as a minimum template for a scripted diagram service:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Scripted diagram service template</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gom</span>
-<span class="kn">from</span> <span class="nn">gom</span> <span class="kn">import</span> <span class="n">apifunction</span>
-<span class="kn">import</span> <span class="nn">gom.api.extensions.diagrams.matplotlib_tools</span> <span class="k">as</span> <span class="nn">mpltools</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gom</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gom</span><span class="w"> </span><span class="kn">import</span> <span class="n">apifunction</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gom.api.extensions.diagrams.matplotlib_tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpltools</span>
 
 <span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
     <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Diagram Service Template&#39;</span><span class="p">)</span>
     <span class="n">gom</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">view</span><span class="si">=}</span><span class="s1">, </span><span class="si">{</span><span class="n">element_data</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
     
@@ -190,15 +241,15 @@
     <span class="n">mpltools</span><span class="o">.</span><span class="n">setup_plot</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">element_data</span><span class="p">:</span>
-        <span class="c1"># Read the the current element </span>
+        <span class="c1"># Read element reference </span>
         <span class="n">element</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;element&#39;</span><span class="p">]</span>
         
-        <span class="c1"># Read all parameters received from mapped scripted element</span>
+        <span class="c1"># Read scripted element&#39;s context data</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 
         <span class="c1"># Create your diagram</span>
         <span class="c1"># Example: </span>
-        <span class="c1"># plt.plot ([element.name], [data[&#39;ude_diagram_radius&#39;]], &#39;bx&#39;)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ude_diagram_radius&#39;</span><span class="p">]],</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">mpltools</span><span class="o">.</span><span class="n">create_svg</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
 
@@ -214,7 +265,7 @@
 <span class="n">SVG_PATH</span> <span class="o">=</span> <span class="s1">&#39;C:/temp/ScriptedDiagram.svg&#39;</span>
 
 <span class="nd">@apifunction</span>
-<span class="k">def</span> <span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">diagram_service_template</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">element_data</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
     <span class="c1"># ...</span>
 
     <span class="n">svg</span> <span class="o">=</span> <span class="n">mpltools</span><span class="o">.</span><span class="n">create_svg</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
@@ -229,6 +280,7 @@
 </pre></div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="error-handling">
@@ -254,13 +306,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../using_services/using_services.html" class="btn btn-neutral float-left" title="Using services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../localization/localization.html" class="btn btn-neutral float-right" title="Localization of Apps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../starting_options/starting_options.html" class="btn btn-neutral float-right" title="Software and script starting options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -271,7 +323,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f077040b1f0>
+  <jinja2.runtime.BlockReference object at 0x7f4e24550b40>
 
 
 </footer>

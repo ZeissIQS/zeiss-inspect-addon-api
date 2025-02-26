@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing Apps &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -20,8 +20,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Scripting with legacy projects (part-less)" href="../scripting_legacy_projects/scripting_legacy_projects.html" />
-    <link rel="prev" title="Software and script starting options" href="../starting_options/starting_options.html" /> 
+    <link rel="next" title="Creating wizard dialogs" href="../python_api_introduction/creating_wizard_dialogs.html" />
+    <link rel="prev" title="Localization of Apps" href="../localization/localization.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,29 +47,26 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="current">
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Apps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-testing">Why testing?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-structure">File structure</a></li>
@@ -89,9 +86,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#running-app-tests-with-code-coverage">Running App tests with code coverage</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -170,14 +176,14 @@
 (Example: <code class="docutils literal notranslate"><span class="pre">PythonApiExamples/tests/test_data_interfaces_check_results</span></code>)</p></li>
 <li><p>Import the module or package to be tested: Import the module or package that you want to test.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.check_results_data_array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 </pre></div>
 </div>
 <p>For this to work properly, the code that you want to test needs to be structured in functions as well. In this case, the functions <code class="docutils literal notranslate"><span class="pre">get_single_result_value()</span></code> of the <code class="docutils literal notranslate"><span class="pre">check_results_data_arrray</span></code> script is imported.
 For more details, see also: <a class="reference internal" href="../../python_examples/index.html#how-the-examples-are-structured"><span class="std std-ref">How the examples are structured</span></a>.</p>
 </li>
 <li><p>Write test functions: Write test functions named with prefix <code class="docutils literal notranslate"><span class="pre">test_</span></code> that define expected behavior. For simple checks for expected values, use the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement like shown below. For more complex test data (like arrays or Element properties), see <a class="reference internal" href="#working-with-test-data">Working with test data</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_check_results</span> <span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_check_results</span> <span class="p">():</span>
   <span class="c1"># Setup test project</span>
   <span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;zeiss_part_test_project&#39;</span><span class="p">)</span>
   <span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">inspection</span><span class="p">[</span><span class="s1">&#39;Surface comparison 1&#39;</span><span class="p">]</span>
@@ -227,13 +233,13 @@ To use this feature, navigate to the “Testing” workspace of VSCode and selec
 <h2>Working with test data<a class="headerlink" href="#working-with-test-data" title="Link to this heading"></a></h2>
 <p>In the namespace <code class="docutils literal notranslate"><span class="pre">addon</span></code>, there are two new classes: <code class="docutils literal notranslate"><span class="pre">addon.ArrayDataTest</span></code> and <code class="docutils literal notranslate"><span class="pre">addon.ElementTest</span></code>.</p>
 <p>These classes can help you to create test data and compare the data of the current test run with the saved data. An example usage is given by <code class="docutils literal notranslate"><span class="pre">test_data_interfaces_volume_section.py</span></code> of the Python API Examples App.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addon</span> <span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
-<span class="kn">from</span> <span class="nn">PythonApiExamples.setup_project</span> <span class="kn">import</span> <span class="n">open_project</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">addon</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayDataTest</span><span class="p">,</span> <span class="n">ElementTest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PythonApiExamples.setup_project</span><span class="w"> </span><span class="kn">import</span> <span class="n">open_project</span>
 
 <span class="c1"># Importing the example we want to test</span>
-<span class="kn">import</span> <span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span> <span class="k">as</span> <span class="nn">example</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PythonApiExamples.examples.data_interfaces.volume_section_image_data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">example</span>
 
-<span class="k">def</span> <span class="nf">test_volume_section</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_volume_section</span><span class="p">():</span>
 	<span class="c1"># Setup test project</span>
 	<span class="n">open_project</span><span class="p">(</span><span class="s1">&#39;volume_test_project&#39;</span><span class="p">)</span>
 	<span class="n">test_element</span> <span class="o">=</span> <span class="n">gom</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">actual_elements</span><span class="p">[</span><span class="s1">&#39;Plane X +40.00 mm&#39;</span><span class="p">]</span>
@@ -266,10 +272,10 @@ If a relative path is given, like here, a resource inside the App is created / c
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <p><img alt="Example dialog" src="../../_images/that_dialog.png" /></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">code_that_contains_dialogs</span><span class="p">():</span>
    <span class="n">dialog</span><span class="o">=</span><span class="n">gom</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">create_user_defined_dialog</span> <span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;dialog.gdlg&#39;</span><span class="p">)</span>
 
-   <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
       <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="s1">&#39;initialize&#39;</span><span class="p">:</span>
          <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The dialog has been initialized.&#39;</span><span class="p">)</span>
       <span class="k">elif</span> <span class="n">widget</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">:</span>
@@ -290,24 +296,24 @@ If a relative path is given, like here, a resource inside the App is created / c
 </pre></div>
 </div>
 <p>For automated testing, we provide a callback function for each test case covering this dialog. We can set input values, trigger the dialog handler with a specified event and emulate the dialog’s <a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html#control-widget"><span class="std std-ref">control widgets</span></a> (i.e. ‘Ok’ or ‘Cancel’ button). Note that each callback function evaluates the <code class="docutils literal notranslate"><span class="pre">dialog.title</span></code>. This allows to set up a function which can handle multiple dialogs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">callback1</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext1&#39;</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">callback2</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext2&#39;</span>
             <span class="k">return</span> <span class="s1">&#39;close&#39;</span>
 
-    <span class="k">def</span> <span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">callback3</span><span class="p">(</span><span class="n">dialog</span><span class="p">):</span>
         <span class="k">if</span> <span class="s1">&#39;That Dialog&#39;</span> <span class="ow">in</span> <span class="n">dialog</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
             <span class="n">dialog</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;autotext3&#39;</span>
             <span class="k">return</span> <span class="s1">&#39;cancel&#39;</span>
 </pre></div>
 </div>
 <p>Finally we use <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> to run our unit-under-test — the function <code class="docutils literal notranslate"><span class="pre">code_that_contains_dialogs()</span></code> — while applying our callback functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dialogs.dialogs.AutoDialogContext</span> <span class="kn">import</span> <span class="n">AutoDialogContext</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gom_test_helpers.dialogs.AutoDialogContext</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoDialogContext</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Automatically executing the dialog with callback1&#39;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">AutoDialogContext</span><span class="p">(</span><span class="n">callback1</span><span class="p">):</span>
@@ -349,12 +355,12 @@ If a relative path is given, like here, a resource inside the App is created / c
 <h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> provides a context for automatically interacting with dialogs which are shown via <code class="docutils literal notranslate"><span class="pre">gom.script.sys.show_user_defined_dialog</span></code>.
 <code class="docutils literal notranslate"><span class="pre">AutoDialogContext</span></code> is a context manager (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#context-managers">https://docs.python.org/3/reference/datamodel.html#context-managers</a>),
-which can be used together with the “with” statement (<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with">https://docs.python.org/3/reference/compound_stmts.html#with</a>).</p>
+which can be used together with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with">https://docs.python.org/3/reference/compound_stmts.html#with</a>).</p>
 <p>Its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method expects a callback function. This callback function should take a single parameter which is a dialog handle. The dialog handle may be used to manipulate the dialog (set the value of widgets, call the handler manually, etc).</p>
 <p>Interaction with the control buttons of the dialog is done via the return value of the callback:</p>
 <ul class="simple">
 <li><p>If the dialog should be closed via the close button, the callback should return ‘close’.</p></li>
-<li><p>If the dialog should be closed via the cancel button (BreakError), the callback should return ‘cancel’.</p></li>
+<li><p>If the dialog should be closed via the cancel button (<code class="docutils literal notranslate"><span class="pre">BreakError</span></code>), the callback should return ‘cancel’.</p></li>
 <li><p>If the dialog does not need to be closed by automatic control button interaction,
 but will close itself by some other interaction, the callback should return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
@@ -421,14 +427,14 @@ but will close itself by some other interaction, the callback should return <cod
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../starting_options/starting_options.html" class="btn btn-neutral float-left" title="Software and script starting options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../scripting_legacy_projects/scripting_legacy_projects.html" class="btn btn-neutral float-right" title="Scripting with legacy projects (part-less)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../localization/localization.html" class="btn btn-neutral float-left" title="Localization of Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python_api_introduction/creating_wizard_dialogs.html" class="btn btn-neutral float-right" title="Creating wizard dialogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -439,7 +445,7 @@ but will close itself by some other interaction, the callback should return <cod
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f076f461090>
+  <jinja2.runtime.BlockReference object at 0x7f4e24c98360>
 
 
 </footer>

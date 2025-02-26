@@ -12,6 +12,10 @@ myst:
 
 Welcome to the ZEISS INSPECT Python API documentation. Here you can find a detailed documentation of a subset of the App programming specification. Please bear in mind, that recording commands with the script editor can be used to add new functions to your script.
 
+```{note}
+The module importing behavior changed with ZEISS INSPECT 2025. Previously, the API modules could be used without proper `import` statements due to their internal handling. Beginning with ZEISS INSPECT 2025, each module is a full featured native Python module and
+must be properly imported before use!
+```
 ## gom.api.addons
 
 API for accessing the add-ons currently installed in the running software instance
@@ -31,11 +35,11 @@ This class represents a single add-on. Properties of that add-on can be queried 
 
 ```{py:function} gom.api.addons.AddOn.exists(path: str): bool
 
-Check if the given file exists in an add-on
+Check if the given file or directory exists in an add-on
 :API version: 1
 :param path: File path as retrieved by 'gom.api.addons.AddOn.get_file_list ()'
 :type path: str
-:return: 'true' if a file with that name exists in the add-on
+:return: 'true' if a file or directory with that name exists in the add-on
 :rtype: bool
 ```
 
@@ -77,10 +81,8 @@ Return the list of files contained in the add-on
 :rtype: list
 ```
 
-This function returns the list of files in an add-on. These path names can be used to
-read or write/modify add-on content. This is subject to the permission system, so the
-content of protected add-ons cannot be read at all and just the add-on a script originates
-from can be modified via this API.
+This function returns the list of files and directories in an add-on. These path names can
+be used to read or write/modify add-on content.
 
 Please note that the list of files can only be obtained for add-ons which are currently not
 in edit mode ! An add-on in edit mode is unzipped and the `get_file ()` function will return
@@ -91,19 +93,16 @@ the standard file tools instead.
 
 ```
 for addon in gom.api.addons.get_installed_addons():
-  # Protected add-ins cannot be read at all
-  if not addon.is_protected():
+  # Edited add-ons are file system based and must be accessed via file system functions
+  if addon.is_edited():
+    for root, dirs, files in os.walk(addon.get_file ()):
+      for file in files:
+        print(os.path.join(root, file))
 
-    # Edit add-ons are file system based and must be accessed via file system functions
-    if addon.is_edited():
-      for root, dirs, files in os.walk(addon.get_file ()):
-        for file in files:
-          print(os.path.join(root, file))
-
-    # Finished add-ons can be accessed via this function
-    else:
-      for file in addon.get_file_list():
-        print (file)
+  # Finished add-ons can be accessed via this function
+  else:
+    for file in addon.get_file_list():
+      print (file)
 ```
 
 #### gom.api.addons.AddOn.get_id
@@ -318,6 +317,71 @@ installed in the running instance.
 for a in gom.api.addons.get_installed_addons ():
   print (a.get_id (), a.get_name ())
 ```
+
+## gom.api.dialog
+
+API for handling dialogs
+
+This API is used to create and execute script based dialogs. The dialogs are defined in a
+JSON based description format and can be executed server side in the native UI style.
+
+### gom.api.dialog.create
+
+```{py:function} gom.api.dialog.create(context: Any, url: str): Any
+
+Create modal dialog, but do not execute it yet
+:param context: Script execution context
+:type context: Any
+:param url: URL of the dialog definition (*.gdlg file)
+:type url: str
+:return: Dialog handle which can be used to set up the dialog before executing it
+:rtype: Any
+```
+
+This function creates a dialog. The dialog is passed in an abstract JSON description defining its layout.
+The dialog is created but not executed yet. The dialog can be executed later by calling the 'gom.api.dialog.show'
+function. The purpose of this function is to create a dialog in advance and allow the user setting it up before
+
+This function is part of the scripted contribution framework. It can be used in the scripts
+'dialog' functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.
+
+### gom.api.dialog.execute
+
+```{py:function} gom.api.dialog.execute(context: Any, url: str): Any
+
+Create and execute a modal dialog
+:param context: Script execution context
+:type context: Any
+:param url: URL of the dialog definition (*.gdlg file)
+:type url: str
+:return: Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.
+:rtype: Any
+```
+
+This function creates and executes a dialog. The dialog is passed in an abstract JSON
+description and will be executed modal. The script will pause until the dialog is either
+confirmed or cancelled.
+
+This function is part of the scripted contribution framework. It can be used in the scripts
+'dialog' functions to pop up user input dialogs, e.g. for creation commands. Passing of the
+contributions script context is mandatory for the function to work.
+
+### gom.api.dialog.show
+
+```{py:function} gom.api.dialog.show(context: Any, dialog: Any): Any
+
+Show previously created and configured dialog
+:param context: Script execution context
+:type context: Any
+:param dialog: Handle of the previously created dialog
+:type dialog: Any
+:return: Dialog input field value map. The dictionary contains one entry per dialog widget with that widgets current value.
+:rtype: Any
+```
+
+This function shows and executes previously created an configured dialog. The combination of
+'create' and 'show' in effect is the same as calling 'execute' directly.
 
 ## gom.api.imaging
 
@@ -1091,9 +1155,12 @@ Checks if the referenced element is suitable for inspection with a curve check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a curve
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a curve in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ### gom.api.scripted_checks_util.is_scalar_checkable
 
@@ -1103,9 +1170,12 @@ Checks if the referenced element is suitable for inspection with a scalar check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a scalar value
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a scalar value in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ### gom.api.scripted_checks_util.is_surface_checkable
 
@@ -1115,9 +1185,12 @@ Checks if the referenced element is suitable for inspection with a surface check
 :API version: 1
 :param element: Element reference to check
 :type element: gom.Object
+:return: 'true' if the element is checkable like a surface
+:rtype: bool
 ```
 
-*
+This function checks if the given element can be inspected like a surface in the context of scripted
+elements. Please see the scripted element documentation for details about the underlying scheme.
 
 ## gom.api.services
 
@@ -1180,8 +1253,7 @@ Get the number of API instances (processes) the service runs in parallel
 ```
 
 Return the number of API processes instances which are running in parallel. A service can
-be configured to start more than one API process for parallelization. This makes sense only
-if the calling instance is threaded, like the recalculation features in ZEISS Inspect.
+be configured to start more than one API process for parallelization.
 
 #### gom.api.services.Service.get_status
 
@@ -1212,8 +1284,10 @@ Start service
 
 This function will start a script interpreter executing the service script as an API endpoint.
 
-\attention The function will return immediately, the service instances are starting in the background afterwards.
+```{caution}
+The function will return immediately, the service instances are starting in the background afterwards.
 The `get_status ()` function can be used to poll the status until the service has been started.
+```
 
 #### gom.api.services.Service.stop
 
@@ -1226,9 +1300,11 @@ Stop service
 Stop service. The service can be restarted afterwards via the 'start ()' function
 if needed.
 
-\attention The function will return immediately, the service instances will be stopped
-in their own threads contexts. The 'get_status ()' function can be used to poll
-the service status until all service instances have been stopped.
+```{caution}
+The function will return immediately, the service instances will be stopped asynchronously.
+The 'get_status ()' function can be used to poll the service status until all service instances
+have been stopped.
+```
 
 ### gom.api.services.get_services
 
@@ -1240,7 +1316,7 @@ Return the list of all running and not running services
 :rtype: [gom.api.services.Service]
 ```
 
-This function returns the list of registered services
+This function returns the listof registered services
 
 **Example:**
 

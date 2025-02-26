@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documenting Apps &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Release Notes &lt;ThisApp&gt;" href="assets/Releasenotes.html" />
-    <link rel="prev" title="App file format" href="../app_file_format/app_file_format.html" /> 
+    <link rel="prev" title="Using Visual Studio Code as an App editor" href="../using_vscode_editor/using_vscode_editor.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,12 +47,20 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="current">
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_app_editor/using_app_editor.html">Using the App Editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app_file_format/app_file_format.html">App file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Documenting Apps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app-documentation-structure">App documentation structure</a><ul>
@@ -62,28 +70,27 @@
 <li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#portable-document-format-pdf">Portable Document Format (PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#converting-markdown-files-to-pdf">Converting Markdown files to PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#link-to-external-documentation">Link to external documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -228,20 +235,39 @@ A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.</p>
 <h2>Converting Markdown files to PDF<a class="headerlink" href="#converting-markdown-files-to-pdf" title="Link to this heading"></a></h2>
 <p>The <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> extension <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf">Markdown PDF</a> allows to convert a Markdown file to PDF.</p>
 </section>
+<section id="link-to-external-documentation">
+<h2>Link to external documentation<a class="headerlink" href="#link-to-external-documentation" title="Link to this heading"></a></h2>
+<p><img alt="New in Version 2025" src="https://img.shields.io/badge/New-Version_2025-orange" /></p>
+<p>You can create a link to a website providing App documentation by adding a JSON object <code class="docutils literal notranslate"><span class="pre">&quot;documentation&quot;:</span> <span class="pre">&quot;&lt;url&gt;&quot;</span></code> to the App’s <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Example documentation link in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;documentation&quot;</span><span class="p">:</span> <span class="s2">&quot;https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/index.html&quot;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>If a documentation link is defined in an App, each dialog window will provide a help button in its title bar.</p>
+<p><img alt="App dialog window with help button" src="../../_images/dialog_help_button.png" /></p>
+<p>When the help button is clicked, the user must confirm that the linked documentation pages is openened in the system’s web browser.</p>
+<p><img alt="Open documentation page confirmation dialog" src="../../_images/open_documentation_confirmation.png" /></p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../app_file_format/app_file_format.html" class="btn btn-neutral float-left" title="App file format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using_vscode_editor/using_vscode_editor.html" class="btn btn-neutral float-left" title="Using Visual Studio Code as an App editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="assets/Releasenotes.html" class="btn btn-neutral float-right" title="Release Notes &lt;ThisApp&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -252,7 +278,7 @@ A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f076f27d720>
+  <jinja2.runtime.BlockReference object at 0x7f4e25016b10>
 
 
 </footer>

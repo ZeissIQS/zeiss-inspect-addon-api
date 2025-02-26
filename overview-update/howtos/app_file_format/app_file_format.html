@@ -7,7 +7,7 @@
     <link rel="icon" sizes="16x16" type="image/png" href="../../_static/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>App file format &mdash; App Development Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
 
   
@@ -20,7 +20,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Documenting Apps" href="../app_documentation/app_documentation.html" />
+    <link rel="next" title="Selecting a file or folder" href="../python_api_introduction/file_selection_dialog.html" />
     <link rel="prev" title="Using the App Editor" href="../using_app_editor/using_app_editor.html" /> 
 </head>
 
@@ -47,7 +47,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../news/news.html">What’s New</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Basic</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/python_api_introduction.html">ZEISS INSPECT Python API Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/selecting_elements.html">Selecting elements in scripts</a></li>
@@ -64,6 +64,13 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#metainfo-json-documentation"><code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-elements">Mandatory elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-elements">Optional elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zeiss-quality-software-store">ZEISS Quality Software Store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-information">Additional information</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Structure</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#why-is-there-a-folder-for-every-single-element">Why is there a folder for every single element?</a></li>
@@ -73,27 +80,33 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/file_selection_dialog.html">Selecting a file or folder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/user_defined_dialogs.html">User-defined Dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Intermediate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app_documentation/app_documentation.html">Documenting Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripted_elements/scripted_elements_toc.html">Scripted elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/using_script_resources.html">Using script resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Working with stages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../project_keywords/project_keywords.html">Project keywords handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides – Expert</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python_api_introduction/creating_wizard_dialogs.html">Creating wizard dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gui_libraries/using_gui_libraries.html">Using an additional Python GUI library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_wheelhouses/using_wheelhouses.html">Using Python wheelhouses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_workspaces_to_apps/adding_workspaces_to_apps.html">Adding workspaces to Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_services/using_services.html">Using services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../using_scripted_diagrams/using_scripted_diagrams.html">Using scripted diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../localization/localization.html">Localization of Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../starting_options/starting_options.html">Software and script starting options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing_apps/testing_apps.html">Testing Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../scripting_legacy_projects/scripting_legacy_projects.html">Scripting with legacy projects (part-less)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../scripting_solutions/scripting_solutions.html">Scripting solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API Examples</span></p>
 <ul>
@@ -167,7 +180,7 @@
 <td><p>Terms-of-use related to this App. Can contain a set of text files like <code class="docutils literal notranslate"><span class="pre">license.txt</span></code> , <code class="docutils literal notranslate"><span class="pre">license_numpy.txt</span></code> , … which will be displayed and must be acknowledged upon App installation</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></p></td>
-<td><p>App metainfo data (title, description, version, …)</p></td>
+<td><p>App metainfo data (title, description, version, …); see <a class="reference internal" href="#metainfo-json-documentation"><code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> documentation</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -374,6 +387,91 @@
 </section>
 </section>
 </section>
+<section id="metainfo-json-documentation">
+<h2><code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> documentation<a class="headerlink" href="#metainfo-json-documentation" title="Link to this heading"></a></h2>
+<p>Example: <a href="https://github.com/ZEISS/zeiss-inspect-app-examples/blob/main/AppExamples/data_interfaces/CheckResultsDataArray/metainfo.json">AppExamples/data_interfaces/CheckResultsDataArray/metainfo.json</a></p>
+<section id="mandatory-elements">
+<h3>Mandatory elements<a class="headerlink" href="#mandatory-elements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>title</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App title</p></li>
+<li><p><strong>uuid</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App UUID</p></li>
+<li><p><strong>version</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App version</p></li>
+<li><p><strong>author</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App author</p></li>
+<li><p><strong>description</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App short description</p></li>
+<li><p><strong>software-version</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – ZEISS INSPECT version</p></li>
+<li><p><strong>software-revision</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – ZEISS INSPECT revision</p></li>
+<li><p><strong>licensing</strong>: <code class="docutils literal notranslate"><span class="pre">Object</span></code> – Which license is required to run the App</p>
+<ul>
+<li><p><strong>licenses</strong>: <code class="docutils literal notranslate"><span class="pre">[[String]]</span></code></p></li>
+<li><p><strong>product-codes</strong>: <code class="docutils literal notranslate"><span class="pre">[[String|int,</span> <span class="pre">String]]</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="optional-elements">
+<h3>Optional elements<a class="headerlink" href="#optional-elements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>documentation</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – Link (URL) to external App documentation, see <a href="../app_documentation/app_documentation.html#link-to-external-documentation">Documenting Apps – Link to external documentation</a></p></li>
+<li><p><strong>environment</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – Shared App environment, see <a href="../using_shared_environments/using_shared_environments.html">Using shared environments</a></p></li>
+<li><p><strong>services</strong>: <code class="docutils literal notranslate"><span class="pre">Object</span></code> – Service definitions, see <a href="../using_services/using_services.html">Using services</a></p>
+<ul>
+<li><p><strong>endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code></p></li>
+<li><p><strong>name</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code></p></li>
+<li><p><strong>script</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>settings</strong>: <code class="docutils literal notranslate"><span class="pre">Object</span></code> – App settings, see <a href="../../python_api/python_api.html#gom-api-settings">gom.api.settings</a></p></li>
+</ul>
+</section>
+<section id="zeiss-quality-software-store">
+<h3>ZEISS Quality Software Store<a class="headerlink" href="#zeiss-quality-software-store" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>technical-category</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – One of the following options</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Element</span> <span class="pre">Transformation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">and</span> <span class="pre">Export</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Norm-Based</span> <span class="pre">Evaluation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Surface</span> <span class="pre">Inspection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Curve</span> <span class="pre">Inspection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Airfoil</span> <span class="pre">Inspection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Multipart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Section-Based</span> <span class="pre">Inspection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Geometries</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Testing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Collections</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Measuring</span> <span class="pre">Accuracy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Miscellaneous</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Examples</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>business-category</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – One of the following options</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">major</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">basic</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minor</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>compatible-software</strong>: <code class="docutils literal notranslate"><span class="pre">[String]</span></code>  – Combination of the following options</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZEISS</span> <span class="pre">INSPECT</span> <span class="pre">Optical</span> <span class="pre">3D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZEISS</span> <span class="pre">INSPECT</span> <span class="pre">X-Ray</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZEISS</span> <span class="pre">INSPECT</span> <span class="pre">CMM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZEISS</span> <span class="pre">INSPECT</span> <span class="pre">VMM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ZEISS</span> <span class="pre">CORRELATE</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="additional-information">
+<h3>Additional information<a class="headerlink" href="#additional-information" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>build</strong>: <code class="docutils literal notranslate"><span class="pre">String</span></code> – App build number</p></li>
+<li><p><strong>labels</strong>: <code class="docutils literal notranslate"><span class="pre">[String]</span></code></p></li>
+<li><p><strong>references</strong>: <code class="docutils literal notranslate"><span class="pre">[String]</span></code> – Reference links used for <a href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></p></li>
+<li><p><strong>tags</strong>: <code class="docutils literal notranslate"><span class="pre">[String]</span></code> – Tags used for <a href="../../python_examples/examples_overview.html">ZEISS INSPECT App Examples Overview</a></p></li>
+</ul>
+</section>
+</section>
 <section id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
 <section id="id1">
@@ -394,13 +492,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../using_app_editor/using_app_editor.html" class="btn btn-neutral float-left" title="Using the App Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../app_documentation/app_documentation.html" class="btn btn-neutral float-right" title="Documenting Apps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python_api_introduction/file_selection_dialog.html" class="btn btn-neutral float-right" title="Selecting a file or folder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -411,7 +509,7 @@
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f076f4750f0>
+  <jinja2.runtime.BlockReference object at 0x7f4e23cf8af0>
 
 
 </footer>
