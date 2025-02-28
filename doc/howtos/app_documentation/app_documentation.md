@@ -19,14 +19,14 @@ The App documentation is part of the packaged App.
 | Item                           | Description                                                | Origin                                                              |
 | ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
 | Title                          | App title                                                  | 'Title' field in the App properties / `"title"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
-| One-Liner                      | App short description, a single line of text               | 'Description' field in the App properties / `"description"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| One-Liner                      | App short description, a single line                       | 'Description' field in the App properties / `"description"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Short description              | App short description                                      | `doc/README.md`, first paragraph, see below                         |
 | Long description               | App long description                                       | `doc/README.md`, starting from second paragraph, see below          |
 | Documentation                  | Documentation as PDF (optional)<br>(in download area, not shown above)  | `doc/Documentation.md/.pdf`                            |
 | Releasenotes                   | Releasenotes as PDF                                        | `doc/Releasenotes.md`                                               |
 | App category                   | App category (optional)                                    | `"technical-category"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Versions                       | Main software version and App version                      | `"software-version"` and  `"version"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a>
-| Compatible main software       | Compatible main software product(s)                        | `"compatible-software"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a>
+| Compatible software            | Compatible main software product(s)                        | `"compatible-software"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a>
 
 ## App documentation structure
 
