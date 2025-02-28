@@ -14,7 +14,8 @@ The App documentation is part of the packaged App.
 ## Terminology
 
 <img src="assets/software_store-1.png" style="border:1px solid #000000" alt="ZEISS Quality Software Store &ndash; Product overview" />
-<img src="assets/software_store-2.png" style="border:1px solid #000000" alt="ZEISS Quality Software Store &ndash; Product details" />
+
+![ZEISS Quality Software Store &ndash; Product details](assets/software_store-2.png)
 
 | Item                           | Description                                                | Origin                                                              |
 | ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
