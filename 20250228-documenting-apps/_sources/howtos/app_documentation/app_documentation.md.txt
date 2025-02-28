@@ -13,14 +13,10 @@ The App documentation is part of the packaged App.
 
 ## Terminology
 
-![ZEISS Quality Software Store &ndash; Product overview](assets/software_store-1.png)
-
-![ZEISS Quality Software Store &ndash; Product details](assets/software_store-2.png)
-
 | Item                           | Description                                                | Origin                                                              |
 | ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
-| Title                          | App title                                                  | 'Title' field in the App properties /<br>`"title"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
-| One-Liner                      | App short description, a single line                       | 'Description' field in the App properties /<br>`"description"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| Title                          | App title                                                  | 'Title' field in the App properties/<br>`"title"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| One-Liner                      | App short description, a single line                       | 'Description' field in the App properties/<br>`"description"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Short description              | App short description                                      | `doc/README.md`, first paragraph,<br>see below                      |
 | Long description               | App long description                                       | `doc/README.md`, starting from second<br>paragraph, see below       |
 | Documentation                  | Documentation as PDF (optional)<br>(in download area, not shown above)  | `doc/Documentation.md/.pdf`                            |
@@ -28,6 +24,12 @@ The App documentation is part of the packaged App.
 | App category                   | App category (optional)                                    | `"technical-category"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Versions                       | Main software version and App version                      | `"software-version"` and  `"version"`<br>in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Compatible software            | Compatible main software product(s)                        | `"compatible-software"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+
+### Rendering in the ZEISS Quality Software Store
+
+![ZEISS Quality Software Store &ndash; Product overview](assets/software_store-1.png)
+
+![ZEISS Quality Software Store &ndash; Product details](assets/software_store-2.png)
 
 ## App documentation structure
 
