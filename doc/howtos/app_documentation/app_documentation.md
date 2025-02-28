@@ -47,7 +47,7 @@ An App (`.addon` file) is technically a ZIP file. See [App file format](../app_f
 
 ### Example
 
-```{code-block}Markdown
+```{code-block}markdown
 :caption: doc\/README.md
 
 # Airfoil Inspection
