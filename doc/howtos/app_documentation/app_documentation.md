@@ -47,9 +47,9 @@ An App (`.addon` file) is technically a ZIP file. See [App file format](../app_f
 
 ### Example
 
-```{code-block}markdown
-:caption: doc\/README.md
+#### Source: `doc/README.md`
 
+```markdown
 # Airfoil Inspection
 
 Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
@@ -72,12 +72,12 @@ Further functionality provided by Airfoil Inspection:
 Want to know more? Check the related articles in the ZEISS Quality Tech Guide.
 ```
 
-## Short description
+#### Short description
 
 > Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
 > Airfoil Inspection workspace is optimized for analyzing airfoils, such as blades, vanes or blisks.
 
-## Long description
+#### Long description
 
 
 > The Airfoil Inspection App provides functions to prepare your measured data, no matter if tactile or optical, and to analyze airfoils, such as blades, vanes or blisks.
