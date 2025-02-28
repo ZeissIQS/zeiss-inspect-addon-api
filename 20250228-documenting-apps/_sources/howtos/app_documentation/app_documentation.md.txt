@@ -13,45 +13,94 @@ The App documentation is part of the packaged App.
 
 ## Terminology
 
-![](assets/add-on_terminology.png)
+<img style='border:1px solid #000000' src="assets/software_store-1.png" alt="ZEISS Quality Software Store &ndash; Product overview" />
+<img style='border:1px solid #000000' src="assets/software_store-2.png" alt="ZEISS Quality Software Store &ndash; Product details" />
 
-| Index | Item                           | Description                                                | Origin                                                              |
-| ----- | ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
-|     1 | Title                          | App title                                                  | 'Title' field in the App.<br>Set during App creation.                  |
-|     2 | Company                        | Company which maintains the App                            | Company the uploading account belongs to.<br>Set during App creation.  |
-|     3 | App description                | App short description                                      | 'Description' field in the App.<br>Set during App creation.            |
-|     4 | Splash description             | Some information about the App,<br>e.g. for advertising it | doc/README.md from the App.<br>See below how to edit it.               |
-|     5 | Link to complete<br>documentation | Complete App documentation | Something referenced from within the doc/README.md.<br>Can be a PDF, a link to some external site, ... | 
+| Item                           | Description                                                | Origin                                                              |
+| ------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------- |
+| Title                          | App title                                                  | 'Title' field in the App properties / `"title"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| One-Liner                      | App short description, a single line of text               | 'Description' field in the App properties / `"description"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| Short description              | App short description                                      | `doc/README.md`, first paragraph, see below                         |
+| Long description               | App long description                                       | `doc/README.md`, starting from second paragraph, see below          |
+| Documentation                  | Documentation as PDF (optional)<br>(in download area, not shown above)  | `doc/Documentation.md/.pdf`                            |
+| Releasenotes                   | Releasenotes as PDF                                        | `doc/Releasenotes.md`                                               |
+| App category                   | App category (optional)                                    | `"technical-category"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| Versions                       | Main software version and App version                      | `"software-version"` and  `"version"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a>
+| Compatible main software       | Compatible main software product(s)                        | `"compatible-software"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a>
 
 ## App documentation structure
+
+```{caution}
+App short / long descriptions can only be rendered as plain text without formatting in the ZEISS Quality Software Store.
+```
 
 ```{note}
 An App (`.addon` file) is technically a ZIP file. See [App file format](../app_file_format/app_file_format.md) for details.
 ```
 
 * Mandatory contents:
-  * `doc/README.md` &mdash; this will be rendered as the product's splash description ad.
-  * `Releasenotes.md` and `Releasenotes.pdf` &mdash; The Markdown file allows viewing in the App Editor while the PDF file is used in the ZEISS Quality Software Store. 
-* Recommended contents:
-  * `Documentation.md` (and optional `Documentation.pdf`) &mdash; full App documentation
-
-The App can contain an arbitrary number of additional files in the `doc` folder referenced from within the files `README.md` or `Documentation.md`.
+  * `doc/README.md` &mdash; App short / long description
+  * `doc/Releasenotes.md/.pdf` &mdash; The Markdown file allows viewing in the App Editor while the PDF file is used in the ZEISS Quality Software Store. 
+* Optional contents:
+  * `doc/Documentation.md/.pdf` &mdash; Extended App documentation / user manual
+  * `doc/...` &mdash; any number of additional files
 
 ### Example
 
-* Documentation related content of the App 'Python API Examples':
+#### Source: `doc/README.md`
 
-    ![](assets/7-ZIP_README.png)
+```markdown
+# Airfoil Inspection
 
-* The README.md is the starting point for rendering the App's splash description and will reference other files:
+Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
+Airfoil Inspection workspace is optimized for analyzing airfoils, such as blades, vanes or blisks.
 
-    ![](assets/Edit_README.png)
+The Airfoil Inspection App provides functions to prepare your measured data, no matter if tactile or optical, and to analyze airfoils, such as blades, vanes or blisks.
+In addition, the App also provides the Smart Teach functionality for profile edge points, to measure airfoils in a dedicated way. 
 
-* This will result in the following splash description:
+Further functionality provided by Airfoil Inspection: 
+ - specific Airfoil workspaces 
+ - import and processing of tactile measured curves (incl. stylus sphere radius correction) 
+ - interface to CALYPSO for data acquisition 
+ - advanced Airfoil functionalities for profile inspection 
+ - industry specific Apps  
+     - Efficient Blisk Measurement and Inspection 
+     - Airfoil Bow and Sweep Inspection 
+     - Virtual Balancing 
+     - Throat Area - together with Local Minimal Surface 
 
-    ![](assets/splash.png)
+Want to know more? Check the related articles in the ZEISS Quality Tech Guide.
+```
+
+#### Short description
+
+> Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
+> Airfoil Inspection workspace is optimized for analyzing airfoils, such as blades, vanes or blisks.
+
+#### Long description
+
+
+> The Airfoil Inspection App provides functions to prepare your measured data, no matter if tactile or optical, and to analyze airfoils, such as blades, vanes or blisks.
+> In addition, the App also provides the Smart Teach functionality for profile edge points, to measure airfoils in a dedicated way. 
+>
+> Further functionality provided by Airfoil Inspection: 
+> - specific Airfoil workspaces 
+> - import and processing of tactile measured curves (incl. stylus sphere radius correction) 
+> - interface to CALYPSO for data acquisition 
+> - advanced Airfoil functionalities for profile inspection 
+> - industry specific Apps  
+>     - Efficient Blisk Measurement and Inspection 
+>     - Airfoil Bow and Sweep Inspection 
+>     - Virtual Balancing 
+>     - Throat Area - together with Local Minimal Surface 
+>
+> Want to know more? Check the related articles in the ZEISS Quality Tech Guide.
 
 ## Markdown
+
+```{caution}
+App short / long descriptions can only be rendered as plain text without formatting in the ZEISS Quality Software Store.
+```
 
 ```{note}
 See [markdown guide](https://www.markdownguide.org/basic-syntax/) for a brief description of the markdown format.
@@ -59,24 +108,15 @@ See [markdown guide](https://www.markdownguide.org/basic-syntax/) for a brief de
 
 See [ZEISS Quality Software Store &mdash; FileSelectionAndFiltering](https://software-store.zeiss.com/products/apps/FileSelectionAndFiltering) for example.
 
-![](assets/markdown_editor_viewer.png)
+![ZEISS INSPECT App editor with Markdown viewer](assets/markdown_editor_viewer.png)
 A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.
 
 See [Releasenotes template](assets/Releasenotes.md).
 
-## Portable Document Format (PDF)
+## Converting Markdown files to Portable Document Format (PDF)
 
-The standard expression to reference a PDF from `doc/README.md` is:
-
-```{code-block} markdown
-:caption: doc\/README.md
-
-See [Documentation](Documentation.pdf) for detailed description.
-```
-
-## Converting Markdown files to PDF
-
-The [Visual Studio Code](https://code.visualstudio.com/) extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) allows to convert a Markdown file to PDF.
+The [Visual Studio Code](https://code.visualstudio.com/) extension [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) allows to convert Markdown files to PDF.
+The ZEISS App Development Environment converts Releasenotes from Markdown to PDF automatically. 
 
 ## Link to external documentation
 
