@@ -35,7 +35,13 @@ The App documentation is part of the packaged App.
 ZEISS Quality Software Store &ndash; Product overview
 ```
 
-![ZEISS Quality Software Store &ndash; Product details](assets/software_store-2.png)
+```{figure} assets/software_store-2.png
+:alt: ZEISS Quality Software Store &ndash; Product details
+:align: center
+:class: bordered-figure
+
+ZEISS Quality Software Store &ndash; Product details
+```
 
 ## App documentation structure
 
