@@ -22,7 +22,7 @@ The App documentation is part of the packaged App.
 | Documentation                  | Documentation as PDF (optional)<br>(in download area, not shown above)  | `doc/Documentation.md/.pdf`                            |
 | Releasenotes                   | Releasenotes as PDF                                        | `doc/Releasenotes.md`                                               |
 | App category                   | App category (optional)                                    | `"technical-category"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
-| Versions                       | Main software version and App version                      | `"software-version"` and  `"version"`<br>in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
+| Versions                       | Main software / App version                                | `"software-version"` and  `"version"`<br>in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 | Compatible software            | Compatible main software product(s)                        | `"compatible-software"` in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a> |
 
 ### Rendering in the ZEISS Quality Software Store
