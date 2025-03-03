@@ -211,6 +211,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-scripted-checks-util-is-surface-checkable">gom.api.scripted_checks_util.is_surface_checkable</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-scriptedelements">gom.api.scriptedelements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scriptedelements-get-inspection-definition">gom.api.scriptedelements.get_inspection_definition</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-services-service">gom.api.services.Service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gom-api-services-service-get-autostart">gom.api.services.Service.get_autostart</a></li>
@@ -2015,6 +2019,34 @@ elements. Please see the scripted element documentation for details about the un
 elements. Please see the scripted element documentation for details about the underlying scheme.</p>
 </section>
 </section>
+<section id="gom-api-scriptedelements">
+<h2>gom.api.scriptedelements<a class="headerlink" href="#gom-api-scriptedelements" title="Link to this heading"></a></h2>
+<p>API for handling scripted elements</p>
+<p>This API defines various functions for handling scripted elements (actuals, checks, nominal, diagrams, …)
+It is used mostly internal by the scripted element framework.</p>
+<section id="gom-api-scriptedelements-get-inspection-definition">
+<h3>gom.api.scriptedelements.get_inspection_definition<a class="headerlink" href="#gom-api-scriptedelements-get-inspection-definition" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scriptedelements.get_inspection_definition(typename:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Return information about the given scripted element type</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type_name</strong> – Type name of the check to query</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with relevant type information or and empty dictionary if the type is unknown</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function queries in internal ‘scalar registry’ database for information about the
+check with the given type.</p>
+</section>
+</section>
 <section id="gom-api-services">
 <h2>gom.api.services<a class="headerlink" href="#gom-api-services" title="Link to this heading"></a></h2>
 <p>API for accessing the script based API extensions (services)</p>
@@ -2513,7 +2545,7 @@ back and forth will be performed.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Carl Zeiss GOM Metrology GmbH.</p>
+    <p>&#169; Copyright 2025, Carl Zeiss GOM Metrology GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -2524,7 +2556,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7fa30460faf0>
+  <jinja2.runtime.BlockReference object at 0x7f608f873e70>
 
 
 </footer>

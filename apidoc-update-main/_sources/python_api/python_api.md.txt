@@ -1192,6 +1192,26 @@ Checks if the referenced element is suitable for inspection with a surface check
 This function checks if the given element can be inspected like a surface in the context of scripted
 elements. Please see the scripted element documentation for details about the underlying scheme.
 
+## gom.api.scriptedelements
+
+API for handling scripted elements
+
+This API defines various functions for handling scripted elements (actuals, checks, nominal, diagrams, ...)
+It is used mostly internal by the scripted element framework.
+
+### gom.api.scriptedelements.get_inspection_definition
+
+```{py:function} gom.api.scriptedelements.get_inspection_definition(typename: str): Any
+
+Return information about the given scripted element type
+:param type_name: Type name of the check to query
+:return: Dictionary with relevant type information or and empty dictionary if the type is unknown
+:rtype: Any
+```
+
+This function queries in internal 'scalar registry' database for information about the
+check with the given type.
+
 ## gom.api.services
 
 API for accessing the script based API extensions (services)
