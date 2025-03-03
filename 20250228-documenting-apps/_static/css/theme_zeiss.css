@@ -186,6 +186,6 @@ pre {
  * Separator between feed entries
  ******************************************************************************/
 .bordered-figure {
-    border: 2px solid #000; /* Change the color and width as needed */
+    border: 1px solid #000; /* Change the color and width as needed */
     display: inline-block; /* Ensures the border wraps around the figure */
 }
