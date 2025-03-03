@@ -1,0 +1,8 @@
+# ZEISS INSPECT 2025 Released
+
+```{eval-rst}
+.. feed-entry::
+   :date: 2024-11-27 11:00
+```
+
+We are happy to announce that [ZEISS INSPECT 2025](https://www.zeiss.com/metrology/en/software/zeiss-inspect.html) has been released. As always, you will find a multitude of new features and improvements. See [ZEISS INSPECT App Development Documentation 2025 - What's New](https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/news.html) for new App development features and documentation.
