@@ -3,7 +3,13 @@ myst:
    html_meta:
       "description": "ZEISS INSPECT 2023 Add-on Python API Documentation"
       "keywords": "Metrology, ZEISS INSPECT, Python API, GOM API, Scripting, Add-ons, How-tos, Examples, Specification, Documentation"
---- 
+---
+
+```{important}
+You are being redirected to the new location. Please update your bookmarks accordingly.
+
+If you are not redirected automatically, follow this [link](https://zeiss.github.io/zeiss-inspect-app-api/2023/).
+```
 
 # ZEISS INSPECT Add-On Development Documentation 2023
 
