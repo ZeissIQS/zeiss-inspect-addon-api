@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documenting Apps &mdash; App Development Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=dc6cf2b8" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_zeiss.css?v=0680c34f" />
 
   
     <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/howtos/app_documentation/app_documentation.html" />
@@ -62,14 +62,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../using_vscode_editor/using_vscode_editor.html">Using Visual Studio Code as an App editor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Documenting Apps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rendering-in-the-zeiss-quality-software-store">Rendering in the ZEISS Quality Software Store</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#app-documentation-structure">App documentation structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#source-doc-readme-md">Source: <code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#short-description">Short description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#long-description">Long description</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#portable-document-format-pdf">Portable Document Format (PDF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#converting-markdown-files-to-pdf">Converting Markdown files to PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-markdown-files-to-portable-document-format-pdf">Converting Markdown files to Portable Document Format (PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#link-to-external-documentation">Link to external documentation</a></li>
 </ul>
 </li>
@@ -137,46 +144,74 @@
 </div>
 <section id="terminology">
 <h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading"></a></h2>
-<p><img alt="" src="../../_images/add-on_terminology.png" /></p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Index</p></th>
-<th class="head"><p>Item</p></th>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Description</p></th>
 <th class="head"><p>Origin</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Title</p></td>
+<tr class="row-even"><td><p>Title</p></td>
 <td><p>App title</p></td>
-<td><p>‘Title’ field in the App.<br>Set during App creation.</p></td>
+<td><p>‘Title’ field in the App properties/<br><code class="docutils literal notranslate"><span class="pre">&quot;title&quot;</span></code> in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Company</p></td>
-<td><p>Company which maintains the App</p></td>
-<td><p>Company the uploading account belongs to.<br>Set during App creation.</p></td>
+<tr class="row-odd"><td><p>One-Liner</p></td>
+<td><p>App short description, a single line</p></td>
+<td><p>‘Description’ field in the App properties/<br><code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code> in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a></p></td>
 </tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>App description</p></td>
+<tr class="row-even"><td><p>Short description</p></td>
 <td><p>App short description</p></td>
-<td><p>‘Description’ field in the App.<br>Set during App creation.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code>, first paragraph,<br>see below</p></td>
 </tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Splash description</p></td>
-<td><p>Some information about the App,<br>e.g. for advertising it</p></td>
-<td><p>doc/README.md from the App.<br>See below how to edit it.</p></td>
+<tr class="row-odd"><td><p>Long description</p></td>
+<td><p>App long description</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code>, starting from second<br>paragraph, see below</p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>Link to complete<br>documentation</p></td>
-<td><p>Complete App documentation</p></td>
-<td><p>Something referenced from within the doc/README.md.<br>Can be a PDF, a link to some external site, …</p></td>
+<tr class="row-even"><td><p>Documentation</p></td>
+<td><p>Documentation as PDF (optional)<br>(in download area, not shown above)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc/Documentation.md/.pdf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Releasenotes</p></td>
+<td><p>Releasenotes as PDF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc/Releasenotes.md</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>App category</p></td>
+<td><p>App category (optional)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;technical-category&quot;</span></code> in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Versions</p></td>
+<td><p>Main software / App version</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;software-version&quot;</span></code> and  <code class="docutils literal notranslate"><span class="pre">&quot;version&quot;</span></code><br>in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Compatible software</p></td>
+<td><p>Compatible main software product(s)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;compatible-software&quot;</span></code> in <a href="../app_file_format/app_file_format.html#metainfojson-documentation">metainfo.json</a></p></td>
 </tr>
 </tbody>
 </table>
+<section id="rendering-in-the-zeiss-quality-software-store">
+<h3>Rendering in the ZEISS Quality Software Store<a class="headerlink" href="#rendering-in-the-zeiss-quality-software-store" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id1">
+<img alt="ZEISS Quality Software Store &amp;ndash; Product overview" class="bordered-figure" src="../../_images/software_store-1.png" />
+<figcaption>
+<p><span class="caption-text">ZEISS Quality Software Store – Product overview</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<img alt="ZEISS Quality Software Store &amp;ndash; Product details" class="bordered-figure" src="../../_images/software_store-2.png" />
+<figcaption>
+<p><span class="caption-text">ZEISS Quality Software Store – Product details</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 <section id="app-documentation-structure">
 <h2>App documentation structure<a class="headerlink" href="#app-documentation-structure" title="Link to this heading"></a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>App short / long descriptions can only be rendered as plain text without formatting in the ZEISS Quality Software Store.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An App (<code class="docutils literal notranslate"><span class="pre">.addon</span></code> file) is technically a ZIP file. See <a class="reference internal" href="../app_file_format/app_file_format.html"><span class="std std-doc">App file format</span></a> for details.</p>
@@ -184,63 +219,102 @@
 <ul class="simple">
 <li><p>Mandatory contents:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code> — this will be rendered as the product’s splash description ad.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Releasenotes.md</span></code> and <code class="docutils literal notranslate"><span class="pre">Releasenotes.pdf</span></code> — The Markdown file allows viewing in the App Editor while the PDF file is used in the ZEISS Quality Software Store.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code> — App short / long description</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/Releasenotes.md/.pdf</span></code> — The Markdown file allows viewing in the App Editor while the PDF file is used in the ZEISS Quality Software Store.</p></li>
 </ul>
 </li>
-<li><p>Recommended contents:</p>
+<li><p>Optional contents:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Documentation.md</span></code> (and optional <code class="docutils literal notranslate"><span class="pre">Documentation.pdf</span></code>) — full App documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/Documentation.md/.pdf</span></code> — Extended App documentation / user manual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/...</span></code> — any number of additional files</p></li>
 </ul>
 </li>
 </ul>
-<p>The App can contain an arbitrary number of additional files in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder referenced from within the files <code class="docutils literal notranslate"><span class="pre">README.md</span></code> or <code class="docutils literal notranslate"><span class="pre">Documentation.md</span></code>.</p>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<section id="source-doc-readme-md">
+<h4>Source: <code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code><a class="headerlink" href="#source-doc-readme-md" title="Link to this heading"></a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Airfoil Inspection</span>
+
+Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
+Airfoil Inspection workspace is optimized for analyzing airfoils, such as blades, vanes or blisks.
+
+The Airfoil Inspection App provides functions to prepare your measured data, no matter if tactile or optical, and to analyze airfoils, such as blades, vanes or blisks.
+In addition, the App also provides the Smart Teach functionality for profile edge points, to measure airfoils in a dedicated way. 
+
+Further functionality provided by Airfoil Inspection: 
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>specific Airfoil workspaces 
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>import and processing of tactile measured curves (incl. stylus sphere radius correction) 
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>interface to CALYPSO for data acquisition 
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>advanced Airfoil functionalities for profile inspection 
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>industry specific Apps  
+<span class="w">     </span><span class="k">-</span><span class="w"> </span>Efficient Blisk Measurement and Inspection 
+<span class="w">     </span><span class="k">-</span><span class="w"> </span>Airfoil Bow and Sweep Inspection 
+<span class="w">     </span><span class="k">-</span><span class="w"> </span>Virtual Balancing 
+<span class="w">     </span><span class="k">-</span><span class="w"> </span>Throat Area - together with Local Minimal Surface 
+
+Want to know more? Check the related articles in the ZEISS Quality Tech Guide.
+</pre></div>
+</div>
+</section>
+<section id="short-description">
+<h4>Short description<a class="headerlink" href="#short-description" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>Contains relevant functions to inspect airfoils. The app also supports the acquisition and preparation of optical and tactile measurement data. The industry-specific
+Airfoil Inspection workspace is optimized for analyzing airfoils, such as blades, vanes or blisks.</p>
+</div></blockquote>
+</section>
+<section id="long-description">
+<h4>Long description<a class="headerlink" href="#long-description" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>The Airfoil Inspection App provides functions to prepare your measured data, no matter if tactile or optical, and to analyze airfoils, such as blades, vanes or blisks.
+In addition, the App also provides the Smart Teach functionality for profile edge points, to measure airfoils in a dedicated way.</p>
+<p>Further functionality provided by Airfoil Inspection:</p>
+<ul class="simple">
+<li><p>specific Airfoil workspaces</p></li>
+<li><p>import and processing of tactile measured curves (incl. stylus sphere radius correction)</p></li>
+<li><p>interface to CALYPSO for data acquisition</p></li>
+<li><p>advanced Airfoil functionalities for profile inspection</p></li>
+<li><p>industry specific Apps</p>
 <ul>
-<li><p>Documentation related content of the App ‘Python API Examples’:</p>
-<p><img alt="" src="../../_images/7-ZIP_README.png" /></p>
-</li>
-<li><p>The README.md is the starting point for rendering the App’s splash description and will reference other files:</p>
-<p><img alt="" src="../../_images/Edit_README.png" /></p>
-</li>
-<li><p>This will result in the following splash description:</p>
-<p><img alt="" src="../../_images/splash.png" /></p>
+<li><p>Efficient Blisk Measurement and Inspection</p></li>
+<li><p>Airfoil Bow and Sweep Inspection</p></li>
+<li><p>Virtual Balancing</p></li>
+<li><p>Throat Area - together with Local Minimal Surface</p></li>
+</ul>
 </li>
 </ul>
+<p>Want to know more? Check the related articles in the ZEISS Quality Tech Guide.</p>
+</div></blockquote>
+</section>
 </section>
 </section>
 <section id="markdown">
 <h2>Markdown<a class="headerlink" href="#markdown" title="Link to this heading"></a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>App short / long descriptions can only be rendered as plain text without formatting in the ZEISS Quality Software Store.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference external" href="https://www.markdownguide.org/basic-syntax/">markdown guide</a> for a brief description of the markdown format.</p>
 </div>
 <p>See <a class="reference external" href="https://software-store.zeiss.com/products/apps/FileSelectionAndFiltering">ZEISS Quality Software Store — FileSelectionAndFiltering</a> for example.</p>
-<p><img alt="" src="../../_images/markdown_editor_viewer.png" />
+<p><img alt="ZEISS INSPECT App editor with Markdown viewer" src="../../_images/markdown_editor_viewer.png" />
 A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.</p>
 <p>See <a class="reference internal" href="assets/Releasenotes.html"><span class="std std-doc">Releasenotes template</span></a>.</p>
 </section>
-<section id="portable-document-format-pdf">
-<h2>Portable Document Format (PDF)<a class="headerlink" href="#portable-document-format-pdf" title="Link to this heading"></a></h2>
-<p>The standard expression to reference a PDF from <code class="docutils literal notranslate"><span class="pre">doc/README.md</span></code> is:</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">doc/README.md</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>See [<span class="nt">Documentation</span>](<span class="na">Documentation.pdf</span>) for detailed description.
-</pre></div>
-</div>
-</div>
-</section>
-<section id="converting-markdown-files-to-pdf">
-<h2>Converting Markdown files to PDF<a class="headerlink" href="#converting-markdown-files-to-pdf" title="Link to this heading"></a></h2>
-<p>The <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> extension <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf">Markdown PDF</a> allows to convert a Markdown file to PDF.</p>
+<section id="converting-markdown-files-to-portable-document-format-pdf">
+<h2>Converting Markdown files to Portable Document Format (PDF)<a class="headerlink" href="#converting-markdown-files-to-portable-document-format-pdf" title="Link to this heading"></a></h2>
+<p>The <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> extension <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf">Markdown PDF</a> allows to convert Markdown files to PDF.
+The ZEISS App Development Environment converts Releasenotes from Markdown to PDF automatically.</p>
 </section>
 <section id="link-to-external-documentation">
 <h2>Link to external documentation<a class="headerlink" href="#link-to-external-documentation" title="Link to this heading"></a></h2>
 <p><img alt="New in Version 2025" src="https://img.shields.io/badge/New-Version_2025-orange" /></p>
 <p>You can create a link to a website providing App documentation by adding a JSON object <code class="docutils literal notranslate"><span class="pre">&quot;documentation&quot;:</span> <span class="pre">&quot;&lt;url&gt;&quot;</span></code> to the App’s <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code> file:</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Example documentation link in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Example documentation link in <code class="docutils literal notranslate"><span class="pre">metainfo.json</span></code></span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="o">...</span>
     <span class="s2">&quot;documentation&quot;</span><span class="p">:</span> <span class="s2">&quot;https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/index.html&quot;</span><span class="p">,</span>
@@ -278,7 +352,7 @@ A markdown editor/viewer is integrated in the ZEISS INSPECT App editor.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f0ef0d4eb10>
+  <jinja2.runtime.BlockReference object at 0x7f48b8292ea0>
 
 
 </footer>
