@@ -20,6 +20,9 @@ jobs:
           else
             echo -e "\033[1;32mSphinx build PASSED\033[0m\n"
           fi
+      - name: Insert HTTP redirection after 5 seconds
+        run: |
+          sed -i 's|</head>|    <meta http-equiv="refresh" content="5;url=https://zeiss.github.io/zeiss-inspect-app-api/2023/">\n</head>|' _build/index.html
       - name: Insert RSS link into news page HTML header
         run: |
           sed -i 's|</head>|    <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="../index.rss" />\n</head>|' _build/news/news.html
