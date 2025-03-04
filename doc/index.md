@@ -8,7 +8,7 @@ myst:
 ```{important}
 You are being redirected to the new location. Please update your bookmarks accordingly.
 
-If you are not redirected automatically, follow this [link]((https://zeiss.github.io/zeiss-inspect-app-api/2025/).
+If you are not redirected automatically, follow this [link](https://zeiss.github.io/zeiss-inspect-app-api/2025/).
 ```
 
 # ZEISS INSPECT 2025 App Development Documentation 
