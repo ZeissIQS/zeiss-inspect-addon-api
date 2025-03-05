@@ -4,7 +4,7 @@
     <title>ZEISS INSPECT 2025 App Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/</link>
     <description></description>
-    <lastBuildDate>Wed, 05 Mar 2025 11:24:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Mar 2025 11:25:42 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
     <item>
       <title>App Development Documentation website moved</title>
@@ -20,7 +20,7 @@
       <pubDate>Wed, 05 Mar 2025 12:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Using the </title>
+      <title>Using the gom_vec3d and gom_math modules</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/news/20250123-gom-math.html</link>
       <description>&lt;div class="compound"&gt;
 &lt;p&gt;Did you know? Coordinates are often represented as &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom.Vec3d&lt;/span&gt;&lt;/code&gt; objects in ZEISS INSPECT Apps. The &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom_math&lt;/span&gt;&lt;/code&gt; module provides some functions for computations on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;gom.Vec3d&lt;/span&gt;&lt;/code&gt; objects.&lt;/p&gt;
