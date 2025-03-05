@@ -1196,7 +1196,7 @@ elements. Please see the scripted element documentation for details about the un
 
 API for handling scripted elements
 
-This API defines various functions for handling scripted elements (actuals, checks, nominal, diagrams, ...)
+This API defines various functions for handling scripted elements (actuals, inspections, nominal, diagrams, ...)
 It is used mostly internal by the scripted element framework.
 
 ### gom.api.scriptedelements.get_inspection_definition
@@ -1204,13 +1204,43 @@ It is used mostly internal by the scripted element framework.
 ```{py:function} gom.api.scriptedelements.get_inspection_definition(typename: str): Any
 
 Return information about the given scripted element type
-:param type_name: Type name of the check to query
-:return: Dictionary with relevant type information or and empty dictionary if the type is unknown
+:param type_name: Type name of the inspection to query
+:return: Dictionary with relevant type information or an empty dictionary if the type is unknown
 :rtype: Any
 ```
 
 This function queries in internal 'scalar registry' database for information about the
-check with the given type.
+inspection with the given type.
+
+### gom.api.scriptedelements.get_unit_definition
+
+```{py:function} gom.api.scriptedelements.get_unit_definition(typename: str): Any
+
+Return information about the given unit type
+:param name: Name of the unit type
+:return: Dictionary with relevant type information or an empty dictionary if the name does not refer to a unit class
+:rtype: Any
+```
+
+
+## gom.api.selection
+
+API for handling explorer selection
+
+This API defines functions for accessing and manipulating the current selection in the explorer.
+
+### gom.api.selection.get_selected_elements
+
+```{py:function} gom.api.selection.get_selected_elements(): Any
+
+Returns the list of currently selected elements in the explorer
+:return: List of selected elements
+:rtype: Any
+```
+
+This function returns the resolved list of single elements which are currently selected in the explorer. The
+selection mechanism as such is more complicated and selection of categories, groups, tags etc. is also possible.
+So the function is covering the very basic per element selection only.
 
 ## gom.api.services
 

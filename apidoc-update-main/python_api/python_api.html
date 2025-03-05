@@ -13,7 +13,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/css/theme_zeiss.css?v=0680c34f" />
 
   
-    <link rel="canonical" href="https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/python_api/python_api.html" />
+    <link rel="canonical" href="https://zeiss.github.io/zeiss-inspect-app-api/2025/python_api/python_api.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
@@ -213,6 +213,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-scriptedelements">gom.api.scriptedelements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gom-api-scriptedelements-get-inspection-definition">gom.api.scriptedelements.get_inspection_definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-scriptedelements-get-unit-definition">gom.api.scriptedelements.get_unit_definition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gom-api-selection">gom.api.selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gom-api-selection-get-selected-elements">gom.api.selection.get_selected_elements</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gom-api-services">gom.api.services</a><ul>
@@ -2022,7 +2027,7 @@ elements. Please see the scripted element documentation for details about the un
 <section id="gom-api-scriptedelements">
 <h2>gom.api.scriptedelements<a class="headerlink" href="#gom-api-scriptedelements" title="Link to this heading"></a></h2>
 <p>API for handling scripted elements</p>
-<p>This API defines various functions for handling scripted elements (actuals, checks, nominal, diagrams, …)
+<p>This API defines various functions for handling scripted elements (actuals, inspections, nominal, diagrams, …)
 It is used mostly internal by the scripted element framework.</p>
 <section id="gom-api-scriptedelements-get-inspection-definition">
 <h3>gom.api.scriptedelements.get_inspection_definition<a class="headerlink" href="#gom-api-scriptedelements-get-inspection-definition" title="Link to this heading"></a></h3>
@@ -2032,10 +2037,10 @@ It is used mostly internal by the scripted element framework.</p>
 <dd><p>Return information about the given scripted element type</p>
 <dl class="myst field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type_name</strong> – Type name of the check to query</p>
+<dd class="field-odd"><p><strong>type_name</strong> – Type name of the inspection to query</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dictionary with relevant type information or and empty dictionary if the type is unknown</p>
+<dd class="field-even"><p>Dictionary with relevant type information or an empty dictionary if the type is unknown</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Any</p>
@@ -2044,7 +2049,52 @@ It is used mostly internal by the scripted element framework.</p>
 </dd></dl>
 
 <p>This function queries in internal ‘scalar registry’ database for information about the
-check with the given type.</p>
+inspection with the given type.</p>
+</section>
+<section id="gom-api-scriptedelements-get-unit-definition">
+<h3>gom.api.scriptedelements.get_unit_definition<a class="headerlink" href="#gom-api-scriptedelements-get-unit-definition" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.scriptedelements.get_unit_definition(typename:</span> <span class="pre">str):</span> <span class="pre">Any</span></span></dt>
+<dd><p>Return information about the given unit type</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the unit type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with relevant type information or an empty dictionary if the name does not refer to a unit class</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="gom-api-selection">
+<h2>gom.api.selection<a class="headerlink" href="#gom-api-selection" title="Link to this heading"></a></h2>
+<p>API for handling explorer selection</p>
+<p>This API defines functions for accessing and manipulating the current selection in the explorer.</p>
+<section id="gom-api-selection-get-selected-elements">
+<h3>gom.api.selection.get_selected_elements<a class="headerlink" href="#gom-api-selection-get-selected-elements" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gom.api.selection.get_selected_elements():</span> <span class="pre">Any</span></span></dt>
+<dd><p>Returns the list of currently selected elements in the explorer</p>
+<dl class="myst field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of selected elements</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This function returns the resolved list of single elements which are currently selected in the explorer. The
+selection mechanism as such is more complicated and selection of categories, groups, tags etc. is also possible.
+So the function is covering the very basic per element selection only.</p>
 </section>
 </section>
 <section id="gom-api-services">
@@ -2556,7 +2606,7 @@ back and forth will be performed.</p>
   <div class="footer">
     <a href="https://www.gom.com/en/imprint" target="_blank" rel="noopener noreferrer">Imprint</a>
   </div>
-  <jinja2.runtime.BlockReference object at 0x7f195468cd70>
+  <jinja2.runtime.BlockReference object at 0x7fed17d2fee0>
 
 
 </footer>
