@@ -26,12 +26,9 @@ jobs:
       - name: Set branch name
         id: branch
         run: echo "SUBDIR_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
-      - name: Replace main by 2025 in canonical link
+      - name: Replace main by 2025 and change canonical link to new location
         run: |
-          find . -type f -name "*.html" -exec sed -i 's@<link rel="canonical" href="https://zeissiqs\.github\.io/zeiss-inspect-addon-api/main/@<link rel="canonical" href="https://zeissiqs\.github\.io/zeiss-inspect-addon-api/2025/@' {} +
-      - name: Change canonical link to new location
-        run: |
-          find . -type f -name "*.html" -exec sed -i 's@<link rel="canonical" href="https://zeissiqs\.github\.io/zeiss-inspect-addon-api/2025/@<link rel="canonical" href="https://zeiss\.github\.io/zeiss-inspect-app-api/2025/@' {} +
+          find . -type f -name "*.html" -exec sed -i 's@<link rel="canonical" href="https://zeissiqs\.github\.io/zeiss-inspect-addon-api/main/@<link rel="canonical" href="https://zeiss\.github\.io/zeiss-inspect-app-api/2025/@' {} +
       - name: Deploy
         if: ${{ github.event_name != 'pull_request' }}
         uses: peaceiris/actions-gh-pages@v4
