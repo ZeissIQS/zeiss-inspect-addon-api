@@ -26,6 +26,9 @@ jobs:
       - name: Insert RSS link into news page HTML header
         run: |
           sed -i 's|</head>|    <link rel="alternate" type="application/rss+xml" title="ZEISS INSPECT Add-on Python API News Feed" href="../index.rss" />\n</head>|' _build/news/news.html
+      - name: Change canonical link to new location
+        run: |
+          find . -type f -name "*.html" -exec sed -i 's@<link rel="canonical" href="https://zeissiqs\.github\.io/zeiss-inspect-addon-api/@<link rel="canonical" href="https://zeiss\.github\.io/zeiss-inspect-app-api/@' {} +
       - name: Set branch name
         id: branch
         run: echo "SUBDIR_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
