@@ -1,4 +1,4 @@
-# The App Development Documentation website has been moved
+# App Development Documentation website moved
 
 ```{eval-rst}
 .. feed-entry::
