@@ -4,8 +4,21 @@
     <title>ZEISS INSPECT 2023 Add-on Python API News</title>
     <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/</link>
     <description></description>
-    <lastBuildDate>Wed, 05 Mar 2025 10:28:21 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Mar 2025 07:34:52 GMT</lastBuildDate>
     <generator>sphinxcontrib-newsfeed</generator>
+    <item>
+      <title>App Development Documentation website moved</title>
+      <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/20250305-website-moved.html</link>
+      <description>&lt;div class="compound"&gt;
+&lt;p&gt;&lt;img alt="Redirection" src="../_images/AdobeStock_511820998.png" /&gt;&lt;/p&gt;
+&lt;p style="font-size:18px; "&gt;Updated links:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zeiss.github.io/zeiss-inspect-app-api/"&gt;&lt;p style="font-size:18px;"&gt;&lt;i class="fa fa-external-link-square" aria-hidden="true"&gt;&lt;/i&gt; ZEISS INSPECT App Development Documentation&lt;/p&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zeiss.github.io/zeiss-inspect-app-api/2023/index.rss"&gt;&lt;p style="font-size:18px;"&gt;&lt;i class="fa fa-rss-square" aria-hidden="true"&gt;&lt;/i&gt; RSS News Feed&lt;/p&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <guid>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/20250305-website-moved.html</guid>
+      <pubDate>Wed, 05 Mar 2025 12:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>ZEISS INSPECT 2025 Released</title>
       <link>https://zeissiqs.github.io/zeiss-inspect-addon-api/2023/news/20241127-release-2025.html</link>
