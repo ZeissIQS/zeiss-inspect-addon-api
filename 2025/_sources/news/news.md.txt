@@ -15,6 +15,7 @@ myst:
    :title: ZEISS INSPECT 2025 App Python API News
    :link: https://zeissiqs.github.io/zeiss-inspect-addon-api/2025/
 
+   20250305-website-moved
    20250123-gom-math
    20250106-app-doc-link
    20241217-scripted-diagrams
